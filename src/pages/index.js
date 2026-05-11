@@ -15,9 +15,9 @@ function HomeRedirect() {
   useEffect(() => {
     // 重定向到文档的首页路径
     if(i18n.currentLocale==="zh-Hans"){
-      history.push('/rdk_doc/RDK');
+      history.push('/tros_doc/tros');
     }else{
-      history.push('/rdk_doc/en/RDK');
+      history.push('/tros_doc/en/tros');
     }
       
 
