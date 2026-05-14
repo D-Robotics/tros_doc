@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 1.3 Source Code Installation
+# 5.1.3 Source Code Installation
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# 4.9 智能盒子
+# 5.4.9 智能盒子
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
 
 1. RDK已烧录好Ubuntu 22.04系统镜像。
 
-2. RDK安装TogetheROS.Bot参照[1.2 apt安装与升级](../01_quick_start/install_tros.md)。
+2. RDK安装TogetheROS.Bot参照[5.1.2 apt安装与升级](../01_quick_start/install_tros.md)。
 
 3. 准备支持传输H264/H265码流RTSP协议的IPC设备，并且配置同一网段的IP地址。
 

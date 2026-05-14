@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 4.5 Car Gesture Control
+# 5.4.5 Car Gesture Control
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

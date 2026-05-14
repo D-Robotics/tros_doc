@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# 2.4 Image Processing Acceleration
+# 5.2.4 Image Processing Acceleration
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

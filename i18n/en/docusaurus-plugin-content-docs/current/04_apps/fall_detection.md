@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 4.3 Pose Detection
+# 5.4.3 Pose Detection
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

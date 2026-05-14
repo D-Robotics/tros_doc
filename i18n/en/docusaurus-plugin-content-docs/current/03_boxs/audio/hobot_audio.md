@@ -7,6 +7,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Feature Overview
@@ -17,7 +18,7 @@ Code repository: (https://github.com/D-Robotics/hobot_audio.git)
 
 Application scenarios: The smart voice algorithm can detect wake-up words and user-defined command words from audio input, interpret spoken content as corresponding commands, or convert speech into text. It enables functionalities such as voice control and speech-to-text translation, primarily applied in smart homes, intelligent vehicle cockpits, wearable devices, and similar domains.
 
-Example: Voice-controlled robot car movement — [4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
+Example: Voice-controlled robot car movement — [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
 
 ## Supported Platforms
 
@@ -115,18 +116,16 @@ If no devices are detected, recheck all connections.
 
 #### Audio Board Configuration
 
-    <Tabs groupId="board_type">
-    <TabItem value="rdk_x3" label="RDK_X3">
+    <DocScope products="RDK X3">
 
     The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
 
-    </TabItem>
-    <TabItem value="rdk_x5" label="RDK_X5">
+    </DocScope>
+    <DocScope products="RDK X5">
 
     The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
 
-    </TabItem>
-    </Tabs>
+    </DocScope>
 
 ## Usage Instructions
 

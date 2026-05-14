@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# 2.1 Data Acquisition
+# 5.2.1 Data Acquisition
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -1121,7 +1121,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. Displaying Images and Point Clouds
 
-There are multiple ways to visualize RealSense images and point clouds. Please refer to [Section 2.2 Data Visualization](./demo_render.md). For example, you can use `rviz2` on your PC to display the data. This method requires your PC to have network access to the RDK. However, since data is transmitted over the network, high bandwidth usage may cause lag or stuttering.
+There are multiple ways to visualize RealSense images and point clouds. Please refer to [Section 5.2.2 Data Visualization](./demo_render.md). For example, you can use `rviz2` on your PC to display the data. This method requires your PC to have network access to the RDK. However, since data is transmitted over the network, high bandwidth usage may cause lag or stuttering.
 
 ![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
@@ -1318,7 +1318,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. Displaying Images and Point Clouds
 
-There are multiple ways to visualize images and point clouds from the Orbbec camera. Please refer to [Section 2.2: Data Visualization](./demo_render.md). For example, you can use `rviz2` on a PC to display the data. This approach requires ensuring that your PC can access the RDK over the network. However, since data is transmitted over the network, this method may introduce noticeable latency or stuttering.
+There are multiple ways to visualize images and point clouds from the Orbbec camera. Please refer to [Section 5.2.2: Data Visualization](./demo_render.md). For example, you can use `rviz2` on a PC to display the data. This approach requires ensuring that your PC can access the RDK over the network. However, since data is transmitted over the network, this method may introduce noticeable latency or stuttering.
 
 ![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 

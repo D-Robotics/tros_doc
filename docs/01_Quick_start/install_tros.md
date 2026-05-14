@@ -2,11 +2,12 @@
 sidebar_position: 2
 ---
 
-# 1.2 apt安装与升级
+# 5.1.2 apt安装与升级
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 本章节介绍RDK和X86平台如何使用apt安装TogetheROS.Bot。
@@ -27,8 +28,7 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-<Tabs groupId="tros-distro">
-<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
 
 RDK X3平台请注意：
 
@@ -43,11 +43,7 @@ RDK X3平台请注意：
 | 1.x系统镜像 |       √     |       x     |
 | 2.x系统镜像 |       x     |       √     |
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
-
-</TabItem>
-</Tabs>
+</DocScope>
 
 ### 安装tros.b
 

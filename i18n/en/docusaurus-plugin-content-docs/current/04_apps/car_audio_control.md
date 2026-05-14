@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 4.6 Voice-Controlled Car Movement
+# 5.4.6 Voice-Controlled Car Movement
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 2.5 Data Communication
+# 5.2.5 Data Communication
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

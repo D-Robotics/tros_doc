@@ -7,6 +7,7 @@ sidebar_position: 5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 1. Feature Introduction
@@ -562,8 +563,7 @@ stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in
 
 - Connect to the RDK via SSH and run the following command to start the algorithm:
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 # With 230AI camera
@@ -583,8 +583,8 @@ bash run_stereo.sh
 #        and check which configuration yields the correct result.
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope products="RDK S100">
 
 ```bash
 # With 230AI camera
@@ -606,8 +606,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 #        and check which configuration yields the correct result.
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 :::caution **Note**
 
@@ -848,8 +847,7 @@ Only then are the stereo images considered acceptable.
 
 - Connect to the RDK via SSH and run the following command:
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 bash run_stereo.sh \
@@ -863,8 +861,8 @@ bash run_stereo.sh \
 # If the web interface displays images too quickly, add the following parameter to control the pause duration: --image_sleep 2000
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope products="RDK S100">
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
@@ -878,8 +876,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 # If the web interface displays images too quickly, add the following parameter to control the pause duration: --image_sleep 2000
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 - Upon successful execution, the following log will be printed:
 

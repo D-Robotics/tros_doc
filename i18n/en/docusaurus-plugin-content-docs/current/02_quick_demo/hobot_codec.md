@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 2.3 Image Codec
+# 5.2.3 Image Codec
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

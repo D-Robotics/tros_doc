@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 2.2 Data Display
+# 5.2.2 Data Display
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

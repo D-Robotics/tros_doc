@@ -7,6 +7,7 @@ sidebar_position: 5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 1. 功能介绍
@@ -564,8 +565,7 @@ codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic 
 
 - 通过ssh连接RDK，执行以下命令，则可以启动算法：
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 # 搭配230AI相机
@@ -581,8 +581,8 @@ bash run_stereo.sh
 # 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope products="RDK S100">
 
 ```bash
 # 搭配230AI相机
@@ -601,8 +601,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 # 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 1 或 --mipi_channel 1 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 :::caution **注意**
 **如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
@@ -834,8 +833,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 - 通过ssh连接RDK，执行以下命令：
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 bash run_stereo.sh \
@@ -849,8 +847,8 @@ bash run_stereo.sh \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope products="RDK S100">
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
@@ -864,8 +862,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 - 运行成功后，会打印如下日志
 

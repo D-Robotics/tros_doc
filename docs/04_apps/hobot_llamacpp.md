@@ -2,11 +2,12 @@
 sidebar_position: 10
 ---
 
-# 4.10 视觉语音盒子
+# 5.4.10 视觉语音盒子
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -52,23 +53,20 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 
 如图显示的音频设备名应为 "plughw:0,0"。
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5 音频连接">
+<DocScope products="RDK X5">
 
 
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100 音频连接">
+<DocScope products="RDK S100">
 
 
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 ### 使用说明
 
@@ -77,8 +75,7 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 source /opt/tros/humble/setup.bash
 ```
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 **使用MIPI摄像头发布图片**
 
@@ -107,9 +104,9 @@ export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 **使用MIPI摄像头发布图片**
 
@@ -138,9 +135,7 @@ export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 程序启动后，可通过语音提示与设备交互。具体使用方法：通过"你好"唤醒设备, 然后给设备说明任务。如"请描述这种图片"。设备收到任务后, 会回复"好的", 此时请等待设备推理完成并开始输出文字。
 

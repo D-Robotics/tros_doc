@@ -28,8 +28,8 @@ Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application scenarios: Human detection and tracking algorithms are essential components of human motion visual analysis. They enable functionalities such as human pose analysis and people counting, and are primarily applied in human-computer interaction, gaming, and entertainment.
 
-Pose detection example: [4.3. Pose Detection](../../apps/fall_detection)    
-Human-following robot car example: [4.4. Robot Car Human Following](../../apps/car_tracking)  
+Pose detection example: [5.4.3. Pose Detection](../../apps/fall_detection)    
+Human-following robot car example: [5.4.4. Robot Car Human Following](../../apps/car_tracking)  
 Game character control based on human pose and gesture recognition: [Play with X3 Pi—Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## Supported Platforms

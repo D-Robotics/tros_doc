@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 5.5 Trash Detection
+# 5.5.5 Trash Detection
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

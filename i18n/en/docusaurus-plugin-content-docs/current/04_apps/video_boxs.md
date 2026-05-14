@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# 4.9 Smart Box
+# 5.4.9 Smart Box
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -33,7 +33,7 @@ Code repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
 1. The RDK has been flashed with the Ubuntu 22.04 system image.
 
-2. TogetheROS.Bot has been installed on the RDK; refer to [1.2 Install and Upgrade via apt](../01_quick_start/install_tros.md).
+2. TogetheROS.Bot has been installed on the RDK; refer to [5.1.2 Install and Upgrade via apt](../01_quick_start/install_tros.md).
 
 3. Prepare an IPC device that supports RTSP protocol streaming with H.264/H.265 codecs, and configure it with an IP address on the same subnet as the RDK.
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# 2.1 数据采集
+# 5.2.1 数据采集
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -1123,7 +1123,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. 图像和点云的显示
 
-要显示RealSense的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示RealSense的图像和点云，有多种方式，可参考[5.2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
 
@@ -1320,7 +1320,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. 图像和点云的显示
 
-要显示Orbbec的图像和点云，有多种方式，可参考[2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示Orbbec的图像和点云，有多种方式，可参考[5.2.2 数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 ![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
 

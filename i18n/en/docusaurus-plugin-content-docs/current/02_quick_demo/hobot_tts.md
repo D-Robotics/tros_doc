@@ -2,11 +2,12 @@
 sidebar_position: 8
 ---
 
-# 2.8 Text-to-Speech
+# 5.2.8 Text-to-Speech
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Feature Introduction
@@ -79,18 +80,16 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
     If an audio playback device such as `pcmC0D1p` appears, the device is working correctly.
 
-    <Tabs groupId="board_type">
-    <TabItem value="rdk_x3" label="RDK_X3">
+    <DocScope versions=">= 3.0.0" products="RDK X3">
 
     When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
 
-    </TabItem>
-    <TabItem value="rdk_x5" label="RDK_X5">
+    </DocScope>
+    <DocScope versions=">= 3.5.0" products="RDK X5">
 
     When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
     
-    </TabItem>
-    </Tabs>
+    </DocScope>
 
 3. Launch the hobot_tts program:
 

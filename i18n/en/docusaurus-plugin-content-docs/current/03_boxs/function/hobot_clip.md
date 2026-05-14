@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Feature Introduction
@@ -78,9 +79,7 @@ Set `clip_mode` to `"0"` to index all images under the `/root/config` directory 
 
 (Users may customize the image folder path `clip_storage_folder` and database filename `clip_db_file` as needed; absolute paths are recommended.)
 
-<Tabs groupId="tros-distro">
-
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```shell
 # Configure ROS2 environment
@@ -93,9 +92,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```shell
 # Configure ROS2 environment
@@ -108,9 +107,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 **Mode 2: Retrieval**
 
@@ -118,9 +115,7 @@ Set `clip_mode` to `"1"` to perform text-based retrieval on the image database `
 
 (Users may customize the database filename `clip_db_file`, query text `clip_text`, and result output path `clip_result_folder` as needed.)
 
-<Tabs groupId="tros-distro">
-
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```shell
 # Configure ROS2 environment
@@ -129,9 +124,9 @@ source /opt/tros/humble/setup.bash
 # Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```shell
 # Configure ROS2 environment
@@ -140,9 +135,7 @@ source /opt/tros/humble/setup.bash
 # Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 **Visualizing Retrieval Results**
 

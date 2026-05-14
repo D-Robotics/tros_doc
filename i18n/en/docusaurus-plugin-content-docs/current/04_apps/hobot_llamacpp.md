@@ -2,11 +2,12 @@
 sidebar_position: 10
 ---
 
-# 4.10 Vision Voice Box
+# 5.4.10 Vision Voice Box
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Feature Introduction
@@ -52,22 +53,19 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 
 The audio device name shown in the figure should be "plughw:0,0".
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5 Audio Connection">
+<DocScope products="RDK X5">
 
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100 Audio Connection">
+<DocScope products="RDK S100">
 
 
 ![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 ### Usage Guide
 
@@ -76,8 +74,7 @@ The audio device name shown in the figure should be "plughw:0,0".
 source /opt/tros/humble/setup.bash
 ```
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 **Publish images using MIPI camera**
 
@@ -106,9 +103,9 @@ export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 **Publish images using MIPI camera**
 
@@ -137,9 +134,7 @@ export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 After the program starts, you can interact with the device via voice prompts. To use it: say "Hello" to wake up the device, then describe your task—for example, "Please describe this picture." Upon receiving the request, the device will reply "OK," and you should wait while it performs inference and outputs the result.
 

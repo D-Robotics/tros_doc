@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -114,18 +115,16 @@ import TabItem from '@theme/TabItem';
 
 #### 配置音频板
 
-    <Tabs groupId="board_type">
-    <TabItem value="rdk_x3" label="RDK_X3">
+    <DocScope products="RDK X3">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
 
-    </TabItem>
-    <TabItem value="rdk_x5" label="RDK_X5">
+    </DocScope>
+    <DocScope products="RDK X5">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
 
-    </TabItem>
-    </Tabs>
+    </DocScope>
 
 ## 使用介绍
 

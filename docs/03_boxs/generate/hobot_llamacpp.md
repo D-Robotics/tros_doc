@@ -7,6 +7,7 @@ sidebar_position: 2
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -88,29 +89,25 @@ sudo apt install tros-humble-hobot-llamacpp
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_v2.bin
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks100/vit_model_int16.hbm
 ```
 
-</TabItem>
+</DocScope>
 
-</Tabs>
-
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -118,9 +115,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16_v2.bin -p llm_model_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -128,9 +125,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="描述一下这张图片." -p model_file_name:=vit_model_int16.hbm -p llm_model_name:=Qwen2.5-0.5B-Instruct-Q4_0.gguf
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
@@ -140,29 +135,25 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```
 
-</TabItem>
+</DocScope>
 
-</Tabs>
-
-<Tabs groupId="tros-distro">
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -170,9 +161,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -180,9 +171,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
 ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:=1 -p image:=config/image2.jpg -p image_type:=0 -p user_prompt:="Describe the image." -p model_file_name:=SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm -p llm_model_name:=SmolVLM2-256M-Video-Instruct-Q8_0.gguf
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 

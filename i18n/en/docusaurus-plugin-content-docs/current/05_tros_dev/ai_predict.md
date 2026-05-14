@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 5.2 Model Inference
+# 5.5.2 Model Inference
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';

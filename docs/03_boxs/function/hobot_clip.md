@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -79,9 +80,7 @@ sudo tar -xf text_encoder.tar.gz -C config
 
 （用户可根据需要, 更换需要入库的图片文件夹路径clip_storage_folder、存放的数据库名clip_db_file, 建议使用绝对路径。）
 
-<Tabs groupId="tros-distro">
-
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```shell
 # 配置ROS2环境
@@ -94,9 +93,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```shell
 # 配置ROS2环境
@@ -109,9 +108,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 **模式2 检索**
 
@@ -119,9 +116,7 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_mode
 
 （用户可根据需要, 更换需要待检索的数据库名clip_db_file、待检索的文本名clip_text、检索结果路径clip_result_folder）
 
-<Tabs groupId="tros-distro">
-
-<TabItem value="x5" label="RDK X5">
+<DocScope products="RDK X5">
 
 ```shell
 # 配置ROS2环境
@@ -130,9 +125,9 @@ source /opt/tros/humble/setup.bash
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
-</TabItem>
+</DocScope>
 
-<TabItem value="s100" label="RDK S100">
+<DocScope products="RDK S100">
 
 ```shell
 # 配置ROS2环境
@@ -141,9 +136,7 @@ source /opt/tros/humble/setup.bash
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
-</TabItem>
-
-</Tabs>
+</DocScope>
 
 **检索结果可视化**
 

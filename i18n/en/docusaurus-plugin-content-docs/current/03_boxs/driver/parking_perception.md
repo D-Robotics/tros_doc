@@ -40,7 +40,7 @@ Code repository: (https://github.com/D-Robotics/parking_perception.git)
 
 Application scenario: The outdoor parking area detection algorithm is based on semantic segmentation to identify parking regions in images, enabling automatic parking functionality, primarily applied in the field of autonomous driving.
 
-Example use case – Vehicle parking space search: [4.8 Vehicle Parking Space Search](../../apps/parking_search)
+Example use case – Vehicle parking space search: [5.4.8 Vehicle Parking Space Search](../../apps/parking_search)
 
 ## Supported Platforms
 

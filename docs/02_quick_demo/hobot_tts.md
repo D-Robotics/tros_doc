@@ -2,11 +2,12 @@
 sidebar_position: 8
 ---
 
-# 2.8 文本转语音
+# 5.2.8 文本转语音
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -79,18 +80,16 @@ import TabItem from '@theme/TabItem';
 
     如果出现类似`pcmC0D1p`音频播放设备则表示设备正常。
 
-    <Tabs groupId="board_type">
-    <TabItem value="rdk_x3" label="RDK_X3">
+    <DocScope versions=">= 3.0.0" products="RDK X3">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
 
-    </TabItem>
-    <TabItem value="rdk_x5" label="RDK_X5">
+    </DocScope>
+    <DocScope versions=">= 3.5.0" products="RDK X5">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
     
-    </TabItem>
-    </Tabs>
+    </DocScope>
 
 3. 启动hobot_tts程序
 

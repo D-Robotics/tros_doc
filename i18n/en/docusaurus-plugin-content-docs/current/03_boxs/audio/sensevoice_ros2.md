@@ -16,7 +16,7 @@ Code repository: (https://github.com/D-Robotics/sensevoice_ros2.git)
 
 Application scenarios: The intelligent voice algorithm can recognize custom-defined command words from audio input and interpret spoken content as corresponding commands or transcribe it into text. This enables functionalities such as voice control and speech-to-text translation, primarily applied in smart home systems, intelligent vehicle cockpits, wearable smart devices, and similar domains.
 
-Example: Voice-controlled robot car movement - [4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
+Example: Voice-controlled robot car movement - [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
 
 ## Supported Platforms
 

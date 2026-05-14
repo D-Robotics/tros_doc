@@ -2,11 +2,12 @@
 sidebar_position: 1
 ---
 
-# Environment Preparation
+# 1 Environment Preparation
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 TogetheROS.Bot supports installation on Ubuntu 20.04/Ubuntu 22.04 systems running on both RDK and x86 platforms. Installing via DEB packages on Ubuntu is simple and fast, and we recommend this method for users who are trying it out for the first time.
@@ -19,8 +20,7 @@ The following sections describe environment preparation details for the RDK and 
 
 Before installing tros.b, we recommend upgrading your RDK system image to the latest version. Instructions for flashing Ubuntu 20.04/Ubuntu 22.04 images are as follows:
 
-<Tabs groupId="tros-distro">
-<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
 
 [Ubuntu Image Flashing Guide](/install_os/)
 
@@ -29,13 +29,12 @@ Before installing tros.b, we recommend upgrading your RDK system image to the la
 - **For instructions on checking your system version number and further details, please refer to the [FAQs](../../08_FAQ/03_applications_and_examples.md).**
 :::
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope versions=">= 4.0.5" products="RDK S100">
 
 [Ubuntu Image Flashing Guide](/rdk_s/02_install_os/)
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 If the image is already installed, you can perform an upgrade by running `sudo apt update` and `sudo apt upgrade`.
 
@@ -53,18 +52,16 @@ To ensure smooth installation and use of tros.b later on, please log in using th
 
 During development and testing, you will frequently need to access the RDK via commands like `scp`/`ssh` using its IP address. Therefore, we recommend configuring the network dynamically, as described below:
 
-<Tabs groupId="tros-distro">
-<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
 
 [Network Configuration](../../02_System_configuration/01_network_blueteeth.md)
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+<DocScope versions=">= 4.0.5" products="RDK S100">
 
 [Network Configuration](/rdk_s/System_configuration/network_bluetooth)
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 Try pinging Baidu's server:
 

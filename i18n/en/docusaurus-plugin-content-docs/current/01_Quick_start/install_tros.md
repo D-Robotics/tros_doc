@@ -1,11 +1,12 @@
 ---
 sidebar_position: 2
 ---
-# 1.2 apt installation and upgrade
+# 5.1.2 apt installation and upgrade
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 This section describes how to install TogetheROS.Bot using `apt` on both RDK and X86 platforms.
@@ -26,8 +27,7 @@ Before installing TogetheROS, confirm your system version and download the lates
 :::
 
 
-<Tabs groupId="tros-distro">
-<TabItem value="RDK X3/X5/Ultra" label="RDK X3/X5/Ultra">
+<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
 
 **Note for RDK X3 platform users:**
 
@@ -42,11 +42,7 @@ Before installing TogetheROS, confirm your system version and download the lates
 | System Image 1.x  |      √     |      x     |
 | System Image 2.x  |      x     |      √     |
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
-
-</TabItem>
-</Tabs>
+</DocScope>
 
 ### Installing tros.b
 

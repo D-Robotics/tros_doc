@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 4.7 Voice Tracking to Control Car Movement
+# 5.4.7 Voice Tracking to Control Car Movement
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
