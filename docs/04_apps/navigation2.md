@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X3,RDK-X5,RDK-S100
 ---
 
 # 5.4.2 Navigation2
@@ -28,67 +29,79 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装tros.b。
 
 3. tros.b成功安装后，安装Nav2。
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   ```shell
-   sudo apt update 
-   sudo apt install ros-foxy-navigation2
-   sudo apt install ros-foxy-nav2-bringup
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   ```shell
-   sudo apt update 
-   sudo apt install ros-humble-navigation2
-   sudo apt install ros-humble-nav2-bringup
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+</TabItem>
+</Tabs>
+
+```shell
+sudo apt update 
+sudo apt install ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-nav2-bringup
+```
+
+<DocScope products="RDK-X3,RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+</DocScope>
+<DocScope products="RDK-S100">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 
-4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
-    ```bash
-    sudo apt-get install ros-foxy-gazebo-*
-    sudo apt install ros-foxy-turtlebot3*
-    sudo apt install ros-foxy-navigation2
-    sudo apt install ros-foxy-nav2-bringup
-    ```
+Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-    ```bash
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3*
-    sudo apt install ros-humble-navigation2
-    sudo apt install ros-humble-nav2-bringup
-    ```
+</TabItem>
+</Tabs>
 
- </TabItem>
- </Tabs>
+PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-gazebo-*
+sudo apt install ros-${ROS_DISTRO}-turtlebot3*
+sudo apt install ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-nav2-bringup
+```
 
 ## 使用介绍
 
@@ -101,16 +114,16 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-   ```shell
-   source /opt/ros/humble/setup.bash
-   ```
+```bash
+source /opt/ros/humble/setup.bash
+```
 
 </TabItem>
 </Tabs>
@@ -128,49 +141,50 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
 
-1. **RDK**启动导航功能
-
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
-   ```
-
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
-   ```
-
-   </TabItem>
-
-   </Tabs>
-
-2. **PC端**启动Rviz2工具
+2. **RDK**启动导航功能
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
+```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-   ```shell
-   source /opt/ros/humble/setup.bash
-   ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
+```
 
 </TabItem>
 </Tabs>
+
+3. **PC端**启动Rviz2工具
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
    ```shell
    ros2 launch nav2_bringup rviz_launch.py
@@ -180,7 +194,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png)
 
-1. 在Rviz2上设置机器人起始位置和方向
+（1） 在Rviz2上设置机器人起始位置和方向
 
    Rviz2启动后，机器人最初不知道它在哪里。默认情况下，Nav2会等待用户给机器人一个大致的起始位置。查看机器人在Gazebo中的位置，并在地图上找到该位置。通过点击Rviz2中的"2D Pose Estimate" 按钮，然后通过在地图上机器人预估的位置处点击来设置机器人初始位置 。可以通过向前拖动刚才单击的位置来设置机器人起始的移动方向。如下图所示：
 
@@ -190,7 +204,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
 
-2. Rviz2设置目的地
+（2） Rviz2设置目的地
 
    点击 "Navigaton2 Goal" 按钮并选择一个目的地。
 

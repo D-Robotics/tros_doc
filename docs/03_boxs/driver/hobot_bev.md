@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-S100
 ---
 # BEV感知算法
 
@@ -22,12 +23,11 @@ BEV感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fi
 
 | 平台      | 运行方式     | 示例功能                                |
 | --------- | ------------ | --------------------------------------- |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 使用本地回灌，并通过web展示推理渲染结果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
 
 ## 准备工作
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 

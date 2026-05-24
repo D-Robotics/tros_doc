@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-S100
 ---
 # LiDAR Object Detection Algorithm
 
@@ -8,52 +9,53 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Overview
+## Overview
 
-The LiDAR object detection algorithm is a `CenterPoint` model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset using [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html).
+The LiDAR object detection algorithm uses a `CenterPoint` model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html).
 
-The algorithm takes 32-line LiDAR point cloud data as input and outputs 3D bounding boxes, confidence scores, and object categories. It supports six object classes: car, truck, bus, barrier, motorcycle, and pedestrian.
+The algorithm takes 32-line LiDAR point cloud data as input. The output includes 3D bounding boxes, confidence scores, and categories of detected objects. Supported detection categories include car, truck, bus, barrier, motorcycle, and pedestrian.
 
-This example uses local LiDAR point cloud files as input, performs inference on the BPU, and publishes rendered image messages containing the point cloud data, detected bounding boxes, and orientations. The results are visualized in a web browser on a PC.
+This example uses local LiDAR point cloud files as input, performs algorithm inference on the BPU, publishes rendered image messages containing point cloud data, object detection boxes, and orientations, and displays the algorithm results in a PC browser.
 
 Code repository: (https://github.com/D-Robotics/hobot_centerpoint)
 
 ## Supported Platforms
 
-| Platform            | Runtime Environment       | Example Functionality                                      |
-| ------------------- | ------------------------- | ---------------------------------------------------------- |
-| RDK Ultra           | Ubuntu 20.04 (Foxy)       | Uses local point cloud playback and displays rendered inference results via web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)     | Uses local point cloud playback and displays rendered inference results via web |
+| Platform      | Runtime Environment     | Example Functionality                                |
+| --------- | ------------ | --------------------------------------- |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Use local feedback playback and display inference rendering results via web |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
-3. Ensure your PC can access the RDK over the network.
 
-## Usage Guide
+3. Confirm that the PC can access the RDK over the network.
+
+## Usage
 
 ### RDK Platform
 
-### Using Local Point Cloud Files for Playback
+### Local Point Cloud File Feedback Playback
 
-The LiDAR object detection algorithm example replays pre-recorded LiDAR point cloud files. After inference, it renders the results into images and publishes them as ROS messages. These messages are then streamed to a PC web browser via a WebSocket package for visualization.
+The LiDAR object detection algorithm example uses LiDAR point cloud file feedback playback. After inference, rendered image messages with algorithm results are published. The websocket package displays the published images and corresponding algorithm results in a PC browser.
 
-Prepare the LiDAR point cloud files:
+Prepare LiDAR point cloud files:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Download point cloud playback files on the device
+# 板端下载回灌的点云文件
 wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
-# Extract files
+# 解压缩
 mkdir config
 tar -zxvf hobot_centerpoint_data.tar.gz -C config
-# After extraction, data will be located under config/hobot_centerpoint_data
+# 解压完成后数据在config/hobot_centerpoint_data路径下
 ```
 
 </TabItem>
@@ -61,11 +63,11 @@ tar -zxvf hobot_centerpoint_data.tar.gz -C config
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Download point cloud playback files on the device
+# 板端下载回灌的点云文件
 cd ~
 wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
-# Extract files
+# 解压缩
 mkdir -p ~/centerpoint_data
 tar -zxvf ~/hobot_centerpoint_data.tar.gz -C ~/centerpoint_data
 ```
@@ -74,19 +76,19 @@ tar -zxvf ~/hobot_centerpoint_data.tar.gz -C ~/centerpoint_data
 
 </Tabs>
 
-Launch the algorithm example:
+Start the algorithm example:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Configure the tros.b environment
+# 配置tros.b环境
 source /opt/tros/setup.bash
 
-# Start the WebSocket service
+# 启动websocket服务
 ros2 launch websocket websocket_service.launch.py
 
-# Launch the example
+# 启动launch文件
 ros2 launch hobot_centerpoint hobot_centerpoint_websocket.launch.py lidar_pre_path:=config/hobot_centerpoint_data
 ```
 
@@ -95,14 +97,14 @@ ros2 launch hobot_centerpoint hobot_centerpoint_websocket.launch.py lidar_pre_pa
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Configure the tros.b Humble environment
+# 配置tros.b humble环境
 source /opt/tros/humble/setup.bash
 
 if [ -L qat ]; then rm qat; fi
 ln -s `ros2 pkg prefix hobot_centerpoint`/lib/hobot_centerpoint/qat/ qat
 ln -s ~/centerpoint_data centerpoint_data
 
-# Launch the example
+# 启动launch文件
 ros2 launch hobot_centerpoint hobot_centerpoint.launch.py
 ```
 
@@ -112,7 +114,7 @@ ros2 launch hobot_centerpoint hobot_centerpoint.launch.py
 
 ## Result Analysis
 
-After launching the algorithm example, the terminal outputs the following logs:
+After starting the algorithm example, the running terminal outputs the following information:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -193,7 +195,8 @@ webserver has launch
 
 </Tabs>
 
-According to the output logs, the algorithm publishes inference results on the topic `/hobot_centerpoint`, and processes a total of 81 replayed point cloud files. The overall pipeline—including inference, post-processing (which includes rendering and publishing results)—achieves approximately 2.4 FPS.
+The output log shows that the topic publishing algorithm inference results is `/hobot_centerpoint`, and 81 feedback point cloud files were loaded. After inference and post-processing (including rendering and publishing inference results), the frame rate is approximately 2.4 fps.
 
-To view the rendered images and algorithm results, open a web browser on your PC and navigate to `http://IP:8000` (replace `IP` with the actual IP address of your RDK).
+Enter http://IP:8000 in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
+
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)

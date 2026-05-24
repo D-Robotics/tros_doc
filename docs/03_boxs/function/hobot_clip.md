@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X5,RDK-S100
 ---
 # 文本图片特征检索
 
@@ -50,7 +51,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -80,7 +81,8 @@ sudo tar -xf text_encoder.tar.gz -C config
 
 （用户可根据需要, 更换需要入库的图片文件夹路径clip_storage_folder、存放的数据库名clip_db_file, 建议使用绝对路径。）
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
+
 
 ```shell
 # 配置ROS2环境
@@ -95,7 +97,7 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```shell
 # 配置ROS2环境
@@ -110,13 +112,16 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_mode
 
 </DocScope>
 
+
+
 **模式2 检索**
 
 设置clip_mode为“1”, 文本检索图片库clip.db, 输入文本为"a diagram", 检索结果存放在result目录下。
 
 （用户可根据需要, 更换需要待检索的数据库名clip_db_file、待检索的文本名clip_text、检索结果路径clip_result_folder）
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
+
 
 ```shell
 # 配置ROS2环境
@@ -127,7 +132,7 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=c
 ```
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```shell
 # 配置ROS2环境
@@ -136,6 +141,7 @@ source /opt/tros/humble/setup.bash
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
+
 </DocScope>
 
 **检索结果可视化**

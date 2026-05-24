@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-S100
 ---
 # 激光雷达目标检测算法
 
@@ -22,14 +23,13 @@ import TabItem from '@theme/TabItem';
 
 | 平台      | 运行方式     | 示例功能                                |
 | --------- | ------------ | --------------------------------------- |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 使用本地回灌，并通过web展示推理渲染结果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 

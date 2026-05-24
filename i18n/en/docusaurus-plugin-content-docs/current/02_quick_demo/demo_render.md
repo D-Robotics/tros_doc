@@ -11,41 +11,44 @@ import TabItem from '@theme/TabItem';
 
 ## Web Display
 
-### Feature Overview
+### Overview
 
-Web Display is used to preview camera images (in JPEG format) and algorithm results. It transmits images and algorithm outputs over the network to a PC browser for rendering and display. This display client also supports showing video only, without rendering intelligent analysis results.
+Web display is used to preview camera images (JPEG format) and algorithm results. Images and algorithm results are transmitted over the network to a PC browser for rendering. The display client also supports showing video only without rendering intelligent results.
 
 Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.com/D-Robotics/hobot_websocket)
 
 ### Supported Platforms
 
-| Platform | Operating System | Example Functionality |
+| Platform    | Runtime Environment      | Example Function                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Launch MIPI camera and display images via Web |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble)  | Launch MIPI camera and display images via Web |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | Launch MIPI camera and display images via Web |
-| X86     | Ubuntu 20.04 (Foxy) | Launch USB camera and display images via Web |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
+| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
+| X86     | Ubuntu 20.04 (Foxy) | Start USB camera and display images via Web |
 
 ### Prerequisites
 
-#### RDK Platforms
+#### RDK Platform
 
-1. Confirm that the F37 camera is properly connected to the RDK.
-2. Ensure the PC can access the RDK over the network.
-3. Verify that TogetherROS.Bot has been successfully installed.
+1. Confirm the F37 camera is correctly connected to RDK
+
+2. Confirm the PC can access RDK over the network
+
+3. Confirm TogetheROS.Bot has been successfully installed
 
 #### X86 Platform
 
-1. Confirm that the X86 system runs Ubuntu 20.04 and that tros.b has been successfully installed.
-2. Ensure the USB camera is plugged into a USB port on the host machine and is correctly recognized.
+1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
 
-### Usage Instructions
+2. Confirm the USB camera is connected to the host USB port and can be recognized normally
 
-#### RDK Platforms
+### Usage
 
-1. Log in to the RDK via SSH and launch the required onboard programs:
+#### RDK Platform
 
-    a. Launch `mipi_cam`
+1. Log in to RDK via SSH and start the board-side programs
+
+    a. Start mipi_cam
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -65,14 +68,22 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
+   ```bash
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
     ```
 
-    b. Launch encoder
+    b. Start encoding
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -92,14 +103,23 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
-    ros2 launch hobot_codec hobot_codec_encode.launch.py
-    ```
 
-    c. Launch websocket
+   ```bash
+   ros2 launch hobot_codec hobot_codec_encode.launch.py
+   ```
+
+    c. Start websocket
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -119,124 +139,98 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
-    ```shell
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
-    ```
+   ```bash
+   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
+   ```
 
-2. Open a PC browser (Chrome/Firefox/Edge) and navigate to `http://IP:8000` to view the image stream, where IP is the RDK's IP address.
+2. Enter `http://IP:8000` in a PC browser (Chrome/Firefox/Edge) to view the image, where IP is the RDK IP address.
 
    ![websocket](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png)
 
 #### X86 Platform
 
-1. Launch the `hobot_usb_cam` node
-
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+1. Start the hobot_usb_cam node
 
    ```bash
    # Configure tros.b environment
    source /opt/tros/setup.bash
+   # Change usb_video_device to the actual USB camera video node
+   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
    ```
 
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   </Tabs>
-
-    ```shell
-    # Replace usb_video_device with the actual video device node of your USB camera
-    ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-    ```
-
-2. Launch the websocket node
-
-   <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+2. Start the websocket node
 
    ```bash
    # Configure tros.b environment
    source /opt/tros/setup.bash
+   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
    ```
 
-   </TabItem>
-
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   </Tabs>
-
-    ```shell
-    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-    ```
-
-3. Open a PC browser (Chrome/Firefox/Edge) and navigate to `http://IP:8000` to view the image stream. Here, IP refers to the PC’s IP address; if accessing locally, you may use `localhost`.
+3. Enter `http://IP:8000` in a PC browser (Chrome/Firefox/Edge) to view the image, where IP is the PC IP address. You can also use localhost when accessing locally.
 
 ### Notes
 
-1. The websocket service requires port 8000. If this port is already in use, the service will fail to start. To resolve this:
-   - Use the command `lsof -i:8000` to identify the process occupying port 8000, then terminate it using `kill <PID>`. Afterward, restart the websocket service.
-   - If the user does not wish to stop the service currently occupying port 8000, they can modify the `listen` port number in the `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` configuration file to an unused port number greater than 1024. After changing the port number, the URL used on the browser side must also be updated accordingly.
+1. websocket requires port 8000. If the port is occupied, startup will fail. Solutions:
+
+   - Use the `lsof -i:8000` command to check which process is using port 8000, then use `kill <PID>` to close the process occupying port 8000, and restart websocket.
+
+   - If you do not want to stop the service currently using port 8000, you can modify the `listen` port number in the `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` configuration file to a port number greater than 1024 that is not in use. After changing the port number, the URL used in the browser must also be updated accordingly.
+
+<DocScope products="RDK X3,RDK X5">
 
 ## HDMI Display
 
-### Feature Introduction
+### Overview
 
-This section describes how to display camera NV12 images via HDMI. By connecting the RDK to a monitor through HDMI, real-time image display can be achieved, which corresponds to the `hobot_hdmi` package.
+This section describes how to display camera NV12 images via HDMI. Connect RDK to a display via HDMI to show real-time image output, corresponding to the hobot_hdmi package.
 
 Code repository: [https://github.com/D-Robotics/hobot_hdmi](https://github.com/D-Robotics/hobot_hdmi)
 
 ### Supported Platforms
 
-| Platform                  | Runtime Environment                     | Example Functionality                                  |
-| ------------------------- | --------------------------------------- | ------------------------------------------------------ |
-| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch MIPI camera and display images via HDMI         |
-| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)                   | Launch MIPI camera and display images via HDMI         |
+| Platform     | Runtime Environment     | Example Function                       |
+| -------- | ------------ | ------------------------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera and display images via HDMI |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI camera and display images via HDMI |
 
-:::caution **Notice**
-**End-of-Life (EOL)** notice for HDMI display:
-- Support for the `RDK X3` and `RDK X3 Module` platforms ends at version `2.1.0`, corresponding to TROS version `2.2.0 (2024-04-11)`.
-- Support for the `RDK X5` and `RDK X5 Module` platforms ends at version `2.4.2`, corresponding to TROS version `2.3.1 (2024-11-20)`.
+:::caution **Note**
+HDMI display **EOL** notice:
+- `RDK X3` and `RDK X3 Module` platforms are supported up to version `2.1.0`, corresponding to TROS version `2.2.0 (2024-04-11)`.
+- `RDK X5` and `RDK X5 Module` platforms are supported up to version `2.4.2`, corresponding to TROS version `2.3.1 (2024-11-20)`.
 :::
 
 ### Prerequisites
 
 #### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. RDK has been flashed with the Ubuntu system image.
 
-2. TogetheROS.Bot has been successfully installed on the RDK.
+2. TogetheROS.Bot has been successfully installed on RDK.
 
-3. The RDK is connected to a monitor via HDMI.
+3. RDK is connected to a display via HDMI.
 
-### Usage Instructions
+### Usage
 
 #### RDK Platform
 
-Log into the development board via SSH and launch the relevant onboard programs:
+Log in to the development board via SSH and start the board-side programs:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -245,30 +239,38 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
-When using the RDK X5, you additionally need to run the following commands:
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
 ```bash
-# Stop the desktop display service
-sudo systemctl stop lightdm
-# Copy runtime dependencies
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_hdmi/config/ .
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
 
 </Tabs>
 
+When using RDK X5, run the following additional commands:
+```bash
+# Disable desktop display
+sudo systemctl stop lightdm
+# Copy runtime dependencies
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_hdmi/config/ .
+```
+
 ```shell
-# Render images via HDMI
+# HDMI image rendering
 ros2 launch hobot_hdmi hobot_hdmi.launch.py device:=F37
 ```
 
 ### Result Analysis
 
-The terminal output after running the command will look like this:
+The terminal outputs the following information during execution:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-07-27-15-27-26-362299-ubuntu-13432
@@ -277,50 +279,49 @@ The terminal output after running the command will look like this:
 [INFO] [hobot_hdmi-2]: process started with pid [13436]
 ```
 
-The image displayed on the monitor will appear as follows:  
+The display shows the image as follows:
 ![hdmi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/hdmi.png)
+
+</DocScope>
 
 ## RViz2 Display
 
-### Feature Introduction
+### Overview
 
-TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For convenient previewing of image output, images can be visualized using RViz2.
+TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, images can be obtained through RViz2.
 
 ### Supported Platforms
 
-| Platform                          | Runtime Environment      |
-| --------------------------------- | ------------------------ |
-| RDK X3, RDK X3 Module             | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100   | Ubuntu 22.04 (Humble)    |
-| RDK Ultra                         | Ubuntu 20.04 (Foxy)      |
-
+| Platform    | Runtime Environment      |
+| ------- | ------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 ### Prerequisites
 
 #### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. RDK has been flashed with the Ubuntu desktop system image.
 
-2. tros.b has been successfully installed on the RDK.
+2. tros.b has been successfully installed on RDK.
 
-3. The PC has Ubuntu 20.04 or Ubuntu 22.04 installed, along with the ROS 2 Foxy/Humble desktop version and the RViz2 visualization tool. The PC must be on the same network segment as the RDK (i.e., the first three parts of their IP addresses must match).
+3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
 
-   - ROS 2 installation guides: [Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - Install RViz2 on the PC:  
-     `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`  
-     where `$ROS_DISTRO` refers to your ROS 2 distribution name, such as `foxy` or `humble`.
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
 
-### Usage Instructions
+### Usage
 
 #### RDK Platform
 
-1. Log into the development board via SSH and launch the relevant onboard programs:
+1. Log in to RDK via SSH and start the board-side programs
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
    ```bash
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/setup.bash
    ```
 
@@ -329,8 +330,16 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    <TabItem value="humble" label="Humble">
 
    ```bash
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -338,13 +347,13 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    </Tabs>
 
    ```shell
-   # Launch the F37 camera and publish images in BGR8 format
+   # Start mipi camera to publish BGR8 format images
    ros2 launch mipi_cam mipi_cam.launch.py mipi_out_format:=bgr8 mipi_image_width:=480 mipi_image_height:=272 mipi_io_method:=ros mipi_video_device:=F37
    ```
 
-   Note: Do not arbitrarily change `mipi_out_format`; RViz2 only supports image formats such as RGB8, RGBA8, BGR8, and BGRA8.
+   Note: Do not change mipi_out_format arbitrarily. RViz2 only supports image formats such as RGB8, RGBA8, BGR8, and BGRA8.
 
-2. If the program outputs the following information, it indicates that the node has started successfully:
+   If the program outputs the following information, the node has started successfully:
 
    ```shell
    [INFO] [launch]: All log files can be found below /root/.ros/log/2022-08-19-03-53-54-778203-ubuntu-2881662
@@ -352,13 +361,13 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    [INFO] [mipi_cam-1]: process started with pid [2881781]
    ```
 
-3. Open a new terminal window on the RDK and run the following command to list topics:
+2. Open a new window on RDK and query topics. Command and return result:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
    ```bash
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/setup.bash
    ```
 
@@ -367,8 +376,16 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    <TabItem value="humble" label="Humble">
 
    ```bash
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -376,7 +393,7 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    </Tabs>
 
    ```shell
-   # List topics
+   # Query topics
    ros2 topic list
    ```
 
@@ -389,147 +406,82 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and Humble distributions. For conve
    /rosout
    ```
 
-4. On the PC, query the current topics using the following command and observe the output:
+3. Start RViz2 on RDK to subscribe to topics and preview camera data;
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-source /opt/ros/foxy/setup.bash
+   source /opt/tros/foxy/setup.bash
    ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
+   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
    ```
 
 </TabItem>
 </Tabs>
 
    ```shell
-   # Configure ROS2 environment
-   ros2 topic list
-   ```
-
-   Output:
-
-   ```shell
-   /camera_info
-   /image_raw
-   /parameter_events
-   /rosout
-   ```
-
-1. Subscribe to the topic on the PC and preview camera data;
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-   ```shell
-   source /opt/ros/foxy/setup.bash
-   ```
-
-</TabItem>
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   source /opt/ros/humble/setup.bash
-   ```
-
-</TabItem>
-</Tabs>
-
-   ```shell
-   # Configure ROS2 environment
+   # Install RViz2
+   sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2
+   # Start RViz2
    ros2 run rviz2 rviz2
    ```
 
-   In the RViz2 interface, first click the **Add** button, then select the published image topic—in this example, `/image_raw`—and finally click **Image**:
+   Note: To run rviz on RDK, use tools such as MobaXterm for SSH connection, or add the "-Y" parameter when connecting via command-line SSH.
+
+   In the RViz2 interface, first click the add button, then select the published image by topic. In this example, the topic name is /image_raw, then click image:
 
    ![rviz2-config](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-config.png)
 
-   The resulting image preview is shown below:
+   The image output looks like this:
 
    ![rviz2-result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png)
 
-### Notes
 
-1. If the camera topics do not appear when running `ros2 topic list` on the PC, troubleshoot as follows:
+## RQt Display
 
-   - Verify that the RDK is correctly publishing images.
+### Overview
 
-      <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-
-      </Tabs>
-
-      ```shell
-      ros2 topic list
-      ```
-
-      Output:
-
-      ```shell
-      /camera_info
-      /image_raw
-      /parameter_events
-      /rosout
-      ```
-
-   - Check whether the PC and RDK can ping each other.
-   - Ensure the first three segments of the IP addresses of the PC and RDK are identical.
-
-## RQt Visualization
-
-### Feature Overview
-
-TogetheROS.Bot is compatible with ROS 2 Foxy and supports previewing compressed-format images via RQt, significantly reducing network bandwidth consumption.
+TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format images through RQt, which can significantly reduce network bandwidth consumption. The example in this section starts the MIPI camera on RDK to capture images, then uses RQt on RDK for preview.
 
 ### Supported Platforms
 
-| Platform                              | Operating System                     | Example Functionality                                               |
-| ------------------------------------- | ------------------------------------ | ------------------------------------------------------------------- |
-| RDK X3, RDK X3 Module, RDK Ultra      | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch MIPI camera to capture images and preview them using RQt on PC |
+| Platform    | Runtime Environment      |
+| ------- | ------------- |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Prerequisites
 
 #### RDK Platform
 
-1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. tros.b has been successfully installed on the RDK.
+1. RDK has been flashed with the Ubuntu desktop system image.
 
-3. The PC has Ubuntu 20.04/Ubuntu 22.04 installed, along with ROS 2 Foxy/Humble Desktop and the RQt visualization tool, and is on the same subnet as the RDK (i.e., the first three segments of their IP addresses match).
+2. tros.b has been successfully installed on RDK.
 
-   - ROS 2 installation guides: [Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Install `rqt-image-view` on the PC:  
-     `sudo apt install ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`,  
-     where `$ROS_DISTRO` is your ROS 2 distribution name (e.g., `foxy` or `humble`).
+3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
 
-### Usage Instructions
+   - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
+
+### Usage
 
 #### RDK Platform
 
-1. Log into the development board via SSH and launch the required nodes.
-
-   a. Start the F37 camera:
+1. Log in to the RDK development board via SSH and start the mipi camera:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -546,6 +498,14 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and supports previewing compressed-
    ```bash
    # Configure tros.b environment
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -556,7 +516,7 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and supports previewing compressed-
    ros2 launch mipi_cam mipi_cam.launch.py mipi_image_width:=640 mipi_image_height:=480 mipi_video_device:=F37
    ```
 
-   b. Launch `hobot_codec` to publish images in compressed format:
+2. Start hobot_codec on RDK to publish compressed format images:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -576,6 +536,14 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and supports previewing compressed-
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # Configure tros.b environment
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
 
    </Tabs>
 
@@ -583,131 +551,84 @@ TogetheROS.Bot is compatible with ROS 2 Foxy and supports previewing compressed-
    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_out_format:=jpeg codec_pub_topic:=/image_raw/compressed
    ```
 
-2. If the following messages appear in the output, the nodes have started successfully:
-
-   ```shell
-   [INFO] [launch]: All log files can be found below /root/.ros/log/2023-05-15-17-08-02-144621-ubuntu-4755
-   [INFO] [launch]: Default logging verbosity is set to INFO
-   [INFO] [mipi_cam-1]: process started with pid [4757]
-   [mipi_cam-1] This is version for optimizing camera timestamp 
-   ```
-
-   ```shell
-   [INFO] [launch]: All log files can be found below /root/.ros/log/2023-05-15-17-08-17-960398-ubuntu-4842
-   [INFO] [launch]: Default logging verbosity is set to INFO
-   [INFO] [hobot_codec_republish-1]: process started with pid [4844]
-   ```
-
-3. Subscribe to the topic on your PC and preview the camera data:
+3. Subscribe to topics on RDK and preview camera data;
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/foxy/setup.bash
    ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
+   ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
    ```
 
 </TabItem>
 </Tabs>
 
    ```shell
-   # Configure ROS2 environment
+   # Install rqt
+   sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport
+   # Start rqt
    ros2 run rqt_image_view rqt_image_view
    ```
 
-   Select the topic `/image_raw/compressed`. The resulting image is shown below:
+   Note: To run rqt on RDK, use tools such as MobaXterm for SSH connection, or add the "-Y" parameter when connecting via command-line SSH.
+
+   Select the topic `/image_raw/compressed`. The image output looks like this:
 
    ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png)
 
-### Notes
+## Foxglove Display
 
-1. If the camera topic does not appear in `ros2 topic list` on your PC, perform the following checks:
+### Overview
 
-   - Verify that the RDK is publishing images correctly.
+Foxglove is an open-source toolkit that includes online and offline versions, designed to simplify robot system development and debugging. It provides a series of features for building robot applications.
 
-      <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
+This section mainly uses Foxglove's data recording and playback functionality: Foxglove allows recording ROS2 topic data to files for subsequent playback and analysis. This is very useful for system fault diagnosis, performance optimization, and algorithm debugging.
 
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-
-      </Tabs>
-
-      ```shell
-      ros2 topic list
-      ```
-
-      Output:
-
-      ```text
-      /camera_info
-      /hbmem_img000b0c26001301040202012020122406
-      /image_raw
-      /image_raw/compressed
-      /parameter_events
-      /rosout
-      ```
-
-   - Check whether the PC and RDK can ping each other.
-   - Ensure that the first three octets of the IP addresses of the PC and RDK are identical.
-
-## Foxglove Demonstration
-
-### Feature Overview
-
-Foxglove is an open-source toolkit available both online and offline, designed to simplify the development and debugging of robotic systems. It provides a suite of features for building robot applications.
-
-This section primarily leverages Foxglove's data recording and playback capabilities: Foxglove allows recording ROS2 topic data into files for later playback and analysis. This is extremely useful for system diagnostics, performance optimization, and algorithm debugging.
-
-In this demonstration, we use the `hobot_visualization` package developed with TogetheROS to convert intelligent inference results into ROS2-renderable topic messages.
+In the demo, we use the hobot_visualization package developed by TogetheROS to convert intelligent inference results into ROS2 rendering topic information.
 
 Code repository: [https://github.com/D-Robotics/hobot_visualization](https://github.com/D-Robotics/hobot_visualization)
 
 ### Supported Platforms
 
-| Platform                              | Runtime Environment                     |
-| ------------------------------------- | --------------------------------------- |
-| RDK X3, RDK X3 Module                 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100       | Ubuntu 22.04 (Humble)                   |
-| X86                                   | Ubuntu 20.04 (Foxy)                     |
+| Platform    | Runtime Environment      |
+| ------- | ------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
+| X86     | Ubuntu 20.04 (Foxy) |
 
 ### Prerequisites
 
 #### RDK Platform
 
-1. Confirm that camera F37 is properly connected to the RDK.
-2. Confirm that the PC can access the RDK over the network.
-3. Confirm that TogetheROS.Bot has been successfully installed.
+1. Confirm the F37 camera is correctly connected to RDK
+
+2. Confirm the PC can access RDK over the network
+
+3. Confirm TogetheROS.Bot has been successfully installed
 
 #### X86 Platform
 
-1. Confirm that the X86 platform runs Ubuntu 20.04 and that tros.b has been successfully installed.
+1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
 
-### Usage Instructions
+### Usage
 
 #### RDK Platform / X86 Platform
 
-1. Log in to the RDK platform via SSH and launch the onboard programs:
+1. Log in to the RDK platform via SSH and start the board-side programs:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -724,6 +645,14 @@ source /opt/tros/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -734,10 +663,10 @@ source /opt/tros/humble/setup.bash
 export CAM_TYPE=fb
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-ros2 launch hobot_visualization hobot_vis_render.launch.py
+ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_file:=config/yolov2workconfig.json
 ```
 
-Meanwhile, log in via SSH to another terminal and record topic data on the board:
+At the same time, use SSH to log in to another terminal and record topic information on the board:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -757,45 +686,52 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 
 ```shell
-# Record rosbag data; the bag file will be generated in the current working directory
+# Record rosbag data, which will be generated in the current working directory
 ros2 bag record -a
 ```
 
-2. Play back the rosbag data using Foxglove Studio online:
+2. Play rosbag data on the Foxglove online page
 
-1) Open a browser on your PC (Chrome/Firefox/Edge) and navigate to [https://foxglove.dev/studio](https://foxglove.dev/studio) to access the Foxglove website.
+1) Enter (https://foxglove.dev/studio) in a PC browser (Chrome/Firefox/Edge) to access the Foxglove website
 
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png)
 
-Note: First-time users need to register—sign-up is supported via Google account or third-party email.
+PS: Registration is required for first-time use. You can register using a Google account or a third-party email.
 
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_11.png)
 
-2) Enter the visualization interface.
+2) Enter the visualization interface
 
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png)
 
-3) Click to select your local rosbag file.
+3) Click to select the local rosbag file
 
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png)
 
-4) Open the layout panel. In the top-right corner of the layout interface, click Settings, select the icon, and enable the "Play marker rendering messages" feature.
+4) Open the layout interface. In the upper right corner of the layout interface, click Settings, select the icon, and enable marker rendering message playback
 
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png)
 
-5) Click Play.
-
+5) Click Play
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_5.png)
 
-6) View the data.
-
+6) View the data
    ![foxglove](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_6.png)
+
 ### Notes
 
-1. To visualize image data in Foxglove, you must use the official ROS 2 message format and an image encoding format supported by Foxglove. For details, see (https://foxglove.dev/docs/studio/panels/image).
+1. For Foxglove to visualize image data, ROS2 official message formats must be used with image encoding formats supported by Foxglove. For details, see (https://foxglove.dev/docs/studio/panels/image).
 
-2. When recording messages with rosbag, topics from other devices might also be captured. To ensure clean rosbag data, you can set the ROS domain ID using a command such as `export ROS_DOMAIN_ID=xxx` (e.g., `export ROS_DOMAIN_ID=1`).
+2. When recording messages with rosbag, topic information from other devices may also be recorded. To ensure clean rosbag data, you can set `export ROS_DOMAIN_ID=xxx`, such as `export ROS_DOMAIN_ID=1`.

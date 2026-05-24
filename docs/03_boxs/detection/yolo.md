@@ -30,8 +30,8 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 | --------------------- | ------------ | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| RDK Ultra             | Ubuntu 20.04 (Foxy) | yolov5x              | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | yolov2/yolov3        | · 使用本地回灌，渲染结果保存在本地                           |
 
 ## 算法信息
@@ -56,12 +56,15 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 | yolov10n | S100 | 1x3x640x640 | 494.10 |
 | yolov11m | S100 | 1x3x640x640 | 162.46 |
 | yolo12n | S100 | 1x3x640x640 | 42.66 |
+| yolov2 | S600 | 1x3x608x608 | 204.70 |
+| yolov3 | S600 | 1x3x416x416 | 411.17 |
+| yolov5 | S600 | 1x3x672x672 | 121.78 |
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -83,7 +86,6 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 
 YOLOv2目标检测算法示例订阅MIPI摄像头发布的图片，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -93,7 +95,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -102,8 +103,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazyy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```shell
 # 配置MIPI摄像头
@@ -117,7 +126,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 YOLOv2目标检测算法示例订阅USB摄像头发布的图片，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -127,7 +135,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -136,7 +143,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazyy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 ```shell
@@ -151,7 +165,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 YOLOv2目标检测算法示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -161,7 +174,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -170,7 +182,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazyy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 ```shell
@@ -179,104 +198,6 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 ```
 
 除了YOLOv2算法，还支持YOLO系列其他算法。启动命令中使用参数config_file切换算法，如使用YOLOv3算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用YOLOv5算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用YOLOv8算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用YOLOv10算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`，使用YOLOv11算法的启动配置为`dnn_example_config_file:="config/yolov11workconfig.json"`，使用YOLOv12算法的启动配置为`dnn_example_config_file:="config/yolov12workconfig.json"`，使用YOLO26算法的启动配置为`dnn_example_config_file:="config/yolo26workconfig.json"`。
-
-### RDK Ultra平台
-
-#### 使用MIPI摄像头发布图片
-
-YOLOv5x目标检测算法示例订阅MIPI摄像头发布的图片，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-
-```shell
-# 配置MIPI摄像头
-export CAM_TYPE=mipi
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image_width:=672 dnn_example_image_height:=672
-```
-
-#### 使用USB摄像头发布图片
-
-YOLOv5x目标检测算法示例订阅USB摄像头发布的图片，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-
-```shell
-# 配置USB摄像头
-export CAM_TYPE=usb
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image_width:=672 dnn_example_image_height:=672
-```
-
-#### 使用本地图片回灌
-
-YOLOv5x目标检测算法示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-
-```shell
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov5xworkconfig.json dnn_example_image:=config/target.jpg
-```
 
 ### X86平台
 

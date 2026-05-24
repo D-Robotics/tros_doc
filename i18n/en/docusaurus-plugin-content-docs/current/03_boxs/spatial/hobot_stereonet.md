@@ -1,8 +1,9 @@
 ---
 sidebar_position: 5
+sidebar_products: RDK-X5,RDK-S100
 ---
 
-# Stereo Depth Estimation Algorithm
+# Stereo Depth Algorithm
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,64 +11,64 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## 1. Feature Introduction
+## 1. Overview
 
-The Digua binocular depth estimation algorithm takes stereo image data as input and outputs the disparity map and depth map corresponding to the left view. Inspired by the IGEV network, the algorithm adopts a GRU architecture, offering strong data generalization capability and high inference efficiency.
+The D-Robotics stereo depth estimation algorithm takes stereo image data as input and outputs disparity and depth maps corresponding to the left view. Inspired by the IGEV network, it uses a GRU architecture with good data generalization and high inference efficiency.
 
-Stereo algorithm code repository: https://github.com/D-Robotics/hobot_stereonet
+Stereo algorithm code repository:https://github.com/D-Robotics/hobot_stereonet
 
-MIPI camera code repository: https://github.com/D-Robotics/hobot_mipi_cam
+MIPI camera code repository:https://github.com/D-Robotics/hobot_mipi_cam
 
-ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
+ZED camera code repository:https://github.com/D-Robotics/hobot_zed_cam
 
-Algorithm tutorial: [Live Replay | Practical Deployment of AI Binocular Algorithm on RDK X5](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
+Stereo algorithm tutorial: [Live Replay | RDK X5 AI Stereo Algorithm Deployment](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
 
 ## 2. Supported Platforms
 
-| Platform              | OS Support            | Example Functionality                                      |
-| --------------------- | --------------------- | ---------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Launch stereo camera, perform depth inference, and display results on Web UI |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | Launch stereo camera, perform depth inference, and display results on Web UI |
+| Platform                  | System Support              | Example Features                                    |
+| --------------------- | --------------------- | ------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start stereo camera, infer depth results, and display on Web |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | Start stereo camera, infer depth results, and display on Web |
 
 ## 3. Model Versions
 
-| Platform | Algorithm Version     | Quantization | Input Size    | Max Inference FPS | Model Description                              |
-| -------- | --------------------- | ------------ | ------------- | ----------------- | ---------------------------------------------- |
-| X5       | V2.0                  | int16        | 640x352x3x2   | 15                | Legacy version                                 |
-| X5       | V2.1                  | int16        | 640x352x3x2   | 15                | Legacy version with confidence output          |
-| X5       | V2.2                  | int8         | 640x352x3x2   | 23                | Legacy version                                 |
-| X5       | V2.3                  | int8         | 640x352x3x2   | 27                | Legacy version with highest FPS                |
-| X5       | V2.4_int16            | int16        | 640x352x3x2   | 15                | Current main version, high-accuracy depth estimation |
-| X5       | V2.4_int8             | int8         | 640x352x3x2   | 23                | Current main version, high-FPS depth estimation |
-| X5       | V2.5_int16            | int16        | 640x352x3x2   | 16                | Latest version, high-accuracy depth estimation |
-| X5       | V2.5_int16_96         | int16        | 640x352x3x2   | 18                | Latest version, max disparity search range = 96 |
-| X5       | V2.5_int16_544_448    | int16        | 544x448x3x2   | 15                | Latest version, resolution 544×448             |
-| X5       | V2.5_int16_544_448_96 | int16        | 544x448x3x2   | 17                | Latest version, resolution 544×448, max disparity search range = 96 |
-| S100     | V2.1                  | int16        | 640x352x3x2   | 53                | Legacy version with confidence output          |
-| S100     | V2.4                  | int16        | 640x352x3x2   | 53                | Current main version with confidence output    |
+| Platform | Algorithm Version              | Quantization | Input Size    | Max Inference FPS | Model Description                                    |
+| ---- | --------------------- | -------- | ----------- | ----------------- | ------------------------------------------- |
+| X5   | V2.0                  | int16    | 640x352x3x2 | 15                | Legacy version                                    |
+| X5   | V2.1                  | int16    | 640x352x3x2 | 15                | Legacy version with confidence output                      |
+| X5   | V2.2                  | int8     | 640x352x3x2 | 23                | Legacy version                                    |
+| X5   | V2.3                  | int8     | 640x352x3x2 | 27                | Legacy version, highest frame rate                          |
+| X5   | V2.4_int16            | int16    | 640x352x3x2 | 15                | Current main version, high-precision depth estimation                  |
+| X5   | V2.4_int8             | int8     | 640x352x3x2 | 23                | Current main version, high-frame-rate depth estimation                  |
+| X5   | V2.5_int16            | int16    | 640x352x3x2 | 16                | Latest version, high-precision depth estimation                    |
+| X5   | V2.5_int16_96         | int16    | 640x352x3x2 | 18                | Latest version, max search disparity 96                |
+| X5   | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | Latest version, 544×448 resolution                     |
+| X5   | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | Latest version, 544×448 resolution, max search disparity 96 |
+| S100 | V2.1                  | int16    | 640x352x3x2 | 53                | Legacy version with confidence output                      |
+| S100 | V2.4                  | int16    | 640x352x3x2 | 53                | Current main version with confidence output                    |
 
-## 4. Prerequisites
+## 4. Preparation
 
 ### 4.1. RDK Platform
 
-1. RDK has been flashed with the RDK OS system.
-2. TogetheROS.Bot has been successfully installed on the RDK.
-3. For online inference, prepare a stereo camera. Currently supported cameras include multiple MIPI models and ZED Mini/2i USB cameras.
-4. For offline inference, prepare stereo image data.
-5. Ensure your PC can access the RDK over the network.
+1. RDK has been flashed with RDK OS
+2. TogetheROS.Bot has been successfully installed on RDK
+3. For online inference, prepare a stereo camera. Multiple MIPI cameras and ZED mini/2i USB cameras are currently supported
+4. For offline inference, prepare stereo image data
+5. Confirm that the PC can access RDK over the network
 
 ### 4.2. System and Package Versions
 
-|                                                | Version               | Verification Command                                   |
-| ---------------------------------------------- | --------------------- | ------------------------------------------------------ |
-| RDK X5 system image version                    | 3.3.3 or later        | `cat /etc/version`                                     |
-| RDK S100 system image version                  | 4.0.2-Beta or later   | `cat /etc/version`                                     |
-| tros-humble-hobot-stereonet package version    | 2.5.0 or later        | `apt list \| grep tros-humble-hobot-stereonet/`        |
-| tros-humble-mipi-cam package version           | 2.3.13 or later       | `apt list \| grep tros-humble-mipi-cam/`               |
-| tros-humble-hobot-zed-cam package version      | 2.3.3 or later        | `apt list \| grep tros-humble-hobot-zed-cam/`          |
+|                                       | Version             | Query Method                                        |
+| ------------------------------------- | ---------------- | ----------------------------------------------- |
+| RDK X5 system image version                    | 3.3.3 and above      | `cat /etc/version`                              |
+| RDK S100 system image version                  | 4.0.2-Beta and above | `cat /etc/version`                              |
+| tros-humble-hobot-stereonet package version | 2.5.0 and above      | `apt list \| grep tros-humble-hobot-stereonet/` |
+| tros-humble-mipi-cam package version        | 2.3.13 and above     | `apt list \| grep tros-humble-mipi-cam/`        |
+| tros-humble-hobot-zed-cam package version   | 2.3.3 and above      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
 
-- If the system image version does not meet requirements, refer to the corresponding section in the documentation for re-flashing instructions.
-- If package versions are outdated, run the following commands to upgrade:
+- If the system image version does not meet requirements, refer to the corresponding documentation section for image flashing
+- If the package version does not meet requirements, run the following commands to update:
 
 ```bash
 sudo apt update
@@ -76,33 +77,40 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
-- If the above instructions fail to update the program to the latest version, you need to modify the apt source file to the beta source:
+- If the above commands cannot update the program to the latest version, change the apt source file to the beta source:
 
 ```bash
-# To switch to the beta source, execute the following commands:
+# Switch to beta source, run the following commands:
 sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5-beta  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
 apt update
 
-# To switch back to the official release source, execute the following commands:
+# To switch back to the official source, run the following commands:
 sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-x5  jammy main' | sudo tee /etc/apt/sources.list.d/sunrise.list
 apt update
 ```
 
+<DocScope products="RDK-X5">
+
 :::caution **Note**
-**If the `sudo apt update` command fails or returns errors, refer to the FAQ section: [`Q10: How to resolve issues when apt update fails or reports errors?`](../../../08_FAQ/01_hardware_and_system.md).**
+**If the `sudo apt update` command fails or reports an error, see the FAQ section [Q10: How to handle apt update command failure or error?](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86).**
 :::
+</DocScope>
+<DocScope products="RDK-S100">
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, see the FAQ section [Q6: How to handle apt update command failure or error?](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86).**
+:::
+</DocScope>
+## 5. Algorithm Startup
 
-## 5. Launching the Algorithm
-
-### 5.1. Important Notes (MUST READ!!!)
+### 5.1. Important Notes (Must Read!!!)
 
 :::caution **Note**
-**Please execute all commands in this document as the `root` user. Using other users may result in insufficient permissions and unnecessary errors.**
+**Run the commands in this document as the `root` user. Other users may lack sufficient permissions and cause unnecessary errors.**
 :::
 
 ![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
 
-### 5.2. Installing MIPI Stereo Cameras
+### 5.2. MIPI Stereo Camera Installation
 
 #### (1) 230AI MIPI Stereo Camera
 
@@ -110,13 +118,13 @@ apt update
 
 ![RDK_Stereo_Cam_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png)
 
-<p style={{ color: 'red' }}> Note: Please check the silk screen marking on the back of the camera labeled CDPxxx-V3/V4 to confirm it is version V3 or V4. </p>
+<p style={{ color: 'red' }}> Note: Check that the camera back silkscreen shows CDPxxx-V3/V4 to confirm V3 or V4 version </p>
 
-- Installation on RDK X5 is shown below:
+- RDK X5 installation is shown below:
 
 ![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
 
-- Installation on RDK S100 is shown below. Note that the DIP switches on the S100 CAM daughterboard must be set to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
 
@@ -126,23 +134,23 @@ apt update
 
 ![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
 
-- Installation on RDK X5 is shown below:
+- RDK X5 installation is shown below:
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
-- The latest cable has been upgraded. Note that the cable is directional: connect the CAM end to the camera and the RDK end to the development board.(White and black wires are both functional and will be shipped at random.)
+- The latest cables have been upgraded. Note that cables are directional: CAM end connects to the camera, RDK end connects to the development board. (Both white and black cables work normally; either may be shipped randomly)
 
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
 
-- Installation on RDK S100 is shown below. Note that the DIP switches on the S100 CAM daughterboard must be set to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
 
 ![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
 
-### 5.3. Online Launch Commands
+### 5.3. Online Startup Commands
 
-#### (1) Verify MIPI Stereo Camera I2C Signals
+#### (1) Verify Stereo Camera I2C Signal
 
-- To verify whether the 230AI stereo camera I2C signals are functioning properly, SSH into the RDK and run the following commands. If addresses such as 0x30, 0x32, and 0x50 appear in the output, the camera connection is normal:
+- To verify 230AI stereo camera I2C signal, connect to RDK via SSH and run the following commands. If addresses such as 0x30, 0x32, 0x50 appear, the camera connection is normal:
 
 ```bash
 # RDK X5
@@ -156,7 +164,8 @@ i2cdetect -r -y 2
 
 ![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
 
-- To verify whether the 132GS stereo camera I2C signals are functioning properly, SSH into the RDK and run the following commands. If addresses such as 0x32, 0x33, and 0x50 appear in the output, the camera connection is normal:
+
+- To verify 132GS stereo camera I2C signal, connect to RDK via SSH and run the following commands. If addresses such as 0x32, 0x33, 0x50 appear, the camera connection is normal:
 
 ```bash
 # RDK X5
@@ -171,18 +180,18 @@ i2cdetect -r -y 2
 ![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
 
 :::caution **Note**
-**If I2C signals cannot be detected, the camera will not function properly.**
+**If I2C signal cannot be detected, the camera will not work properly**
 :::
 
-#### (2) Verify Camera Stream Output
+#### (2) Verify Camera Streaming
 
-- Method 1: If the `tros-humble-hobot-stereonet` package is already installed, you can directly copy the script:
+- Method 1: If tros-humble-hobot-stereonet is installed, copy directly
 
 ```bash
 cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
 ```
 
-- Method 2: Manually create a launch script named `run_cam.sh` and add the following content:
+- Method 2: Manually create startup script `run_cam.sh` with the following content
 
 ```bash
 #!/bin/bash
@@ -210,7 +219,7 @@ while [[ $# -gt 0 ]]; do
     --framerate) framerate=$2; shift 2 ;;
     --rotation) rotation=$2; shift 2 ;;
     --gdc_enable) gdc_enable=$2; shift 2 ;;
---cal_rotation) cal_rotation=$2; shift 2 ;;
+    --cal_rotation) cal_rotation=$2; shift 2 ;;
     --lpwm_enable) lpwm_enable=$2; shift 2 ;;
     --frame_ts_type) frame_ts_type=$2; shift 2 ;;
     --out_format) out_format=$2; shift 2 ;;
@@ -233,7 +242,7 @@ ros2 run mipi_cam mipi_cam --ros-args \
 --log-level $log_level
 ```
 
-- Run the following command:
+- Run the following commands:
 
 <Tabs groupId="Stereo Cam">
 <TabItem value="230AI" label="230AI">
@@ -252,29 +261,29 @@ bash run_cam.sh --rotation 90.0 --log_level INFO
 </TabItem>
 </Tabs>
 
-- Taking the example of connecting a 132GS camera to the X5, successful camera startup will print logs as shown below (different logs will appear when using an S100 or other camera models):
+- Using 132GS camera on X5 as an example, a correctly started camera prints the following log (S100 or different camera models will print different logs):
 
 ![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
 
 
-- Log interpretation:
+- Log analysis:
 
-The I2C bus is the **control channel number**, used for configuring sensor registers—for example, setting resolution, frame rate, or initiating streaming. Image data does not travel over I2C; I2C is only responsible for **control**.
-The program checks whether sensor addresses can be detected on the 4th and 6th I2C controllers of the X5. The log shows detection of addresses 0x32 and 0x30, corresponding to I2C bus-4 and I2C bus-6 respectively. You can also use the previously mentioned command `i2cdetect -r -y 4` to scan for sensor addresses.
+I2C bus is the **control channel number**, used to configure sensor registers such as resolution, frame rate, and starting streaming. Image data does not go through I2C; I2C is only responsible for **control**.
+The program checks whether the 4th and 6th I2C controllers on X5 can scan sensor addresses. The log detects addresses 0x32 and 0x30, corresponding to I2C bus-4 and I2C bus-6. You can also use `i2cdetect -r -y 4` mentioned above to scan sensor addresses.
 
-The MIPI RX PHY is the **image data channel number**, through which image data captured by the camera is transmitted at high speed to the chip.
-The log indicates that the X5 has two MIPI PHYs, numbered 0 and 2, corresponding to the left and right cameras. These numbers can be assigned to the `channel` and `mipi_channel` parameters described below to adjust the stitching order of left and right camera images.
+mipi rx phy is the **image data channel number**. Image data captured by the camera is transmitted to the chip through this high-speed channel.
+The log shows X5 has two mipi phy channels, numbered 0 and 2, corresponding to left and right cameras. These numbers can be set via the `channel` and `mipi_channel` parameters mentioned below to change the left/right image stitching order.
 
 
-#### (3) Create a stereo algorithm launch script
+#### (3) Create Stereo Algorithm Startup Script
 
-- Method 1: If the `tros-humble-hobot-stereonet` package is already installed, you can directly copy it:
+- Method 1: If tros-humble-hobot-stereonet is installed, copy directly
 
 ```bash
 cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
-- Method 2: Manually create the launch script `run_stereo.sh` and add the following content:
+- Method 2: Manually create startup script `run_stereo.sh` with the following content
 
 ```bash
 #!/bin/bash
@@ -557,13 +566,15 @@ epipolar_mode:=$epipolar_mode epipolar_img:=$epipolar_img \
 chessboard_per_rows:=$chessboard_per_rows chessboard_per_cols:=$chessboard_per_cols chessboard_square_size:=$chessboard_square_size \
 feature_epipolar_mode:=$feature_epipolar_mode \
 stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format \
+codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-#### (4) Execute the stereo algorithm launch command
+#### (4) Run Stereo Algorithm Startup Command
 
-- Connect to the RDK via SSH and run the following command to start the algorithm:
+- Connect to RDK via SSH and run the following commands to start the algorithm:
 
-<DocScope products="RDK X5">
+<Tabs groupId="RDK">
+<TabItem value="RDK X5" label="RDK X5">
 
 ```bash
 # With 230AI camera
@@ -572,19 +583,15 @@ bash run_stereo.sh --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh
 
-
 # Note:
-# You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
-# If the left/right camera order is incorrect, you can adjust it in two ways:
-# Method 1: Swap the MIPI cables.
-# Method 2: Add one of the following parameter sets to the command above: 
-#           --mipi_channel 0 --mipi_channel2 2 
-#        or --mipi_channel 2 --mipi_channel2 0,
-#        and check which configuration yields the correct result.
+# Check whether the RGB image on the web page is from the left camera; cover the left camera lens to verify
+# If left/right camera order is incorrect, adjust using one of two methods:
+# Method 1: Swap MIPI cables
+# Method 2: Add parameters to the run command: --mipi_channel 0 --mipi_channel2 2 or --mipi_channel 2 --mipi_channel2 0, and see which produces correct results
 ```
 
-</DocScope>
-<DocScope products="RDK S100">
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
 
 ```bash
 # With 230AI camera
@@ -593,51 +600,43 @@ bash run_stereo.sh --stereonet_version v2.4 --mipi_rotation 0.0
 # With 132GS camera
 bash run_stereo.sh --stereonet_version v2.4
 
-# The S100 also supports high-resolution models. Taking the 132GS camera as an example, the startup command is as follows:
+# S100 also supports high-resolution models. Using 132GS camera as an example, startup command:
 bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
 
 # Note:
-# You need to verify whether the RGB image displayed on the web interface is captured by the left camera. You can confirm this by covering the left camera lens.
-# If the left/right camera order is incorrect, you can adjust it in two ways:
-# Method 1: Swap the MIPI cables.
-# Method 2: Add one of the following parameter sets to the command above: 
-#           --mipi_channel 0 --mipi_channel2 2 
-#        or --mipi_channel 2 --mipi_channel2 0,
-#        and check which configuration yields the correct result.
+# Check whether the RGB image on the web page is from the left camera; cover the left camera lens to verify
+# If left/right camera order is incorrect, adjust using one of two methods:
+# Method 1: Swap MIPI cables
+# Method 2: Add parameters --mipi_channel 0 --mipi_channel2 1 or --mipi_channel 1 --mipi_channel2 0 to the run command above, and see which produces the correct result
 ```
 
-</DocScope>
+</TabItem>
+</Tabs>
 
 :::caution **Note**
+**If the program does not start correctly, use `ros2 topic list -v` to check whether topics corresponding to `stereo_image_topic` and `camera_info_topic` exist**
 
-**If the program does not start correctly, you can check whether the topics corresponding to `stereo_image_topic` and `camera_info_topic` exist using `ros2 topic list -v`**
-
-**If the program starts correctly but the depth effect is poor, verify:** 
-
-**1. The stitching order of the left and right images is top-left and bottom-right;** 
-
-**2. Refer to the text below to confirm whether the left and right images meet the epipolar alignment requirements**
-
+**If the program starts correctly but depth quality is poor, verify: 1. Left/right image stitching order is top-left and bottom-right; 2. Refer below to confirm left/right images meet epipolar alignment requirements**
 :::
 
-- Definition of left/right cameras: <span style={{ color: 'red' }}> You must confirm whether the RGB image shown on the web interface below is captured by the left camera </span>:
+- Left/right camera definition. <span style={{ color: 'red' }}> Confirm that the RGB image displayed on the web page below is captured by the left camera </span>:
 
 ![230ai_left_right_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png)
 
-- Upon successful startup of the stereo algorithm, logs similar to the following will be printed. `fx/fy/cx/cy/baseline` are the camera intrinsic parameters, and `fps` indicates the algorithm's processing frame rate:
+- After successful stereo algorithm startup, the following log is printed. `fx/fy/cx/cy/baseline` are camera intrinsics; `fps` is the algorithm running frame rate:
 
 ![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
 
-- View the RGB and depth images via the web interface by entering http://ip:8000 in your browser (the RDK IP in the figure is 192.168.1.100):
+- View RGB and depth images via the web page. Enter http://ip:8000 in a browser (RDK IP in the figure is 192.168.1.100):
 
 ![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
 
-- View the point cloud using rviz2. rviz2 can be installed directly on the RDK. Note the following configuration is required in rviz2:
+- View point cloud via rviz2. rviz2 can be installed directly on RDK. Note the following rviz2 configuration:
 
 ```bash
 # Install rviz2
 sudo apt install ros-humble-rviz2
-# Launch rviz2
+# Start rviz2
 source /opt/tros/humble/setup.bash
 rviz2
 ```
@@ -647,77 +646,77 @@ rviz2
 
 #### (5) Parameter Definitions
 
-The `run_stereo.sh` script supports numerous configurable parameters. Below are definitions of some commonly used parameters; for other parameters, please refer to the comments in the source code:
+The `run_stereo.sh` script has many configurable parameters. Common parameter definitions are introduced below; refer to source code comments for others:
 
-- **stereonet_version**: Controls which version of the algorithm to launch.
-  - For **RDK X5**, options include: `v2.0`, `v2.1`, `v2.2`, `v2.3`, `v2.4_int16`, `v2.4_int8`, `v2.5_int16`, `v2.5_int16_96`, `v2.5_int16_544_448`, `v2.5_int16_544_448_96`
-  - For **RDK S100**, options include: `v2.1`, `v2.4`,`v2.4_1280_704`
-- **stereo_node_name**: Specifies the ROS node name.
-- **uncertainty_th**: Confidence threshold. Only effective for models that output confidence and when set to a positive value. If enabled, it is recommended to set this to `0.10`.
-- **stereo_image_topic** / **camera_info_topic**: Names of the ROS topics the node subscribes to, for stereo images and corresponding camera info, respectively.
-- **depth_image_topic** / **pointcloud2_topic** / **visual_image_topic**: Control the names of topics published by the ROS node.
+- stereonet_version controls which algorithm version to launch
+  - RDK X5 can be set to `v2.0`, `v2.1`, `v2.2`, `v2.3`, `v2.4_int16`, `v2.4_int8`, `v2.5_int16`, `v2.5_int16_96`, `v2.5_int16_544_448`, `v2.5_int16_544_448_96`
+  - RDK S100 can be set to `v2.1`, `v2.4`, `v2.4_1280_704`
+- stereo_node_name controls the ROS node name
+- uncertainty_th is the confidence threshold. Only effective for models with confidence output when set to a positive value. If enabling, recommended value is `0.10`
+- stereo_image_topic/camera_info_topic are topic names the ROS node subscribes to: stereo image and corresponding camera parameters
+- depth_image_topic/pointcloud2_topic/visual_image_topic etc. control ROS node published topic names
 
-- **mipi_image_width**, **mipi_image_height**, **mipi_image_framerate**: Control camera resolution and frame rate.
-- **mipi_gdc_enable**: Enables GDC correction in the camera. The camera reads calibration parameters from EEPROM to correct image distortion. All currently produced cameras include factory calibration parameters.
-- **mipi_lpwm_enable**: Enables hardware synchronization for the stereo camera, ensuring left and right images share identical timestamps. If set to `False`, software synchronization is used, resulting in larger synchronization errors.
-- **mipi_rotation**: Controls whether the image should be rotated. Currently, the CMOS sensor in the 132GS camera is mounted with a 90° rotation, so this parameter should be set to `90.0`.
-- **mipi_channel**, **mipi_channel2**: Used to swap the left/right image output order.
+- mipi_image_width, mipi_image_height, mipi_image_framerate control camera resolution and frame rate
+- mipi_gdc_enable controls GDC rectification. The camera reads EEPROM-stored parameters for distortion correction. Currently shipped cameras include factory calibration parameters
+- mipi_lpwm_enable controls hardware synchronization so left/right image timestamps are consistent. If False, software sync is used with larger sync error
+- mipi_rotation controls image rotation. 132GS camera CMOS is mounted with 90° rotation; set this parameter to `90.0`
+- mipi_channel and mipi_channel2 swap left/right image output order
 
-- **calib_method**: Controls the rectification method.
-  - When `mipi_gdc_enable:=True`, the `hobot_mipi_cam` package has already rectified the images, so `hobot_stereonet` does not need to perform additional rectification. In this case, set `calib_method` to `none`.
-  - When `mipi_gdc_enable:=False` or the camera cannot perform image rectification, set `calib_method` to `custom` and specify `stereo_calib_file_path`.
-- **stereo_calib_file_path**: Specifies the path to custom stereo calibration parameters.
+- calib_method controls rectification method
+  - When `mipi_gdc_enable:=True`, the `hobot_mipi_cam` package has already rectified images; `hobot_stereonet` does not need further rectification. Set calib_method to `none`
+  - When `mipi_gdc_enable:=False`, or when the camera cannot rectify images, set calib_method to `custom` and specify `stereo_calib_file_path`
+- stereo_calib_file_path controls the path to custom calibration parameters
 
-- **render_type**: Controls the rendering mode. Default is `distance`, which automatically generates pseudo-color depth visualizations based on depth for web display. Can also be set to `indoor` or `outdoor`. Setting to `indoor` is not recommended.
-- **render_perf**: Controls whether CPU/BPU utilization, latency, and FPS information are displayed on the rendered image. Options: `True` or `False`.
+- render_type controls rendering mode. Default is `distance`, which auto-renders pseudocolor based on depth for web display. Can be set to `indoor` or `outdoor`; `indoor` is not recommended
+- render_perf controls whether CPU, BPU usage, latency, and FPS are shown on rendered images. Can be `True` or `False`
 
-- **speckle_filter_enable**: Enables/disables speckle filtering. Options: `True` or `False`.
-- **max_speckle_size**: Defines the maximum speckle size. Speckles smaller than this value will be filtered out. A larger value results in stronger filtering.
-- **max_disp_diff**: Defines the disparity difference threshold within a speckle. Pixels with disparity differences below this threshold are grouped into the same speckle. A smaller value results in stronger filtering.
+- speckle_filter_enable controls speckle filter. Can be `True` or `False`
+- max_speckle_size controls speckle size. Speckles smaller than this are filtered. Larger values mean stronger filtering
+- max_disp_diff controls disparity difference threshold within speckles. Neighboring pixels below this threshold are grouped into the same speckle. Smaller values mean stronger filtering
 
-- **pointcloud_height_min** / **pointcloud_height_max** / **pointcloud_depth_max**: Control the point cloud display range (unit: meters).
+- pointcloud_height_min/pointcloud_height_max/pointcloud_depth_max control point cloud display range in meters
 
-- **pcl_filter_enable**: Enables/disables point cloud filtering. Options: `True` or `False`.
-- **grid_size**: Grid size used during point cloud filtering (unit: meters).
-- **grid_min_point_count**: Minimum number of points required per grid cell during filtering. Grids with fewer points will be removed.
+- pcl_filter_enable controls point cloud filtering. Can be `True` or `False`
+- grid_size controls grid size for point cloud filtering in meters
+- grid_min_point_count controls minimum points per grid cell; cells with fewer points are filtered
 
-- **save_result_flag**: Controls whether results are saved. If enabled, the following will be saved: **camera parameters, original left/right images, rectified left/right images, disparity map, depth map, and point cloud**.
-- **save_dir**: Specifies the save directory. The directory will be created automatically if it doesn't exist. Ensure sufficient disk space is available, otherwise saving will fail.
-- **save_freq**: Save frequency. For example, setting to `4` means saving every 4 frames.
-- **save_total**: Total number of frames to save. `-1` means save indefinitely; `100` means stop after saving 100 frames.
+- save_result_flag controls whether to save results. When enabled, saves **camera parameters, raw left/right images, rectified left/right images, disparity map, depth map, point cloud**
+- save_dir controls save directory (created automatically if missing). Ensure sufficient space or saving will fail
+- save_freq controls save frequency. For example, 4 means save once every 4 frames
+- save_total controls total saves. -1 means save continuously; 100 means stop after 100 frames
 
-- **use_local_image_flag**: Enables offline inference.
-- **local_image_dir**: Specifies the local image directory used during offline inference.
+- use_local_image_flag controls offline inference
+- local_image_dir controls local image directory for offline inference
 
-- **epipolar_mode**: Enables epipolar alignment verification using a chessboard pattern.
-- **epipolar_img**: Specifies whether to use the `origin` (original) or `rect` (rectified) images.
-- **chessboard_per_rows** / **chessboard_per_cols** / **chessboard_square_size**: Define the number of inner corners per row/column and square size (in meters) of the chessboard.
-- **feature_epipolar_mode**: Controls whether to enable epipolar alignment detection based on ORB feature points.
+- epipolar_mode controls chessboard-based epipolar alignment detection
+- epipolar_img controls whether to use `origin` raw image or `rect` rectified image
+- chessboard_per_rows/chessboard_per_cols/chessboard_square_size control inner corner counts and square size (meters)
+- feature_epipolar_mode controls ORB feature-based epipolar alignment detection 
 
-- **infer_thread_num**: Number of inference threads. Default is 2 threads, which yields higher FPS but higher latency. Setting to 1 reduces FPS slightly but also reduces latency.
+- infer_thread_num controls inference thread count. Default is 2 threads: higher FPS but larger latency. Set to 1 for lower FPS but lower latency
 
-- **stereonet_pub_web**: Enables publishing visualization images to the web interface.
+- stereonet_pub_web controls whether to publish visualization images to the web
 
-#### (6) Saving a Single Frame
+#### (6) Save One Frame
 
-- After successful program execution, open another terminal and run the following commands to save one frame of data:
+- After successful startup, open another terminal and run the following to save one frame:
 
 ```bash
 source /opt/tros/humble/setup.bash
 
-# First, check if the node is running properly. Note if ROS_DOMAIN_ID is set or the node name has been changed.
+# First check whether the node is running normally; note whether ROS_DOMAIN_ID is set or node name changed
 ros2 node list
 
-# If the /StereoNetNode is running normally, execute the following to save one frame:
-# Set the save directory (absolute path recommended; directory will be created if it doesn't exist)
+# If /StereoNetNode is running normally, run the following to save one frame
+# Set save directory (absolute path recommended; created automatically if missing)
 ros2 param set /StereoNetNode save_dir /root/online_once
-# Save one frame (can be executed repeatedly)
+# Save one frame (can be repeated)
 ros2 param set /StereoNetNode save_result_once true
 ```
 
-#### (7) Saving Batch Data
+#### (7) Save Batch Data
 
-- **Method 1**: Specify parameters at launch to enable saving
+- Method 1: Specify parameters at startup
 
 ```bash
 # With 230AI camera
@@ -738,13 +737,13 @@ bash run_stereo.sh \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag False
 
-# For S100, specify model version, e.g., add --stereonet_version v2.4
-# save_stereo_flag    Save stereo images that are fed into the algorithm for inference
-# save_origin_flag    Save original stereo images (not used directly by the algorithm; e.g., unrectified or mismatched resolution images that undergo preprocessing before inference)
+# S100 requires model version, e.g. add --stereonet_version v2.4
+# save_stereo_flag    Save stereo image fed to the algorithm for inference
+# save_origin_flag    Save raw stereo images not fed to inference (e.g. unrectified or resolution-mismatched images after preprocessing)
 # save_disp_flag      Save disparity map
-# save_uncert_flag    Save uncertainty/confidence map (only supported by models that output confidence)
+# save_uncert_flag    Save confidence map (only supported by models with confidence output)
 # save_depth_flag     Save depth map
-# save_visual_flag    Save web-rendered visualization image
+# save_visual_flag    Save web-rendered visualization
 # save_pcd_flag       Save point cloud data
 ```
 
@@ -752,137 +751,136 @@ bash run_stereo.sh \
 
 ![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-- **Method 2**: After successful program execution, open another terminal and run the following commands to save data:
+- Method 2: After successful startup, open another terminal and run the following to save data
 
 ```bash
 source /opt/tros/humble/setup.bash
 
-# First, check if the node is running properly. Note if ROS_DOMAIN_ID is set or the node name has been changed.
+# First check whether the node is running normally; note whether ROS_DOMAIN_ID is set or node name changed
 ros2 node list
 
-# If /StereoNetNode is running normally, execute the following to configure saving:
-# Set save directory (absolute path recommended; directory will be created if it doesn't exist)
+# If /StereoNetNode is running normally, run the following to save data
+# Set save directory (absolute path recommended; created automatically if missing)
 ros2 param set /StereoNetNode save_dir /root/online_batch
-# Set total number of frames to save
+# Set total save count
 ros2 param set /StereoNetNode save_total 10
 # Set save frequency
 ros2 param set /StereoNetNode save_freq 1
 
-# Configure what to save (set as needed)
-ros2 param set /StereoNetNode save_stereo_flag true   # Save stereo images fed into the algorithm
-ros2 param set /StereoNetNode save_origin_flag true   # Save original stereo images (preprocessed before inference)
-ros2 param set /StereoNetNode save_disp_flag true     # Save disparity map
-ros2 param set /StereoNetNode save_uncert_flag true   # Save confidence map (only for models supporting it)
-ros2 param set /StereoNetNode save_depth_flag true    # Save depth map
-ros2 param set /StereoNetNode save_visual_flag true   # Save web-rendered visualization
-ros2 param set /StereoNetNode save_pcd_flag true      # Save point cloud data
+# Set save content as needed
+ros2 param set /StereoNetNode save_stereo_flag true   # 保存双目图像，该图像会输入算法进行推理
+ros2 param set /StereoNetNode save_origin_flag true   # 保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
+ros2 param set /StereoNetNode save_disp_flag true     # 保存视差图
+ros2 param set /StereoNetNode save_uncert_flag true   # 保存置信度图，只有带置信度的模型支持
+ros2 param set /StereoNetNode save_depth_flag true    # 保存深度图
+ros2 param set /StereoNetNode save_visual_flag true   # 保存web端渲染的可视化图
+ros2 param set /StereoNetNode save_pcd_flag true      # 保存点云数据
 
-# Start saving
+# Execute save command
 ros2 param set /StereoNetNode save_result_flag true
 
-# To save another batch after completion, re-execute the following:
-# Reset total number of frames
+# To continue saving after completion, run the following two commands again
+# Reset total save count
 ros2 param set /StereoNetNode save_total 10
-# Start saving again
+# Execute save command
 ros2 param set /StereoNetNode save_result_flag true
 ```
 
-#### (8) Enabling Epipolar Alignment Verification Mode
+#### (8) Enable Epipolar Alignment Detection Mode
 
-If poor depth maps are observed, besides potential left/right image ordering issues, it may also indicate that the stereo images are not properly epipolar-aligned.  
-Stereo algorithms require high epipolar alignment accuracy—typically, the epipolar error should be less than **1 pixel**.
+Poor depth quality may be due to incorrect left/right stitching order or lack of epipolar alignment between left/right images.
+Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel`.
 
-This program implements two epipolar alignment verification methods:
-- **Chessboard-based**: More rigorous and recommended.
-- **ORB feature-based**: Does not require a calibration board; works in texture-rich scenes, but may yield larger epipolar errors.
+This program provides two epipolar alignment detection methods: chessboard calibration board (stricter, recommended);
+and ORB feature-based method (no calibration board needed, runs in texture-rich scenes, but epipolar error may be larger).
 
-- **Chessboard-based epipolar alignment verification command** (example for X5 + 132GS camera):
+- Chessboard-based epipolar alignment detection startup command (X5 with 132GS camera example):
 
 ```bash
-# For X5 + 132GS camera (adjust parameters for S100 or other cameras as described above)
-# Example uses a chessboard with 20 inner corners per row, 11 per column, and 0.06m square size
+# X5 with 132GS camera; for S100 or other cameras refer to parameter settings above
+# Note chessboard parameters: example uses 20 inner corners per row, 11 per column, 0.06m square size
 bash run_stereo.sh --epipolar_mode True \
 --chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
 ```
 
-Upon successful execution, the following image appears on the web interface:
+After successful startup, the following image appears on the web:
 
 ![epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg)
 
-For chessboard-based verification, both epipolar error and reprojection error should be within **1 pixel** for the stereo images to be considered valid; otherwise, the calibration parameters are incorrect.
+For chessboard-based detection, epipolar and reprojection errors should both be within `1 pixel` for qualified stereo images; otherwise calibration parameters are incorrect
 
-- **ORB feature-based epipolar alignment verification command** (example for X5 + 132GS camera):
+- ORB feature-based epipolar alignment detection startup command (X5 with 132GS camera example):
 
 ```bash
-# For X5 + 132GS camera (adjust parameters for S100 or other cameras as described above)
+# X5 with 132GS camera; for S100 or other cameras refer to parameter settings above
 bash run_stereo.sh --feature_epipolar_mode True
 ```
 
-Upon successful execution, the following image appears on the web interface:
+After successful startup, the following image appears on the web:
 
 ![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
 
-ORB-based verification is less strict. Empirically:
-- For **640×352** resolution images, epipolar error should be < **1 pixel**.
-- For **1280×1088** resolution images, epipolar error should be < **2 pixels**.  
-Only then are the stereo images considered acceptable.
+ORB feature-based detection is less strict. Empirically, for 640×352 images epipolar error should be less than `1 pixel`; for 1280×1088 images less than `2 pixel` for qualified stereo images
 
-### 5.4. Offline Launch Commands
 
-#### (1) Preparing Offline Images
+### 5.4. Offline Startup Commands
 
-- To evaluate algorithm performance using local images, prepare and upload the following data to the RDK:
+#### (1) Prepare Offline Images
 
-1. **Rectified and epipolar-aligned** left/right images in PNG or JPG format. Images must follow a naming convention: left images must contain the word `left`, and right images must contain `right`. The algorithm processes images sequentially by index until all are processed:
+- To evaluate algorithm performance with local images, prepare the following data and upload to RDK:
+
+1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left`, right images must contain `right`. The algorithm iterates through images by index until all are processed:
 
 ![stereonet_rdk](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
 
-2. Camera intrinsic parameters file, saved in the image directory as `camera_intrinsic.txt`. Example content:
+2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt`. Reference content:
 ```bash
 # fx fy cx cy baseline(m)
 215.762581 215.762581 325.490113 173.881556 0.079957
 ```
 
-#### (2) Execute the startup command
+#### (2) Run Startup Command
 
-- Connect to the RDK via SSH and run the following command:
+- Connect to RDK via SSH and run the following commands:
 
-<DocScope products="RDK X5">
+<Tabs groupId="RDK">
+<TabItem value="RDK X5" label="RDK X5">
 
 ```bash
 bash run_stereo.sh \
---use_local_image_flag True --local_image_dir <offline image path> \
---save_result_flag True --save_dir <result save path> \
+--use_local_image_flag True --local_image_dir <offline_image_path> \
+--save_result_flag True --save_dir <result_save_path> \
 --save_stereo_flag True --save_origin_flag False \
 --save_disp_flag True --save_uncert_flag False \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag True
 
-# If the web interface displays images too quickly, add the following parameter to control the pause duration: --image_sleep 2000
+# If web display is too fast, add --image_sleep 2000 to control pause time
 ```
 
-</DocScope>
-<DocScope products="RDK S100">
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
---use_local_image_flag True --local_image_dir <offline image path> \
---save_result_flag True --save_dir <result save path> \
+--use_local_image_flag True --local_image_dir <offline_image_path> \
+--save_result_flag True --save_dir <result_save_path> \
 --save_stereo_flag True --save_origin_flag False \
 --save_disp_flag True --save_uncert_flag False \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag True
 
-# If the web interface displays images too quickly, add the following parameter to control the pause duration: --image_sleep 2000
+# If web display is too fast, add --image_sleep 2000 to control pause time
 ```
 
-</DocScope>
+</TabItem>
+</Tabs>
 
-- Upon successful execution, the following log will be printed:
+- After successful startup, the following log is printed
 
 ![stereonet_offline_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png)
 
-- View RGB and depth images via the web interface by entering http://ip:8000 in your browser (the RDK IP shown in the figure is 192.168.128.10):
+- View RGB and depth images via web. Enter http://ip:8000 in browser (RDK IP in figure is 192.168.128.10):
 
 ![web_depth_visual_offline](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png)
 
@@ -890,15 +888,15 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 #### (1) ZED Camera Installation
 
-- The ZED stereo camera is shown below:
+- ZED stereo camera is shown below:
 
 ![zed_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
 
-- Simply connect the ZED camera to the RDK via USB.
+- Connect ZED camera to RDK via USB
 
 #### (2) Startup Commands
 
-- First, launch the ZED camera. Connect to the RDK via SSH and run the same command for both X5 and S100:
+- First, start ZED camera. Connect to RDK via SSH; X5 and S100 use the same commands:
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -908,49 +906,58 @@ resolution:=720p \
 need_rectify:=true dst_width:=640 dst_height:=352
 ```
 
-Parameter explanations:
+Parameter description:
 
-| Parameter    | Description                                                                 |
-| ------------ | --------------------------------------------------------------------------- |
-| resolution   | Original ZED output resolution (with distortion). 720p means 1280×720; can also be set to 1080p. |
-| need_rectify | Indicates whether the final output images require rectification.            |
-| dst_width    | Final rectified output image width: 640                                     |
-| dst_height   | Final rectified output image height: 352                                    |
+| Parameter         | Description                                                               |
+| ------------ | ------------------------------------------------------------------ |
+| resolution   | ZED raw output resolution with distortion. 720p means 1280×720; can be set to 1080p |
+| need_rectify | Whether final output images need rectification                                     |
+| dst_width    | Final rectified output width is 640×352                                |
+| dst_height   | Final rectified output height is 640×352                                |
 
-<p style={{ color: 'red' }}> Note: The RDK must be connected to the internet when running the ZED camera, as ZED needs to download calibration files online. </p>
+<p style={{ color: 'red' }}> Note: RDK must be online when running ZED camera, as ZED requires internet to download calibration files </p>
+
 
 ![stereonet_zed_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
 
-With internet access, the program will automatically download the calibration file. If the RDK is offline, you can manually download the calibration file and upload it to the RDK.  
-According to the log message, open a browser on your PC and navigate to (https://calib.stereolabs.com/?SN=38085162) to download the calibration file `SN38085162.conf`.  
-Note that each ZED camera has a unique SN code. When using your own device, please download the corresponding calibration file based on the error message, and upload it to the `/root/zed/settings/` directory. Create this directory manually if it doesn't exist.
+When online, the program automatically downloads calibration files. If RDK is offline, manually download and upload calibration files to RDK.
+Based on log info, open a browser on PC and visit (https://calib.stereolabs.com/?SN=38085162) to download calibration file SN38085162.conf.
+Note each ZED has a different SN. Download the corresponding calibration file based on error messages and upload to `/root/zed/settings/` (create directory if missing).
 
-- Next, launch the stereo algorithm by opening another terminal and executing:
+- Then start the stereo algorithm in another terminal:
 
 ```bash
 bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
-- View the depth map via the web interface by entering http://ip:8000 in your browser (replace "ip" with the actual IP address of your RDK). For instructions on viewing **point clouds** and **saving images**, please refer to the relevant settings described above.
+- View depth map via web at http://ip:8000 (ip is RDK IP). For **point cloud** and **save images**, refer to corresponding settings above
 
-## 6. Topic Description of the Function Package
+## 6. Package Topic Description
 
 ### 6.1. Subscribed Topics
 
-| Default Name (adjustable via parameters)      | Message Type                  | Description                                           |
-| --------------------------------------------- | ----------------------------- | ----------------------------------------------------- |
-| /image_combine_raw                            | sensor_msgs::msg::Image       | Vertically stacked left-right images used for model inference |
-| /image_combine_raw/right/camera_info (optional)       | sensor_msgs::msg::CameraInfo  | Camera calibration parameters for disparity-depth conversion |
+| Default Name (Configurable)                         | Message Type                     | Description                                       |
+| -------------------------------------------- | ---------------------------- | ------------------------------------------ |
+| /image_combine_raw                           | sensor_msgs::msg::Image      | Vertically stacked left/right images for model inference         |
+| /image_combine_raw/right/camera_info (optional) | sensor_msgs::msg::CameraInfo | Camera calibration parameters for disparity/depth conversion |
 
 ### 6.2. Published Topics
 
-| Default Name (adjustable via parameters)      | Message Type                   | Description                      |
-| --------------------------------------------- | ------------------------------ | -------------------------------- |
-| /StereoNetNode/stereonet_depth                | sensor_msgs::msg::Image        | Depth image (unit: millimeters)  |
-| /StereoNetNode/stereonet_visual               | sensor_msgs::msg::Image        | Visualized rendered image        |
-| /StereoNetNode/stereonet_pointcloud2          | sensor_msgs::msg::PointCloud2  | Point cloud (unit: meters)       |
-| /StereoNetNode/rectify_left_image             | sensor_msgs::msg::Image        | Rectified left image (algorithm input) |
-| /StereoNetNode/rectify_right_image            | sensor_msgs::msg::Image        | Rectified right image (algorithm input) |
-| /StereoNetNode/origin_left_image              | sensor_msgs::msg::Image        | Original left image (not fed into algorithm) |
-| /StereoNetNode/origin_right_image             | sensor_msgs::msg::Image        | Original right image (not fed into algorithm) |
-```
+| Default Name (Configurable)                 | Message Type                      | Description                 |
+| ------------------------------------ | ----------------------------- | -------------------- |
+| /StereoNetNode/stereonet_depth       | sensor_msgs::msg::Image       | Depth image in millimeters |
+| /StereoNetNode/stereonet_visual      | sensor_msgs::msg::Image       | Visualization rendered image       |
+| /StereoNetNode/stereonet_pointcloud2 | sensor_msgs::msg::PointCloud2 | Point cloud in meters        |
+| /StereoNetNode/rectify_left_image    | sensor_msgs::msg::Image       | Rectified left image fed to algorithm |
+| /StereoNetNode/rectify_right_image   | sensor_msgs::msg::Image       | Rectified right image fed to algorithm |
+| /StereoNetNode/origin_left_image     | sensor_msgs::msg::Image       | Raw left image, not fed to algorithm |
+| /StereoNetNode/origin_right_image    | sensor_msgs::msg::Image       | Raw right image, not fed to algorithm |
+
+
+
+
+
+
+
+
+

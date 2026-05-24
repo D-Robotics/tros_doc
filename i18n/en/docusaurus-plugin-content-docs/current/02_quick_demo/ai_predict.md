@@ -1,5 +1,6 @@
 ---
 sidebar_position: 6
+sidebar_products: RDK-X3,RDK-X5
 ---
 
 # 5.2.6 Model Inference
@@ -9,46 +10,48 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Overview
+## Overview
 
-This section introduces how to use the model inference feature: input a local image for inference, obtain the rendered image, and save it locally.
+This section describes how to use model inference: feed a local image for inference, obtain the rendered output image, and save it locally.
 
-Finally, we demonstrate the combined inference and fusion results of multiple algorithms from TROS application algorithms, including [Human Detection and Tracking](../03_boxs/body/mono2d_body_detection.md), [Face Age Detection](../03_boxs/body/mono_face_age_detection.md), [Face 106 Landmarks Detection](../03_boxs/body/mono_face_landmarks_detection.md), [Hand Keypoint Detection](../03_boxs/body/hand_lmk_detection.md), and [Gesture Recognition](../03_boxs/body/hand_gesture_detection.md). The example uses input from an MIPI/USB camera or local image playback, with inference results visualized via a web interface.
+Finally, it demonstrates the combined inference and fusion results of [body detection](../03_boxs/body/mono2d_body_detection.md), [age recognition](../03_boxs/body/mono_face_age_detection.md), [face landmark detection](../03_boxs/body/mono_face_landmarks_detection.md), [hand landmark detection](../03_boxs/body/hand_lmk_detection.md), and [gesture recognition](../03_boxs/body/hand_gesture_detection.md) algorithms in TROS applications. The example uses MIPI/USB camera or local feedback input and displays inference rendering results via the web.
 
 Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-Robotics/hobot_dnn)
 
 ## Supported Platforms
 
-| Platform                  | Runtime Environment                         |
-| ------------------------- | ------------------------------------------- |
-| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)                       |
-| X86                       | Ubuntu 20.04 (Foxy)                         |
+| Platform    | Runtime Environment     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
-For model inference on RDK S100 and RDK Ultra platforms, please refer to the [Boxs Algorithm Repository](../03_boxs/detection/yolo.md).
+For model inference on RDK S100/S600 platforms, refer to the [Boxs algorithm repository](../03_boxs/detection/yolo.md).
 :::
+
 
 ## Prerequisites
 
 ### RDK Platform
 
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetherROS.Bot has been successfully installed on RDK.
+1. RDK has been flashed with the Ubuntu system image.
+
+2. TogetheROS.Bot has been successfully installed on RDK.
 
 ### X86 Platform
 
-1. Confirm that your X86 platform runs Ubuntu 20.04 and has tros.b successfully installed.
+1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed.
 
-## Usage Instructions
+## Usage
 
-Using a local JPEG image and a model (FCOS object detection model supporting 80 object categories including people, animals, fruits, vehicles, etc.) specified in the `hobot_dnn` configuration file, perform inference via image playback and save the rendered output image.
+Use the local JPEG image and model in the hobot_dnn configuration file (FCOS object detection model, supporting 80 detection categories including people, animals, fruits, and vehicles) for feedback-based inference and save the rendered image.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Set up tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -57,7 +60,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Set up tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -66,21 +69,20 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from tros.b installation path.
-# The 'config' directory contains the model used by the example and the local image for playback.
+# Copy the configuration files required for the example from the tros.b installation path. config contains the model used by the example and the local image for feedback
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# Perform inference using a local JPG image and save the rendered result
+# Use a local JPG image for feedback inference and save the rendered image
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```
 
-Upon successful execution, the rendered image will be automatically saved in the current working directory as `render_feedback_0_0.jpeg`. Press `Ctrl+C` to exit the program.
+After successful execution, the rendered image is automatically saved in the working directory with the filename `render_feedback_0_0.jpeg`. Press Ctrl+C to exit the program.
 
-For explanations of command-line parameters and instructions on subscribing to images published by a camera for algorithm inference, please refer to the `README.md` file in the source code of the `dnn_node_example` package.
+For parameter descriptions in the run command and how to subscribe to and use images published by the camera for algorithm inference, refer to README.md in the dnn_node_example package source code.
 
 ## Result Analysis
 
-The terminal outputs the following logs:
+The terminal outputs the following information during execution:
 
 ```text
 [example-1] [INFO] [1679901151.612290039] [ImageUtils]: target size: 6
@@ -99,7 +101,7 @@ The terminal outputs the following logs:
 [example-1] [WARN] [1679901151.612652352] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The log indicates that the algorithm detected 6 objects from the input image, reporting each object’s category (`target type`) and bounding box coordinates (top-left corner `x_offset`, `y_offset`, and dimensions `width`, `height`). The rendered image is saved as `render_feedback_0_0.jpeg`.
+The output log shows that the algorithm inferred 6 targets from the input image and output the category (`target type`) and bounding box coordinates (top-left x coordinate `x_offset`, y coordinate `y_offset`, width `width`, and height `height`) for each target. The saved rendered image filename is `render_feedback_0_0.jpeg`.
 
 Rendered image `render_feedback_0_0.jpeg`:
 
@@ -108,51 +110,50 @@ Rendered image `render_feedback_0_0.jpeg`:
 
 ## Multi-Algorithm Inference
 
-This section demonstrates simultaneous inference using multiple algorithms, with fused results displayed via a web interface.
+This section describes running multiple algorithms simultaneously and displaying the fused inference results on the web.
 
 :::warning
 This feature is supported only in `TROS Humble 2.3.1` and later versions.
 
-For TROS release notes, see: [Release Notes](../01_quick_start/changelog.md).  
-To check your TROS version, see: [Version Check Guide](../01_quick_start/install_tros.md).
+`TROS` release notes: [1.6 Release Notes](../01_quick_start/changelog.md). Version check method: [1.2 apt Installation and Upgrade](../01_quick_start/install_tros.md).
 :::
 
-**Using MIPI/USB Camera for Image Publishing**
+**Publish images using MIPI/USB camera**
 
 ```bash
-# Set up tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Copy required configuration files for the example from tros.b installation path.
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
-# For USB camera, use: export CAM_TYPE=usb
+# Command to use USB camera: export CAM_TYPE=usb
 
-# Launch the example
+# Start launch file
 ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py
 ```
 
-**Using Local Image Playback**
+**Use local image feedback**
 
 ```bash
-# Set up tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
-# Copy required configuration files for the example from tros.b installation path.
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
-# Configure local image playback
+# Configure local feedback image
 export CAM_TYPE=fb
 
-# Launch the example
+# Start launch file
 ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
 ```
 
-Open a browser on your PC and navigate to `http://IP:8000` to view the image and algorithm-rendered results (replace `IP` with your RDK’s IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)

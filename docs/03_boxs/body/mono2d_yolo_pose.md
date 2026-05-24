@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+sidebar_products: RDK-S100,RDK-S600
 ---
 # 人体检测和跟踪(Ultralytics YOLO Pose)
 
@@ -28,27 +29,29 @@ import TabItem from '@theme/TabItem';
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
 
-姿态检测案例：[5.4.3 姿态检测](../../apps/fall_detection)    
-小车人体跟随案例：[5.4.4 小车人体跟随](../../apps/car_tracking)  
+姿态检测案例：[姿态检测](../../04_apps/fall_detection.md)    
+小车人体跟随案例：[小车人体跟随](../../04_apps/car_tracking.md)  
 基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S600 | Ubuntu 24.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
 | ---- | ---- | ------------ | ---- |
-| yolo-pose | S100 | 1x3x640x640 | 68.70 |
+| yolov11x-pose | S100 | 1x3x640x640 | 68.70 |
+| yolov11n-pose | S600 | 1x3x640x640 | 1104.91 |
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -64,7 +67,11 @@ import TabItem from '@theme/TabItem';
 
 **使用MIPI摄像头发布图片**
 
-```shell
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -77,24 +84,72 @@ export CAM_TYPE=mipi
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
-**使用USB摄像头发布图片**
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
-```shell
-source /opt/tros/humble/setup.bash
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
+
+**使用USB摄像头发布图片**
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
 # 配置USB摄像头
 export CAM_TYPE=usb
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # 启动launch文件
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
+
 **使用本地回灌图片**
 
-```shell
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -107,6 +162,27 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
 
 ## 结果分析
 

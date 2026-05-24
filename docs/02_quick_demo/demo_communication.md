@@ -7,6 +7,7 @@ sidebar_position: 5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 零拷贝
@@ -27,7 +28,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 :::info
 - tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
-- tros.b Humble版本使用的是ROS2 Humble的“zero-copy”功能。
+- tros.b Humble版本以及之后版本使用的是ROS2的“zero-copy”功能。
 :::
 
 ### 支持平台
@@ -36,10 +37,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
-
-:::caution
-***RDK Ultra平台支持零拷贝数据通信，暂未提供零拷贝性能指标测试安装包。***
-:::
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
 
@@ -51,7 +49,12 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-   更多配置说明参考[系统配置](/System_configuration/)章节。
+   <DocScope products="RDK-X3,RDK-X5">
+   更多配置说明参考[系统配置](https://liqinglian01.github.io/rdk_x_doc1/System_configuration)章节。
+   </DocScope>
+   <DocScope products="RDK-S100,RDK-S600">
+   更多配置说明参考[系统配置](https://liqinglian01.github.io/rdk_s_doc/System_configuration)章节。
+   </DocScope>
 
 2. RDK已成功安装performance_test工具包，安装命令：
 
@@ -70,14 +73,27 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    sudo apt update
    sudo apt install tros-humble-performance-test
    ```
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-jazzy-performance-test
+   ```
 
    </TabItem>
    </Tabs>
 
+<DocScope products="RDK-X3,RDK-X5">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
-
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 ### 使用介绍
 
 #### RDK平台
@@ -99,6 +115,15 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     source /opt/tros/humble/setup.bash
     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+   ```
 
  </TabItem>
  </Tabs>
@@ -164,6 +189,18 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     export ROS_DISABLE_LOANED_MESSAGES=0
     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+   export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+   export ROS_DISABLE_LOANED_MESSAGES=0
+   ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+   ```
 
  </TabItem>
  </Tabs>
@@ -241,4 +278,4 @@ performance_test工具可输出多种类型的统计结果，下面主要对比�
 - “zero-copy” minflt、majflt明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
 - “zero-copy” nvcsw、nivcsw明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
 
-总的来说对于大数据通信，“zero-copy”在CPU消耗、内存占用以及通信延迟抖动方便均明显优于非“zero-copy”
+总的来说对于大数据通信，“zero-copy”在CPU消耗、内存占用以及通信延迟抖动方面均明显优于非“zero-copy”

@@ -2,54 +2,96 @@
 sidebar_position: 0
 ---
 
-# Introduction to TogetheROS.Bot  
-TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and ecosystem developers, aiming to unlock the intelligent potential of robotic applications and empower ecosystem developers and commercial customers to efficiently and conveniently develop competitive intelligent robot products.
+# Introduction to TogetheROS.Bot
+TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and ecosystem developers. It aims to unlock the intelligent potential of robot scenarios, helping ecosystem developers and business customers develop robots efficiently and conveniently, and build competitive intelligent robot products.
 
-TogetheROS.Bot supports execution on the RDK platform and also provides a simulator version that runs on x86 platforms. The RDK platform encompasses all functionalities shown in the diagram below, while the x86 platform supports experiencing certain features via image replay, thereby improving the efficiency of algorithm development and validation and enabling rapid migration to the RDK platform.
+TogetheROS.Bot supports running on RDK platforms, and also provides a simulator version for X86 platforms. RDK platforms cover all the features shown in the diagram below. X86 platforms support experiencing some features through image playback, improving algorithm development and verification efficiency, and enabling quick migration to RDK platforms.
 
 ![TROS-Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png)
 
-The source code of TogetheROS.Bot is hosted on GitHub under the [D-Robotics organization](https://github.com/D-Robotics).
+TogetheROS.Bot source code is hosted on GitHub under the [D-Robotics organization](https://github.com/D-Robotics).
 
-## Communication Component
+## Communication Components
 
-Communication is a functional enhancement and extension built upon the core communication components of ROS2 Foxy and Humble versions.
+Communication is a functional optimization and extension based on the core communication components of ROS2 Foxy/Humble/Jazzy.
 
-Key features are as follows:
+Main features are as follows:
 
-The blue sections indicate optimized or newly added modules. The main features of TogetheROS.Bot include:
+The blue parts in the diagram are optimized or newly added modules. The main features of TogetheROS.Bot are as follows:
 
-- Provides “hobot_sensor” to support commonly used robot sensors, saving development time and allowing focus on core competencies  
-- Provides “hobot_dnn” to simplify on-device algorithm model inference and deployment, unleashing BPU computing power and lowering the barrier to using intelligent algorithms  
-- Provides “hobot_codec” combining software and hardware to accelerate video encoding/decoding, conserving CPU resources and enhancing parallel processing capabilities  
-- Provides “hobot_cv” combining software and hardware to boost performance of common computer vision operators, conserving CPU resources and improving runtime efficiency  
-- Provides “hobot Render” with dynamic visualization capabilities for both Web and HDMI outputs, enabling real-time rendering of algorithm results (Web only), facilitating demonstration and debugging  
-- Introduces a “zero-copy” inter-process zero-copy communication mechanism to reduce data transmission latency and lower system resource consumption  
-- Enriches middleware debugging and performance tuning tools to improve issue localization efficiency and facilitate system performance optimization  
-- Maintains full API compatibility with ROS2 Foxy/Humble versions, enabling seamless reuse of the rich ROS tool ecosystem and accelerating prototype validation  
-- Supports minimal and modular customization, making it easy to deploy on resource-constrained embedded products according to specific requirements  
+- Provides "hobot_sensor" to adapt to commonly used robot sensors, saving development time and focusing on core competitiveness
+- Provides "hobot_dnn" to simplify on-board algorithm model inference and deployment, unleashing BPU computing power and lowering the barrier to using intelligent algorithms
+- Provides "hobot_codec" for hardware-software accelerated video encoding and decoding, saving CPU resources and improving parallel processing capability
+- Provides "hobot_cv" for hardware-software accelerated common CV operators, saving CPU resources and improving runtime efficiency
+- Provides "hobot Render" for Web and HDMI dynamic visualization, rendering algorithm results in real time (Web only), facilitating demonstration and debugging
+- Adds "zero-copy" inter-process zero-copy communication mechanism, reducing data transmission latency and system resource consumption
+- Rich middleware software debugging and performance tuning tools, improving problem localization efficiency and facilitating system performance optimization
+- Fully compatible with ROS2 Foxy/Humble/Jazzy interfaces, facilitating reuse of rich ROS tool packages and accelerating prototype verification
+- Supports minimal and modular trimming, facilitating deployment on resource-constrained embedded products as needed
 
 ## Boxs Algorithm Repository
 
-Boxs is an intelligent algorithm package introduced by D-Robotics for robot manufacturers and ecosystem developers based on TogetheROS.Bot, designed to enhance the efficiency of integrating and deploying intelligent algorithms on robots powered by the D-Robotics RDK robot operating system.
+Boxs is an intelligent algorithm package based on TogetheROS.Bot launched by D-Robotics for robot manufacturers and ecosystem developers, aiming to improve the efficiency of integrating and deploying intelligent robot algorithms based on the D-Robotics RDK robot operating system.
 
-- Image detection algorithms such as FCOS, YOLO, FasterRCNN, EfficientDet, and Mobilenet_SSD  
-- Image classification models such as Mobilenet  
-- Semantic segmentation models such as Unet  
-- Application-oriented algorithms including human detection and tracking, gesture recognition, hand keypoint detection, monocular height estimation network, monocular 3D detection, speech processing, etc.
+- Image detection algorithms such as FCOS, YOLO, FasterRCNN, Efficientdet, Mobilenet_ssd;
+- Image classification models such as Mobilenet
+- Semantic segmentation models such as Unet
+- Application algorithm models such as human body detection and tracking, gesture recognition, hand keypoint detection, monocular elevation network, monocular 3D detection, speech processing, etc.
 
 ## Apps Application Examples
 
-Apps are algorithm application examples developed based on the Communication component and Boxs of the D-Robotics RDK robot operating system, aiming to establish an end-to-end pipeline covering image input, perception, decision-making, and other modules, demonstrate application outcomes, and accelerate customer demo development.
+Apps are algorithm application examples developed based on D-Robotics RDK robot operating system Communication and Boxs, aiming to connect the complete pipeline of image input, perception, and strategy, demonstrate application effects, and accelerate customer demo development efficiency.
 
-## Glossary of Common Terms
+## Glossary
 
-| Term                              | Definition                                                  |
-| ----------------------------------| -----------------------------------------------------------|
-| zero-copy                         | Zero-copy inter-process communication method                |
-| hobot dnn                         | BPU-based model inference functionality encapsulation       |
-| SLAM                              | Simultaneous Localization and Mapping                        |
-| DOA                               | Direction of Arrival (sound source localization)            |
-| ASR                               | Automatic Speech Recognition                                |
-| TogetheROS.Bot                    | TogetheROS.Bot Robot Operating System                       |
-| tros.b                            | Abbreviation for TogetheROS.Bot                             |
+| Term                              | Description                                                    |
+| ----------------------------------| --------------------------------------------------------|
+| zero-copy                         | Inter-process zero-copy communication method                                     |
+| hobot dnn                         | Model inference function encapsulation based on BPU                                |
+| SLAM                              | Simultaneous Localization and Mapping                                          |
+| DOA                               | Direction of Arrival                                                |
+| ASR                               | Automatic Speech Recognition                                            |
+| TogetheROS.Bot                    | TogetheROS.Bot Robot Operating System                            |
+| tros.b                            | Abbreviation for TogetheROS.Bot                                      |
+
+
+## Feature Support List
+
+| Feature | X3 | X5 | S100 | S600 |
+|----------------|----------------|----------------|----------------|----------------|
+| Data Collection [hobot_sensor](./02_quick_demo/demo_sensor.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Data Display [hobot_render](./02_quick_demo/demo_render.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Image Encoding/Decoding [hobot_codec](./02_quick_demo/hobot_codec.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Image Processing Acceleration [hobot_cv](./02_quick_demo/demo_cv.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Data Communication [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Model Inference [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| Image Publishing Tool [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Text-to-Speech [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Object Detection | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 |
+| Open-Vocabulary Object Detection [YOLO-World](./03_boxs/detection/hobot_yolo_world.md) | &#10006; | &#10004; | &#10006; | &#10006; |
+| Open-Vocabulary Object Detection [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| Image Classification [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| Image Segmentation [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; | &#10004; | &#10004; | [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) |
+| Segment Anything [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| Segment Anything [mono_mobilesam](./03_boxs/segmentation/mono_mobilesam.md) | &#10006; | &#10004; | &#10006; | &#10006; |
+| Human Body Detection | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
+| Hand Keypoints | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | &#10006; |
+| Gesture Recognition | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) | &#10006; |
+| [Face Age Detection](./03_boxs/body/mono_face_age_detection.md) and Corresponding APP Examples | &#10004; | &#10004; | &#10006; | &#10006; |
+| [Face 106 Keypoint Detection](./03_boxs/body/mono_face_landmarks_detection.md) and Corresponding APP Examples | &#10004; | &#10004; | &#10006; | &#10006; |
+| [Human Body Following](./03_boxs/body/reid.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| [BEV](./03_boxs/driver/hobot_bev.md) | &#10006; | &#10006; | &#10004; | &#10006; |
+| LiDAR Object Detection Algorithm [CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | &#10006; | &#10006; | &#10004; | &#10006; |
+| [Stereo Depth Algorithm](./03_boxs/spatial/hobot_stereonet.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| [Stereo OCC Algorithm](./03_boxs/spatial/dstereo_occupancy.md) | &#10006; | &#10004; | &#10004; | &#10006; |
+| Visual Inertial Odometry [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10006; | &#10004; | &#10006; | &#10006; |
+| Intelligent Speech [hobot_audio](./03_boxs/audio/hobot_audio.md) and Speech-Related Examples | &#10004; | &#10004; | &#10006; | &#10006; |
+| Intelligent Speech [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10006; | &#10004; | &#10004; | &#10004; |
+| Vision-Language Model [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10006; |
+| DeepSeek Large Language Model [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10006; | &#10006; | &#10004; | &#10006; |
+| Text-Image Feature Retrieval [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10006; | &#10004; | &#10004; | &#10006; |
+| Optical Flow Estimation [mono_pwcnet](./03_boxs/function/mono_pwcnet.md)  | &#10006; | &#10004; | &#10006; | &#10006; |
+| [4.1 SLAM Mapping](./04_apps/slam.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; | &#10004; | &#10004; | &#10006; |
+| [4.9 Intelligent Box](./04_apps/video_boxs.md) | &#10004; | &#10004; | &#10004; | &#10004; |
+| [4.10 Vision-Speech Box](./04_apps/hobot_llamacpp.md) | &#10006; | &#10004; | &#10004; | &#10006; |

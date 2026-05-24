@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-S100
 ---
 # BEV Perception Algorithm
 
@@ -8,49 +9,50 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-The BEV perception algorithm is a multi-task `BEV` model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset using [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html).
+The BEV perception algorithm uses a `BEV` multi-task model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html).
 
-The algorithm takes six groups of image data as input: front, front-left, front-right, rear, rear-left, and rear-right views. The model outputs detection results for ten object categories along with their corresponding 3D bounding boxes—including obstacles, various vehicle types, traffic signs, etc.—as well as semantic segmentation results for lane markings, sidewalks, and road edges.
+The algorithm takes 6 groups of image data as input: front view, front-left, front-right, rear view, rear-left, and rear-right. The model outputs objects in 10 categories along with corresponding 3D bounding boxes, including obstacles, various vehicle types, traffic signs, and more, as well as semantic segmentation of lane lines, sidewalks, and road edges.
 
-This example uses local image data as input, performs inference on the BPU, publishes rendered images containing perception results, and displays these results in a web browser on a PC.
+This example uses local image data as input, performs algorithm inference on the BPU, publishes image messages with rendered perception results, and displays the algorithm results in a PC browser.
 
 Code repository: (https://github.com/D-Robotics/hobot_bev.git)
 
 ## Supported Platforms
 
-| Platform           | Runtime Environment      | Example Functionality                                      |
-| ------------------ | ------------------------ | ---------------------------------------------------------- |
-| RDK Ultra          | Ubuntu 20.04 (Foxy)      | Uses local data replay and displays inference results via web |
-| RDK S100, RDK S100P| Ubuntu 22.04 (Humble)    | Uses local data replay and displays inference results via web |
+| Platform      | Runtime Environment     | Example Functionality                                |
+| --------- | ------------ | --------------------------------------- |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Use local feedback playback and display inference rendering results via web |
 
-## Prerequisites
+## Preparation
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
-3. Ensure your PC can access the RDK over the network.
 
-## Usage Instructions
+3. Confirm that the PC can access the RDK over the network.
 
-### Using Local Dataset Replay
+## Usage
 
-Local dataset replay is used to feed images into the algorithm. After inference, the algorithm publishes rendered image messages containing perception results. These are displayed in a web browser on the PC via the websocket package.
+### Local Dataset Feedback Playback
 
-***Preparing the Replay Dataset***
+Use local dataset feedback playback. After inference, the algorithm publishes rendered image messages. The websocket package displays the published images and corresponding algorithm results in a PC browser.
+
+***Prepare Feedback Dataset***
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Download dataset on the board
+# 板端下载数据集
 wget http://archive.d-robotics.cc/TogetheROS/data/hobot_bev_data.tar.gz
 
-# Extract the archive
+# 解压缩
 mkdir -p hobot_bev_data
 tar -zxvf hobot_bev_data.tar.gz -C hobot_bev_data
 
-# After extraction, the dataset resides under hobot_bev_data/data
+# 解压完成后数据集在hobot_bev_data/data路径下
 ```
 
 </TabItem>
@@ -58,11 +60,11 @@ tar -zxvf hobot_bev_data.tar.gz -C hobot_bev_data
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Download dataset on the board
+# 板端下载数据集
 cd ~
 wget http://archive.d-robotics.cc/TogetheROS/data/nuscenes_bev_val/nuscenes_bev_val.tar.gz
 
-# Extract the archive
+# 解压缩
 mkdir -p ~/hobot_bev_data
 tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
 ```
@@ -71,19 +73,19 @@ tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
 
 </Tabs>
 
-***Replaying the Dataset***
+***Run Dataset Feedback Playback***
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
-# Set up the tros.b environment
+# 配置tros.b环境
 source /opt/tros/setup.bash
 
-# Launch the websocket service
+# 启动websocket服务
 ros2 launch websocket websocket_service.launch.py
 
-# Launch the execution script and specify the dataset path
+# 启动运行脚本，并指定数据集路径
 ros2 launch hobot_bev hobot_bev.launch.py image_pre_path:=hobot_bev_data/data
 ```
 
@@ -92,14 +94,14 @@ ros2 launch hobot_bev hobot_bev.launch.py image_pre_path:=hobot_bev_data/data
 <TabItem value="humble" label="Humble">
 
 ```shell
-# Set up the tros.b humble environment
+# 配置tros.b humble环境
 source /opt/tros/humble/setup.bash
 
 if [ -L qat ]; then rm qat; fi
 ln -s `ros2 pkg prefix hobot_bev`/lib/hobot_bev/qat/ qat
 ln -s ~/hobot_bev_data/nuscenes_bev_val nuscenes_bev_val
 
-# Launch the execution script
+# 启动运行脚本
 ros2 launch hobot_bev hobot_bev.launch.py
 ```
 
@@ -109,7 +111,7 @@ ros2 launch hobot_bev hobot_bev.launch.py
 
 ## Result Analysis
 
-The following output appears in the terminal during execution:
+The running terminal outputs the following information:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -178,7 +180,7 @@ The following output appears in the terminal during execution:
 
 </Tabs>
 
-Enter `http://IP:8000` in your PC's web browser to view the rendered images and algorithm results (replace IP with the RDK's IP address):
+Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">

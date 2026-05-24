@@ -23,14 +23,15 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100只支持USB语音设备。**
+**注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100/S600只支持USB语音设备。**
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 3. 已有RDK适配的音频驱动板，并参考[智能语音章节](../03_boxs/audio/hobot_audio.md)搭建好环境。
 4. 音频板耳机接口连接耳机或音响。
@@ -60,6 +61,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    sudo apt update
+    sudo apt install tros-jazzy-hobot-tts
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
 
     ```bash
@@ -67,9 +78,16 @@ import DocScope from '@site/src/components/DocScope';
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 
+<DocScope products="RDK-X3,RDK-X5">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 
 2. 运行如下命令检查音频设备是否正常：
 
@@ -80,12 +98,12 @@ import DocScope from '@site/src/components/DocScope';
 
     如果出现类似`pcmC0D1p`音频播放设备则表示设备正常。
 
-    <DocScope versions=">= 3.0.0" products="RDK X3">
+    <DocScope products="RDK X3">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
 
     </DocScope>
-    <DocScope versions=">= 3.5.0" products="RDK X5">
+    <DocScope products="RDK X5">
 
     首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
     
@@ -111,6 +129,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
 
     </Tabs>
 
@@ -121,7 +147,7 @@ import DocScope from '@site/src/components/DocScope';
     ros2 run hobot_tts hobot_tts
     ```
 
-    注意：若音频播放设备不是`pcmC0D1p`，则需要使用参数`playback_device`指定播放音频设备。例如音频播放设备为`pcmC1D1p`，启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`； usb设备启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
+    注意：若音频播放设备不是`pcmC0D1p`，则需要使用参数`playback_device`指定播放音频设备。例如音频播放设备为`pcmC1D1p`，微雪板子启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`；usb语音设备启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
 4. 新开一个终端，使用echo命令发布一条topic
 
@@ -141,6 +167,14 @@ import DocScope from '@site/src/components/DocScope';
   # 配置tros.b环境
   source /opt/tros/humble/setup.bash
   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
   </TabItem>
 

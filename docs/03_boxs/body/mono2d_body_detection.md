@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 人体检测和跟踪
 
@@ -31,8 +32,8 @@ import TabItem from '@theme/TabItem';
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
 
-姿态检测案例：[5.4.3. 姿态检测](../../apps/fall_detection)    
-小车人体跟随案例：[5.4.4. 小车人体跟随](../../apps/car_tracking)  
+姿态检测案例：[姿态检测](../../04_apps/fall_detection.md)    
+小车人体跟随案例：[小车人体跟随](../../04_apps/car_tracking.md)  
 基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
@@ -41,7 +42,6 @@ import TabItem from '@theme/TabItem';
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 | X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过Web展示推理渲染结果                |
 
 ## 算法信息
@@ -55,7 +55,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -86,7 +86,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -95,8 +94,8 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -120,7 +119,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -129,7 +127,6 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell
@@ -155,7 +152,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -164,7 +160,6 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell
@@ -178,8 +173,6 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544
 
-# RDK Ultra平台需要指定回灌图片，例如：
-# ros2 launch mono2d_body_detection mono2d_body_detection.launch.py picture:=./config/target.jpg
 ```
 
 ### X86平台

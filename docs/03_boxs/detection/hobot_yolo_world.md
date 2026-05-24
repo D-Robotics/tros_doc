@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+sidebar_products: RDK-X5
 ---
 # YOLO-World
 
@@ -33,7 +34,7 @@ YOLO-World是一种先进的开放词汇目标检测方法，根据输入文本�
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -51,13 +52,24 @@ YOLO-World(hobot_yolo_world) package订阅sensor package发布的图片，同时
 **使用MIPI摄像头发布图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+</Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -70,9 +82,6 @@ export CAM_TYPE=mipi
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
-</TabItem>
-
-</Tabs>
 
 **使用USB摄像头发布图片**
 
@@ -104,13 +113,24 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 **使用本地回灌图片**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+</TabItem>
+</Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -122,10 +142,6 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
-
-</TabItem>
-
-</Tabs>
 
 ## 结果分析
 

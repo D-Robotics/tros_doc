@@ -1,80 +1,84 @@
 ---
 sidebar_position: 8
+sidebar_products: RDK-X3
 ---
 
-# 5.4.8 Parking Spot Search for Cart
+# 5.4.8 Robot Parking Space Search
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Overview
+## Overview
 
-The Parking Spot Search Control App guides the robot to a parking spot using a parking spot detection algorithm, controlling its movements—including left/right rotation and forward/backward translation. The App consists of MIPI image acquisition, parking spot detection algorithm, parking spot search control strategy, image encoding/decoding, and a web-based visualization frontend. The workflow is shown in the figure below:
+The parking space search control App guides the robot to a parking space using a parking space detection algorithm, including left/right rotation and forward/backward translation. The App consists of MIPI image capture, parking space detection algorithm, parking space search control strategy, image encoding/decoding, and a Web display client. The workflow is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png)
 
-The App directly controls a physical cart via control commands issued by the parking spot search control strategy. It can also be tested using a simulated virtual cart within the Gazebo simulation environment on a PC.
+The App directly controls a physical robot using control commands published by the parking space search control strategy. It can also be tested using a virtual robot in the PC-side Gazebo simulation environment.
 
 Code repository: (https://github.com/D-Robotics/parking_search.git)
 
 ## Supported Platforms
 
-| Platform                | Execution Mode                              | Example Functionality                                                                 |
-| ----------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch MIPI/USB camera to capture images, perform parking area detection and spot search, and demonstrate results through real-cart motion |
+| Platform    | Runtime Environment      | Example Functionality                       |
+| ------- | ------------ | ------------------------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera to capture images, perform parking area detection and parking space search, and display search results via physical robot movement |
 
 ## Design Description
 
-1. **Field-of-view Configuration**:
+1. Field of view settings:
 
-The field-of-view scene is divided into three regions: "Left," "Center," and "Right." The IoU (Intersection over Union) of parking areas and driving areas within each region is calculated. Based on predefined thresholds, the type of each region is determined to facilitate motion decisions for the cart.
+The field of view is divided into three regions: "left", "center", and "right". Calculate the IOU of parking areas and driving areas in each region, determine the corresponding region type based on thresholds, and complete robot movement decisions.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png)
 
-2. **Threshold Settings**:
+2. Threshold settings:
 
-| Field-of-view Region | Left | Center | Right |
-| -------------------- | ---- | ------ | ----- |
-| Parking Area IoU     | 0.6  | 0.7    | 0.6   |
-| Driving Area IoU     | 0.8  | 0.9    | 0.8   |
+| Field of View Region | Left | Center | Right |
+| - | - | - | - |
+| Parking Area IOU | 0.6 | 0.7 | 0.6 |
+| Driving Area IOU | 0.8 | 0.9 | 0.8 |
 
-3. **Category Settings**:
+3. Category settings:
 
-| Field-of-view Region | Road | Background | Lane Markings | Guide Lines | Parking Lines | Parking Area | Parking Pole | Wheel Stopper |
-| -------------------- | ---- | ---------- | ------------- | ----------- | ------------- | ------------ | ------------ | ------------- |
-| Parking Area IoU     |      |            |               |             | √             | √            |              |               |
-| Driving Area IoU     | √    |            | √             | √           | √             | √            |              |               |
+| Field of View Region | Road | Background | Lane Line | Marking Line | Parking Space Line | Parking Area | Parking Barrier | Ground Lock |
+| - | - | - | - | - | - | - | - | - |
+| Parking Area IOU | | | | | √ | √ | | |
+| Driving Area IOU | √ | | √ | √ | √ | √ | | |
 
-Note: In practical detection scenarios, due to inherent limitations in algorithmic precision (not reaching 100%), driving areas may occasionally be misclassified as parking areas. Therefore, when calculating IoU for driving areas, categories associated with parking areas are also included.
+Note: In actual detection, since the algorithm detection accuracy cannot reach 100%, there are cases where driving areas are misdetected as parking areas. Therefore, parking area categories are included when calculating driving areas.
 
-4. **Algorithm Workflow**:
+4. Algorithm workflow:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on RDK.
-3. An MIPI or USB camera has been installed on RDK.
-4. A Guyue Home Cart is available as the controlled lower-level device.
+1. The RDK has been flashed with the Ubuntu system image.
+
+2. TogetheROS.Bot has been successfully installed on the RDK.
+
+3. A MIPI or USB camera has been installed on the RDK.
+
+4. An OriginBot robot as the control lower-level device.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/car.jpg)
 
-## Usage Instructions
+## Usage
 
 ### RDK Platform
 
-Place the cart on a level surface and adjust the camera angle to be horizontal. After launching the Parking Spot Search App, the cart automatically makes decisions based on the parking area detection algorithm and controls its motion until it locates a parking spot, enters it, and stops.
+Place the robot on a level surface, adjust the camera angle to horizontal. After running the parking space search App, the robot automatically makes decisions based on parking area detection algorithm results and controls robot movement until it finds a parking space, enters it, and stops.
 
-After the App starts, you can view the images published by the sensor along with corresponding algorithm results rendered in a web browser on your PC (access via `http://IP:8000`, where IP is the RDK's IP address).
+After the App starts, images published by the sensor and corresponding algorithm results can be rendered and displayed in a PC browser (enter `http://IP:8000` in the browser, where IP is the RDK's IP address).
 
-To enable rendering on the web interface, open the settings menu in the top-right corner and select the “Full-image Segmentation” option (refer to Section 4.2 Boxs Application Algorithm – Outdoor Parking Area Detection).
+To open the Web client, open the settings in the upper right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect. (Refer to section 4.2 Boxs Application Algorithm — Outdoor Parking Area Detection)
 
-Start the Guyue Home Cart and run the lower-level control node on the RDK:
+Start the OriginBot robot and run the control lower-level node on the RDK:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -99,7 +103,7 @@ ros2 run originbot_base originbot_base
 
 </Tabs>
 
-Upon successful launch, the RDK outputs the following log messages:
+After successful startup, the RDK outputs the following log information:
 
 ```shell
 Loading parameters:
@@ -111,90 +115,75 @@ Loading parameters:
 [INFO] [1662551769.742268424] [originbot_base]: OriginBot Start, enjoy it.
 ```
 
-**Publishing Images Using an MIPI Camera**
+**Publish images using MIPI camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# Copy required configuration files for the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# Configure MIPI camera
-export CAM_TYPE=mipi
-
-# Launch the launch file
-ros2 launch parking_search parking_search.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
-# Copy required configuration files for the example from the tros.b installation path.
+
+</TabItem>
+</Tabs>
+
+```shell
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# Configure MIPI camera
+# 配置MIPI摄像头
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch parking_search parking_search.launch.py
 ```
 
-</TabItem>
-
-</Tabs>
-
-**Publishing Images Using a USB Camera**
+**Publish images using USB camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# Copy required configuration files for the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# Configure USB camera
-export CAM_TYPE=usb
-
-# Launch the launch file
-ros2 launch parking_search parking_search.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
-
-# Copy required configuration files for the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# Configure USB camera
-export CAM_TYPE=usb
-
-# Launch the launch file
-ros2 launch parking_search parking_search.launch.py
 ```
 
-</TabItem>
 
+</TabItem>
 </Tabs>
+
+```shell
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 启动launch文件
+ros2 launch parking_search parking_search.launch.py
+```
 
 ## Result Analysis
-1. While the robot car is searching and moving forward within the driving area, the RDK runtime terminal outputs the following log messages, indicating that the car is being controlled to move forward at a speed of 0.1 m/s (`do move, direction: 0, step: 0.100000`).
+
+1. When the robot searches forward in the driving area, the RDK terminal outputs log information, including control of the robot to move forward at 0.1 m/s (do move, direction: 0, step: 0.100000).
 
 ```shell
 [parking_search-4] [WARN] [1661942399.306904646] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -206,7 +195,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
 
-2. After the robot car detects a parking spot and begins turning, the RDK runtime terminal outputs the following log messages:
+2. When the robot turns after detecting a parking space, the RDK terminal outputs log information:
 
 ```shell
 [parking_search-4] [WARN] [1662539779.408424498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
@@ -220,7 +209,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
 
-3. After the robot car confirms the parking spot, moves forward, and finally stops, the RDK runtime terminal outputs the following log messages:
+3. When the robot confirms the parking space, moves forward, and finally stops, the RDK terminal outputs log information:
 
 ```shell
 [parking_search-4] [WARN] [1662539796.196264298] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -233,11 +222,12 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1662539796.465178589] [ParkingSearchEngine]: Parking Area Arrived !!!
 [parking_search-4] [WARN] [1662539796.506218048] [ParkingSearchEngine]: Parking Area Arrived !!!
 [parking_search-4] [WARN] [1662539796.547036881] [ParkingSearchEngine]: Parking Area Arrived !!!
+
 ```
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
 
-On the PC side, you can use the `ros2 topic list` command in the terminal to query the topics published by the RDK:
+Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 
 ```shell
 $ ros2 topic list
@@ -253,4 +243,4 @@ $ ros2 topic list
 /tf
 ```
 
-Among these, `/image_jpeg` is the JPEG-encoded image published by the RDK after capturing from the MIPI sensor; `/ai_msg_parking_perception` is the algorithm message published by the RDK containing parking spot detection information; and `/cmd_vel` is the motion control command published by the RDK.
+`/image_jpeg` is the JPEG-encoded image published by the RDK after capturing from the MIPI sensor. `/ai_msg_parking_perception` is the algorithm message published by the RDK containing parking space detection information. `/cmd_vel` is the motion control command published by the RDK.

@@ -1,76 +1,81 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
-# Human Detection and Tracking
+# Body Detection and Tracking
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Overview
+## Introduction
 
-The human detection and tracking algorithm subscribes to image topics, performs inference using the BPU, publishes messages containing detection results for human bodies, heads, faces, hands (bounding boxes), and human body keypoints, and implements bounding box tracking via Multi-Object Tracking (MOT). The x86 version currently does not support MOT or web-based visualization.
+The body detection and tracking example subscribes to images, performs inference on the BPU, and publishes messages containing body, head, face, hand bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes. The X86 version does not support multi-target tracking or Web display.
 
-The detection categories supported by the algorithm and their corresponding data types in the algorithm message are as follows:
+Supported detection categories and their corresponding data types in the algorithm message are as follows:
 
-| Category   | Description          | Data Type |
-| ---------- | -------------------- | --------- |
-| body       | Human body bounding box | Roi       |
-| head       | Head bounding box       | Roi       |
-| face       | Face bounding box       | Roi       |
-| hand       | Hand bounding box       | Roi       |
-| body_kps   | Human body keypoints    | Point     |
+| Category     | Description       | Data Type |
+| -------- | ---------- | -------- |
+| body     | Body bounding box     | Roi      |
+| head     | Head bounding box     | Roi      |
+| face     | Face bounding box     | Roi      |
+| hand     | Hand bounding box     | Roi      |
+| body_kps | Body keypoints | Point    |
 
-The keypoint indices for the human pose estimation algorithm are shown in the following figure:
+Body keypoint algorithm result indices are shown in the figure below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg)
 
+
 Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
 
-Application scenarios: Human detection and tracking is a crucial component of human motion visual analysis, enabling functionalities such as human pose estimation and people counting. It is primarily applied in human-computer interaction, gaming, and entertainment domains.
+Application scenarios: Body detection and tracking is an important part of human motion visual analysis, enabling body pose analysis and people counting. It is mainly used in human-computer interaction, gaming, and entertainment.
 
-Pose detection example: [5.4.3 Pose Detection](../../apps/fall_detection)  
-Robot human-following example: [5.4.4 Robot Human Following](../../apps/car_tracking)  
-Game character control based on human pose and gesture recognition: [Play with X3 Pi—Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+Pose detection example: [Pose Detection](../../04_apps/fall_detection.md)    
+Car body following example: [Car Body Following](../../04_apps/car_tracking.md)  
+Game character control example based on body pose analysis and gesture recognition: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## Supported Platforms
 
-| Platform                          | Execution Environment                                 | Example Features                                                 |
-| --------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------- |
-| RDK X3, RDK X3 Module             | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)            | Launch MIPI/USB camera and display inference results via Web     |
-| RDK X5, RDK X5 Module             | Ubuntu 22.04 (Humble)                                 | Launch MIPI/USB camera and display inference results via Web     |
-| RDK Ultra                         | Ubuntu 20.04 (Foxy)                                   | Launch MIPI/USB camera or local image replay, display via Web    |
-| x86                               | Ubuntu 20.04 (Foxy)                                   | Launch local image replay and display inference results via Web  |
+| Platform                             | Runtime Environment     | Example Functionality                                                 |
+| -------------------------------- | ------------ | -------------------------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| X86                              | Ubuntu 20.04 (Foxy) | Start local feedback and display inference rendering results via Web                |
 
-## Algorithm Details
+## Algorithm Info
 
-| Model      | Platform | Input Size     | Inference FPS |
-| ---------- | -------- | -------------- | ------------- |
-| fastrcnn   | X3       | 1x3x544x960    | 74.96         |
-| fastrcnn   | X5       | 1x3x544x960    | 125.21        |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| fastrcnn | X3 | 1x3x544x960 | 74.96 |
+| fastrcnn | X5 | 1x3x544x960 | 125.21 |
 
-## Prerequisites
-
-### RDK Platform
-
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on RDK.
-3. An MIPI or USB camera has been installed on RDK.
-4. Ensure your PC can access the RDK over the network.
-
-### x86 Platform
-
-1. The x86 environment has been set up with Ubuntu 20.04 system image.
-2. tros.b has been successfully installed in the x86 environment.
-
-## Usage Guide
-
-The human detection and tracking package (`mono2d_body_detection`) subscribes to images published by the sensor package, performs inference, publishes algorithm messages, and renders both the original images and corresponding algorithm results in a web browser on the PC via the websocket package.
+## Preparation
 
 ### RDK Platform
 
-**Publish images using an MIPI camera**
+1. The RDK has been flashed with the Ubuntu system image.
+
+2. TogetheROS.Bot has been successfully installed on the RDK.
+
+3. A MIPI or USB camera has been installed on the RDK.
+
+4. Confirm that the PC can access the RDK over the network.
+
+### X86 Platform
+
+1. The X86 environment has Ubuntu 20.04 system image configured.
+
+2. tros.b has been successfully installed on the X86 environment.
+
+## Usage
+
+The body detection and tracking (mono2d_body_detection) package subscribes to images published by the sensor package. After inference, it publishes algorithm messages, and uses the websocket package to render and display images published by the sensor and corresponding algorithm results in a PC browser.
+
+### RDK Platform
+
+**Publish Images Using MIPI Camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -81,7 +86,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -90,21 +94,21 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
+
 ```shell
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
-**Publish images using a USB camera**
+**Publish Images Using USB Camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -115,7 +119,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -124,21 +127,21 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from the tros.b installation path.
+
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure USB camera
 export CAM_TYPE=usb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
-**Use local image replay**
+**Using Local Feedback Images**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -149,7 +152,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -158,46 +160,43 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# Configure local image replay
+# Configure local feedback image
 export CAM_TYPE=fb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544
 
-# For RDK Ultra platform, specify the replay image explicitly, e.g.:
-# ros2 launch mono2d_body_detection mono2d_body_detection.launch.py picture:=./config/target.jpg
 ```
 
-### x86 Platform
+### X86 Platform
 
-**Use local image replay**
+**Using Local Feedback Images**
 
 ```bash
 # Configure tros.b environment
 source /opt/tros/setup.bash
 
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# Configure local image replay
+# Configure local feedback image
 export CAM_TYPE=fb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
 ## Result Analysis
 
-The following messages are displayed in the terminal upon execution:
+The terminal output during execution is as follows:
 
 ```shell
 [mono2d_body_detection-3] [WARN] [1660219823.214730286] [example]: This is mono2d body det example!
@@ -234,8 +233,8 @@ The following messages are displayed in the terminal upon execution:
 [mono2d_body_detection-3] [WARN] [1660219828.955764872] [mono2d_body_det]: input fps: 30.01, out fps: 30.00
 ```
 
-The output logs indicate that the program runs successfully, with both input and output frame rates of the algorithm reaching approximately 30 fps during inference. The FPS statistics are refreshed once per second.
+The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Open a web browser on your PC and navigate to `http://IP:8000` to view the rendered results, including detection bounding boxes for human bodies, heads, faces, and hands, along with their respective detection types, tracking IDs, and human body keypoints (replace "IP" with the actual IP address of your RDK/X86 device):
+Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

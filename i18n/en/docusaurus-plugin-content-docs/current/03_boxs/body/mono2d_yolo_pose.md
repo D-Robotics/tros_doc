@@ -1,113 +1,192 @@
 ---
 sidebar_position: 7
+sidebar_products: RDK-S100,RDK-S600
 ---
-# Human Detection and Tracking (Ultralytics YOLO Pose)
+# Body Detection and Tracking (Ultralytics YOLO Pose)
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Introduction
 
-This example uses [yolo-pose](https://docs.ultralytics.com/en/tasks/pose/) for human detection and tracking. It subscribes to image topics, performs algorithm inference using the BPU (Brain Processing Unit), publishes messages containing detected human bounding boxes and keypoints, and implements multi-object tracking (MOT) to track the detected bounding boxes.
+This example uses [yolo-pose](https://docs.ultralytics.com/zh/tasks/pose/) for body detection and tracking. It subscribes to images, performs inference on the BPU, and publishes messages containing body bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes.
 
-The supported detection categories and their corresponding data types in the algorithm message are as follows:
+Supported detection categories and their corresponding data types in the algorithm message are as follows:
 
-| Category | Description        | Data Type |
-| -------- | ------------------ | --------- |
-| body     | Human bounding box | Roi       |
-| body_kps | Human keypoints    | Point     |
+| Category     | Description       | Data Type |
+| -------- | ---------- | -------- |
+| body     | Body bounding box     | Roi      |
+| body_kps | Body keypoints | Point    |
 
-The keypoint indices used by the human pose estimation algorithm are shown in the figure below:
+Body keypoint algorithm result indices are shown in the figure below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_yolo_index.jpeg)
 
 
 Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
 
-Application scenarios: Human detection and tracking algorithms are essential components of human motion visual analysis. They enable functionalities such as human pose analysis and people counting, and are primarily applied in human-computer interaction, gaming, and entertainment.
+Application scenarios: Body detection and tracking is an important part of human motion visual analysis, enabling body pose analysis and people counting. It is mainly used in human-computer interaction, gaming, and entertainment.
 
-Pose detection example: [5.4.3. Pose Detection](../../apps/fall_detection)    
-Human-following robot car example: [5.4.4. Robot Car Human Following](../../apps/car_tracking)  
-Game character control based on human pose and gesture recognition: [Play with X3 Pi—Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+Pose detection example: [Pose Detection](../../04_apps/fall_detection.md)    
+Car body following example: [Car Body Following](../../04_apps/car_tracking.md)  
+Game character control example based on body pose analysis and gesture recognition: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## Supported Platforms
 
-| Platform                     | Runtime Environment     | Example Functionality                                           |
-| ---------------------------- | ----------------------- | --------------------------------------------------------------- |
-| RDK S100, RDK S100P          | Ubuntu 22.04 (Humble)   | Launch MIPI/USB camera and display inference results via Web    |
+| Platform                             | Runtime Environment     | Example Functionality                                                 |
+| -------------------------------- | ------------ | -------------------------------------------------------- |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
+| RDK S600 | Ubuntu 24.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
 
-## Algorithm Details
+## Algorithm Info
 
-| Model      | Platform | Input Size     | Inference FPS |
-| ---------- | -------- | -------------- | ------------- |
-| yolo-pose  | S100     | 1x3x640x640    | 68.70         |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| yolov11x-pose | S100 | 1x3x640x640 | 68.70 |
+| yolov11n-pose | S600 | 1x3x640x640 | 1104.91 |
 
-## Prerequisites
-
-### RDK Platform
-
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
-2. TogetherROS.Bot has been successfully installed on the RDK.
-3. An MIPI or USB camera has been installed on the RDK.
-4. Ensure your PC can access the RDK over the network.
-
-## Usage Instructions
-
-The human detection and tracking package (`mono2d_body_detection`) subscribes to images published by the sensor package, performs inference, publishes algorithm messages, and renders both the original images and algorithm results in a web browser on the PC via the websocket package.
+## Preparation
 
 ### RDK Platform
 
-**Publish images using an MIPI camera**
+1. The RDK has been flashed with the RDK OS system.
 
-```shell
+2. TogetheROS.Bot has been successfully installed on the RDK.
+
+3. A MIPI or USB camera has been installed on the RDK.
+
+4. Confirm that the PC can access the RDK over the network.
+
+## Usage
+
+The body detection and tracking (mono2d_body_detection) package subscribes to images published by the sensor package. After inference, it publishes algorithm messages, and uses the websocket package to render and display images published by the sensor and corresponding algorithm results in a PC browser.
+
+### RDK Platform
+
+**Publish Images Using MIPI Camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
-**Publish images using a USB camera**
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
-```shell
-source /opt/tros/humble/setup.bash
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
+
+**Publish Images Using USB Camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
 
 # Configure USB camera
 export CAM_TYPE=usb
 
-# Launch the launch file
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
-**Publish images from local file (image replay)**
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
-```shell
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
+
+**Using Local Feedback Images**
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 
-# Copy required configuration files for the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# Configure local image replay
+# Configure local feedback image
 export CAM_TYPE=fb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
 ```
 
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# Configure local feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+</Tabs>
+
 ## Result Analysis
 
-The terminal outputs the following logs during execution:
+The terminal output during execution is as follows:
 
 ```shell
 [mono2d_body_detection-3] [WARN] [1660219823.214730286] [example]: This is mono2d body det example!
@@ -133,8 +212,8 @@ The terminal outputs the following logs during execution:
 [mono2d_body_detection-3] [WARN] [1660219828.955764872] [mono2d_body_det]: input fps: 30.01, out fps: 30.00
 ```
 
-The logs indicate successful program execution, with both input and output frame rates around 30 FPS, and statistics refreshed once per second.
+The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Open a browser on your PC and navigate to `http://IP:8000` to view the rendered results, including detected human bodies, heads, faces, hands, bounding box types, tracking IDs, and human keypoints (replace `IP` with the actual IP address of your RDK/X86 device):
+Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.png)

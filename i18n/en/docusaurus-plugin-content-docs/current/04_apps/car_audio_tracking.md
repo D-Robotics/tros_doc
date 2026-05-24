@@ -1,50 +1,51 @@
 ---
 sidebar_position: 7
+sidebar_products: RDK-X3,RDK-X5
 ---
 
-# 5.4.7 Voice Tracking to Control Car Movement
+# 5.4.7 Voice Tracking Control for Robot Movement
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Overview
+## Overview
 
-The voice tracking car control feature uses Direction-of-Arrival (DOA) angle information from sound source localization to steer the robot toward the sound source and move it forward. This feature must be used together with the intelligent voice module of the D-Robotics RDK Robot Operating System. After the user utters the wake-up word configured in the intelligent voice recognition module to activate the device, the voice tracking car control function becomes active. Subsequently, whenever the user speaks the wake-up word or a configured command word, the intelligent voice recognition module outputs the DOA angle of the sound source. Upon receiving this DOA angle information, the module controls the robot to turn toward the sound source direction and then move forward by a certain distance.
+The voice tracking control for robot movement feature uses DOA (Direction of Arrival) angle information from sound source localization to control the robot to turn toward the sound source and move forward. This feature must be used together with the intelligent voice module of the D-Robotics RDK robot operating system. After the user speaks the wake word configured in the intelligent voice recognition module to wake the device, the voice tracking control feature is activated. Subsequently, when the user speaks the wake word or configured command words, the intelligent voice recognition module outputs the DOA angle of the sound source. After receiving the DOA angle information, this module controls the robot to turn toward the sound source and move forward a certain distance.
 
-The workflow is illustrated below:
+The workflow is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
 
-This application example uses a simulated robot car in the Gazebo simulation environment on a PC. The published control commands can also be directly applied to control a physical robot car.
+The App uses a virtual robot in the PC-side Gazebo simulation environment as an example. The published control commands can also be used directly to control a physical robot.
 
-The DOA angle information output by the intelligent voice module is measured in degrees and supports both linear and circular microphone arrays. For linear microphone arrays, the angle range is 0° to 180°, while for circular microphone arrays, the range is 0° to 360°. The angular reference frame is highly dependent on the physical installation position of the microphone array. The actual angle diagrams are shown below:
+The DOA angle information for sound source localization output by the intelligent voice feature is in degrees. Both linear and circular microphone arrays are supported. For linear microphone arrays, the angle range is 0 to 180 degrees; for circular microphone arrays, the angle range is 0 to 360 degrees. The relative position of microphone angles is strongly related to the microphone installation position. The actual angle diagram is shown below:
 
-Linear Microphone Array:
+Linear microphone:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
 
-Circular Microphone Array:
+Circular microphone:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
 
-Code Repository: (https://github.com/D-Robotics/audio_tracking.git)
+Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
 ## Supported Platforms
 
-| Platform          | Runtime Environment                         | Example Functionality                                                                 |
-| ----------------- | ------------------------------------------- | ------------------------------------------------------------------------------------- |
-| RDK X3            | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Launch the intelligent voice module to parse speech and perform voice tracking, visualized via Gazebo |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)                    | Launch the intelligent voice module to parse speech and perform voice tracking, visualized via Gazebo |
+| Platform    | Runtime Environment      | Example Functionality                       |
+| ------- | ------------ | ------------------------------ |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the intelligent voice module to parse voice information and perform voice tracking, displaying tracking results via Gazebo |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the intelligent voice module to parse voice information and perform voice tracking, displaying tracking results via Gazebo |
 
-**Note: Only RDK X3 is supported; RDK X3 Module is not currently supported.**
+**Note: Only RDK X3 is supported. RDK X3 Module is not supported yet.**
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
@@ -69,19 +70,20 @@ Code Repository: (https://github.com/D-Robotics/audio_tracking.git)
    </TabItem>
    </Tabs>
 
+
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, please refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve failures or errors when running apt update?`**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
-5. A compatible audio board has been properly connected to the RDK (refer to the [Intelligent Voice chapter](../03_boxs/audio/hobot_audio.md)).
+5. A compatible audio board has been connected to the RDK (refer to the [Intelligent Voice section](../03_boxs/audio/hobot_audio.md)).
 
-6. A PC on the same network segment as the RDK (either via wired connection or the same Wi-Fi network; the first three segments of the IP address must match). The following software must be installed on the PC:
+6. A PC on the same network as the RDK (wired or on the same Wi-Fi, with the first three octets of the IP address matching). The PC requires the following environment:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04 system and [ROS2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3-related packages. Installation commands:
+   - Ubuntu 20.04 and [ROS2 Foxy desktop edition](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - Gazebo and Turtlebot3 related packages. Installation:
 
     ```shell
     sudo apt-get install ros-foxy-gazebo-*
@@ -92,8 +94,8 @@ Code Repository: (https://github.com/D-Robotics/audio_tracking.git)
  </TabItem>
  <TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04 system and [ROS2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3-related packages. Installation commands:
+   - Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - Gazebo and Turtlebot3 related packages. Installation:
 
     ```shell
     sudo apt-get install ros-humble-gazebo-*
@@ -104,11 +106,11 @@ Code Repository: (https://github.com/D-Robotics/audio_tracking.git)
  </TabItem>
  </Tabs>
 
-## Usage Instructions
+## Usage
 
 ### RDK Platform
 
-After launching the voice tracking feature, the voice tracking control module receives intelligent voice messages published by the intelligent voice module, parses them, and issues commands to rotate the car toward the specified direction based on wake-up events and DOA angle information in the message. Once the car has turned to the target angle, it moves forward by a fixed distance (by default, 0.2 meters).
+After running the voice tracking feature, the voice tracking control module receives intelligent voice message results published by the intelligent voice feature module, parses the messages, and publishes control commands to turn the robot a specific angle based on the wake event and DOA angle information in the messages. After the robot turns to the specific angle, it continues to move forward a certain distance (this module defaults to controlling the robot to move forward 0.2 meters).
 
 Start the simulation environment on the PC:
 
@@ -134,75 +136,73 @@ export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
-After successful launch, the simulated robot car appears as follows:
+After successful startup, the robot in the simulation environment appears as follows:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
-Launch the program on the RDK platform:
+Start the program on the RDK platform:
 
-1. Copy audio configuration files and load the audio driver
+1. Copy the audio configuration file and load the audio driver
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Set up the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # Set up the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+
+</TabItem>
+</Tabs>
 
     ```shell
-    # Copy required configuration files for the example from the tros.b installation path.
+    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
     cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
     ```
 
-2. Verify the microphone device
+2. Confirm the microphone device
 
-    The microphone device ID is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default value is "hw:0,0", which refers to Card 0, Device 0. You can check available devices using the command `ls /dev/snd`, e.g., "pcmC0D1c"; the trailing 'c' indicates a capture device, C0 means Card 0, and D1 means Device 1. In this case, you would set the parameter to "hw:0,1".
+    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd`, for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
 
-3. Launch the program
+3. Start the program
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Set up the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
-    </TabItem>
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    <TabItem value="humble" label="Humble">
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
-    ```bash
-    # Set up the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
 
-    </TabItem>
-
-    </Tabs>
+</TabItem>
+</Tabs>
 
     ```shell
-    # Launch the launch file and specify the DOA angle corresponding to the front direction of the car (e.g., 90 degrees)
+    # 启动launch文件，并指定小车正前方对应的语音DOA角度，以90为例
     ros2 launch audio_tracking audio_tracking.launch.py car_front_audio_angle:=90
     ```
-    
+
 ## Result Analysis
 
-The following information is the output of the RDK running on the terminal:
-
-
+The RDK terminal outputs the following information:
 
 ```text
 
@@ -211,12 +211,12 @@ The following information is the output of the RDK running on the terminal:
 ============================================
         audio tracking usage
 
-Wake up device is "D-Robotics Hello".
-Audio control command word definitions are:
-        "Go forward"
-        "Go backward"
-        "Turn right"
-        "Turn left" 
+Wake up device is "D-Robotics 你好".
+Audio control commnad word definitions are:
+        "向前走"
+        "向后退"
+        "向右转"
+        "向左转" 
 When you say the wake word, the car turns toward you 
 Let's start the experience
 ============================================
@@ -246,19 +246,19 @@ rotate_step: 0.348
 [WARN] [1663149823.377099758] [audio_tracking]: cancel move
 ```
 
-The above logs capture a segment of the output after the audio control package is launched. The log shows that the wake-up word configured for the intelligent voice recognition module is "D-Robotics Hello". After receiving the wake-up event, the audio tracking control module receives DOA angle information. As shown in the log above, the DOA is 80 degrees. At this time, the audio tracking control module publishes a command to make the car turn left by 20 degrees. After the rotation, the car moves forward, and later the car stops moving.
+The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured in the intelligent voice recognition module is "D-Robotics 你好". After the voice tracking control module receives a wake event, it receives DOA angle information. As shown in the log, the DOA is 80 degrees. At this point, the voice tracking control module publishes a command to turn the robot left 20 degrees, then controls the robot to move forward, and finally stops the robot.
 
-On the PC, you can use the `ros2 topic list` command in the terminal to query the topic information of the RDK.
+Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 
 ```shell
-ros2 topic list
+$ ros2 topic list
 /audio_smart
 /cmd_vel
 ```
 
-The topic "/audio_smart" is the algorithm perception message published, which contains intelligent voice results. The topic "/cmd_vel" is the motion control command published by RDK.
+`/audio_smart` is the algorithm perception message published by X3 containing intelligent voice results. `/cmd_vel` is the motion control command published by the RDK.
 
-On the PC, the command "ros2 topic echo /cmd_vel" can be used in the terminal to view the motion control command published by RDK:
+Use the `ros2 topic echo /cmd_vel` command on the PC terminal to view motion control commands published by the RDK:
 
 ```text
 linear:
@@ -308,8 +308,8 @@ angular:
 ---
 ```
 
-In the PC-side simulation environment, the car’s movement controlled by audio tracking performs as follows:
+Voice tracking control for robot movement in the PC simulation environment is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
 
-In the image above, the left side shows the simulated car rotating according to the sound source localization angle, while the right side displays the program’s output log, which includes DOA angle information.
+The left side of the image above shows the simulation robot turning according to the sound source localization angle. The right side shows the program output log, which includes DOA angle information.

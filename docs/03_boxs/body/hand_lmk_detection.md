@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 人手关键点检测
 
@@ -30,8 +31,6 @@ import TabItem from '@theme/TabItem';
 | -------------------------------- | ------------ | ----------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头，并通过web展示推理渲染结果 |
-
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
@@ -43,7 +42,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -93,7 +92,6 @@ ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 
 **使用USB摄像头发布图片**
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -103,7 +101,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -112,7 +109,6 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell

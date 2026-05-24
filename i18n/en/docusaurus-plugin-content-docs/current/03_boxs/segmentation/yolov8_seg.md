@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X5,RDK-S100
 ---
 # Ultralytics YOLOv8-Seg
 
@@ -8,125 +9,147 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-The Ultralytics YOLOv8-Seg instance segmentation algorithm example takes images as input, performs inference using the BPU, and publishes messages containing both detection and segmentation results.
+The Ultralytics YOLOv8-Seg instance segmentation example uses images as input, runs inference on the BPU, and publishes messages containing detection and segmentation results.
 
-YOLOv8-Seg is an ONNX model trained on the [COCO128-seg dataset](http://cocodataset.org/). Model source: https://github.com/D-Robotics/hobot_model.  
-It supports instance segmentation for a total of 80 categories, including people, animals, fruits, vehicles, etc.
+YOLOv8-Seg is an ONNX model trained on the [COCO128-seg dataset](http://cocodataset.org/). Model source: https://github.com/D-Robotics/hobot_model.
+It supports instance segmentation of 80 categories including people, animals, fruits, and vehicles.
 
 Code repository: https://github.com/D-Robotics/hobot_dnn
 
-Application scenarios: YOLOv8-Seg can identify individual objects in images and precisely segment them. This technology can be applied in fields such as autonomous driving, remote sensing image analysis, and medical image analysis.
+Application scenarios: YOLOv8-Seg can identify individual objects in an image and perform precise segmentation. This technology can be applied in autonomous driving, remote sensing image analysis, medical image analysis, and other fields.
 
 
 ## Supported Platforms
 
-| Platform                | Runtime Environment     | Example Features                                      |
-| ----------------------- | ----------------------- | ----------------------------------------------------- |
-| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)   | · Launch MIPI/USB camera or local image playback; rendered results saved locally |
-| RDK S100, RDK S100P     | Ubuntu 22.04 (Humble)   | · Launch MIPI/USB camera or local image playback; rendered results saved locally |
+| Platform    | Runtime      | Example Features                       |
+| ------- | ------------ | ------------------------------ |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image playback; save rendered results locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image playback; save rendered results locally |
 
-## Algorithm Details
+## Algorithm Information
 
-| Model         | Platform | Input Size      | Inference FPS |
-| ------------- | -------- | --------------- | ------------- |
-| yolov8n_seg   | X5       | 1x3x640x640     | 126.64        |
-| yolov8n_seg   | S100     | 1x3x640x640     | 443.39        |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| yolov8n_seg | X5 | 1x3x640x640 | 126.64 |
+| yolov8n_seg | S100 | 1x3x640x640 | 443.39 |
 
-## Prerequisites
-
-### RDK Platform
-
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
-
-2. TogetherROS.Bot has been successfully installed on the RDK.
-
-3. An MIPI or USB camera is installed on the RDK. If no camera is available, you can evaluate the algorithm by replaying local JPEG/PNG images.
-
-
-## Usage Guide
+## Preparation
 
 ### RDK Platform
 
-#### Publishing Images from Camera
+1. RDK has been flashed with the Ubuntu system image.
 
-##### Using MIPI Camera
+2. TogetheROS.Bot has been successfully installed on RDK.
 
-The YOLOv8-Seg instance segmentation example subscribes to images published by the sensor package, performs inference, and then publishes algorithm messages. By default, rendered images are not saved. To enable saving, set `dnn_example_dump_render_img` to `1` at runtime. Rendered images will then be automatically saved in the current working directory with filenames formatted as `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg`.
+3. A MIPI or USB camera has been installed on RDK. If no camera is available, you can experience the algorithm by playing back local JPEG/PNG images.
+
+
+## Usage
+
+### RDK Platform
+
+#### Publish Images Using a Camera
+
+##### Publish Images Using a MIPI Camera
+
+The YOLOv8-Seg instance segmentation example subscribes to images published by the sensor package and publishes algorithm messages after inference. Rendered images are not saved by default. To save them, set `dnn_example_dump_render_img` to 1 at runtime. Rendered images will be automatically saved in the runtime directory with filenames in the format `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg`.
 
 <Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure TogetherROS.Bot environment
-source /opt/tros/humble/setup.bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
 ```
 
 </TabItem>
+<TabItem value="humble" label="Humble">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
 </Tabs>
 
+
 ```shell
-# Configure MIPI camera
+# 配置MIPI摄像头
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=0 dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-##### Using USB Camera
+##### Publish Images Using a USB Camera
 
 <Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure TogetherROS.Bot environment
-source /opt/tros/humble/setup.bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
 ```
 
 </TabItem>
+<TabItem value="humble" label="Humble">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
 </Tabs>
 
 ```shell
-# Configure USB camera
+# 配置USB摄像头
 export CAM_TYPE=usb
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=0 dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
 #### Local Image Playback
 
-The YOLOv8-Seg segmentation example uses local JPEG/PNG images for playback. After inference, the rendered results are saved to the current working directory.
+The YOLOv8-Seg segmentation example uses local JPEG/PNG images for playback. After inference, rendered images with algorithm results are saved in the local runtime directory.
 
 <Tabs groupId="tros-distro">
-
-<TabItem value="humble" label="Humble">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure TogetherROS.Bot environment
-source /opt/tros/humble/setup.bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
 ```
 
 </TabItem>
+<TabItem value="humble" label="Humble">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
 </Tabs>
 
 
 ```shell
-# Launch the launch file
+# 启动launch文件
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov8segworkconfig.json dnn_example_image:=config/test.jpg
 ```
 
 ## Result Analysis
 
-### Using Camera to Publish Images
+### Publish Images Using a Camera
 
-The terminal output during execution is as follows:
+The terminal outputs the following information during runtime:
 
 ```shell
 [example-3] [WARN] [0000001244.489045384] [example]: Sub img fps: -1.00, Smart fps: 6.00, infer time ms: 12, post process time ms: 31
@@ -139,17 +162,17 @@ The terminal output during execution is as follows:
 [example-3] [WARN] [0000001251.528909346] [example]: Sub img fps: 4.98, Smart fps: 5.00, infer time ms: 8, post process time ms: 67
 ```
 
-The log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the subscribed image topic is `/hbmem_img`. The image publishing frame rate adapts automatically based on the algorithm’s inference output frame rate. Additionally, instance segmentation results are rendered and saved locally on the RDK, which reduces the overall frame rate.
+The log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the topic subscribing to images is `/hbmem_img`. The image publishing frame rate adapts according to the algorithm inference output frame rate. In addition, instance segmentation results are rendered and saved as images on RDK, which reduces the frame rate.
 
-Original image:  
+Original image:
 ![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
 
-Rendered image:  
+Rendered image:
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg)
 
-### Using Local Image Playback
+### Local Image Playback
 
-The terminal output during execution is as follows:
+The terminal outputs the following information during runtime:
 
 ```shell
 [INFO] [0000001744.811779665] [example]: Dnn node feed with local image: /userdata/config/test.jpg
@@ -180,6 +203,6 @@ The terminal output during execution is as follows:
 [WARN] [0000001746.276824624] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The log indicates that the algorithm performed inference on the input image `config/test.jpg`, and the rendered result was saved as `render_feedback_0_0.jpeg`. The rendered image appears as follows:
+The log shows that the algorithm uses the input image `config/test.jpeg` for inference, and the saved rendered image file is named `render_feedback_0_0.jpeg`. The rendered image effect is shown below:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg)

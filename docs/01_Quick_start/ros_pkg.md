@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 前提：已成功安装TogetheROS.Bot
 
-tros.b和ROS2 Foxy/Humble版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
+tros.b和ROS2 Foxy/Humble/Jazzy版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
 
 ## 安装ROS2 package
 
@@ -26,7 +26,7 @@ sudo apt update
 ```
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 ### 2 安装packages
@@ -45,6 +45,14 @@ sudo apt install ros-foxy-image-transport-plugins
 ```bash
 sudo apt install ros-humble-image-transport
 sudo apt install ros-humble-image-transport-plugins
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt install ros-jazzy-image-transport
+sudo apt install ros-jazzy-image-transport-plugins
 ```
 
 </TabItem>
@@ -67,6 +75,14 @@ ros2 run image_transport list_transports
 
 ```bash
 source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
 ros2 run image_transport list_transports
 ```
 

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X3,RDK-X5
 ---
 # Hand Keypoint Detection
 
@@ -8,51 +9,52 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Introduction
 
-The hand keypoint detection algorithm subscribes to image data and smart messages containing hand bounding box information, performs inference using the BPU, and publishes algorithm messages containing detected hand keypoints.
+The hand keypoint detection example subscribes to images and smart messages containing hand bounding boxes, performs inference on the BPU, and publishes algorithm messages containing hand keypoint information.
 
 Hand keypoint indices are shown in the figure below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
 
-Code repositories:
+Code repository:
 
  (https://github.com/D-Robotics/hand_lmk_detection)
 
  (https://github.com/D-Robotics/mono2d_body_detection)
 
-Application scenarios: The hand keypoint detection algorithm is primarily used to capture skeletal keypoints of the human hand, enabling functionalities such as custom gesture recognition. It is mainly applied in fields like smart homes, virtual reality, and gaming/entertainment.
+Application scenarios: Hand keypoint detection is mainly used to capture skeletal keypoints of the human hand, enabling custom gesture recognition and other features. It is widely used in smart home, virtual reality, gaming, and entertainment.
 
 ## Supported Platforms
 
 | Platform                             | Runtime Environment     | Example Functionality                                        |
 | -------------------------------- | ------------ | ----------------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch MIPI/USB camera and display inference results via web browser |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Launch MIPI/USB camera and display inference results via web browser |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | Launch MIPI/USB camera and display inference results via web browser |
-
-## Algorithm Specifications
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+## Algorithm Info
 
 | Model | Platform | Input Size | Inference FPS |
 | ---- | ---- | ------------ | ---- |
 | handLMKs | X3 | 8x21 | 806 |
 | handLMKs | X5 | 8x21 | 948 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on RDK.
-3. An MIPI or USB camera has been installed on RDK.
-4. Ensure your PC can access the RDK over the network.
+1. The RDK has been flashed with the Ubuntu system image.
 
-## Usage Instructions
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-The hand keypoint detection (`hand_lmk_detection`) package subscribes to images published by the sensor package and hand bounding boxes published by the human detection and tracking package. After inference, it publishes algorithm messages, which are rendered and displayed in a web browser on the PC via the websocket package.
+3. A MIPI or USB camera has been installed on the RDK.
 
-**Publishing Images Using an MIPI Camera**
+4. Confirm that the PC can access the RDK over the network.
+
+## Usage
+
+The hand keypoint detection (hand_lmk_detection) package subscribes to images published by the sensor package and hand bounding box detection results published by the body detection and tracking package. After inference, it publishes algorithm messages, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
+
+**Publish Images Using MIPI Camera**
 
 
 <Tabs groupId="tros-distro">
@@ -77,19 +79,18 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# Launch launch file
 ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 ```
 
-**Publishing Images Using a USB Camera**
-
+**Publish Images Using USB Camera**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -100,7 +101,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -109,24 +109,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 
 # Configure USB camera
 export CAM_TYPE=usb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 ```
 
 ## Result Analysis
 
-The following output appears in the terminal during execution:
+The terminal output during execution is as follows:
 
 ```shell
 [mono2d_body_detection-3] (MOTMethod.cpp:39): MOTMethod::Init config/iou2_euclid_method_param.json
@@ -153,8 +152,8 @@ The following output appears in the terminal during execution:
 [hand_lmk_detection-4] [WARN] [1660269068.679036184] [hand_lmk_det]: input fps: 30.04, out fps: 30.04
 ```
 
-The log output indicates successful program execution. The algorithm processes input and outputs at approximately 30 FPS, with FPS statistics refreshed once per second.
+The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Enter `http://IP:8000` in your PC's web browser to view the rendered images and algorithm results (replace "IP" with the RDK's actual IP address):
+Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)

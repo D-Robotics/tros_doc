@@ -8,6 +8,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkDirective from "remark-directive";
 import remarkDocScope from "./src/remark/remark-doc-scope.js";
 import remarkGenerateSidebarConfig from "./src/remark/remark-generate-sidebar-config.js";
+import rehypeWrapTables from "./src/rehype/rehype-wrap-tables.js";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -18,12 +19,12 @@ const config = {
   url: "https://liqinglian01.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/tros_x_doc/",
+  baseUrl: "/tros_doc/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "liqinglian01", // Usually your GitHub org/user name.
-  projectName: "tros_x_doc", // Usually your repo name.
+  projectName: "tros_doc", // Usually your repo name.
 
   // onBrokenLinks: 'throw',
 
@@ -38,7 +39,20 @@ const config = {
             version: process.env.DOC_BUILD_VERSION.trim(),
           }
         : null,
-  },
+
+    feedbackFloat: {
+      enabled: true,
+      questionnaireUrl: "https://horizonrobotics.feishu.cn/wiki/EZs4w6IxMixCDbklSuvcYHhtnaf",
+      questionnaireUrlByLocale: {
+        "zh-Hans": "https://horizonrobotics.feishu.cn/wiki/EZs4w6IxMixCDbklSuvcYHhtnaf?table=tblIRpryehWqWy88&view=vewEkEvyTe",
+        en: "https://horizonrobotics.feishu.cn/wiki/EZs4w6IxMixCDbklSuvcYHhtnaf?table=tbl3YxZ2U4e0vkX5&view=vewEkEvyTe",
+      },
+      // 站点内路径规则（基于 baseUrl 之后的路径）：
+      // - "/*" 匹配全部页面（中英文均生效）
+      showOnPathRules: ["/*"],
+      hideOnPathRules: [],
+    },
+},
 
   //add vy xgs for analysis
   scripts: [
@@ -48,15 +62,25 @@ const config = {
     },
     // Dify Chatbot Configuration
     {
-      src: "/rdk_doc/js/dify-config.js",
+      src: "/tros_doc/js/dify-config.js",
     },
     {
       src: "https://rdk.d-robotics.cc/embed.min.js",
-      id: "MltLQTHPb5EeP7uz",
+      id: "rJYrxmxmjOkjEx2c",
       defer: true,
     },
   ],
 
+  headTags: [
+    {
+      tagName: "script",
+      attributes: {
+        defer: "defer",
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "fbd84605-92b5-43f6-aa3e-4861b62ea8df",
+      },
+    },
+  ],
   // add by xgs for translate
   i18n: {
     defaultLocale: "zh-Hans",
@@ -85,6 +109,7 @@ const config = {
             remarkDocScope,
             remarkGenerateSidebarConfig,
           ],
+          rehypePlugins: [rehypeWrapTables],
         },
         blog: { showReadingTime: true },
         pages: { exclude: ["/imager/**", "**/dl/**"] },
@@ -213,20 +238,15 @@ const config = {
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        // 性能优化
-        hashed: true, // 启用长期缓存
-        language: ["en", "zh"], // 中英文支持
+        hashed: true,
+        language: ["en", "zh"],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
-        docsRouteBasePath: ["/", "rdk_s"], // 支持多个文档路径
-        
-        // 优化索引大小和加载速度
+        docsRouteBasePath: ["/", "rdk_s"],
         indexDocs: true,
-        indexBlog: false, // 禁用博客索引
-        indexPages: false, // 禁用页面索引
-        
-        // 搜索行为优化
-        searchResultContextMaxLength: 50, // 减少上下文长度
+        indexBlog: false,
+        indexPages: false,
+        searchResultContextMaxLength: 50,
       },
     ],
   ],

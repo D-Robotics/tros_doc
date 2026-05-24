@@ -1,7 +1,8 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X5,RDK-S100
 ---
-# Text-to-Image Feature Retrieval
+# Text-Image Feature Retrieval
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -9,48 +10,49 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Feature Introduction
+## Overview
 
-[CLIP](https://github.com/openai/CLIP/) is a multimodal machine learning model proposed by OpenAI. By performing contrastive learning on large-scale image-text pairs, this model can simultaneously process images and text, mapping them into a shared vector space. This example demonstrates using CLIP on the RDK platform for image management and text-based image retrieval.
+[CLIP](https://github.com/openai/CLIP/) is a multimodal machine learning model proposed by OpenAI. Through contrastive learning on large-scale image-text pairs, the model can process both images and text simultaneously and map them into a shared vector space. This example demonstrates using CLIP on the RDK platform for image management and text-to-image search.
 
 Code repository: (https://github.com/D-Robotics/hobot_clip.git)
 
-Application scenarios: Leveraging CLIP's image feature extractor for image management, enabling cross-modal search (text-to-image), as well as image-to-image retrieval.
+Application scenario: Use the CLIP image feature extractor to manage images and perform text-to-image search, image-to-image search, and more.
 
-## Project Structure
+## Project Components
 
-The project consists of several nodes:
+The project contains several nodes:
 
 - [clip_encode_image](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_encode_image): Edge-side image encoder inference node, supporting two modes:
-  - Local mode: Supports loopback input and outputs encoded image features.
-  - Service mode: Based on ROS Action Server, allows client nodes to send inference requests and returns computed image encoding features.
+  - Local mode: Supports feedback input and outputs image encoding features.
+  - Service mode: Based on ROS Action Server, supports client nodes sending inference requests and returns computed image encoding features.
 - [clip_encode_text](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_encode_text): Edge-side text encoder inference node, supporting two modes:
-  - Local mode: Supports loopback input and outputs encoded text features.
-  - Service mode: Based on ROS Action Server, allows client nodes to send inference requests and returns computed text encoding features.
-- [clip_manage](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_manage): CLIP relay node responsible for sending/receiving data, supporting two modes:
-  - Indexing mode: Sends encoding requests to the image encoder node `clip_encode_image`, retrieves image features from a target folder, and stores these features in a local SQLite database.
-  - Retrieval mode: Sends encoding requests to the text encoder node `clip_encode_text` to obtain text features, then matches these against stored image features in the database to produce retrieval results.
-- [clip_msgs](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_msgs): Topic messages and Action Server control messages used within the CLIP system.
+  - Local mode: Supports feedback input and outputs text encoding features.
+  - Service mode: Based on ROS Action Server, supports client nodes sending inference requests and returns computed text encoding features.
+- [clip_manage](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_manage): CLIP relay node responsible for sending and receiving, supporting two modes:
+  - Indexing mode: Sends encoding requests to the image encoding node clip_encode_image, obtains image encoding features from the target folder, and stores image encoding features in a local SQLite database.
+  - Retrieval mode: Sends encoding requests to the text encoding node clip_encode_text to obtain target text encoding features. Then matches text features with database image features to obtain matching results.
+- [clip_msgs](https://github.com/D-Robotics/hobot_clip/tree/develop/clip_msgs): Topic messages for the CLIP system and action server control messages.
 
 ## Supported Platforms
 
-| Platform              | Runtime Environment     | Example Features                                                     |
-| --------------------- | ------------------------ | -------------------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)    | · Launch CLIP indexing/retrieval; indexing results saved locally / retrieval results displayed via Web |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)    | · Launch CLIP indexing/retrieval; indexing results saved locally / retrieval results displayed via Web |
+| Platform                  | Runtime Environment     | Example Functionality                                                     |
+| --------------------- | ------------ | ------------------------------------------------------------ |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start CLIP indexing/retrieval, save indexing results locally/display retrieval results on web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start CLIP indexing/retrieval, save indexing results locally/display retrieval results on web |
 
-## Algorithm Details
+## Algorithm Information
 
-| Model                | Platform | Input Size      | Inference FPS |
-| -------------------- | -------- | --------------- | ------------- |
-| clip image encoder   | X5       | 1x3x224x224     | 4.6           |
-| clip image encoder   | S100     | 1x3x224x224     | 166.92        |
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ------------ | ---- |
+| clip image encoder | X5 | 1x3x224x224 | 4.6 |
+| clip image encoder | S100 | 1x3x224x224 | 166.92 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK device has been flashed with the Ubuntu 22.04 system image.
+1. RDK has been flashed with RDK OS.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
 ### Dependency Installation
@@ -64,82 +66,87 @@ pip3 install regex
 
 ### Model Download
 ```shell
-# Download required model files for the example from the web.
+# 从Web端下载运行示例需要的模型文件。
 wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
 sudo tar -xf text_encoder.tar.gz -C config
 ```
 
-## Usage Guide
+## Usage
 
 ### RDK Platform
 
-**Mode 1: Indexing**
+**Mode 1 Indexing**
 
-Set `clip_mode` to `"0"` to index all images under the `/root/config` directory into the `clip.db` database.
+Set clip_mode to "0" to index image files in the "/root/config" directory and store them in the "clip.db" database.
 
-(Users may customize the image folder path `clip_storage_folder` and database filename `clip_db_file` as needed; absolute paths are recommended.)
+(Users can change the image folder path clip_storage_folder and database name clip_db_file as needed. Absolute paths are recommended.)
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
+
 
 ```shell
-# Configure ROS2 environment
+# 配置ROS2环境
 source /opt/tros/humble/setup.bash
 
-# Copy required configuration files from the tros.b installation path.
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```shell
-# Configure ROS2 environment
+# 配置ROS2环境
 source /opt/tros/humble/setup.bash
 
-# Copy required configuration files from the tros.b installation path.
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
 </DocScope>
 
-**Mode 2: Retrieval**
 
-Set `clip_mode` to `"1"` to perform text-based retrieval on the image database `clip.db` using the query text `"a diagram"`. Retrieval results will be saved under the `result` directory.
 
-(Users may customize the database filename `clip_db_file`, query text `clip_text`, and result output path `clip_result_folder` as needed.)
+**Mode 2 Retrieval**
 
-<DocScope products="RDK X5">
+Set clip_mode to "1" to search the image database clip.db with the text "a diagram". Retrieval results are saved in the result directory.
+
+(Users can change the database name clip_db_file, search text clip_text, and retrieval result path clip_result_folder as needed.)
+
+<DocScope products="RDK-X5">
+
 
 ```shell
-# Configure ROS2 environment
+# 配置ROS2环境
 source /opt/tros/humble/setup.bash
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```shell
-# Configure ROS2 environment
+# 配置ROS2环境
 source /opt/tros/humble/setup.bash
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
+
 </DocScope>
 
-**Visualizing Retrieval Results**
+**Retrieval Result Visualization**
 
-Open another terminal: Start a web server to view retrieval results. Ensure that `index.html` and the `result` folder are located in the same directory.
+Open another terminal: start the web service to view retrieval results. Ensure index.html and the retrieval result folder result are at the same level.
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_manage/config/index.html .
@@ -148,9 +155,9 @@ python -m http.server 8080
 
 ## Result Analysis
 
-**Mode 1: Indexing**
+**Mode 1 Indexing**
 
-Successful indexing terminal log:
+Terminal log on successful indexing:
 
 ```shell
 [clip_manage-3] [WARN] [0000434374.492834334] [image_action_client]: Action client recved goal
@@ -165,9 +172,9 @@ Successful indexing terminal log:
 [clip_manage-3] [WARN] [0000434381.704934504] [ClipNode]: Storage finish, current num of database: 7.
 ```
 
-**Mode 2: Retrieval**
+**Mode 2 Retrieval**
 
-Successful retrieval terminal log:
+Terminal log on successful retrieval:
 ```shell
 [clip_manage-3] [WARN] [0000435148.509009119] [ClipNode]: Query start, num of database: 7.
 [clip_manage-3] [WARN] [0000435148.509820786] [ClipNode]: Query finished! Cost 1 ms.
@@ -182,10 +189,10 @@ Successful retrieval terminal log:
 [clip_manage-3] [WARN] [0000435148.584450703] [text_action_client]: Get Result errorcode: 0
 ```
 
-**Visualizing Retrieval Results**
+**Retrieval Result Visualization**
 
-Enter `http://IP:8080` in a browser on your PC to view image retrieval results (replace `IP` with the device’s IP address).
+Enter http://IP:8080 in a PC browser to view image retrieval results (IP is the device IP address).
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
 
-Result analysis: The retrieved images are ranked in descending order of similarity to the query text. Only `CLIP.png` is provided by this example; all other images come from the user’s actual `config` directory. Therefore, only the first image in the visualization is expected to match the example exactly.
+Result analysis: You can see retrieval results ordered by similarity between the search text and images. Only the CLIP.png image is provided in this example; other images are from the user's actual config directory. Therefore, only the first image in the expected visualization result should match the example.

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 单目高程网络检测
 
@@ -35,7 +36,7 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -54,35 +55,30 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
-
-# 启动launch文件
-ros2 launch elevation_net elevation_net.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# 配置ROS2环境
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+
+</TabItem>
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 
 # 启动launch文件
 ros2 launch elevation_net elevation_net.launch.py
 ```
-
-</TabItem>
-
-</Tabs>
 
 ### X86平台
 

@@ -1,7 +1,8 @@
 ---
 sidebar_position: 2
 ---
-# 5.1.2 apt installation and upgrade
+
+# 5.1.2 apt Installation and Upgrade
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -9,52 +10,70 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-This section describes how to install TogetheROS.Bot using `apt` on both RDK and X86 platforms.
+This section introduces how to install TogetheROS.Bot using apt on RDK and X86 platforms.
 
 ## RDK Platform
 
-Prerequisites:
+Prerequisites
 
-- Completed the steps in the [Environment Preparation](./preparation.md) section
-- Ubuntu OS is already installed on the RDK
-- The RDK has normal internet access
-- The RDK supports remote SSH access
+- Completed the work in [5.1.1 Environment Preparation](./preparation.md)
+- Ubuntu system is installed on RDK
+- RDK can access the internet normally
+- RDK supports remote ssh
 
-:::info 📋 Confirm System Version and Download
+<DocScope products="RDK X3,RDK X5">
 
-Before installing TogetheROS, confirm your system version and download the latest image. For system image downloads, refer to: [Download Resources Summary](../../01_Quick_start/download.md)
+:::info 📋 System Version Confirmation and Download
+
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://liqinglian01.github.io/rdk_x_doc1/Quick_start/download)
 
 :::
 
+</DocScope>
 
-<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
+<DocScope products="RDK S100,RDK S600">
 
-**Note for RDK X3 platform users:**
 
-:::caution Attention
-- **tros.b version 2.x only supports system images of version 2.x; [tros.b version 1.x](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports system version 1.x.**
-- **If you are using a system image of version 1.x, you must [upgrade your system](./preparation) to version 2.x.**
-- **For instructions on checking system and tros.b versions and further details, please see the [FAQs](../../08_FAQ/03_applications_and_examples.md).**
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://liqinglian01.github.io/rdk_s_doc/Quick_start/download)
+
 :::
 
-| Dependency        | tros.b 1.x | tros.b 2.x |
-| ------------------| ---------- | ---------- |
-| System Image 1.x  |      √     |      x     |
-| System Image 2.x  |      x     |      √     |
+</DocScope>
+
+<DocScope products="RDK X3">
+
+
+Please note for RDK X3 platform:
+
+:::caution Note
+- **2.x version tros.b only supports 2.x version system images. [1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports 1.x version systems.**
+- **If you are using a 1.x version system image, you need to upgrade from [1.1 Environment Preparation](./preparation.md) to 2.x version.**
+- **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://liqinglian01.github.io/rdk_x_doc1/FAQ/applications_and_examples).**
+:::
+
+
+</DocScope>
+
+<DocScope products="RDK X3,RDK X5">
+
+| Dependency    | 1.x tros.b  | 2.x tros.b |
+| -----------| ------------| ------------|
+| 1.x System Image |       √     |       x     |
+| 2.x System Image |       x     |       √     |
 
 </DocScope>
 
 ### Installing tros.b
 
-**Note: The RDK IP used here is 10.64.61.241. Replace it with your actual RDK IP during installation.**
+**Note: The RDK IP used here is 10.64.61.241. Replace with your own RDK IP during installation.**
 
-Log into the RDK:
+Log in to RDK:
 
 ```shell
 ssh root@10.64.61.241
 ```
 
-Install the tros.b package:
+Install tros.b package:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -73,44 +92,52 @@ sudo apt install tros-humble
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install tros-jazzy
+```
+
+</TabItem>
 </Tabs>
 
-:::caution **Attention**
-- **If the `sudo apt update` command fails or returns an error, refer to the [FAQ](../../08_FAQ/01_hardware_and_system.md) section titled `Q10: How to resolve failures or errors when running apt update?`**
-- **If after running the installation command you receive the message `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install required dependencies before proceeding with the tros.b installation.**
+:::caution **Note**
+- **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
-After installation, check the contents of the `/opt` directory:
+After installation, check files in the /opt directory
 
 ```bash
 root@ubuntu:/userdata# ls /opt/
 hobot  tros
 ```
 
-You can see that tros.b has been installed under the `/opt` directory.
+You can see tros.b is installed in the /opt directory.
 
 ### Upgrading tros.b
 
-The following example uses the RDK platform; the upgrade procedure for X86 Ubuntu is identical.
+Using RDK installation as an example, the X86 Ubuntu upgrade method is the same as RDK.
 
-Log into the RDK:
+Log in to RDK
 
 ```shell
 ssh root@10.64.61.241
 ```
 
-Upgrade the tros.b deb package:
+Upgrade tros.b deb package
 
-```bash
+```shell
 sudo apt update
 sudo apt upgrade
 ```
 
-:::caution **Attention**
-**If the `sudo apt update` command fails or returns an error, refer to the [FAQ](../../08_FAQ/01_hardware_and_system.md) section titled `Q10: How to resolve failures or errors when running apt update?`**
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
-### Checking the Current tros.b Version
+### Check Current tros.b Version
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -129,7 +156,7 @@ Description: TogetheROS Bot
 
 ```
 
-You can see that the current tros.b version has been upgraded to version 2.0.0.
+You can see the current tros.b version has been upgraded to 2.0.0.
 
 </TabItem>
 <TabItem value="humble" label="Humble">
@@ -150,24 +177,45 @@ Description: TogetheROS Bot
 
 ```
 
-You can see that the current tros.b version has been upgraded to version 2.2.0.
+You can see the current tros.b version has been upgraded to 2.2.0.
 
-:::caution Note
-- The displayed `Version` number indicates the actual installed version of `tros.b`. This example illustrates version `2.2.0`.
-- For detailed release information about `tros.b`, see the [Release Notes](./changelog).
-:::
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+root@ubuntu:~# apt show tros-jazzy
+Package: tros-jazzy
+Version: 2.5.0-noble.20251202.080038
+Priority: optional
+Section: misc
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
+Installed-Size: 44.0 kB
+Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-control, tros-jazzy-audio-msg, tros-jazzy-audio-tracking, tros-jazzy-base, tros-jazzy-body-tracking, tros-jazzy-dnn-benchmark-example, tros-jazzy-dnn-node, tros-jazzy-dnn-node-example, tros-jazzy-dnn-node-sample, tros-jazzy-elevation-net, tros-jazzy-gesture-control, tros-jazzy-hand-gesture-detection, tros-jazzy-hand-lmk-detection, tros-jazzy-hbm-img-msgs, tros-humble-hobot-audio, tros-jazzy-hobot-chatbot, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-falldown-detection, tros-jazzy-hobot-hdmi, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-llm, tros-jazzy-hobot-mot, tros-jazzy-hobot-shm, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-vio, tros-humble-hobot-visualization, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-line-follower-model, tros-humble-line-follower-perception, tros-jazzy-mipi-cam, tros-jazzy-mono2d-body-detection, tros-jazzy-mono2d-trash-detection, tros-jazzy-mono3d-indoor-detection, tros-jazzy-parking-perception, tros-jazzy-parking-search, tros-jazzy-rgbd-sensor, tros-jazzy-websocket, tros-jazzy-ros-workspace
+Download-Size: 5,546 B
+APT-Manual-Installed: yes
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk-s600 noble/main arm64 Packages
+Description: TogetheROS Bot
+
+```
+
+You can see the current tros.b version has been upgraded to 2.5.0.
 
 </TabItem>
 </Tabs>
+
+:::caution Note
+- The version number `Version` displayed in the query is the actually installed `tros.b` version, which may differ from the version number `Version` shown in this example.
+- For tros.b release version information, see [5.1.6 Release Notes](./changelog).
+:::
 
 ## X86 Platform
 
 Prerequisites:
 
-- Completed the steps in the [Environment Preparation](./preparation.md) section
-- Running Ubuntu 20.04 with normal internet access
+- Completed the work in [5.1.1 Environment Preparation](./preparation.md)
+- Ubuntu system is Ubuntu 20.04 and can access the internet normally
 
-1. Set locale and enable the universe repository:
+1. Set locale and enable universe repository
 
    ```bash
    sudo apt update && sudo apt install locales
@@ -179,25 +227,26 @@ Prerequisites:
    sudo add-apt-repository universe
    ```
 
-2. Download the GPG key file and add the repository list:
+2. Download gpg key file and add source list:
 
    ```bash
    sudo apt update && sudo apt install curl
 
    sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
-   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo tee /etc/apt/sources.list.d/sunrise.list > /dev/null
+   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo    tee /etc/apt/sources.list.d/sunrise.list > /dev/null
 
    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
    ```
 
-3. Update repository information and install tros.b:
-```bash
-sudo apt update
-sudo apt install tros
-```
+3. Update source information and install tros.b:
+
+   ```bash
+   sudo apt update
+   sudo apt install tros
+   ```
 
 :::caution
-- **If you have already installed tros.b version 1.x on your x86 platform, please first remove it using the command `sudo apt remove tros` before installing tros.b version 2.x**.
-- **For instructions on how to check the tros.b version number, please refer to the [FAQs](../../08_FAQ/03_applications_and_examples.md)**.
+- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
+- **For how to check tros.b version number, please refer to [FAQs](https://liqinglian01.github.io/rdk_s_doc/FAQ/applications_and_examples)**.
 :::

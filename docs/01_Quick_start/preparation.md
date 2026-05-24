@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
+TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系统通过DEB包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 
 接下来分别介绍RDK和X86平台环境准备详情。
 
@@ -18,20 +18,25 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 ### 系统安装
 
-安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu 20.04/Ubuntu 22.04镜像烧录方法：
+安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu镜像烧录方法：
 
-<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
+<DocScope products="RDK X3,RDK X5">
 
 
 [Ubuntu镜像烧录方法](/install_os/)
 
+</DocScope>
+
+<DocScope products="RDK X3">
+
 :::caution **注意**
 - **如果您使用的是RDK X3，并且安装的是1.x版本系统，需要将系统升级到2.x版本。**
-- **系统版本号查看方法以及详细说明，请查看[FAQs](/docs/08_FAQ/03_applications_and_examples.md)。**
+- **系统版本号查看方法以及详细说明，请查看[FAQs](https://liqinglian01.github.io/rdk_x_doc1/FAQ/applications_and_examples)。**
 :::
 
 </DocScope>
-<DocScope versions=">= 4.0.5" products="RDK S100">
+
+<DocScope products="RDK S100,RDK S600">
 
 [Ubuntu镜像烧录方法](/rdk_s/02_install_os)
 
@@ -39,9 +44,18 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 如果已经安装镜像，可以通过命令`sudo apt update`和`sudo apt upgrade`完成升级。
 
+<DocScope products="RDK X3,RDK X5">
+
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+
+</DocScope>
+<DocScope products="RDK S100,RDK S600">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 
 ### 系统配置
 
@@ -53,16 +67,20 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu 20.04/Ubuntu 22.04系统上安�
 
 体验和开发过程中经常需要使用scp/ssh等命令通过IP地址访问RDK，因此这里推荐使用动态配置，参考：
 
-<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
+<DocScope products="RDK X3,RDK X5">
 
-[网络配置](/docs/02_System_configuration/01_network_blueteeth.md)
 
-</DocScope>
-<DocScope versions=">= 4.0.5" products="RDK S100">
-
-[网络配置](/rdk_s/System_configuration/network_bluetooth)
+[网络配置](https://liqinglian01.github.io/rdk_x_doc1/System_configuration/network_blueteeth)
 
 </DocScope>
+
+<DocScope products="RDK S100,RDK S600">
+
+
+[网络配置](https://liqinglian01.github.io/rdk_s_doc/System_configuration/network_blueteeth)
+
+</DocScope>
+
 
 尝试ping百度服务器
 

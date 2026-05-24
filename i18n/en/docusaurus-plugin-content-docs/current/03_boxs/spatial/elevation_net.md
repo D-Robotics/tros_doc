@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
 # Monocular Elevation Network Detection
 
@@ -8,96 +9,93 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-`elevation_net` is an elevation network detection algorithm example developed based on the `hobot_dnn` package. It performs model inference on the RDK using an elevation network model and indoor data via the BPU to obtain algorithmic inference results.
+elevation_net is an elevation network detection algorithm example developed based on the hobot_dnn package. It uses an elevation network model and indoor data on RDK to run model inference on the BPU and obtain algorithm inference results.
 
 Code repository: (https://github.com/D-Robotics/elevation_net)
 
-Application scenarios: The monocular elevation network detection algorithm extracts depth and height information per pixel from images, primarily applied in autonomous driving, smart homes, intelligent transportation, and other fields.
+Application scenarios: Monocular elevation network detection parses depth and height information of pixels from images. It is mainly used in autonomous driving, smart home, intelligent transportation, and related fields.
 
 ## Supported Platforms
 
-| Platform                  | Runtime Environment     | Example Functionality                               |
-| ------------------------- | ----------------------- | --------------------------------------------------- |
-| RDK X3, RDK X3 Module     | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Run local playback; inference rendering results saved locally |
-| RDK X5, RDK X5 Module     | Ubuntu 22.04 (Humble)   | · Run local playback; inference rendering results saved locally |
-| X86                       | Ubuntu 20.04 (Foxy)     | · Run local playback; inference rendering results saved locally |
+| Platform                  | Runtime     | Example Features                               |
+| --------------------- | ------------ | -------------------------------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start local image playback; save inference rendering results locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start local image playback; save inference rendering results locally |
+| X86                   | Ubuntu 20.04 (Foxy) | · Start local image playback; save inference rendering results locally |
 
-## Algorithm Details
+## Algorithm Information
 
-| Model           | Platform | Input Size      | Inference FPS |
-| --------------- | -------- | --------------- | ------------- |
-| elevation_net   | X3       | 1x3x512x960     | 24.41         |
-| elevation_net   | X5       | 1x3x512x960     | 87.12         |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| elevation_net | X3 | 1x3x512x960 | 24.41 |
+| elevation_net | X5 | 1x3x512x960 | 87.12 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetherROS.Bot has been successfully installed on the RDK.
+1. RDK has been flashed with the Ubuntu system image.
+
+2. TogetheROS.Bot has been successfully installed on RDK.
 
 ### X86 Platform
 
-1. The X86 environment has been configured with an Ubuntu 20.04 system image.
-2. tros.b has been successfully installed in the X86 environment.
+1. Ubuntu 20.04 system image has been configured on the X86 environment.
 
-## Usage Guide
+2. tros.b has been successfully installed on the X86 environment.
 
-The monocular elevation network detection algorithm example package reads local images, performs inference to extract per-pixel depth and height information from the image, processes this information, and publishes it as PointCloud2 topic data. Users can subscribe to the PointCloud2 data for application development.
+## Usage
+
+The monocular elevation network detection example package reads local images. After algorithm inference, it detects depth and height information of pixels in the image. The package also processes depth and height information and publishes PointCloud2 topic data. Users can subscribe to PointCloud2 data for application development.
 
 ### RDK Platform
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
-# Configure ROS2 environment
+```bash
+# 配置tros.b环境
 source /opt/tros/setup.bash
-
-# Copy required configuration files for running the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
-
-# Launch the launch file
-ros2 launch elevation_net elevation_net.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
-
-# Copy required configuration files for running the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
-
-# Launch the launch file
-ros2 launch elevation_net elevation_net.launch.py
 ```
 
-</TabItem>
 
+</TabItem>
 </Tabs>
+
+```shell
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
+
+# 启动launch文件
+ros2 launch elevation_net elevation_net.launch.py
+```
 
 ### X86 Platform
 
 ```bash
-# Configure tros.b environment
+# 配置tros.b环境
 source /opt/tros/setup.bash
 
-# Copy required configuration files for running the example from the tros.b installation path.
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch elevation_net elevation_net.launch.py
 ```
 
 ## Result Analysis
 
-When the package runs, the terminal outputs the following inference logs:
+The package outputs the following inference information in the runtime terminal:
 
 ```shell
 [16:15:17:520]root@ubuntu:/userdata# ros2 run elevation_net elevation_net
@@ -172,4 +170,4 @@ When the package runs, the terminal outputs the following inference logs:
 [16:15:19:417][INFO] [1655108119.810410741] [elevation_net_parser]: depth: 998.000000
 ```
 
-The logs indicate that after reading a local image and performing inference, the algorithm outputs per-pixel depth and height information for the image.
+The log shows that after reading a local image for inference, depth and height information based on image pixels is output.

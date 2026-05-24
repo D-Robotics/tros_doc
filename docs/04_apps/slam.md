@@ -22,34 +22,49 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 | RDK X3, RDK X3 Module, | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
-
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
 3. tros.b成功安装后，安装SLAM-Toolbox
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
 
     ```bash
-    sudo apt-get install ros-foxy-slam-toolbox
+    sudo apt-get install ros-${ROS_DISTRO}-slam-toolbox
     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
-
-    ```bash
-    sudo apt-get install ros-humble-slam-toolbox
-    ```
-
- </TabItem>
- </Tabs>
 
 :::info
  如果安装失败，并且报错如下：
@@ -67,42 +82,58 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
    sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
 :::
 
+<DocScope products="RDK-X3,RDK-X5">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 :::
 
-4. 和RDK在同一网段的PC，PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
-    ```bash
-    sudo apt-get install ros-foxy-gazebo-*
-    sudo apt install ros-foxy-turtlebot3
-    sudo apt install ros-foxy-turtlebot3-bringup
-    sudo apt install ros-foxy-turtlebot3-simulations
-    sudo apt install ros-foxy-teleop-twist-keyboard
-    ```
+Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-    ```bash
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3
-    sudo apt install ros-humble-turtlebot3-bringup
-    sudo apt install ros-humble-turtlebot3-simulations
-    sudo apt install ros-humble-teleop-twist-keyboard
-    ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
- </TabItem>
- </Tabs>
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+</Tabs>
+
+
+PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-gazebo-*
+sudo apt install ros-${ROS_DISTRO}-turtlebot3
+sudo apt install ros-${ROS_DISTRO}-turtlebot3-bringup
+sudo apt install ros-${ROS_DISTRO}-turtlebot3-simulations
+sudo apt install ros-${ROS_DISTRO}-teleop-twist-keyboard
+```
 
 ## 使用介绍
 
@@ -115,19 +146,27 @@ PC端启动仿真环境：
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```bash
 export TURTLEBOT3_MODEL=burger
@@ -146,19 +185,27 @@ PC端开启另外一个控制台，启动Rviz2 用于观察建图效果：
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```bash
 ros2 launch turtlebot3_bringup rviz2.launch.py
@@ -178,7 +225,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -187,8 +233,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```bash
 #启动SLAM launch文件
@@ -200,23 +254,29 @@ PC端开启另外一个控制台，PC端启动控制工具，通过键盘控制�
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 ```
 
 </TabItem>
 </Tabs>
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
 
 控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM算法也建立起环境地图，可以在Rviz2上观察到建图效果。
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)

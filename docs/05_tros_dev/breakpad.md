@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+sidebar_products: RDK-X3
 ---
 
 # 5.5.3 breakpad使用
@@ -11,6 +12,12 @@ Breakpad是一个比Linux core机制更强大的、用于记录程序崩溃时�
 ## 前置条件
 
 Breakpad位于[代码仓库](https://github.com/D-Robotics/breakpad.git)，分支为develop，目录内包含了经过交叉编译，可在RDK上运行的bin，lib，includes等文件夹，分别包含了breakpad工具，静态链接库，头文件等内容。
+
+## 支持平台
+
+| 平台    | 运行方式     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
 ## 任务内容
 ### 1. 创建、编译并运行test程序

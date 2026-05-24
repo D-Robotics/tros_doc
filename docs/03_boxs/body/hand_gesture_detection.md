@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 手势识别
 
@@ -45,7 +46,7 @@ import TabItem from '@theme/TabItem';
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
-小车手势控制案例：[小车手势控制](/docs/05_Robot_development/04_apps/car_gesture_control.md)
+小车手势控制案例：[5.4.5 小车手势控制](../../04_apps/car_gesture_control.md)
 
 基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
@@ -55,8 +56,6 @@ import TabItem from '@theme/TabItem';
 | -------------------------------- | ------------ | ----------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-
 ## 算法信息
 
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
@@ -68,7 +67,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -89,7 +88,7 @@ launch启动脚本默认只启动静态手势识别，可以在运行时使用`i
 :::warning
 1. `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py`启动命令只支持输出静态或者动态手势识别，如需同时启动静态和动态手势识别，请使用`ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py`启动命令。
 
-2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS版本发布记录：[点击跳转](/docs/05_Robot_development/01_quick_start/changelog.md)，版本查看方法：[点击跳转](/docs/05_Robot_development/01_quick_start/install_tros.md)。
+2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS版本发布记录：[1.6 版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[1.2 apt安装与升级](../../01_quick_start/install_tros.md)。
 :::
 
 ### 使用MIPI摄像头
@@ -169,13 +168,22 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 :::warning
 仅`TROS Humble 2.3.1`以及后续版本支持此功能。
 
-`TROS`版本发布记录：[点击跳转](/docs/05_Robot_development/01_quick_start/changelog.md)，版本查看方法：[点击跳转](/docs/05_Robot_development/01_quick_start/install_tros.md)。
+`TROS`版本发布记录：[1.6 版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[1.2 apt安装与升级](../../01_quick_start/install_tros.md)。
 :::
+
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+</TabItem>
+</Tabs>
+
+```bash
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
@@ -187,6 +195,7 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
 ```
+
 
 ## 结果分析
 

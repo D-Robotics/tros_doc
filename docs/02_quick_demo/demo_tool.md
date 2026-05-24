@@ -7,6 +7,7 @@ sidebar_position: 7
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 图像发布工具
@@ -27,19 +28,18 @@ import TabItem from '@theme/TabItem';
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
-| RDK Ultra | Ubuntu 20.04 (Foxy) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
 X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.265视频发布功能无法在X86平台展示。
-RDK Ultra不支持将H.264视频解码为NV12格式，因此H.264视频发布功能无法在RDK Ultra平台展示。
 :::
 
 ### 准备工作
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像
+1. RDK已烧录好Ubuntu系统镜像
 
 2. RDK已成功安装tros.b
 
@@ -72,6 +72,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -128,10 +136,19 @@ source /opt/tros/setup.bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 
 </Tabs>
+
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
@@ -143,29 +160,10 @@ ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
 
 #### X86平台
 
-
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
 ```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-```
 
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-
-```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 
@@ -187,12 +185,19 @@ webserver has launch
 [INFO] [websocket-4]: process started with pid [702603]
 ```
 
-输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
+输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行。
+
+:::info
+如果输出log显示如下告警信息：
+[HobotVdec]: findSPSPPSVPS fail. ret: -1, nSPSLen: 0, nLen: 59
+并且PC端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
+:::
 
 在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
 
 ![hobot_img_pub](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg)
 
+<DocScope products="RDK-X3">
 
 ## Trigger记录工具
 
@@ -289,7 +294,7 @@ struct Config {
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -472,3 +477,5 @@ ros2 topic pub /hobot_agent std_msgs/String "data: '{\"version\":\"v0.0.1_202304
    [INFO] [1691670626.517232775] [TriggerNode]: Updated Trigger Config: {"domain":"robot","desc":"trigger lane","duration_ts_back":5000,"duration_ts_front":3000,"gps_pos":{"latitude":-1,"longitude":-1},"level":1,"rosbag_path":"","src_module_id":203,"strategy_version":"Robot_sweeper_V1.0_20230526","timestamp":0,"topic":["/image_raw/compressed","/ai_msg_mono2d_trash_detection","/hobot_visualization"],"trigger_type":1110,"unique_id":"OriginBot002","version":"v0.0.1_20230421","extra_kv":[]}
 ```
 分析: 对Trigger模块下发配置任务的时候,可以成功更新Trigger节点的配置。（Trigger节点Log日志为INFO时可看到日志更新）
+
+</DocScope>

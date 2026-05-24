@@ -27,8 +27,8 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| RDK Ultra| Ubuntu 20.04 (Foxy) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
@@ -38,12 +38,13 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 | mobilenetv2 | X3 | 1x3x224x224 | 414.17 |
 | mobilenetv2 | X5 | 1x3x224x224 | 683.46 |
 | mobilenetv2 | S100 | 1x3x224x224 | 1722.25 |
+| mobilenetv2 | S600 | 1x3x224x224 | 2721.90 |
 
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装tros.b。
 
@@ -65,7 +66,6 @@ mobilenetv2图片分类订阅sensor package发布的图片，经过推理后发�
 
 #### 使用MIPI摄像头发布图片
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -75,7 +75,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -84,8 +83,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```shell
 # 配置MIPI摄像头
@@ -97,7 +104,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 #### 使用USB摄像头发布图片
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -107,7 +113,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -116,7 +121,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 ```shell
@@ -131,7 +143,6 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 mobilenetv2图片分类算法示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -141,7 +152,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -150,7 +160,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 
 ```shell

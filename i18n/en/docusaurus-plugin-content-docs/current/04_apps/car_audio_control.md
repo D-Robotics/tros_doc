@@ -2,41 +2,41 @@
 sidebar_position: 6
 ---
 
-# 5.4.6 Voice-Controlled Car Movement
+# 5.4.6 Voice-Controlled Robot Movement
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-The voice-controlled car movement feature enables controlling the robot to move forward, backward, left, or right through voice commands. This functionality requires integration with the D-Robotics RDK robotic operating system's intelligent voice module. The workflow is illustrated in the figure below:
+The voice-controlled robot movement feature uses voice commands to control the robot to move forward, backward, left, and right. It must be used together with the intelligent voice module of the D-Robotics RDK robot operating system. The workflow is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
 
-This application uses a simulated virtual car in the Gazebo environment on a PC as an example. The published control commands can also be directly applied to physical robots.
+The App uses a virtual robot in the PC-side Gazebo simulation environment as an example. The published control commands can also be used directly to control a physical robot.
 
 Code repository: (https://github.com/D-Robotics/audio_control.git)
 
 ## Supported Platforms
 
-| Platform | Runtime Environment | Example Functionality |
-| -------- | ------------------- | --------------------- |
-| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch the intelligent voice module to parse voice commands and perform voice control; demonstrate control effects via Gazebo |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Launch the intelligent voice module to parse voice commands and perform voice control; demonstrate control effects via Gazebo |
+| Platform     | Runtime Environment      | Example Functionality                       |
+| -------- | ------------ | ------------------------------ |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the intelligent voice module to parse voice information and perform voice control, displaying control results via Gazebo |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the intelligent voice module to parse voice information and perform voice control, displaying control results via Gazebo |
 
-**Note: Only RDK X3 is supported; RDK X3 Module is currently not supported.**
+**Note: Only RDK X3 is supported. RDK X3 Module is not supported yet.**
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 image.
+1. The RDK has been flashed with the Ubuntu image.
 
-2. TogetheROS.Bot has been successfully installed on RDK.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. The intelligent voice algorithm package has been successfully installed on RDK. Installation commands:
+3. The intelligent voice algorithm package has been successfully installed on the RDK. Installation commands:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -58,18 +58,18 @@ Code repository: (https://github.com/D-Robotics/audio_control.git)
    </Tabs>
 
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve issues when apt update fails or reports errors?`**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](/docs/08_FAQ/01_hardware_and_system.md) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
-4. A compatible audio board has been properly connected to the RDK (refer to the [Intelligent Voice chapter](../03_boxs/audio/hobot_audio.md)).
+4. A compatible audio board has been connected to the RDK (refer to the [Intelligent Voice section](../03_boxs/audio/hobot_audio.md)).
 
-5. A PC on the same network segment as the RDK (either wired or connected to the same Wi-Fi network; the first three segments of the IP addresses must match). The following environments must be installed on the PC:
+5. A PC on the same network as the RDK (wired or on the same Wi-Fi, with the first three octets of the IP address matching). The PC requires the following environment:
 
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04 system and [ROS2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3-related packages. Installation commands:
+   - Ubuntu 20.04 and [ROS2 Foxy desktop edition](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+   - Gazebo and Turtlebot3 related packages. Installation:
 
     ```shell
     sudo apt-get install ros-foxy-gazebo-*
@@ -80,8 +80,8 @@ Code repository: (https://github.com/D-Robotics/audio_control.git)
  </TabItem>
  <TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04 system and [ROS2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo and Turtlebot3-related packages. Installation commands:
+   - Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - Gazebo and Turtlebot3 related packages. Installation:
 
     ```shell
     sudo apt-get install ros-humble-gazebo-*
@@ -92,7 +92,7 @@ Code repository: (https://github.com/D-Robotics/audio_control.git)
  </TabItem>
  </Tabs>
 
-## Usage Instructions
+## Usage
 
 Start the simulation environment on the PC:
 
@@ -118,75 +118,74 @@ export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
-After successful launch, the simulated car appears as follows in the Gazebo environment:
+After successful startup, the robot in the simulation environment appears as follows:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
 
-Launch the program on the RDK platform:
+Start the program on the RDK platform:
 
-1. Copy the audio configuration files
+1. Copy the audio configuration file
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure the tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+
+</TabItem>
+</Tabs>
 
     ```shell
-    # Copy required configuration files for the example from the tros.b installation path.
+    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
     cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
     ```
 
-2. Verify the microphone device
+2. Confirm the microphone device
 
-    The microphone device ID is configured via the `micphone_name` field in the configuration file *config/audio_config.json*. The default value is "hw:0,0", indicating audio device Card 0, Device 0. You can check available devices using the command `ls /dev/snd`, e.g., "pcmC0D1c": the trailing "c" denotes a capture device, "C0" indicates Card 0, and "D1" indicates Device 1. In this case, set the parameter to "hw:0,1".
+    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd`, for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
 
-3. Launch the program
+3. Start the program
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # 配置tros.b环境
     source /opt/tros/setup.bash
     ```
 
     </TabItem>
-
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # 配置tros.b环境
     source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
-
     </Tabs>
 
     ```shell
-    # Launch the launch file
+    #启动launch文件
     ros2 launch audio_control audio_control.launch.py
     ```
 
-    After successful startup, you can control the car’s movement using voice commands such as “Move forward,” “Move backward,” “Turn left,” “Turn right,” and “Stop moving.”
+    After the program starts successfully, use the command words "向前走" (move forward), "向后退" (move backward), "向左转" (turn left), "向右转" (turn right), and "停止运动" (stop) to control robot movement.
 
 ## Result Analysis
 
-The RDK terminal outputs the following information upon execution:
+The RDK terminal outputs the following information:
 
 ```shell
         This is audio control package.
@@ -194,19 +193,19 @@ The RDK terminal outputs the following information upon execution:
 ============================================
         audio control usage
 
-Wake up device is "D-Robotics Hello".
-Audio control command word definitions are:
-        "Move forward": move front.
-        "Move backward": move back.
-"Turn right": rotate robot to right.  
-        "Turn left": rotate robot to left.  
+Wake up device is "D-Robotics 你好".
+Audio control commnad word definitions are:
+        "向前走": move front.
+        "向后退": move back.
+        "向右转": rotate robot to right.
+        "向左转": rotate robot to left. 
 ============================================
 
 ```
 
-The above log captures a segment of output after launching the audio control package. The log shows that the wake-up word configured for this voice control module is "D-Robotics hello," and the command words for controlling the robot car's movement include: "Move forward," "Move backward," "Turn left," and "Turn right."
+The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured for this voice control module is "D-Robotics 你好", and the command words for controlling robot movement are: "向前走", "向后退", "向左转", and "向右转".
 
-On the PC side, you can use the terminal command `ros2 topic list` to query the RDK's topic information:
+Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 
 ```shell
 $ ros2 topic list
@@ -214,9 +213,9 @@ $ ros2 topic list
 /cmd_vel
 ```
 
-Here, `/audio_smart` is the algorithm message published by X3 containing smart voice recognition results, and `/cmd_vel` is the motion control command published by the RDK.
+`/audio_smart` is the algorithm message published by X3 containing intelligent voice results. `/cmd_vel` is the motion control command published by the RDK.
 
-On the PC side, you can use the terminal command `ros2 topic echo /cmd_vel` to view the motion control commands published by the RDK:
+Use the `ros2 topic echo /cmd_vel` command on the PC terminal to view motion control commands published by the RDK:
 
 ```shell
 linear:
@@ -248,6 +247,6 @@ angular:
 ---
 ```
 
-In the PC-side simulation environment, the robot car moves according to the voice control commands. The simulated robot car's motion is shown below:
+In the PC simulation environment, the robot moves according to voice control command words. The simulation result is shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)

@@ -1,41 +1,46 @@
 ---
 sidebar_position: 3
+sidebar_products: RDK-X3
 ---
 
 # 5.5.3 Using Breakpad
 
-## Functional Background
+## Background
 
-Breakpad is a more powerful toolkit than the Linux core dump mechanism for capturing crash information from applications. It can be used to inspect crash details even for stripped binaries—applications from which compiler debugging symbols have been removed. When a program crashes, Breakpad records the crash data into a compact "minidump" file and sends it back to a server. C/C++ stack traces can then be reconstructed using these minidump files together with symbol files.
+Breakpad is a tool suite more powerful than the Linux core mechanism for recording information when a program crashes. It can be used to view crash information from applications that have been stripped of compiler debug information. When a program crashes, crash information is recorded in a compact "minidump" file and sent back to the server. C and C++ stack traces can be generated from these minidumps and symbol files.
 
 ## Prerequisites
 
-Breakpad is located in the [code repository](https://github.com/D-Robotics/breakpad.git) on the `develop` branch. The directory contains cross-compiled binaries that can run on RDK, including folders such as `bin`, `lib`, and `includes`, which respectively contain Breakpad tools, static libraries, and header files.
+Breakpad is located in the [code repository](https://github.com/D-Robotics/breakpad.git) on the `develop` branch. The directory contains cross-compiled `bin`, `lib`, `includes`, and other folders that include Breakpad tools, static link libraries, header files, and more, which can run on RDK.
 
-## Task Description
+## Supported Platforms
 
-### 1. Create, compile, and run the test program
+| Platform    | Runtime Environment     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 
-After downloading the source code, create a new test program `test.cpp` under the Breakpad directory and compile it into an executable named `test`, ensuring the `-g` flag is included. Create the `/tmp` directory, then run the executable `test`.
+## Task Content
+### 1. Create, Compile, and Run the Test Program
+After downloading the source code, create a test program `test.cpp` in the Breakpad directory and compile it into the executable `test` with the `-g` option. Create the `/tmp` directory, then run the executable `test`.
 
 ```c++
-// test.cpp
+//  test.cpp
 
-// Include Breakpad's core header file
+//  包含breakpad核心头文件
 #include "client/linux/handler/exception_handler.h"
 
-// Callback function invoked upon crash
+//  发生crash时的回调函数
 static bool dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                           void* context, bool succeeded) {
   printf("Dump path: %s\n", descriptor.path());
   return succeeded;
 }
 
-// Crash-triggering function
+//  crash函数
 void crash() { volatile int* a = (int*)(nullptr); *a = 1; }
 
 int main(int argc, char* argv[]) {
-  // Initialize descriptor and set minidump file path to /tmp
+  //  初始化 descriptor，设置coredmup文件路径为 /tmp
   google_breakpad::MinidumpDescriptor descriptor("/tmp");
   google_breakpad::ExceptionHandler eh(descriptor, NULL, dumpCallback, NULL,
                                         true, -1);
@@ -56,16 +61,16 @@ Dump path: /tmp/4113ab89-7169-49df-963945b3-383e8364.dmp
 Segmentation fault
 ```
 
-### 2. Use Breakpad to generate a dump file
+### 2. Generate a Dump File Using Breakpad
 
-Grant execute permissions to the programs, then use the `dump_syms` tool to extract symbol information from the executable `test` into a file named `test.sym`.
+Grant execute permission to the programs, then use the `dump_syms` tool to dump the symbol information of the executable `test` into a `test.sym` file.
 
 ```shell
 root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# chmod +x ./bin/*
 root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# ./bin/dump_syms ./test > test.sym
 ```
 
-Inspect the first line of `test.sym` and create the corresponding directory structure:
+View the first line of `test.sym` and create the related directories.
 
 ```shell
 root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# head -n1 test.sym
@@ -74,7 +79,7 @@ root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# mkdir -p ./symbols/test/3816BF71
 root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# cp test.sym ./symbols/test/3816BF7138E87673BEE70E2C86F5FAC80 
 ```
 
-Run the executable `test` again to generate a `.dmp` minidump file. Then execute the following command to retrieve the program’s stack trace. Note that the `.dmp` filename may differ—it should match the one generated in Step 1.
+Run the executable `test` to generate a `minidump.dmp` file. Run the following command to obtain the program stack trace. Note that the `.dmp` filename may differ; here it is the dmp file generated in step 1.
 
 ```shell
 root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# ./bin/minidump_stackwalk /tmp/4113ab89-7169-49df-963945b3-383e8364.dmp ./symbols
@@ -82,7 +87,7 @@ root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# ./bin/minidump_stackwalk /tmp/41
 
 ### 3. Analysis
 
-The output of the command in Step 2 above is shown below. It clearly indicates that the program crashed at line 11 of `test.cpp`, which aligns with expectations.
+The output of the command in step 4 of the previous section is shown below. You can see that the program crashed at line 11 of `test.cpp`, which matches the expected behavior.
 
 ```text
 Thread 0 (crashed)
@@ -127,7 +132,6 @@ Thread 0 (crashed)
 
 ## Summary
 
-This section demonstrates how to use the Breakpad framework to generate crash dump files and analyze stack traces. An application initializes Breakpad by specifying the directory where dump files will be stored and registering a callback function to be invoked upon crash.  
-Next, the `dump_syms` utility is used to generate symbol files, and the required symbol directory structure is created accordingly. Finally, the `minidump_stackwalk` tool parses the dump file and produces a detailed stack trace for analysis.
+This section describes how to use the Breakpad framework to generate crash dump files and analyze stack information. The application initializes Breakpad by specifying the directory for dump file generation and registering a callback function for crashes. Then use Breakpad's `dump_syms` tool to generate symbol files and create the symbol directory. Finally, use the `minidump_stackwalk` tool to parse the dump file and analyze stack information.
 
-For more detailed information, please refer to the official Breakpad website: https://chromium.googlesource.com/breakpad/breakpad/
+For more details, refer to the Breakpad official website: https://chromium.googlesource.com/breakpad/breakpad/

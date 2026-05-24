@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
 # Intelligent Voice
-
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,28 +10,28 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Feature Overview
+## Introduction
 
-The smart voice algorithm operates in local offline mode. After subscribing to audio data, it sends the data to the BPU for processing and then publishes messages including **wake-up word detection**, **command word recognition**, **Direction of Arrival (DOA) angle information**, and **Automatic Speech Recognition (ASR) results**. This functionality is implemented in the **hobot_audio** package of TogetheROS.Bot and supports both circular and linear 4-microphone arrays provided with RDK.
+The intelligent voice algorithm runs in local offline mode. It subscribes to audio data and sends it to the BPU for processing, then publishes messages such as **wake-up and command word recognition**, **DOA angle information for sound source localization**, and **ASR recognition results**. The intelligent voice functionality is implemented by the TogetheROS.Bot **hobot_audio** package, and is suitable for the circular and linear four-microphone arrays that come with the RDK.
 
 Code repository: (https://github.com/D-Robotics/hobot_audio.git)
 
-Application scenarios: The smart voice algorithm can detect wake-up words and user-defined command words from audio input, interpret spoken content as corresponding commands, or convert speech into text. It enables functionalities such as voice control and speech-to-text translation, primarily applied in smart homes, intelligent vehicle cockpits, wearable devices, and similar domains.
+Application scenarios: The intelligent voice algorithm can recognize wake words and custom command words in audio, interpret speech content as corresponding commands or convert it to text, enabling voice control and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
-Example: Voice-controlled robot car movement — [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
+Voice-controlled car movement example: [4.6 Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
 
 ## Supported Platforms
 
-| Platform              | OS Environment                     | Example Functionality                              |
-| --------------------- | ---------------------------------- | -------------------------------------------------- |
-| RDK X3                | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Launch audio module algorithms and display results in terminal |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)              | Launch audio module algorithms and display results in terminal |
+| Platform   | Runtime Environment     | Example Functionality                           |
+| ------ | ------------ | ---------------------------------- |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
 
-## Prerequisites
+## Preparation
 
-1. RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on RDK.
-3. The smart voice algorithm package has been successfully installed on RDK. Installation commands:
+1. The RDK has been flashed with the Ubuntu system image.
+2. TogetheROS.Bot has been successfully installed on the RDK.
+3. The intelligent voice algorithm package has been successfully installed on the RDK. Installation commands:
 
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
@@ -53,28 +53,28 @@ Example: Voice-controlled robot car movement — [5.4.6 Voice-Controlled Robot C
    </Tabs>
 
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](../../../08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve issues when apt update fails or reports errors?`**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
-4. Connect either the circular or linear 4-microphone audio board to RDK following the instructions below.
+4. Connect the circular or linear four-microphone audio board to the RDK as described below.
 
-### Connecting the Audio Board
+### Connect Audio Board
 
 #### Interface Connection
 
 #### Circular Microphone Array
 
-The circular microphone board features an integrated design, as shown in the image below:
+The circular microphone board is an integrated design. The physical product is shown below:
 
 ![cir_mic_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cir_mic_board.png)
 
 Purchase link:
 
-(https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
+ (https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
 
 Connection steps:
 
-1. Connect the microphone board to the RDK X3's 40-pin GPIO interface. The assembled setup is shown below:
+1. Connect the microphone board to the RDK X3 40PIN GPIO interface. After connection, the physical setup is shown below:
 
    ![circle_mic_full](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
 
@@ -82,7 +82,7 @@ Connection steps:
 
 #### Linear Microphone Array
 
-The linear microphone array consists of two parts: an audio adapter board and a linear microphone board. Their physical appearance and connection instructions are shown below:
+The linear microphone array consists of an audio adapter board and a linear microphone board. Physical photos and connection instructions are as follows:
 
 Audio adapter board:
 
@@ -92,11 +92,11 @@ Linear microphone board:
 
 ![line_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
 
-1. First, connect the RDK X3 to the audio adapter board, ensuring all pins are properly aligned. The connected setup is shown below:
+1. First, connect the RDK X3 to the audio adapter board. Pin-to-pin alignment is required. The physical connection is shown below:
 
    ![link](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
 
-2. Next, connect the RDK X3 to the linear microphone array board. Connect the FPC interface on the adapter board to the microphone array board using a 15-pin reverse-side FFC cable, with the gold fingers facing downward. The connected setup is shown below:
+2. Next, connect the RDK X3 to the microphone array pickup board. Connect the adapter board FPC interface to the microphone array pickup board via a 15-pin reverse-side FFC cable, with the gold fingers facing down. The physical connection is shown below:
 
    ![link_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
 
@@ -106,59 +106,55 @@ Linear microphone board:
 
 4. Connect power, Ethernet cable, etc.
 
-#### Power-On Verification
+#### Power-On Check
 
-After connecting the RDK and microphone array, power on the system. Use the command `i2cdetect -r -y 0` via serial terminal to verify device connectivity. If connected correctly, three I²C addresses should be detected by default, as shown below:
+After connecting the RDK and microphone array, power on the device. On the serial console, use the command `i2cdetect -r -y 0` to check device connection status. If connected successfully, three addresses can be read on I2C by default, as shown below:
 
 ![detect_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
 
-If no devices are detected, recheck all connections.
+If not detected, please recheck the device connections.
 
-#### Audio Board Configuration
+#### Configure Audio Board
 
     <DocScope products="RDK X3">
 
-    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
+    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2) section.
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    The first-time use of the audio board requires configuration via `srpi-config`. For detailed instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
+    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2) section.
 
     </DocScope>
 
-## Usage Instructions
+## Usage
 
-After launching the smart voice **hobot_audio** package, audio is captured from the microphone array and fed into the smart voice algorithm SDK module for intelligent processing. The module outputs wake-up events, command words, ASR results, and other smart information. Specifically:
-- Wake-up events and command words are published as messages of type `audio_msg::msg::SmartAudioData`.
-- ASR results are published as messages of type `std_msgs::msg::String`.
+After the intelligent voice hobot_audio package starts running, it collects audio from the microphone array and sends the collected audio data to the intelligent voice algorithm SDK module for processing, outputting intelligent information such as wake-up events, command words, and ASR results. Wake-up events and command words are published as `audio_msg::msg::SmartAudioData` messages, and ASR results are published as `std_msgs::msg::String` messages.
 
-The overall workflow is illustrated below:
+The process flow is shown below:
 
 ![hobot_audio](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_audio.jpg)
 
-By default, the smart voice feature performs noise reduction on raw audio before conducting ASR. The default wake-up word and command words are defined in the file *config/hrsc/cmd_word.json* located in the root directory of the smart voice module:
+The intelligent voice functionality supports ASR recognition after noise reduction of raw audio. Default wake words and command words are defined in the *config/hrsc/cmd_word.json* file at the root of the intelligent voice code module:
 
 ```json
 {
     "cmd_word": [
-        "Hello Digua",
-        "Move forward",
-        "Move backward",
-        "Turn left",
-        "Turn right",
-        "Stop moving"
+        "地瓜你好",
+        "向前走",
+        "向后退",
+        "向左转",
+        "向右转",
+        "停止运动"
     ]
 }
 ```
 
-Users may customize wake-up and command words as needed. Note that changing the wake-up word may result in performance differences compared to the default configuration. It is recommended to use Chinese phrases that are easy to pronounce, ideally consisting of 3–5 characters.
+Users can configure wake words and command words as needed. Changing wake words may produce results different from the default wake word and command word effects. It is recommended to use Chinese for wake words and command words, preferably catchy phrases, with a recommended length of 3–5 characters.
 
-Additionally, the smart voice feature supports outputting DOA (Direction of Arrival) angle information, measured in degrees:
-- Circular microphone array: 0° to 360°
-- Linear microphone array: 0° to 180°
+Additionally, the intelligent voice functionality supports output of DOA angle information for sound source localization, in degrees. For the circular microphone array, the range is 0°–360°; for the linear microphone array, the range is 0°–180°.
 
-The angular reference frame is strongly dependent on the physical installation orientation of the microphone array. The DOA angle diagram for the circular microphone array is shown below:
+The relative angular position relationship is strongly related to the microphone installation position. The DOA angle diagram for the circular microphone array is shown below:
 
 ![doa_circle](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
 
@@ -166,7 +162,7 @@ The DOA angle diagram for the linear microphone array is shown below:
 
 ![doa_line](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
 
-To run the **hobot_audio** package on the RDK:
+Run the hobot_audio package on the RDK board:
 
 1. Copy configuration files
 
@@ -174,7 +170,7 @@ To run the **hobot_audio** package on the RDK:
  <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Set up the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -182,7 +178,7 @@ To run the **hobot_audio** package on the RDK:
  <TabItem value="humble" label="Humble">
 
     ```bash
-    # Set up the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
     ```
 
@@ -190,13 +186,13 @@ To run the **hobot_audio** package on the RDK:
  </Tabs>
 
    ```shell
-   # Copy required configuration files from the tros.b installation path (skip if already copied)
+   # Copy the configuration files required to run the example from the tros.b installation path. Skip if already copied.
    cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
    ```
 
-2. Verify configuration files
+1. Verify configuration file
 
-   The default content of the configuration file *config/audio_config.json* is as follows:
+   The default configuration in *config/audio_config.json* is as follows:
 
    ```json
    {
@@ -215,26 +211,24 @@ To run the **hobot_audio** package on the RDK:
    }
    ```
 
-   The following configurations need to be confirmed: microphone device ID, microphone array type, and whether ASR results should be published.
-   - **Microphone device ID** is set via the `micphone_name` field. The default value is `"hw:0,0"`, which refers to audio device Card 0 Device 0. You can check available device IDs using the command `ls /dev/snd`, e.g., `"pcmC0D1c"`; the trailing letter `c` indicates a capture device, `C0` stands for Card 0, and `D1` stands for Device 1. To use this device, modify the parameter to `"hw:0,1"`.
-   - **Microphone array type** is configured via the `mic_type` field. The default value is `0`, indicating a circular microphone array. If you are using a linear microphone array, change this field to `1`.
-   - **ASR output** is controlled by the `asr_mode` field. The default value is `0`, meaning ASR results are not published. To enable ASR result publishing, set this field to either `1` or `2`:  
-     - `1` means performing one-time ASR recognition after wake-up and publishing the result.  
-     - `2` means continuously performing ASR recognition and publishing results.
+   Configurations to verify: microphone device number, microphone array type, and whether ASR results should be published.
+   - **Microphone device number** is set via the `micphone_name` field. Default is "hw:0,0", meaning audio device Card0 Device0. Device numbers can be checked with the command `ls /dev/snd`, e.g., "pcmC0D1c"; the last letter c indicates a capture device, C0 means Card0, D1 means Device1 — change the parameter to "hw:0,1".
+   - **Microphone array type** is set via the `mic_type` field. Default value is `0`, indicating a circular microphone array. If using a linear microphone array, change this field to `1`.
+   - **ASR output** is set via the `asr_mode` field. Default value is `0`, meaning ASR results are not output. To enable ASR result output, change this field to `1` or `2`, where `1` means perform ASR recognition once after wake-up and publish results, and `2` means continuously perform ASR recognition and publish results.
 
-2. Configure the tros.b environment and launch the application
+2. Configure tros.b environment and start application
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/setup.bash
 
-   # Suppress debug log messages
+   # Suppress debug log output
    export GLOG_minloglevel=3
 
-   # Launch the launch file
+   # Launch launch file
    ros2 launch hobot_audio hobot_audio.launch.py
    ```
 
@@ -243,13 +237,13 @@ To run the **hobot_audio** package on the RDK:
 <TabItem value="humble" label="Humble">
 
    ```shell
-   # Configure the tros.b environment
+   # Configure tros.b environment
    source /opt/tros/humble/setup.bash
 
-   # Suppress debug log messages
+   # Suppress debug log output
    export GLOG_minloglevel=3
 
-   # Launch the launch file
+   # Launch launch file
    ros2 launch hobot_audio hobot_audio.launch.py
    ```
 
@@ -259,7 +253,7 @@ To run the **hobot_audio** package on the RDK:
 
 ## Result Analysis
 
-When running on the Sunrise X3 board, the terminal outputs the following logs:
+The terminal output when running on the Sunrise X3 board is as follows:
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(hw:0,0), direct(1), mode(0)
@@ -275,38 +269,38 @@ alsa_device_init. hwparams(0x557d6e4fa0), swparams(0x557d6e5210)
 
 ```
 
-The above log shows that the audio device has been successfully initialized and opened, and audio capture is working properly.
+The log above shows that the audio device initialized successfully, the audio device was opened, and audio can be captured normally.
 
-When a user speaks the command words “Digua hello”, “Move forward”, “Turn left”, “Turn right”, and “Move backward” near the microphone in sequence, the voice algorithm SDK processes the audio intelligently and outputs recognition results as shown in the following log:
+When a person sequentially speaks the command words "地瓜你好", "向前走", "向左转", "向右转", and "向后退" near the microphone, the voice algorithm SDK outputs recognition results after intelligent processing. The log is as follows:
 
 ```text
 recv hrsc sdk event wakeup success, wkp count is 1
 [WARN] [1657869437.600230208] [hobot_audio]: recv event:0
 recv hrsc sdk doa data: 100
-recv hrsc sdk command data: Move forward
-[WARN] [1657869443.870029101] [hobot_audio]: recv cmd word:Move forward
+recv hrsc sdk command data: 向前走
+[WARN] [1657869443.870029101] [hobot_audio]: recv cmd word:向前走
 recv hrsc sdk doa data: 110
-recv hrsc sdk command data: Turn left
-[WARN] [1657869447.623147766] [hobot_audio]: recv cmd word:Turn left
+recv hrsc sdk command data: 向左转
+[WARN] [1657869447.623147766] [hobot_audio]: recv cmd word:向左转
 recv hrsc sdk doa data: 100
-recv hrsc sdk command data: Turn right
-[WARN] [1657869449.865822772] [hobot_audio]: recv cmd word:Turn right
+recv hrsc sdk command data: 向右转
+[WARN] [1657869449.865822772] [hobot_audio]: recv cmd word:向右转
 recv hrsc sdk doa data: 110
-recv hrsc sdk command data: Move backward
-[WARN] [1657869452.313969277] [hobot_audio]: recv cmd word:Move backward
+recv hrsc sdk command data: 向后退
+[WARN] [1657869452.313969277] [hobot_audio]: recv cmd word:向后退
 
 ```
 
-The log shows successful recognition of the voice commands “Move forward”, “Turn left”, “Turn right”, and “Move backward”, along with DOA (Direction of Arrival) angle information. For example, the entry `recv hrsc sdk doa data: 110` indicates a DOA angle of 110 degrees.
+The log shows that voice command words "向前走", "向左转", "向右转", and "向后退" were recognized, and DOA angle information was output. For example, the field "recv hrsc sdk doa data: 110" indicates a DOA angle of 110 degrees.
 
-By default, hobot_audio publishes intelligent voice messages to the topic **/audio_smart**. You can verify this topic by running the command `ros2 topic list` in another terminal:
+hobot_audio publishes intelligent voice messages to the topic **/audio_smart** by default. In another terminal, use the `ros2 topic list` command to query this topic:
 
 ```shell
 $ ros2 topic list
 /audio_smart
 ```
 
-If ASR output is enabled, an additional topic **/audio_asr** will be published. The output of `ros2 topic list` will then be:
+If ASR output is enabled, the published topic is **/audio_asr**. The `ros2 topic list` result is:
 
 ```shell
 $ ros2 topic list

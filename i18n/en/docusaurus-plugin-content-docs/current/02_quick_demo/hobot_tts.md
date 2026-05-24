@@ -10,42 +10,43 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Feature Introduction
+## Overview
 
-This section describes how to convert a piece of text into speech signals and play them through an audio output interface.
+This section describes how to convert text into speech signals and play them through the audio output interface.
 
 Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 ## Supported Platforms
 
-| Platform | Runtime Environment | Example Functionality |
+| Platform    | Runtime Environment     | Example Function                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them into speech data, and then play the audio |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Subscribe to text messages, convert them to speech data, and play them |
 
-**Note: Only RDK X3 is supported; RDK X3 Module is currently unsupported. RDK S100 supports only USB audio devices.**
+**Note: Only RDK X3 is supported; RDK X3 Module is not supported. RDK S100/S600 only supports USB audio devices.**
 
 ## Prerequisites
 
 ### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on the RDK.
-3. An RDK-compatible audio driver board is available, and the environment has been set up according to the [Smart Audio chapter](../03_boxs/audio/hobot_audio.md).
-4. Headphones or speakers are connected to the headphone jack of the audio board.
+1. RDK has been flashed with the Ubuntu system image.
+2. TogetheROS.Bot has been successfully installed on RDK.
+3. An RDK-compatible audio driver board is available, and the environment has been set up according to the [Smart Audio section](../03_boxs/audio/hobot_audio.md).
+4. Headphones or speakers are connected to the audio board headphone jack.
 
-## Usage Instructions
+## Usage
 
 ### RDK Platform
 
-1. On first run, you need to download and extract the model files using the following commands:
+1. On first run, download and extract the model file. Run the following commands:
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -53,10 +54,20 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     sudo apt update
     sudo apt install tros-humble-hobot-tts
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # Configure tros.b environment
+    sudo apt update
+    sudo apt install tros-jazzy-hobot-tts
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -67,37 +78,44 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     sudo tar -xf tts_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_tts/
     ```
 
+<DocScope products="RDK-X3,RDK-X5">
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, refer to the FAQ section [Common Issues](../../08_FAQ/01_hardware_and_system.md), specifically Q10: "How to resolve issues when `apt update` fails or returns errors?"**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+</DocScope>
 
-2. Run the following command to check whether the audio device is functioning properly:
+2. Run the following command to check whether the audio device is working properly:
 
     ```bash
     root@ubuntu:~# ls /dev/snd/
     by-path  controlC0  pcmC0D0c  pcmC0D1p  timer
     ```
 
-    If an audio playback device such as `pcmC0D1p` appears, the device is working correctly.
+    If an audio playback device such as `pcmC0D1p` appears, the device is working properly.
 
-    <DocScope versions=">= 3.0.0" products="RDK X3">
+    <DocScope products="RDK X3">
 
-    When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X3 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md).
+    On first use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md) section.
 
     </DocScope>
-    <DocScope versions=">= 3.5.0" products="RDK X5">
+    <DocScope products="RDK X5">
 
-    When using the audio board for the first time, you must configure it using `srpi-config`. For configuration instructions, refer to the RDK User Manual section: [RDK X5 Waveshare Audio Driver](../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md).
+    On first use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](/docs/03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md) section.
     
     </DocScope>
 
-3. Launch the hobot_tts program:
+3. Start the hobot_tts program
 
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/setup.bash
     ```
 
@@ -106,8 +124,16 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     <TabItem value="humble" label="Humble">
 
     ```bash
-    # Configure the tros.b environment
+    # Configure tros.b environment
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # Configure tros.b environment
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -115,24 +141,21 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     </Tabs>
 
     ```bash
-    # Suppress debug log messages
+    # Suppress debug log output
     export GLOG_minloglevel=1
 
     ros2 run hobot_tts hobot_tts
     ```
 
-    Note: If the audio playback device is not `pcmC0D1p`, you need to specify the playback device using the `playback_device` parameter. For example, if the audio playback device is `pcmC1D1p`, the startup command is:  
-`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`  
-For a USB device, the startup command is:  
-`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
+    Note: If the audio playback device is not `pcmC0D1p`, use the `playback_device` parameter to specify the playback device. For example, if the playback device is `pcmC1D1p`, the Waveshare board startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`; the USB audio device startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
-4. Open a new terminal and publish a message to the topic using the echo command:
+4. Open a new terminal and use the echo command to publish a topic
 
   <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
   ```bash
-  # Configure the tros.b environment
+  # Configure tros.b environment
   source /opt/tros/setup.bash
   ```
 
@@ -141,20 +164,28 @@ For a USB device, the startup command is:
   <TabItem value="humble" label="Humble">
 
   ```bash
-  # Configure the tros.b environment
+  # Configure tros.b environment
   source /opt/tros/humble/setup.bash
   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
 
   </TabItem>
 
   </Tabs>
 
    ```bash
-   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""Do you know D-Robotics? Yes, I know D-Robotics. It is a line stretching from the ground to the sky, defining the boundary between earth and sky.""}"
+   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道D-Robotics 吗？是的，我知道D-Robotics 。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"
    ```
 
-5. You should hear the audio played through your headphones or speakers.
+5. You should hear the audio playback through headphones or speakers
 
 ## Notes
 
-Currently, only Chinese and English text content are supported. Do **not** publish text messages in other languages.
+Currently only Chinese and English text content is supported. Do not publish text messages in other languages.

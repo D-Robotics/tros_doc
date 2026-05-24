@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+sidebar_products: RDK-X5,RDK-S100
 ---
 
 # 双目深度算法
@@ -88,10 +89,17 @@ sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robo
 apt update
 ```
 
-:::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
-:::
+<DocScope products="RDK-X5">
 
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
+<DocScope products="RDK-S100">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 ## 5. 算法启动
 
 ### 5.1. 注意事项（必看！！！）
@@ -565,7 +573,8 @@ codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic 
 
 - 通过ssh连接RDK，执行以下命令，则可以启动算法：
 
-<DocScope products="RDK X5">
+<Tabs groupId="RDK">
+<TabItem value="RDK X5" label="RDK X5">
 
 ```bash
 # 搭配230AI相机
@@ -581,8 +590,8 @@ bash run_stereo.sh
 # 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
-</DocScope>
-<DocScope products="RDK S100">
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
 
 ```bash
 # 搭配230AI相机
@@ -601,7 +610,8 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 # 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 1 或 --mipi_channel 1 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
 
-</DocScope>
+</TabItem>
+</Tabs>
 
 :::caution **注意**
 **如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
@@ -833,7 +843,8 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 - 通过ssh连接RDK，执行以下命令：
 
-<DocScope products="RDK X5">
+<Tabs groupId="RDK">
+<TabItem value="RDK X5" label="RDK X5">
 
 ```bash
 bash run_stereo.sh \
@@ -847,8 +858,8 @@ bash run_stereo.sh \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</DocScope>
-<DocScope products="RDK S100">
+</TabItem>
+<TabItem value="RDK S100" label="RDK S100">
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
@@ -862,7 +873,8 @@ bash run_stereo.sh --stereonet_version v2.4 \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</DocScope>
+</TabItem>
+</Tabs>
 
 - 运行成功后，会打印如下日志
 

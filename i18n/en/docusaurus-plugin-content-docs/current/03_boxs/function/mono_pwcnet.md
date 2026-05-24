@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X5
 ---
 # Optical Flow Estimation
 
@@ -8,125 +9,155 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-The optical flow estimation algorithm uses PWC-Net trained on the [FlyingChairs dataset](https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html) to produce an optical flow estimation model.
+The optical flow estimation algorithm uses PwcNet, an optical flow estimation model trained on the [FlyingChairs dataset](https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html).
 
-The algorithm takes two consecutive image frames as input and outputs an optical flow map for the first frame, illustrating motion vectors of objects in the horizontal and vertical directions within the first frame.
+The algorithm takes two consecutive frames of image data as input and outputs an optical flow map for the first frame, showing the motion vectors of objects in the first frame in horizontal and vertical directions.
 
 Code repository: (https://github.com/D-Robotics/mono_pwcnet)
 
-Application scenarios: Optical flow estimation is a technique used to determine pixel movement patterns on object surfaces in image sequences. It can be applied in fields such as autonomous driving, motion analysis, and object tracking.
+Application scenario: Optical flow estimation is a technique used to determine the pixel movement patterns on object surfaces in image sequences. It can be applied in autonomous driving, motion analysis, object tracking, and other fields.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg)
 
 ## Supported Platforms
 
-| Platform                         | Runtime Environment | Example Functionality                                           |
-| -------------------------------- | ------------------- | --------------------------------------------------------------- |
-| RDK X5, RDK X5 Module            | Ubuntu 22.04 (Humble) | Launch MIPI/USB camera or local image replay, and render inference results via web browser |
+| Platform                             | Runtime Environment     | Example Functionality                                                 |
+| -------------------------------- | ------------ | -------------------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback playback and display inference rendering results via web |
 
 ## Algorithm Information
 
-| Model   | Platform | Input Size      | Inference FPS |
-| ------- | -------- | --------------- | ------------- |
-| pwcnet  | X5       | 1×6×384×512     | 23            |
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ------------ | ---- |
+| pwcnet | X5 | 1×6×384×512 | 23 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
+1. RDK has been flashed with RDK OS.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
-3. An MIPI or USB camera has been installed on the RDK.
-4. Ensure your PC can access the RDK over the network.
 
-## Usage Guide
+3. MIPI or USB camera has been installed on the RDK.
 
-The optical flow estimation (`mono_pwcnet`) package subscribes to images published by the sensor package, performs inference, publishes algorithm messages, and renders both the original sensor images and corresponding algorithm results in a web browser on the PC via the websocket package.
+4. Confirm that the PC can access the RDK over the network.
+
+## Usage
+
+The optical flow estimation (mono_pwcnet) package subscribes to images published by the sensor package. After inference, it publishes algorithm messages. The websocket package displays the images published by the sensor and corresponding algorithm results in a PC browser.
 
 ### RDK Platform
 
-**Publishing Images Using an MIPI Camera**
+**Publish Images with MIPI Camera**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
 
+
+</TabItem>
+</Tabs>
+
+
 ```shell
-# Copy required configuration files for running the example from the tros.b installation path.
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 
-# Configure MIPI camera
+# 配置MIPI摄像头
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch mono_pwcnet pwcnet.launch.py
 ```
-</TabItem>
 
-</Tabs>
-
-**Publishing Images Using a USB Camera**
+**Publish Images with USB Camera**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
 
+
+</TabItem>
+</Tabs>
+
+
 ```shell
-# Copy required configuration files for running the example from the tros.b installation path.
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 
-# Configure USB camera
+# 配置USB摄像头
 export CAM_TYPE=usb
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch mono_pwcnet pwcnet.launch.py
 ```
 
-</TabItem>
 
-</Tabs>
-
-**Replaying Local Images**
+**Use Local Feedback Images**
 
 <Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure the tros.b environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
 
+
+</TabItem>
+</Tabs>
+
 ```shell
-# Copy required configuration files for running the example from the tros.b installation path.
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono_pwcnet/config/ .
 
-# Configure local image replay
+# 配置本地回灌图片
 export CAM_TYPE=fb
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch mono_pwcnet pwcnet.launch.py
 
 ```
-</TabItem>
-
-</Tabs>
 
 ## Result Analysis
 
-The following output appears in the terminal during execution:
+The running terminal outputs the following information:
 
 ```shell
 [mono_pwcnet-3] [WARN] [0000000495.652908486] [mono_pwcnet]: Parameter:
@@ -158,6 +189,6 @@ The following output appears in the terminal during execution:
 [mono_pwcnet-3] [WARN] [0000000507.422862825] [mono_pwcnet]: Sub img fps: 5.04, Smart fps: 5.00, pre process time ms: 38, infer time ms: 41, post process time ms: 1
 ```
 
-On your PC's web browser, navigate to `http://IP:8000`, then click **'Full Image Segmentation'** on the right side to view the rendered results (replace `IP` with the actual IP address of your RDK device).
+Enter http://IP:8000 in a PC browser, then click 'Full Image Segmentation' on the right to view the rendering effect (IP is the RDK device's IP address)
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X5,RDK-S100
 ---
 
 # 视觉语言模型
@@ -31,8 +32,8 @@ import DocScope from '@site/src/components/DocScope';
 | InternVL2_5 | 1B | S100 | [vit_model_int16.hbm](https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks100/vit_model_int16.hbm) | [Qwen2.5-0.5B-Instruct-Q4_0.gguf](https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf) |
 | InternVL3 | 1B | X5 | [vit_model_int16_VL3_1B_Instruct_X5.bin](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_VL3_1B_Instruct_X5.bin) | [qwen2_5_q8_0_InternVL3_1B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
 | InternVL3 | 1B | S100 | [vit_model_int16_VL3_1B_Instruct.hbm](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_1B_Instruct.hbm) | [qwen2_5_q8_0_InternVL3_1B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
-| InternVL3 | 2B | X5 | [vit_model_int16_VL3_2B_Instruct.bin](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_VL3_2B_Instruct.bin) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
-| InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-1B-Instruct-GGUF-BPU/resolve/main/qwen2_5_q8_0_InternVL3_1B_Instruct.gguf) |
+| InternVL3 | 2B | X5 | [vit_model_int16_VL3_2B_Instruct.bin](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdkx5/vit_model_int16_VL3_2B_Instruct.bin) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/blob/main/qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf) |
+| InternVL3 | 2B | S100 | [vit_model_int16_VL3_2B_Instruct.hbm](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/resolve/main/rdks100/vit_model_int16_VL3_2B_Instruct.hbm) | [qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf](https://hf-mirror.com/D-Robotics/InternVL3-2B-Instruct-GGUF-BPU/blob/main/qwen2_5_1.5b_q8_0_InternVL3_2B_Instruct.gguf) |
 | SmolVLM2 | 256M | X5 | [SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
 | SmolVLM2 | 256M | S100 | [SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm) | [SmolVLM2-256M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf) |
 | SmolVLM2 | 500M | X5 | [SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_500M_Instruct_MLP_C1_UP_X5.bin) | [SmolVLM2-500M-Video-Instruct-Q8_0.gguf](https://hf-mirror.com/D-Robotics/SmolVLM2-500M-Video-Instruct-GGUF-BPU/resolve/main/SmolVLM2-500M-Video-Instruct-Q8_0.gguf) |
@@ -43,8 +44,8 @@ import DocScope from '@site/src/components/DocScope';
 
 | 模型 | 参数量 | 量化方式 | 平台 | 输入尺寸 | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
 | ---- | ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
-| InternVL2_5 | 0.5B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
-| InternVL3 | 0.5B | Q8_0 | S100 | 1x3x448x448 | 100.00 | 9.19 | 41.65 |
+| InternVL2_5 | 1B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
+| InternVL3 | 1B | Q8_0 | S100 | 1x3x448x448 | 2851.00 | 9.19 | 41.65 |
 | Smolvlm2 | 256M | Q8_0 | X5 | 1x3x512x512 | 1053 | 9.3 | 27.8 |
 | Smolvlm2 | 500M | Q8_0 | X5 | 1x3x512x512 | 1053 | 27.3 | 65.7 |
 
@@ -52,34 +53,45 @@ import DocScope from '@site/src/components/DocScope';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 3. 下载安装功能包
 
-```shell
-sudo apt update
-sudo apt install tros-humble-hobot-llamacpp
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
 ```
 
+
+</TabItem>
+</Tabs>
+
+```shell
+sudo apt update
+sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
+```
+
+<DocScope products="RDK-X5">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+</DocScope>
+<DocScope products="RDK-S100">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 
 4. 系统配置
 
 使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
 
-  - RDK X5 参考: 
-  
-    1) `srpi-config`使用指南[Performance Options](/docs/02_System_configuration/02_srpi-config.md#performance-options)
+- ION 大小配置参考: 手册 `2.2 srpi-config 工具配置` 
 
-    2) CPU调频方法: [CPU频率管理](/docs/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
-
-  - RDK S100 参考: 
-
-    1) `srpi-config`使用指南[Performance Options](/docs_s/02_System_configuration/02_srpi-config.md#performance-options)
-
-    2) CPU调频方法: [CPU频率管理](/docs_s/02_System_configuration/04_frequency_management.md#cpu%E9%A2%91%E7%8E%87%E7%AE%A1%E7%90%86-1)
+- CPU 频率配置参考：手册 `2.4 Thermal和CPU频率管理`
 
 ## 使用方式
 
@@ -89,7 +101,7 @@ sudo apt install tros-humble-hobot-llamacpp
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
@@ -98,7 +110,7 @@ wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdkx5
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
@@ -107,7 +119,7 @@ wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/rdks1
 
 </DocScope>
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -117,7 +129,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -135,7 +147,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 运行程序前，需要下载模型文件到运行路径，命令如下：
 
-<DocScope products="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdkx5/SigLip_int16_SmolVLM2_256M_Instruct_MLP_C1_UP_X5.bin
@@ -144,7 +156,7 @@ wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/reso
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```bash
 wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/resolve/main/rdks100/SigLip_int16_SmolVLM2_256M_Instruct_S100.hbm
@@ -153,8 +165,7 @@ wget https://hf-mirror.com/D-Robotics/SmolVLM2-256M-Video-Instruct-GGUF-BPU/reso
 
 </DocScope>
 
-<DocScope products="RDK X5">
-
+<DocScope products="RDK-X5">
 ```bash
 source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -163,7 +174,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 </DocScope>
 
-<DocScope products="RDK S100">
+<DocScope products="RDK-S100">
 
 ```bash
 source /opt/tros/humble/setup.bash
@@ -180,4 +191,4 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 ## 注意事项
 
-X5平台 修改ION memory大小为1.6GB, S100平台 修改ION memory大小大于1.6GB, 否则会导致模型加载失败。
+X5平台 修改ION memory大小为1.6GB, S100平台修改ION memory大小大于1.6GB, 否则会导致模型加载失败。

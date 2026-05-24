@@ -7,16 +7,17 @@ sidebar_position: 3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
-This section describes how to install TogetheROS.Bot from source code on both RDK and X86 platforms.
+This section introduces how to install TogetheROS.Bot from source code on RDK and X86 platforms.
 
 ## RDK Platform
 
 Prerequisites:
 
-- Your development machine can access the [D-Robotics](https://github.com/D-Robotics) organization normally.
-- Docker is already installed on your development machine.
+- Development machine can access the [D-Robotics](https://github.com/D-Robotics) organization normally
+- Docker is installed on the development machine
 
 ### Building tros.b
 
@@ -29,17 +30,16 @@ All operations in this section are performed on the development machine.
 
 ```shell
 ## Create directory
-cd /mnt/data/kairui.wang/test
+cd  /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
-## Download Docker image for cross-compilation
+## Get cross-compilation docker
 wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_v1.0.5.tar.gz
-## Load Docker image
+## Load docker image
 sudo docker load --input pc_tros_v1.0.5.tar.gz 
-## Check the image ID corresponding to pc_tros
+## View image ID for pc_tros
 sudo docker images
-## Start Docker container with mounted directories
-sudo docker run -it --entrypoint="/bin/bash" -v LOCAL_PC_DIR:DOCKER_DIR IMAGE_ID  
-# Example: sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 9c2ca340973e
+## Start docker with mounted directory
+sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker directory imageID, for example sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 9c2ca340973e
 ```
 
 </TabItem>
@@ -48,39 +48,55 @@ sudo docker run -it --entrypoint="/bin/bash" -v LOCAL_PC_DIR:DOCKER_DIR IMAGE_ID
 
 ```shell
 ## Create directory
-cd /mnt/data/kairui.wang/test
+cd  /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
-## Download Docker image for cross-compilation
+## Get cross-compilation docker
 wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu22.04_v1.0.0.tar.gz
-## Load Docker image
+## Load docker image
 sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz 
-## Check the image ID corresponding to pc_tros
+## View image ID for pc_tros
 sudo docker images
-## Start Docker container with mounted directories
-sudo docker run -it --entrypoint="/bin/bash" -v LOCAL_PC_DIR:DOCKER_DIR IMAGE_ID  
-# Example: sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19
+## Start docker with mounted directory
+sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker directory imageID, for example sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+## Create directory
+cd  /mnt/data/kairui.wang/test
+mkdir -p cc_ws/tros_ws/src
+## Get cross-compilation docker
+wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu24.04_v1.0.1.tar.gz
+## Load docker image
+sudo docker load --input pc_tros_ubuntu24.04_v1.0.1.tar.gz 
+## View image ID for pc_tros
+sudo docker images
+## Start docker with mounted directory
+sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker directory imageID, for example sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19
 ```
 
 </TabItem>
 </Tabs>
 
 
-#### 2 Obtaining tros.b Source Code
+#### 2 Get tros.b Source Code
 
-All operations in this section are performed inside the Docker container on the development machine.
+All operations in this section are performed inside the development machine's docker.
 
-Here we use `/mnt/test` inside the Docker container as an example.
+Using the /mnt/test directory in docker as an example.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```shell
 cd /mnt/test/cc_ws/tros_ws
-## Clone configuration files
+## Get configuration files
 git clone https://github.com/D-Robotics/robot_dev_config.git -b foxy 
-## Navigate into robot_dev_config and run 'git tag --list' to view available release versions
-## Use 'git reset --hard [TAG]' to specify a particular release version. See the section "Building a Specific Version of tros.b" on this page for details.
-## Pull source code
+## Run cd robot_dev_config, use git tag --list to view available release versions
+## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
+## Pull code
 vcs-import src < ./robot_dev_config/ros2_release.repos 
 ```
 
@@ -90,18 +106,32 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 ```shell
 cd /mnt/test/cc_ws/tros_ws
-## Clone configuration files
+## Get configuration files
 git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
-## Navigate into robot_dev_config and run 'git tag --list' to view available release versions
-## Use 'git reset --hard [TAG]' to specify a particular release version. See the section "Building a Specific Version of tros.b" on this page for details.
-## Pull source code
+## Run cd robot_dev_config, use git tag --list to view available release versions
+## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
+## Pull code
+vcs-import src < ./robot_dev_config/ros2_release.repos 
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+
+```shell
+cd /mnt/test/cc_ws/tros_ws
+## Get configuration files
+git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
+## Run cd robot_dev_config, use git tag --list to view available release versions
+## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
+## Pull code
 vcs-import src < ./robot_dev_config/ros2_release.repos 
 ```
 
 </TabItem>
 </Tabs>
 
-The overall project directory structure is as follows:
+The complete project directory structure is as follows
 
 ```text
 ├── cc_ws
@@ -115,74 +145,96 @@ The overall project directory structure is as follows:
 │       └── src
 ```
 
-- The `tros_ws/robot_dev_config` directory contains configuration files and scripts required for code fetching, building, and packaging.
-- The `tros_ws/src` directory stores the fetched source code.
-- The `sysroot_docker` directory contains headers and libraries required for cross-compilation, mirroring the root (`/`) directory of the RDK. For example, the media library resides at `sysroot_docker/usr/lib/hbmedia/` in the Docker environment, corresponding to `/usr/lib/hbmedia/` on the RDK.
+The `tros_ws/robot_dev_config` path contains configuration and script files needed for code pulling, building, and packaging; the `tros_ws/src` path stores the pulled code; the `sysroot_docker` path contains header files and libraries for cross-compilation dependencies, corresponding to the RDK's `/` directory. For example, the media library path in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/`, and on RDK it is `/usr/lib/hbmedia/`.
 
-During compilation, the build script `robot_dev_config/aarch64_toolchainfile.cmake` uses the `CMAKE_SYSROOT` macro to specify the path to `sysroot_docker`.
+During compilation, the `sysroot_docker` installation path is specified via the `CMAKE_SYSROOT` macro in the `robot_dev_config/aarch64_toolchainfile.cmake` build script.
 
 :::info
-For the tag (version) of `robot_dev_config`, please refer to the [Release Notes](../01_quick_start/changelog.md) section.
+For robot_dev_config tag numbers (version information), please refer to the [Release Notes](./changelog.md) section.
 :::
 
-#### 3 Cross-compilation
+#### 3 Cross Compilation
 
-All operations in this section are performed inside the Docker container on the development machine.
+All operations in this section are performed inside the development machine's docker.
+
+<DocScope products="RDK X3">
 
 ```shell
-## Build tros.b for X3 using build.sh
+## Use build.sh to compile X3 version tros.b
 bash ./robot_dev_config/build.sh -p X3
+```
+</DocScope>
 
-## Build tros.b for RDK Ultra using build.sh
-bash ./robot_dev_config/build.sh -p Rdkultra
+<DocScope products="RDK X5">
 
-## Build tros.b for X5 using build.sh
+```shell
+
+## Use build.sh to compile X5 version tros.b
 bash ./robot_dev_config/build.sh -p X5
-
-## Build tros.b for S100 using build.sh
-bash ./robot_dev_config/build.sh -p S100
 ```
 
-Upon successful compilation, you will see a message indicating that N packages have been built successfully.
+</DocScope>
 
-If you perform a minimal build using `minimal_build.sh`, you can further reduce the deployment package size by running `./minimal_deploy.sh -d "install_path"`.
+<DocScope products="RDK S100">
+
+```shell  
+
+## Use build.sh to compile S100 version tros.b
+bash ./robot_dev_config/build.sh -p S100
+```
+</DocScope>
+
+<DocScope products="RDK S600">
+
+```shell
+
+## Use build.sh to compile S600 version tros.b
+bash ./robot_dev_config/build.sh -p S600
+```
+</DocScope>
+
+After successful compilation, a message will indicate that N packages compiled successfully.
+
+If using minimal_build.sh for minimal compilation, you can further compress the deployment package size by running ./minimal_deploy.sh -d "install_path".
 
 ### Installing tros.b
 
-Copy the generated `install` directory to the RDK and rename it to `tros`. Here, we place the deployment package under `/opt/tros` to maintain consistency with the directory used in deb package installations.
+Copy the compiled install directory to RDK and rename it to tros. Here we place the deployment package in /opt/tros to be consistent with the deb installation directory.
 
-### Building a Specific Version of tros.b
+### Build Specific tros.b Version
 
-By default, step 2 (**Obtaining tros.b Source Code**) in the **Building tros.b** section fetches the latest version of tros.b source code. If you need to obtain source code for a specific released version, modify this step as follows:
+In step 2 **Get tros.b Source Code** of the **Building tros.b** section in this chapter, the latest tros.b source code is fetched by default. If you need to get source code for a specific release version, modify this step as follows:
 
 ```bash
-## Clone configuration files
+## Get configuration files
 git clone https://github.com/D-Robotics/robot_dev_config.git
 cd robot_dev_config
-## List available release versions
+## View available release versions
 git tag --list
-## Switch to a specific version; here we use tros.b 2.0.0 as an example
+## Switch to specified version number, using tros.b 2.0.0 as an example
 git reset --hard tros_2.0.0
 cd ..
-## Pull source code
+## Pull code
 vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
 :::info
-For the tag (version) of `robot_dev_config`, please refer to the [Release Notes](../01_quick_start/changelog.md) section.
+For robot_dev_config tag numbers (version information), please refer to the [Release Notes](./changelog.md) section.
 :::
 
 ## X86 Platform
 
 ### System Requirements
 
-You must use a 64-bit Ubuntu 20.04 system. Alternatively, you may use the RDK cross-compilation Docker image, but both compilation and execution must be performed entirely within the Docker container.
+Must be Ubuntu 20.04 64-bit system. You can also use the RDK platform cross-compilation docker image, but both compilation and running must be done inside docker.
 
-### System Configuration
+**Note! X86 platform only supports TogetheROS.Bot version 2.0.0.**
 
-#### Setting Locale
+### System Setup
 
-Ensure your locale supports UTF-8:
+#### Set Locale
+
+Ensure the locale supports UTF-8
 
 ```shell
 locale  # check for UTF-8
@@ -195,20 +247,20 @@ export LANG=en_US.UTF-8
 locale  # verify settings
 ```
 
-#### Adding APT Repository
+#### Add apt Sources
 
 ```shell
-# First, ensure Ubuntu Universe repository is enabled
+# First ensure Ubuntu Universe is enabled
 sudo apt install software-properties-common
 sudo add-apt-repository universe
 
 sudo apt update && sudo apt install curl
 
-# Add the official ROS2 repository
+# Add ROS2 official source
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# Add the tros.b official repository
+# Add tros.b official source
 sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo    tee /etc/apt/sources.list.d/sunrise.list > /dev/null
 ```
@@ -223,7 +275,7 @@ sudo apt update && sudo apt install -y \
   ros-dev-tools
 ```
 
-### Obtain tros.b Source Code
+### Get tros.b Source Code
 
 ```shell
 git config --global credential.helper store
@@ -237,7 +289,7 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 ### Install Dependencies
 
-Install packages required for building from source:
+Install packages required for source code compilation
 
 ```shell
 # install some pip packages needed for testing
@@ -342,24 +394,24 @@ sudo apt install --no-install-recommends -y \
 ### Build
 
 ```shell
-# Build using build.sh
+# Use build.sh to compile
 bash ./robot_dev_config/build.sh -p X86
 ```
 
-Upon successful compilation, a message indicating that a total of N packages have been built successfully will be displayed.
+After successful compilation, a message will indicate that N packages compiled successfully.
 
-### Install tros.b
+### Installing tros.b
 
-Copy the generated `install` directory to `/opt` and rename it to `tros`, aligning with the directory structure used by deb package installations.
+Copy the compiled install directory to /opt and rename it to tros, consistent with the deb installation directory.
 
-## Common Issues
+## FAQ
 
-**Q1:** How can I verify whether VCS successfully fetched the code?
+Q1: How to determine if VCS successfully pulled code
 
-**A1:** As shown in the figure below, during the `vcs import` process, a printed dot (`.`) indicates successful retrieval of a repository, whereas an `E` indicates failure. The specific failed repository can be identified from the log output after execution. In such cases, you may either delete the contents under the `src` directory and re-run `vcs import`, or manually clone the failed repository.
+A1: As shown below, a `.` printed during vcs import indicates successful repo pull. If `E` is printed, that repo pull failed. You can see the specific failed repo in the log after execution. In this case, try deleting the contents in src and re-running vcs import, or manually pull the failed repo.
 
 ![vcs_import](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/cross_compile/vcs_import_error.png)
 
-**Q2:** What if I cannot pull code from GitHub due to network restrictions?
+Q2: Unable to pull code from GitHub due to restrictions
 
-**A2:** You can directly download the required version of the source code from the [TogetheROS file server](http://archive.d-robotics.cc/TogetheROS/source_code/). For example, the file `tros_2.0.0_source_code.tar.gz` corresponds to tros.b version 2.0.0.
+A2: You can directly download the required version code from the [TogetheROS File Server](http://archive.d-robotics.cc/TogetheROS/source_code/). For example, the file `tros_2.0.0_source_code.tar.gz` corresponds to tros.b version 2.0.0.

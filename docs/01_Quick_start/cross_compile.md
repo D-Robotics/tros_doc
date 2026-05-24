@@ -7,6 +7,7 @@ sidebar_position: 3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 本章节介绍RDK和X86平台如何通过源码安装TogetheROS.Bot。
@@ -60,6 +61,23 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imag
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+## 创建目录
+cd  /mnt/data/kairui.wang/test
+mkdir -p cc_ws/tros_ws/src
+## 获取交叉编译用docker
+wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu24.04_v1.0.1.tar.gz
+## 加载docker镜像
+sudo docker load --input pc_tros_ubuntu24.04_v1.0.1.tar.gz 
+## 查看pc_tros对应的image ID
+sudo docker images
+## 启动docker挂载目录
+sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imageID，这里以 sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19 为例
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -97,6 +115,20 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+
+```shell
+cd /mnt/test/cc_ws/tros_ws
+## 获取配置文件
+git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
+## 执行cd robot_dev_config，使用 git tag --list 命令查看可用的发布版本
+## 使用 git reset --hard [tag号] 命令指定发布版本。详细说明参考本页面 编译指定版本tros.b 内容
+## 拉取代码
+vcs-import src < ./robot_dev_config/ros2_release.repos 
+```
+
+</TabItem>
 </Tabs>
 
 整个工程目录结构如下
@@ -118,26 +150,48 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 编译时，在`robot_dev_config/aarch64_toolchainfile.cmake`编译脚本中通过`CMAKE_SYSROOT`宏指定`sysroot_docker`的安装路径。
 
 :::info
-robot_dev_config的tag号（版本信息），请查看[版本发布记录](/docs/05_Robot_development/01_quick_start/changelog.md)章节。
+robot_dev_config的tag号（版本信息），请查看[版本发布记录](./changelog.md)章节。
 :::
 
 #### 3 交叉编译
 
 该部分操作均在开发机的docker内完成。
 
+<DocScope products="RDK X3">
+
 ```shell
 ## 使用build.sh编译X3版本tros.b
 bash ./robot_dev_config/build.sh -p X3
+```
+</DocScope>
 
-## 使用build.sh编译RDK Ultra版本tros.b
-bash ./robot_dev_config/build.sh -p Rdkultra
+<DocScope products="RDK X5">
+
+```shell
 
 ## 使用build.sh编译X5版本tros.b
 bash ./robot_dev_config/build.sh -p X5
+```
+
+</DocScope>
+
+<DocScope products="RDK S100">
+
+```shell  
 
 ## 使用build.sh编译S100版本tros.b
 bash ./robot_dev_config/build.sh -p S100
 ```
+</DocScope>
+
+<DocScope products="RDK S600">
+
+```shell
+
+## 使用build.sh编译S600版本tros.b
+bash ./robot_dev_config/build.sh -p S600
+```
+</DocScope>
 
 编译成功后会提示总计N packages编译通过。
 
@@ -165,14 +219,16 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
 :::info
-robot_dev_config的tag号（版本信息），请查看[版本发布记录](/docs/05_Robot_development/01_quick_start/changelog.md)章节。
+robot_dev_config的tag号（版本信息），请查看[版本发布记录](./changelog.md)章节。
 :::
 
 ## X86平台
 
 ### 系统要求
 
-必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行
+必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行。
+
+**注意！X86平台仅支持2.0.0版本TogetheROS.Bot。**
 
 ### 系统设置
 

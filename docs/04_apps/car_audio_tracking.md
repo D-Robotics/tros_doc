@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+sidebar_products: RDK-X3,RDK-X5
 ---
 
 # 5.4.7 语音追踪控制小车运动
@@ -44,7 +45,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -69,8 +70,9 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
    </TabItem>
    </Tabs>
 
+
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 5. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/audio/hobot_audio.md)）。
@@ -142,24 +144,25 @@ RDK平台启动程序：
 
 1. 拷贝音频配置文件和加载音频驱动
 
- <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
- </TabItem>
- </Tabs>
+
+</TabItem>
+</Tabs>
 
     ```shell
     # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -172,26 +175,25 @@ RDK平台启动程序：
 
 3. 启动程序
 
-    <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
-    </TabItem>
+</TabItem>
+<TabItem value="humble" label="Humble">
 
-    <TabItem value="humble" label="Humble">
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
 
-    </TabItem>
-
-    </Tabs>
+</TabItem>
+</Tabs>
 
     ```shell
     # 启动launch文件，并指定小车正前方对应的语音DOA角度，以90为例

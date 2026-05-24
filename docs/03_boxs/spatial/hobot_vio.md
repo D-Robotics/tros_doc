@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 视觉惯性里程计算法
 
@@ -20,11 +21,9 @@ import TabItem from '@theme/TabItem';
 | ------ | ------------ | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 使用realsense的图像和IMU数据作为算法输入，算法输出机器人运动轨迹，轨迹可在PC的rviz2上可视化 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 使用realsense的图像和IMU数据作为算法输入，算法输出机器人运动轨迹，轨迹可在PC的rviz2上可视化 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 使用realsense的图像和IMU数据作为算法输入，算法输出机器人运动轨迹，轨迹可在PC的rviz2上可视化 |
-
 ## 准备工作
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot和Realsense的ROS2 Package。
 
@@ -63,7 +62,6 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -71,8 +69,8 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-</TabItem>
 
+</TabItem>
 </Tabs>
 
 ```shell

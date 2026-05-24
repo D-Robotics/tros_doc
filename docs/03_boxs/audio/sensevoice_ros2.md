@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X5,RDK-S100,RDK-S600
 ---
 # Sensevoice
 
@@ -16,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 应用场景：智能语音算法能够识别音频中自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
-语音控制小车运动案例：[4.6 语音控制小车运动](../../apps/car_audio_control)
+语音控制小车运动案例：[语音控制小车运动](../../04_apps/car_audio_control.md)
 
 ## 支持平台
 
@@ -24,10 +25,11 @@ import TabItem from '@theme/TabItem';
 | ------ | ------------ | ---------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动音频模块算法，并在终端显示结果 |
 
 ## 准备工作
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 3. RDK已成功安装智能语音2算法包，安装命令：
 
@@ -35,17 +37,35 @@ import TabItem from '@theme/TabItem';
    <TabItem value="humble" label="Humble">
 
    ```bash
-   sudo apt update
-   sudo apt install tros-humble-sensevoice-ros2
+   source /opt/tros/humble/setup.bash
    ```
+   
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    source /opt/tros/jazzy/setup.bash
+    ```
 
    </TabItem>
    </Tabs>
 
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-${ROS_DISTRO}-sensevoice-ros2
+   ```
+<DocScope products="RDK-X5">
+
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
-   
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+</DocScope>
 4. 音频板正确连接到RDK X5的3.5mm的耳麦接口。
 5. USB音响正确连接到RDK X5的usb接口。
 
@@ -87,12 +107,24 @@ RDK板端运行sensevoice_ros2 package：
    ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # 配置tros.b环境
+   
+   source /opt/tros/jazzy/setup.bash
+
+   #启动launch文件
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
 
 </Tabs>
 
 ## 结果分析
 
-在旭日X3板端运行终端输出如下信息：
+在RDK上运行终端输出如下信息：
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(plughw:0,0), direct(1), mode(0)

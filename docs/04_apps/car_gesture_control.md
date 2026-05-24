@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+sidebar_products: RDK-X3,RDK-X5
 ---
 
 # 5.4.5 小车手势控制
@@ -34,13 +35,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 | -------------------------------- | ------------ | ---------------------------------------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头获取图像，并进行手势识别以及手势控制，最后通过Gazebo展示控制效果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头获取图像，并进行手势识别以及手势控制，最后通过Gazebo展示控制效果 |
-| RDK Ultra | Ubuntu 20.04 (Foxy) | 启动MIPI/USB摄像头获取图像，并进行手势识别以及手势控制，最后通过Gazebo展示控制效果 |
-
 ## 准备工作
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -116,30 +115,24 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
-
-# 配置MIPI摄像头
-export CAM_TYPE=mipi
-
-# 启动launch文件
-ros2 launch gesture_control gesture_control.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+
+</TabItem>
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
@@ -152,39 +145,30 @@ export CAM_TYPE=mipi
 ros2 launch gesture_control gesture_control.launch.py
 ```
 
-</TabItem>
-
-</Tabs>
 
 **使用USB摄像头发布图片**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
-
-# 配置USB摄像头
-export CAM_TYPE=usb
-
-# 启动launch文件
-ros2 launch gesture_control gesture_control.launch.py
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
+
+</TabItem>
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
@@ -196,10 +180,6 @@ export CAM_TYPE=usb
 # 启动launch文件
 ros2 launch gesture_control gesture_control.launch.py
 ```
-
-</TabItem>
-
-</Tabs>
 
 ## 结果分析
 

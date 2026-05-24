@@ -9,126 +9,164 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-SLAM stands for Simultaneous Localization and Mapping.  
-This section uses ROS2's SLAM-Toolbox as the mapping algorithm. We control a robot car in Gazebo to build a map and observe the mapping results via Rviz2.  
-SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC connected to the same network segment as the RDK.
+SLAM stands for Simultaneous Localization and Mapping.
+This section uses ROS2 SLAM-Toolbox as the mapping algorithm. Control the robot in Gazebo to build a map and observe the mapping result in Rviz2.
+SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC on the same network as the RDK.
 
 ## Supported Platforms
 
-| Platform                          | Runtime Environment                     |
-| --------------------------------- | --------------------------------------- |
-| RDK X3, RDK X3 Module             | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module             | Ubuntu 22.04 (Humble)                   |
-| RDK S100, RDK S100P               | Ubuntu 22.04 (Humble)                   |
-| RDK Ultra                         | Ubuntu 20.04 (Foxy)                     |
-
-## Prerequisites
+| Platform    | Runtime Environment     |
+| ------- | ------------ |
+| RDK X3, RDK X3 Module, | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with either Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-3. After successful installation of tros.b, install SLAM-Toolbox:
+3. After tros.b is installed, install SLAM-Toolbox
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    sudo apt-get install ros-foxy-slam-toolbox
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-    ```bash
-    sudo apt-get install ros-humble-slam-toolbox
-    ```
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
 
 </TabItem>
 </Tabs>
+
+
+    ```bash
+    sudo apt-get install ros-${ROS_DISTRO}-slam-toolbox
+    ```
+
 
 :::info
-If the installation fails with an error like:
+ If installation fails with the following error:
 
-```bash
-  The following packages have unmet dependencies:
-   ros-foxy-slam-toolbox : Depends: ros-foxy-nav2-map-server but it is not going to be installed
-  E: Unable to correct problems, you have held broken packages.
-```
+ ```bash
+   The following packages have unmet dependencies:
+    ros-foxy-slam-toolbox : Depends: ros-foxy-nav2-map-server but it is not going to be installed
+   E: Unable to correct problems, you have held broken packages.
+ ```
 
-Please run the following commands before attempting installation again:
+ Run the following commands before installing again:
+ 
+   apt update
 
-```bash
-apt update
-sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
-```
+   sudo apt install libwebp6=0.6.1-2ubuntu0.20.04.3
 :::
 
+<DocScope products="RDK-X3,RDK-X5">
 :::caution **Note**
-**If the `sudo apt update` command fails or reports errors, please refer to the FAQ section [Common Issues](/docs/08_FAQ/01_hardware_and_system.md), specifically `Q10: How to resolve failures or errors when running apt update?`**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+:::
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+</DocScope>
 :::
 
-4. On a PC within the same network segment as the RDK, ensure that Ubuntu 20.04/Ubuntu 22.04, ROS2 Desktop, the Gazebo simulation environment, and the visualization tool Rviz2 are already installed.
+4. A PC on the same network as the RDK with Ubuntu, ROS2 desktop edition, Gazebo simulation environment, and Rviz2 visualization tool installed.
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04 and [ROS2 Foxy Desktop](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - After successfully installing ROS2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
+```bash
+source /opt/ros/foxy/setup.bash
+```
 
-    ```bash
-    sudo apt-get install ros-foxy-gazebo-*
-    sudo apt install ros-foxy-turtlebot3
-    sudo apt install ros-foxy-turtlebot3-bringup
-    sudo apt install ros-foxy-turtlebot3-simulations
-    sudo apt install ros-foxy-teleop-twist-keyboard
-    ```
+Ubuntu 20.04 and [ROS2 Foxy desktop edition](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-   - Ubuntu 22.04 and [ROS2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - After successfully installing ROS2 on the PC, install Gazebo and Turtlebot3-related packages as follows:
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-    ```bash
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3
-    sudo apt install ros-humble-turtlebot3-bringup
-    sudo apt install ros-humble-turtlebot3-simulations
-    sudo apt install ros-humble-teleop-twist-keyboard
-    ```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04 and [ROS2 Jazzy desktop edition](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 </Tabs>
 
-## Usage Instructions
+
+After ROS2 is installed on the PC, install Gazebo and Turtlebot3 related packages as follows:
+
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-gazebo-*
+sudo apt install ros-${ROS_DISTRO}-turtlebot3
+sudo apt install ros-${ROS_DISTRO}-turtlebot3-bringup
+sudo apt install ros-${ROS_DISTRO}-turtlebot3-simulations
+sudo apt install ros-${ROS_DISTRO}-teleop-twist-keyboard
+```
+
+## Usage
 
 ### RDK Platform
 
-This section describes how to run the SLAM algorithm on the RDK and observe the mapping results on the PC.
+This section describes how to run the SLAM algorithm on the RDK and observe the mapping result on the PC.
 
 Start the simulation environment on the PC:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
 
 ```bash
 export TURTLEBOT3_MODEL=burger
@@ -136,36 +174,44 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
 :::info
-If startup fails with the error `[ERROR] [gzclient-2]: process has died`, please run `source /usr/share/gazebo/setup.sh` before launching again.
+ If startup fails with the error `[ERROR] [gzclient-2]: process has died`, run `source /usr/share/gazebo/setup.sh` and start again.
 :::
 
-The simulation environment appears as shown below:  
+The simulation environment is shown below:
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/gazebo.jpg)
 
-Open another terminal on the PC and launch Rviz2 to visualize the mapping process:
+Open another console on the PC and start Rviz2 to observe the mapping result:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
 </Tabs>
 
+
 ```bash
 ros2 launch turtlebot3_bringup rviz2.launch.py
 ```
 
-After opening Rviz2, add the "Map" visualization display to show the generated map. Follow the steps illustrated below:  
+After opening Rviz2, add the "map" visualization option to display the built map as shown below:
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
 
 Run SLAM-Toolbox on the RDK:
@@ -174,57 +220,70 @@ Run SLAM-Toolbox on the RDK:
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure tros.b environment
+# 配置tros.b环境
 source /opt/tros/setup.bash
 ```
 
 </TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure tros.b environment
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
-</Tabs>
+<TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# Launch SLAM launch file
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+
+```bash
+#启动SLAM launch文件
 ros2 launch slam_toolbox online_sync_launch.py
 ```
 
-Open another terminal on the PC and launch the teleoperation tool to control the robot using your keyboard. Refer to the instructions printed in the terminal for control details—these will not be repeated here:
+Open another console on the PC and start the control tool. Use the keyboard to control robot movement. Refer to the log printed in the console for control instructions, which are not repeated here:
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-```shell
+```bash
 source /opt/ros/foxy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
 <TabItem value="humble" label="Humble">
 
-```shell
+```bash
 source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 ```
 
 </TabItem>
 </Tabs>
 
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
-
-Control the robot's movement. As the robot's LiDAR detects more environmental information, the SLAM algorithm simultaneously constructs a map of the environment, which can be observed in Rviz2.  
+Drive the robot around. As the lidar detects more environmental information, the SLAM algorithm builds the environment map, which can be observed in Rviz2.
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)
 
 ## Result Analysis
 
-The terminal output when running on the RDK board is as follows:
+The RDK terminal outputs the following information:
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-10-06-40-34-204213-ubuntu-5390

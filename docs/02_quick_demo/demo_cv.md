@@ -6,7 +6,10 @@ sidebar_position: 4
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
+
+<DocScope products="RDK-X3">
 
 ## 高斯滤波
 
@@ -26,7 +29,7 @@ import TabItem from '@theme/TabItem';
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -212,7 +215,7 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -295,6 +298,9 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 | Hobotcv mean       | Size(5,5)     | 0.737171    |       47.7   |
 | Opencv mean        | Size(5,5)     | 0.798177    |       52.9   |
 
+</DocScope>
+<DocScope products="RDK-X3,RDK-X5">
+
 ## crop
 
 ### 功能介绍
@@ -314,7 +320,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -372,6 +378,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
 
+</DocScope>
 ## resize
 
 ### 功能介绍
@@ -386,15 +393,16 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
-| RDK Ultra| Ubuntu 20.04 (Foxy)  |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -421,6 +429,14 @@ source /opt/tros/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -480,6 +496,8 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 | 1920x1088| 512x512   | 11.0406 |     20.6           |5.8513  |    71.1           |  8.19324  |        380.1        |
 | 1920x1080| 960x544   | 11.1562 |     22.3           |7.09085 |    77.7           |  15.2978  |        382.4        |
 
+<DocScope products="RDK-X3">
+
 ## rotate
 
 ### 功能介绍
@@ -498,7 +516,7 @@ rotate实现图像旋转功能，暂时只支持NV12格式的图片，支持的�
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -596,7 +614,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -670,11 +688,15 @@ cpu占用为单核百分比，耗时统计单位为ms
 | -----------| ------------- | ----------- | --------------|
 |    19ms    |      42.5     |      56     |       100     |
 
+</DocScope>
+
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
+
 ## color
 
 ### 功能介绍
 
-实现图像的nv12,gbr24之间的转换。
+实现图像的nv12,bgr24之间的转换。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -683,12 +705,13 @@ cpu占用为单核百分比，耗时统计单位为ms
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,gbr24之间的转换 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | nv12,gbr24之间的转换 |
 
 ### 准备工作
 
 #### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -704,6 +727,15 @@ cpu占用为单核百分比，耗时统计单位为ms
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -733,3 +765,4 @@ ros2 launch hobot_cv hobot_cv_conversion.launch.py
 [test_conersion-1] [INFO] [1742885456.161413872] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
 [INFO] [test_conersion-1]: process has finished cleanly [pid 4140]
 ```
+</DocScope>

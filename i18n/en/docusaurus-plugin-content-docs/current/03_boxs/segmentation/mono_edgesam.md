@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+sidebar_products: RDK-X5,RDK-S100,RDK-S600
 ---
 # EdgeSAM Segment Anything
 
@@ -8,113 +9,140 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Overview
 
-The `mono_edgesam` package provides a usage example of quantized deployment based on [EdgeSAM](https://github.com/chongzhou96/EdgeSAM). Image data is sourced either from local image replay or subscribed image messages. SAM performs segmentation based on bounding box inputs, segmenting objects within the provided boxes without requiring explicit category information—only the bounding box coordinates are needed. The algorithm outputs its results via ROS topics and renders visualizations on a web page.
+The mono_edgesam package is a usage example based on quantized deployment of [EdgeSAM](https://github.com/chongzhou96/EdgeSAM). Image data comes from local image playback and subscribed image messages. SAM relies on detection box input for segmentation and segments targets within the detection boxes. No target category information is required—only the bounding box. Finally, algorithm information is published via topics and visualized on the Web page.
 
-In this example, we provide two deployment modes:
-- **Fixed-box segmentation**: Uses a fixed detection box (centered in the image) for segmentation.
-- **Subscribed-box segmentation**: Subscribes to bounding box outputs from an upstream detection network and segments objects within those boxes.
+This example provides two deployment modes:
+- Fixed box segmentation: Uses a fixed detection box (center of the image) for segmentation.
+- Subscribed box segmentation: Subscribes to detection box information output by upstream detection networks and segments the content within the boxes.
 
 Code repository: (https://github.com/D-Robotics/mono_edgesam.git)
 
-Application scenarios: Obstacle segmentation or water stain area segmentation when combined with detection bounding boxes.
+Application scenarios: Obstacle segmentation combined with detection boxes, water stain area segmentation, etc.
 
 ## Supported Platforms
 
-| Platform              | Runtime Environment | Example Features                                                     |
-| --------------------- | ------------------- | -------------------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera or local image replay; inference results rendered on Web or saved locally |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | · Launch MIPI/USB camera or local image replay; inference results rendered on Web or saved locally |
+| Platform                  | Runtime     | Example Features                                                     |
+| --------------------- | ------------ | ------------------------------------------------------------ |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
 
-## Algorithm Details
+## Algorithm Information
 
-| Model    | Platform | Input Size      | Inference FPS |
-| -------- | -------- | --------------- | ------------- |
-| edgesam  | X5       | 1×3×512×512     | 9.09          |
-| edgesam  | S100     | 1×3×512×512     | 77.0          |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| edgesam | X5 | 1×3x512x512 | 9.09 |
+| edgesam | S100 | 1×3x512x512 | 77.0 |
+| edgesam | S600 | 1×3x512x512 | 183.69 |
 
-## Prerequisites
-
-### RDK Platform
-
-1. The RDK device has been flashed with the Ubuntu 22.04 system image.
-2. TogetheROS.Bot has been successfully installed on the RDK.
-
-## Usage Guide
-
-The package publishes algorithm messages containing both semantic segmentation and object detection information. Users can subscribe to the topic `/perception/segmentation/edgesam` for application development.
+## Preparation
 
 ### RDK Platform
 
-**Publish images using an MIPI camera**
+1. RDK has been flashed with the Ubuntu system image.
+
+2. TogetheROS.Bot has been successfully installed on RDK.
+
+## Usage
+
+The package publishes algorithm messages containing semantic segmentation and object detection information. Users can subscribe to the "/perception/segmentation/edgesam" topic for application development.
+
+### RDK Platform
+
+**Publish images using a MIPI camera**
 
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
-
-# Set MIPI camera type
-export CAM_TYPE=mipi
-
-# Launch the launch file
-ros2 launch mono_edgesam sam.launch.py 
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
+```shell
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono_edgesam sam.launch.py 
+```
 
 **Publish images using a USB camera**
 
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
 
-# Set USB camera type
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+
+```shell
+# 配置USB摄像头
 export CAM_TYPE=usb
 
-# Launch the launch file
+# 启动launch文件
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
-</TabItem>
-
-</Tabs>
-
-**Use a single replay image**
+**Use a single playback image**
 
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
+```bash
+# 配置tros.b环境
 source /opt/tros/humble/setup.bash
-
-# Set replay image mode
-export CAM_TYPE=fb
-
-# Launch the launch file
-ros2 launch mono_edgesam sam.launch.py 
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
+
+```shell
+# 配置回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono_edgesam sam.launch.py 
+```
 
 ## Result Analysis
 
-**Publish images using the replay tool**
+**Publish images using the playback tool**
 
-After package initialization, the following output appears in the terminal:
+After the package initializes, the runtime terminal outputs the following information:
 
 ```
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-07-28-19-51-28-488985-ubuntu-107175
@@ -197,32 +225,32 @@ webserver has launch
 [mono_edgesam-3] [A][DNN][packed_model.cpp:247][Model](2025-07-28,19:51:33.829.850) [HorizonRT] The model builder version = 1.24.3
 [mono_edgesam-3] [WARN] [1753703494.035526230] [mono_edgesam]: Create hbmem_subscription with topic_name: /hbmem_img
 [mono_edgesam-3] [WARN] [1753703494.057170296] [edgesam_node]: Loaned messages are only safe with const ref subscription callbacks. If you are using any other kind of subscriptions, set the ROS_DISABLE_LOANED_MESSAGES environment variable to 1 (the default).
-[mono_edgesam-3] [WARN] [1753703494.213043065] [mono_edgesam]: Smart fps: 9.00, pre process time ms: 14, infer time ms: 92, post process time ms: 48  
-[mono_edgesam-3] [WARN] [1753703494.342125459] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 12, infer time ms: 81, post process time ms: 41  
-[hobot_codec_republish-2] [WARN] [1753703494.362260146] [hobot_codec_encoder]: Pub img fps [8.45]  
-[mono_edgesam-3] [WARN] [1753703494.471613064] [mono_edgesam]: Smart fps: 10.00, pre process time ms: 11, infer time ms: 88, post process time ms: 39  
-[mono_edgesam-3] [WARN] [1753703494.592498850] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 12, infer time ms: 81, post process time ms: 38  
-[mono_edgesam-3] [WARN] [1753703494.724020335] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 11, infer time ms: 84, post process time ms: 46  
-[mono_edgesam-3] [WARN] [1753703494.849518302] [mono_edgesam]: Smart fps: 10.00, pre process time ms: 12, infer time ms: 85, post process time ms: 38  
-[mono_edgesam-3] [WARN] [1753703494.973585807] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 13, infer time ms: 82, post process time ms: 40  
+[mono_edgesam-3] [WARN] [1753703494.213043065] [mono_edgesam]: Smart fps: 9.00, pre process time ms: 14, infer time ms: 92, post process time ms: 48
+[mono_edgesam-3] [WARN] [1753703494.342125459] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 12, infer time ms: 81, post process time ms: 41
+[hobot_codec_republish-2] [WARN] [1753703494.362260146] [hobot_codec_encoder]: Pub img fps [8.45]
+[mono_edgesam-3] [WARN] [1753703494.471613064] [mono_edgesam]: Smart fps: 10.00, pre process time ms: 11, infer time ms: 88, post process time ms: 39
+[mono_edgesam-3] [WARN] [1753703494.592498850] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 12, infer time ms: 81, post process time ms: 38
+[mono_edgesam-3] [WARN] [1753703494.724020335] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 11, infer time ms: 84, post process time ms: 46
+[mono_edgesam-3] [WARN] [1753703494.849518302] [mono_edgesam]: Smart fps: 10.00, pre process time ms: 12, infer time ms: 85, post process time ms: 38
+[mono_edgesam-3] [WARN] [1753703494.973585807] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 13, infer time ms: 82, post process time ms: 40
 ```
 
-The inference results in the example will be rendered on the web. Enter `http://IP:8000` in a browser on your PC to view the image and algorithm rendering results (replace "IP" with the RDK's IP address). Open the settings menu in the upper-right corner of the interface and select the **"Full Image Segmentation"** option to display the rendering effect.
+In this example, inference results are rendered on the Web. Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering effects (IP is the RDK IP address). Open the settings in the upper-right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 
 ## Advanced Usage
 
-To adjust the size of detection boxes, you can verify using the method below. More importantly, you can use detection results from an upstream detection node as input for SAM.
+To adjust the detection box size, refer to the method below for verification. More importantly, you can use detection results from upstream detection nodes as SAM input.
 
-Run SAM with fixed-box mode disabled (`sam_is_regular_box:=0`):
+Run SAM with fixed box mode disabled: `sam_is_regular_box:=0`
 ```shell
 ros2 launch mono_edgesam sam.launch.py sam_is_regular_box:=0
 ```
 
-In another terminal, publish to the AI topic:
+Publish an AI topic in another terminal.
 ```shell
 ros2 topic pub /hobot_dnn_detection ai_msgs/msg/PerceptionTargets '{"targets": [{"rois": [{"rect": {"x_offset": 160, "y_offset": 120, "width": 320, "height": 240}, "type": "anything"}]}] }'
 ```
 
-Explanation: The published topic name is `/hobot_dnn_detection`. The bounding box starts at coordinates (160, 120) with a width of 320 and height of 240. Note that the bounding box coordinates must not exceed the dimensions of the input image—please pay attention to this during actual usage.
+Note: The published topic name here is "/hobot_dnn_detection". The detection box origin is (160, 120) with width 320 and height 240. The detection box start and end points should not exceed the input image size—please keep this in mind during actual use.

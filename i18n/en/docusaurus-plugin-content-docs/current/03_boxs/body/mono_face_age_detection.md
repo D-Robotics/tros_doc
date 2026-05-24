@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+sidebar_products: RDK-X3,RDK-X5
 ---
 
 # Face Age Detection
@@ -9,78 +10,111 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Introduction
 
-The **Face Age Detection example** subscribes to image data and intelligent messages containing face bounding box information, performs algorithm inference using the BPU, and publishes algorithm messages containing age information.
+The **face age detection example** subscribes to images and smart messages containing face bounding box information, performs inference on the BPU, and publishes algorithm messages containing age information.
 
 Code repository: (https://github.com/D-Robotics/face_age_detection)
 
 ## Supported Platforms
 
-| Platform                  | Runtime Environment       | Example Functionality                                      |
-|--------------------------|---------------------------|------------------------------------------------------------|
-| RDK X3, RDK X3 Module    | Ubuntu 22.04 (Humble)     | Launch MIPI/USB camera and display inference results via Web |
-| RDK X5, RDK X5 Module    | Ubuntu 22.04 (Humble)     | Launch MIPI/USB camera and display inference results via Web |
+| Platform                    | Runtime Environment                  | Example Functionality                         |
+|-----------------------|-----------------------|------------------------------|
+| RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 
-## Algorithm Information
+## Algorithm Info
 
-| Model     | Platform | Input Size      | Inference FPS |
-| --------- | -------- | --------------- | ------------- |
-| faceAge   | X3       | 1×3×128×128     | 1261.29       |
-| faceAge   | X5       | 1×3×128×128     | 1207.32       |
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ------------ | ---- |
+| faceAge | X3 | 1×3×128x128 | 1261.29 |
+| faceAge | X5 | 1×3×128x128 | 1207.32 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
-2. TogetherROS.Bot has been successfully installed on the RDK.
-3. An MIPI or USB camera has been installed on the RDK.
-4. Ensure your PC can access the RDK over the network.
+1. The RDK has been flashed with the RDK OS system.
 
-## Usage Instructions
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-The **face_age_detection package** subscribes to images published by the sensor package and **face detection bounding box results** published by the human detection and tracking package. After performing inference, it publishes algorithm messages, which are rendered and displayed in a web browser on the PC via the websocket package.
+3. A MIPI or USB camera has been installed on the RDK.
 
-**Publish images using an MIPI camera**
+4. Confirm that the PC can access the RDK over the network.
+
+## Usage
+
+The **face age detection (face_age_detection) package** subscribes to images published by the sensor package and **face bounding box detection results** published by the body detection and tracking package. After inference, it publishes algorithm messages, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
+
+**Publish Images Using MIPI Camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
+</TabItem>
+</Tabs>
+
+
 ```shell
-# Copy required configuration files for running the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure MIPI camera
 export CAM_TYPE=mipi
 
-# Launch the launch file
+# Launch launch file
 ros2 launch face_age_detection body_det_face_age_det.launch.py
 ```
 
-**Publish images using a USB camera**
+**Publish Images Using USB Camera**
+
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
+</TabItem>
+</Tabs>
+
+
 ```shell
-# Copy required configuration files for running the example from the tros.b installation path.
+# Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
 # Configure USB camera
 export CAM_TYPE=usb
 
-# Launch the launch file
+# Launch launch file
 ros2 launch face_age_detection body_det_face_age_det.launch.py
 ```
 
 ## Result Analysis
 
-The following output appears in the terminal:
+The terminal output during execution is as follows:
 
 ```shell
 [mono2d_body_detection-3] [WARN] [1731986598.310822365] [example]: This is mono2d body det example!
@@ -110,8 +144,9 @@ The following output appears in the terminal:
 [face_age_detection-5] [DNN] Runtime version = 1.23.10_(3.15.54 HBRT)
 ```
 
-The log output indicates successful program execution. During inference, both input and output frame rates are 30 fps, with statistics refreshed once per second.
+The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Enter `http://IP:8000` in your PC's web browser to view the rendered images and algorithm results (replace `IP` with the RDK’s IP address):
+Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_age_det_render.png)
+

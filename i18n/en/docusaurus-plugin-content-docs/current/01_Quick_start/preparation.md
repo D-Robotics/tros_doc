@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 1 Environment Preparation
+# 5.1.1 Environment Preparation
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,60 +10,79 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-TogetheROS.Bot supports installation on Ubuntu 20.04/Ubuntu 22.04 systems running on both RDK and x86 platforms. Installing via DEB packages on Ubuntu is simple and fast, and we recommend this method for users who are trying it out for the first time.
+TogetheROS.Bot supports installation on Ubuntu systems for both RDK and X86 platforms. Installing via DEB packages on Ubuntu is simple and fast. Users who are getting started are recommended to use this installation method.
 
-The following sections describe environment preparation details for the RDK and x86 platforms, respectively.
+The following sections describe environment preparation details for RDK and X86 platforms respectively.
 
 ## RDK Platform
 
 ### System Installation
 
-Before installing tros.b, we recommend upgrading your RDK system image to the latest version. Instructions for flashing Ubuntu 20.04/Ubuntu 22.04 images are as follows:
+Before installing tros.b, it is recommended to upgrade the RDK system image to the latest version. Ubuntu image flashing method:
 
-<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
+<DocScope products="RDK X3,RDK X5">
 
-[Ubuntu Image Flashing Guide](/install_os/)
 
-:::caution **Note**
-- **If you are using an RDK X3 with a 1.x system version installed, you must upgrade to version 2.x.**
-- **For instructions on checking your system version number and further details, please refer to the [FAQs](../../08_FAQ/03_applications_and_examples.md).**
-:::
-
-</DocScope>
-<DocScope versions=">= 4.0.5" products="RDK S100">
-
-[Ubuntu Image Flashing Guide](/rdk_s/02_install_os/)
+[Ubuntu Image Flashing Method](/install_os/)
 
 </DocScope>
 
-If the image is already installed, you can perform an upgrade by running `sudo apt update` and `sudo apt upgrade`.
+<DocScope products="RDK X3">
 
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, please refer to the section `Q10: How to handle failures or errors when running apt update?` in [Common Issues](../../08_FAQ/01_hardware_and_system.md) for solutions.**
+- **If you are using RDK X3 with a 1.x version system, you need to upgrade the system to 2.x version.**
+- **For system version checking methods and detailed instructions, please refer to [FAQs](https://liqinglian01.github.io/rdk_x_doc1/FAQ/applications_and_examples).**
 :::
+
+</DocScope>
+
+<DocScope products="RDK S100,RDK S600">
+
+[Ubuntu Image Flashing Method](/rdk_s/02_install_os)
+
+</DocScope>
+
+If the image is already installed, you can upgrade using the commands `sudo apt update` and `sudo apt upgrade`.
+
+<DocScope products="RDK X3,RDK X5">
+
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+:::
+
+</DocScope>
+<DocScope products="RDK S100,RDK S600">
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+</DocScope>
 
 ### System Configuration
 
-After successfully flashing the image, you need to configure the RDK’s IP address for convenient daily usage. Login credentials: username `root`, password `root`.
+After the image is successfully flashed, you need to configure the RDK IP address for daily use. Login username: root, password: root.
 
 :::caution **Note**
-To ensure smooth installation and use of tros.b later on, please log in using the **root** account.
+To ensure smooth installation and use of tros.b, please log in using the **root** account.
 :::
 
-During development and testing, you will frequently need to access the RDK via commands like `scp`/`ssh` using its IP address. Therefore, we recommend configuring the network dynamically, as described below:
+During experience and development, commands such as scp/ssh are frequently used to access the RDK via IP address. Dynamic configuration is recommended here. Refer to:
 
-<DocScope versions=">= 3.0.0" products="RDK X3,RDK X5">
+<DocScope products="RDK X3,RDK X5">
 
-[Network Configuration](../../02_System_configuration/01_network_blueteeth.md)
 
-</DocScope>
-<DocScope versions=">= 4.0.5" products="RDK S100">
-
-[Network Configuration](/rdk_s/System_configuration/network_bluetooth)
+[Network Configuration](https://liqinglian01.github.io/rdk_x_doc1/System_configuration/network_blueteeth)
 
 </DocScope>
 
-Try pinging Baidu's server:
+<DocScope products="RDK S100,RDK S600">
+
+
+[Network Configuration](https://liqinglian01.github.io/rdk_s_doc/System_configuration/network_blueteeth)
+
+</DocScope>
+
+
+Try pinging Baidu server
 
 ```shell
 root@ubuntu:~# ping www.baidu.com
@@ -81,11 +100,11 @@ rtt min/avg/max/mdev = 4.100/4.348/4.978/0.291 ms
 
 ```
 
-A successful ping response indicates that internet access and DNS configuration are working correctly.
+A normal ping response indicates that internet access and DNS configuration are both correct.
 
-Update the system image and package sources by running `sudo apt update` and `sudo apt upgrade`.
+Upgrade the system image and source information: `sudo apt update` `sudo apt upgrade`
 
-Test SSH connectivity by running `ssh root@<RDK_IP_ADDRESS>`. In this example, the RDK’s IP address is `10.64.61.228`, so you would run `ssh root@10.64.61.228`. The first SSH login attempt will display the following prompt:
+Test ssh: `ssh root@RDK IP address`. Here the RDK IP address is 10.64.61.228, so enter `ssh root@10.64.61.228`. The first ssh login will show the following prompt:
 
 ```shell
  ssh root@10.64.61.241
@@ -94,7 +113,7 @@ ECDSA key fingerprint is SHA256:5NQuzIkfNYZftPkxrzCugbQs5Gy5CEC5U3Nhtu+sJs8.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ```
 
-Type `yes` and press Enter, then enter the password `root` to successfully access the RDK:
+Enter `yes` and press Enter, then enter password: root, to access the RDK normally.
 
 ```dotnetcli
 ssh root@10.64.61.241
@@ -114,6 +133,6 @@ Last login: Sat Apr  2 05:57:05 2022 from 10.64.37.219
 root@ubuntu:~#
 ```
 
-## x86 Platform
+## X86 Platform
 
-Install a 64-bit Ubuntu 20.04 system on a physical x86 machine and configure the network environment properly. Alternatively, you may use a virtual machine or Docker container, though performance may be lower.
+Install Ubuntu 20.04 64-bit on an X86 physical machine and configure the network environment. You can also use a virtual machine or Docker, but runtime efficiency may be lower.

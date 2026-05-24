@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+sidebar_products: RDK-X5
 ---
 
 # 双目IMU相机
@@ -50,7 +51,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 ```
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 ## 4. 启动双目相机
@@ -64,7 +65,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 ### 4.2. 硬件连接
 
 1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
-2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[3.1.1 管脚定义与应用](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md)
+2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可以查看[管脚定义与应用](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md)
 
 ![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
 
@@ -146,7 +147,7 @@ ros2 topic list -v
 
 ### 5.1. 启动指令
 
-- 参考[双目深度算法](/docs/05_Robot_development/03_boxs/spatial/hobot_stereonet.md)，里面有双目算法的相关介绍和启动指令介绍
+- 参考[双目深度算法](./hobot_stereonet.md)，里面有双目算法的相关介绍和启动指令介绍
 - 本相机启动指令为：
 
 ```bash

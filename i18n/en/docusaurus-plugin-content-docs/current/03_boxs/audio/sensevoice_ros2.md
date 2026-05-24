@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_products: RDK-X5,RDK-S100,RDK-S600
 ---
 # Sensevoice
 
@@ -8,79 +9,112 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-## Feature Introduction
+## Introduction
 
-The intelligent voice algorithm utilizes the SenseVoiceGGUF model. After subscribing to audio data, it sends the data to the sensevoicegguf model for processing and then publishes messages such as **keyword/command recognition** and **speech ASR (Automatic Speech Recognition) results**. The implementation of this intelligent voice functionality corresponds to the **sensevoice_ros2** package in TogetheROS.Bot and is compatible with 3.5mm headsets.
+The intelligent voice algorithm uses the SenseVoiceGGUF algorithm. It subscribes to audio data and sends it to the sensevoicegguf model for processing, then publishes messages such as **command word recognition** and **ASR recognition results**. The intelligent voice functionality is implemented by the TogetheROS.Bot **sensevoice_ros2** package, and is suitable for 3.5mm headset microphones.
 
 Code repository: (https://github.com/D-Robotics/sensevoice_ros2.git)
 
-Application scenarios: The intelligent voice algorithm can recognize custom-defined command words from audio input and interpret spoken content as corresponding commands or transcribe it into text. This enables functionalities such as voice control and speech-to-text translation, primarily applied in smart home systems, intelligent vehicle cockpits, wearable smart devices, and similar domains.
+Application scenarios: The intelligent voice algorithm can recognize custom command words in audio and interpret speech content as corresponding commands or convert it to text, enabling voice control and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
-Example: Voice-controlled robot car movement - [5.4.6 Voice-Controlled Robot Car Movement](../../apps/car_audio_control)
+Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
 
 ## Supported Platforms
 
-| Platform               | Runtime Environment     | Example Functionality                                  |
-| ---------------------- | ----------------------- | ------------------------------------------------------ |
-| RDK X5, RDK X5 Module  | Ubuntu 22.04 (Humble)   | Launch audio module algorithms and display results in terminal |
-| RDK S100, RDK S100P    | Ubuntu 22.04 (Humble)   | Launch audio module algorithms and display results in terminal |
+| Platform   | Runtime Environment     | Example Functionality                           |
+| ------ | ------------ | ---------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Start the audio module algorithm and display results in the terminal |
 
-## Prerequisites
+## Preparation
 
-1. The RDK has been flashed with the Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
 2. TogetheROS.Bot has been successfully installed on the RDK.
-3. The intelligent voice algorithm package (version 2) has been successfully installed on the RDK. Installation command:
+3. The intelligent voice 2 algorithm package has been successfully installed on the RDK. Installation commands:
 
    <Tabs groupId="tros-distro">
    <TabItem value="humble" label="Humble">
 
    ```bash
-   sudo apt update
-   sudo apt install tros-humble-sensevoice-ros2
+   source /opt/tros/humble/setup.bash
    ```
+   
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    source /opt/tros/jazzy/setup.bash
+    ```
 
    </TabItem>
    </Tabs>
 
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-${ROS_DISTRO}-sensevoice-ros2
+   ```
+<DocScope products="RDK-X5">
+
 :::caution **Note**
-**If the `sudo apt update` command fails or returns an error, please refer to the FAQ section [Common Issues](../../../08_FAQ/01_hardware_and_system.md), specifically Q10: "How to resolve failures or errors when running `apt update`?"**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
+</DocScope>
+<DocScope products="RDK-S100,RDK-S600">
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+</DocScope>
+4. The audio board is correctly connected to the RDK X5 3.5mm headset microphone interface.
+5. The USB speaker is correctly connected to the RDK X5 USB port.
 
-4. The audio board is properly connected to the RDK X5's 3.5mm headset jack.
-5. A USB speaker is correctly connected to the RDK X5's USB port.
 
-## Usage Guide
+## Usage
 
-After launching the intelligent voice **sensevoice_ros2** package, audio will be captured from the microphone and fed into the intelligent voice algorithm for processing. The algorithm outputs intelligent information such as recognized command words and ASR results. Specifically:
-- Command words are published via messages of type `audio_msg::msg::SmartAudioData`.
-- ASR results are published via messages of type `std_msgs::msg::String`.
+After the intelligent voice sensevoice_ros2 package starts running, it collects audio from the microphone and sends the collected audio data to the intelligent voice algorithm for processing, outputting intelligent information such as command words and ASR results. Command words are published as `audio_msg::msg::SmartAudioData` messages, and ASR results are published as `std_msgs::msg::String` messages.
 
-By default, the intelligent voice feature supports ASR recognition on raw audio input. The default command words are defined in the file *config/cmd_word.json* located in the root directory of the intelligent voice module, with the following default configuration:
+
+The intelligent voice functionality supports ASR recognition on raw audio. Default command words are defined in the *config/cmd_word.json* file at the root of the intelligent voice code module:
 
 ```json
 {
     "cmd_word": [
-        "Move forward",
-        "Move backward",
-        "Turn left",
-        "Turn right",
-        "Stop moving"
+        "向前走",
+        "向后退",
+        "向左转",
+        "向右转",
+        "停止运动"
     ]
 }
 ```
 
-To run the **sensevoice_ros2** package on the RDK:
+Run the sensevoice_ros2 package on the RDK board:
 
-1. Configure the TogetheROS.Bot environment and launch the application:
+
+1. Configure the tros.b environment and start the application
 
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
-   # Configure the TogetheROS.Bot environment
+   # Configure tros.b environment
+   
    source /opt/tros/humble/setup.bash
 
-   # Launch the launch file
+   # Launch launch file
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # Configure tros.b environment
+   
+   source /opt/tros/jazzy/setup.bash
+
+   # Launch launch file
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
    ```
 
@@ -90,7 +124,7 @@ To run the **sensevoice_ros2** package on the RDK:
 
 ## Result Analysis
 
-When running on the RDK board, the terminal outputs the following logs:
+The terminal output when running on the RDK is as follows:
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(plughw:0,0), direct(1), mode(0)
@@ -103,36 +137,39 @@ Periods = 4
 was set period_size = 512
 was set buffer_size = 2048
 alsa_device_init. hwparams(0xaaaad12484a0), swparams(0xaaaad124a7a0)
+
 ```
 
-The above log indicates successful initialization and opening of the audio device, confirming that audio capture is functioning normally.
+The log above shows that the audio device initialized successfully, the audio device was opened, and audio can be captured normally.
 
-When a user speaks the command words "Move forward," "Turn left," "Turn right," and "Move backward" sequentially near the microphone, the voice algorithm processes the audio intelligently and outputs the recognition results as shown below:
+When a person sequentially speaks the command words "向前走", "向左转", "向右转", and "向后退" near the microphone, the voice algorithm outputs recognition results after intelligent processing. The log is as follows:
 
 ```text
 cost time :769 ms
-[WARN] [1745810610.317172494] [sensevoice_ros2]: recv cmd word:Move forward
-result_str:Move forward,
-[WARN] [1745810610.479493615] [sensevoice_ros2]: asr msg:Move forward,
-result_str:Move forward,
+[WARN] [1745810610.317172494] [sensevoice_ros2]: recv cmd word:向前走
+result_str:向前走,
+[WARN] [1745810610.479493615] [sensevoice_ros2]: asr msg:向前走,
+result_str:向前走,
 cost time :785 ms
-[WARN] [1745810614.078700989] [sensevoice_ros2]: recv cmd word:Turn left
-result_str:Turn left,
-[WARN] [1745810614.187793932] [sensevoice_ros2]: asr msg:Turn left,
-result_str:Turn left,
+[WARN] [1745810614.078700989] [sensevoice_ros2]: recv cmd word:向左转
+result_str:向左转,
+[WARN] [1745810614.187793932] [sensevoice_ros2]: asr msg:向左转,
+result_str:向左转,
 cost time :761 ms
-[WARN] [1745810616.453310236] [sensevoice_ros2]: recv cmd word:Turn right
-result_str:Turn right,
-[WARN] [1745810616.587498515] [sensevoice_ros2]: asr msg:Turn right,
-result_str:Turn right,
+[WARN] [1745810616.453310236] [sensevoice_ros2]: recv cmd word:向右转
+result_str:向右转,
+[WARN] [1745810616.587498515] [sensevoice_ros2]: asr msg:向右转,
+result_str:向右转,
 cost time :737 ms
-[WARN] [1745810618.700084757] [sensevoice_ros2]: recv cmd word:Move backward
-result_str:Move backward,
-[WARN] [1745810618.857481535] [sensevoice_ros2]: asr msg:Move backward,
-result_str:Move backward,
+[WARN] [1745810618.700084757] [sensevoice_ros2]: recv cmd word:向后退
+result_str:向后退,
+[WARN] [1745810618.857481535] [sensevoice_ros2]: asr msg:向后退,
+result_str:向后退,
+
 ```
 
-By default, the **sensevoice_ros2** package publishes intelligent voice messages to the topics **/audio_smart** and **/asr_text**. Running `ros2 topic list` yields:
+
+sensevoice_ros2 publishes intelligent voice messages to the topics **/audio_smart** and **/asr_text** by default. The `ros2 topic list` result is:
 
 ```shell
 $ ros2 topic list
@@ -140,6 +177,6 @@ $ ros2 topic list
 /asr_text
 ```
 
-The **/asr_text** topic only produces output after hearing the specific wake-up phrase "Hello, Digua Robot." The result of `ros2 topic echo /asr_text` is shown below:
+The /asr_text topic requires a specific wake word "你好，地瓜机器人" to produce output. The `ros2 topic echo /asr_text` result is:
 
 ![Execution Result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)

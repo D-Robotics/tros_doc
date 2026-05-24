@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+sidebar_products: RDK-X5,RDK-S100
 ---
 # 人手关键点及手势识别(mediapipe)
 
@@ -37,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
-小车手势控制案例：[小车手势控制](/docs/05_Robot_development/04_apps/car_gesture_control.md)
+小车手势控制案例：[小车手势控制](../../04_apps/car_gesture_control.md)
 
 ## 支持平台
 
@@ -57,7 +58,7 @@ import TabItem from '@theme/TabItem';
 
 ### RDK平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK已烧录好RDK OS系统。
 
 2. RDK已成功安装TogetheROS.Bot。
 
@@ -79,10 +80,25 @@ apt install tros-humble-hand-landmarks-mediapipe
 
 **使用MIPI摄像头发布图片**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+
+</TabItem>
+</Tabs>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -98,10 +114,25 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **使用USB摄像头发布图片**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+
+</TabItem>
+</Tabs>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -117,10 +148,25 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **使用本地图片回灌**
 
+<Tabs groupId="tros-distro">
+<TabItem value="foxy" label="Foxy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/setup.bash
+```
+
+</TabItem>
+<TabItem value="humble" label="Humble">
+
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
+
+
+</TabItem>
+</Tabs>
 
 ```bash
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。

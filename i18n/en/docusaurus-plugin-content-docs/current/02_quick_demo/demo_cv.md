@@ -6,54 +6,66 @@ sidebar_position: 4
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
-## Gaussian Blur
+<DocScope products="RDK-X3">
 
-### Feature Introduction
+## Gaussian Filtering
 
-Implements Gaussian blur functionality, with acceleration types including BPU acceleration and NEON acceleration. Currently, BPU acceleration only supports int16 format, while NEON acceleration supports both int16 and uint16 formats.
+### Overview
+
+Implements Gaussian filtering with two acceleration types: BPU acceleration and NEON acceleration. BPU acceleration currently supports only the int16 format, and NEON acceleration currently supports only int16 and uint16 formats.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                | Runtime Environment                     | Example Functionality                    |
-| ----------------------- | --------------------------------------- | ---------------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read ToF images and apply Gaussian blur |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------ | ------------------------------ |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read ToF images and apply Gaussian filtering |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Usage Instructions
+### Usage
 
 #### BPU Acceleration
 
-The currently supported parameter ranges are as follows:
+The parameter ranges supported in the current version are as follows:
 
-- Filter type: Gaussian blur  
-- Supported data types: int16  
-- Supported resolution: 320x240  
-- Filter kernel: Gaussian 3x3  
-- sigmaX: 0  
-- sigmaY: 0  
+- Filter type: Gaussian filtering
+
+- Supported data types: int16
+
+- Supported resolution: 320x240.
+
+- Filter kernel: Gaussian 3x3
+
+- sigmax:  0
+
+- sigmay: 0
 
 #### NEON Acceleration
 
-The currently supported parameter ranges are as follows:
+The parameter ranges supported in the current version are as follows:
 
-- Filter type: Gaussian blur  
-- Supported data types: int16, uint16  
-- Filter kernel: Gaussian 3x3, 5x5  
-- sigmaX: 0  
-- sigmaY: 0  
+- Filter type: Gaussian filtering
 
-The package provides a simple test program that takes a local ToF image as input and calls interfaces from hobot_cv to implement Gaussian blur functionality. For detailed interface documentation, please refer to the README.md file in the hobot_cv package.
+- Supported data types: int16, uint16
+
+- Filter kernel: Gaussian 3x3, 5x5
+
+- sigmax:  0
+
+- sigmay: 0
+
+The package provides a simple test program that takes a local ToF image as input and calls hobot_cv interfaces to perform Gaussian filtering. For detailed interface descriptions, refer to README.md in the hobot_cv package.
 
 #### RDK Platform
 
@@ -79,13 +91,13 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy required models and configuration files for the example from tros.b installation path.
+# Copy the models and configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
-# Launch BPU-accelerated test program
+# Launch the BPU acceleration test program pkg
 ros2 launch hobot_cv hobot_cv_gaussian_blur.launch.py
 
-# Launch NEON-accelerated test program
+# Launch the NEON acceleration test program pkg
 ros2 launch hobot_cv hobot_cv_neon_blur.launch.py
 ```
 
@@ -94,7 +106,7 @@ ros2 launch hobot_cv hobot_cv_neon_blur.launch.py
 #### BPU Acceleration
 
 ```text
-Output results:
+Output:
 
 ===================
 image name :images/frame1_4.png
@@ -125,28 +137,31 @@ analyse_result end
 ------------------------- 
 ```
 
-Explanation:
+Where:
 
-- `infe cost time:1314` // Indicates that hobotcv-accelerated Gaussian blur took 1314 microseconds.  
-- `guss_time cost time:2685` // Indicates that OpenCV Gaussian blur took 2685 microseconds.  
-- `hobotcv save rate = (guss_time cost time - infe cost time) / guss_time cost time = 0.510615`  
+infe cost time:1314 // Indicates that hobotcv accelerated Gaussian filtering took 1314 microseconds.
 
-Based on the above comparison, performance improves by approximately 50% after hobot_cv acceleration.
+guss_time cost time:2685 // Indicates that OpenCV Gaussian filtering took 2685 microseconds.
 
-- `error sum:8.46524e+06, max:2, mean_error:0.439232` // Total error for a single image: 8.46524e+06; maximum per-pixel error: 2; average error: 0.439232  
-- Average error = sum / (width × height) = 8.46524e+06 / (320 × 240)
+hobotcv save rate = (guss_time cost time - infe cost time) / guss_time cost time = 0.510615
 
-Performance comparison between hobot_cv BPU-accelerated Gaussian blur and OpenCV Gaussian blur:
+Based on the comparison above, performance improved by 50% after hobot_cv acceleration.
 
-| Interface Type       | Kernel Size   | Time (ms) | Single-core CPU Usage (%) |
-| -------------------- | ------------- | --------- | --------------------------|
-| Hobotcv gaussian     | Size(3,3)     | 1.10435   | 15.9                      |
-| Opencv gaussian      | Size(3,3)     | 2.41861   | 49.7                      |
+error sum:8.46524e+06,max:2,mean_error:0.439232 // Total error for a single image: 8.46524e+06; maximum per-pixel error: 2; mean error: 0.439232
+
+Mean error = sum / (width * height) = 8.46524e+06 / (320 * 240)
+
+Performance comparison between hobot_cv Gaussian filtering with BPU acceleration and OpenCV Gaussian filtering:
+
+| Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
+| ------------------ | ------------- | ----------- | --------------|
+| Hobotcv gaussian   | Size(3,3)     | 1.10435     |    15.9       |
+| Opencv gaussian    | Size(3,3)     | 2.41861     |    49.7       |
 
 #### NEON Acceleration
 
 ```text
-Output results:
+Output:
 [neon_example-1] ===================
 [neon_example-1] image name :config/tof_images/frame1_4.png
 [neon_example-1] hobotcv mean cost time:674
@@ -168,50 +183,53 @@ Output results:
 [neon_example-1] -------------------------
 ```
 
-- `hobotcv gaussian cost time:603` // hobotcv NEON-accelerated Gaussian blur took 603 microseconds.  
-- `opencv gaussian cost time:2545` // OpenCV Gaussian blur took 2545 microseconds.  
-- `hobotcv gaussian save rate = (opencv cost time - hobotcv cost time) / opencv cost time = 0.763065`  
+hobotcv gaussian cost time:603 // The hobotcv Gaussian filtering NEON acceleration interface took 603 microseconds.
+opencv gaussian cost time:2545 // Indicates that OpenCV Gaussian filtering took 2545 microseconds.
+hobotcv gaussian save rate = (opencv cost time - hobotcv cost time) / opencv cost time = 0.763065
+Based on the comparison above, Gaussian filtering performance improved by 76% after hobotcv acceleration.
 
-Based on the above comparison, performance improves by approximately 76% after hobotcv acceleration.
+Performance comparison between hobot_cv Gaussian filtering with NEON acceleration and OpenCV Gaussian filtering:
 
-Performance comparison between hobot_cv NEON-accelerated Gaussian blur and OpenCV Gaussian blur:
+| Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
+| ------------------ | ------------- | ----------- | --------------|
+| Hobotcv gaussian   | Size(3,3)     | 0.430284    |    27.1   |
+| Opencv gaussian    | Size(3,3)     | 2.42225     |    47     |
+| Hobotcv gaussian   | Size(5,5)     | 0.854871    |    39.1   |
+| Opencv gaussian    | Size(5,5)     | 3.15647     |    99.8    |
 
-| Interface Type       | Kernel Size   | Time (ms) | Single-core CPU Usage (%) |
-| -------------------- | ------------- | --------- | --------------------------|
-| Hobotcv gaussian     | Size(3,3)     | 0.430284  | 27.1                       |
-| Opencv gaussian      | Size(3,3)     | 2.42225   | 47                         |
-| Hobotcv gaussian     | Size(5,5)     | 0.854871  | 39.1                       |
-| Opencv gaussian      | Size(5,5)     | 3.15647   | 99.8                       |
+## Mean Filtering
 
-## Mean Blur
+### Overview
 
-### Feature Introduction
-Implement mean filtering functionality with NEON acceleration. Currently, only int16 and uint16 formats are supported.
+Implements mean filtering with NEON acceleration. Currently supports only int16 and uint16 formats.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                | Runtime Environment                     | Example Functionality                    |
-| ----------------------- | --------------------------------------- | ---------------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read ToF image and apply mean filtering |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------- | ------------------------------ |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read ToF images and apply mean filtering |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Usage Instructions
+### Usage
 
-The current version supports the following parameter ranges:
+The parameter ranges supported in the current version are as follows:
 
-- Filter type: Mean filter  
-- Supported data types: int16, uint16  
-- Filter kernel sizes: 3x3, 5x5  
+- Filter type: Mean filtering
 
-The package provides a simple test program that reads a local ToF image and calls interfaces from hobot_cv to perform mean filtering. For detailed interface documentation, please refer to the README.md file in the hobot_cv package.
+- Supported data types: int16, uint16
+
+- Filter kernel: 3x3, 5x5
+
+The package provides a simple test program that takes a local ToF image as input and calls hobot_cv interfaces to perform mean filtering. For detailed interface descriptions, refer to README.md in the hobot_cv package.
 
 #### RDK Platform
 
@@ -237,10 +255,10 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy required configuration files for the example from TogetheROS installation path.
+# Copy the configuration files required to run the example from the TogetheROS installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
-# Launch the test program package
+# Launch the test program pkg
 ros2 launch hobot_cv hobot_cv_neon_blur.launch.py
 ```
 
@@ -261,54 +279,55 @@ Output:
 [neon_example-1] -------------------------
 ```
 
-Explanation:
+Where:
 
-- `hobotcv mean cost time:674` // The NEON-accelerated mean filtering interface in hobot_cv took 674 microseconds.
-- `opencv mean cost time:1025` // OpenCV’s mean filtering took 1025 microseconds.
-- `hobotcv mean save rate = (opencv cost time - hobotcv cost time) / opencv cost time = 0.342439`
+hobotcv mean cost time:674 // The hobot_cv mean filtering NEON acceleration interface took 674 microseconds.
+opencv mean cost time:1025 // Indicates that OpenCV mean filtering took 1025 microseconds.
+hobotcv mean save rate = (opencv cost time - hobotcv cost time) / opencv cost time = 0.342439
+Based on the comparison above, mean filtering performance improved by 34% after hobotcv acceleration.
 
-Based on the comparison above, performance of mean filtering improved by 34% after applying hobotcv acceleration.
+error sum:8.43744e+06,max:1,mean_error:0.430833 // Total error for a single mean-filtered image: 8.43744e+06; maximum per-pixel error: 1; mean error: 0.430833
+Mean filtering mean error = sum / (width x height) = 8.43744e+06 / (320 x 240)
 
-- `error sum:8.43744e+06, max:1, mean_error:0.430833`  
-  Total error for a single image after mean filtering: 8.43744e+06  
-  Maximum pixel-wise error: 1  
-  Mean error: 0.430833  
-  Mean error = total error / (width × height) = 8.43744e+06 / (320 × 240)
+#### hobot_cv vs OpenCV Performance Comparison
 
-#### Performance Comparison Between hobot_cv and OpenCV
+| Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
+| ------------------ | ------------- | ----------- | --------------|
+| Hobotcv mean       | Size(3,3)     | 0.466397    |       31.8   |
+| Opencv mean        | Size(3,3)     | 0.676677    |       40.2   |
+| Hobotcv mean       | Size(5,5)     | 0.737171    |       47.7   |
+| Opencv mean        | Size(5,5)     | 0.798177    |       52.9   |
 
-| Interface Type    | Kernel Size | Time (ms) | Single-core CPU Usage (%) |
-| ----------------- | ----------- | --------- | --------------------------|
-| Hobotcv mean      | Size(3,3)   | 0.466397  | 31.8                      |
-| Opencv mean       | Size(3,3)   | 0.676677  | 40.2                      |
-| Hobotcv mean      | Size(5,5)   | 0.737171  | 47.7                      |
-| Opencv mean       | Size(5,5)   | 0.798177  | 52.9                      |
+</DocScope>
+<DocScope products="RDK-X3,RDK-X5">
 
 ## crop
 
-### Feature Description
+### Overview
 
-Implements image cropping functionality. Currently, only NV12 format is supported.
+Implements image cropping. Currently supports only the NV12 format.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                | Runtime Environment                     | Example Functionality          |
-| ----------------------- | --------------------------------------- | ------------------------------ |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read image and perform cropping |
-| RDK X5, RDK X5 Module   | Ubuntu 22.04 (Humble)                   | Read image and perform cropping |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------- | ------------------------------ |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read images and crop them |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | Read images and crop them |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Usage Instructions
+### Usage
 
 #### RDK Platform
+
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -332,7 +351,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy required models and configuration files for the example from tros.b installation path.
+# Copy the models and configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # Launch the launch file
@@ -349,44 +368,49 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 [INFO] [crop_example-1]: process has finished cleanly [pid 3064]
 ```
 
-According to the logs, the test program successfully cropped a local 1920×1080 resolution image. Processing time is as follows:
+According to the log, the test program completed crop processing on a local 1920x1080 image with the following timing:
 
-| Image Processing                        | Execution Time |
-| --------------------------------------- | -------------- |
-| Crop 1920×1080 to 960×540               | 1 ms           |
+| Image Processing | Runtime |
+| ------------------------------------- | ------------- |
+| 1920x1080 cropped to 960x540 | 1ms |
 
-The original local image is 1920×1080; the top-left 960×540 region was cropped. The resulting image is shown below:
+The original local image at 1920x1080 and the cropped top-left 960x540 region are shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
 
+</DocScope>
 ## resize
 
-### Feature Description
+### Overview
 
-Implements image resizing functionality. Currently, only NV12 format is supported.
+Implements image scaling. Currently supports only the NV12 format.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
+
 ### Supported Platforms
 
-| Platform                              | Runtime Environment                     |
-| ------------------------------------- | --------------------------------------- |
-| RDK X3, RDK X3 Module                 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100       | Ubuntu 22.04 (Humble)                   |
-| RDK Ultra                             | Ubuntu 20.04 (Foxy)                     |
-| X86                                   | Ubuntu 20.04 (Foxy)                     |
+| Platform | Runtime |
+| ------- | ------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S600 | Ubuntu 24.04 (Jazzy) |
+| X86     | Ubuntu 20.04 (Foxy) |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
+
 #### X86 Platform
 
-1. Confirm that the X86 platform system is Ubuntu 20.04 and that TogetheROS.Bot has been successfully installed.
+1. Confirm that the X86 platform is running Ubuntu 20.04 and TogetheROS.Bot has been successfully installed.
 
-### Usage Guide
+### Usage
 
 #### RDK/X86
 
@@ -394,7 +418,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -403,8 +427,16 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -412,7 +444,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the required models and configuration files for running the example from the TogetheROS installation path.
+# Copy the models and configuration files required to run the example from the TogetheROS installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # Launch the launch file
@@ -421,7 +453,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 ### Result Analysis
 
-#### Resize on RDK X3 Platform
+#### RDK X3 Platform resize
 
 ```shell
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -433,67 +465,71 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 [INFO] [resize_example-1]: process has finished cleanly [pid 3083]
 ```
 
-According to the log, the test program successfully processed a local image with resolution 1920x1080 via resizing. The interface was called twice, with the following execution times:
+According to the log, the test program completed resize processing on a local 1920x1080 image. The interface was called twice with the following timing for each call:
 
-| Image Processing                         | First Run Time | Second Run Time |
-| ---------------------------------------- | -------------- | --------------- |
-| Resize from 1920x1080 to 960x540         | 297 ms         | 15 ms           |
+| Image Processing | First Run Time | Second Run Time |
+| ------------------------------------- | ------------- | ------------- |
+| 1920x1080 resized to 960x540 | 297ms | 15ms |
 
-The first run took longer because it required hardware configuration of the VPS. Once the hardware configuration is finalized and unchanged, subsequent processing is handled directly by the hardware, significantly reducing execution time.
+The first run takes longer because the VPS hardware needs to be configured. If the hardware configuration attributes are not changed afterward, the hardware processes directly and the time cost decreases significantly.
 
-The original local image (1920x1080) and the resized image (960x540) are shown below:
+The original local image at 1920x1080 and the resized 960x540 image are shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
 
-#### Performance Comparison on RDK X3 Platform
+#### RDK X3 Platform Performance Comparison
 
-CPU usage was monitored using the `top` command, representing the CPU percentage consumed by the test process.  
-Timing measurements are in milliseconds (ms), averaged over 1000 iterations.  
-During testing, the CPU frequency was locked as follows:
+Use the top command to check CPU usage; the CPU usage shown is the test process CPU percentage.
+Time is measured in ms, averaged over 1000 iterations in a loop.
+Lock the CPU frequency during testing:
 
 ```shell
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-| src wxh   | dst wxh   | VPS Time | VPS Interface<br/>CPU Usage | BPU Time | BPU Interface<br/>CPU Usage | OpenCV Time | OpenCV Processing<br/>CPU Usage |
-| --------- | --------- | -------- | --------------------------- | -------- | --------------------------- | ----------- | ------------------------------- |
-| 512x512   | 128x128   | 1.53789  | 25.9                        | 1.11054  | 89                          | 1.71119     | 100.3                           |
-| 640x640   | 320x320   | 2.48536  | 28.5                        | 1.82232  | 88                          | 1.82384     | 338.9                           |
-| 896x896   | 384x384   | 4.54422  | 24.6                        | 2.81954  | 79.7                        | 7.84396     | 273.1                           |
-| 1024x1024 | 512x512   | 6.01103  | 25.2                        | 3.89325  | 81.7                        | 2.55761     | 381.7                           |
-| 1920x1088 | 512x512   | 11.0406  | 20.6                        | 5.8513   | 71.1                        | 8.19324     | 380.1                           |
-| 1920x1080 | 960x544   | 11.1562  | 22.3                        | 7.09085  | 77.7                        | 15.2978     | 382.4                           |
+| src wxh | dst wxh | VPS Time | VPS Interface<br/>CPU Usage | BPU Time | BPU Interface<br/>CPU Usage | OpenCV Time | OpenCV Processing<br/>CPU Usage |
+| -------- | --------- | --------| -------------------|--------|-------------------|-----------|---------------------|
+| 512x512  | 128x128   | 1.53789 |     25.9           |1.11054 |    89             |  1.71119  |        100.3        |
+| 640x640  | 320x320   | 2.48536 |     28.5           |1.82232 |    88             |  1.82384  |        338.9        |
+| 896x896  | 384x384   | 4.54422 |     24.6           |2.81954 |    79.7           |  7.84396  |        273.1        |
+| 1024x1024| 512x512   | 6.01103 |     25.2           |3.89325 |    81.7           |  2.55761  |        381.7        |
+| 1920x1088| 512x512   | 11.0406 |     20.6           |5.8513  |    71.1           |  8.19324  |        380.1        |
+| 1920x1080| 960x544   | 11.1562 |     22.3           |7.09085 |    77.7           |  15.2978  |        382.4        |
 
-## Rotate
+<DocScope products="RDK-X3">
 
-### Feature Introduction
+## rotate
 
-The rotate function implements image rotation. Currently, it only supports images in NV12 format, with supported rotation angles of 90°, 180°, and 270°.
+### Overview
+
+rotate implements image rotation. Currently supports only NV12 format images, with rotation angles of 90, 180, and 270 degrees.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                | Runtime Environment                     | Example Functionality              |
-| ----------------------- | --------------------------------------- | ---------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read an image and perform rotation |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------- | ------------------------------ |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read images and rotate them |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
+
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Usage Guide
+### Usage
 
 #### RDK Platform
+
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -502,7 +538,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -511,7 +547,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the required models and configuration files for running the example from the tros.b installation path.
+# Copy the models and configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # Launch the launch file
@@ -530,58 +566,59 @@ ros2 launch hobot_cv hobot_cv_rotate.launch.py
 [INFO] [rotate_example-1]: process has finished cleanly [pid 3096]
 ```
 
-According to the log, the test program successfully rotated a local image with resolution 1920x1080. The interface was called twice, with the following execution times:
+According to the log, the test program completed rotate processing on a local 1920x1080 image. The interface was called twice with the following timing for each call:
 
-| Image Processing                   | First Run Time | Second Run Time |
-| ---------------------------------- | -------------- | --------------- |
-| Rotate 1920x1080 by 180 degrees    | 415 ms         | 40 ms           |
+| Image Processing | First Run Time | Second Run Time |
+| ------------------------------------- | ------------- | ------------- |
+| 1920x1080 rotated 180 degrees | 415ms | 40ms |
 
-The first run took longer because it required hardware configuration of the VPS. Once the hardware configuration is finalized and unchanged, subsequent processing is handled directly by the hardware, significantly reducing execution time.
+The first run takes longer because the VPS hardware needs to be configured. If the hardware configuration attributes are not changed afterward, the hardware processes directly and the time cost decreases significantly.
 
-The original local image (1920x1080) and the rotated image (1920x1080) are shown below:
+The original local image at 1920x1080 and the rotated 1920x1080 image are shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
 
-#### Performance Comparison Between hobot_cv and OpenCV
+#### hobot_cv vs OpenCV Performance Comparison
 
-CPU usage was monitored using the `top` command, representing the CPU percentage consumed by the test process.  
-Timing measurements are in milliseconds (ms), averaged over 1000 iterations.  
-During testing, the CPU frequency was locked as follows:
+Use the top command to check CPU usage; the CPU usage shown is the test process CPU percentage.
+Time is measured in ms, averaged over 1000 iterations in a loop.
+Lock the CPU frequency during testing:
 
 ```shell
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-| src wxh   | Rotation Angle | hobot_cv Time | hobot_cv Interface CPU Usage | OpenCV Time | OpenCV Processing CPU Usage |
-| --------- | -------------- | ------------- | ---------------------------- | ----------- | --------------------------- |
-| 1920x1080 | 90             | 37.6568       | 61.6                         | 55.8886     | 100.0                       |
-| 640x640   | 180            | 7.3133        | 66.8                         | 5.1806      | 100.0                       |
-| 896x896   | 270            | 14.7723       | 62.5                         | 13.6497     | 100.0                       |
+| src wxh | Rotation Angle | hobotcv Time | hobotcv Interface CPU Usage | OpenCV Time | OpenCV Processing CPU Usage |
+| ---------- | --------- | ------------ | ------------------ |------------ |----------------- |
+| 1920x1080  |    90     |    37.6568   |       61.6         |   55.8886   |     100.0        |
+| 640x640    |    180    |    7.3133    |       66.8         |    5.1806   |     100.0        |
+| 896x896    |    270    |    14.7723   |       62.5         |   13.6497   |     100.0        |
 
-## Pyramid
+## pyramid
 
-### Feature Introduction
+### Overview
 
-Implements image pyramid scaling functionality. Currently, only NV12 format is supported.
+Implements image pyramid scaling. Currently supports only the NV12 format.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                | Runtime Environment                     | Example Functionality                    |
-| ----------------------- | --------------------------------------- | ---------------------------------------- |
-| RDK X3, RDK X3 Module   | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read an image and perform pyramid scaling |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------- | ------------------------------ |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Read images and perform pyramid scaling |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. The RDK has been flashed with an Ubuntu 20.04 or Ubuntu 22.04 system image.
-2. RDK has successfully installed TogetheROS.Bot.
+1. The RDK has been flashed with the Ubuntu system image.
 
-### Usage Guide
+2. TogetheROS.Bot has been successfully installed on the RDK.
+
+### Usage
 
 #### RDK Platform
 
@@ -590,7 +627,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -599,7 +636,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -608,7 +645,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the models and configuration files required for running the example from the tros.b installation path.
+# Copy the models and configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # Launch the launch file
@@ -627,53 +664,58 @@ ros2 launch hobot_cv hobot_cv_pyramid.launch.py
 [INFO] [pyramid_example-1]: process has finished cleanly [pid 3071]
 ```
 
-According to the log, the test program successfully processed a local 1920x1080 resolution image using pyramid downsampling. The interface was called twice, with the following execution times:
+According to the log, the test program completed pyramid downscaling on a local 1920x1080 image. The interface was called twice with the following timing for each call:
 
-| Image Processing                              | First Run Time | Second Run Time |
-| -------------------------------------------- | -------------- | --------------- |
-| Output of base layer (6-level pyramid) for 1920x1080 image | 299ms          | 19ms            |
+| Image Processing | First Run Time | Second Run Time |
+| ------------------------------------- | ------------- | ------------- |
+| 1920x1080 pyramid six-layer base layer output | 299ms | 19ms |
 
-The first run took longer because it required hardware configuration for VPS. Once the hardware configuration remains unchanged, subsequent processing is handled directly by the hardware, significantly reducing execution time.
+The first run takes longer because the VPS hardware needs to be configured. If the hardware configuration attributes are not changed afterward, the hardware processes directly and the time cost decreases significantly.
 
-The original local image (1920x1080) and the pyramid-downscaled image are shown below:
+The original local image at 1920x1080 and the pyramid-scaled image are shown below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
 
-The output includes six base layers, each layer's size being half that of the previous layer.
+Outputs six base layers; each layer's size is half that of the previous layer.
 
 #### Performance Comparison
 
-For an input image of 1920x1080 resolution, five upper pyramid layers were generated, resulting in images with resolutions of 960x540, 480x270, 240x134, 120x66, and 60x32 respectively. The efficiency of OpenCV and hobotcv was compared, with the following results:
+With a 1920x1080 input image, five upward layers are generated to obtain images at 960x540, 480x270, 240x134, 120x66, and 60x32 resolutions. OpenCV and hobotcv efficiency are compared as follows:
 
-CPU usage is reported as a percentage of a single core; time measurements are in milliseconds (ms).
+CPU usage is shown as single-core percentage; time is measured in ms.
 
-| VPS Interface Time | VPS Interface CPU Usage (%) | OpenCV Time | OpenCV CPU Usage (%) |
-| ------------------ | --------------------------- | ----------- | -------------------- |
-| 19ms               | 42.5                        | 56          | 100                  |
+| VPS Interface Time | VPS Interface CPU Usage | OpenCV Time | OpenCV Interface CPU Usage |
+| -----------| ------------- | ----------- | --------------|
+|    19ms    |      42.5     |      56     |       100     |
 
-## Color
+</DocScope>
 
-### Feature Introduction
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
 
-Implements conversion between NV12 and BGR24 image formats.
+## color
+
+### Overview
+
+Implements conversion between nv12 and bgr24 image formats.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
 ### Supported Platforms
 
-| Platform                              | Runtime Environment     | Example Functionality             |
-| ------------------------------------- | ----------------------- | --------------------------------- |
-| RDK X5, RDK X5 Module, RDK S100       | Ubuntu 22.04 (Humble)   | Conversion between NV12 and BGR24 |
+| Platform | Runtime | Example Functionality |
+| ------- | ------------- | ------------------------------ |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | Conversion between nv12 and gbr24 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Conversion between nv12 and gbr24 |
 
-### Prerequisites
+### Preparation
 
 #### RDK Platform
 
-1. RDK has been flashed with the Ubuntu 22.04 system image.
+1. The RDK has been flashed with the Ubuntu system image.
 
-2. RDK has successfully installed TogetheROS.Bot.
+2. TogetheROS.Bot has been successfully installed on the RDK.
 
-### Usage Guide
+### Usage
 
 #### RDK Platform
 
@@ -683,8 +725,17 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 <TabItem value="humble" label="Humble">
 
 ```bash
-# Configure the tros.b environment
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -692,7 +743,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 
 ```shell
-# Copy the models and configuration files required for running the example from the tros.b installation path.
+# Copy the models and configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # Launch the launch file
@@ -714,3 +765,4 @@ ros2 launch hobot_cv hobot_cv_conversion.launch.py
 [test_conersion-1] [INFO] [1742885456.161413872] [hobot_cv]: nv12_to_bgr24 opencv time cost: 4 ms
 [INFO] [test_conersion-1]: process has finished cleanly [pid 4140]
 ```
+</DocScope>

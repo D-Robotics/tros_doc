@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_products: RDK-X3,RDK-X5
 ---
 # 智能语音
 
@@ -17,7 +18,7 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：智能语音算法能够识别音频中的唤醒词以及自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
-语音控制小车运动案例：[4.6 语音控制小车运动](../../apps/car_audio_control)
+语音控制小车运动案例：[4.6 语音控制小车运动](../../04_apps/car_audio_control.md)
 
 ## 支持平台
 
@@ -28,7 +29,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-1. RDK已烧录好Ubuntu 20.04/Ubuntu 22.04系统镜像。
+1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 3. RDK已成功安装智能语音算法包，安装命令：
 
@@ -52,7 +53,7 @@ import DocScope from '@site/src/components/DocScope';
    </Tabs>
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 4. 按照以下方法在RDK上接好环形或线形四麦音频板。
@@ -117,12 +118,12 @@ import DocScope from '@site/src/components/DocScope';
 
     <DocScope products="RDK X3">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2.md)章节。
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2)章节。
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](../../../03_Basic_Application/05_audio/rdk_x5/audio_driver_hat2_rev2.md)章节。
+    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2)章节。
 
     </DocScope>
 
