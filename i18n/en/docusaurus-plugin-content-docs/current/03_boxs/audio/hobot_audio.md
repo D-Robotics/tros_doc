@@ -53,7 +53,7 @@ Voice-controlled car movement example: [4.6 Voice-Controlled Car Movement](../..
    </Tabs>
 
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
 4. Connect the circular or linear four-microphone audio board to the RDK as described below.
@@ -118,12 +118,12 @@ If not detected, please recheck the device connections.
 
     <DocScope products="RDK X3">
 
-    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2) section.
+    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2) section.
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc1/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2) section.
+    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://liqinglian01.github.io/rdk_x_doc/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2) section.
 
     </DocScope>
 

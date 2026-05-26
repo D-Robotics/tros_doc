@@ -76,7 +76,7 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 
 <DocScope products="RDK-X5">
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, see the [FAQ](https://liqinglian01.github.io/rdk_x_doc1/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: apt update command fails or reports an error — how to fix?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, see the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: apt update command fails or reports an error — how to fix?` for resolution.**
 :::
 </DocScope>
 <DocScope products="RDK-S100">
