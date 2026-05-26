@@ -7,7 +7,6 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import remarkDirective from "remark-directive";
 import remarkDocScope from "./src/remark/remark-doc-scope.js";
-import remarkGenerateSidebarConfig from "./src/remark/remark-generate-sidebar-config.js";
 import rehypeWrapTables from "./src/rehype/rehype-wrap-tables.js";
 
 /** @type {import('@docusaurus/types').Config} */
@@ -104,12 +103,9 @@ const config = {
           routeBasePath: "/", // 修改默认文档路径
           sidebarPath: "./sidebars.js",
           showLastUpdateTime: true,
-          remarkPlugins: [
-            remarkDirective,
-            remarkDocScope,
-            remarkGenerateSidebarConfig,
-          ],
-          rehypePlugins: [rehypeWrapTables],
+          remarkPlugins: [remarkDirective, remarkDocScope],
+
+          
         },
         blog: { showReadingTime: true },
         pages: { exclude: ["/imager/**", "**/dl/**"] },
@@ -118,19 +114,9 @@ const config = {
       }),
     ],
   ],
-  // add by xgs for S100_doc 2025 年 4 月 21 日 16:34:51
-  // plugins: [
-  //   [
-  //     "@docusaurus/plugin-content-docs",
-  //     {
-  //       id: "docs_s",
-  //       path: "docs_s",
-  //       routeBasePath: "rdk_s",
-  //       sidebarPath: "./sidebars.js",
-  //       showLastUpdateTime: true,
-  //     },
-  //   ],
-  // ],
+  plugins: [
+    require.resolve("./src/plugins/sidebar-scope-config-plugin"),
+  ],
   markdown: {
     mermaid: true,
   },
