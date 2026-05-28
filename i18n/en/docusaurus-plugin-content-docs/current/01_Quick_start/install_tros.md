@@ -25,7 +25,7 @@ Prerequisites
 
 :::info 📋 System Version Confirmation and Download
 
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://liqinglian01.github.io/rdk_x_doc/Quick_start/download)
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
 
 :::
 
@@ -34,7 +34,7 @@ Before installing TogetheROS, you need to confirm the system version and downloa
 <DocScope products="RDK S100,RDK S600">
 
 
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://liqinglian01.github.io/rdk_s_doc/Quick_start/download)
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download)
 
 :::
 
@@ -48,7 +48,7 @@ Please note for RDK X3 platform:
 :::caution Note
 - **2.x version tros.b only supports 2.x version system images. [1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports 1.x version systems.**
 - **If you are using a 1.x version system image, you need to upgrade from [1.1 Environment Preparation](./preparation.md) to 2.x version.**
-- **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://liqinglian01.github.io/rdk_x_doc/FAQ/applications_and_examples).**
+- **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples).**
 :::
 
 
@@ -103,7 +103,7 @@ sudo apt install tros-jazzy
 </Tabs>
 
 :::caution **Note**
-- **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+- **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 - **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
@@ -134,7 +134,7 @@ sudo apt upgrade
 ```
 
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
 ### Check Current tros.b Version
@@ -248,5 +248,5 @@ Prerequisites:
 
 :::caution
 - **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://liqinglian01.github.io/rdk_s_doc/FAQ/applications_and_examples)**.
+- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples)**.
 :::

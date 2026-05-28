@@ -20,10 +20,17 @@ The following sections describe environment preparation details for RDK and X86 
 
 Before installing tros.b, it is recommended to upgrade the RDK system image to the latest version. Ubuntu image flashing method:
 
-<DocScope products="RDK X3,RDK X5">
+<DocScope products="RDK-X3">
 
 
-[Ubuntu Image Flashing Method](/install_os/)
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_x_doc/en/install_os/rdk_x3?v=3.0.0&p=RDK+X3)
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_x_doc/en/install_os/rdk_x5?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
@@ -31,14 +38,20 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 :::caution **Note**
 - **If you are using RDK X3 with a 1.x version system, you need to upgrade the system to 2.x version.**
-- **For system version checking methods and detailed instructions, please refer to [FAQs](https://liqinglian01.github.io/rdk_x_doc/FAQ/applications_and_examples).**
+- **For system version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples).**
 :::
 
 </DocScope>
 
-<DocScope products="RDK S100,RDK S600">
+<DocScope products="RDK-S100">
 
-[Ubuntu Image Flashing Method](/rdk_s/02_install_os)
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/02_install_os/rdk_s100)
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/install_os/rdk_s600)
 
 </DocScope>
 
@@ -47,13 +60,13 @@ If the image is already installed, you can upgrade using the commands `sudo apt 
 <DocScope products="RDK X3,RDK X5">
 
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
 </DocScope>
 <DocScope products="RDK S100,RDK S600">
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q6: How to handle apt update command failure or error?` for resolution.**
 :::
 </DocScope>
 
@@ -70,14 +83,14 @@ During experience and development, commands such as scp/ssh are frequently used 
 <DocScope products="RDK X3,RDK X5">
 
 
-[Network Configuration](https://liqinglian01.github.io/rdk_x_doc/System_configuration/network_blueteeth)
+[Network Configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth)
 
 </DocScope>
 
 <DocScope products="RDK S100,RDK S600">
 
 
-[Network Configuration](https://liqinglian01.github.io/rdk_s_doc/System_configuration/network_blueteeth)
+[Network Configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_blueteeth)
 
 </DocScope>
 

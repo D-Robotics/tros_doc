@@ -72,7 +72,7 @@ Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
 
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
 
 5. A compatible audio board has been connected to the RDK (refer to the [Intelligent Voice section](../03_boxs/audio/hobot_audio.md)).

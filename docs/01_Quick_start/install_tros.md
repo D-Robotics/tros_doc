@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://liqinglian01.github.io/rdk_x_doc/Quick_start/download)
+安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
 
 :::
 
@@ -34,7 +34,7 @@ import DocScope from '@site/src/components/DocScope';
 <DocScope products="RDK S100,RDK S600">
 
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://liqinglian01.github.io/rdk_s_doc/Quick_start/download)
+安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download)
 
 :::
 
@@ -48,7 +48,7 @@ RDK X3平台请注意：
 :::caution 注意
 - **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
 - **如果您使用的是1.x版本系统镜像，需要将[1.1 环境准备](./preparation.md)到2.x版本。**
-- **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](https://liqinglian01.github.io/rdk_x_doc/FAQ/applications_and_examples)。**
+- **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
 
@@ -103,7 +103,7 @@ sudo apt install tros-jazzy
 </Tabs>
 
 :::caution **注意**
-- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 - **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
 :::
 
@@ -134,7 +134,7 @@ sudo apt upgrade
 ```
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 ### 查看当前tros.b版本
@@ -248,5 +248,5 @@ Description: TogetheROS Bot
 
 :::caution
 - **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://liqinglian01.github.io/rdk_s_doc/FAQ/applications_and_examples)**。
+- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples)**。
 :::

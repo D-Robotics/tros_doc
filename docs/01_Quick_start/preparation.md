@@ -20,10 +20,17 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 
 安装tros.b之前，建议用户将RDK系统镜像升级到最新版本，Ubuntu镜像烧录方法：
 
-<DocScope products="RDK X3,RDK X5">
+<DocScope products="RDK-X3">
 
 
-[Ubuntu镜像烧录方法](/install_os/)
+[Ubuntu镜像烧录方法](https://liqinglian01.github.io/rdk_x_doc/install_os/rdk_x3/?v=3.0.0&p=RDK+X3)
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+
+[Ubuntu镜像烧录方法](https://liqinglian01.github.io/rdk_x_doc/install_os/rdk_x5/?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
@@ -31,14 +38,20 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 
 :::caution **注意**
 - **如果您使用的是RDK X3，并且安装的是1.x版本系统，需要将系统升级到2.x版本。**
-- **系统版本号查看方法以及详细说明，请查看[FAQs](https://liqinglian01.github.io/rdk_x_doc/FAQ/applications_and_examples)。**
+- **系统版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
 </DocScope>
 
-<DocScope products="RDK S100,RDK S600">
+<DocScope products="RDK-S100">
 
-[Ubuntu镜像烧录方法](/rdk_s/02_install_os)
+[Ubuntu镜像烧录方法](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/install_os/rdk_s100/instruction?v=4.0.5&p=RDK+S100)
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+[Ubuntu镜像烧录方法](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/install_os/rdk_s600?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
@@ -47,13 +60,13 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 <DocScope products="RDK X3,RDK X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 </DocScope>
 <DocScope products="RDK S100,RDK S600">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://liqinglian01.github.io/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 </DocScope>
 
@@ -70,14 +83,14 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 <DocScope products="RDK X3,RDK X5">
 
 
-[网络配置](https://liqinglian01.github.io/rdk_x_doc/System_configuration/network_blueteeth)
+[网络配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth)
 
 </DocScope>
 
 <DocScope products="RDK S100,RDK S600">
 
 
-[网络配置](https://liqinglian01.github.io/rdk_s_doc/System_configuration/network_blueteeth)
+[网络配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_blueteeth)
 
 </DocScope>
 
