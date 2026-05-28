@@ -16,7 +16,7 @@ import DocScope from '@site/src/components/DocScope';
 
 前提
 
-- 已完成[5.1.1 环境准备](./preparation.md)章节工作
+- 已完成[环境准备](./preparation.md)章节工作
 - RDK已安装Ubuntu系统
 - RDK能够正常访问互联网
 - RDK能够远程ssh

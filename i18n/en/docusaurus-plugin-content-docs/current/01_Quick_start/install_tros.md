@@ -16,7 +16,7 @@ This section introduces how to install TogetheROS.Bot using apt on RDK and X86 p
 
 Prerequisites
 
-- Completed the work in [5.1.1 Environment Preparation](./preparation.md)
+- Completed the work in [Environment Preparation](./preparation.md)
 - Ubuntu system is installed on RDK
 - RDK can access the internet normally
 - RDK supports remote ssh
