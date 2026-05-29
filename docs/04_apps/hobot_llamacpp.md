@@ -106,6 +106,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 
 **使用MIPI摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -115,6 +116,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -124,7 +126,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -135,6 +154,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **使用USB摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -144,6 +164,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -153,7 +174,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -164,6 +202,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **使用本地回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -173,6 +212,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -182,7 +222,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
@@ -207,6 +264,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 功能包本身除了支持视觉语言大模型能力, 同时支持单独使用纯语言模型进行对话：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -216,6 +274,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -225,7 +284,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell

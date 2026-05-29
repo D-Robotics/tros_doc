@@ -414,6 +414,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK/X86
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -432,6 +433,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -442,6 +444,35 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy the models and configuration files required to run the example from the TogetheROS installation path.
@@ -720,8 +751,8 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 #### RDK Platform
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -741,6 +772,35 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy the models and configuration files required to run the example from the tros.b installation path.

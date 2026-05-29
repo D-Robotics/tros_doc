@@ -414,6 +414,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 #### RDK/X86
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -432,6 +433,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -440,8 +442,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ```shell
 # 从TogetheROS的安装路径中拷贝出运行示例需要的模型和配置文件。
@@ -720,6 +748,7 @@ cpu占用为单核百分比，耗时统计单位为ms
 #### RDK平台
 
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 
 <TabItem value="humble" label="Humble">
@@ -741,6 +770,37 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的模型和配置文件。

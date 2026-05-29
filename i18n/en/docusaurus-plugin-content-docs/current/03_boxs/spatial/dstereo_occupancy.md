@@ -8,6 +8,7 @@ sidebar_products: RDK-X5,RDK-S100
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Overview
@@ -61,6 +62,7 @@ ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
 
 - Execute the following command on RDK (supported on both X5 and S100):
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -70,6 +72,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -79,7 +82,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```bash
 # 启动ZED-2i相机和占用网络推理程序
@@ -92,6 +112,7 @@ ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 
 - After the program starts, you can view the occupancy grid via rviz2. rviz2 can be installed directly on RDK. Note the following rviz2 configuration:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -101,6 +122,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -110,7 +132,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```bash
 # 安装rviz2
@@ -123,6 +162,7 @@ rviz2
 
 - To save results, add the following parameters. `save_occ_flag` enables saving, `save_occ_dir` controls the save directory (created automatically if it does not exist), `save_freq` controls save frequency, and `save_total` controls the total number of saves:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -132,6 +172,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -141,7 +182,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```bash
 # 启动ZED-2i相机和占用网络推理程序

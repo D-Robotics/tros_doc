@@ -7,6 +7,7 @@ sidebar_position: 2
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Web Display
@@ -50,34 +51,65 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 
     a. Start mipi_cam
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```bash
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
@@ -85,34 +117,65 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 
     b. Start encoding
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 
    ```bash
@@ -121,34 +184,65 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 
     c. Start websocket
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```bash
    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
@@ -305,11 +399,29 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
 2. tros.b has been successfully installed on RDK.
 
+<DocScope products="RDK-X3,RDK-X5">
 3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
 
    - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
+</DocScope>
+
+<DocScope products="RDK-S100">
+3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
+
+   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `humble`.
+</DocScope>
+
+<DocScope products="RDK-S600">
+3. The PC has Ubuntu 24.04, ROS2 Jazzy desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
+
+   - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy`.
+</DocScope>
 
 ### Usage
 
@@ -317,34 +429,65 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
 1. Log in to RDK via SSH and start the board-side programs
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```shell
    # Start mipi camera to publish BGR8 format images
@@ -363,34 +506,65 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
 2. Open a new window on RDK and query topics. Command and return result:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```shell
    # Query topics
@@ -408,6 +582,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
 3. Start RViz2 on RDK to subscribe to topics and preview camera data;
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -416,6 +591,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -423,6 +599,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -430,7 +607,35 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/tros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
    ```shell
    # Install RViz2
@@ -471,11 +676,29 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 2. tros.b has been successfully installed on RDK.
 
+<DocScope products="RDK-X3,RDK-X5">
 3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
 
    - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
+</DocScope>
+
+<DocScope products="RDK-S100">
+3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
+
+   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `humble`.
+</DocScope>
+
+<DocScope products="RDK-S600">
+3. The PC has Ubuntu 24.04, ROS2 Jazzy desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
+
+   - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy`.
+</DocScope>
 
 ### Usage
 
@@ -483,34 +706,65 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 1. Log in to the RDK development board via SSH and start the mipi camera:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```shell
    ros2 launch mipi_cam mipi_cam.launch.py mipi_image_width:=640 mipi_image_height:=480 mipi_video_device:=F37
@@ -518,34 +772,65 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 2. Start hobot_codec on RDK to publish compressed format images:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/setup.bash
+      ```
 
-   </TabItem>
+      </TabItem>
 
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-   ```
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+      <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
    ```shell
    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_out_format:=jpeg codec_pub_topic:=/image_raw/compressed
@@ -553,6 +838,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 3. Subscribe to topics on RDK and preview camera data;
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -561,12 +847,14 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
    source /opt/tros/humble/setup.bash
    ```
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -574,7 +862,34 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/tros/humble/setup.bash
+   ```
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
    ```shell
    # Install rqt
@@ -630,6 +945,7 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 
 1. Log in to the RDK platform via SSH and start the board-side programs:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -648,6 +964,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -658,6 +975,35 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 export CAM_TYPE=fb
@@ -668,6 +1014,7 @@ ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_fi
 
 At the same time, use SSH to log in to another terminal and record topic information on the board:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -686,6 +1033,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -696,6 +1044,35 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Record rosbag data, which will be generated in the current working directory

@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Overview
@@ -65,6 +66,7 @@ Background blur example: https://github.com/rusito-23/mobile_unet_segmentation
 
 The mobilenet_unet segmentation example subscribes to images published by the sensor package, runs inference, publishes algorithm messages, and automatically saves rendered images in the runtime directory. Files are named in the format `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg`.
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -74,6 +76,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -82,6 +85,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -90,7 +94,37 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell
@@ -103,6 +137,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 
 ##### Publish Images Using a USB Camera
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -112,6 +147,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -120,6 +156,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -128,7 +165,37 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 配置USB摄像头
@@ -142,6 +209,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 
 The mobilenet_unet segmentation example uses local JPEG/PNG images for playback. After inference, rendered images with algorithm results are saved in the local runtime directory.
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -151,6 +219,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -159,6 +228,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -167,7 +237,37 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 启动launch文件
@@ -180,6 +280,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 The mobilenet_unet segmentation example uses local JPEG/PNG images for playback. After inference, rendered images with algorithm results are saved in the local runtime directory.
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -189,6 +290,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -197,7 +299,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 启动launch文件

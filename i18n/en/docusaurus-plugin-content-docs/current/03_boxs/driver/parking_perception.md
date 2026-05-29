@@ -13,6 +13,7 @@ sidebar_products: RDK-X3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 
@@ -155,8 +156,8 @@ The package publishes algorithm messages containing semantic segmentation and ob
 
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="foxy" label="Foxy">
 
 
@@ -192,6 +193,30 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+
+
+```bash
+
+# 配置tros.b环境
+
+source /opt/tros/humble/setup.bash
+
+```
+
+
+
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 
@@ -223,8 +248,8 @@ ros2 launch parking_perception parking_perception.launch.py
 
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="foxy" label="Foxy">
 
 
@@ -260,6 +285,30 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+
+
+```bash
+
+# 配置tros.b环境
+
+source /opt/tros/humble/setup.bash
+
+```
+
+
+
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 
@@ -289,8 +338,8 @@ ros2 launch parking_perception parking_perception.launch.py
 
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="foxy" label="Foxy">
 
 
@@ -326,6 +375,30 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+
+
+```bash
+
+# 配置tros.b环境
+
+source /opt/tros/humble/setup.bash
+
+```
+
+
+
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 

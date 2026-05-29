@@ -7,6 +7,7 @@ sidebar_position: 9
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Overview
@@ -55,6 +56,7 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 channel 1 (Terminal 1):
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -64,6 +66,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -72,6 +75,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -80,7 +84,37 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell
@@ -96,6 +130,7 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 
 channel 2 (Terminal 2):
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -105,6 +140,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -113,6 +149,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -121,7 +158,37 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell

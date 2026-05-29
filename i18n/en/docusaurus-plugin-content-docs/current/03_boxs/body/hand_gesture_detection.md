@@ -7,6 +7,7 @@ sidebar_products: RDK-X3,RDK-X5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Introduction
@@ -93,6 +94,7 @@ The examples below start static gesture recognition by default.
 
 ### Using MIPI Camera
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -113,6 +115,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros.b installation path.
@@ -129,6 +146,7 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 
 ### Using USB Camera
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -149,6 +167,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros.b installation path.
@@ -172,6 +205,7 @@ This feature is only supported in `TROS Humble 2.3.1` and later versions.
 :::
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -181,7 +215,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```bash
 # Copy the configuration files required to run the example from the tros.b installation path.

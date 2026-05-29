@@ -7,6 +7,7 @@ sidebar_position: 3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Overview
@@ -52,34 +53,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     a. Start mipi_cam
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
@@ -87,34 +119,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     b. Start hobot_codec encoding
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch hobot_codec hobot_codec_encode.launch.py codec_in_mode:=shared_mem codec_in_format:=nv12 codec_out_mode:=ros codec_out_format:=jpeg codec_sub_topic:=/hbmem_img codec_pub_topic:=/image_jpeg
@@ -122,34 +185,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
 2. View JPEG encoded images on the web. Open another terminal:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
@@ -165,34 +259,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     a. Start the image publisher node
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     // Copy the image files required for the example from the tros.b installation path
@@ -205,34 +330,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     b. Start JPEG image encoding and publishing pkg
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch hobot_codec hobot_codec.launch.py codec_in_mode:=shared_mem codec_in_format:=nv12 codec_out_mode:=ros codec_out_format:=jpeg codec_sub_topic:=/hbmem_img codec_pub_topic:=/image_jpeg
@@ -240,34 +396,65 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
 2. View JPEG encoded images on the web. Open another terminal:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true

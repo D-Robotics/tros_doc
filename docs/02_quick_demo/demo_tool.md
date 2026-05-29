@@ -57,6 +57,7 @@ X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.26
 
 #### RDK/X86平台
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -83,8 +84,33 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
@@ -120,6 +146,7 @@ webserver has launch
 #### RDK平台
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -146,8 +173,33 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 ```shell

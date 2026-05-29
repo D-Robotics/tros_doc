@@ -7,6 +7,7 @@ sidebar_products: RDK-S100
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Overview
@@ -41,6 +42,7 @@ Use local dataset feedback playback. After inference, the algorithm publishes re
 
 ***Prepare Feedback Dataset***
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -72,9 +74,30 @@ tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 板端下载数据集
+cd ~
+wget http://archive.d-robotics.cc/TogetheROS/data/nuscenes_bev_val/nuscenes_bev_val.tar.gz
+
+# 解压缩
+mkdir -p ~/hobot_bev_data
+tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ***Run Dataset Feedback Playback***
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -108,11 +131,34 @@ ros2 launch hobot_bev hobot_bev.launch.py
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置tros.b humble环境
+source /opt/tros/humble/setup.bash
+
+if [ -L qat ]; then rm qat; fi
+ln -s `ros2 pkg prefix hobot_bev`/lib/hobot_bev/qat/ qat
+ln -s ~/hobot_bev_data/nuscenes_bev_val nuscenes_bev_val
+
+# 启动运行脚本
+ros2 launch hobot_bev hobot_bev.launch.py
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## Result Analysis
 
 The running terminal outputs the following information:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -179,9 +225,54 @@ The running terminal outputs the following information:
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```text
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-05-08-09-44-40-838952-ubuntu-20037
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [hobot_bev-1]: process started with pid [20040]
+[INFO] [websocket-2]: process started with pid [20042]
+[hobot_bev-1] [UCP]: log level = 3
+[hobot_bev-1] [UCP]: UCP version = 3.3.3
+[hobot_bev-1] [VP]: log level = 3
+[hobot_bev-1] [DNN]: log level = 3
+[hobot_bev-1] [HPL]: log level = 3
+[websocket-2] [WARN] [1746668681.078783258] [websocket]:
+[websocket-2] Parameter:
+[websocket-2]  image_topic: /image_jpeg
+[websocket-2]  image_type: mjpeg
+[websocket-2]  only_show_image: 1
+[websocket-2]  output_fps: 0
+[websocket-2] [INFO] [1746668681.079077507] [websocket]: Websocket using image mjpeg
+[hobot_bev-1] [UCPT]: log level = 6
+[hobot_bev-1] [DSP]: log level = 3
+[hobot_bev-1] [INFO] [1746668681.182092730] [bev_node]: BevNode init
+[hobot_bev-1] [WARN] [1746668681.182327429] [bev_node]:
+[hobot_bev-1]  topic_name: image_jpeg
+[hobot_bev-1]  save_image: false
+[hobot_bev-1]  glog_level: 1
+[hobot_bev-1] [WARN] [1746668681.186660916] [ai_wrapper]:
+[hobot_bev-1]  Set glog level in cmd line with '--glog_level=$num'
+[hobot_bev-1]    EXAMPLE_SYSTEM = 0,  EXAMPLE_REPORT = 1,  EXAMPLE_DETAIL = 2,  EXAMPLE_DEBUG = 3
+[hobot_bev-1] [BPU][[BPU_MONITOR]][281473498852256][INFO]BPULib verison(2, 1, 2)[0d3f195]!
+[hobot_bev-1] [DNN] HBTL_EXT_DNN log level:6
+[hobot_bev-1] [DNN]: 3.3.3_(4.1.17 HBRT)
+[hobot_bev-1] [INFO] [1746668681.944706857] [bev_node]: Get render imgs size: 8, frame_id: 0, duration ms infer: 12.52, postp: 3.37, prep: 0.00
+[hobot_bev-1] [INFO] [1746668681.997575564] [bev_node]: Publish ros compressed image msg, format: jpeg, topic: image_jpeg
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -196,3 +287,15 @@ Enter `http://IP:8000` in a PC browser to view the images and algorithm renderin
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg)
+
+</TabItem>
+
+</Tabs>
+</DocScope>

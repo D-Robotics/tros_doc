@@ -8,6 +8,7 @@ sidebar_products: RDK-X3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -122,6 +123,7 @@ package对外发布包含语义分割和目标检测信息的算法msg，用户�
 
 **使用MIPI摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -131,6 +133,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -140,7 +143,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -155,6 +175,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 **使用usb摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -164,6 +185,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -173,7 +195,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -188,6 +227,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 **使用单张回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -197,6 +237,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -206,7 +247,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -220,6 +278,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 **使用单张回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -229,6 +288,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -238,7 +298,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。

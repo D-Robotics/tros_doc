@@ -8,6 +8,7 @@ sidebar_products: RDK-X3,RDK-X5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -51,24 +52,42 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 3. RDK已成功安装智能语音算法包，安装命令：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-hobot-audio
-   ```
+      ```bash
+      sudo apt update
+      sudo apt install tros-hobot-audio
+      ```
 
-   </TabItem>
-   <TabItem value="humble" label="Humble">
+      </TabItem>
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-humble-hobot-audio
-   ```
+      <TabItem value="humble" label="Humble">
 
-   </TabItem>
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 
 :::caution **注意**
@@ -79,32 +98,54 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 6. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+  <TabItem value="foxy" label="Foxy">
 
-   - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo和Turtlebot3相关的功能包，安装方法：
+    - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo和Turtlebot3相关的功能包，安装方法：
 
-    ```shell
-    sudo apt-get install ros-foxy-gazebo-*
-    sudo apt install ros-foxy-turtlebot3
-    sudo apt install ros-foxy-turtlebot3-simulations
-    ```
+     ```shell
+     sudo apt-get install ros-foxy-gazebo-*
+     sudo apt install ros-foxy-turtlebot3
+     sudo apt install ros-foxy-turtlebot3-simulations
+     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+  </TabItem>
 
-   - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-   - Gazebo和Turtlebot3相关的功能包，安装方法：
+  <TabItem value="humble" label="Humble">
 
-    ```shell
-    sudo apt-get install ros-humble-gazebo-*
-    sudo apt install ros-humble-turtlebot3
-    sudo apt install ros-humble-turtlebot3-simulations
-    ```
+    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo和Turtlebot3相关的功能包，安装方法：
 
- </TabItem>
+     ```shell
+     sudo apt-get install ros-humble-gazebo-*
+     sudo apt install ros-humble-turtlebot3
+     sudo apt install ros-humble-turtlebot3-simulations
+     ```
+
+  </TabItem>
+
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo和Turtlebot3相关的功能包，安装方法：
+
+     ```shell
+     sudo apt-get install ros-humble-gazebo-*
+     sudo apt install ros-humble-turtlebot3
+     sudo apt install ros-humble-turtlebot3-simulations
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
 
 ## 使用介绍
 
@@ -114,6 +155,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 PC端启动仿真环境：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -122,6 +164,7 @@ source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -129,7 +172,22 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 export TURTLEBOT3_MODEL=burger
@@ -144,6 +202,7 @@ RDK平台启动程序：
 
 1. 拷贝音频配置文件和加载音频驱动
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -153,6 +212,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -162,7 +222,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```shell
     # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -175,6 +252,7 @@ source /opt/tros/humble/setup.bash
 
 3. 启动程序
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -184,6 +262,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -193,7 +272,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```shell
     # 启动launch文件，并指定小车正前方对应的语音DOA角度，以90为例

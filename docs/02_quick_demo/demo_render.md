@@ -7,6 +7,7 @@ sidebar_position: 2
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Web展示
@@ -50,6 +51,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
     a. 启动mipi_cam
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -68,6 +70,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -76,8 +79,34 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```bash
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
@@ -85,6 +114,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
     b. 启动编码
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -103,6 +133,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -111,8 +142,34 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
 
    ```bash
@@ -121,6 +178,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
     c. 启动websocket
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -139,6 +197,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -147,8 +206,34 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```bash
    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
@@ -226,6 +311,7 @@ HDMI展示**EOL**说明：
 
 通过SSH登录开发板，启动板端相关程序：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -244,6 +330,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -252,8 +339,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 使用RDK X5时, 需要额外使用下面命令:
 ```bash
@@ -305,11 +418,29 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 
 2. RDK已成功安装tros.b。
 
+<DocScope products="RDK-X3,RDK-X5">
 3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
 
    - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+</DocScope>
+
+<DocScope products="RDK-S100">
+3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+
+   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+</DocScope>
+
+<DocScope products="RDK-S600">
+3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+
+   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+</DocScope>
 
 ### 使用方式
 
@@ -317,6 +448,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 
 1. 通过SSH登录RDK，启动板端相关程序
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -335,6 +467,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -343,8 +476,34 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```shell
    # 启动mipi camera发布BGR8格式图像
@@ -363,6 +522,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 
 2. RDK新建一个窗口，查询话题命令及返回结果如下：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -381,6 +541,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -389,8 +550,34 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```shell
    # 查询topic
@@ -408,6 +595,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 
 3. RDK上启动RViz2订阅话题，并预览摄像头数据；
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -416,6 +604,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -423,6 +612,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -431,6 +621,31 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/tros/humble/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
    ```shell
    # 安装RViz2
@@ -471,11 +686,29 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 2. RDK已成功安装tros.b。
 
+<DocScope products="RDK-X3,RDK-X5">
 3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
 
    - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+</DocScope>
+
+<DocScope products="RDK-S100">
+3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+
+   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+</DocScope>
+
+<DocScope products="RDK-S600">
+3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+
+   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+</DocScope>
 
 ### 使用方式
 
@@ -483,6 +716,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 1. 通过SSH登录RDK开发板，启动mipi camera：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -501,6 +735,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -509,8 +744,34 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```shell
    ros2 launch mipi_cam mipi_cam.launch.py mipi_image_width:=640 mipi_image_height:=480 mipi_video_device:=F37
@@ -518,6 +779,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 2. 在RDK上启动hobot_codec, 发布compressed格式图像：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -536,6 +798,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -544,8 +807,34 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
-
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
    ```shell
    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_out_format:=jpeg codec_pub_topic:=/image_raw/compressed
@@ -553,6 +842,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 3. RDK上订阅话题，并预览摄像头数据；
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -561,12 +851,14 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
    source /opt/tros/humble/setup.bash
    ```
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -575,6 +867,30 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/tros/humble/setup.bash
+   ```
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
    ```shell
    # 安装rqt
@@ -630,6 +946,7 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 1. 通过SSH登录RDK平台，启动板端相关程序：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -648,6 +965,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -656,8 +974,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ```shell
 export CAM_TYPE=fb
@@ -668,6 +1012,7 @@ ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_fi
 
 同时，利用ssh登录另一个终端，在板端记录话题信息：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -686,6 +1031,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -694,8 +1040,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ```shell
 # 记录rosbag数据，会生成在当前工作目录下

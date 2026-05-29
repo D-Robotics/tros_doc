@@ -33,6 +33,7 @@ import DocScope from '@site/src/components/DocScope';
 
 <DocScope products="RDK S100,RDK S600">
 
+:::info 📋 系统版本确认与下载
 
 安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download)
 
@@ -75,6 +76,7 @@ ssh root@10.64.61.241
 
 安装tros.b功能包：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -84,6 +86,7 @@ sudo apt install tros
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -92,6 +95,7 @@ sudo apt install tros-humble
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -101,6 +105,33 @@ sudo apt install tros-jazzy
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+sudo apt update
+sudo apt install tros-humble
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install tros-jazzy
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 :::caution **注意**
 - **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
@@ -139,6 +170,7 @@ sudo apt upgrade
 
 ### 查看当前tros.b版本
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -159,6 +191,7 @@ Description: TogetheROS Bot
 可以看到当前tros.b版本已升级为2.0.0版本
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -180,6 +213,7 @@ Description: TogetheROS Bot
 可以看到当前tros.b版本已升级为2.2.0版本。
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -202,6 +236,59 @@ Description: TogetheROS Bot
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+root@ubuntu:~# apt show tros-humble
+Package: tros-humble
+Version: 2.2.0-jammy.20240410.221258
+Priority: optional
+Section: misc
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
+Installed-Size: 44.0 kB
+Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humble-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-falldown-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-hobot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-humble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-humble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash-detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tros-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
+Download-Size: 5,546 B
+APT-Manual-Installed: yes
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk jammy/main arm64 Packages
+Description: TogetheROS Bot
+
+```
+
+可以看到当前tros.b版本已升级为2.2.0版本。
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+root@ubuntu:~# apt show tros-jazzy
+Package: tros-jazzy
+Version: 2.5.0-noble.20251202.080038
+Priority: optional
+Section: misc
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
+Installed-Size: 44.0 kB
+Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-control, tros-jazzy-audio-msg, tros-jazzy-audio-tracking, tros-jazzy-base, tros-jazzy-body-tracking, tros-jazzy-dnn-benchmark-example, tros-jazzy-dnn-node, tros-jazzy-dnn-node-example, tros-jazzy-dnn-node-sample, tros-jazzy-elevation-net, tros-jazzy-gesture-control, tros-jazzy-hand-gesture-detection, tros-jazzy-hand-lmk-detection, tros-jazzy-hbm-img-msgs, tros-humble-hobot-audio, tros-jazzy-hobot-chatbot, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-falldown-detection, tros-jazzy-hobot-hdmi, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-llm, tros-jazzy-hobot-mot, tros-jazzy-hobot-shm, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-vio, tros-humble-hobot-visualization, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-line-follower-model, tros-humble-line-follower-perception, tros-jazzy-mipi-cam, tros-jazzy-mono2d-body-detection, tros-jazzy-mono2d-trash-detection, tros-jazzy-mono3d-indoor-detection, tros-jazzy-parking-perception, tros-jazzy-parking-search, tros-jazzy-rgbd-sensor, tros-jazzy-websocket, tros-jazzy-ros-workspace
+Download-Size: 5,546 B
+APT-Manual-Installed: yes
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk-s600 noble/main arm64 Packages
+Description: TogetheROS Bot
+
+```
+
+可以看到当前tros.b版本已升级为2.5.0版本。
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 :::caution 注意
 - 查询显示的版本号`Version`是实际安装的`tros.b`的版本，可能和本示例中显示的版本号`Version`不一致。

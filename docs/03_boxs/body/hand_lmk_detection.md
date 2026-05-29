@@ -7,6 +7,7 @@ sidebar_products: RDK-X3,RDK-X5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -57,6 +58,7 @@ import TabItem from '@theme/TabItem';
 **使用MIPI摄像头发布图片**
 
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -77,6 +79,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -92,6 +109,7 @@ ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 
 **使用USB摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -101,6 +119,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -109,7 +128,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。

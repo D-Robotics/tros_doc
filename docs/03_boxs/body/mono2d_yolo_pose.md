@@ -7,6 +7,7 @@ sidebar_products: RDK-S100,RDK-S600
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -67,6 +68,7 @@ import TabItem from '@theme/TabItem';
 
 **使用MIPI摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -85,6 +87,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -102,10 +105,59 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用USB摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -124,6 +176,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -141,10 +194,59 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用本地回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -164,6 +266,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -182,7 +285,57 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## 结果分析
 

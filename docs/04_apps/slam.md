@@ -7,6 +7,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -33,6 +34,7 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 
 3. tros.b成功安装后，安装SLAM-Toolbox
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -42,6 +44,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -50,6 +53,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -59,6 +63,33 @@ source /opt/tros/jazzy/setup.bash
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
     ```bash
@@ -96,6 +127,7 @@ source /opt/tros/jazzy/setup.bash
 
 4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -106,6 +138,7 @@ source /opt/ros/foxy/setup.bash
 Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -114,6 +147,7 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -123,6 +157,33 @@ Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Install
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
@@ -143,6 +204,7 @@ sudo apt install ros-${ROS_DISTRO}-teleop-twist-keyboard
 
 PC端启动仿真环境：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -151,6 +213,7 @@ source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -158,6 +221,7 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -166,6 +230,31 @@ source /opt/ros/jazzy/setup.bash
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 ```bash
@@ -182,6 +271,7 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
 PC端开启另外一个控制台，启动Rviz2 用于观察建图效果：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -190,6 +280,7 @@ source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -197,6 +288,7 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -205,6 +297,31 @@ source /opt/ros/jazzy/setup.bash
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 ```bash
@@ -216,6 +333,7 @@ ros2 launch turtlebot3_bringup rviz2.launch.py
 
 RDK板端运行SLAM-Toolbox：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -225,6 +343,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -233,6 +352,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -242,6 +362,33 @@ source /opt/tros/jazzy/setup.bash
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 ```bash
@@ -251,6 +398,7 @@ ros2 launch slam_toolbox online_sync_launch.py
 
 PC端开启另外一个控制台，PC端启动控制工具，通过键盘控制小车运动，控制方法见控制台打印的log，在此不再赘述：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -260,6 +408,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -268,6 +417,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -277,6 +427,33 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM算法也建立起环境地图，可以在Rviz2上观察到建图效果。
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)

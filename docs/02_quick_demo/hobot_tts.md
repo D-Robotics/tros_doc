@@ -42,6 +42,7 @@ import DocScope from '@site/src/components/DocScope';
 
 1. 首次运行需要下载模型文件并解压，详细命令如下：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -51,6 +52,7 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+
     <TabItem value="humble" label="Humble">
 
     ```bash
@@ -61,6 +63,7 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -72,6 +75,37 @@ import DocScope from '@site/src/components/DocScope';
 
     </TabItem>
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    sudo apt update
+    sudo apt install tros-humble-hobot-tts
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    sudo apt update
+    sudo apt install tros-jazzy-hobot-tts
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     wget http://archive.d-robotics.cc/tts-model/tts_model.tar.gz
@@ -111,6 +145,7 @@ import DocScope from '@site/src/components/DocScope';
 
 3. 启动hobot_tts程序
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -129,6 +164,7 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -137,8 +173,34 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     # 屏蔽调式打印信息
@@ -151,6 +213,7 @@ import DocScope from '@site/src/components/DocScope';
 
 4. 新开一个终端，使用echo命令发布一条topic
 
+  <DocScope products="RDK-X3,RDK-X5">
   <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -168,8 +231,9 @@ import DocScope from '@site/src/components/DocScope';
   source /opt/tros/humble/setup.bash
   ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
+  </TabItem>
+
+  <TabItem value="jazzy" label="Jazzy">
 
 ```bash
 # 配置tros.b环境
@@ -177,8 +241,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
   </TabItem>
-
   </Tabs>
+  </DocScope>
+
+  <DocScope products="RDK-S100">
+  <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+  ```bash
+  # 配置tros.b环境
+  source /opt/tros/humble/setup.bash
+  ```
+
+  </TabItem>
+  </Tabs>
+  </DocScope>
+
+  <DocScope products="RDK-S600">
+  <Tabs groupId="tros-distro">
+  <TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+  </TabItem>
+  </Tabs>
+  </DocScope>
 
    ```bash
    ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道D-Robotics 吗？是的，我知道D-Robotics 。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"

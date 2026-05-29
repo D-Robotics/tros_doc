@@ -7,6 +7,7 @@ sidebar_products: RDK-X5,RDK-S100,RDK-S600
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -33,22 +34,52 @@ import TabItem from '@theme/TabItem';
 2. RDK已成功安装TogetheROS.Bot。
 3. RDK已成功安装智能语音2算法包，安装命令：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   source /opt/tros/humble/setup.bash
-   ```
-   
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+      ```bash
+      source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
 
-    ```bash
-    source /opt/tros/jazzy/setup.bash
-    ```
+       <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+       ```bash
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+       <TabItem value="jazzy" label="Jazzy">
+
+       ```bash
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 
    ```bash
@@ -94,6 +125,7 @@ RDK板端运行sensevoice_ros2 package：
 
 1. 配置tros.b环境和启动应用
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -107,6 +139,7 @@ RDK板端运行sensevoice_ros2 package：
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```shell
@@ -121,6 +154,43 @@ RDK板端运行sensevoice_ros2 package：
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   
+   source /opt/tros/humble/setup.bash
+
+   #启动launch文件
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # 配置tros.b环境
+   
+   source /opt/tros/jazzy/setup.bash
+
+   #启动launch文件
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## 结果分析
 

@@ -8,6 +8,7 @@ sidebar_products: RDK-X3,RDK-X5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -47,6 +48,7 @@ RDK S100/S600平台的模型推理功能体验参考[Boxs算法仓库](../03_box
 
 使用hobot_dnn配置文件中的本地JPEG格式图片和模型（FCOS目标检测模型，支持的目标检测类型包括人、动物、水果、交通工具等共80种类型），通过回灌进行推理，并存储渲染后的图片。
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -67,6 +69,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。config中为example使用的模型，回灌使用的本地图片

@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 1
 ---
 # 5.2.1 数据采集
@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## USB图像采集
@@ -52,6 +53,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 2. 并通过下述命令启动USB摄像头
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -70,7 +72,8 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
    </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+
+    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
    # 配置tros.b环境
@@ -78,8 +81,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+   </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
    ```bash
    # launch方式启动：
@@ -111,6 +140,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 4. Web端查看USB摄像头图像，另起一个终端：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -129,6 +159,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -137,8 +168,34 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ```bash
 # 启动websocket
@@ -158,6 +215,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 2. 并通过下述命令启动USB摄像头
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -176,6 +234,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -184,8 +243,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     # launch方式启动：
@@ -217,6 +302,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 4. 通过hobot codec进行编码成mjpeg
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -235,6 +321,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -243,8 +330,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     # launch方式启动：
@@ -253,6 +366,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 5. Web端查看USB摄像头图像，另起一个终端：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -271,6 +385,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -279,8 +394,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     # 启动websocket
@@ -296,6 +437,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 1. USB摄像头需要进行标定，并设置相机标定文件的读取路径，否则无法发布相机内参，但不影响其它功能
 2. 设置相机标定文件读取路径，具体步骤如下：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -314,6 +456,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -322,8 +465,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```bash
     # launch 方式启动
@@ -406,6 +575,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 2. 并通过下述命令启动 hobot_sensor 节点
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -424,6 +594,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -432,8 +603,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     # launch 方式启动
@@ -451,6 +648,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 4. Web端查看摄像头图像，由于发布原始数据，需要编码JPEG图像，另起两个终端：一个进行订阅 MIPI 数据编码为JPEG，一个用webservice发布
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -469,6 +667,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -477,8 +676,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     # 启动编码
@@ -494,6 +719,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 6. 在PC机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -502,6 +728,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -509,6 +736,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```shell
@@ -517,6 +745,31 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   ```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
     ```shell
     root@ubuntu:~# ros2 topic echo /camera_info
@@ -582,6 +835,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 1. mipi_cam提供F37以及GC4663两种摄像头的标定文件，默认读取F37的标定文件`F37_calibration.yaml`，如使用GC4663，请更改相机标定文件的读取路径，具体步骤如下：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -600,6 +854,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -608,8 +863,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     # launch 方式启动
@@ -625,6 +906,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     - 是否设置 tros.b 环境
     - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 4. 由于同时如果两路图像向同一个topic发送图像，导致图像冲突，因此启动第二路图像需要重映射topic，启动第二个相机的指令（仅限X5和S100）：
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -643,6 +925,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -651,8 +934,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     # run 方式启动
@@ -714,25 +1023,56 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    
    (1) 通过下述命令启动 hobot_sensor 节点
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # launch 方式启动
@@ -763,25 +1103,56 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    
    (1) 启动命令如下：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # launch 方式启动
@@ -852,26 +1223,42 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 1. 通过SSH登录RDK，并通过下述命令启动hobot_sensor节点
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     cp -r /opt/tros/${TROS_DISTRO}/lib/rgbd_sensor/parameter .
@@ -947,6 +1334,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 3. PC机上查询当前话题，查询命令及返回结果如下：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -955,6 +1343,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -962,7 +1351,22 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 topic list
@@ -990,6 +1394,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 4. PC机上订阅话题，并预览摄像头数据
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -998,6 +1403,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1005,7 +1411,22 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 run rviz2 rviz2
@@ -1017,6 +1438,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 5. 在PC机上查询相机内参
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1025,6 +1447,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1032,7 +1455,22 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1146,6 +1584,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 #### 1. 通过串口或者SSH登录RDK，确认ROS的版本
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1157,6 +1596,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1167,7 +1607,25 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 2. apt安装RealSense SDK2.0以及RealSense ROS2 wrapper
 
@@ -1275,6 +1733,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 1. 通过串口或者SSH登录RDK，确认ROS的版本
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1286,6 +1745,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1296,7 +1756,25 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 2. 下载Orbbec ROS2 wrapper源码进行编译
 
@@ -1461,6 +1939,7 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 1. 通过SSH登录RDK，并通过下述命令启动ZED相机
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -1470,7 +1949,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 

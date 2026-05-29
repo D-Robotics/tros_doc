@@ -8,6 +8,7 @@ sidebar_products: RDK-S100
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -81,8 +82,8 @@ prompt 初始化节点基于输入图像和点/框提示做模型推理，生成
 
 **mipi摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -99,11 +100,32 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用usb摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -120,11 +142,32 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 启动launch文件
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用单张回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -141,6 +184,27 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### Web 展示
 
@@ -172,8 +236,8 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 **mipi摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -190,11 +254,32 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用usb摄像头发布图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -211,11 +296,32 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 启动launch文件
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **使用单张回灌图片**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -232,6 +338,27 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+
+# 配置回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ## 结果分析
@@ -267,8 +394,8 @@ prompt 模式通过 `edgetam_prompt_mode` 参数设置：
 
 启动节点的同时，可以通过 topic 发布动态修改提示框/点：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
-
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -279,6 +406,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 在另一个终端发布'框'提示

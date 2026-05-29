@@ -7,6 +7,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能背景
@@ -31,6 +32,7 @@ ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev
 
 打开一个新的终端，source tros.b setup脚本，确保`ros2`命令可以运行。
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -40,6 +42,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -48,6 +51,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -57,6 +61,33 @@ source /opt/tros/jazzy/setup.bash
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
@@ -120,6 +151,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 在`~/dev_ws/src/hbmem_pubsub/src`目录下新建` publisher_hbmem.cpp`文件，用来创建publisher node，具体代码和解释如下：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -197,6 +229,7 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble/Jazzy">
 
 ```c++
@@ -273,7 +306,91 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble/Jazzy">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // 创建publisher_hbmem，topic为"topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // 定时器回调函数
+  void timer_callback() {
+    // 获取要发送的消息
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    if (loanedMsg.is_valid()) {
+      // 引用方式获取实际的消息
+      auto& msg = loanedMsg.get();
+      
+      // 获取当前时间，单位为us
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // 对消息的index和time_stamp进行赋值
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // 打印发送消息
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // 注意，发送后，loanedMsg已不可用
+      // 计数器加一
+      count_++;
+    } else {
+      // 获取消息失败，丢弃该消息
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // 定时器
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // 计数器
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 3.2 编译依赖
 
@@ -306,6 +423,7 @@ install(TARGETS
 
 在`~/dev_ws/src/hbmem_pubsub/src`目录下新建`  subscriber_hbmem.cpp`文件，用来创建subscriber node，具体代码和解释如下：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -358,6 +476,7 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble/Jazzy">
 
 ```c++
@@ -409,7 +528,66 @@ int main(int argc, char * argv[])
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble/Jazzy">
+
+```c++
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+class MinimalHbmemSubscriber  : public rclcpp::Node {
+ public:
+  MinimalHbmemSubscriber () : Node("minimal_hbmem_subscriber") {
+    // 创建subscription_hbmem，topic为"sample"
+    // 消息回调函数为topic_callback
+    subscription_ =
+        this->create_subscription<hbmem_pubsub::msg::SampleMessage>(
+            "topic", rclcpp::SensorDataQoS(),
+            std::bind(&MinimalHbmemSubscriber ::topic_callback, this,
+                      std::placeholders::_1));
+  }
+
+ private:
+  // 消息回调函数
+  void topic_callback(
+      const hbmem_pubsub::msg::SampleMessage::SharedPtr msg) const {
+    // 注意，msg只能在回调函数中使用，回调函数返回后，该消息就会被释放
+    // 获取当前时间
+    auto time_now =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::steady_clock::now().time_since_epoch())
+            .count();
+    // 计算延时并打印出来
+    RCLCPP_INFO(this->get_logger(), "msg %d, time cost %dus", msg->index,
+                time_now - msg->time_stamp);
+  }
+  
+  // hbmem subscription
+  rclcpp::Subscription<hbmem_pubsub::msg::SampleMessage>::SharedPtr
+      subscription_;
+};
+
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemSubscriber>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 4.2 编译脚本
 
@@ -559,6 +737,7 @@ sudo apt install ros-dev-tools
 
 打开一个新的终端，`cd`到`dev_ws`目录，source tros.b和当前workspace setup文件：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -571,6 +750,7 @@ ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -586,6 +766,7 @@ ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -602,6 +783,47 @@ ros2 run hbmem_pubsub talker
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+# 运行talker node:
+ros2 run hbmem_pubsub talker
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+# 运行talker node:
+ros2 run hbmem_pubsub talker
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 终端上会出现如下打印：
@@ -617,6 +839,7 @@ ros2 run hbmem_pubsub talker
 
 再打开一个新的终端，同样`cd`到`dev_ws`目录，然后souce setup文件，之后运行listener node:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -629,6 +852,7 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -643,6 +867,7 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -658,6 +883,45 @@ ros2 run hbmem_pubsub listener
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+ros2 run hbmem_pubsub listener
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+ros2 run hbmem_pubsub listener
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 终端上会有如下打印，表明subscriber已成功接收到publisher发送的消息：
 
@@ -674,6 +938,7 @@ ros2 run hbmem_pubsub listener
 
 ## 本节总结
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -693,10 +958,22 @@ ros2 run hbmem_pubsub listener
 - 创建publisher时会一次性申请KEEPLAST的三倍个消息大小的ion内存（最大为256MB），用于消息的传输，之后不会再动态申请。若subscriber端消息处理出错或者未及时处理，则会出现消息buffer都被占用，publisher一直获取不到可用消息的情况。
 
 </TabItem>
+
 <TabItem value="humble" label="Humble/Jazzy">
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble/Jazzy">
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## 使用限制
 

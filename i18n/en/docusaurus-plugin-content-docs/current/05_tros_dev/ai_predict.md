@@ -8,6 +8,7 @@ sidebar_products: RDK-X3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Supported Platforms
@@ -52,6 +53,7 @@ Even without understanding the `hobot_dnn` usage workflow, users can follow this
 
 #### 1 Create Package
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -70,6 +72,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell
@@ -875,6 +891,7 @@ ament_package()
 
 On RDK with tros.b installed, run the following commands to build the package:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -893,6 +910,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell
@@ -1011,6 +1042,7 @@ The system startup workflow is as follows:
 
 （1）Open terminal 1 on RDK and start the algorithm inference node
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1029,6 +1061,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 cd ~/dev_ws
@@ -1119,6 +1165,7 @@ def generate_launch_description():
 
 Use the launch script:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1137,6 +1184,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Start image publishing, encoding, and display nodes
@@ -1183,6 +1244,7 @@ The output log shows that during initialization, the model input image resolutio
 
 On RDK, use the ros2 command to query and output the `/cpp_dnn_demo` topic message content published by the inference Node:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1201,6 +1263,20 @@ root@ubuntu:~# source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+root@ubuntu:~# source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 root@ubuntu:~# ros2 topic list
@@ -1340,6 +1416,7 @@ By reading this section, users can use tros.b sensing Nodes, hand detection, and
 
 Open a terminal on RDK and start the image publishing Node to capture image data from the F37 camera and publish it for algorithm inference:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1358,6 +1435,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```shell
@@ -1371,6 +1462,7 @@ Open a terminal on RDK and start the hand detection algorithm Node. Subscribe to
 
 The startup command specifies the published Topic as `hobot_hand_detection`.
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1389,6 +1481,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy configuration files required to run the example from the tros.b installation path.
@@ -1403,6 +1509,7 @@ Open a terminal on RDK and start the hand keypoint detection algorithm Node. Sub
 
 The startup command specifies the published message Topic as `hobot_hand_lmk_detection` and the subscribed message Topic as `hobot_hand_detection`.
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1421,6 +1528,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy configuration files required to run the example from the tros.b installation path.
@@ -1437,6 +1558,7 @@ Open a terminal on RDK and use ROS2 commands to view Topic messages published by
 
 Query command:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1455,6 +1577,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Start Node
@@ -1493,6 +1629,7 @@ You can see that the message published by the hand detection algorithm Node cont
 
 Query command:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1511,6 +1648,20 @@ source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Start Node
@@ -1616,6 +1767,7 @@ You can see that after subscribing to hand detection box messages and using them
 
 Open a terminal on RDK and use ROS2 commands to view Node and Topic information on the running device:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1634,6 +1786,20 @@ root@ubuntu:~# source /opt/tros/humble/local_setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+root@ubuntu:~# source /opt/tros/humble/local_setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Query Node information

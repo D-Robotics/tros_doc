@@ -6,6 +6,7 @@ sidebar_position: 1
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## USB Image Capture
@@ -52,34 +53,65 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 
 2. Start the USB camera with the following commands
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+       </TabItem>
 
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/jazzy/setup.bash
-   ```
+       <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+       ```bash
+       # Configure tros.b environment
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+       </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+       <TabItem value="jazzy" label="Jazzy">
+
+       ```bash
+       # Configure tros.b environment
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
    ```bash
    # Start with launch:
@@ -111,6 +143,7 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 
 4. View USB camera images in the web browser. Open another terminal:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -129,6 +162,7 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -139,6 +173,35 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```bash
 # Start websocket
@@ -158,34 +221,65 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 
 2. Start the USB camera with the following commands
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```bash
     # Start with launch:
@@ -217,34 +311,65 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 
 4. Encode to mjpeg using hobot codec
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```bash
     # Start with launch:
@@ -253,34 +378,65 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 
 5. View USB camera images in the web browser. Open another terminal:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```bash
     # Start websocket
@@ -296,34 +452,65 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 1. The USB camera needs to be calibrated, and the path to the camera calibration file must be configured; otherwise, camera intrinsics cannot be published, but other functions are not affected
 2. To set the camera calibration file path, follow these steps:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```bash
     # Start with launch
@@ -406,34 +593,65 @@ The following describes how to acquire and preview camera data:
 
 2. Start the hobot_sensor node with the following commands
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start with launch
@@ -451,34 +669,65 @@ The following describes how to acquire and preview camera data:
 
 4. View camera images in the web browser. Because raw data is published, JPEG encoding is required. Open two additional terminals: one to subscribe to MIPI data and encode it as JPEG, and one to publish via webservice
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start encoding
@@ -494,6 +743,7 @@ The following describes how to acquire and preview camera data:
 
 6. Query camera intrinsics on the PC (actual values depend on the loaded calibration file). Commands and results are shown below:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -502,6 +752,7 @@ The following describes how to acquire and preview camera data:
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -509,6 +760,7 @@ The following describes how to acquire and preview camera data:
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```shell
@@ -516,7 +768,35 @@ The following describes how to acquire and preview camera data:
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```shell
     root@ubuntu:~# ros2 topic echo /camera_info
@@ -582,34 +862,65 @@ The following describes how to acquire and preview camera data:
 
 1. mipi_cam provides calibration files for F37 and GC4663 cameras. By default, it reads the F37 calibration file `F37_calibration.yaml`. If you use GC4663, change the camera calibration file path as follows:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start with launch
@@ -625,34 +936,65 @@ The following describes how to acquire and preview camera data:
     - Verify that the tros.b environment is configured
     - Verify that parameters are correct. For details, refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 4. If two image streams publish to the same topic at the same time, image conflicts will occur. Therefore, when starting a second camera stream, remap the topic. Use the following command to start the second camera (X5 and S100 only):
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start with run
@@ -714,25 +1056,56 @@ The following uses SC230ai as an example to describe how to acquire and preview 
    
    (1) Start the hobot_sensor node with the following commands
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start with launch
@@ -763,25 +1136,56 @@ The following uses SC230ai as an example to describe how to acquire and preview 
    
    (1) Start with the following commands:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
-    ```
+        <TabItem value="jazzy" label="Jazzy">
 
-    </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     # Start with launch
@@ -852,26 +1256,42 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 1. Log in to the RDK via SSH and start the hobot_sensor node with the following commands
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
-    <TabItem value="humble" label="Humble">
+        <TabItem value="humble" label="Humble">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
 
-    </TabItem>
+        </TabItem>
 
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```shell
     cp -r /opt/tros/${TROS_DISTRO}/lib/rgbd_sensor/parameter .
@@ -947,6 +1367,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 3. Query current topics on the PC. Commands and results are shown below:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -955,6 +1376,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -962,7 +1384,22 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 topic list
@@ -990,6 +1427,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 4. Subscribe to topics on the PC and preview camera data
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -998,6 +1436,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1005,7 +1444,22 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 run rviz2 rviz2
@@ -1017,6 +1471,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 5. Query camera intrinsics on the PC
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1025,6 +1480,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1032,7 +1488,22 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   source /opt/ros/humble/setup.bash
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1146,6 +1617,7 @@ The GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper are 
 
 #### 1. Log in to the RDK via serial port or SSH and confirm the ROS version
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1157,6 +1629,7 @@ The GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper are 
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1167,7 +1640,25 @@ The GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper are 
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print ROS version environment variable
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 2. Install RealSense SDK 2.0 and RealSense ROS2 wrapper with apt
 
@@ -1275,6 +1766,7 @@ The GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper are listed be
 
 #### 1. Log in to the RDK via serial port or SSH and confirm the ROS version
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1286,6 +1778,7 @@ The GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper are listed be
    ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1296,7 +1789,25 @@ The GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper are listed be
    ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print ROS version environment variable
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 #### 2. Download and compile the Orbbec ROS2 wrapper source code
 
@@ -1461,6 +1972,7 @@ This section describes how to use ZED cameras on the RDK platform.
 
 1. Log in to the RDK via SSH and start the ZED camera with the following commands
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -1470,7 +1982,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 

@@ -7,6 +7,7 @@ sidebar_position: 3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -52,6 +53,7 @@ import TabItem from '@theme/TabItem';
 
     a. 启动mipi_cam
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -70,6 +72,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -78,8 +81,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch mipi_cam mipi_cam.launch.py mipi_video_device:=F37
@@ -87,6 +116,7 @@ import TabItem from '@theme/TabItem';
 
     b. 启动hobot_codec编码
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -105,6 +135,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -113,8 +144,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch hobot_codec hobot_codec.launch.py codec_in_mode:=shared_mem codec_in_format:=nv12 codec_out_mode:=ros codec_out_format:=jpeg codec_sub_topic:=/hbmem_img codec_pub_topic:=/image_jpeg
@@ -122,6 +179,7 @@ import TabItem from '@theme/TabItem';
 
 2. Web端查看JPEG编码图像，另起一个终端：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -140,6 +198,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -148,8 +207,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
@@ -165,6 +250,7 @@ import TabItem from '@theme/TabItem';
 
     a. 启动图像发布节点
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -183,6 +269,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -191,8 +278,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     //从tros.b的安装路径中拷贝出运行示例需要的图片文件
@@ -205,6 +318,7 @@ import TabItem from '@theme/TabItem';
 
     b. 启动JPEG图片编码&发布pkg
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -223,6 +337,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -231,8 +346,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch hobot_codec hobot_codec.launch.py codec_in_mode:=shared_mem codec_in_format:=nv12 codec_out_mode:=ros codec_out_format:=jpeg codec_sub_topic:=/hbmem_img codec_pub_topic:=/image_jpeg
@@ -240,6 +381,7 @@ import TabItem from '@theme/TabItem';
 
 2. Web端查看JPEG编码图像，另起一个终端：
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -258,6 +400,7 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
+
     <TabItem value="jazzy" label="Jazzy">
 
     ```bash
@@ -266,8 +409,34 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
 
     ```shell
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true

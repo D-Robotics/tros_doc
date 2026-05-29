@@ -7,6 +7,7 @@ sidebar_products: RDK-S100,RDK-S600
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Introduction
@@ -67,6 +68,7 @@ The body detection and tracking (mono2d_body_detection) package subscribes to im
 
 **Publish Images Using MIPI Camera**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -85,6 +87,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -102,10 +105,59 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **Publish Images Using USB Camera**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -124,6 +176,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -141,10 +194,59 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 **Using Local Feedback Images**
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -164,6 +266,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -182,7 +285,57 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# Configure local feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# Configure local feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11n_pose_nashp_640x640_nv12.hbm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## Result Analysis
 

@@ -33,24 +33,42 @@ import DocScope from '@site/src/components/DocScope';
 2. RDK已成功安装TogetheROS.Bot。
 3. RDK已成功安装智能语音算法包，安装命令：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-hobot-audio
-   ```
+      ```bash
+      sudo apt update
+      sudo apt install tros-hobot-audio
+      ```
 
-   </TabItem>
-   <TabItem value="humble" label="Humble">
+      </TabItem>
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-humble-hobot-audio
-   ```
+      <TabItem value="humble" label="Humble">
 
-   </TabItem>
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
@@ -166,24 +184,42 @@ RDK板端运行hobot_audio package：
 
 1. 拷贝配置文件
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+  <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+     ```bash
+     # 配置tros.b环境
+     source /opt/tros/setup.bash
+     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+  </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+  <TabItem value="humble" label="Humble">
 
- </TabItem>
+     ```bash
+     # 配置tros.b环境
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     # 配置tros.b环境
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
 
    ```shell
    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件，若已拷贝则可忽略
@@ -218,6 +254,7 @@ RDK板端运行hobot_audio package：
 
 2. 配置tros.b环境和启动应用
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -250,6 +287,27 @@ RDK板端运行hobot_audio package：
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+
+   # 屏蔽调式打印信息
+   export GLOG_minloglevel=3
+
+   #启动launch文件
+   ros2 launch hobot_audio hobot_audio.launch.py
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## 结果分析
 

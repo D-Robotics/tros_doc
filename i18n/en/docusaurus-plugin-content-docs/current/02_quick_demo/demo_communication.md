@@ -58,31 +58,63 @@ Code repositories:
 
 2. The performance_test package has been successfully installed on RDK. Installation command:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-performance-test
-   ```
+      ```bash
+      sudo apt update
+      sudo apt install tros-performance-test
+      ```
 
-   </TabItem>
-   <TabItem value="humble" label="Humble">
+      </TabItem>
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-humble-performance-test
-   ```
-   </TabItem>
-   <TabItem value="jazzy" label="Jazzy">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-jazzy-performance-test
-   ```
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-performance-test
+      ```
+      </TabItem>
 
-   </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-jazzy-performance-test
+      ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-performance-test
+      ```
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-jazzy-performance-test
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 <DocScope products="RDK-X3,RDK-X5">
 :::caution **Note**
@@ -100,33 +132,65 @@ Code repositories:
 
 1. 4M data transfer test without zero-copy enabled. Run the following command:
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+  <TabItem value="foxy" label="Foxy">
+
+     ```bash
+     source /opt/tros/setup.bash
+     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+  </TabItem>
+
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     source /opt/tros/humble/setup.bash
+     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+ </TabItem>
+
+ <TabItem value="jazzy" label="Jazzy">
 
     ```bash
-    source /opt/tros/setup.bash
+    source /opt/tros/jazzy/setup.bash
     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+  </TabItem>
 
-    ```bash
-    source /opt/tros/humble/setup.bash
-    ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-    ```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-   ```
-
- </TabItem>
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     source /opt/tros/humble/setup.bash
+     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+ </TabItem>
+
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S600">
+ <Tabs groupId="tros-distro">
+ <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    source /opt/tros/jazzy/setup.bash
+    ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
 
     **Test results are as follows**:
 
@@ -170,40 +234,81 @@ Code repositories:
 
 1. 4M data transfer test with zero-copy enabled (add the `--zero-copy` parameter). Run the following command:
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+  <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    source /opt/tros/setup.bash
-    ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-    ```
+     ```bash
+     source /opt/tros/setup.bash
+     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+  </TabItem>
+
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     source /opt/tros/humble/setup.bash
+     export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+     export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+     export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+     export ROS_DISABLE_LOANED_MESSAGES=0
+     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
 
  </TabItem>
- <TabItem value="humble" label="Humble">
+
+ <TabItem value="jazzy" label="Jazzy">
 
     ```bash
-    source /opt/tros/humble/setup.bash
+    source /opt/tros/jazzy/setup.bash
     export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-    export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+    export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
     export RMW_FASTRTPS_USE_QOS_FROM_XML=1
     export ROS_DISABLE_LOANED_MESSAGES=0
     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
+  </TabItem>
 
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
-   export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-   export ROS_DISABLE_LOANED_MESSAGES=0
-   ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-   ```
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     source /opt/tros/humble/setup.bash
+     export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+     export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+     export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+     export ROS_DISABLE_LOANED_MESSAGES=0
+     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
 
  </TabItem>
+
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S600">
+ <Tabs groupId="tros-distro">
+ <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    source /opt/tros/jazzy/setup.bash
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export ROS_DISABLE_LOANED_MESSAGES=0
+    ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
 
     **Test results are as follows**:
 

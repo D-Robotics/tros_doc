@@ -7,6 +7,7 @@ sidebar_position: 5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 Prerequisite: TogetheROS.Bot has been successfully installed.
@@ -31,6 +32,7 @@ sudo apt update
 
 ### 2 Install Packages
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -40,6 +42,7 @@ sudo apt install ros-foxy-image-transport-plugins
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -48,6 +51,7 @@ sudo apt install ros-humble-image-transport-plugins
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -56,12 +60,43 @@ sudo apt install ros-jazzy-image-transport-plugins
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+sudo apt install ros-humble-image-transport
+sudo apt install ros-humble-image-transport-plugins
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt install ros-jazzy-image-transport
+sudo apt install ros-jazzy-image-transport-plugins
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## Using ROS2 Packages
 
 Same as using ROS
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -71,6 +106,7 @@ ros2 run image_transport list_transports
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -79,6 +115,7 @@ ros2 run image_transport list_transports
 ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
@@ -87,7 +124,37 @@ ros2 run image_transport list_transports
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 The running result is as follows, showing the image formats supported by the image_transport package
 

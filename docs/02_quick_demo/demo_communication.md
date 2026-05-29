@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 5
 ---
 
@@ -58,6 +58,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 2. RDK已成功安装performance_test工具包，安装命令：
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -67,6 +68,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    ```
 
    </TabItem>
+
    <TabItem value="humble" label="Humble">
 
    ```bash
@@ -74,6 +76,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    sudo apt install tros-humble-performance-test
    ```
    </TabItem>
+
    <TabItem value="jazzy" label="Jazzy">
 
    ```bash
@@ -83,6 +86,32 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
    </TabItem>
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-humble-performance-test
+   ```
+   </TabItem>
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   sudo apt update
+   sudo apt install tros-jazzy-performance-test
+   ```
+
+   </TabItem>
+   </Tabs>
+   </DocScope>
 
 <DocScope products="RDK-X3,RDK-X5">
 :::caution **注意**
@@ -100,6 +129,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 1. 不开启零拷贝功能的4M数据传输测试，命令如下：
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
@@ -109,6 +139,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     ```
 
  </TabItem>
+
  <TabItem value="humble" label="Humble">
 
     ```bash
@@ -116,9 +147,9 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
 
-</TabItem>
+ </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+ <TabItem value="jazzy" label="Jazzy">
 
    ```bash
    source /opt/tros/jazzy/setup.bash
@@ -127,6 +158,33 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
  </TabItem>
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+ <TabItem value="humble" label="Humble">
+
+    ```bash
+    source /opt/tros/humble/setup.bash
+    ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
+
+ </TabItem>
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S600">
+ <Tabs groupId="tros-distro">
+ <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+   ```
+
+ </TabItem>
+ </Tabs>
+ </DocScope>
 
     **测试结果如下**：
 
@@ -170,6 +228,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 1. 开启零拷贝功能(加入--zero-copy参数)的4M数据传输测试，命令如下：
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
@@ -179,6 +238,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     ```
 
  </TabItem>
+
  <TabItem value="humble" label="Humble">
 
     ```bash
@@ -190,8 +250,9 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
     ```
 
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
+ </TabItem>
+
+ <TabItem value="jazzy" label="Jazzy">
 
    ```bash
    source /opt/tros/jazzy/setup.bash
@@ -204,6 +265,41 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
  </TabItem>
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+ <TabItem value="humble" label="Humble">
+
+    ```bash
+    source /opt/tros/humble/setup.bash
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export ROS_DISABLE_LOANED_MESSAGES=0
+    ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
+
+ </TabItem>
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S600">
+ <Tabs groupId="tros-distro">
+ <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   source /opt/tros/jazzy/setup.bash
+   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+   export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+   export ROS_DISABLE_LOANED_MESSAGES=0
+   ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+   ```
+
+ </TabItem>
+ </Tabs>
+ </DocScope>
 
     **测试结果如下**：
 

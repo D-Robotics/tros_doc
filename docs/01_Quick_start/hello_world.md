@@ -7,12 +7,14 @@ sidebar_position: 4
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 前提：已通过deb包或者源码安装的方式成功安装TogetheROS.Bot
 
 启动两个终端，均ssh登陆至RDK或X86平台设备
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -89,8 +91,74 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 ```
 
 </TabItem>
-
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+安装`Hello World` example对应的package：
+
+```shell
+sudo apt update
+sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
+```
+
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
+第一个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+```
+
+第二个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+安装`Hello World` example对应的package：
+
+```shell
+sudo apt update
+sudo apt install ros-jazzy-examples-rclcpp-minimal-publisher ros-jazzy-examples-rclcpp-minimal-subscriber
+```
+
+:::caution **注意**
+**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](/docs/08_FAQ/01_hardware_and_system.md)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+:::
+
+第一个终端运行
+
+```shell
+source /opt/tros/jazzy/setup.bash
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+```
+
+第二个终端运行
+
+```shell
+source /opt/tros/jazzy/setup.bash
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 
 运行效果如下图

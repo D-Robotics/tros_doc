@@ -8,6 +8,7 @@ sidebar_products: RDK-X3,RDK-X5,RDK-S100
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -35,6 +36,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 
 3. tros.b成功安装后，安装Nav2。
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -44,6 +46,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -52,7 +55,23 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 sudo apt update 
@@ -74,6 +93,7 @@ sudo apt install ros-${ROS_DISTRO}-nav2-bringup
 
 4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -84,6 +104,7 @@ source /opt/ros/foxy/setup.bash
 Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -92,7 +113,23 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
 
@@ -111,6 +148,7 @@ sudo apt install ros-${ROS_DISTRO}-nav2-bringup
 
 1. **PC端**启动gazebo仿真环境
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -119,6 +157,7 @@ source /opt/ros/foxy/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -126,7 +165,22 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
    ```shell
    export TURTLEBOT3_MODEL=waffle
@@ -143,6 +197,7 @@ source /opt/ros/humble/setup.bash
 
 2. **RDK**启动导航功能
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -153,6 +208,7 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -162,10 +218,28 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 3. **PC端**启动Rviz2工具
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -175,6 +249,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -183,7 +258,23 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
    ```shell

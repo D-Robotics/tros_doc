@@ -8,6 +8,7 @@ sidebar_products: RDK-X3
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## 功能介绍
@@ -45,6 +46,7 @@ import TabItem from '@theme/TabItem';
 
 运行程序前，需要下载模型文件并解压，命令如下：
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -54,6 +56,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -63,7 +66,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```bash
@@ -87,6 +107,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 #### 终端交互体验
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -96,6 +117,7 @@ source /opt/tros/setup.bash
 ```
 
 </TabItem>
+
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -105,7 +127,24 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 
 ```bash
@@ -118,25 +157,44 @@ ros2 run hobot_llm hobot_llm_chat
 
 1. 启动 hobot_llm
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="humble" label="Humble">
+        </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
 
-    </TabItem>
+        </TabItem>
+
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
 
     ```bash
@@ -144,25 +202,44 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
 2. 新开一个终端订阅输出结果topic
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="humble" label="Humble">
+        </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
 
-    </TabItem>
+        </TabItem>
+
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
 
     ```bash
@@ -170,25 +247,44 @@ ros2 run hobot_llm hobot_llm_chat
     ```
 
 3. 新开一个终端发布消息
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="humble" label="Humble">
+        </TabItem>
 
-    ```bash
-    # 配置tros.b环境
-    source /opt/tros/humble/setup.bash
-    ```
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
 
 
-    </TabItem>
+        </TabItem>
+
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/humble/setup.bash
+        ```
+
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
 
     ```bash

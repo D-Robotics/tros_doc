@@ -42,36 +42,73 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 1. On first run, download and extract the model file. Run the following commands:
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
-    <TabItem value="foxy" label="Foxy">
+        <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
 
-    </TabItem>
-    <TabItem value="humble" label="Humble">
+        </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    sudo apt update
-    sudo apt install tros-humble-hobot-tts
-    source /opt/tros/humble/setup.bash
-    ```
+        <TabItem value="humble" label="Humble">
 
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+        ```bash
+        # Configure tros.b environment
+        sudo apt update
+        sudo apt install tros-humble-hobot-tts
+        source /opt/tros/humble/setup.bash
+        ```
 
-    ```bash
-    # Configure tros.b environment
-    sudo apt update
-    sudo apt install tros-jazzy-hobot-tts
-    source /opt/tros/jazzy/setup.bash
-    ```
+        </TabItem>
 
-    </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        sudo apt update
+        sudo apt install tros-jazzy-hobot-tts
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
     </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        sudo apt update
+        sudo apt install tros-humble-hobot-tts
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        sudo apt update
+        sudo apt install tros-jazzy-hobot-tts
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
 
     ```bash
     wget http://archive.d-robotics.cc/tts-model/tts_model.tar.gz
@@ -111,7 +148,79 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 3. Start the hobot_tts program
 
+    <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
+        <TabItem value="foxy" label="Foxy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/setup.bash
+        ```
+
+        </TabItem>
+
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-S600">
+    <Tabs groupId="tros-distro">
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+    ```bash
+    # Suppress debug log output
+    export GLOG_minloglevel=1
+
+    ros2 run hobot_tts hobot_tts
+    ```
+
+    Note: If the audio playback device is not `pcmC0D1p`, use the `playback_device` parameter to specify the playback device. For example, if the playback device is `pcmC1D1p`, the Waveshare board startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`; the USB audio device startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
+
+4. Open a new terminal and use the echo command to publish a topic
+
+  <DocScope products="RDK-X3,RDK-X5">
+  <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
     ```bash
@@ -128,57 +237,47 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     source /opt/tros/humble/setup.bash
     ```
 
+  </TabItem>
+
+  <TabItem value="jazzy" label="Jazzy">
+
+  ```bash
+  # Configure tros.b environment
+  source /opt/tros/jazzy/setup.bash
+  ```
+
     </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+
+  </Tabs>
+  </DocScope>
+
+  <DocScope products="RDK-S100">
+  <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # Configure tros.b environment
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
-
-    </TabItem>
-
-    </Tabs>
-
-    ```bash
-    # Suppress debug log output
-    export GLOG_minloglevel=1
-
-    ros2 run hobot_tts hobot_tts
-    ```
-
-    Note: If the audio playback device is not `pcmC0D1p`, use the `playback_device` parameter to specify the playback device. For example, if the playback device is `pcmC1D1p`, the Waveshare board startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`; the USB audio device startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
-
-4. Open a new terminal and use the echo command to publish a topic
-
-  <Tabs groupId="tros-distro">
-  <TabItem value="foxy" label="Foxy">
-
-  ```bash
-  # Configure tros.b environment
-  source /opt/tros/setup.bash
-  ```
-
-  </TabItem>
-
-  <TabItem value="humble" label="Humble">
-
-  ```bash
-  # Configure tros.b environment
-  source /opt/tros/humble/setup.bash
-  ```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
-```
 
   </TabItem>
 
   </Tabs>
+  </DocScope>
+
+  <DocScope products="RDK-S600">
+  <Tabs groupId="tros-distro">
+  <TabItem value="jazzy" label="Jazzy">
+
+  ```bash
+  # Configure tros.b environment
+  source /opt/tros/jazzy/setup.bash
+  ```
+
+    </TabItem>
+
+  </Tabs>
+  </DocScope>
 
    ```bash
    ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道D-Robotics 吗？是的，我知道D-Robotics 。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"

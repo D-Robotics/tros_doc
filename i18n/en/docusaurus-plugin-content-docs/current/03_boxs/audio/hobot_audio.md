@@ -33,24 +33,42 @@ Voice-controlled car movement example: [4.6 Voice-Controlled Car Movement](../..
 2. TogetheROS.Bot has been successfully installed on the RDK.
 3. The intelligent voice algorithm package has been successfully installed on the RDK. Installation commands:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
+      <TabItem value="foxy" label="Foxy">
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-hobot-audio
-   ```
+      ```bash
+      sudo apt update
+      sudo apt install tros-hobot-audio
+      ```
 
-   </TabItem>
-   <TabItem value="humble" label="Humble">
+      </TabItem>
 
-   ```bash
-   sudo apt update
-   sudo apt install tros-humble-hobot-audio
-   ```
+      <TabItem value="humble" label="Humble">
 
-   </TabItem>
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 :::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) section `Q10: How to handle apt update command failure or error?` for resolution.**
@@ -166,24 +184,42 @@ Run the hobot_audio package on the RDK board:
 
 1. Copy configuration files
 
+ <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
- <TabItem value="foxy" label="Foxy">
+  <TabItem value="foxy" label="Foxy">
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/setup.bash
-    ```
+     ```bash
+     # Configure tros.b environment
+     source /opt/tros/setup.bash
+     ```
 
- </TabItem>
- <TabItem value="humble" label="Humble">
+  </TabItem>
 
-    ```bash
-    # Configure tros.b environment
-    source /opt/tros/humble/setup.bash
-    ```
+  <TabItem value="humble" label="Humble">
 
- </TabItem>
+     ```bash
+     # Configure tros.b environment
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
  </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-S100">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     # Configure tros.b environment
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
 
    ```shell
    # Copy the configuration files required to run the example from the tros.b installation path. Skip if already copied.
@@ -218,6 +254,7 @@ Run the hobot_audio package on the RDK board:
 
 2. Configure tros.b environment and start application
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -250,6 +287,27 @@ Run the hobot_audio package on the RDK board:
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+
+   # Suppress debug log output
+   export GLOG_minloglevel=3
+
+   # Launch launch file
+   ros2 launch hobot_audio hobot_audio.launch.py
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## Result Analysis
 

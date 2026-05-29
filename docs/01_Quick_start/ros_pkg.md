@@ -7,6 +7,7 @@ sidebar_position: 5
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 前提：已成功安装TogetheROS.Bot
@@ -31,6 +32,7 @@ sudo apt update
 
 ### 2 安装packages
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -57,11 +59,39 @@ sudo apt install ros-jazzy-image-transport-plugins
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+sudo apt install ros-humble-image-transport
+sudo apt install ros-humble-image-transport-plugins
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt install ros-jazzy-image-transport
+sudo apt install ros-jazzy-image-transport-plugins
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 ## 使用ROS2 package
 
 与ROS使用一样
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -88,6 +118,33 @@ ros2 run image_transport list_transports
 
 </TabItem>
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+</Tabs>
+</DocScope>
 
 运行结果如下，展示了image_transport package支持的图像格式
 

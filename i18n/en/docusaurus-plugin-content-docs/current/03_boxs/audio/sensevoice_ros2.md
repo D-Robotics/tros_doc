@@ -7,6 +7,7 @@ sidebar_products: RDK-X5,RDK-S100,RDK-S600
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocScope from '@site/src/components/DocScope';
 ```
 
 ## Introduction
@@ -33,22 +34,52 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 2. TogetheROS.Bot has been successfully installed on the RDK.
 3. The intelligent voice 2 algorithm package has been successfully installed on the RDK. Installation commands:
 
+   <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="humble" label="Humble">
+      <TabItem value="humble" label="Humble">
 
-   ```bash
-   source /opt/tros/humble/setup.bash
-   ```
-   
-    </TabItem>
-    <TabItem value="jazzy" label="Jazzy">
+      ```bash
+      source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
 
-    ```bash
-    source /opt/tros/jazzy/setup.bash
-    ```
+       <TabItem value="jazzy" label="Jazzy">
 
-   </TabItem>
+       ```bash
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+      </TabItem>
+
    </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+   <Tabs groupId="tros-distro">
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+   <Tabs groupId="tros-distro">
+       <TabItem value="jazzy" label="Jazzy">
+
+       ```bash
+       source /opt/tros/jazzy/setup.bash
+       ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
 
 
    ```bash
@@ -94,6 +125,7 @@ Run the sensevoice_ros2 package on the RDK board:
 
 1. Configure the tros.b environment and start the application
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -107,6 +139,7 @@ Run the sensevoice_ros2 package on the RDK board:
    ```
 
 </TabItem>
+
 <TabItem value="jazzy" label="Jazzy">
 
    ```shell
@@ -121,6 +154,43 @@ Run the sensevoice_ros2 package on the RDK board:
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   
+   source /opt/tros/humble/setup.bash
+
+   # Launch launch file
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # Configure tros.b environment
+   
+   source /opt/tros/jazzy/setup.bash
+
+   # Launch launch file
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ## Result Analysis
 
