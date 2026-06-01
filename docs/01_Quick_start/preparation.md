@@ -23,14 +23,14 @@ TogetheROS.Bot支持在RDK和X86平台的Ubuntu系统上安装。使用Ubuntu系
 <DocScope products="RDK-X3">
 
 
-[Ubuntu镜像烧录方法](https://liqinglian01.github.io/rdk_x_doc/install_os/rdk_x3/?v=3.0.0&p=RDK+X3)
+[Ubuntu镜像烧录方法](https://developer.d-robotics.cc/rdk_x_doc/install_os/rdk_x3/?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
 <DocScope products="RDK-X5">
 
 
-[Ubuntu镜像烧录方法](https://liqinglian01.github.io/rdk_x_doc/install_os/rdk_x5/?v=3.5.0&p=RDK+X5)
+[Ubuntu镜像烧录方法](https://developer.d-robotics.cc/rdk_x_doc/install_os/rdk_x5/?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
