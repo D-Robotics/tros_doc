@@ -21,15 +21,7 @@ Prerequisites
 - RDK can access the internet normally
 - RDK supports remote ssh
 
-<DocScope products="RDK X3">
-
-:::info 📋 System Version Confirmation and Download
-
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
-
-:::
-
-<DocScope products="RDK X3">
+<DocScope products="RDK X3,RDK X5">
 
 :::info 📋 System Version Confirmation and Download
 
@@ -41,21 +33,14 @@ Before installing TogetheROS, you need to confirm the system version and downloa
 
 <DocScope products="RDK S100,RDK S600">
 
+:::info 📋 System Version Confirmation and Download
 
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download)
-
-:::
-
-</DocScope>
-
-<DocScope products="RDK S100,RDK S600">
-
-
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download)
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
 
 :::
 
 </DocScope>
+
 
 <DocScope products="RDK X3">
 
