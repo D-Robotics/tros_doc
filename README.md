@@ -1,64 +1,147 @@
-English| [简体中文](./README_CN.md)
+[English](./README.md) | 简体中文
 
-Welcome to this project! This document will help you quickly get started with the installation, development, building, and deployment of RDK_DOC.
+# 文档仓库
 
-### I. Environment Installation
+本仓库是 TROS 开发文档站点源码，基于 Docusaurus 构建，包含中文主文档、英文文档翻译、站点主题定制、文档范围过滤（Doc Scope）和自动化发布流程。
 
-To install the dependencies for this project, execute the following command:
+文档站核心能力包括：
+- 多语言文档（`zh-Hans` / `en`）
+- 按产品和版本筛选文档内容（`DOC_BUILD_PRODUCT`、`DOC_BUILD_VERSION`）
+- 自动生成并监听侧边栏范围配置
+- 本地全文搜索（`@easyops-cn/docusaurus-search-local`）
+- GitHub Pages 构建发布与 OSS 同步
 
-```shell
+搜索功能当前使用本地搜索插件：
+- 插件名：`@easyops-cn/docusaurus-search-local`
+- 配置位置：`docusaurus.config.js` 的 `themes` 数组中（`require.resolve("@easyops-cn/docusaurus-search-local")`）
+- 搜索框展示：通过 `docusaurus.config.js` 的 `themeConfig.navbar.items` 中 `type: "search"` 启用
+
+## 仓库结构概览
+
+主要目录说明如下：
+
+- `docs/`：中文文档主内容
+- `i18n/en/docusaurus-plugin-content-docs/current/`：英文文档内容
+- `scripts/`：文档维护与构建辅助脚本（编号、链接修复、范围构建等）
+- `src/`：主题定制、插件与 remark 扩展
+- `static/`：静态资源
+- `.github/workflows/`：CI/CD 工作流（Pages 部署与 OSS 同步）
+- `docusaurus.config.js`：站点主配置
+- `sidebars.js`：文档侧边栏配置入口
+
+## 环境准备
+
+- Node.js：`>= 18`
+- 包管理：`npm`
+
+```bash
+# 日常开发快速安装（会按 semver 更新依赖）
 npm install
 ```
 
-### II. Online Operation
+## 文档维护流程
 
+推荐按以下顺序执行：
 
-To build only the Chinese manual:
+```bash
+# 1) 修改文档内容
+# 中文目录：docs/
+# 英文目录：i18n/en/docusaurus-plugin-content-docs/current/
 
-```shell
+# 2) 仅重排 docs/ 下 Markdown 文件编号（按需）
+npm run renumber-docs-md
+
+# 3) 重排 docs/ 下目录 + Markdown 编号（按需，影响较大，谨慎执行）
+node scripts/renumber-docs-and-folders.js
+
+# 4) 重排英文目录（可选，只有英文目录也需要调整时执行）
+node scripts/renumber-docs-and-folders.js i18n/en/docusaurus-plugin-content-docs/current
+
+# 5) 修复 docs/ 下受重命名影响的相对 Markdown 链接（按需）
+npm run fix-relative-docs-links
+
+# 6) 生成/更新侧边栏范围配置
+npm run generate-sidebar-config
+
+# 7) 本地预览（中文）
 npm run start
-```
 
-To build only the English manual:
+# 8) 本地预览（英文）
+npm run start:en
 
-```shell
-npm run start  -- --locale en
-```
-
-This method does not support switching between Chinese and English documents. It can only build a single language document. If you need to display Chinese and English simultaneously, please refer to the method in Step III.
-
-### III. Offline Deployment
-
-To fully deploy the manual offline, please run the following script to download all images locally:
-
-```shell
-python3 download_imgs.py
-```
-
-
-For compiling and deploying the documents, use the following command:
-
-```shell
+# 9) 提交前执行完整构建校验
 npm run build
+
+# 10) 本地托管 build 产物进行验证
+npm run serve
 ```
 
-To deploy the documents, use the following command:
+## 维护常用命令
 
-```shell
-#Direct Deployment
+### 内容与结构维护
 
+```bash
+# 谨慎执行以下操作
+
+# 按 sidebar_position 重排 docs/ 下 Markdown 编号
+npm run renumber-docs-md
+
+# 重排目录 + Markdown，并尝试批量修复仓库路径引用
+node scripts/renumber-docs-and-folders.js
+
+# 重排英文文档目录（可选）
+node scripts/renumber-docs-and-folders.js i18n/en/docusaurus-plugin-content-docs/current
+
+# 修复 docs/ 下受重命名影响的相对链接
+npm run fix-relative-docs-links
+
+# 生成侧边栏范围配置（Doc Scope）
+npm run generate-sidebar-config
+
+# 开发时监听文档变化，自动更新侧边栏范围配置
+npm run watch-sidebar-config
+```
+
+### 本地运行
+
+```bash
+# 中文开发模式（包含侧边栏配置监听）
+npm run start
+
+# 英文开发模式（包含侧边栏配置监听）
+npm run start:en
+
+# 中文开发模式，使用 3001 端口
+npm run start:port
+
+# 中文开发模式（不启动监听）
+npm run start:no-watch
+
+# 英文开发模式（不启动监听）
+npm run start:no-watch:en
+
+# 清理 Docusaurus 缓存
+npm run clear
+```
+
+### 构建与产物验证
+
+```bash
+# 标准全量构建
+npm run build
+
+# 本地预览 build 目录
 npm run serve
 
-#Deploy with Specified IP Address and Port Number
-
+# 指定 host 和 port 预览（示例）
 npm run serve -- --host=10.64.62.34 --port=1688 --no-open
+
 ```
 
-This will start a static file server and provide the following links for access in the browser，The port number should be based on the actual port number:
+常见访问路径（端口以实际 `serve` 输出为准）：
+- 英文：`http://localhost:3000/en/tros_doc/tros`
+- 中文：`http://localhost:3000/tros_doc/tros`
 
-***English manual link***: http://localhost:3000/en/rdk_doc/
 
-***Chinese manual link***: http://localhost:3000/rdk_doc/
 
-**Note:** Please ensure that Node.js version 18.0 or higher is required.
 
