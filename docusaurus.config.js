@@ -9,6 +9,15 @@ import remarkDirective from "remark-directive";
 import remarkDocScope from "./src/remark/remark-doc-scope.js";
 import rehypeWrapTables from "./src/rehype/rehype-wrap-tables.js";
 
+const buildProduct = process.env.DOC_BUILD_PRODUCT?.trim() || "";
+const buildVersion = process.env.DOC_BUILD_VERSION?.trim() || "";
+const COPYRIGHT_START_YEAR = 2024;
+const currentYear = new Date().getFullYear();
+const copyrightYearLabel =
+  currentYear > COPYRIGHT_START_YEAR
+    ? `${COPYRIGHT_START_YEAR}-${currentYear}`
+    : `${COPYRIGHT_START_YEAR}`;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "RDK DOC",
@@ -174,6 +183,10 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+          {
+            type: "search",
+            position: "right",
+          },
           // add by xgs for translate show
           {
             type: "localeDropdown",
@@ -212,7 +225,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} D-Robotics.`,
+        copyright: `Copyright © ${copyrightYearLabel} D-Robotics.`,
       },
       prism: {
         theme: prismThemes.github,
