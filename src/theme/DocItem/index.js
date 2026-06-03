@@ -1,13 +1,16 @@
-import React, { useLayoutEffect, useMemo } from "react";
-import { useLocation } from "@docusaurus/router";
+import React, { useEffect, useLayoutEffect, useMemo } from "react";
+import { useHistory, useLocation } from "@docusaurus/router";
 import { useDocsSidebar } from "@docusaurus/plugin-content-docs/client";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DocItem from "@theme-original/DocItem";
-import NotFoundContent from "@theme/NotFound/Content";
 import DocScopeHydration from "@site/src/components/DocScopeHydration";
 import GiscusComments from "./GiscusComments";
 import { useDocScopeFilter } from "@site/src/context/DocScopeFilterContext";
-import { shouldShowDoc } from "@site/src/context/sidebar-scope-config";
+import {
+  shouldShowDoc,
+  findFirstVisibleDoc,
+} from "@site/src/context/sidebar-scope-config";
 import { isMultiInstanceDocsRoute } from "@site/src/utils/docs-route-utils";
 import {
   flattenSingleChildCategories,
@@ -15,6 +18,75 @@ import {
   renumberVisibleItems,
   stripNumberPrefix,
 } from "@site/src/utils/sidebar-numbering";
+
+function normalizePath(path) {
+  if (!path) return "";
+  return String(path)
+    .split("#")[0]
+    .split("?")[0]
+    .replace(/^https?:\/\/[^/]+/i, "")
+    .replace(/\/+$/, "")
+    .toLowerCase();
+}
+
+function normalizePathTail(path) {
+  return normalizePath(path)
+    .replace(/^\/tros_doc\//, "/")
+    .replace(/^\/rdk_s_doc\//, "/")
+    .replace(/^\/en\//, "/");
+}
+
+function splitPathSegments(path) {
+  return normalizePathTail(path).split("/").filter(Boolean);
+}
+
+function commonPrefixScore(a, b) {
+  const aSegs = splitPathSegments(a);
+  const bSegs = splitPathSegments(b);
+  const max = Math.min(aSegs.length, bSegs.length);
+  let score = 0;
+  while (score < max && aSegs[score] === bSegs[score]) {
+    score += 1;
+  }
+  return score;
+}
+
+function findClosestVisibleDoc(items, version, product, currentPathname) {
+  if (!items || !Array.isArray(items)) {
+    return null;
+  }
+  const visibleLinks = [];
+
+  function walk(list) {
+    for (const item of list) {
+      if (item.type === "link" && item.docId) {
+        if (shouldShowDoc(item.docId, version, product) && item.href) {
+          visibleLinks.push(item.href);
+        }
+      }
+      if (item.type === "category" && item.items) {
+        walk(item.items);
+      }
+    }
+  }
+
+  walk(items);
+  if (visibleLinks.length === 0) {
+    return null;
+  }
+
+  let best = null;
+  let bestScore = -1;
+  for (const href of visibleLinks) {
+    const score = commonPrefixScore(currentPathname, href);
+    if (score > bestScore) {
+      best = href;
+      bestScore = score;
+    }
+  }
+
+  return best || visibleLinks[0];
+}
 
 function filterItems(items, version, product) {
   if (!Array.isArray(items)) return items;
@@ -37,8 +109,10 @@ function filterItems(items, version, product) {
 export default function DocItemWrapper(props) {
   const { siteConfig, i18n } = useDocusaurusContext();
   const { version, product } = useDocScopeFilter();
+  const history = useHistory();
   const location = useLocation();
   const sidebar = useDocsSidebar();
+  const homeUrl = useBaseUrl("/");
 
   const docId = props?.content?.metadata?.id || "";
 
@@ -90,6 +164,32 @@ export default function DocItemWrapper(props) {
     return WrappedContent;
   }, [props?.content, renumberedDocTitle]);
 
+  useEffect(() => {
+    if (skipSidebarScope || visible || !sidebar?.items) {
+      return;
+    }
+    const preferredHref =
+      findClosestVisibleDoc(sidebar.items, version, product, location.pathname) ||
+      findFirstVisibleDoc(sidebar.items, version, product);
+    if (preferredHref) {
+      const currentSearch = window.location.search;
+      history.replace(preferredHref + currentSearch);
+    } else {
+      history.replace(`${homeUrl}${location.search}${location.hash}`);
+    }
+  }, [
+    visible,
+    history,
+    sidebar,
+    skipSidebarScope,
+    homeUrl,
+    location.pathname,
+    location.search,
+    location.hash,
+    version,
+    product,
+  ]);
+
   useLayoutEffect(() => {
     if (!visible || skipSidebarScope || !currentDocDisplayNumber) {
       return;
@@ -115,7 +215,7 @@ export default function DocItemWrapper(props) {
   }, [visible, skipSidebarScope, currentDocDisplayNumber, docId]);
 
   if (!visible) {
-    return <NotFoundContent />;
+    return null;
   }
 
   return (

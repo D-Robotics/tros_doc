@@ -107,9 +107,9 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 
 使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
 
-- ION 大小配置参考: 手册 `2.2 srpi-config 工具配置` 
+- ION 大小配置参考: [2.2 srpi-config 工具配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config) 
 
-- CPU 频率配置参考：手册 `2.4 Thermal和CPU频率管理`
+- CPU 频率配置参考：手册 [2.4 Thermal和CPU频率管理](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/frequency_management)
 
 ## 使用方式
 

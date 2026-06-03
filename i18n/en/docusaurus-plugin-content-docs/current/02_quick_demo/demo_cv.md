@@ -735,8 +735,8 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 | Platform | Runtime | Example Functionality |
 | ------- | ------------- | ------------------------------ |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | Conversion between nv12 and gbr24 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | Conversion between nv12 and gbr24 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | Conversion between nv12 and bgr24 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Conversion between nv12 and bgr24 |
 
 ### Preparation
 

@@ -107,9 +107,9 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 
 Use the `srpi-config` command to set ION memory size to 1.6GB, and set CPU to maximum frequency after reboot.
 
-- ION size configuration reference: manual section `2.2 srpi-config Tool Configuration`
+- ION size configuration reference: manual section [2.2 srpi-config Tool Configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config)
 
-- CPU frequency configuration reference: manual section `2.4 Thermal and CPU Frequency Management`
+- CPU frequency configuration reference: manual section [2.4 Thermal and CPU Frequency Management](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/frequency_management)
 
 ## Usage
 
