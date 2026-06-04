@@ -47,7 +47,30 @@ import DocScope from '@site/src/components/DocScope';
 sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
 ```
 
-6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config)
+<DocScope products="RDK-X3>
+
+6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
+
+</DocScope>
+
+<DocScope products="RDK-X5>
+
+6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
+
+</DocScope>
+
 
 
 ## 使用介绍
