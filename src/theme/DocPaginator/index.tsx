@@ -226,8 +226,12 @@ export default function DocPaginatorWrapper(props: Props): JSX.Element {
           permalink: (orderedDocLinks[currentIndex + 1].href || orderedDocLinks[currentIndex + 1].permalink) as string,
         }
       : null;
-  
-  const baseNext = autoNext ?? next ?? null;
+
+  // When current doc exists in filtered sidebar, trust filtered pagination result
+  // (including null for first/last item) to avoid showing hidden next/previous docs.
+  const hasFilteredPagination = orderedDocLinks.length > 0 && currentIndex >= 0;
+
+  const baseNext = hasFilteredPagination ? autoNext : next ?? null;
   const customNext = baseNext
     ? {
         ...baseNext,
@@ -235,7 +239,7 @@ export default function DocPaginatorWrapper(props: Props): JSX.Element {
       }
     : null;
 
-  const basePrevious = autoPrevious ?? previous ?? null;
+  const basePrevious = hasFilteredPagination ? autoPrevious : previous ?? null;
   const customPrevious = basePrevious
     ? {
         ...basePrevious,
