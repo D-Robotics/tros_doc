@@ -264,7 +264,7 @@ $ ros2 topic list
 `/rtsp_image_ch_0` is the video published by the RDK after obtaining IPC video via RTSP. `/hobot_dnn_detection`
 is the algorithm message published by the RDK containing human detection results. `/image_decode` is the NV12 image decoded by the RDK after receiving H264. `/image_mjpeg` is the JPEG image encoded by the RDK.
 
-Enter http://IP:8000 in a PC browser for split-screen configuration
+Enter `http://IP:8000` in a PC browser for split-screen configuration
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
 

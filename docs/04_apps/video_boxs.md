@@ -258,7 +258,7 @@ $ ros2 topic list
 其中`/rtsp_image_ch_0`是RDK发布的通过RTSP获取IPC视频后发布的视频，`/hobot_dnn_detection`
 是RDK发布的包含人体检测结果的算法msg，`/image_decode`是RDK接收H264后解码的NV12图片，`/image_mjpeg`是RDK编码后的JPEG图片。
 
-在PC端的浏览器输入http://IP:8000 ，分屏配置
+在PC端的浏览器输入 `http://IP:8000` ，分屏配置
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
 
