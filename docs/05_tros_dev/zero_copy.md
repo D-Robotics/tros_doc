@@ -22,7 +22,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 前置条件
 
-已按照[apt安装与升级](../01_quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见[ROS2官方文档](https://docs.ros.org/en/foxy/Tutorials.html)。
+已按照[apt安装与升级](../01_quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见 ROS2 官方教程[Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)。
 
 ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
 

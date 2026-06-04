@@ -22,7 +22,7 @@ Communication is a fundamental capability of robot development engines. Native R
 
 ## Prerequisites
 
-tros.b has been successfully installed as described in [APT Installation and Upgrade](../01_quick_start/install_tros.md). You should understand ROS2 node, topic, QoS, and other basics, and know how to create packages and use custom messages. See the [ROS2 official documentation](https://docs.ros.org/en/foxy/Tutorials.html) for tutorials.
+tros.b has been successfully installed as described in [APT Installation and Upgrade](../01_quick_start/install_tros.md). You should understand ROS2 node, topic, QoS, and other basics, and know how to create packages and use custom messages. See the ROS2 official tutorial [Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html) for tutorials.
 
 ROS2 package build and compile tools. Install command: `sudo apt install ros-dev-tools`
 

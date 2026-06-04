@@ -763,7 +763,7 @@ root@ubuntu:~# tree /opt/tros/include/dnn_node/util/output_parser
 | 目标检测       | [YoloV2](../03_boxs/detection/yolo.md)       |   ptq_yolo2_output_parser.h       |
 | 目标检测       | [YoloV3](../03_boxs/detection/yolo.md)       |    ptq_yolo3_darknet_output_parser.h       |
 | 目标检测       | [YoloV5](../03_boxs/detection/yolo.md)       |  ptq_yolo5_output_parser.h        |
-| 人体检测       | [FasterRcnn](../03_boxs/function/mono2d_body_detection.md)             |  fasterrcnn_output_parser.h       |
+| 人体检测       | [FasterRcnn](../03_boxs/body/mono2d_body_detection.md)             |  fasterrcnn_output_parser.h       |
 | 图片分类       | [mobilenetv2](../03_boxs/classification/mobilenetv2.md)  |  ptq_classification_output_parser.h        |
 | 语义分割       | [mobilenet_unet](../03_boxs/segmentation/mobilenet_unet.md)      |  ptq_unet_output_parser.h        |
 
