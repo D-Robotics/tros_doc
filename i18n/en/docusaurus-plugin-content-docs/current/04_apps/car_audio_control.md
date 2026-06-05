@@ -76,9 +76,20 @@ Code repository: (https://github.com/D-Robotics/audio_control.git)
    </Tabs>
    </DocScope>
 
+<DocScope products="RDK-X3">
+
 :::caution **Note**
-**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](/docs/08_FAQ/01_hardware_and_system.md) section `Q10: How to handle apt update command failure or error?` for resolution.**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
+:::
+
+</DocScope>
 
 4. A compatible audio board has been connected to the RDK (refer to the [Intelligent Voice section](../03_boxs/audio/hobot_audio.md)).
 
