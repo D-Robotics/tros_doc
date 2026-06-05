@@ -254,7 +254,7 @@ source /opt/tros/setup.bash
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
