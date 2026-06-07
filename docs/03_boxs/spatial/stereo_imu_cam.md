@@ -158,7 +158,7 @@ bash run_stereo.sh --mipi_rotation 0.0
 
 ### 5.2. 结果展示
 
-- 启动后，可以在web端查看RGB图和深度图，在浏览器输入 http://ip:8000 (图中RDK IP是192.168.128.10)：
+- 启动后，可以在web端查看RGB图和深度图，在浏览器输入 `http://ip:8000` (图中RDK IP是192.168.128.10)：
 
 ![LH_IMU_cam_DStereo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png)
 

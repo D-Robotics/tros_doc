@@ -158,7 +158,7 @@ bash run_stereo.sh --mipi_rotation 0.0
 
 ### 5.2. Result Display
 
-- After startup, view RGB and depth images on web at http://ip:8000 (RDK IP in figure is 192.168.128.10):
+- After startup, view RGB and depth images on web at `http://ip:8000` (RDK IP in figure is 192.168.128.10):
 
 ![LH_IMU_cam_DStereo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png)
 
