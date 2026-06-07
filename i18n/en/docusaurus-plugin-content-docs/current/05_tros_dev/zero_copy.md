@@ -41,6 +41,8 @@ Open a new terminal, source the tros.b setup script, and ensure the `ros2` comma
 source /opt/tros/setup.bash
 ```
 
+Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html).
+
 </TabItem>
 
 <TabItem value="humble" label="Humble">
@@ -50,6 +52,8 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+
 </TabItem>
 
 <TabItem value="jazzy" label="Jazzy">
@@ -58,6 +62,8 @@ source /opt/tros/humble/setup.bash
 # Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
+
+Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
 
@@ -73,6 +79,8 @@ source /opt/tros/jazzy/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+
 </TabItem>
 
 </Tabs>
@@ -87,13 +95,15 @@ source /opt/tros/humble/setup.bash
 source /opt/tros/jazzy/setup.bash
 ```
 
+Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+
 </TabItem>
 
 </Tabs>
 </DocScope>
 
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html).
+
 
 ```shell
 mkdir -p ~/dev_ws/src

@@ -41,6 +41,8 @@ ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev
 source /opt/tros/setup.bash
 ```
 
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
+
 </TabItem>
 
 <TabItem value="humble" label="Humble">
@@ -50,6 +52,8 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+
 </TabItem>
 
 <TabItem value="jazzy" label="Jazzy">
@@ -58,6 +62,8 @@ source /opt/tros/humble/setup.bash
 # 配置tros.b环境
 source /opt/tros/jazzy/setup.bash
 ```
+
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 </Tabs>
@@ -72,6 +78,8 @@ source /opt/tros/jazzy/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+
 </TabItem>
 </Tabs>
 </DocScope>
@@ -85,12 +93,14 @@ source /opt/tros/humble/setup.bash
 source /opt/tros/jazzy/setup.bash
 ```
 
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+
 </TabItem>
 </Tabs>
 </DocScope>
 
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
+
 
 ```shell
 mkdir -p ~/dev_ws/src
