@@ -31,10 +31,22 @@ import DocScope from '@site/src/components/DocScope';
 
 ### RDK平台
 
+<DocScope products="RDK-X3,RDK-X5">
+
 1. RDK已烧录好Ubuntu系统镜像。
 2. RDK已成功安装TogetheROS.Bot。
 3. 已有RDK适配的音频驱动板，并参考[智能语音章节](../03_boxs/audio/hobot_audio.md)搭建好环境。
 4. 音频板耳机接口连接耳机或音响。
+
+</DocScope>
+
+<DocScope products="RDK-S100,RDK-S600">
+
+1. RDK已烧录好Ubuntu系统镜像。
+2. RDK已成功安装TogetheROS.Bot。
+3. 音频板耳机接口连接耳机或音响。
+
+</DocScope>
 
 ## 使用方式
 

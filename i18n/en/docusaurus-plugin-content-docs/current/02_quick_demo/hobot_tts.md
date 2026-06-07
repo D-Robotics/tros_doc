@@ -31,10 +31,22 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 ### RDK Platform
 
+<DocScope products="RDK-X3,RDK-X5">
+
 1. RDK has been flashed with the Ubuntu system image.
 2. TogetheROS.Bot has been successfully installed on RDK.
 3. An RDK-compatible audio driver board is available, and the environment has been set up according to the [Smart Audio section](../03_boxs/audio/hobot_audio.md).
 4. Headphones or speakers are connected to the audio board headphone jack.
+
+</DocScope>
+
+<DocScope products="RDK-S100,RDK-S600">
+
+1. RDK has been flashed with the Ubuntu system image.
+2. TogetheROS.Bot has been successfully installed on RDK.
+3. Headphones or speakers are connected to the audio board headphone jack.
+
+</DocScope>
 
 ## Usage
 
