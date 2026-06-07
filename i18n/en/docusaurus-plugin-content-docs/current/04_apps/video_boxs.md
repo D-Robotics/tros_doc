@@ -10,38 +10,38 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Overview
+## Feature Description
 
-The Smart Box App performs intelligent analysis after receiving IPC video stream input. The App consists of RTSP video stream, video decoding, human and face detection, image encoding, and a Web display client. The workflow is shown below:
+The Smart Box app is designed to perform intelligent analysis after inputting an IPC video stream. The app consists of an RTSP video stream, video decoding, human body and face detection, image encoding, and a web display interface. The workflow is illustrated below:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
 
-In actual customer applications, the display portion is completed by the customer's business system. The main functions of the Smart Box — RTSP video stream, video decoding, and human/face detection — publish intelligent results and images to the customer's business system. The workflow is shown below:
+In actual customer applications, the display part is handled by the customer's business system. The main functions of the Smart Box include RTSP video stream, video decoding, human body and face detection, and publishing intelligent results and images to the customer's business system. The workflow is as follows:
+
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
 
-Code repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
+Code Repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
 ## Supported Platforms
 
-| Platform                    | Runtime Environment                  |
+| Platform | Operating Mode |
 |-----------------------|-----------------------|
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
-## Preparation
+## Prerequisites
 
+1. The RDK is pre-flashed with the RDK OS system.
 
-1. The RDK has been flashed with the RDK OS system image.
+2. Install TogetheROS.Bot on the RDK as per [apt installation and upgrade](../01_quick_start/install_tros.md).
 
-2. Install TogetheROS.Bot following [apt installation and upgrade](../01_quick_start/install_tros.md).
+3. Prepare an IPC device that supports the RTSP protocol for transmitting H264/H265 streams and configure an IP address on the same subnet.
 
-3. Prepare an IPC device that supports RTSP protocol for H264/H265 stream transmission, and configure an IP address on the same network segment.
+4. A PC on the same subnet as the RDK (wired or connected to the same wireless network, the first three segments of the IP address [e.g., 192.168.1.x] must match).
 
-4. A PC on the same network as the RDK (wired or on the same Wi-Fi, with the first three octets of the IP address [192.168.1.x] matching).
-
-5. Configure the system to performance mode
+5. Set the system to performance mode:
 
 ```bash
 sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
@@ -49,41 +49,40 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 <DocScope products="RDK-X3">
 
-6. When starting multiple channels, configure ion_size to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
 <DocScope products="RDK-X5">
 
-6. When starting multiple channels, configure ion_size to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-6. When starting multiple channels, configure ion_size to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
 
 </DocScope>
 
 <DocScope products="RDK-S600">
 
-6. When starting multiple channels, configure ion_size to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
+## Usage Guide
 
-## Usage
+### Method for Starting Multiple Channels
 
-### Multi-Channel Startup Method
-
-channel 1 (Terminal 1):
+Channel 1 (Terminal 1):
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -92,7 +91,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -101,12 +100,11 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -115,12 +113,11 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -129,35 +126,33 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
-
 ```shell
-# 设置不同的域
+# Set a different domain
 export ROS_DOMAIN_ID=101
 
-# 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files needed for running the example from the TogetheROS installation path
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
-channel 2 (Terminal 2):
+Channel 2 (Terminal 2):
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -166,7 +161,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -175,12 +170,11 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -189,12 +183,11 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -203,40 +196,40 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
-
 ```shell
-# 设置不同的域
+# Set a different domain
 export ROS_DOMAIN_ID=102
 
-# 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files needed for running the example from the TogetheROS installation path
 cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.58:554/0' hobot_transport_0:='udp'  websocket_channel:=1
 ```
 
 ...
 
-**Note**
-1. Set different ROS_DOMAIN_ID and websocket_channel for each channel.
-2. The above demonstrates the method for 2 channels. Start other channels 3~8 using the same approach.
-3. Launch scripts with "_plugin" start in component mode; e.g., hobot_rtsp_client_ai_websocket_plugin.launch.py and hobot_rtsp_client_ai_plugin.launch.py
-4. Launch scripts with "_websocket" enable web browsing; e.g., hobot_rtsp_client_ai_websocket_plugin.launch.py and hobot_rtsp_client_ai_websocket.launch.py
-5. To increase connection channel capacity, frame rate reduction for multiple video streams is required. Configure the frame rate from the IPC.
+**Notes:**
+1. Set different `ROS_DOMAIN_ID` and `websocket_channel` for different channels.
+2. The above shows how to start 2 channels. Use the same method to start other channels 3~8.
+3. Launch scripts with `_plugin` will start in component mode, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_plugin.launch.py`.
+4. Launch scripts with `_websocket` enable web browsing, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_websocket.launch.py`.
+5. To increase the number of connection channels and handle multiple video streams, reduce the frame rate by configuring the IPC accordingly.
 
 ### Algorithm Model Switching
-The default algorithm in the launch script uses yolov8;
 
-Refer to hobot_rtsp_client_ai_websocket_plugin.launch.py
+The default algorithm referenced in the launch script is YOLOv8.
+
+Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py`:
+
 ```shell
     ComposableNode(
         package='dnn_node_example',
@@ -253,11 +246,12 @@ Refer to hobot_rtsp_client_ai_websocket_plugin.launch.py
         extra_arguments=[{'use_intra_process_comms': True}],
     ) 
 ```
-To use the yolov5 algorithm, change config_file to "config/yolov5xworkconfig.json". Refer to [YOLO](../03_boxs/detection/yolo.md),
+
+To switch to the YOLOv5 algorithm, modify `config_file` to `"config/yolov5xworkconfig.json"`. Refer to [YOLO](../03_boxs/detection/yolo.md).
 
 ## Result Analysis
 
-The RDK terminal outputs the following information:
+Run the terminal on the RDK board to output the following information:
 
 ```text
 [hobot_codec_republish-2] [WARN] [1732169402.355433988] [hobot_codec_decoder]: Sub imgRaw fps = -1774563328
@@ -269,7 +263,7 @@ The RDK terminal outputs the following information:
 
 ```
 
-Open another terminal and use the `ros2 topic list` command to query RDK topic information:
+Open another terminal and use the `ros2 topic list` command to query the topic information of the RDK:
 
 ```shell
 $ export ROS_DOMAIN_ID=101
@@ -280,16 +274,14 @@ $ ros2 topic list
 /parameter_events
 /rosout
 /rtsp_image_ch_0
-
 ```
 
-`/rtsp_image_ch_0` is the video published by the RDK after obtaining IPC video via RTSP. `/hobot_dnn_detection`
-is the algorithm message published by the RDK containing human detection results. `/image_decode` is the NV12 image decoded by the RDK after receiving H264. `/image_mjpeg` is the JPEG image encoded by the RDK.
+Among these, `/rtsp_image_ch_0` is the video published by the RDK after obtaining the IPC video via RTSP. `/hobot_dnn_detection` is the algorithm message published by the RDK containing human body detection results. `/image_decode` is the NV12 image decoded from the received H264 stream. `/image_mjpeg` is the JPEG image encoded by the RDK.
 
-Enter `http://IP:8000` in a PC browser for split-screen configuration
+Enter `http://IP:8000` in a browser on the PC for split-screen configuration:
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
 
-Human and face detection boxes, keypoints, and pose detection results are rendered on the web (IP is the RDK's IP address):
+Human body and face detection boxes, key points, and pose detection results are rendered on the web interface (where `IP` is the IP address of the RDK):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)
