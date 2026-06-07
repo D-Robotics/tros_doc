@@ -422,7 +422,38 @@ Prerequisites:
    sudo apt install tros
    ```
 
+<DocScope products="RDK-X3">
+
 :::caution
 - **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples)**.
+- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-how-to-check-the-version-information-of-trosb)**.
 :::
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+:::caution
+- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
+- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-how-to-check-the-version-information-of-trosb)**.
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+:::caution
+- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
+- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-how-do-i-check-the-trosb-version-information)**.
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+:::caution
+- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
+- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-how-do-i-check-the-trosb-version-information)**.
+:::
+
+</DocScope>

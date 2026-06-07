@@ -414,7 +414,38 @@ Description: TogetheROS Bot
    sudo apt install tros
    ```
 
+<DocScope products="RDK-X3">
+
 :::caution
 - **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples)**。
+- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+:::caution
+- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
+- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+:::caution
+- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
+- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+:::caution
+- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
+- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+:::
+
+</DocScope>
