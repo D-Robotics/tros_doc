@@ -10,21 +10,21 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Overview
+## Function Introduction
 
-DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/DOSOD] is an open-vocabulary object detection method developed by D-Robotics. It uses input text features for reparameterization and can change object detection categories in a zero-shot manner. This is the biggest difference from conventional detectors.
+DOSOD (Decoupled Open-Set Object Detector) [https://github.com/D-Robotics-AI-Lab/DOSOD] is an open-vocabulary object detection method developed by D-Robotics. It leverages input text features for re-parameterization, enabling zero-shot changes to the object detection categories. This is the main difference from conventional detectors.
 
 Code repository: (https://github.com/D-Robotics/hobot_dosod)
 
-Application scenarios: DOSOD's powerful zero-shot detection capability provides stronger generalization and can be applied in intelligent driving, smart home, geological detection, and related fields.
+Application scenarios: The powerful zero-shot detection capability of DOSOD gives it strong generalization ability, making it applicable in fields such as autonomous driving, smart homes, and geological detection.
 
 ## Supported Platforms
 
-| Platform                             | Runtime Environment | Example Features |
+| Platform                             | Operating Mode     | Example Function                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
 
 ## Algorithm Information
 
@@ -49,33 +49,33 @@ Application scenarios: DOSOD's powerful zero-shot detection capability provides 
 | DOSOD-l | S600 | 1×640×640×3 | 100.96 |
 
 </DocScope>
-## Prerequisites
+
+## Preparation
 
 ### RDK Platform
 
 1. The RDK has been flashed with the RDK OS system.
 
-2. TogetheROS.Bot has been successfully installed on the RDK.
+2. The RDK has successfully installed TogetheROS.Bot.
 
-3. A MIPI or USB camera is installed on the RDK.
+3. The RDK has a MIPI or USB camera installed.
 
-4. Confirm that the PC can access the RDK over the network.
+4. Ensure that the PC can access the RDK over the network.
 
-## Usage
+## Usage Guide
 
-The DOSOD (hobot_dosod) package subscribes to images published by the sensor package and feeds them into model inference. After inference, algorithm messages are published, and the websocket package renders and displays sensor images and corresponding algorithm results in a PC browser.
-
+The DOSOD (hobot_dosod) package subscribes to the images published by the sensor package, performs model inference, and publishes the algorithm messages after inference. Through the websocket package, it renders and displays the images published by the sensor and the corresponding algorithm results on a PC browser.
 
 ### RDK Platform
 
-**Publish Images Using a MIPI Camera**
+**Using a MIPI Camera to Publish Images**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -84,7 +84,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -98,7 +98,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -112,7 +112,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -122,24 +122,24 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files needed for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# 配置MIPI摄像头
+# Configure the MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
-**Publish Images Using a USB Camera**
+**Using a USB Camera to Publish Images**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -148,7 +148,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -162,7 +162,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -176,7 +176,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -185,28 +185,25 @@ source /opt/tros/jazzy/setup.bash
 </Tabs>
 </DocScope>
 
-
 ```shell
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files needed for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# 配置USB摄像头
+# Configure the USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
-
-**Use Local Image Feedback**
+**Using Local Loopback Images**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -215,7 +212,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -229,7 +226,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -243,7 +240,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -252,28 +249,26 @@ source /opt/tros/jazzy/setup.bash
 </Tabs>
 </DocScope>
 
-
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files needed for running the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_dosod/config/ .
 
-# 配置本地回灌图片
+# Configure local loopback images
 export CAM_TYPE=fb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_dosod dosod.launch.py
 ```
-
 
 In addition to setting the model, you can also change the model and configuration.
 
-- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
 
-- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
 
 ## Result Analysis
 
-The terminal outputs the following information during execution:
+The following information is output on the terminal:
 
 ```shell
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-01-08-11-03-34-125542-ubuntu-9125
@@ -374,10 +369,10 @@ webserver has launch
 [hobot_dosod-3] [WARN] [1736305421.860964318] [hobot_dosod]: Sub img fps: 9.99, Smart fps: 9.99, pre process time ms: 14, infer time ms: 100, post process time ms: 7
 ```
 
-Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
+Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering effects (IP is the IP address of the RDK):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg)
 
-
 ## Advanced Usage
-If you want to modify custom categories, please refer to the [model reparameterization method](https://horizonrobotics.feishu.cn/docx/G5z3dOzWKozBtCxBZK9ceWEknTh)
+
+If you wish to modify custom categories, please refer to the [Model Reparameterization Method](https://horizonrobotics.feishu.cn/docx/G5z3dOzWKozBtCxBZK9ceWEknTh)
