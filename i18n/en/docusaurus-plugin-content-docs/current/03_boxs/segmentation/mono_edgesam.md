@@ -10,30 +10,30 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Overview
+## Feature Introduction
 
-The mono_edgesam package is a usage example based on quantized deployment of [EdgeSAM](https://github.com/chongzhou96/EdgeSAM). Image data comes from local image playback and subscribed image messages. SAM relies on detection box input for segmentation and segments targets within the detection boxes. No target category information is required—only the bounding box. Finally, algorithm information is published via topics and visualized on the Web page.
+The `mono_edgesam` package is a usage example based on the quantization deployment of [EdgeSAM](https://github.com/chongzhou96/EdgeSAM). The image data comes from local image injection and subscribed image messages. SAM relies on bounding box input for segmentation and segments objects within the bounding box, without requiring category information of the target—only the box is needed. Finally, the algorithm information is published via topics and rendered visually on a web page.
 
-This example provides two deployment modes:
-- Fixed box segmentation: Uses a fixed detection box (center of the image) for segmentation.
-- Subscribed box segmentation: Subscribes to detection box information output by upstream detection networks and segments the content within the boxes.
+In this example, we provide two deployment demonstration methods:
+- **Fixed box segmentation**: A fixed bounding box (center of the image) is used for segmentation.
+- **Subscribed box segmentation**: Subscribes to bounding box information output by an upstream detection network to segment the content within the boxes.
 
 Code repository: (https://github.com/D-Robotics/mono_edgesam.git)
 
-Application scenarios: Obstacle segmentation combined with detection boxes, water stain area segmentation, etc.
+Application scenarios: Obstacle segmentation combined with bounding boxes, water stain area segmentation, etc.
 
 ## Supported Platforms
 
-| Platform                  | Runtime     | Example Features                                                     |
-| --------------------- | ------------ | ------------------------------------------------------------ |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local playback; display inference rendering results on Web/save locally |
+| Platform | Operating Environment | Example Features |
+| -------- | -------------------- | ----------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
 
 ## Algorithm Information
 
-| Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ----- | -------- | ----------- | -------------------------- |
 | edgesam | X5 | 1×3x512x512 | 9.09 |
 | edgesam | S100 | 1×3x512x512 | 77.0 |
 | edgesam | S600 | 1×3x512x512 | 183.69 |
@@ -42,24 +42,23 @@ Application scenarios: Obstacle segmentation combined with detection boxes, wate
 
 ### RDK Platform
 
-1. RDK has been flashed with the Ubuntu system image.
+1. The RDK has been flashed with the Ubuntu system image.
+2. The RDK has successfully installed TogetheROS.Bot.
 
-2. TogetheROS.Bot has been successfully installed on RDK.
+## Usage Guide
 
-## Usage
-
-The package publishes algorithm messages containing semantic segmentation and object detection information. Users can subscribe to the "/perception/segmentation/edgesam" topic for application development.
+The package publishes algorithm messages containing semantic segmentation and object detection information. Users can subscribe to the `/perception/segmentation/edgesam` topic for application development.
 
 ### RDK Platform
 
-**Publish images using a MIPI camera**
+**Publishing images from a MIPI camera**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -68,7 +67,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -82,7 +81,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -96,7 +95,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -106,21 +105,21 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# 配置MIPI摄像头
+# Configure the MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
-**Publish images using a USB camera**
+**Publishing images from a USB camera**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -129,7 +128,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -143,7 +142,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -157,7 +156,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -167,21 +166,21 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# 配置USB摄像头
+# Configure the USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
-**Use a single playback image**
+**Using a single image for injection**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -190,7 +189,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -204,7 +203,7 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -218,7 +217,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure the tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
@@ -228,18 +227,18 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# 配置回灌图片
+# Configure image injection
 export CAM_TYPE=fb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch mono_edgesam sam.launch.py 
 ```
 
 ## Result Analysis
 
-**Publish images using the playback tool**
+**Publishing images using the injection tool**
 
-After the package initializes, the runtime terminal outputs the following information:
+After the package initializes, the following information is output in the running terminal:
 
 ```
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-07-28-19-51-28-488985-ubuntu-107175
@@ -332,22 +331,22 @@ webserver has launch
 [mono_edgesam-3] [WARN] [1753703494.973585807] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 13, infer time ms: 82, post process time ms: 40
 ```
 
-In this example, inference results are rendered on the Web. Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering effects (IP is the RDK IP address). Open the settings in the upper-right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect.
+The inference results in the example are rendered on the web. Enter `http://IP:8000` in a browser on a PC to view the image and algorithm rendering effects (IP is the IP address of the RDK). Open the settings in the top-right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect.
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 
 ## Advanced Usage
 
-To adjust the detection box size, refer to the method below for verification. More importantly, you can use detection results from upstream detection nodes as SAM input.
+To adjust the size of the detection box, refer to the method below for verification. More importantly, detection results from an upstream detection node can be used as input to SAM.
 
-Run SAM with fixed box mode disabled: `sam_is_regular_box:=0`
+Run SAM and disable fixed box mode: `sam_is_regular_box:=0`
 ```shell
 ros2 launch mono_edgesam sam.launch.py sam_is_regular_box:=0
 ```
 
-Publish an AI topic in another terminal.
+Publish the AI topic in another terminal.
 ```shell
 ros2 topic pub /hobot_dnn_detection ai_msgs/msg/PerceptionTargets '{"targets": [{"rois": [{"rect": {"x_offset": 160, "y_offset": 120, "width": 320, "height": 240}, "type": "anything"}]}] }'
 ```
 
-Note: The published topic name here is "/hobot_dnn_detection". The detection box origin is (160, 120) with width 320 and height 240. The detection box start and end points should not exceed the input image size—please keep this in mind during actual use.
+Note: The topic name published here is "/hobot_dnn_detection". The bounding box starts at coordinates (160, 120), with a width of 320 and height of 240. The start and end points of the bounding box should not exceed the size of the input image. Please pay attention to this in actual use.
