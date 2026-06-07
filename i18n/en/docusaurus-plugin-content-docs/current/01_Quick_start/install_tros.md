@@ -21,21 +21,41 @@ Prerequisites
 - RDK can access the internet normally
 - RDK supports remote ssh
 
-<DocScope products="RDK X3,RDK X5">
+<DocScope products="RDK-X3">
 
 :::info 📋 System Version Confirmation and Download
 
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/en/Quick_start/download?v=3.0.0&p=RDK+X3)
 
 :::
 
 </DocScope>
 
-<DocScope products="RDK S100,RDK S600">
+<DocScope products="RDK-X5">
 
 :::info 📋 System Version Confirmation and Download
 
-Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download)
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_x_doc/en/Quick_start/download?v=3.5.0&p=RDK+X5)
+
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+:::info 📋 System Version Confirmation and Download
+
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/download?v=4.0.5&p=RDK+S100)
+
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+:::info 📋 System Version Confirmation and Download
+
+Before installing TogetheROS, you need to confirm the system version and download the latest image. For system image download, please refer to: [Download Resources Summary](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/download?v=5.1.0&p=RDK+S600)
 
 :::
 
@@ -202,9 +222,37 @@ sudo apt update
 sudo apt upgrade
 ```
 
+<DocScope products="RDK-X3">
+
 :::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
 :::
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/hardware_and_system?v=4.0.5&p=RDK+S100#q6-how-do-i-handle-apt-update-failures-or-errors) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+:::caution **Note**
+**If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-how-do-i-handle-apt-update-failures-or-errors) section `Q6: How to handle apt update command failure or error?` for resolution.**
+:::
+
+</DocScope>
 
 ### Check Current tros.b Version
 
