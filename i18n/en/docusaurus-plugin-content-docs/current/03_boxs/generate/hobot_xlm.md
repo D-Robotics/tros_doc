@@ -25,13 +25,16 @@ Code repository: (https://github.com/D-Robotics/hobot_xlm.git)
 
 ## Algorithm Information
 
+<DocScope products="RDK-S100">
+
 | Model | Parameters | Token Length | Quantization | Platform | prefill eval (tokens/s) | eval (tokens/s) |
-| ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Deepseek-R1 | 1.5B | 1024 | Q8 | S100 | 635.24 | 17.05 |
 | Deepseek-R1 | 7B | 1024 | Q8 | S100 | 279.17 | 3.72 |
 | Deepseek-R1 | 1.5B | 1024 | Q8 | S100P | 1326.40 | 26.52 |
 | Deepseek-R1 | 7B | 1024 | Q8 | S100P | 468.86 | 6.68 |
 
+</DocScope>
 ## Preparation
 
 ### System Preparation

@@ -30,10 +30,13 @@ Smoke detection case study: (https://github.com/abg3/Smoke-Detection-using-Tenso
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | EfficientNet | X3 | 1x3x512x512 | 54.58 |
 
+</DocScope>
 ## Prerequisites
 
 ### RDK Platform

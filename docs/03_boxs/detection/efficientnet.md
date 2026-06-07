@@ -30,9 +30,13 @@ EfficientNet_Det是从  (https://github.com/HorizonRobotics-Platform/ModelZoo/tr
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | EfficientNet | X3 | 1x3x512x512 | 54.58 |
+
+</DocScope>
 
 ## 准备工作
 

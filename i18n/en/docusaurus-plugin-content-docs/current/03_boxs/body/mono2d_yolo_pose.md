@@ -43,11 +43,20 @@ Game character control example based on body pose analysis and gesture recogniti
 
 ## Algorithm Info
 
+<DocScope products="RDK-S100">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | yolov11x-pose | S100 | 1x3x640x640 | 68.70 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | yolov11n-pose | S600 | 1x3x640x640 | 1104.91 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

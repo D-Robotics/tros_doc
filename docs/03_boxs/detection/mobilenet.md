@@ -33,10 +33,20 @@ Mobilenet_SSD是从  (https://github.com/chuanqi305/MobileNet-SSD) 获得的 caf
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | ssd_mobilenet | X3 | 1x3x300x300 | 141.60 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | ssd_mobilenet | X5 | 1x3x300x300 | 453.98 |
+
+</DocScope>
 
 ## 准备工作
 

@@ -33,13 +33,34 @@ Background blur case: https://github.com/rusito-23/mobile_unet_segmentation
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mobilenet_unet | X3 | 1x3x1024x2048 | 24.34 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | mobilenet_unet | X5 | 1x3x224x224 | 50.33 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | deeplabv3 | S100 | 1x3x224x224 | 14.70 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | deeplabv3 | S600 | 1x3x224x224 | 337.15 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

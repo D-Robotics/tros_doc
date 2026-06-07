@@ -30,9 +30,13 @@ mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mobilesam | X5 | 1×3×384×384 | 6.6 |
+
+</DocScope>
 
 ## 准备工作
 

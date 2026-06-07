@@ -42,12 +42,22 @@ import DocScope from '@site/src/components/DocScope';
 ## 算法信息
 
 
+<DocScope products="RDK-X5">
+
 | 模型 | 参数量 | 量化方式 | 平台 | 输入尺寸 | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
-| ---- | ---- | ---- | ---- | ------------ | ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | InternVL2_5 | 1B | Q4_0 | X5 | 1x3x448x448 | 2456.00 | 7.7 | 51.6 |
-| InternVL3 | 1B | Q8_0 | S100 | 1x3x448x448 | 2851.00 | 9.19 | 41.65 |
 | Smolvlm2 | 256M | Q8_0 | X5 | 1x3x512x512 | 1053 | 9.3 | 27.8 |
 | Smolvlm2 | 500M | Q8_0 | X5 | 1x3x512x512 | 1053 | 27.3 | 65.7 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 参数量 | 量化方式 | 平台 | 输入尺寸 | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| InternVL3 | 1B | Q8_0 | S100 | 1x3x448x448 | 2851.00 | 9.19 | 41.65 |
+
+</DocScope>
 
 ## 准备工作
 

@@ -30,10 +30,13 @@ Application scenarios: Obstacle segmentation combined with detection boxes, wate
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mobilesam | X5 | 1×3×384×384 | 6.6 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

@@ -31,11 +31,20 @@ Application scenarios: YOLOv8-Seg can identify individual objects in an image an
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | yolov8n_seg | X5 | 1x3x640x640 | 126.64 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | yolov8n_seg | S100 | 1x3x640x640 | 443.39 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

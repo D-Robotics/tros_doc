@@ -42,11 +42,20 @@ The project contains several nodes:
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | clip image encoder | X5 | 1x3x224x224 | 4.6 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | clip image encoder | S100 | 1x3x224x224 | 166.92 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

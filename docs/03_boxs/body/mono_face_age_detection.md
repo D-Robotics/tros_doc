@@ -26,10 +26,20 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | faceAge | X3 | 1×3×128x128 | 1261.29 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | faceAge | X5 | 1×3×128x128 | 1207.32 |
+
+</DocScope>
 
 ## 准备工作
 

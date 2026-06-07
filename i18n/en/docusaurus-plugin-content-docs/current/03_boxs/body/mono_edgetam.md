@@ -36,11 +36,14 @@ Application scenarios: EdgeTAM can continuously track and segment arbitrary targ
 
 ## Algorithm Info
 
+<DocScope products="RDK-S100">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | EdgeTAM Prompt | S100 | 1x1024x1024x3 | - |
 | EdgeTAM Track | S100 | 1x1024x1024x3 | - |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

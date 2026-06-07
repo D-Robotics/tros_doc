@@ -59,10 +59,20 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | gestureDet | X3 | 8x21 | 2020 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | gestureDet | X5 | 8x21 | 1252.44 |
+
+</DocScope>
 
 ## 准备工作
 

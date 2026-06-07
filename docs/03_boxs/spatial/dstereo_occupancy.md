@@ -28,10 +28,20 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 算法信息
 
-| 模型          | 平台 | 输入尺寸    | 推理帧率(fps) |
-| ------------- | ---- | ----------- | ------------- |
-| DStereoOccNet | X5   | 2x3x352x640 | 6             |
-| DStereoOccNet | S100 | 2x3x352x640 | 45            |
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
+| DStereoOccNet | X5 | 2x3x352x640 | 6 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
+| DStereoOccNet | S100 | 2x3x352x640 | 45 |
+
+</DocScope>
 
 ## 准备工作
 

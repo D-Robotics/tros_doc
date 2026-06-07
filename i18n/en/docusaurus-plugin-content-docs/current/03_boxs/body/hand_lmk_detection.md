@@ -34,11 +34,20 @@ Application scenarios: Hand keypoint detection is mainly used to capture skeleta
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 ## Algorithm Info
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | handLMKs | X3 | 8x21 | 806 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | handLMKs | X5 | 8x21 | 948 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

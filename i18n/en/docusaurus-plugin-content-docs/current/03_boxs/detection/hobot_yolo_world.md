@@ -27,10 +27,13 @@ Application scenarios: YOLO-World's powerful zero-shot detection capability prov
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | yoloworldv2 | X5 | 1×640x640x3 | 7.0 |
 
+</DocScope>
 ## Prerequisites
 
 ### RDK Platform

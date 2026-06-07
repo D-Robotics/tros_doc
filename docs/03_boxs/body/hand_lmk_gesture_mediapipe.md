@@ -50,10 +50,20 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mediapipe | X5 | 224x224 | 911.98 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | mediapipe | S100 | 224x224 | 1114 |
+
+</DocScope>
 
 ## 准备工作
 

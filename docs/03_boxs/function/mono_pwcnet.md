@@ -30,9 +30,13 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | pwcnet | X5 | 1×6×384×512 | 23 |
+
+</DocScope>
 
 ## 准备工作
 

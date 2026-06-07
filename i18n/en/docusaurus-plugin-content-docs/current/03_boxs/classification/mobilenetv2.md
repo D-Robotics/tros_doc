@@ -34,13 +34,34 @@ Food type recognition example: https://github.com/frotms/Chinese-and-Western-Foo
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ----- | -------- | ----------- | -------------------------- |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | X3 | 1x3x224x224 | 414.17 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | X5 | 1x3x224x224 | 683.46 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | S100 | 1x3x224x224 | 1722.25 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | S600 | 1x3x224x224 | 2721.90 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

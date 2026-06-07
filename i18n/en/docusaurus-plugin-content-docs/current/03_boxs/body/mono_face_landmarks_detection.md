@@ -26,11 +26,20 @@ Code repository: (https://github.com/D-Robotics/face_landmarks_detection)
 
 ## Algorithm Info
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | faceLandmark106pts | X3 | 1×3×128x128 | 741.93 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | faceLandmark106pts | X5 | 1×3×128x128 | 985.75 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

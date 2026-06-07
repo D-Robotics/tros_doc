@@ -42,10 +42,20 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | clip image encoder | X5 | 1x3x224x224 | 4.6 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | clip image encoder | S100 | 1x3x224x224 | 166.92 |
+
+</DocScope>
 
 ## 准备工作
 

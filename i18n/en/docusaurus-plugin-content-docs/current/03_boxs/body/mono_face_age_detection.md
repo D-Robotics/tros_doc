@@ -26,11 +26,20 @@ Code repository: (https://github.com/D-Robotics/face_age_detection)
 
 ## Algorithm Info
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | faceAge | X3 | 1×3×128x128 | 1261.29 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | faceAge | X5 | 1×3×128x128 | 1207.32 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

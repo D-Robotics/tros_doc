@@ -32,12 +32,27 @@ Application scenarios: Obstacle segmentation combined with bounding boxes, water
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ----- | -------- | ----------- | -------------------------- |
+| ---- | ---- | ---- | ---- |
 | edgesam | X5 | 1×3x512x512 | 9.09 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | edgesam | S100 | 1×3x512x512 | 77.0 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | edgesam | S600 | 1×3x512x512 | 183.69 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

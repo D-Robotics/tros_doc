@@ -42,10 +42,20 @@ mono3d_indoor_detection package是基于hobot_dnn package开发的室内物体3D
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | centernet | X3 | 1x3x512x960 | 85.93 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | centernet | X5 | 1x3x512x960 | 196.33 |
+
+</DocScope>
 
 ## 准备工作
 

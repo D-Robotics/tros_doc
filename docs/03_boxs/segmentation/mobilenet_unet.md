@@ -33,12 +33,34 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mobilenet_unet | X3 | 1x3x1024x2048 | 24.34 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenet_unet | X5 | 1x3x224x224 | 50.33 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | deeplabv3 | S100 | 1x3x224x224 | 14.70 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | deeplabv3 | S600 | 1x3x224x224 | 337.15 |
+
+</DocScope>
 
 ## 准备工作
 

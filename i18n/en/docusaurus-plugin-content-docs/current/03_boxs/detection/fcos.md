@@ -32,11 +32,20 @@ Multispectral object detection case study: (https://github.com/hdjsjyl/Multispec
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | fcos | X3 | 1x3x512x512 | 74.91 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | fcos | X5 | 1x3x512x512 | 258.92 |
 
+</DocScope>
 ## Prerequisites
 
 ### RDK Platform

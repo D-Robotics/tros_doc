@@ -31,10 +31,20 @@ YOLOv8-Seg是使用[COCO128-seg数据集](http://cocodataset.org/)训练出来�
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | yolov8n_seg | X5 | 1x3x640x640 | 126.64 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | yolov8n_seg | S100 | 1x3x640x640 | 443.39 |
+
+</DocScope>
 
 ## 准备工作
 

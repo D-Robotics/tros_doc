@@ -42,11 +42,20 @@ Monocular 3D vehicle detection example: (https://github.com/RayXie29/Kaggle-Peki
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | centernet | X3 | 1x3x512x960 | 85.93 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | centernet | X5 | 1x3x512x960 | 196.33 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

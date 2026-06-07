@@ -28,11 +28,20 @@ Application scenarios: Monocular elevation network detection parses depth and he
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | elevation_net | X3 | 1x3x512x960 | 24.41 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | elevation_net | X5 | 1x3x512x960 | 87.12 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

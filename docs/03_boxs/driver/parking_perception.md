@@ -53,9 +53,13 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | parking_perception | X3 | 1x3x640x320 | 103.52 |
+
+</DocScope>
 
 ## 准备工作
 

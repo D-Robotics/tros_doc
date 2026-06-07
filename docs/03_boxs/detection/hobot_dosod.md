@@ -28,11 +28,27 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | X5 | 1×640×640×3 | 12 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | S100 | 1×640×640×3 | 44.89 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | S600 | 1×640×640×3 | 100.96 |
+
+</DocScope>
 
 ## 准备工作
 

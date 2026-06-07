@@ -34,12 +34,34 @@ mobilenetv2是使用[ImageNet data](http://www.image-net.org/)数据集训练出
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | X3 | 1x3x224x224 | 414.17 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | X5 | 1x3x224x224 | 683.46 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | S100 | 1x3x224x224 | 1722.25 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | mobilenetv2 | S600 | 1x3x224x224 | 2721.90 |
+
+</DocScope>
 
 ## 准备工作
 

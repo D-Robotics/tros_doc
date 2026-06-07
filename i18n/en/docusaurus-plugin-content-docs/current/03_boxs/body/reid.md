@@ -32,12 +32,27 @@ Application scenarios: Human tracking, human instance detection.
 
 ## Algorithm Info
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | X5 | 1x3x256x128 | 19.44 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S100 | 1x3x256x128 | 407.66 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S600 | 1x3x256x128 | 662.16 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

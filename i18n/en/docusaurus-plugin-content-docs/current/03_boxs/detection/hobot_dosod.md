@@ -28,12 +28,27 @@ Application scenarios: DOSOD's powerful zero-shot detection capability provides 
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | X5 | 1×640×640×3 | 12 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | S100 | 1×640×640×3 | 44.89 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | DOSOD-l | S600 | 1×640×640×3 | 100.96 |
 
+</DocScope>
 ## Prerequisites
 
 ### RDK Platform

@@ -59,11 +59,20 @@ Game character control example based on gesture recognition and body pose analys
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 ## Algorithm Info
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | gestureDet | X3 | 8x21 | 2020 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | gestureDet | X5 | 8x21 | 1252.44 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

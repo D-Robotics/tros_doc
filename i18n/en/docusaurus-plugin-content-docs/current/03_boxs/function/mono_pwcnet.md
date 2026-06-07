@@ -30,10 +30,13 @@ Application scenario: Optical flow estimation is a technique used to determine t
 
 ## Algorithm Information
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | pwcnet | X5 | 1×6×384×512 | 23 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

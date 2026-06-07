@@ -32,11 +32,27 @@ mono_edgesam package 是基于 [EdgeSAM](https://github.com/chongzhou96/EdgeSAM)
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | edgesam | X5 | 1×3x512x512 | 9.09 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | edgesam | S100 | 1×3x512x512 | 77.0 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | edgesam | S600 | 1×3x512x512 | 183.69 |
+
+</DocScope>
 
 ## 准备工作
 

@@ -50,11 +50,20 @@ Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_con
 
 ## Algorithm Info
 
+<DocScope products="RDK-X5">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | mediapipe | X5 | 224x224 | 911.98 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | mediapipe | S100 | 224x224 | 1114 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

@@ -28,10 +28,20 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | elevation_net | X3 | 1x3x512x960 | 24.41 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | elevation_net | X5 | 1x3x512x960 | 87.12 |
+
+</DocScope>
 
 ## 准备工作
 

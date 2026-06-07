@@ -32,10 +32,20 @@ FCOS是D-Robotics开源的Onnx模型，使用[COCO数据集](http://cocodataset.
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | fcos | X3 | 1x3x512x512 | 74.91 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | fcos | X5 | 1x3x512x512 | 258.92 |
+
+</DocScope>
 
 ## 准备工作
 

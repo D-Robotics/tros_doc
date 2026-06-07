@@ -27,10 +27,13 @@ Code repository: (https://github.com/D-Robotics/hobot_llm.git)
 
 ## Algorithm Information
 
-| Model | Parameters | Platform | prefill eval time(ms/token) | eval time(ms/token) |
-| ---- | ---- | ---- | ------------ | ---- |
-| Bloom| 1.4B | X3 | 305.34 | 364.78 |
+<DocScope products="RDK-X3">
 
+| Model | Parameters | Platform | prefill eval time(ms/token) | eval time(ms/token) |
+| ---- | ---- | ---- | ---- | ---- |
+| Bloom | 1.4B | X3 | 305.34 | 364.78 |
+
+</DocScope>
 ## Preparation
 
 ### RDK Platform

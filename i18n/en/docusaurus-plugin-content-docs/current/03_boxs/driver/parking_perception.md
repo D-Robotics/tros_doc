@@ -104,12 +104,13 @@ Parking space search case: [Parking Space Search](../../04_apps/parking_search.m
 
 
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-
-| ---- | ---- | ------------ | ---- |
-
+| ---- | ---- | ---- | ---- |
 | parking_perception | X3 | 1x3x640x320 | 103.52 |
 
+</DocScope>
 
 
 ## Preparation

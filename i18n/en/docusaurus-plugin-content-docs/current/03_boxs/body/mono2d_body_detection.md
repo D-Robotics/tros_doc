@@ -47,11 +47,20 @@ Game character control example based on body pose analysis and gesture recogniti
 
 ## Algorithm Info
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference FPS |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | fastrcnn | X3 | 1x3x544x960 | 74.96 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
 | fastrcnn | X5 | 1x3x544x960 | 125.21 |
 
+</DocScope>
 ## Preparation
 
 ### RDK Platform

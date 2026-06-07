@@ -28,11 +28,20 @@ ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
 
 ## Algorithm Information
 
-| Model          | Platform | Input Size    | Inference FPS |
-| ------------- | ---- | ----------- | ------------- |
-| DStereoOccNet | X5   | 2x3x352x640 | 6             |
-| DStereoOccNet | S100 | 2x3x352x640 | 45            |
+<DocScope products="RDK-X5">
 
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
+| DStereoOccNet | X5 | 2x3x352x640 | 6 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| Model | Platform | Input Size | Inference FPS |
+| ---- | ---- | ---- | ---- |
+| DStereoOccNet | S100 | 2x3x352x640 | 45 |
+
+</DocScope>
 ## Preparation
 
 ### RDK Platform

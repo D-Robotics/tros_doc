@@ -32,11 +32,27 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 
 ## 算法信息
 
+<DocScope products="RDK-X5">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | X5 | 1x3x256x128 | 19.44 |
+
+</DocScope>
+<DocScope products="RDK-S100">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S100 | 1x3x256x128 | 407.66 |
+
+</DocScope>
+<DocScope products="RDK-S600">
+
+| 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
+| ---- | ---- | ---- | ---- |
 | [Reid](https://github.com/KaiyangZhou/deep-person-reid.git) | S600 | 1x3x256x128 | 662.16 |
+
+</DocScope>
 
 ## 准备工作
 

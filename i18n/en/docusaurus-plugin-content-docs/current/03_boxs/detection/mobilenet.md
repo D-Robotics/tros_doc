@@ -33,11 +33,20 @@ License plate detection case study: (https://github.com/soonhahwang/Mobilenet-SS
 
 ## Algorithm Information
 
+<DocScope products="RDK-X3">
+
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | ssd_mobilenet | X3 | 1x3x300x300 | 141.60 |
+
+</DocScope>
+<DocScope products="RDK-X5">
+
+| Model | Platform | Input Size | Inference Frame Rate (fps) |
+| ---- | ---- | ---- | ---- |
 | ssd_mobilenet | X5 | 1x3x300x300 | 453.98 |
 
+</DocScope>
 ## Prerequisites
 
 ### RDK Platform

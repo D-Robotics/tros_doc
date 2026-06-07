@@ -36,10 +36,14 @@ EdgeTAM (Edge Track Anything Model) 是基于 Facebook Research 开源的 [EdgeT
 
 ## 算法信息
 
+<DocScope products="RDK-S100">
+
 | 模型 | 平台 | 输入尺寸 | 推理帧率(fps) |
-| ---- | ---- | ------------ | ---- |
+| ---- | ---- | ---- | ---- |
 | EdgeTAM Prompt | S100 | 1x1024x1024x3 | - |
 | EdgeTAM Track | S100 | 1x1024x1024x3 | - |
+
+</DocScope>
 
 ## 准备工作
 

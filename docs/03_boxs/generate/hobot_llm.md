@@ -27,9 +27,13 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
+<DocScope products="RDK-X3">
+
 | 模型 | 参数量 | 平台 | prefill eval time(ms/token) | eval time(ms/token) |
-| ---- | ---- | ---- | ------------ | ---- |
-| Bloom| 1.4B | X3 | 305.34 | 364.78 |
+| ---- | ---- | ---- | ---- | ---- |
+| Bloom | 1.4B | X3 | 305.34 | 364.78 |
+
+</DocScope>
 
 ## 准备工作
 
