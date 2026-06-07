@@ -9,39 +9,39 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Overview
+## Function Introduction
 
-The mobilenetv2 image classification example uses images as input, performs inference on the BPU, and publishes algorithm messages containing object categories.
+The mobilenetv2 image classification algorithm example uses images as input, performs algorithm inference using the BPU, and publishes algorithm messages containing object categories.
 
-mobilenetv2 is a Caffe model trained on the [ImageNet data](http://www.image-net.org/) dataset. Model source: https://github.com/shicai/MobileNet-Caffe .
-It supports 1000 object categories including people, animals, fruits, and vehicles. For the full list of supported categories, see the RDK board file at /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list (requires TogetheROS.Bot to be installed).
+mobilenetv2 is a caffe model trained using the [ImageNet data](http://www.image-net.org/) dataset. The model source is: https://github.com/shicai/MobileNet-Caffe.
+It supports a total of 1000 object types, including people, animals, fruits, vehicles, etc. For the specific supported categories, please refer to the RDK board file at /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list (TogetheROS.Bot installed).
 
 Code repository: https://github.com/D-Robotics/hobot_dnn
 
-Application scenarios: mobilenetv2 can predict the category of a given image and can be used for digit recognition, object recognition, and other tasks, mainly in text recognition, image retrieval, and related fields.
+Application scenarios: mobilenetv2 can predict the category of a given image, enabling functions such as digit recognition and object recognition, and is mainly used in fields like text recognition and image retrieval.
 
-Food type recognition case study: https://github.com/frotms/Chinese-and-Western-Food-Classification
+Food type recognition example: https://github.com/frotms/Chinese-and-Western-Food-Classification
 
 ## Supported Platforms
 
-| Platform    | Runtime Environment      | Example Features                       |
-| ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
-| X86     | Ubuntu 20.04 (Foxy) | · Use local feedback; rendered results are saved locally |
+| Platform | Operating Mode | Example Features |
+| -------- | -------------- | ----------------- |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
+| X86 | Ubuntu 20.04 (Foxy) | · Use local image injection, rendering results saved locally |
 
 ## Algorithm Information
 
 | Model | Platform | Input Size | Inference Frame Rate (fps) |
-| ---- | ---- | ------------ | ---- |
+| ----- | -------- | ----------- | -------------------------- |
 | mobilenetv2 | X3 | 1x3x224x224 | 414.17 |
 | mobilenetv2 | X5 | 1x3x224x224 | 683.46 |
 | mobilenetv2 | S100 | 1x3x224x224 | 1722.25 |
 | mobilenetv2 | S600 | 1x3x224x224 | 2721.90 |
 
-## Prerequisites
+## Preparation
 
 ### RDK Platform
 
@@ -49,30 +49,30 @@ Food type recognition case study: https://github.com/frotms/Chinese-and-Western-
 
 2. tros.b has been successfully installed on the RDK.
 
-3. A MIPI or USB camera is installed on the RDK. If no camera is available, you can experience the algorithm by feeding local JPEG/PNG images or MP4, H.264, and H.265 videos.
+3. An MIPI or USB camera is installed on the RDK. If no camera is available, experience the algorithm effect by injecting local JPEG/PNG format images or videos in MP4, H.264, and H.265 formats.
 
-4. Confirm that the PC can access the RDK over the network.
+4. Ensure that the PC can access the RDK over the network.
 
 ### X86 Platform
 
-1. The X86 environment is configured with Ubuntu 20.04 system image.
+1. The X86 environment has been configured with the Ubuntu 20.04 system image.
 
 2. tros.b has been successfully installed on the X86 environment.
 
-## Usage
+## Usage Guide
 
 ### RDK Platform
 
-The mobilenetv2 image classification example subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. The websocket package renders and displays the published images and corresponding algorithm results in a PC browser.
+The mobilenetv2 image classification subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. Through the websocket package, the published images and corresponding algorithm results are rendered and displayed on a PC browser.
 
-#### Publish Images Using a MIPI Camera
+#### Publishing Images Using a MIPI Camera
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -81,7 +81,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -90,12 +90,11 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -104,12 +103,11 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -118,32 +116,30 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
-
 ```shell
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Publish Images Using a USB Camera
+#### Publishing Images Using a USB Camera
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -152,7 +148,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -161,12 +157,11 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -175,12 +170,11 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -189,33 +183,32 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
 ```shell
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
-#### Use Local Image Feedback
+#### Using Local Image Injection
 
-The mobilenetv2 image classification example uses local JPEG/PNG images for feedback. After inference, images with rendered algorithm results are saved in the local working directory.
+The mobilenetv2 image classification algorithm example uses local JPEG/PNG format images for injection. After inference, the rendered image with algorithm results is saved in the local runtime path.
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -224,7 +217,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -233,12 +226,11 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -247,12 +239,11 @@ source /opt/tros/jazzy/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -261,39 +252,38 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
 ```shell
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image:=config/target_class.jpg
 ```
 
 ### X86 Platform
 
-#### Use Local Image Feedback
+#### Using Local Image Injection
 
-The mobilenetv2 image classification example uses local JPEG/PNG images for feedback. After inference, images with rendered algorithm results are saved in the local working directory.
+The mobilenetv2 image classification algorithm example uses local JPEG/PNG format images for injection. After inference, the rendered image with algorithm results is saved in the local runtime path.
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image:=config/target_class.jpg
 ```
 
 ## Result Analysis
 
-### Publish Images Using a Camera
+### Publishing Images Using a Camera
 
-The terminal outputs the following information during execution:
+The following information is output in the running terminal:
 
 ```shell
 [example-3] [WARN] [1655095481.707875587] [example]: Create ai msg publisher with topic_name: hobot_dnn_detection
@@ -306,15 +296,15 @@ The terminal outputs the following information during execution:
 [example-3] [WARN] [1655095486.057854228] [example]: Smart fps 30.07
 ```
 
-The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The subscribed image and algorithm inference output frame rate is approximately 30 fps.
+The output log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the topic subscribing to images is `/hbmem_img`. The frame rate for subscribed images and algorithm inference output is approximately 30fps.
 
-Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
+Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering效果 (IP is the IP address of the RDK):
 
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg)
 
-### Use Local Image Feedback
+### Using Local Image Injection
 
-The terminal outputs the following information during execution:
+The following information is output in the running terminal:
 
 ```shell
 [example-1] [INFO] [1654767648.897132079] [example]: The model input width is 224 and height is 224
@@ -330,6 +320,6 @@ The terminal outputs the following information during execution:
 [example-1] [WARN] [1654767648.947563731] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The log shows that the algorithm classified the input image config/target_class.jpg as window-shade with a confidence of 0.776356 (the algorithm only outputs the classification result with the highest confidence). The saved rendered image file is named render_feedback_0_0.jpeg. Rendered image result:
+The output log shows that the algorithm, using the input image config/target_class.jpg, infers the image classification result as window-shade with a confidence of 0.776356 (the algorithm only outputs the classification result with the highest confidence). The saved rendered image file is named render_feedback_0_0.jpeg. The rendered image effect:
 
 ![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_feedback.jpeg)
