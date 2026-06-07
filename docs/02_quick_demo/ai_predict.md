@@ -132,7 +132,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 :::warning
 仅`TROS Humble 2.3.1`以及后续版本支持此功能。
 
-`TROS`版本发布记录：[1.6 版本发布记录](../01_quick_start/changelog.md)，版本查看方法：[1.2 apt安装与升级](../01_quick_start/install_tros.md)。
+`TROS`版本发布记录：[版本发布记录](../01_quick_start/changelog.md)，版本查看方法：[apt安装与升级](../01_quick_start/install_tros.md)。
 :::
 
 **使用MIPI/USB摄像头发布图片**

@@ -18,7 +18,7 @@ Code repository: (https://github.com/D-Robotics/hobot_audio.git)
 
 Application scenarios: The intelligent voice algorithm can recognize wake words and custom command words in audio, interpret speech content as corresponding commands or convert it to text, enabling voice control and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
-Voice-controlled car movement example: [4.6 Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
+Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
 
 ## Supported Platforms
 

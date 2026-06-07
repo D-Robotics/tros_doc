@@ -49,7 +49,7 @@ Please note for RDK X3 platform:
 
 :::caution Note
 - **2.x version tros.b only supports 2.x version system images. [1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports 1.x version systems.**
-- **If you are using a 1.x version system image, you need to upgrade from [1.1 Environment Preparation](./preparation.md) to 2.x version.**
+- **If you are using a 1.x version system image, you need to upgrade from [Environment Preparation](./preparation.md) to 2.x version.**
 - **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples).**
 :::
 
@@ -333,14 +333,14 @@ You can see the current tros.b version has been upgraded to 2.5.0.
 
 :::caution Note
 - The version number `Version` displayed in the query is the actually installed `tros.b` version, which may differ from the version number `Version` shown in this example.
-- For tros.b release version information, see [5.1.6 Release Notes](./changelog).
+- For tros.b release version information, see [Release Notes](./changelog).
 :::
 
 ## X86 Platform
 
 Prerequisites:
 
-- Completed the work in [5.1.1 Environment Preparation](./preparation.md)
+- Completed the work in [Environment Preparation](./preparation.md)
 - Ubuntu system is Ubuntu 20.04 and can access the internet normally
 
 1. Set locale and enable universe repository

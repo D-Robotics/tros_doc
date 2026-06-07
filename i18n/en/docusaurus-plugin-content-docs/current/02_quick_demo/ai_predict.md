@@ -132,7 +132,7 @@ This section describes running multiple algorithms simultaneously and displaying
 :::warning
 This feature is supported only in `TROS Humble 2.3.1` and later versions.
 
-`TROS` release notes: [1.6 Release Notes](../01_quick_start/changelog.md). Version check method: [1.2 apt Installation and Upgrade](../01_quick_start/install_tros.md).
+`TROS` release notes: [Release Notes](../01_quick_start/changelog.md). Version check method: [apt Installation and Upgrade](../01_quick_start/install_tros.md).
 :::
 
 **Publish images using MIPI/USB camera**

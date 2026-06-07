@@ -48,7 +48,7 @@ RDK X3平台请注意：
 
 :::caution 注意
 - **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
-- **如果您使用的是1.x版本系统镜像，需要将[1.1 环境准备](./preparation.md)到2.x版本。**
+- **如果您使用的是1.x版本系统镜像，需要将[环境准备](./preparation.md)到2.x版本。**
 - **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
@@ -325,14 +325,14 @@ Description: TogetheROS Bot
 
 :::caution 注意
 - 查询显示的版本号`Version`是实际安装的`tros.b`的版本，可能和本示例中显示的版本号`Version`不一致。
-- `tros.b`的发布版本信息详见[5.1.6 版本发布记录](./changelog)。
+- `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
 :::
 
 ## X86平台
 
 前提：
 
-- 已完成[5.1.1 环境准备](./preparation.md)章节工作
+- 已完成[环境准备](./preparation.md)章节工作
 - Ubuntu系统为Ubuntu 20.04，且能够正常访问互联网
 
 1. 设置locale和启用universe软件源

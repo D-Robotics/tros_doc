@@ -47,7 +47,7 @@ Code repository:
 
 Application scenarios: Gesture recognition integrates hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It supports gesture control and sign language translation, and is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
-Car gesture control example: [5.4.5 Car Gesture Control](../../04_apps/car_gesture_control.md)
+Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_control.md)
 
 Game character control example based on gesture recognition and body pose analysis: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
@@ -89,7 +89,7 @@ The examples below start static gesture recognition by default.
 :::warning
 1. The `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py` launch command supports outputting either static or dynamic gesture recognition, but not both. To start static and dynamic gesture recognition simultaneously, use the `ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py` launch command.
 
-2. Dynamic gesture recognition is only available in `TROS Humble 2.3.1` and later versions. TROS release notes: [1.6 Release Notes](../../01_quick_start/changelog.md). Version check method: [1.2 apt Installation and Upgrade](../../01_quick_start/install_tros.md).
+2. Dynamic gesture recognition is only available in `TROS Humble 2.3.1` and later versions. TROS release notes: [Release Notes](../../01_quick_start/changelog.md). Version check method: [apt Installation and Upgrade](../../01_quick_start/install_tros.md).
 :::
 
 ### Using MIPI Camera
@@ -201,7 +201,7 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 :::warning
 This feature is only supported in `TROS Humble 2.3.1` and later versions.
 
-`TROS` release notes: [1.6 Release Notes](../../01_quick_start/changelog.md). Version check method: [1.2 apt Installation and Upgrade](../../01_quick_start/install_tros.md).
+`TROS` release notes: [Release Notes](../../01_quick_start/changelog.md). Version check method: [apt Installation and Upgrade](../../01_quick_start/install_tros.md).
 :::
 
 

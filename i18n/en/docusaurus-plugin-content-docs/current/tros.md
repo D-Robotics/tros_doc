@@ -84,9 +84,9 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | [Face 106 Keypoint Detection](./03_boxs/body/mono_face_landmarks_detection.md) and Corresponding APP Examples | &#10004; |
 | [Stereo Depth Algorithm](./03_boxs/spatial/hobot_stereonet.md) | &#10004; |
 | Intelligent Speech [hobot_audio](./03_boxs/audio/hobot_audio.md) and Speech-Related Examples | &#10004; |
-| [4.1 SLAM Mapping](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
+| [SLAM Mapping](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
 
 </DocScope>
 
@@ -123,10 +123,10 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Vision-Language Model [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10004; |
 | Text-Image Feature Retrieval [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10004; |
 | Optical Flow Estimation [mono_pwcnet](./03_boxs/function/mono_pwcnet.md) | &#10004; |
-| [4.1 SLAM Mapping](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
-| [4.10 Vision-Speech Box](./04_apps/hobot_llamacpp.md) | &#10004; |
+| [SLAM Mapping](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
+| [Vision-Speech Box](./04_apps/hobot_llamacpp.md) | &#10004; |
 
 </DocScope>
 
@@ -159,10 +159,10 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Vision-Language Model [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10004; |
 | DeepSeek Large Language Model [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10004; |
 | Text-Image Feature Retrieval [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10004; |
-| [4.1 SLAM Mapping](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
-| [4.10 Vision-Speech Box](./04_apps/hobot_llamacpp.md) | &#10004; |
+| [SLAM Mapping](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
+| [Vision-Speech Box](./04_apps/hobot_llamacpp.md) | &#10004; |
 
 </DocScope>
 
@@ -185,7 +185,7 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Human Body Detection | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
 | [Human Body Following](./03_boxs/body/reid.md) | &#10004; |
 | Intelligent Speech [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10004; |
-| [4.1 SLAM Mapping](./04_apps/slam.md) | &#10004; |
-| [4.9 Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
+| [SLAM Mapping](./04_apps/slam.md) | &#10004; |
+| [Intelligent Box](./04_apps/video_boxs.md) | &#10004; |
 
 </DocScope>

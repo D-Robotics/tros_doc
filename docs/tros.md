@@ -84,9 +84,9 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | [人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | &#10004; |
 | [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; |
 | 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; |
-| [4.1 SLAM建图](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 智能盒子](./04_apps/video_boxs.md) | &#10004; |
+| [SLAM建图](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [智能盒子](./04_apps/video_boxs.md) | &#10004; |
 
 </DocScope>
 
@@ -123,10 +123,10 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 视觉语言模型 [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10004; |
 | 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10004; |
 | 光流估计 [mono_pwcnet](./03_boxs/function/mono_pwcnet.md) | &#10004; |
-| [4.1 SLAM建图](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 智能盒子](./04_apps/video_boxs.md) | &#10004; |
-| [4.10 视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10004; |
+| [SLAM建图](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [智能盒子](./04_apps/video_boxs.md) | &#10004; |
+| [视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10004; |
 
 </DocScope>
 
@@ -159,10 +159,10 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 视觉语言模型 [hobot_llamacpp](./03_boxs/generate/hobot_llamacpp.md) | &#10004; |
 | DeepSeek大语言模型 [hobot_xlm](./03_boxs/generate/hobot_xlm.md) | &#10004; |
 | 文本图片特征检索 [hobot_clip](./03_boxs/function/hobot_clip.md) | &#10004; |
-| [4.1 SLAM建图](./04_apps/slam.md) | &#10004; |
-| [4.2 Navigation2](./04_apps/navigation2.md) | &#10004; |
-| [4.9 智能盒子](./04_apps/video_boxs.md) | &#10004; |
-| [4.10 视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10004; |
+| [SLAM建图](./04_apps/slam.md) | &#10004; |
+| [Navigation2](./04_apps/navigation2.md) | &#10004; |
+| [智能盒子](./04_apps/video_boxs.md) | &#10004; |
+| [视觉语音盒子](./04_apps/hobot_llamacpp.md) | &#10004; |
 
 </DocScope>
 
@@ -185,7 +185,7 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 人体检测 | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
 | [人体跟随](./03_boxs/body/reid.md) | &#10004; |
 | 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10004; |
-| [4.1 SLAM建图](./04_apps/slam.md) | &#10004; |
-| [4.9 智能盒子](./04_apps/video_boxs.md) | &#10004; |
+| [SLAM建图](./04_apps/slam.md) | &#10004; |
+| [智能盒子](./04_apps/video_boxs.md) | &#10004; |
 
 </DocScope>
