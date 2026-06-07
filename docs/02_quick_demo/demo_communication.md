@@ -49,12 +49,28 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-   <DocScope products="RDK-X3,RDK-X5">
-   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration)章节。
+   <DocScope products="RDK-X3">
+
+   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration?v=3.0.0&p=RDK+X3)章节。
+
    </DocScope>
-   <DocScope products="RDK-S100,RDK-S600">
-   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration)章节。
+   <DocScope products="RDK-X5">
+
+   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration?v=3.5.0&p=RDK+X5)章节。
+
    </DocScope>
+   <DocScope products="RDK-S100">
+
+   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration?v=4.0.5&p=RDK+S100)章节。
+
+   </DocScope>
+   <DocScope products="RDK-S600">
+
+   更多配置说明参考[系统配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration?v=5.1.0&p=RDK+S600)章节。
+
+   </DocScope>
+
+ 
 
 2. RDK已成功安装performance_test工具包，安装命令：
 

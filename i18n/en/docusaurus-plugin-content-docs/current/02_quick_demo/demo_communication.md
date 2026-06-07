@@ -49,11 +49,28 @@ Code repositories:
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
    ```
 
-   <DocScope products="RDK-X3,RDK-X5">
-   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration) section.
+   <DocScope products="RDK-X3">
+
+   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration?v=3.0.0&p=RDK+X3) section.
+
    </DocScope>
-   <DocScope products="RDK-S100,RDK-S600">
-   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration) section.
+
+   <DocScope products="RDK-X5">
+
+   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration?v=3.5.0&p=RDK+X5) section.
+
+   </DocScope>
+
+   <DocScope products="RDK-S100">
+
+   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration?v=4.0.5&p=RDK+S100) section.
+
+   </DocScope>
+
+   <DocScope products="RDK-S600">
+
+   For more configuration details, refer to the [System Configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration?v=5.1.0&p=RDK+S600) section.
+
    </DocScope>
 
 2. The performance_test package has been successfully installed on RDK. Installation command:
