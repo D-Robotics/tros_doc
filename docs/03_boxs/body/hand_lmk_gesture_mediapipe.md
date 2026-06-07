@@ -91,7 +91,7 @@ apt install tros-humble-hand-landmarks-mediapipe
 
 **使用MIPI摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -144,7 +144,7 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **使用USB摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -197,7 +197,7 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **使用本地图片回灌**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

@@ -41,7 +41,6 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 
 ## Algorithm Information
 
-
 <DocScope products="RDK-X5">
 
 | Model | Parameters | Quantization | Platform | Input Size | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
@@ -66,7 +65,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 2. TogetheROS.Bot has been successfully installed on the RDK.
 3. Download and install the package
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -74,7 +73,6 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
 
 </TabItem>
 
@@ -89,7 +87,6 @@ source /opt/tros/humble/setup.bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
 
 </TabItem>
 
@@ -216,7 +213,6 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 After the program starts, you can use local images and custom prompts for output.
 
 ![smolvlm_result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png)
-
 
 ## Notes
 

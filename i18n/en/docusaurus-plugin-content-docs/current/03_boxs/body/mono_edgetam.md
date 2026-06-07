@@ -85,25 +85,7 @@ The prompt initialization node performs model inference based on input images an
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure MIPI camera
-export CAM_TYPE=mipi
-
-# Launch launch file
-ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -127,25 +109,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure USB camera
-export CAM_TYPE=usb
-
-# Launch launch file
-ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -169,25 +133,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 **Using Single Feedback Image**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure feedback image
-export CAM_TYPE=fb
-
-# Launch launch file
-ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -239,25 +185,7 @@ The tracking node loads feature files (`cond_maskmem_features.bin`, `cond_maskme
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure MIPI camera
-export CAM_TYPE=mipi
-
-# Launch launch file
-ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -281,25 +209,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure USB camera
-export CAM_TYPE=usb
-
-# Launch launch file
-ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -323,25 +233,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 **Using Single Feedback Image**
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-
-# Configure feedback image
-export CAM_TYPE=fb
-
-# Launch launch file
-ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -397,19 +289,7 @@ Using two (or more) positive points on the same target can produce a more accura
 
 While the node is running, you can dynamically modify prompt boxes/points by publishing to a topic:
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-# Configure ROS2 environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">

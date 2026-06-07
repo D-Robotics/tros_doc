@@ -79,29 +79,7 @@ Two experience modes are currently provided: direct terminal text chat, and subs
 
 #### Terminal Interactive Experience
 
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
@@ -135,29 +113,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 1. Start hobot_llm
 
-   <DocScope products="RDK-X3,RDK-X5">
-   <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/humble/setup.bash
-      ```
-
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
@@ -187,29 +143,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 2. Open a new terminal to subscribe to the output result topic
 
-   <DocScope products="RDK-X3,RDK-X5">
-   <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/humble/setup.bash
-      ```
-
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
@@ -233,29 +167,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 3. Open a new terminal to publish a message
 
-   <DocScope products="RDK-X3,RDK-X5">
-   <Tabs groupId="tros-distro">
-      <TabItem value="foxy" label="Foxy">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/setup.bash
-      ```
-
-      </TabItem>
-
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # 配置tros.b环境
-      source /opt/tros/humble/setup.bash
-      ```
-
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">

@@ -123,7 +123,7 @@ The package publishes algorithm messages containing semantic segmentation and ob
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -147,20 +147,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -175,7 +162,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -199,20 +186,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -227,7 +201,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 **Use a Single Feedback Image**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -251,20 +225,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -278,7 +239,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 **Use a Single Feedback Image**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -302,20 +263,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.

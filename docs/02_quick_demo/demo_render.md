@@ -342,31 +342,9 @@ source /opt/tros/jazzy/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
 
-</TabItem>
-</Tabs>
-</DocScope>
 
-<DocScope products="RDK-S600">
-<Tabs groupId="tros-distro">
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-</Tabs>
-</DocScope>
 
 使用RDK X5时, 需要额外使用下面命令:
 ```bash
@@ -716,7 +694,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 1. 通过SSH登录RDK开发板，启动mipi camera：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -779,7 +757,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 2. 在RDK上启动hobot_codec, 发布compressed格式图像：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -842,7 +820,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 3. RDK上订阅话题，并预览摄像头数据；
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

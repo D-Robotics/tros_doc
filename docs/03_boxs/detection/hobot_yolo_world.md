@@ -56,7 +56,7 @@ YOLO-World(hobot_yolo_world) package订阅sensor package发布的图片，同时
 
 **使用MIPI摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -79,19 +79,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -108,7 +96,7 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 
 **使用USB摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -134,35 +122,11 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-```shell
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
-
-# 配置USB摄像头
-export CAM_TYPE=usb
-
-# 启动launch文件
-ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 **使用本地回灌图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -185,19 +149,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell

@@ -56,19 +56,7 @@ import DocScope from '@site/src/components/DocScope';
    </Tabs>
    </DocScope>
 
-   <DocScope products="RDK-S100">
-   <Tabs groupId="tros-distro">
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      sudo apt update
-      sudo apt install tros-humble-hobot-audio
-      ```
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
 :::caution **注意**
 <DocScope products="RDK-X3">
@@ -212,19 +200,7 @@ RDK板端运行hobot_audio package：
  </Tabs>
  </DocScope>
 
- <DocScope products="RDK-S100">
- <Tabs groupId="tros-distro">
-  <TabItem value="humble" label="Humble">
-
-     ```bash
-     # 配置tros.b环境
-     source /opt/tros/humble/setup.bash
-     ```
-
-  </TabItem>
-
- </Tabs>
- </DocScope>
+ 
 
    ```shell
    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件，若已拷贝则可忽略
@@ -276,26 +252,6 @@ RDK板端运行hobot_audio package：
 
 </TabItem>
 
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-
-   # 屏蔽调式打印信息
-   export GLOG_minloglevel=3
-
-   #启动launch文件
-   ros2 launch hobot_audio hobot_audio.launch.py
-   ```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell

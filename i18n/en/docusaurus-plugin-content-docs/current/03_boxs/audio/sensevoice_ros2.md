@@ -34,7 +34,7 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 2. TogetheROS.Bot has been successfully installed on the RDK.
 3. The intelligent voice 2 algorithm package has been successfully installed on the RDK. Installation commands:
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
@@ -134,7 +134,7 @@ Run the sensevoice_ros2 package on the RDK board:
 
 1. Configure the tros.b environment and start the application
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

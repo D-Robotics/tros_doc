@@ -70,7 +70,7 @@ package对外发布包含语义分割和目标检测信息的算法msg, 用户�
 
 **mipi摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -131,7 +131,7 @@ ros2 launch mono_edgesam sam.launch.py
 
 **使用usb摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -192,7 +192,7 @@ ros2 launch mono_edgesam sam.launch.py
 
 **使用单张回灌图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

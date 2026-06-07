@@ -110,19 +110,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -161,19 +149,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 
@@ -212,19 +188,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required to run the example from the tros.b installation path.

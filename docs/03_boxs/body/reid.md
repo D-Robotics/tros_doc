@@ -70,7 +70,7 @@ package对外发布包含实例ID信息的算法msg, 用户可以订阅 "/percep
 
 **mipi摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -136,7 +136,7 @@ ros2 launch reid reid.launch.py
 
 **使用usb摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -201,7 +201,7 @@ ros2 launch reid reid.launch.py
 
 **使用单张回灌图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

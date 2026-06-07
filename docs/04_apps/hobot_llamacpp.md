@@ -154,7 +154,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **使用USB摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -202,7 +202,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **使用本地回灌图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -264,7 +264,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 功能包本身除了支持视觉语言大模型能力, 同时支持单独使用纯语言模型进行对话：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

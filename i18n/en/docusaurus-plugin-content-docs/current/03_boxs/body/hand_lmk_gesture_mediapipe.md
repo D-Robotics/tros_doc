@@ -90,7 +90,7 @@ The hand keypoint detection (hand_landmarks_mediapipe) package subscribes to ima
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -143,7 +143,7 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -196,7 +196,7 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 **Using Local Image Feedback**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

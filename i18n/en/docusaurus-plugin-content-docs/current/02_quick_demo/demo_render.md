@@ -706,7 +706,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 1. Log in to the RDK development board via SSH and start the mipi camera:
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
 
@@ -772,7 +772,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 2. Start hobot_codec on RDK to publish compressed format images:
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
 
@@ -838,7 +838,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 3. Subscribe to topics on RDK and preview camera data;
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

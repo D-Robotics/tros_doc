@@ -70,23 +70,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
  </Tabs>
  </DocScope>
 
- <DocScope products="RDK-S100">
- <Tabs groupId="tros-distro">
-  <TabItem value="humble" label="Humble">
-
-    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
-
-     ```shell
-     sudo apt-get install ros-humble-gazebo-*
-     sudo apt install ros-humble-turtlebot3
-     sudo apt install ros-humble-turtlebot3-simulations
-     ```
-
-  </TabItem>
-
- </Tabs>
- </DocScope>
+ 
 
 ## 使用介绍
 
@@ -119,18 +103,7 @@ source /opt/ros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/ros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 export TURTLEBOT3_MODEL=burger
@@ -168,20 +141,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
@@ -221,20 +181,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell

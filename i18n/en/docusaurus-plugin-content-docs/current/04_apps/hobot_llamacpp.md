@@ -154,7 +154,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **Publish images using USB camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -202,7 +202,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 **Use local image feed**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -264,7 +264,7 @@ Example flow:
 
 In addition to vision-language model capabilities, the package also supports using a pure language model for conversation:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

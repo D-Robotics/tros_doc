@@ -69,7 +69,7 @@ The package publishes algorithm messages containing instance ID information. Use
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -135,7 +135,7 @@ ros2 launch reid reid.launch.py
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -200,7 +200,7 @@ ros2 launch reid reid.launch.py
 
 **Using Single Feedback Image**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

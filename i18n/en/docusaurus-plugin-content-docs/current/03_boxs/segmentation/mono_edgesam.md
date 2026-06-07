@@ -68,7 +68,7 @@ The package publishes algorithm messages containing semantic segmentation and ob
 
 **Publishing images from a MIPI camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -129,7 +129,7 @@ ros2 launch mono_edgesam sam.launch.py
 
 **Publishing images from a USB camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -190,7 +190,7 @@ ros2 launch mono_edgesam sam.launch.py
 
 **Using a single image for injection**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

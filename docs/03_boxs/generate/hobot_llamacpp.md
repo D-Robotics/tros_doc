@@ -41,7 +41,6 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 算法信息
 
-
 <DocScope products="RDK-X5">
 
 | 模型 | 参数量 | 量化方式 | 平台 | 输入尺寸 | image encoder time(ms) | prefill eval time(ms/token) | eval time(ms/token) |
@@ -67,7 +66,7 @@ import DocScope from '@site/src/components/DocScope';
 2. RDK已成功安装TogetheROS.Bot。
 3. 下载安装功能包
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -75,7 +74,6 @@ import DocScope from '@site/src/components/DocScope';
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
 
 </TabItem>
 
@@ -90,7 +88,6 @@ source /opt/tros/humble/setup.bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
 
 </TabItem>
 
@@ -215,7 +212,6 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
 ![smolvlm_result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png)
-
 
 ## 注意事项
 

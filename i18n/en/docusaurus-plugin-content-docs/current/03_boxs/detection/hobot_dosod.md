@@ -70,7 +70,7 @@ The DOSOD (hobot_dosod) package subscribes to the images published by the sensor
 
 **Using a MIPI Camera to Publish Images**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -134,7 +134,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 **Using a USB Camera to Publish Images**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -198,7 +198,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 **Using Local Loopback Images**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

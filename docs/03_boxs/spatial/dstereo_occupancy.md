@@ -72,7 +72,7 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 - 在RDK上执行以下命令（X5和S100均支持）:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -122,7 +122,7 @@ ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 
 - 程序启动后可以通过rviz2可查看占用网格，RDK可直接安装rviz2查看，注意rviz2中需要做如下配置：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -172,7 +172,7 @@ rviz2
 
 - 如需保存结果请加入以下参数，`save_occ_flag`打开保存开关，`save_occ_dir`控制保存的目录（如果目录不存在会自动创建），`save_freq`控制保存频率，`save_total`控制保存的总数：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

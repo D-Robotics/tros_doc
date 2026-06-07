@@ -56,19 +56,7 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
    </Tabs>
    </DocScope>
 
-   <DocScope products="RDK-S100">
-   <Tabs groupId="tros-distro">
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      sudo apt update
-      sudo apt install tros-humble-hobot-audio
-      ```
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
 <DocScope products="RDK-X3">
 
@@ -218,19 +206,7 @@ Run the hobot_audio package on the RDK board:
  </Tabs>
  </DocScope>
 
- <DocScope products="RDK-S100">
- <Tabs groupId="tros-distro">
-  <TabItem value="humble" label="Humble">
-
-     ```bash
-     # Configure tros.b environment
-     source /opt/tros/humble/setup.bash
-     ```
-
-  </TabItem>
-
- </Tabs>
- </DocScope>
+ 
 
    ```shell
    # Copy the configuration files required to run the example from the tros.b installation path. Skip if already copied.
@@ -282,26 +258,6 @@ Run the hobot_audio package on the RDK board:
 
 </TabItem>
 
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   # Configure tros.b environment
-   source /opt/tros/humble/setup.bash
-
-   # Suppress debug log output
-   export GLOG_minloglevel=3
-
-   # Launch launch file
-   ros2 launch hobot_audio hobot_audio.launch.py
-   ```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell

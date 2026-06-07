@@ -53,7 +53,7 @@ import DocScope from '@site/src/components/DocScope';
 
 #### 1 创建package
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -74,18 +74,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -891,7 +880,7 @@ ament_package()
 
 在安装了tros.b的RDK上，执行以下命令编译pkg：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -912,18 +901,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -1042,7 +1020,7 @@ RDK上的运行4个node，其中算法推理为本示例。
 
 （1）RDK上打开终端1，启动算法推理node
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1063,18 +1041,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 cd ~/dev_ws
@@ -1165,7 +1132,7 @@ def generate_launch_description():
 
 使用启动脚本：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1186,18 +1153,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 启动图像发布、编码和展示node
@@ -1244,7 +1200,7 @@ root@ubuntu:~/dev_ws# ros2 run cpp_dnn_demo cpp_dnn_demo
 
 在RDK上使用ros2命令查询并输出推理Node发布的`/cpp_dnn_demo`话题消息内容：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1265,18 +1221,7 @@ root@ubuntu:~# source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-root@ubuntu:~# source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 root@ubuntu:~# ros2 topic list
@@ -1416,7 +1361,7 @@ TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，�
 
 RDK上打开一个终端启动图像发布Node，从F37摄像头采集图像数据并发布，用于算法推理使用：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1437,18 +1382,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -1462,7 +1396,7 @@ RDK上打开一个终端启动人手框检测算法Node，订阅数据采集Node
 
 启动命令中指定了发布的Topic为`hobot_hand_detection`。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1483,18 +1417,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -1509,7 +1432,7 @@ RDK上打开一个终端启动人手关键点检测算法Node，订阅数据采�
 
 启动命令中指定了发布消息的Topic为`hobot_hand_lmk_detection`，订阅消息的Topic为`hobot_hand_detection`。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1530,18 +1453,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -1558,7 +1470,7 @@ RDK上打开一个终端使用ROS2命令查看算法推理Node发布的Topic消�
 
 查询命令：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1579,18 +1491,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 启动Node
@@ -1629,7 +1530,7 @@ disappeared_targets: []
 
 查询命令：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1650,18 +1551,7 @@ source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 启动Node
@@ -1767,7 +1657,7 @@ disappeared_targets: []
 
 RDK上打开一个终端使用ROS2命令查看运行时设备的Node和Topic信息：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1788,18 +1678,7 @@ root@ubuntu:~# source /opt/tros/humble/local_setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```shell
-root@ubuntu:~# source /opt/tros/humble/local_setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 查询Node信息

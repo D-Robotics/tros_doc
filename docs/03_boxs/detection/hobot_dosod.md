@@ -71,7 +71,7 @@ DOSOD (hobot_dosod) package订阅sensor package发布的图片，并输入模型
 
 **使用MIPI摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -135,7 +135,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 **使用USB摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -202,7 +202,7 @@ ros2 launch hobot_dosod dosod.launch.py
 
 **使用本地回灌图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

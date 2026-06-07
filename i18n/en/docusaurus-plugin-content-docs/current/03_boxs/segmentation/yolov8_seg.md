@@ -66,7 +66,7 @@ Application scenarios: YOLOv8-Seg can identify individual objects in an image an
 
 The YOLOv8-Seg instance segmentation example subscribes to images published by the sensor package and publishes algorithm messages after inference. Rendered images are not saved by default. To save them, set `dnn_example_dump_render_img` to 1 at runtime. Rendered images will be automatically saved in the runtime directory with filenames in the format `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg`.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -116,7 +116,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 
 ##### Publish Images Using a USB Camera
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -167,7 +167,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 
 The YOLOv8-Seg segmentation example uses local JPEG/PNG images for playback. After inference, rendered images with algorithm results are saved in the local runtime directory.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 

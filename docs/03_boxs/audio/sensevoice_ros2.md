@@ -34,7 +34,7 @@ import DocScope from '@site/src/components/DocScope';
 2. RDK已成功安装TogetheROS.Bot。
 3. RDK已成功安装智能语音2算法包，安装命令：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
@@ -81,7 +81,6 @@ import DocScope from '@site/src/components/DocScope';
    </Tabs>
    </DocScope>
 
-
    ```bash
    sudo apt update
    sudo apt install tros-${ROS_DISTRO}-sensevoice-ros2
@@ -105,11 +104,9 @@ import DocScope from '@site/src/components/DocScope';
 4. 音频板正确连接到RDK X5的3.5mm的耳麦接口。
 5. USB音响正确连接到RDK X5的usb接口。
 
-
 ## 使用介绍
 
 智能语音sensevoice_ros2 package开始运行之后，会从麦克风采集音频，并且将采集到的音频数据送入语音智能算法做智能处理，输出命令词、ASR结果等智能信息，其中命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR结果通过`std_msgs::msg::String`类型消息发布。
-
 
 智能语音功能支持对原始音频进行ASR识别，默认的命令词定义在智能语音功能代码模块根目录下*config/cmd_word.json*文件，默认为：
 
@@ -127,10 +124,9 @@ import DocScope from '@site/src/components/DocScope';
 
 RDK板端运行sensevoice_ros2 package：
 
-
 1. 配置tros.b环境和启动应用
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -242,7 +238,6 @@ result_str:向后退,
 result_str:向后退,
 
 ```
-
 
 sensevoice_ros2默认发布的智能语音消息话题名为：**/audio_smart** 和 **/asr_text**，`ros2 topic list`结果为：
 

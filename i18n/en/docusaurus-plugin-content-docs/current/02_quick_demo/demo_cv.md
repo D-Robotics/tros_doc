@@ -751,7 +751,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 #### RDK Platform
 
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

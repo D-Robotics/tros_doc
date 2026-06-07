@@ -71,19 +71,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # Copy the configuration files required for the example from the tros.b installation path. config contains the model used by the example and the local image for feedback

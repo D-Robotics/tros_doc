@@ -57,7 +57,7 @@ Smoke detection case study: (https://github.com/abg3/Smoke-Detection-using-Tenso
 
 The EfficientNet_Det object detection example subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. The websocket package renders and displays the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -81,20 +81,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 
 ```shell
@@ -107,7 +94,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 #### Publish Images Using a USB Camera
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -131,20 +118,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 配置USB摄像头
@@ -158,7 +132,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The EfficientNet_Det object detection example uses local JPEG/PNG images for feedback. After inference, images with rendered algorithm results are saved in the local working directory.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -182,20 +156,7 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
 
 ```shell
 # 启动launch文件

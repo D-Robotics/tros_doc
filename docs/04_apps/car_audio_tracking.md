@@ -75,22 +75,9 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
    </Tabs>
    </DocScope>
 
-   <DocScope products="RDK-S100">
-   <Tabs groupId="tros-distro">
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      sudo apt update
-      sudo apt install tros-humble-hobot-audio
-      ```
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
+   
 
 <DocScope products="RDK-X3">
-
 
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
@@ -99,13 +86,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 </DocScope>
 <DocScope products="RDK-X5">
 
-
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 </DocScope>
-
 
 5. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/audio/hobot_audio.md)）。
 
@@ -142,23 +127,7 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
  </Tabs>
  </DocScope>
 
- <DocScope products="RDK-S100">
- <Tabs groupId="tros-distro">
-  <TabItem value="humble" label="Humble">
-
-    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
-
-     ```shell
-     sudo apt-get install ros-humble-gazebo-*
-     sudo apt install ros-humble-turtlebot3
-     sudo apt install ros-humble-turtlebot3-simulations
-     ```
-
-  </TabItem>
-
- </Tabs>
- </DocScope>
+ 
 
 ## 使用介绍
 
@@ -178,19 +147,6 @@ source /opt/ros/foxy/setup.bash
 
 </TabItem>
 
-<TabItem value="humble" label="Humble">
-
-```shell
-source /opt/ros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -233,22 +189,6 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
 </TabItem>
 
 </Tabs>
@@ -282,22 +222,6 @@ source /opt/tros/setup.bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
 ```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
 
 </TabItem>
 
