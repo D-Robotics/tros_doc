@@ -264,6 +264,6 @@ The terminal output during execution is as follows:
 
 The output log shows that the program ran successfully. After initialization, a single inference takes 0.87 ms.
 
-Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg)

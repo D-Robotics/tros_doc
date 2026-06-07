@@ -290,6 +290,6 @@ The terminal output during execution is as follows:
 
 The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)

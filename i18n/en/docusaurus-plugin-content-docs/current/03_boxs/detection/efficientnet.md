@@ -222,7 +222,7 @@ The terminal outputs the following information during execution:
 
 The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`.
 
-Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
 
 ![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_web.jpeg)
 

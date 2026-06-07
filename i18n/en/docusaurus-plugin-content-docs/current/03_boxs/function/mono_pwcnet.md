@@ -247,6 +247,6 @@ The running terminal outputs the following information:
 [mono_pwcnet-3] [WARN] [0000000507.422862825] [mono_pwcnet]: Sub img fps: 5.04, Smart fps: 5.00, pre process time ms: 38, infer time ms: 41, post process time ms: 1
 ```
 
-Enter http://IP:8000 in a PC browser, then click 'Full Image Segmentation' on the right to view the rendering effect (IP is the RDK device's IP address)
+Enter `http://IP:8000` in a PC browser, then click 'Full Image Segmentation' on the right to view the rendering effect (IP is the RDK device's IP address)
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)

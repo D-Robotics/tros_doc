@@ -260,7 +260,7 @@ package初始化后, 在运行终端输出如下信息：
 [mono_mobilesam-3] [WARN] [0000167952.295540585] [mono_mobilesam]: Smart fps: 5.00, pre process time ms: 35, infer time ms: 150, post process time ms: 21
 ```
 
-示例中推理的结果会渲染到Web上, 在PC端的浏览器输入http://IP:8000 即可查看图像和算法渲染效果（IP为RDK的IP地址）, 打开界面右上角设置, 选中”全图分割“选项, 可以显示渲染效果。
+示例中推理的结果会渲染到Web上, 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）, 打开界面右上角设置, 选中”全图分割“选项, 可以显示渲染效果。
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
 

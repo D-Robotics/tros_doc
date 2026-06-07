@@ -244,7 +244,7 @@ The terminal outputs the following information during execution:
 [hobot_yolo_world-3] [WARN] [0000003718.707619939] [hobot_yolo_world]: Sub img fps: 1.00, Smart fps: 1.00, pre process time ms: 39, infer time ms: 121, post process time ms: 6
 ```
 
-Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
 

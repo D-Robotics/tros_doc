@@ -393,6 +393,6 @@ webserver has launch
 [mono2d_body_detection-3] [WARN] [1753675536.166313555] [mono2d_body_det]: SharedMemImgProcess Recved img encoding: nv12, h: 1088, w: 1920, step: 1920, index: 31, stamp: 1753675536_158953660, data size: 3133440, comm delay [7.3511]ms
 ```
 
-In this example, inference results are rendered on the Web. Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address). The ID on each person is the instance ID result.
+In this example, inference results are rendered on the Web. Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address). The ID on each person is the instance ID result.
 
 ![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_reid.png)

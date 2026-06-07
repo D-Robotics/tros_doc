@@ -544,7 +544,7 @@ After the package initializes, the running terminal outputs the following inform
 
 
 
-In the example, inference results from reading local images are rendered onto the images. Enter http://IP:8000 in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address), and open the settings in the upper-right corner of the interface.
+In the example, inference results from reading local images are rendered onto the images. Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address), and open the settings in the upper-right corner of the interface.
 
 
 

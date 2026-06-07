@@ -287,6 +287,6 @@ The output log shows that the program ran successfully. During inference, the al
 
 The output log shows that the subscribed algorithm message contains one hand (including hand bounding box and hand keypoint detection results), and the gesture recognition algorithm output gesture classification result is the "Palm" gesture (classification result is 5).
 
-Enter http://IP:8000 in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)

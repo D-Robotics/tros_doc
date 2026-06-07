@@ -288,6 +288,6 @@ webserver has launch
 
 The output log shows that the topic publishing algorithm inference results is `/hobot_centerpoint`, and 81 feedback point cloud files were loaded. After inference and post-processing (including rendering and publishing inference results), the frame rate is approximately 2.4 fps.
 
-Enter http://IP:8000 in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
+Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
 
 ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)
