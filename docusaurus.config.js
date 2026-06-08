@@ -113,8 +113,7 @@ const config = {
           sidebarPath: "./sidebars.js",
           showLastUpdateTime: true,
           remarkPlugins: [remarkDirective, remarkDocScope],
-
-          
+          rehypePlugins: [rehypeWrapTables],
         },
         blog: { showReadingTime: true },
         pages: { exclude: ["/imager/**", "**/dl/**"] },

@@ -39,6 +39,19 @@ function resolveHeadingByHash(root, hash) {
   return null;
 }
 
+/** 将未包裹的表格放入横向滚动容器，避免宽表格侵占 TOC 区域 */
+function wrapBareTables(root) {
+  root.querySelectorAll('table').forEach((table) => {
+    if (table.closest('.table-responsive')) {
+      return;
+    }
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-responsive';
+    table.parentNode?.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+}
+
 function syncTocByDocScope(root) {
   const tocLinks = document.querySelectorAll(
     '.theme-doc-toc-desktop a.table-of-contents__link[href^="#"], .theme-doc-toc-mobile a.table-of-contents__link[href^="#"]',
@@ -69,6 +82,8 @@ export default function DocScopeHydration() {
     if (!root) {
       return;
     }
+    wrapBareTables(root);
+
     root.querySelectorAll('.doc-scope[data-doc-scope]').forEach((el) => {
       const raw = el.getAttribute('data-doc-scope');
       if (!raw) {

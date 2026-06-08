@@ -295,38 +295,54 @@ body.plugin-id-os-rdk-s600        .navbar-version-dropdown--os-rdk-s600 {
 }
 
 /* ------------------------------------------------------------------ */
-/* 文档正文表格：铺满正文宽度，溢出时在表格下方横向滚动 */
+/* 文档正文表格：铺满正文列宽度，溢出时在表格底部横向滚动，不侵占右侧 TOC */
 @media (min-width: 997px) {
-  /* flex 子项默认 min-width:auto，宽表格会把正文列撑进 TOC 区域 */
-  .row > .col:not(.col--3) {
+  /* flex/grid 子项默认 min-width:auto，宽表格会把正文列撑进 TOC 区域 */
+  .row > .col:not(.col--3),
+  .docMainContainer .row > [class*="col"]:first-child,
+  main .container > .row > [class*="col"]:not(.col--3) {
     min-width: 0;
+  }
+
+  .theme-doc-toc-desktop {
+    flex-shrink: 0;
   }
 }
 
 .theme-doc-markdown.markdown,
-article.markdown {
+article.markdown,
+.markdown {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.doc-scope {
   min-width: 0;
   max-width: 100%;
 }
 
 .theme-doc-markdown.markdown .table-responsive,
 article.markdown .table-responsive,
+.markdown .table-responsive,
 main .container article .table-responsive,
 main article .table-responsive {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   margin: 0 0 var(--ifm-spacing-vertical);
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
 }
 
 .theme-doc-markdown.markdown .table-responsive > table,
 article.markdown .table-responsive > table,
+.markdown .table-responsive > table,
 main .container article .table-responsive > table,
-main article .table-responsive > table,
-.theme-doc-markdown.markdown table,
-article.markdown table {
+main article .table-responsive > table {
   display: table;
   width: 100%;
   min-width: max-content;
@@ -337,20 +353,13 @@ article.markdown table {
 }
 
 /*
- * 防止长文本在列内换行导致 max-content 变小、列被压窄。
- * 溢出时由 .table-responsive 提供横向滚动条。
+ * 列内容较宽时表格随内容扩展，由 .table-responsive 提供底部横向滚动条。
  */
 .theme-doc-markdown.markdown .table-responsive > table :is(th, td),
 article.markdown .table-responsive > table :is(th, td),
-.theme-doc-markdown.markdown table :is(th, td),
-article.markdown table :is(th, td) {
+.markdown .table-responsive > table :is(th, td) {
   white-space: nowrap;
   vertical-align: top;
-}
-
-.theme-doc-markdown.markdown .table-responsive > table,
-article.markdown .table-responsive > table {
-  margin-bottom: 0;
 }
 
 /* 右侧导航栏（TOC）位置调整，与左侧目录对齐 */
