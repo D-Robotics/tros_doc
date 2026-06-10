@@ -426,4 +426,19 @@ article.markdown .table-responsive > table :is(th, td),
 
 [data-theme='dark'] .markdown a:hover {
   color: #79b8ff;
-} 
+}
+
+/* ------------------------------------------------------------------ */
+/* 文档图片点击放大（medium-zoom） */
+.markdown img {
+  cursor: zoom-in;
+}
+
+.medium-zoom-image--opened {
+  cursor: zoom-out;
+  z-index: 2001;
+}
+
+.medium-zoom-overlay {
+  z-index: 2000;
+}
