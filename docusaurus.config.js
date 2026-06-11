@@ -122,8 +122,18 @@ const config = {
       }),
     ],
   ],
-  plugins: [
+  plugins:  [
     require.resolve("./src/plugins/sidebar-scope-config-plugin"),
+    require.resolve("docusaurus-plugin-image-zoom"),
+    [
+      "docusaurus-plugin-copy-page-button",
+      {
+        // Match the requested dropdown actions in screenshot.
+        enabledActions: ["copy", "view", "claude"],
+        // Static .md routes are incompatible with OSS "append /index.html" rules.
+        generateMarkdownRoutes: false,
+      },
+    ],
   ],
   markdown: {
     mermaid: true,
@@ -229,6 +239,17 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      zoom: {
+        selector: ".markdown img",
+        background: {
+          light: "rgb(255, 255, 255)",
+          dark: "rgb(50, 50, 50)",
+        },
+        config: {
+          margin: 24,
+          scrollOffset: 80,
+        },
       },
     }),
   themes: [
