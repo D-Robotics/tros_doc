@@ -82,7 +82,7 @@ Apps是基于D-Robotics RDK机器人操作系统Communication和Boxs开发的算
 | 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) |
 | [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应APP示例 | &#10004; |
 | [人脸106关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应APP示例 | &#10004; |
-| [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; |
+| 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10004; |
 | 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; |
 | [SLAM建图](./04_apps/slam.md) | &#10004; |
 | [Navigation2](./04_apps/navigation2.md) | &#10004; |

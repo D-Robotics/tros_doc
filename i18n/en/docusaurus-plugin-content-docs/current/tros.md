@@ -82,7 +82,7 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Gesture Recognition | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) |
 | [Face Age Detection](./03_boxs/body/mono_face_age_detection.md) and Corresponding APP Examples | &#10004; |
 | [Face 106 Keypoint Detection](./03_boxs/body/mono_face_landmarks_detection.md) and Corresponding APP Examples | &#10004; |
-| [Stereo Depth Algorithm](./03_boxs/spatial/hobot_stereonet.md) | &#10004; |
+| Visual Inertial Odometry [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10004; |
 | Intelligent Speech [hobot_audio](./03_boxs/audio/hobot_audio.md) and Speech-Related Examples | &#10004; |
 | [SLAM Mapping](./04_apps/slam.md) | &#10004; |
 | [Navigation2](./04_apps/navigation2.md) | &#10004; |
