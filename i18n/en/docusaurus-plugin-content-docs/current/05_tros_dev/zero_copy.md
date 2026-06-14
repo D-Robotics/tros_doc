@@ -10,27 +10,27 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Background
+## Functional Background
 
-Communication is a fundamental capability of robot development engines. Native ROS2 Foxy has issues such as high latency and high system load when communicating large amounts of data. TogetheROS.Bot Foxy implements "zero-copy" functionality based on the RDK system software library hbmem. Zero-copy cross-process data transfer can significantly reduce latency and system resource usage for large block data transfer. This section describes how to use tros.b Foxy/Humble/Jazzy to create publisher and subscriber nodes for large block data transfer and measure transfer latency.
+Communication is a fundamental function of robot development engines. The native ROS2 Foxy has issues with high latency and high system load when handling large-volume data communication. TogetheROS.Bot Foxy implements the "zero-copy" feature based on the RDK system software library `hbmem`, enabling zero-copy data transfer across processes, significantly reducing large data transfer latency and system resource usage. This section describes how to use tros.b Foxy/Humble/Jazzy to create publisher and subscriber nodes for large data transfer and calculate the transfer latency.
 
 :::info
-- tros.b Foxy adds "zero-copy" functionality based on ROS2 Foxy.
-- tros.b Humble and later versions use ROS2's "zero-copy" functionality. For usage details, refer to the ROS2 official [documentation](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#) and [code](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp).
-- Versions after tros.b Humble use the same approach as the Humble version. Refer to the Humble version example in this section.
+- The tros.b Foxy version adds the "zero-copy" feature to ROS2 Foxy.
+- tros.b Humble and subsequent versions use ROS2's "zero-copy" feature. For specific usage, refer to the official ROS2 [documentation](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#) and [code](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp).
+- The usage for versions after tros.b Humble is the same as the Humble version; refer to the Humble version example in this section.
 :::
 
 ## Prerequisites
 
-tros.b has been successfully installed as described in [APT Installation and Upgrade](../01_quick_start/install_tros.md). You should understand ROS2 node, topic, QoS, and other basics, and know how to create packages and use custom messages. See the ROS2 official tutorial [Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html) for tutorials.
+tros.b has been successfully installed following [apt Installation and Upgrade](../01_quick_start/install_tros.md). Basic knowledge of ROS2 nodes, topics, QoS, how to create packages, and use custom messages is required. For specific tutorials, see the official ROS2 tutorials [Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html).
 
-ROS2 package build and compile tools. Install command: `sudo apt install ros-dev-tools`
+ROS2 software package building and compiling tools, etc. Installation command: `sudo apt install ros-dev-tools`
 
 ## Task Content
 
-### 1. Create Package
+### 1. Create a package
 
-Open a new terminal, source the tros.b setup script, and ensure the `ros2` command runs.
+Open a new terminal, source the tros.b setup script, and ensure the `ros2` command can run.
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -41,7 +41,7 @@ Open a new terminal, source the tros.b setup script, and ensure the `ros2` comma
 source /opt/tros/setup.bash
 ```
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html).
 
 </TabItem>
 
@@ -52,7 +52,7 @@ Use the following commands to create a workspace. For details, see the ROS2 offi
 source /opt/tros/humble/setup.bash
 ```
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
 
@@ -63,10 +63,9 @@ Use the following commands to create a workspace. For details, see the ROS2 offi
 source /opt/tros/jazzy/setup.bash
 ```
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -79,10 +78,9 @@ Use the following commands to create a workspace. For details, see the ROS2 offi
 source /opt/tros/humble/setup.bash
 ```
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -95,39 +93,35 @@ Use the following commands to create a workspace. For details, see the ROS2 offi
 source /opt/tros/jazzy/setup.bash
 ```
 
-Use the following commands to create a workspace. For details, see the ROS2 official tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
-
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 mkdir -p ~/dev_ws/src
 cd ~/dev_ws/src
 ```
 
-Run the following command to create a package:
+Run the following command to create a package
 
 ```shell
 ros2 pkg create --build-type ament_cmake hbmem_pubsub
 ```
 
-### 2. Create Custom Message
+### 2. Create a custom message
 
-#### 2.1 Create Message File
+#### 2.1 Create a new message file
 
-Run the following command to create a `msg` directory for custom message files:
+Run the following command to create a `msg` directory to store custom message files
 
 ```shell
 cd ~/dev_ws/src/hbmem_pubsub
 mkdir msg
 ```
 
-Create a `SampleMessage.msg` file in the `msg` directory with the following content:
+Create a new `SampleMessage.msg` file in the `msg` directory with the following content:
 
 ```idl
 int32 index
@@ -137,9 +131,9 @@ uint8[4194304] data
 uint32 MAX_SIZE=4194304
 ```
 
-#### 2.2 Build Dependencies
+#### 2.2 Build dependencies
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory and modify `package.xml`. Add the following content below `<buildtool_depend>ament_cmake</buildtool_depend>`:
+Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and add the following content below `<buildtool_depend>ament_cmake</buildtool_depend>`:
 
 ```xml
 <build_depend>rosidl_default_generators</build_depend>
@@ -147,9 +141,9 @@ Return to the `~/dev_ws/src/hbmem_pubsub` directory and modify `package.xml`. Ad
 <member_of_group>rosidl_interface_packages</member_of_group>
 ```
 
-#### 2.3 Build Script
+#### 2.3 Build script
 
-Modify `CMakeLists.txt` and add the following content below `# find_package(<dependency> REQUIRED)` to compile the msg:
+Modify `CMakeLists.txt`, add the following content below `# find_package(<dependency> REQUIRED)` to compile the msg:
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -158,11 +152,11 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 ```
 
-### 3. Create Message Publisher Node
+### 3. Create a message publishing node
 
-#### 3.1 Create Publisher Node File
+#### 3.1 Create a new message publishing node file
 
-Create a `publisher_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create the publisher node. Code and explanation:
+Create a new `publisher_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create a publisher node. The specific code and explanation are as follows:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -182,53 +176,53 @@ using namespace std::chrono_literals;
 class MinimalHbmemPublisher  : public rclcpp::Node {
  public:
   MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
-    // 创建publisher_hbmem，topic为"topic"
+    // Create publisher_hbmem with topic "topic"
     publisher_ = this->create_publisher_hbmem<hbmem_pubsub::msg::SampleMessage>(
         "topic", rclcpp::SensorDataQoS());
 
-    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    // Timer, calls timer_callback every 40 milliseconds to send messages
     timer_ = this->create_wall_timer(
         40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
   }
 
  private:
-  // 定时器回调函数
+  // Timer callback function
   void timer_callback() {
-    // 获取要发送的消息
+    // Get the message to send
     auto loanedMsg = publisher_->borrow_loaned_message();
-    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    // Check if the message is available; it may be unavailable if acquisition fails
     if (loanedMsg.is_valid()) {
-      // 引用方式获取实际的消息
+      // Get the actual message by reference
       auto& msg = loanedMsg.get();
       
-      // 获取当前时间，单位为us
+      // Get the current time in microseconds
       auto time_now =
           std::chrono::duration_cast<std::chrono::microseconds>(
               std::chrono::steady_clock::now().time_since_epoch()).count();
       
-      // 对消息的index和time_stamp进行赋值
+      // Assign values to the message's index and time_stamp
       msg.index = count_;
       msg.time_stamp = time_now;
       
-      // 打印发送消息
+      // Print the sent message
       RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
       publisher_->publish(std::move(loanedMsg));
-      // 注意，发送后，loanedMsg已不可用
-      // 计数器加一
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
       count_++;
     } else {
-      // 获取消息失败，丢弃该消息
+      // Failed to get the message, discard it
       RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
     }
   }
   
-  // 定时器
+  // Timer
   rclcpp::TimerBase::SharedPtr timer_;
 
   // hbmem publisher
   rclcpp::PublisherHbmem<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
   
-  // 计数器
+  // Counter
   size_t count_;
 };
 
@@ -259,53 +253,53 @@ using namespace std::chrono_literals;
 class MinimalHbmemPublisher  : public rclcpp::Node {
  public:
   MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
-    // 创建publisher_hbmem，topic为"topic"
+    // Create publisher_hbmem with topic "topic"
     publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
         "topic", rclcpp::SensorDataQoS());
 
-    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    // Timer, calls timer_callback every 40 milliseconds to send messages
     timer_ = this->create_wall_timer(
         40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
   }
 
  private:
-  // 定时器回调函数
+  // Timer callback function
   void timer_callback() {
-    // 获取要发送的消息
+    // Get the message to send
     auto loanedMsg = publisher_->borrow_loaned_message();
-    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    // Check if the message is available; it may be unavailable if acquisition fails
     if (loanedMsg.is_valid()) {
-      // 引用方式获取实际的消息
+      // Get the actual message by reference
       auto& msg = loanedMsg.get();
       
-      // 获取当前时间，单位为us
+      // Get the current time in microseconds
       auto time_now =
           std::chrono::duration_cast<std::chrono::microseconds>(
               std::chrono::steady_clock::now().time_since_epoch()).count();
       
-      // 对消息的index和time_stamp进行赋值
+      // Assign values to the message's index and time_stamp
       msg.index = count_;
       msg.time_stamp = time_now;
       
-      // 打印发送消息
+      // Print the sent message
       RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
       publisher_->publish(std::move(loanedMsg));
-      // 注意，发送后，loanedMsg已不可用
-      // 计数器加一
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
       count_++;
     } else {
-      // 获取消息失败，丢弃该消息
+      // Failed to get the message, discard it
       RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
     }
   }
   
-  // 定时器
+  // Timer
   rclcpp::TimerBase::SharedPtr timer_;
 
   // hbmem publisher
   rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
   
-  // 计数器
+  // Counter
   size_t count_;
 };
 
@@ -341,53 +335,53 @@ using namespace std::chrono_literals;
 class MinimalHbmemPublisher  : public rclcpp::Node {
  public:
   MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
-    // 创建publisher_hbmem，topic为"topic"
+    // Create publisher_hbmem with topic "topic"
     publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
         "topic", rclcpp::SensorDataQoS());
 
-    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    // Timer, calls timer_callback every 40 milliseconds to send messages
     timer_ = this->create_wall_timer(
         40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
   }
 
  private:
-  // 定时器回调函数
+  // Timer callback function
   void timer_callback() {
-    // 获取要发送的消息
+    // Get the message to send
     auto loanedMsg = publisher_->borrow_loaned_message();
-    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    // Check if the message is available; it may be unavailable if acquisition fails
     if (loanedMsg.is_valid()) {
-      // 引用方式获取实际的消息
+      // Get the actual message by reference
       auto& msg = loanedMsg.get();
       
-      // 获取当前时间，单位为us
+      // Get the current time in microseconds
       auto time_now =
           std::chrono::duration_cast<std::chrono::microseconds>(
               std::chrono::steady_clock::now().time_since_epoch()).count();
       
-      // 对消息的index和time_stamp进行赋值
+      // Assign values to the message's index and time_stamp
       msg.index = count_;
       msg.time_stamp = time_now;
       
-      // 打印发送消息
+      // Print the sent message
       RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
       publisher_->publish(std::move(loanedMsg));
-      // 注意，发送后，loanedMsg已不可用
-      // 计数器加一
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
       count_++;
     } else {
-      // 获取消息失败，丢弃该消息
+      // Failed to get the message, discard it
       RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
     }
   }
   
-  // 定时器
+  // Timer
   rclcpp::TimerBase::SharedPtr timer_;
 
   // hbmem publisher
   rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
   
-  // 计数器
+  // Counter
   size_t count_;
 };
 
@@ -405,17 +399,17 @@ int main(int argc, char * argv[])
 </Tabs>
 </DocScope>
 
-#### 3.2 Build Dependencies
+#### 3.2 Build dependencies
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory and modify `package.xml`. Add the `rclcpp` dependency below `<member_of_group>rosidl_interface_packages</member_of_group>`:
+Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and add the `rclcpp` dependency below `<member_of_group>rosidl_interface_packages</member_of_group>`:
 
 ```xml
   <depend>rclcpp</depend>
 ```
 
-#### 3.3 Build Script
+#### 3.3 Build script
 
-Modify `CMakeLists.txt` and add the following content below the `rosidl_generate_interfaces` statement to complete publisher compilation:
+Modify `CMakeLists.txt`, add the following content below the `rosidl_generate_interfaces` statement to compile the publisher:
 
 ```cmake
 find_package(rclcpp REQUIRED)
@@ -430,11 +424,11 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME})
 ```
 
-### 4. Create Message Subscriber Node
+### 4. Create a message receiving node
 
-#### 4.1 Create Subscriber Node File
+#### 4.1 Create a new message receiving node file
 
-Create a `subscriber_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create the subscriber node. Code and explanation:
+Create a new `subscriber_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create a subscriber node. The specific code and explanation are as follows:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -449,8 +443,8 @@ Create a `subscriber_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` dire
 class MinimalHbmemSubscriber  : public rclcpp::Node {
  public:
   MinimalHbmemSubscriber () : Node("minimal_hbmem_subscriber") {
-    // 创建subscription_hbmem，topic为"sample"
-    // 消息回调函数为topic_callback
+    // Create subscription_hbmem with topic "sample"
+    // The message callback function is topic_callback
     subscription_ =
         this->create_subscription_hbmem<hbmem_pubsub::msg::SampleMessage>(
             "topic", rclcpp::SensorDataQoS(),
@@ -459,16 +453,16 @@ class MinimalHbmemSubscriber  : public rclcpp::Node {
   }
 
  private:
-  // 消息回调函数
+  // Message callback function
   void topic_callback(
       const hbmem_pubsub::msg::SampleMessage::SharedPtr msg) const {
-    // 注意，msg只能在回调函数中使用，回调函数返回后，该消息就会被释放
-    // 获取当前时间
+    // Note: msg can only be used within the callback function; after the callback returns, the message will be released
+    // Get the current time
     auto time_now =
         std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::steady_clock::now().time_since_epoch())
             .count();
-    // 计算延时并打印出来
+    // Calculate latency and print it
     RCLCPP_INFO(this->get_logger(), "msg %d, time cost %dus", msg->index,
                 time_now - msg->time_stamp);
   }
@@ -501,8 +495,8 @@ int main(int argc, char * argv[])
 class MinimalHbmemSubscriber  : public rclcpp::Node {
  public:
   MinimalHbmemSubscriber () : Node("minimal_hbmem_subscriber") {
-    // 创建subscription_hbmem，topic为"sample"
-    // 消息回调函数为topic_callback
+    // Create subscription_hbmem with topic "sample"
+    // The message callback function is topic_callback
     subscription_ =
         this->create_subscription<hbmem_pubsub::msg::SampleMessage>(
             "topic", rclcpp::SensorDataQoS(),
@@ -511,16 +505,16 @@ class MinimalHbmemSubscriber  : public rclcpp::Node {
   }
 
  private:
-  // 消息回调函数
+  // Message callback function
   void topic_callback(
       const hbmem_pubsub::msg::SampleMessage::SharedPtr msg) const {
-    // 注意，msg只能在回调函数中使用，回调函数返回后，该消息就会被释放
-    // 获取当前时间
+    // Note: msg can only be used within the callback function; after the callback returns, the message will be released
+    // Get the current time
     auto time_now =
         std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::steady_clock::now().time_since_epoch())
             .count();
-    // 计算延时并打印出来
+    // Calculate latency and print it
     RCLCPP_INFO(this->get_logger(), "msg %d, time cost %dus", msg->index,
                 time_now - msg->time_stamp);
   }
@@ -558,8 +552,8 @@ int main(int argc, char * argv[])
 class MinimalHbmemSubscriber  : public rclcpp::Node {
  public:
   MinimalHbmemSubscriber () : Node("minimal_hbmem_subscriber") {
-    // 创建subscription_hbmem，topic为"sample"
-    // 消息回调函数为topic_callback
+    // Create subscription_hbmem with topic "sample"
+    // The message callback function is topic_callback
     subscription_ =
         this->create_subscription<hbmem_pubsub::msg::SampleMessage>(
             "topic", rclcpp::SensorDataQoS(),
@@ -568,16 +562,16 @@ class MinimalHbmemSubscriber  : public rclcpp::Node {
   }
 
  private:
-  // 消息回调函数
+  // Message callback function
   void topic_callback(
       const hbmem_pubsub::msg::SampleMessage::SharedPtr msg) const {
-    // 注意，msg只能在回调函数中使用，回调函数返回后，该消息就会被释放
-    // 获取当前时间
+    // Note: msg can only be used within the callback function; after the callback returns, the message will be released
+    // Get the current time
     auto time_now =
         std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::steady_clock::now().time_since_epoch())
             .count();
-    // 计算延时并打印出来
+    // Calculate latency and print it
     RCLCPP_INFO(this->get_logger(), "msg %d, time cost %dus", msg->index,
                 time_now - msg->time_stamp);
   }
@@ -602,11 +596,11 @@ int main(int argc, char * argv[])
 </Tabs>
 </DocScope>
 
-#### 4.2 Build Script
+#### 4.2 Build script
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory. The `rclcpp` dependency was already added in `package.xml`, so no changes to `package.xml` are needed.
+Return to the `~/dev_ws/src/hbmem_pubsub` directory. The `rclcpp` dependency has already been added to `package.xml`, so no modification to `package.xml` is needed.
 
-Modify `CMakeLists.txt` and add the following content below the `install` statement to complete subscriber compilation:
+Modify `CMakeLists.txt`, add the following content below the `install` statement to compile the subscriber:
 
 ```cmake
 add_executable(listener src/subscriber_hbmem.cpp)
@@ -621,7 +615,7 @@ install(TARGETS
 
 ### 5. Build
 
-The complete workspace directory structure is as follows:
+The entire workspace directory structure is as follows:
 
 ```shell
 dev_ws/
@@ -734,13 +728,13 @@ ament_package()
 
 ```
 
-In the workspace root directory `~/dev_ws`, build the package:
+In the workspace root directory `~/dev_ws`, compile the package:
 
 ```shell
 colcon build --packages-select hbmem_pubsub
 ```
 
-If the `colcon` command is not installed, install it with:
+If the `colcon` command is not installed, use the following command to install it:
 
 ```shell
 sudo apt install ros-dev-tools
@@ -758,7 +752,7 @@ Open a new terminal, `cd` to the `dev_ws` directory, and source the tros.b and c
 source /opt/tros/setup.bash
 cd ~/dev_ws
 . install/setup.bash
-# Run talker node:
+# Run the talker node:
 ros2 run hbmem_pubsub talker
 ```
 
@@ -774,7 +768,7 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
-# Run talker node:
+# Run the talker node:
 ros2 run hbmem_pubsub talker
 ```
 
@@ -790,12 +784,11 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
-# Run talker node:
+# Run the talker node:
 ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -811,12 +804,11 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
-# Run talker node:
+# Run the talker node:
 ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -832,17 +824,15 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
-# Run talker node:
+# Run the talker node:
 ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
-
-The terminal will show output like the following:
+The following output will appear on the terminal:
 
 ```text
 [INFO] [1649227473.431381673] [minimal_hbmem_publisher]: message: 0
@@ -853,7 +843,7 @@ The terminal will show output like the following:
 [INFO] [1649227473.630857041] [minimal_hbmem_publisher]: message: 5
 ```
 
-Open another new terminal, also `cd` to the `dev_ws` directory, source the setup files, then run the listener node:
+Open another new terminal, `cd` to the `dev_ws` directory, source the setup file, and then run the listener node:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -898,7 +888,6 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -918,7 +907,6 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -938,11 +926,10 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
-
 </Tabs>
 </DocScope>
 
-The terminal will show output like the following, indicating the subscriber has successfully received messages from the publisher:
+The terminal will display output similar to the following, indicating that the subscriber has successfully received the message sent by the publisher:
 
 ```text
 [INFO] [1649227450.387089523] [minimal_hbmem_subscriber]: msg 10, time cost 1663us
@@ -953,28 +940,28 @@ The terminal will show output like the following, indicating the subscriber has 
 [INFO] [1649227450.587002681] [minimal_hbmem_subscriber]: msg 15, time cost 1768us
 ```
 
-Use `Ctrl+C` to stop each node.
+Press `Ctrl+C` to stop each node.
 
-## Summary
+## Section Summary
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-If you already understand how to use ROS2 publishers and subscribers, it is easy to switch to hbmem-based zero-copy publishers and subscribers. You only need to make the following changes:
+If you are already familiar with using ROS2 publishers and subscribers, switching to hbmem-based zero-copy publishers and subscribers is easy. Only the following changes are needed:
 
 - Change **rclcpp::Publisher** to **rclcpp::PublisherHbmem**
 - Change **create_publisher** to **create_publisher_hbmem**
 - Change **rclcpp::Subscription** to **rclcpp::SubscriptionHbmem**
 - Change **create_subscription** to **create_subscription_hbmem**
-- Before sending messages, the **publisher** must call **borrow_loaned_message** to obtain a message, then **verify the message is available**. If available, assign values and send.
-- The **subscription** processes received messages in the callback function, and **received messages can only be used within the callback function**. After the callback completes, the message is released.
+- Before sending a message, the **publisher** must call **borrow_loaned_message** to get the message, then **confirm whether the message is available**. If available, assign values and send.
+- The **subscription** processes the received message in the callback function, and **the received message can only be used within the callback function**. Once the callback function completes, the message is released.
 
-Notes:
+Note:
 
-- Using hbmem-based zero-copy consumes ion memory. Creating multiple publishers with large messages may cause insufficient ion memory and creation failures.
+- Using hbmem-based zero-copy consumes ion memory. Creating multiple publishers with large messages may lead to insufficient ion memory, causing creation failures.
 
-- When creating a publisher, ion memory equal to three times the KEEPLAST message size (up to 256MB) is allocated at once for message transfer and will not be dynamically allocated again. If the subscriber fails to process messages or does not process them in time, all message buffers may be occupied and the publisher may not be able to obtain available messages.
+- When creating a publisher, ion memory equivalent to three times the size of KEEPLAST messages (up to 256MB) is allocated upfront for message transmission, and no dynamic allocation occurs afterward. If the subscriber side encounters errors processing messages or does not process them in time, all message buffers may be occupied, causing the publisher to be unable to obtain available messages.
 
 </TabItem>
 
@@ -996,11 +983,11 @@ Notes:
 
 ## Usage Limitations
 
-Compared to ROS2 publisher/subscriber data transfer, zero-copy transfer has the following limitations:
+Compared to ROS2's publisher/subscriber data transfer method, using zero-copy transfer has the following limitations:
 
-- QoS History only supports KEEPLAST, not KEEPALL. KEEPLAST cannot be set too large due to memory limits; the current maximum is 256MB.
-- The transferred message size is fixed; the message `sizeof` value does not change. Variable-length data types such as strings and dynamic arrays are not supported.
-- For TROS Humble and later versions, QoS Reliability is recommended to use `RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT` (it is recommended to use `rclcpp::SensorDataQoS()` to set QoS). `RMW_QOS_POLICY_RELIABILITY_RELIABLE` has stability issues with multiple communication methods.
-- Can only be used for inter-process communication on the same device; cannot transfer across devices.
-- Publisher messages must be obtained before assignment and sending, and success of acquisition must be verified.
-- Subscriber received messages are only valid within the callback function and cannot be used outside the callback function.
+- QOS History only supports KEEPLAST, not KEEPALL, and KEEPLAST cannot be set too high due to memory constraints. Currently, it is set to a maximum of 256MB.
+- The size of the transmitted message is fixed, meaning the `sizeof` value of the message is constant, and it cannot contain variable-length data types (e.g., string, dynamic arrays).
+- For TROS Humble and later versions, it is recommended to use `RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT` for QOS Reliability (it is recommended to directly use `rclcpp::SensorDataQoS()` to set QOS). `RMW_QOS_POLICY_RELIABILITY_RELIABLE` has stability issues in various communication scenarios.
+- It can only be used for inter-process communication on the same device, not for cross-device transmission.
+- The publisher must first acquire the message before assigning values and sending, and must check whether the acquisition was successful.
+- The validity of messages received by the subscriber is limited to the callback function; they cannot be used outside the callback function.
