@@ -182,7 +182,12 @@ const config = {
           // },
 
           {
-            href: "https://developer.d-robotics.cc/",
+            href: (() => {
+              if (process.env.DOCUSAURUS_CURRENT_LOCALE === "en") {
+                return "https://developer.d-robotics.cc/en";
+              }
+              return "https://developer.d-robotics.cc/";
+            })(),
             label: "Community",
             position: "left",
           },
@@ -191,6 +196,7 @@ const config = {
             href: "https://github.com/D-Robotics",
             label: "GitHub",
             position: "right",
+            className: "navbar-github-link",
           },
           {
             type: "search",
@@ -200,6 +206,7 @@ const config = {
           {
             type: "localeDropdown",
             position: "right",
+            className: "navbar-locale-switch",
           },
         ],
       },
