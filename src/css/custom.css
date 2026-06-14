@@ -442,3 +442,27 @@ article.markdown .table-responsive > table :is(th, td),
 .medium-zoom-overlay {
   z-index: 2000;
 }
+
+@media (max-width: 996px) {
+  /* 顶部 navbar 隐藏：产品/版本切换、GitHub、语言切换 */
+  .navbar__inner .doc-scope-selectors-nav-item,
+  .navbar__inner .navbar-github-link,
+  .navbar__inner .navbar-locale-switch {
+    display: none !important;
+  }
+
+  /* hamburger 主菜单显示上述三项 */
+  .navbar-sidebar .doc-scope-selectors-nav-item,
+  .navbar-sidebar .navbar-github-link,
+  .navbar-sidebar .navbar-locale-switch {
+    display: flex !important;
+  }
+
+  /* 避免侧边栏内产品/版本切换布局拥挤 */
+  .navbar-sidebar .doc-scope-selectors-nav-item .doc-scope-selectors {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 0;
+  }
+}
