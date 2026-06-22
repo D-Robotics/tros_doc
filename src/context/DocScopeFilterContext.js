@@ -168,6 +168,19 @@ function normalizePathname(pathname) {
   return p;
 }
 
+function pathAfterBaseUrl(pathname, baseUrl) {
+  const base = String(baseUrl || '/').replace(/\/$/, '');
+  let p = String(pathname || '/').replace(/\/$/, '');
+  if (!p) p = '/';
+  if (base && p.startsWith(base)) {
+    p = p.slice(base.length);
+  }
+  if (!p || p === '/') {
+    return '/';
+  }
+  return p.startsWith('/') ? p : `/${p}`;
+}
+
 export function DocScopeFilterProvider({ children }) {
   const location = useLocation();
   const history = useHistory();
@@ -212,6 +225,15 @@ export function DocScopeFilterProvider({ children }) {
   }, [hasBuildScope, buildScope?.version, buildScope?.product, location.search, locale]);
 
   const def = defaultsForLocale(locale);
+  const isDocHomePage = useMemo(() => {
+    const rest = pathAfterBaseUrl(location.pathname, siteConfig?.baseUrl);
+    const localePrefix = `/${i18n.currentLocale}`;
+    const restNoLocale =
+      i18n.currentLocale !== i18n.defaultLocale && rest.startsWith(localePrefix)
+        ? rest.slice(localePrefix.length) || '/'
+        : rest;
+    return restNoLocale === '/tros' || restNoLocale === '/RDK';
+  }, [location.pathname, siteConfig?.baseUrl, i18n.currentLocale, i18n.defaultLocale]);
 
   const product = useMemo(() => {
     const k = resolveCanonicalProductKeyForMatrix(productFromUrl);
@@ -229,6 +251,24 @@ export function DocScopeFilterProvider({ children }) {
     }
     saveToStorage(version, product, locale);
   }, [version, product, locale, hasBuildScope]);
+
+  // Rule:
+  // - Doc home page keeps default URL without query suffix.
+  // - Non-home doc pages should always carry selected ?v=&p=.
+  useEffect(() => {
+    if (hasBuildScope || isDocHomePage) {
+      return;
+    }
+    const q = new URLSearchParams(location.search);
+    const v = q.get('v');
+    const p = q.get('p');
+    if (v && p) {
+      return;
+    }
+    q.set('v', version);
+    q.set('p', product);
+    replaceSearch(history, location, `?${q.toString()}`);
+  }, [hasBuildScope, isDocHomePage, location, history, version, product]);
 
   const setVersion = useCallback(
     (v) => {
