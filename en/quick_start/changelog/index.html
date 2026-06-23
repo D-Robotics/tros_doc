@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-quick_start/changelog" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">1.6 Release Notes | RDK DOC</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.d-robotics.cc/tros_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://developer.d-robotics.cc/tros_doc/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://developer.d-robotics.cc/tros_doc/en/quick_start/changelog"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="1.6 Release Notes | RDK DOC"><meta data-rh="true" name="description" content="tros-jazzy"><meta data-rh="true" property="og:description" content="tros-jazzy"><link data-rh="true" rel="icon" href="/tros_doc/en/img/logo.png"><link data-rh="true" rel="canonical" href="https://developer.d-robotics.cc/tros_doc/en/quick_start/changelog"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/tros_doc/quick_start/changelog" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/tros_doc/en/quick_start/changelog" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.d-robotics.cc/tros_doc/quick_start/changelog" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"1.6 Release Notes","item":"https://developer.d-robotics.cc/tros_doc/en/quick_start/changelog"}]}</script><script>window.__COPY_PAGE_BUTTON_OPTIONS__={customStyles:{},enabledActions:["copy","view","claude"],generateMarkdownRoutes:!1,placement:"auto",mcpServer:null,id:"default"}</script>
+
+
+<script defer="defer" src="https://cloud.umami.is/script.js" data-website-id="fbd84605-92b5-43f6-aa3e-4861b62ea8df"></script>
+<script src="https://hm.baidu.com/hm.js?24dd63cad43b63889ea6bede5fd1ab9e" async></script>
+<script src="/tros_doc/js/dify-config.js"></script>
+<script src="https://rdk.d-robotics.cc/embed.min.js" id="rJYrxmxmjOkjEx2c" defer="defer"></script><link rel="stylesheet" href="/tros_doc/en/assets/css/styles.9c7a9fb2.css">
+<script src="/tros_doc/en/assets/js/runtime~main.ef644126.js" defer="defer"></script>
+<script src="/tros_doc/en/assets/js/main.d8fe08d2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://d-robotics.github.io/rdk_doc_center/en/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/tros_doc/en/img/logo.png" alt="My Site Logo"></div><b class="navbar__title text--truncate">Resource Center</b></a><div class="navbar__item doc-scope-selectors-nav-item"><div class="doc-scope-selectors"><div class="doc-scope-menu"><span class="doc-scope-menu__label" id=":Rnb56h:-label">Product</span><div class="doc-scope-menu__control"><button type="button" class="doc-scope-menu__trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls=":Rnb56h:-list" aria-labelledby=":Rnb56h:-label"><span class="doc-scope-menu__value">RDK X3</span><span class="doc-scope-menu__caret" aria-hidden="true"></span></button></div></div><div class="doc-scope-menu"><span class="doc-scope-menu__label" id=":R17b56h:-label">Version</span><div class="doc-scope-menu__control"><button type="button" class="doc-scope-menu__trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls=":R17b56h:-list" aria-labelledby=":R17b56h:-label"><span class="doc-scope-menu__value">3.0.0</span><span class="doc-scope-menu__caret" aria-hidden="true"></span></button></div></div></div></div><a href="https://developer.d-robotics.cc/en" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link navbar-github-link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link navbar-locale-switch"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>EN</a><ul class="dropdown__menu"><li><a href="/tros_doc/quick_start/changelog" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">CN</a></li><li><a href="/tros_doc/en/quick_start/changelog" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">EN</a></li></ul></div><div class="toggle_vylO colorModeToggle_x44X"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_bSxm"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_cWv0"><aside class="theme-doc-sidebar-container docSidebarContainer_RSuS"><div class="sidebarViewport_pYEE"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tros_doc/en/tros">Introduction to TogetheROS.Bot</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/tros_doc/en/quick_start/preparation">1 System Installation</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tros_doc/en/quick_start/preparation">1.1 Environment Preparation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tros_doc/en/quick_start/install_tros">1.2 apt Installation and Upgrade</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tros_doc/en/quick_start/cross_compile">1.3 Source Code Installation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tros_doc/en/quick_start/hello_world">1.4 Run &quot;Hello World&quot;</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tros_doc/en/quick_start/ros_pkg">1.5 Using ROS2 Packages</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tros_doc/en/quick_start/changelog">1.6 Release Notes</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tros_doc/en/quick_demo/demo_sensor">2 Functional Experience</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tros_doc/en/boxs/detection/fcos">3 Boxs Algorithm Repository</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tros_doc/en/apps/slam">4 Apps Application Examples</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tros_doc/en/tros_dev/zero_copy">5 Feature Development</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_hjYf"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Alpn" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/tros_doc/en/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">5.1 System Installation</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">1.6 Release Notes</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>5.1.6 Release Notes</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tros-jazzy">tros-jazzy<a href="#tros-jazzy" class="hash-link" aria-label="Direct link to tros-jazzy" title="Direct link to tros-jazzy">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-254-2026-05-19">Version: 2.5.4 (2026-05-19)<a href="#version-254-2026-05-19" class="hash-link" aria-label="Direct link to Version: 2.5.4 (2026-05-19)" title="Direct link to Version: 2.5.4 (2026-05-19)">​</a></h3>
+<p>Changes (<code>RDK S600</code> platform):</p>
+<ul>
+<li>Adapted to system SDK <code>RKD S600 v5.1.0</code>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-253-2026-05-08">Version: 2.5.3 (2026-05-08)<a href="#version-253-2026-05-08" class="hash-link" aria-label="Direct link to Version: 2.5.3 (2026-05-08)" title="Direct link to Version: 2.5.3 (2026-05-08)">​</a></h3>
+<p>New Features (<code>RDK S100</code> Platform):</p>
+<ul>
+<li>Added mono_edgetam_prompt: Supports two prompt styles via prompt_mode: point prompts or box prompts. Exports prompt initialization results (memory feature file) for downstream tracking, and provides optional local rendering output.</li>
+<li>Added mono_edgetam_track to load features and use them as tracking initialization. Supports continuous tracking in both local image and subscription stream modes. Updates tracking memory frame by frame and publishes segmentation/tracking results.</li>
+</ul>
+<p>Feature Changes (<code>RDK S100</code> Platform):</p>
+<ul>
+<li>Adapted to system version: RDKS100_V4.0.6.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-251-2026-03-10">Version: 2.5.1 (2026-03-10)<a href="#version-251-2026-03-10" class="hash-link" aria-label="Direct link to Version: 2.5.1 (2026-03-10)" title="Direct link to Version: 2.5.1 (2026-03-10)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>Adapted to system SDK <code>RKD S600 v5.0.1</code>.</li>
+<li>Refactored <code>mipi_cam</code> videobuff management from stream capture to message publishing, as well as the stitching thread; changed calibration info topics for stitched images to &quot;image_combine_raw/left/camera_info&quot; and &quot;image_combine_raw/right/camera_info&quot;.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Added detection algorithms yolov2, yolov3, yolov5; segmentation algorithm unet; classification algorithm mobilenet.</li>
+<li>Added open-vocabulary object detection algorithm DOSOD.</li>
+<li>Added human detection and tracking algorithm (Ultralytics YOLO Pose).</li>
+<li>Added human instance tracking algorithm reid.</li>
+<li>Added segment-anything algorithm MobileSAM.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-250-2025-12-02">Version: 2.5.0 (2025-12-02)<a href="#version-250-2025-12-02" class="hash-link" aria-label="Direct link to Version: 2.5.0 (2025-12-02)" title="Direct link to Version: 2.5.0 (2025-12-02)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Support for <code>RDK S600</code> platform.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tros-humble">tros-humble<a href="#tros-humble" class="hash-link" aria-label="Direct link to tros-humble" title="Direct link to tros-humble">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-253-2026-05-08-1">Version: 2.5.3 (2026-05-08)<a href="#version-253-2026-05-08-1" class="hash-link" aria-label="Direct link to Version: 2.5.3 (2026-05-08)" title="Direct link to Version: 2.5.3 (2026-05-08)">​</a></h3>
+<p>New Features (<code>RDK S100</code> platform):</p>
+<ul>
+<li>Added mono_edgetam_prompt: supports two prompt styles via prompt_mode—point prompts or box prompts. Exports prompt initialization results (in-memory feature files) for downstream tracking, with optional local rendering output.</li>
+<li>Added mono_edgetam_track to load features and use them for tracking initialization. Supports continuous tracking in local image and subscribed stream modes. Updates tracking memory frame by frame and publishes segmentation/tracking results.</li>
+</ul>
+<p>Changes (<code>RDK S100</code> platform):</p>
+<ul>
+<li>Adapted to system version: RDKS100_V4.0.6.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-252-2026-03-17">Version: 2.5.2 (2026-03-17)<a href="#version-252-2026-03-17" class="hash-link" aria-label="Direct link to Version: 2.5.2 (2026-03-17)" title="Direct link to Version: 2.5.2 (2026-03-17)">​</a></h3>
+<p>New Features (<code>RDK X5</code> platform):</p>
+<ul>
+<li>Added epipolar alignment detection to the stereo depth estimation algorithm; adjusted subscribed messages per hobot_mipi_cam to &quot;image_combine_raw/left/camera_info&quot; and &quot;image_combine_raw/right/camera_info&quot;</li>
+<li>Stereo OCC algorithm supports mipi cameras.</li>
+<li>Object detection algorithm supports <code>yolo26</code>.</li>
+<li><code>sensevoice_ros2</code> algorithm adds configuration options for Chinese/English mode.</li>
+<li>Added hand keypoint and gesture recognition algorithm based on <code>palm_detection_mediapipe</code> and <code>hand_landmarks_mediapipe</code>.</li>
+</ul>
+<p>Changes (<code>RDK X5</code> platform):</p>
+<ul>
+<li>Adapted to system version: RDK 3.5.0 (Linux SDK V1.1.2)</li>
+<li>Refactored <code>mipi_cam</code> videobuff management from stream capture to message publishing and the stitching thread. Changed calibration info topics for stitched images to &quot;image_combine_raw/left/camera_info&quot; and &quot;image_combine_raw/right/camera_info&quot;. Refactored X5 eeprom read handling. Added subdirectory publishing on X5. Added combined 132gs imu data publishing.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-246-2026-02-02">Version: 2.4.6 (2026-02-02)<a href="#version-246-2026-02-02" class="hash-link" aria-label="Direct link to Version: 2.4.6 (2026-02-02)" title="Direct link to Version: 2.4.6 (2026-02-02)">​</a></h3>
+<p>Changes (<code>RDK S100</code> platform):</p>
+<ul>
+<li>Adapted to system version <code>V4.0.5</code> and <code>OE</code> version <code>V3.7.0</code>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-245-2025-10-28">Version: 2.4.5 (2025-10-28)<a href="#version-245-2025-10-28" class="hash-link" aria-label="Direct link to Version: 2.4.5 (2025-10-28)" title="Direct link to Version: 2.4.5 (2025-10-28)">​</a></h3>
+<p>Bug Fixes (<code>RDK X5</code> platform):</p>
+<ul>
+<li>Fixed a bug in the image processing acceleration module <a href="/tros_doc/en/quick_demo/demo_cv"><code>hobot_cv</code></a> when using vse to accelerate image resize.</li>
+<li>Fixed incorrect inference latency statistics in the on-board model inference framework <a href="https://github.com/D-Robotics/hobot_dnn.git" target="_blank" rel="noopener noreferrer"><code>dnn_node</code></a>.</li>
+<li>Fixed runtime loading failures caused by incorrect installation paths for <code>ros component so</code> in MIPI image capture and algorithm modules.</li>
+<li>Optimized <a href="/tros_doc/en/quick_demo/hobot_codec">image codec</a> configuration: removed invalid configuration parameters and added debug configuration parameters.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-244-2025-10-24">Version: 2.4.4 (2025-10-24)<a href="#version-244-2025-10-24" class="hash-link" aria-label="Direct link to Version: 2.4.4 (2025-10-24)" title="Direct link to Version: 2.4.4 (2025-10-24)">​</a></h3>
+<p>New Features (<code>RDK S100</code> platform):</p>
+<ul>
+<li>On-board algorithm inference framework <a href="https://github.com/D-Robotics/hobot_dnn.git" target="_blank" rel="noopener noreferrer"><code>dnn_node</code></a> adds <code>ROI</code> inference mode; the number of output <code>output tensor</code>s is <code>output_size x roi_size</code>.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/mono2d_yolo_pose">human detection and tracking (Ultralytics YOLO Pose)</a> algorithm example.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/reid">human instance tracking</a> algorithm example, which extracts human features using the <code>reid</code> model and stores, manages, and queries features via an <code>SQlite</code> database. The launch file disables ROI-based human tracking in the human detection and tracking node <code>mono2d_body_detection</code>; input <code>ROI</code> size is limited to less than 3.5x the actual model input size.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/hand_lmk_gesture_mediapipe">hand keypoint and gesture recognition (mediapipe)</a> algorithm example. Implements basic palm detection, pre/post-processing, and <code>ai msg</code> publishing; supports mipi camera, usb camera, and local image replay; supports zero-copy and non-zero-copy image acquisition.</li>
+<li>Added <a href="/tros_doc/en/boxs/generate/hobot_xlm">DeepSeek large language model</a> algorithm example. Supports human-machine dialogue; <code>RDK S100</code> and <code>RDK S100P</code> newly support <code>DeepSeek_R1_Distill_Qwen_1.5B</code> and <code>DeepSeek_R1_Distill_Qwen_7B</code> models.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-243-2025-9-15">Version: 2.4.3 (2025-9-15)<a href="#version-243-2025-9-15" class="hash-link" aria-label="Direct link to Version: 2.4.3 (2025-9-15)" title="Direct link to Version: 2.4.3 (2025-9-15)">​</a></h3>
+<p>New Features (<code>RDK X5</code> platform):</p>
+<ul>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">MIPI image capture</a> supports launching multi-channel image capture.</li>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">Stereo MIPI image capture</a> supports <code>sc132gs</code> stereo camera.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-242-2025-8-29">Version: 2.4.2 (2025-8-29)<a href="#version-242-2025-8-29" class="hash-link" aria-label="Direct link to Version: 2.4.2 (2025-8-29)" title="Direct link to Version: 2.4.2 (2025-8-29)">​</a></h3>
+<p>New Features (<code>RDK S100</code> platform):</p>
+<ul>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">MIPI image capture</a> supports <code>230ai</code> stereo module.</li>
+<li><a href="/tros_doc/en/boxs/detection/yolo">YOLO object detection</a> supports <code>yolo11</code> and <code>yolov12</code> algorithms; added component-based launch scripts supporting 4K image inference with <code>mipi cam</code>.</li>
+<li><a href="/tros_doc/en/boxs/segmentation/mono_edgesam">EdgeSAM segment anything</a> algorithm adds <code>edgesam</code> for model inference; adds <code>nv12</code> format data input; adds padding for segmentation results for joint visualization in stereo depth use cases.</li>
+<li>Added <a href="/tros_doc/en/boxs/function/hobot_clip">text-image feature retrieval algorithm</a> for text-image feature extraction and retrieval.</li>
+<li>Added <a href="/tros_doc/en/boxs/detection/hobot_dosod">DOSOD algorithm</a>, D-Robotics open-vocabulary detection DOSOD on-device deployment package; added re-parameterization quantization method for customizing detection categories in DOSOD models.</li>
+<li>Added <a href="/tros_doc/en/boxs/spatial/dstereo_occupancy">stereo OCC</a>, integrating D-Robotics stereo <code>OCC</code> network.</li>
+<li><a href="/tros_doc/en/apps/hobot_llamacpp">Vision-language model</a> algorithm adds <code>smolvlm2</code> model support, with image replay and subscription modes; adds ability to output complete topics after <code>llm</code> model inference completes.</li>
+<li>Added <a href="/tros_doc/en/boxs/spatial/hobot_stereonet">stereo depth estimation algorithm</a>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-241-2025-7-30">Version: 2.4.1 (2025-7-30)<a href="#version-241-2025-7-30" class="hash-link" aria-label="Direct link to Version: 2.4.1 (2025-7-30)" title="Direct link to Version: 2.4.1 (2025-7-30)">​</a></h3>
+<p>New Features (<code>RDK X5</code> platform):</p>
+<ul>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">MIPI image capture</a> supports <code>imx415</code> module.</li>
+<li><a href="/tros_doc/en/boxs/segmentation/mono_edgesam">EdgeSAM segment anything</a> algorithm adds <code>edgesam</code> for model inference; adds <code>nv12</code> format data input; adds padding for segmentation results for joint visualization in stereo depth use cases.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/reid">human instance tracking</a> algorithm, which extracts human features using the <code>reid</code> model and stores, manages, and queries features via an <code>SQlite</code> database.</li>
+<li>Added <a href="/tros_doc/en/boxs/spatial/dstereo_occupancy">stereo OCC</a> algorithm, integrating D-Robotics stereo <code>OCC</code> network.</li>
+<li><a href="/tros_doc/en/apps/hobot_llamacpp">Vision-language model</a> adds <code>smolvlm2</code> model support, with image replay and subscription modes; adds ability to output complete topics after <code>llm</code> model inference completes.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-240-2025-5-12">Version: 2.4.0 (2025-5-12)<a href="#version-240-2025-5-12" class="hash-link" aria-label="Direct link to Version: 2.4.0 (2025-5-12)" title="Direct link to Version: 2.4.0 (2025-5-12)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Support for <code>RDK S100</code> platform.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-233-2025-4-30">Version: 2.3.3 (2025-4-30)<a href="#version-233-2025-4-30" class="hash-link" aria-label="Direct link to Version: 2.3.3 (2025-4-30)" title="Direct link to Version: 2.3.3 (2025-4-30)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Support for <code>RDK X5 Module</code> platform.</li>
+<li>Added <a href="/tros_doc/en/boxs/audio/sensevoice_ros2">ASR open-source solution</a> based on <code>sensevoice_cpp</code>, supporting command word and ASR data publishing.</li>
+<li><a href="/tros_doc/en/boxs/spatial/hobot_stereonet">Stereo depth estimation algorithm</a> optimizes post-processing time; added V2.3 model version.</li>
+<li>Added on-device <a href="/tros_doc/en/apps/hobot_llamacpp">vision-language model</a> algorithm example based on <code>llama.cpp</code>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-232-2025-1-15">Version: 2.3.2 (2025-1-15)<a href="#version-232-2025-1-15" class="hash-link" aria-label="Direct link to Version: 2.3.2 (2025-1-15)" title="Direct link to Version: 2.3.2 (2025-1-15)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li><a href="/tros_doc/en/boxs/spatial/hobot_stereonet">Stereo depth estimation algorithm</a> updated stereo model to improve depth estimation quality.</li>
+<li><a href="/tros_doc/en/apps/video_boxs">Multi-channel video analysis</a> algorithm application example: optimized processing pipeline and WEB visualization.</li>
+<li><a href="https://github.com/D-Robotics/hobot_stereonet_utils" target="_blank" rel="noopener noreferrer">Stereo utility package</a> removed launch files that could not start.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Added <a href="/tros_doc/en/quick_demo/demo_sensor">ZED camera image capture</a> to launch ZED camera for stereo images as input to stereo depth estimation algorithm.</li>
+<li>Added <a href="/tros_doc/en/boxs/detection/hobot_dosod">DOSOD algorithm</a>, D-Robotics open-vocabulary detection DOSOD on-device deployment package.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fixed crash in <a href="/tros_doc/en/boxs/segmentation/yolov8_seg">yolov8-seg image segmentation</a> algorithm post-processing caused by out-of-bounds boxes.</li>
+<li><a href="/tros_doc/en/quick_demo/hobot_codec">Image codec</a> fixed incorrect frame rate statistics.</li>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">Stereo MIPI image capture</a> fixed i2c detection issue; added lpwm switch configuration.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-231-2024-11-20">Version: 2.3.1 (2024-11-20)<a href="#version-231-2024-11-20" class="hash-link" aria-label="Direct link to Version: 2.3.1 (2024-11-20)" title="Direct link to Version: 2.3.1 (2024-11-20)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>Upgraded dependent <code>opencv</code> version from 3.4.5 to 4.5.4 (latest release version used on Ubuntu 22.04).</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li><a href="/tros_doc/en/quick_demo/demo_tool">Tools</a> support publishing <code>bgr/rgb</code> format message data; support configuring frame_id for published messages.</li>
+<li><a href="/tros_doc/en/boxs/body/mono2d_body_detection">Human detection and tracking algorithm</a> supports configuring subscribed message topics; supports component mode; pre-processing supports scaling input images before inference; launch scripts support compressed image replay with configurable image paths.</li>
+<li><a href="https://github.com/D-Robotics/hobot_dnn.git" target="_blank" rel="noopener noreferrer">On-board algorithm model inference and deployment framework</a> fixed incorrect inference latency calculation in multi-threaded inference; supports configuring task count in configuration files.</li>
+<li><a href="/tros_doc/en/quick_demo/hobot_codec">Image codec</a> uses frame_id from subscribed image messages as output image message frame_id; supports publish frame drop control.</li>
+<li><a href="/tros_doc/en/boxs/body/hand_gesture_detection">Gesture recognition algorithm</a> supports configuring post-processing thresholds at startup; supports dynamic gesture recognition.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/mono_face_age_detection">face age detection algorithm</a> for detecting human age.</li>
+<li>Added <a href="/tros_doc/en/boxs/body/mono_face_landmarks_detection">face 106 keypoint detection algorithm</a> for detecting 106 facial keypoints.</li>
+<li>Added <a href="https://github.com/D-Robotics/tros_perception_fusion" target="_blank" rel="noopener noreferrer">perception message fusion Node</a> to subscribe to multiple <a href="https://github.com/D-Robotics/hobot_msgs/blob/develop/ai_msgs/msg/PerceptionTargets.msg" target="_blank" rel="noopener noreferrer">PerceptionTargets</a> topics, perform time alignment and deduplication, then fuse and publish as a single topic. See <a href="/tros_doc/en/quick_demo/ai_predict">multi-algorithm inference</a> for application reference.</li>
+<li>Added <a href="https://github.com/D-Robotics/tros_lowpass_filter" target="_blank" rel="noopener noreferrer">perception message filter Node</a> using OneEuroFilter strategy to smooth points and boxes, correcting positions of human, face, hand detection boxes and keypoints in perception results to fix jitter. See <a href="/tros_doc/en/quick_demo/ai_predict">multi-algorithm inference</a> for application reference.</li>
+<li>Added <a href="https://github.com/D-Robotics/hobot_stereonet_utils" target="_blank" rel="noopener noreferrer">stereo utility package</a> for capturing stereo and depth images.</li>
+<li>Added <a href="/tros_doc/en/apps/video_boxs">multi-channel video analysis</a> algorithm application example that pulls multiple h264 and h265 streams via rtsp protocol for inference and visualizes perception results on the WEB.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li><a href="/tros_doc/en/quick_demo/demo_sensor">MIPI image capture</a> fixed <code>imx219</code> module startup failure.</li>
+<li><a href="/tros_doc/en/boxs/body/hand_lmk_detection">Hand keypoint detection algorithm</a> pre-processing adds hand box expansion to fix incorrect keypoint output.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-230-2024-09-19">Version: 2.3.0 (2024-09-19)<a href="#version-230-2024-09-19" class="hash-link" aria-label="Direct link to Version: 2.3.0 (2024-09-19)" title="Direct link to Version: 2.3.0 (2024-09-19)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Support for <code>RDK X5</code> platform.</li>
+<li>Data acquisition adds <a href="/tros_doc/en/quick_demo/demo_sensor">stereo MIPI image capture</a> capability.</li>
+<li>Algorithm repository adds <code>yolov8</code> and <code>yolov10</code> <a href="/tros_doc/en/boxs/detection/yolo">object detection</a>, <code>yolov8-seg</code> <a href="/tros_doc/en/boxs/segmentation/yolov8_seg">image segmentation</a> reference algorithms.</li>
+<li>Algorithm repository adds <a href="/tros_doc/en/boxs/detection/hobot_yolo_world">YOLO-World algorithm</a> for open-vocabulary input detection.</li>
+<li>Algorithm repository adds <a href="/tros_doc/en/boxs/function/mono_pwcnet">optical flow estimation algorithm</a> for optical flow detection.</li>
+<li>Algorithm repository adds <a href="/tros_doc/en/boxs/segmentation/mono_mobilesam">segment anything algorithm</a> for universal segmentation.</li>
+<li>Algorithm repository adds <a href="/tros_doc/en/boxs/function/hobot_clip">text-image feature retrieval algorithm</a> for text-image feature extraction and retrieval.</li>
+<li>Algorithm repository adds <a href="/tros_doc/en/boxs/spatial/hobot_stereonet">stereo depth estimation algorithm</a> implementing vision-based depth estimation.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-220-2024-04-11">Version: 2.2.0 (2024-04-11)<a href="#version-220-2024-04-11" class="hash-link" aria-label="Direct link to Version: 2.2.0 (2024-04-11)" title="Direct link to Version: 2.2.0 (2024-04-11)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>Based on TROS Foxy 2.1.3, adapted to Ubuntu 22.04 and ROS2 Humble.</li>
+<li>TROS installation path changed from <code>/opt/tros</code> to <code>/opt/tros/humble</code>, consistent with ROS2 installation path hierarchy and naming.</li>
+<li>No longer provides <code>tros-ros-base</code> package (includes rclcpp, rclpy, ros2cli and other ROS2 base packages); uses standard ROS2 distribution packages; installing TROS Humble automatically installs dependent ROS2 Humble.</li>
+<li>Uses ROS2 fastdds zero-copy communication for modules involving image data such as data acquisition, image codec, and algorithm examples.</li>
+<li>Zero-copy communication QoS Reliability changed from <code>RMW_QOS_POLICY_RELIABILITY_RELIABLE</code> (rclcpp::QoS()) to <code>RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT</code> (rclcpp::SensorDataQoS()) to avoid potential stability risks when using zero-copy.</li>
+<li>Refactored <code>hobot_dnn</code> to use lower-level on-board inference framework <code>libdnn</code> instead of <code>easydnn</code>.</li>
+<li><code>hobot_audio</code> upgraded speech algorithm SDK to use lower-level on-board inference framework <code>libdnn</code> instead of <code>easydnn</code>.</li>
+<li><code>hobot_trigger</code> adapted to ROS2 Humble version rosbag2.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li><code>robot_dev_config</code> added bloom build and packaging scripts for ARM platform TROS compilation and packaging.</li>
+<li><code>hobot_mipi_cam</code> node added frame_ts_type configuration option, supporting realtime (for communication latency calculation) and sensor (default, for sensor timestamp synchronization) parameters.</li>
+<li>Added <code>hobot_shm</code> node for configuring ROS2 zero-copy environment.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fixed compatibility issues introduced by compiler upgrade.</li>
+<li>Fixed path dependency issues in some ROS2 pkg on-board compilation.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tros-foxy">tros-foxy<a href="#tros-foxy" class="hash-link" aria-label="Direct link to tros-foxy" title="Direct link to tros-foxy">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-213-2024-03-11">Version: 2.1.3 (2024-03-11)<a href="#version-213-2024-03-11" class="hash-link" aria-label="Direct link to Version: 2.1.3 (2024-03-11)" title="Direct link to Version: 2.1.3 (2024-03-11)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>JPEG compressed image data type changed from <code>sensor_msgs::msg::Image</code> to standard <code>sensor_msgs::msg::CompressedImage</code>, enabling tools such as foxglove and ros2 rqt to view TROS-published JPEG images. Affects hobot_websocket, hobot_codec, hobot_image_publisher, hobot_usb_cam modules.</li>
+<li>Unified use of jpeg/mjpeg configuration options for publishing/subscribing JPEG compressed images; removed jpeg-compressed/mjpeg-compressed configuration options. Affects hobot_codec and hobot_usb_cam modules.</li>
+<li>Introduced TROS_DISTRO environment variable to indicate TROS distribution. After running <code>source /opt/tros/setup.bash</code>/<code>source /opt/tros/local_setup.bash</code>, the <code>TROS_DISTRO</code> environment variable is empty. Configuration file paths for hobot_codec, hobot_audio, hobot_mipi_cam, hobot_usb_cam and other modules changed from <code>/opt/tros/lib</code> to <code>/opt/tros/${TROS_DISTRO}/lib</code>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-212-2024-01-19">Version: 2.1.2 (2024-01-19)<a href="#version-212-2024-01-19" class="hash-link" aria-label="Direct link to Version: 2.1.2 (2024-01-19)" title="Direct link to Version: 2.1.2 (2024-01-19)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Refactored <code>hobot_usb_cam</code> with support for more format configurations and transcoding.</li>
+<li><code>hobot_audio</code> updated speech SDK, supporting both 2mic and 4mic microphone boards; added micphone_name configuration for device ID.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li><code>hobot_rgbd_cam</code> node fixed incorrect step field in sent data messages.</li>
+<li><code>hobot_tts</code> updated audio playback function calls to fix playback failures on newer system versions.</li>
+<li><code>hobot_llm</code> removed config device tree file and updated README; newer system versions can set ION memory size via command-line tools.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-211-2023-11-03">Version: 2.1.1 (2023-11-03)<a href="#version-211-2023-11-03" class="hash-link" aria-label="Direct link to Version: 2.1.1 (2023-11-03)" title="Direct link to Version: 2.1.1 (2023-11-03)">​</a></h3>
+<p>New Features:</p>
+<ul>
+<li>Added <code>hobot_chatbot</code> node that invokes intelligent speech, large language model, and text-to-speech modules to enable on-board voice chat.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Text-to-speech <code>hobot_tts</code> node fixed application exit caused by certain characters.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-210-2023-09-14">Version: 2.1.0 (2023-09-14)<a href="#version-210-2023-09-14" class="hash-link" aria-label="Direct link to Version: 2.1.0 (2023-09-14)" title="Direct link to Version: 2.1.0 (2023-09-14)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li><code>tros-ros-base</code> updated to latest ROS2 foxy source, compatible with latest ROS2 foxy packages.</li>
+<li>Using ROS2 foxy packages only requires <code>source /opt/tros/setup.bash</code>; no longer need scripts to create symlinks.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Text-to-speech <code>hobot_tts</code> node added parameter to specify audio playback device.</li>
+<li>Added large language model <code>hobot_llm</code> node for on-device LLM experience.</li>
+<li>Image codec <code>hobot_codec</code> node configuration parameter <code>in_format</code> added <code>jpeg-compressed</code> option; subscribes to topic data type based on configuration option.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>MIPI image capture <code>hobot_mipi_cam</code> node fixed incorrect step field in RGB format data messages.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-202-2023-08-28">Version: 2.0.2 (2023-08-28)<a href="#version-202-2023-08-28" class="hash-link" aria-label="Direct link to Version: 2.0.2 (2023-08-28)" title="Direct link to Version: 2.0.2 (2023-08-28)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>ROS2 source configured during tros.b installation (<code>/etc/apt/sources.list.d/ros2.list</code>) changed to Tsinghua mirror, fixing slow and failed ROS2 package installation.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Added permission check when tros.b startup scripts configure the environment (<code>source /opt/tros/setup.bash</code> and <code>source /opt/tros/local_setup.bash</code>). If the current account lacks root permissions, automatically enters the process to switch to root account, fixing tros.b usage failures due to insufficient permissions.</li>
+<li>Intelligent speech algorithm <code>hobot_audio</code> node added audio device number parameter configuration for easier secondary development.</li>
+<li>Event trigger <code>hobot_trigger</code> node added ability to assign tasks to Trigger module via std_msg topics, standardizing Trigger configuration.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fixed image acceleration processing <code>hobot_cv</code> node failure when performing crop&amp;resize simultaneously.</li>
+<li>Fixed MIPI image capture <code>hobot_mipi_cam</code> node error log output at startup.</li>
+<li>Fixed invalid launch file configuration for data visualization message conversion <code>hobot_visualization</code> node.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-20-release-201-2023-06-10">Version: 2.0-Release (2.0.1) (2023-06-10)<a href="#version-20-release-201-2023-06-10" class="hash-link" aria-label="Direct link to Version: 2.0-Release (2.0.1) (2023-06-10)" title="Direct link to Version: 2.0-Release (2.0.1) (2023-06-10)">​</a></h3>
+<p>Changes:</p>
+<ul>
+<li>Upgraded speech algorithm to optimize ASR (Automatic Speech Recognition) performance.</li>
+<li>Optimized algorithm example <code>model_name</code> configuration option to automatically parse <code>model_name</code> from model files, fixing model loading failures caused by incorrect parameter configuration and improving ease of secondary development.</li>
+<li>tros.b installation package no longer includes nav2 packages; users install the latest ROS2 nav2 packages directly on RDK via apt, fixing stability issues in older nav2 versions.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Added <code>hobot_trigger</code> and <code>hobot_visalization</code> nodes for Trigger event triggering, rosbag data acquisition and visualization, helping users locate, reproduce, and visualize perception, planning, and control issues in robot scenarios. Users can also develop data triggering, recording, and real-time transmission capabilities.</li>
+<li>USB image capture node auto-adapts USB camera device numbers, lowering the barrier for USB camera usage.</li>
+<li>Added Visual Inertial Odometry (VIO) algorithm node for low-cost, robust, high-precision robot localization based on vision.</li>
+<li>Added text-to-speech <code>hobot_tts</code> node to convert text to speech for playback.</li>
+<li>Added LiDAR object detection algorithm <code>hobot_centerpoint</code> node.</li>
+<li>Added BEV perception algorithm <code>hobot_bev</code> node.</li>
+<li>Added stereo depth estimation algorithm <code>hobot_stereonet</code> node.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Upgraded <code>RDK X3</code> easydnn (version 1.6.1) and dnn (version 1.18.4), fixing operator crash issues and supporting more operators.</li>
+<li>Fixed incorrect depth data published by RGBD image capture node.</li>
+</ul>
+<p>Other Updates:</p>
+<ul>
+<li>Optimized human detection and tracking algorithm node to adapt output perception result coordinates based on input image resolution.</li>
+<li>Fixed orb_slam3 algorithm compilation failure caused by incorrect compilation script path.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version-20-beta-200-2023-05-29">Version: 2.0-Beta (2.0.0) (2023-05-29)<a href="#version-20-beta-200-2023-05-29" class="hash-link" aria-label="Direct link to Version: 2.0-Beta (2.0.0) (2023-05-29)" title="Direct link to Version: 2.0-Beta (2.0.0) (2023-05-29)">​</a></h3>
+<p>2.0-Beta (2.0.0) is the first 2.x version of tros.b. Users of <a href="https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html" target="_blank" rel="noopener noreferrer">tros.b 1.x</a> are recommended to upgrade to 2.x.</p>
+<p>Changes:</p>
+<ul>
+<li>Code hosting platform moved from Gitlab to GitHub for easier secondary development by more developers.</li>
+<li>Integrated more efficient package management to speed up version upgrades and simplify robot application installation.</li>
+</ul>
+<p>New Features:</p>
+<ul>
+<li>Support for the new RDK X3 Module core board development kit.</li>
+<li>hobot_audio added ASR recognition result output for voice application development.</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fixed dnn_node built-in MobileNet_SSD model post-processing crash in multi-threaded scenarios.</li>
+<li>Fixed dnn_node DDR input model inference failure on X86 platform</li>
+<li>Fixed hobot_codec and hobot_image_publisher compilation failures on X86 platform.</li>
+</ul>
+<p>Other Updates:</p>
+<ul>
+<li>Updated example launch scripts to reference dependent module launch scripts and configure parameters.</li>
+<li>websocket updated display-side D-Robotics logo.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-06-23T03:20:45.000Z" itemprop="dateModified">Jun 23, 2026</time></b></span></div></div></footer></article><nav class="pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tros_doc/en/quick_start/ros_pkg"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">1.5 Using ROS2 Packages</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tros_doc/en/quick_demo/demo_sensor"><div class="pagination-nav__sublabel">Next </div><div class="pagination-nav__label">2.1 Data Acquisition</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#tros-jazzy" class="table-of-contents__link toc-highlight">tros-jazzy</a><ul><li><a href="#version-254-2026-05-19" class="table-of-contents__link toc-highlight">Version: 2.5.4 (2026-05-19)</a></li><li><a href="#version-253-2026-05-08" class="table-of-contents__link toc-highlight">Version: 2.5.3 (2026-05-08)</a></li><li><a href="#version-251-2026-03-10" class="table-of-contents__link toc-highlight">Version: 2.5.1 (2026-03-10)</a></li><li><a href="#version-250-2025-12-02" class="table-of-contents__link toc-highlight">Version: 2.5.0 (2025-12-02)</a></li></ul></li><li><a href="#tros-humble" class="table-of-contents__link toc-highlight">tros-humble</a><ul><li><a href="#version-253-2026-05-08-1" class="table-of-contents__link toc-highlight">Version: 2.5.3 (2026-05-08)</a></li><li><a href="#version-252-2026-03-17" class="table-of-contents__link toc-highlight">Version: 2.5.2 (2026-03-17)</a></li><li><a href="#version-246-2026-02-02" class="table-of-contents__link toc-highlight">Version: 2.4.6 (2026-02-02)</a></li><li><a href="#version-245-2025-10-28" class="table-of-contents__link toc-highlight">Version: 2.4.5 (2025-10-28)</a></li><li><a href="#version-244-2025-10-24" class="table-of-contents__link toc-highlight">Version: 2.4.4 (2025-10-24)</a></li><li><a href="#version-243-2025-9-15" class="table-of-contents__link toc-highlight">Version: 2.4.3 (2025-9-15)</a></li><li><a href="#version-242-2025-8-29" class="table-of-contents__link toc-highlight">Version: 2.4.2 (2025-8-29)</a></li><li><a href="#version-241-2025-7-30" class="table-of-contents__link toc-highlight">Version: 2.4.1 (2025-7-30)</a></li><li><a href="#version-240-2025-5-12" class="table-of-contents__link toc-highlight">Version: 2.4.0 (2025-5-12)</a></li><li><a href="#version-233-2025-4-30" class="table-of-contents__link toc-highlight">Version: 2.3.3 (2025-4-30)</a></li><li><a href="#version-232-2025-1-15" class="table-of-contents__link toc-highlight">Version: 2.3.2 (2025-1-15)</a></li><li><a href="#version-231-2024-11-20" class="table-of-contents__link toc-highlight">Version: 2.3.1 (2024-11-20)</a></li><li><a href="#version-230-2024-09-19" class="table-of-contents__link toc-highlight">Version: 2.3.0 (2024-09-19)</a></li><li><a href="#version-220-2024-04-11" class="table-of-contents__link toc-highlight">Version: 2.2.0 (2024-04-11)</a></li></ul></li><li><a href="#tros-foxy" class="table-of-contents__link toc-highlight">tros-foxy</a><ul><li><a href="#version-213-2024-03-11" class="table-of-contents__link toc-highlight">Version: 2.1.3 (2024-03-11)</a></li><li><a href="#version-212-2024-01-19" class="table-of-contents__link toc-highlight">Version: 2.1.2 (2024-01-19)</a></li><li><a href="#version-211-2023-11-03" class="table-of-contents__link toc-highlight">Version: 2.1.1 (2023-11-03)</a></li><li><a href="#version-210-2023-09-14" class="table-of-contents__link toc-highlight">Version: 2.1.0 (2023-09-14)</a></li><li><a href="#version-202-2023-08-28" class="table-of-contents__link toc-highlight">Version: 2.0.2 (2023-08-28)</a></li><li><a href="#version-20-release-201-2023-06-10" class="table-of-contents__link toc-highlight">Version: 2.0-Release (2.0.1) (2023-06-10)</a></li><li><a href="#version-20-beta-200-2023-05-29" class="table-of-contents__link toc-highlight">Version: 2.0-Beta (2.0.0) (2023-05-29)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Links</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.guyuehome.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GuYueHome<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Contact US</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.youtube.com/@D-Robotics" target="_blank" rel="noopener noreferrer" class="footer__link-item">Youtube<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024-2026 D-Robotics.</div></div></div></footer></div>
+</body>
+</html>
