@@ -23,7 +23,7 @@ import DocScope from '@site/src/components/DocScope';
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -91,6 +91,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+   </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
    </TabItem>
@@ -181,6 +189,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -253,6 +269,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -343,6 +367,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -404,6 +436,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -475,6 +515,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -831,6 +879,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -861,7 +917,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 | 平台   | 运行方式      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
-| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
+| RDK 100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
@@ -924,6 +980,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
         ```bash
         # 配置tros.b环境
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -1004,6 +1068,14 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
         ```bash
         # 配置tros.b环境
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # 配置tros.b环境
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>

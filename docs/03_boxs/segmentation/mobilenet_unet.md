@@ -27,7 +27,7 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| RDK S100, RDK S100P| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
+| RDK S100, RDK S100P| Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 | RDK S600| Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
 | X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 
@@ -129,6 +129,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -194,6 +202,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -266,6 +282,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -323,6 +347,14 @@ source /opt/tros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

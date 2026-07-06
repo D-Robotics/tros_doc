@@ -27,7 +27,7 @@ Application scenarios: Obstacle segmentation combined with bounding boxes, water
 | Platform | Operating Environment | Example Features |
 | -------- | -------------------- | ----------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local image injection, inference rendering results displayed on the web/saved locally |
 
 ## Algorithm Information
@@ -101,6 +101,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -162,6 +170,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -220,6 +236,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

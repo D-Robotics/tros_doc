@@ -27,7 +27,7 @@ Application scenarios: Human tracking, human instance detection.
 | Platform                  | Runtime Environment     | Example Functionality                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback, display inference rendering results on Web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback, display inference rendering results on Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback, display inference rendering results on Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback, display inference rendering results on Web |
 
 ## Algorithm Info
@@ -102,6 +102,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -168,6 +176,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -230,6 +246,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

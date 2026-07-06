@@ -32,7 +32,7 @@ Application scenarios: EdgeTAM can continuously track and segment arbitrary targ
 
 | Platform                     | Runtime Environment     | Example Functionality                                                 |
 | ------------------------ | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
 
 ## Algorithm Info
 
@@ -103,6 +103,20 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -127,6 +141,20 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Launch launch file
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -142,6 +170,20 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 ```shell
 # Configure ROS2 environment
 source /opt/tros/humble/setup.bash
+
+# Configure feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mode:=0
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
 
 # Configure feedback image
 export CAM_TYPE=fb
@@ -203,6 +245,20 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -227,6 +283,20 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Launch launch file
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -242,6 +312,20 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 ```shell
 # Configure ROS2 environment
 source /opt/tros/humble/setup.bash
+
+# Configure feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite_features:=0
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
 
 # Configure feedback image
 export CAM_TYPE=fb
@@ -298,6 +382,14 @@ While the node is running, you can dynamically modify prompt boxes/points by pub
 ```shell
 # Configure ROS2 environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+# Configure ROS2 environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

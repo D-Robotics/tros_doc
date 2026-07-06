@@ -31,7 +31,7 @@ YOLO目标检测算法示例使用图片作为输入，利用BPU进行算法推�
 | --------------------- | ------------ | -------------------- | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | yolov2/yolov3/yolov5 | · 启动MIPI/USB摄像头，并通过web展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | X86                   | Ubuntu 20.04 (Foxy) | yolov2/yolov3        | · 使用本地回灌，渲染结果保存在本地                           |
 
@@ -150,6 +150,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -220,6 +228,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -286,6 +302,14 @@ source /opt/tros/jazyy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

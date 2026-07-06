@@ -25,7 +25,7 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 | Platform   | Runtime Environment     | Example Functionality                           |
 | ------ | ------------ | ---------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start the audio module algorithm and display results in the terminal |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start the audio module algorithm and display results in the terminal |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start the audio module algorithm and display results in the terminal |
 
 ## Preparation
@@ -61,6 +61,13 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 
       ```bash
       source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      source /opt/tros/jazzy/setup.bash
       ```
       
        </TabItem>
@@ -173,6 +180,18 @@ Run the sensevoice_ros2 package on the RDK board:
    # Configure tros.b environment
    
    source /opt/tros/humble/setup.bash
+
+   # Launch launch file
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # Configure tros.b environment
+   
+   source /opt/tros/jazzy/setup.bash
 
    # Launch launch file
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"

@@ -36,7 +36,8 @@ Code repositories:
 | Platform    | Runtime Environment      |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Prerequisites
@@ -113,6 +114,13 @@ Code repositories:
       ```bash
       sudo apt update
       sudo apt install tros-humble-performance-test
+      ```
+      </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-jazzy-performance-test
       ```
       </TabItem>
 
@@ -205,6 +213,14 @@ Code repositories:
 
      ```bash
      source /opt/tros/humble/setup.bash
+     ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+ </TabItem>
+  <TabItem value="jazzy" label="Jazzy">
+
+     ```bash
+     source /opt/tros/jazzy/setup.bash
      ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
      ```
 
@@ -317,6 +333,18 @@ Code repositories:
      source /opt/tros/humble/setup.bash
      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
      export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+     export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+     export ROS_DISABLE_LOANED_MESSAGES=0
+     ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+     ```
+
+ </TabItem>
+  <TabItem value="jazzy" label="Jazzy">
+
+     ```bash
+     source /opt/tros/jazzy/setup.bash
+     export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+     export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
      export ROS_DISABLE_LOANED_MESSAGES=0
      ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30

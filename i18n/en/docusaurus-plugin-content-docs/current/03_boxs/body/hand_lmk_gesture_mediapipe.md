@@ -46,7 +46,7 @@ Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_con
 | Platform                             | Runtime Environment     | Example Functionality                                        |
 | -------------------------------- | ------------ | ----------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera and display inference rendering results via Web |
 
 ## Algorithm Info
 
@@ -125,6 +125,15 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -178,6 +187,15 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -227,6 +245,15 @@ source /opt/tros/humble/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 

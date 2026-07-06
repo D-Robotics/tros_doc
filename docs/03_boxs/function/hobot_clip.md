@@ -38,7 +38,7 @@ import DocScope from '@site/src/components/DocScope';
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动CLIP 入库/检索, 入库结果保存在本地/检索结果显示在Web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动CLIP 入库/检索, 入库结果保存在本地/检索结果显示在Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | · 启动CLIP 入库/检索, 入库结果保存在本地/检索结果显示在Web |
 
 ## 算法信息
 

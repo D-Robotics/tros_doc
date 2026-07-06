@@ -23,7 +23,8 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 | Platform    | Runtime Environment      | Example Function                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
-| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI camera and display images via Web |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
 | X86     | Ubuntu 20.04 (Foxy) | Start USB camera and display images via Web |
 
@@ -93,6 +94,14 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -156,6 +165,14 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
       ```bash
       # Configure tros.b environment
       source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
       ```
 
       </TabItem>
@@ -223,6 +240,14 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
       ```bash
       # Configure tros.b environment
       source /opt/tros/humble/setup.bash
+      ```
+
+      </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
       ```
 
       </TabItem>
@@ -389,7 +414,8 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 | Platform    | Runtime Environment      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 ### Prerequisites
 
@@ -471,6 +497,14 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -548,6 +582,14 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -620,6 +662,13 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
    ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -665,7 +714,8 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 | Platform    | Runtime Environment      |
 | ------- | ------------- |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Prerequisites
@@ -748,6 +798,14 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -814,6 +872,14 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
       ```
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # Configure tros.b environment
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -874,6 +940,12 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
    source /opt/tros/humble/setup.bash
    ```
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   source /opt/tros/jazzy/setup.bash
+   ```
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -921,7 +993,8 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 | Platform    | Runtime Environment      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -984,6 +1057,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -1053,6 +1134,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

@@ -30,7 +30,7 @@ Fall detection case: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-an
 | --------------------- | ----------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5                    | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)   | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)   | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
 | RDK S600              | Ubuntu 24.04 (Jazzy)    | yolov2/yolov3/yolov5                    | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
 | X86                   | Ubuntu 20.04 (Foxy)     | yolov2/yolov3                           | · Use local image injection and save rendered results locally                                                                                   |
 
@@ -145,6 +145,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -214,6 +222,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -280,6 +296,14 @@ source /opt/tros/jazyy/setup.bash
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

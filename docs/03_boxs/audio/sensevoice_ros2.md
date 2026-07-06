@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 | 平台   | 运行方式     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动音频模块算法，并在终端显示结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动音频模块算法，并在终端显示结果 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动音频模块算法，并在终端显示结果 |
 
 ## 准备工作
@@ -61,6 +61,13 @@ import DocScope from '@site/src/components/DocScope';
 
       ```bash
       source /opt/tros/humble/setup.bash
+      ```
+      
+       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      source /opt/tros/jazzy/setup.bash
       ```
       
        </TabItem>
@@ -165,6 +172,18 @@ RDK板端运行sensevoice_ros2 package：
    # 配置tros.b环境
    
    source /opt/tros/humble/setup.bash
+
+   #启动launch文件
+   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
+   ```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   # 配置tros.b环境
+   
+   source /opt/tros/jazzy/setup.bash
 
    #启动launch文件
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"

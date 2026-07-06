@@ -38,7 +38,7 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 | RDK S600 | Ubuntu 24.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 算法信息
@@ -87,6 +87,23 @@ import DocScope from '@site/src/components/DocScope';
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
@@ -149,6 +166,23 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -187,6 +221,24 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+
+# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# 配置本地回灌图片
+export CAM_TYPE=fb
+
+# 启动launch文件
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .

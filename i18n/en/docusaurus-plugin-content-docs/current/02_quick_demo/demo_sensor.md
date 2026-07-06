@@ -23,7 +23,7 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -92,6 +92,14 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+       </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
        </TabItem>
@@ -185,6 +193,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -260,6 +276,14 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -353,6 +377,14 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -417,6 +449,14 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -491,6 +531,14 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -866,6 +914,14 @@ The following describes how to acquire and preview camera data:
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -897,7 +953,7 @@ Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://gith
 | Platform   | Runtime Environment      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
-| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
+| RDK 100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Preparation
@@ -960,6 +1016,14 @@ The following uses SC230ai as an example to describe how to acquire and preview 
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -1040,6 +1104,14 @@ The following uses SC230ai as an example to describe how to acquire and preview 
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>

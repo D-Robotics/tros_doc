@@ -22,7 +22,7 @@ SLAM-Toolbox runs on the RDK, while Gazebo and Rviz2 run on a PC that is on the 
 | -------- | ---------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ## Preparation
@@ -73,6 +73,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -182,6 +190,14 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04 system and [ROS2 Humble Desktop](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04 system and [ROS2 Jazzy Desktop](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -253,6 +269,13 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -316,6 +339,13 @@ source /opt/ros/jazzy/setup.bash
 
 ```bash
 source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -384,6 +414,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -444,6 +482,14 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 
 ```bash
 source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 

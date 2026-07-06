@@ -27,7 +27,7 @@ import DocScope from '@site/src/components/DocScope';
 |-----------------------|-----------------------|
 | RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ## 准备工作
@@ -120,6 +120,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -188,6 +196,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

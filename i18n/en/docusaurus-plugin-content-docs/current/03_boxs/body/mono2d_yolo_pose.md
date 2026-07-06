@@ -38,7 +38,7 @@ Game character control example based on body pose analysis and gesture recogniti
 
 | Platform                             | Runtime Environment     | Example Functionality                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
 | RDK S600 | Ubuntu 24.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
 
 ## Algorithm Info
@@ -86,6 +86,23 @@ The body detection and tracking (mono2d_body_detection) package subscribes to im
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 
 # Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
@@ -148,6 +165,23 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type:=1 kps_image_width:=1920 kps_image_height:=1080 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -186,6 +220,24 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py kps_model_type
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+
+# Copy the configuration files required to run the example from the tros.b installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
+
+# Configure local feedback image
+export CAM_TYPE=fb
+
+# Launch launch file
+ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg kps_model_type:=1 kps_image_width:=640 kps_image_height:=640 kps_model_file_name:=config/yolo11x_pose_nashe_640x640_nv12.hbm
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 
 # Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .

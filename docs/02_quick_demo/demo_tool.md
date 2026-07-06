@@ -27,7 +27,8 @@ import DocScope from '@site/src/components/DocScope';
 | 平台    | 运行方式     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -94,6 +95,13 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 </TabItem>
 </Tabs>
@@ -183,6 +191,13 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 </TabItem>
 </Tabs>

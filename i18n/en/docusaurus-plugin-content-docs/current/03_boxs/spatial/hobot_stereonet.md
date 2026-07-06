@@ -28,7 +28,7 @@ Stereo algorithm tutorial: [Live Replay | RDK X5 AI Stereo Algorithm Deployment]
 | Platform                  | System Support              | Example Features                                    |
 | --------------------- | --------------------- | ------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start stereo camera, infer depth results, and display on Web |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | Start stereo camera, infer depth results, and display on Web |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start stereo camera, infer depth results, and display on Web |
 
 ## 3. Model Versions
 

@@ -22,7 +22,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 | ------- | ------------ | ------------------------------ |
 | RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Subscribe to text messages, convert them to speech data, and play them |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Subscribe to text messages, convert them to speech data, and play them |
 
 **Note: Only RDK X3 is supported; RDK X3 Module is not supported. RDK S100/S600 only supports USB audio devices.**
@@ -99,6 +99,16 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
         sudo apt update
         sudo apt install tros-humble-hobot-tts
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        sudo apt update
+        sudo apt install tros-jazzy-hobot-tts
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -220,6 +230,14 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -288,6 +306,14 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     ```bash
     # Configure tros.b environment
     source /opt/tros/humble/setup.bash
+    ```
+
+  </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # Configure tros.b environment
+    source /opt/tros/jazzy/setup.bash
     ```
 
   </TabItem>

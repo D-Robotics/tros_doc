@@ -24,7 +24,7 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | 平台                  | 系统支持              | 示例功能                                                   |
 | --------------------- | --------------------- | ---------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，并通过Web展示双目图像，rviz2展示占用网格结果 |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble) | 启动双目相机，并通过Web展示双目图像，rviz2展示占用网格结果 |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动双目相机，并通过Web展示双目图像，rviz2展示占用网格结果 |
 
 ## 算法信息
 
@@ -107,6 +107,15 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -157,6 +166,15 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -203,6 +221,15 @@ source /opt/tros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 

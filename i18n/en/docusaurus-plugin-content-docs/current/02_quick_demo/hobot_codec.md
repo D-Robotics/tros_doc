@@ -21,7 +21,8 @@ Code repository: (https://github.com/D-Robotics/hobot_codec)
 | Platform    | Runtime Environment     | Example Function                       |
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI camera to capture images, encode them, and display via Web |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | Start MIPI camera to capture images, encode them, and display via Web |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI camera to capture images, encode them, and display via Web |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI camera to capture images, encode them, and display via Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera to capture images, encode them, and display via Web |
 | X86     | Ubuntu 20.04 (Foxy) | Use the image publisher tool to publish YUV images, encode them, and display via Web |
 
@@ -95,6 +96,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -161,6 +170,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -224,6 +241,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -301,6 +326,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -372,6 +405,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```
 
         </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
 
     </Tabs>
     </DocScope>
@@ -435,6 +476,14 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>

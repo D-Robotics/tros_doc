@@ -23,7 +23,7 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
 
 ## 算法信息
@@ -104,6 +104,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -165,6 +173,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -232,6 +248,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

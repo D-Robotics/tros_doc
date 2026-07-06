@@ -23,7 +23,8 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
-| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过Web展示图像 |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
 | X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
 
@@ -92,6 +93,14 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
    </Tabs>
    </DocScope>
 
@@ -152,6 +161,14 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -216,6 +233,14 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
+   ```
+
+   </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -386,7 +411,8 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 ### 准备工作
 
@@ -467,6 +493,14 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
    </Tabs>
    </DocScope>
 
@@ -541,6 +575,14 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
    </Tabs>
    </DocScope>
 
@@ -610,6 +652,13 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -653,7 +702,8 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 | 平台    | 运行方式      |
 | ------- | ------------- |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
@@ -735,6 +785,14 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
    </Tabs>
    </DocScope>
 
@@ -798,6 +856,14 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ```
 
    </TabItem>
+   <TabItem value="jazzy" label="Jazzy">
+
+   ```bash
+   # 配置tros.b环境
+   source /opt/tros/jazzy/setup.bash
+   ```
+
+   </TabItem>
    </Tabs>
    </DocScope>
 
@@ -855,6 +921,12 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    source /opt/tros/humble/setup.bash
    ```
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+   ```shell
+   source /opt/tros/jazzy/setup.bash
+   ```
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -900,7 +972,8 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 | 平台    | 运行方式      |
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -962,6 +1035,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -1028,6 +1109,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

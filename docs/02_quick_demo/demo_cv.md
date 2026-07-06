@@ -394,7 +394,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 | ------- | ------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) |
-| RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -452,6 +452,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -732,7 +740,8 @@ cpu占用为单核百分比，耗时统计单位为ms
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,bgr24之间的转换 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | nv12,bgr24之间的转换 |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | nv12,bgr24之间的转换 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | nv12,bgr24之间的转换 |
 
 ### 准备工作

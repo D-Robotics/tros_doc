@@ -21,7 +21,8 @@ import DocScope from '@site/src/components/DocScope';
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
 | X86     | Ubuntu 20.04 (Foxy) | 使用图像发布工具发布YUV图像，然后进行图像编码，最后通过Web展示 |
 
@@ -94,6 +95,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -157,6 +166,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -217,6 +234,14 @@ import DocScope from '@site/src/components/DocScope';
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -291,6 +316,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -359,6 +392,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -419,6 +460,14 @@ import DocScope from '@site/src/components/DocScope';
     ```bash
     # 配置tros.b环境
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>

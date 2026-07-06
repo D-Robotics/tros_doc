@@ -21,7 +21,7 @@ Code repository: (https://github.com/D-Robotics/hobot_xlm.git)
 
 | Platform                            | Runtime Environment     | Example Functionality           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | On-device large language model experience |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | On-device large language model experience |
 
 ## Algorithm Information
 
@@ -92,6 +92,15 @@ source /opt/tros/humble/setup.bash
 
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -126,6 +135,15 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # 配置tros.b环境
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -156,6 +174,15 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 
       </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # 配置tros.b环境
+      source /opt/tros/jazzy/setup.bash
+      ```
+
+
+      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -176,6 +203,15 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
       ```bash
       # 配置tros.b环境
       source /opt/tros/humble/setup.bash
+      ```
+
+
+      </TabItem>
+      <TabItem value="jazzy" label="Jazzy">
+
+      ```bash
+      # 配置tros.b环境
+      source /opt/tros/jazzy/setup.bash
       ```
 
 

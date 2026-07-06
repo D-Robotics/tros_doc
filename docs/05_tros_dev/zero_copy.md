@@ -81,6 +81,16 @@ source /opt/tros/humble/setup.bash
 使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -812,6 +822,21 @@ ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+# 运行talker node:
+ros2 run hbmem_pubsub talker
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -905,6 +930,20 @@ cd ~/dev_ws
 . install/setup.bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+export ROS_DISABLE_LOANED_MESSAGES=0
+ros2 run hbmem_pubsub listener
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
+cd ~/dev_ws
+. install/setup.bash
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
 ros2 run hbmem_pubsub listener

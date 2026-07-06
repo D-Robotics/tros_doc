@@ -28,7 +28,7 @@ Food type recognition example: https://github.com/frotms/Chinese-and-Western-Foo
 | -------- | -------------- | ----------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
 | X86 | Ubuntu 20.04 (Foxy) | · Use local image injection, rendering results saved locally |
 
@@ -129,6 +129,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -193,6 +201,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -262,6 +278,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

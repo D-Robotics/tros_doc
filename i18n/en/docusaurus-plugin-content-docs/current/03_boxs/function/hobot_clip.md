@@ -38,7 +38,7 @@ The project contains several nodes:
 | Platform                  | Runtime Environment     | Example Functionality                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start CLIP indexing/retrieval, save indexing results locally/display retrieval results on web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start CLIP indexing/retrieval, save indexing results locally/display retrieval results on web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | · Start CLIP indexing/retrieval, save indexing results locally/display retrieval results on web |
 
 ## Algorithm Information
 

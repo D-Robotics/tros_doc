@@ -27,7 +27,8 @@ Code repository: (https://github.com/D-Robotics/hobot_image_publisher.git)
 | Platform    | Runtime Environment     |
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 | X86     | Ubuntu 20.04 (Foxy) |
 
@@ -95,6 +96,13 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 </TabItem>
 
@@ -187,6 +195,13 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
+```
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 </TabItem>
 

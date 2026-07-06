@@ -23,7 +23,7 @@ Application scenarios: The powerful zero-shot detection capability of DOSOD give
 | Platform                             | Operating Mode     | Example Function                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local loopback and display inference rendering results via Web |
 
 ## Algorithm Information
@@ -103,6 +103,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -167,6 +175,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -228,6 +244,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure the tros.b environment
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

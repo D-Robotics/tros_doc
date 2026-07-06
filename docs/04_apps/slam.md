@@ -22,7 +22,7 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 | ------- | ------------ |
 | RDK X3, RDK X3 Module, | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 ## 准备工作
 
@@ -72,6 +72,14 @@ source /opt/tros/jazzy/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -179,6 +187,14 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -251,6 +267,13 @@ source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -315,6 +338,13 @@ source /opt/ros/jazzy/setup.bash
 
 ```bash
 source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -384,6 +414,14 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -445,6 +483,14 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 
 ```bash
 source /opt/ros/humble/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 

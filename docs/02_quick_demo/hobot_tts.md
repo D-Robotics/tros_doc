@@ -22,7 +22,7 @@ import DocScope from '@site/src/components/DocScope';
 | ------- | ------------ | ------------------------------ |
 | RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
 **注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100/S600只支持USB语音设备。**
@@ -98,6 +98,16 @@ import DocScope from '@site/src/components/DocScope';
     sudo apt update
     sudo apt install tros-humble-hobot-tts
     source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    sudo apt update
+    sudo apt install tros-jazzy-hobot-tts
+    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -208,6 +218,14 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
     </Tabs>
     </DocScope>
 
@@ -273,6 +291,14 @@ source /opt/tros/jazzy/setup.bash
   ```bash
   # 配置tros.b环境
   source /opt/tros/humble/setup.bash
+  ```
+
+  </TabItem>
+  <TabItem value="jazzy" label="Jazzy">
+
+  ```bash
+  # 配置tros.b环境
+  source /opt/tros/jazzy/setup.bash
   ```
 
   </TabItem>

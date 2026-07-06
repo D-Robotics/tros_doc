@@ -24,7 +24,7 @@ Nav2（Navigation2）是ROS2中自带的导航框架，旨在寻找一种安全�
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
 
 ## 准备工作
 
@@ -66,6 +66,14 @@ source /opt/tros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -138,6 +146,14 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -186,6 +202,13 @@ source /opt/ros/humble/setup.bash
 
 ```bash
 source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -244,6 +267,15 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 ```
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/jazzy/share/nav2_bringup/maps/turtlebot3_world.yaml
+```
+
+</TabItem>
 
 </Tabs>
 </DocScope>
@@ -280,6 +312,14 @@ source /opt/ros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
