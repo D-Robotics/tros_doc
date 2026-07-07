@@ -10,7 +10,7 @@ import DocScope from '@site/src/components/DocScope';
 
 TogetheROS.Bot是D-Robotics面向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
 
-TogetheROS.Bot支持在RDK平台上运行，同时提供模拟器版本在X86平台上运行。RDK平台涵盖下图所示的全部功能，X86平台支持以图片回灌方式体验部分功能，提高用户算法开发和验证效率，并能够快速迁移到RDK平台。
+TogetheROS.Bot运行在RDK平台上，涵盖下图所示的全部功能。
 
 ![TROS-Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png)
 
@@ -29,7 +29,6 @@ Communication是在ROS2 Foxy/Humble/Jazzy版本通信核心组件基础上进行
 - 提供“hobot_codec”软硬结合加速视频编解码，节省CPU资源，提升并行处理能力
 - 提供“hobot_cv”软硬结合提升常见CV算子性能，节省CPU资源，提升运行效率
 - 提供“hobot Render”Web端和HDMI动态可视化功能，实时渲染算法结果（仅限Web端），便于展示与调试
-- 增加“zero-copy”进程间零拷贝通信机制，降低数据传输时延，减少系统资源消耗
 - 丰富中间件软件调试以及性能调优工具，提升问题定位效率，方便系统性能优化
 - 与ROS2 Foxy/Humble/Jazzy版本接口保持完全兼容，便于复用ROS丰富工具包，加快原型验证
 - 支持最小化和模块化剪裁，方便根据需要部署在资源受限的嵌入式产品中
