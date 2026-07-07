@@ -371,7 +371,25 @@ struct Config {
 
 2. TogetheROS.Bot has been successfully installed on RDK.
 
-3. Install the package `apt install tros-humble-trigger-node-example`.
+3. Install the package
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+apt install tros-humble-trigger-node-example
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+apt install tros-jazzy-trigger-node-example
+```
+
+</TabItem>
+</Tabs>
 
 ### Usage
 

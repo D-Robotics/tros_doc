@@ -66,9 +66,15 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | tros-humble-hobot-stereonet功能包版本 | 2.5.0及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
 | tros-humble-mipi-cam功能包版本        | 2.3.13及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam功能包版本   | 2.3.3及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
+| tros-jazzy-hobot-stereonet功能包版本  | 2.5.0及以上      | `apt list \| grep tros-jazzy-hobot-stereonet/`  |
+| tros-jazzy-mipi-cam功能包版本         | 2.3.13及以上     | `apt list \| grep tros-jazzy-mipi-cam/`         |
+| tros-jazzy-hobot-zed-cam功能包版本    | 2.3.3及以上      | `apt list \| grep tros-jazzy-hobot-zed-cam/`    |
 
 - 如果系统镜像版本不符合要求，请参考文档对应章节进行镜像烧录
 - 如果功能包版本不符合要求，请执行以下指令进行更新：
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
@@ -76,6 +82,20 @@ sudo apt install --only-upgrade tros-humble-hobot-stereonet
 sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install --only-upgrade tros-jazzy-hobot-stereonet
+sudo apt install --only-upgrade tros-jazzy-mipi-cam
+sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
+```
+
+</TabItem>
+</Tabs>
 
 - 如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
 

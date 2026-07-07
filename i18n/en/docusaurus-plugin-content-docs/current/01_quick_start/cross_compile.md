@@ -106,6 +106,24 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker direct
 
 </TabItem>
 
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+## Create directory
+cd  /mnt/data/kairui.wang/test
+mkdir -p cc_ws/tros_ws/src
+## Get cross-compilation docker
+wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu24.04_v1.0.1.tar.gz
+## Load docker image
+sudo docker load --input pc_tros_ubuntu24.04_v1.0.1.tar.gz 
+## View image ID for pc_tros
+sudo docker images
+## Start docker with mounted directory
+sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker directory imageID, for example sudo docker run -it --entrypoint="/bin/bash" -v /mnt/data/kairui.wang/test:/mnt/test 4cbdb9d61e19
+```
+
+</TabItem>
+
 </Tabs>
 </DocScope>
 
@@ -197,6 +215,21 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 cd /mnt/test/cc_ws/tros_ws
 ## Get configuration files
 git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
+## Run cd robot_dev_config, use git tag --list to view available release versions
+## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
+## Pull code
+vcs-import src < ./robot_dev_config/ros2_release.repos 
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+
+```shell
+cd /mnt/test/cc_ws/tros_ws
+## Get configuration files
+git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
 ## Run cd robot_dev_config, use git tag --list to view available release versions
 ## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
 ## Pull code

@@ -63,6 +63,8 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | RDK S100系统镜像版本     | 4.0.2-Beta及以上 | `cat /etc/version`                             |
 | dstereo_occnet功能包版本 | 1.0.1及以上      | `apt list \| grep tros-humble-dstereo-occnet/` |
 | hobot_zed_cam            | 2.3.3及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`  |
+| dstereo_occnet功能包版本 | 1.0.1及以上      | `apt list \| grep tros-jazzy-dstereo-occnet/`  |
+| hobot_zed_cam            | 2.3.3及以上      | `apt list \| grep tros-jazzy-hobot-zed-cam/`   |
 
 ## 使用介绍
 

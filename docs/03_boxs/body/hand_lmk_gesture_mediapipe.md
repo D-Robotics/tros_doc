@@ -79,10 +79,25 @@ import DocScope from '@site/src/components/DocScope';
 
 5. 安装功能包
 
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
 ```shell
 apt install tros-humble-palm-detection-mediapipe
 apt install tros-humble-hand-landmarks-mediapipe
 ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+apt install tros-jazzy-palm-detection-mediapipe
+apt install tros-jazzy-hand-landmarks-mediapipe
+```
+
+</TabItem>
+</Tabs>
 
 ## 使用介绍
 

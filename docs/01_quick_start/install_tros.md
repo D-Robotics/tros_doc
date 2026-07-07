@@ -137,6 +137,15 @@ sudo apt install tros-humble
 ```
 
 </TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install tros-jazzy
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 

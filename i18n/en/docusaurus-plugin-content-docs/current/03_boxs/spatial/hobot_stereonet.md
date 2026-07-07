@@ -66,9 +66,15 @@ Stereo algorithm tutorial: [Live Replay | RDK X5 AI Stereo Algorithm Deployment]
 | tros-humble-hobot-stereonet package version | 2.5.0 and above      | `apt list \| grep tros-humble-hobot-stereonet/` |
 | tros-humble-mipi-cam package version        | 2.3.13 and above     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam package version   | 2.3.3 and above      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
+| tros-jazzy-hobot-stereonet package version  | 2.5.0 and above      | `apt list \| grep tros-jazzy-hobot-stereonet/`  |
+| tros-jazzy-mipi-cam package version         | 2.3.13 and above     | `apt list \| grep tros-jazzy-mipi-cam/`         |
+| tros-jazzy-hobot-zed-cam package version    | 2.3.3 and above      | `apt list \| grep tros-jazzy-hobot-zed-cam/`    |
 
 - If the system image version does not meet requirements, refer to the corresponding documentation section for image flashing
 - If the package version does not meet requirements, run the following commands to update:
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
@@ -76,6 +82,20 @@ sudo apt install --only-upgrade tros-humble-hobot-stereonet
 sudo apt install --only-upgrade tros-humble-mipi-cam
 sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt update
+sudo apt install --only-upgrade tros-jazzy-hobot-stereonet
+sudo apt install --only-upgrade tros-jazzy-mipi-cam
+sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
+```
+
+</TabItem>
+</Tabs>
 
 - If the above commands cannot update the program to the latest version, change the apt source file to the beta source:
 

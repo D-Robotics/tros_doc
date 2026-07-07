@@ -62,6 +62,8 @@ ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
 | RDK S100 system image version     | 4.0.2-Beta and above | `cat /etc/version`                             |
 | dstereo_occnet package version | 1.0.1 and above      | `apt list \| grep tros-humble-dstereo-occnet/` |
 | hobot_zed_cam            | 2.3.3 and above      | `apt list \| grep tros-humble-hobot-zed-cam/`  |
+| dstereo_occnet package version | 1.0.1 and above      | `apt list \| grep tros-jazzy-dstereo-occnet/`  |
+| hobot_zed_cam            | 2.3.3 and above      | `apt list \| grep tros-jazzy-hobot-zed-cam/`   |
 
 ## Usage
 

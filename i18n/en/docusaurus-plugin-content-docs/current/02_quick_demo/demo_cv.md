@@ -794,6 +794,15 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
 </Tabs>
 </DocScope>
 

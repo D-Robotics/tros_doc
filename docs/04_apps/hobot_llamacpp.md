@@ -31,7 +31,25 @@ import DocScope from '@site/src/components/DocScope';
 1. RDK为4GB内存版本
 2. RDK已烧录好RDK OS系统。
 3. RDK已成功安装TogetheROS.Bot。
-4. 安装ASR模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2`。
+4. 安装ASR模块用于语言输入：
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+apt install tros-humble-sensevoice-ros2
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+apt install tros-jazzy-sensevoice-ros2
+```
+
+</TabItem>
+</Tabs>
 
 ## 使用方式
 

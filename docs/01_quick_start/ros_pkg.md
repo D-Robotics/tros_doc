@@ -88,6 +88,15 @@ sudo apt install ros-humble-image-transport-plugins
 ```
 
 </TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+sudo apt install ros-jazzy-image-transport
+sudo apt install ros-jazzy-image-transport-plugins
+```
+
+</TabItem>
 </Tabs>
 </DocScope>
 
@@ -143,6 +152,15 @@ ros2 run image_transport list_transports
 
 ```bash
 source /opt/tros/humble/setup.bash
+ros2 run image_transport list_transports
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+source /opt/tros/jazzy/setup.bash
 ros2 run image_transport list_transports
 ```
 

@@ -31,7 +31,25 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 1. RDK with 4GB memory version
 2. The RDK has been flashed with the RDK OS system.
 3. TogetheROS.Bot has been successfully installed on the RDK.
-4. Install the ASR module for voice input with the command `apt install tros-humble-sensevoice-ros2`.
+4. Install the ASR module for voice input:
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```shell
+apt install tros-humble-sensevoice-ros2
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+apt install tros-jazzy-sensevoice-ros2
+```
+
+</TabItem>
+</Tabs>
 
 ## Usage
 

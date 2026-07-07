@@ -78,10 +78,25 @@ Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_con
 
 5. Install packages
 
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
 ```shell
 apt install tros-humble-palm-detection-mediapipe
 apt install tros-humble-hand-landmarks-mediapipe
 ```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```shell
+apt install tros-jazzy-palm-detection-mediapipe
+apt install tros-jazzy-hand-landmarks-mediapipe
+```
+
+</TabItem>
+</Tabs>
 
 ## Usage
 
