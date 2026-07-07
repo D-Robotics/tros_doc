@@ -30,8 +30,7 @@ Communication是在ROS2 Foxy/Humble/Jazzy版本通信核心组件基础上进行
 - 提供“hobot_cv”软硬结合提升常见CV算子性能，节省CPU资源，提升运行效率
 - 提供“hobot Render”Web端和HDMI动态可视化功能，实时渲染算法结果（仅限Web端），便于展示与调试
 - 丰富中间件软件调试以及性能调优工具，提升问题定位效率，方便系统性能优化
-- 与ROS2 Foxy/Humble/Jazzy版本接口保持完全兼容，便于复用ROS丰富工具包，加快原型验证
-- 支持最小化和模块化剪裁，方便根据需要部署在资源受限的嵌入式产品中
+- 底层基于ROS2 Foxy/Humble/Jazzy版本，便于复用ROS丰富工具包，加快原型验证
 
 ## Boxs算法仓库
 
