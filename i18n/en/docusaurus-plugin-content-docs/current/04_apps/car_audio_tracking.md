@@ -17,7 +17,7 @@ The voice tracking control for robot movement feature uses DOA (Direction of Arr
 
 The workflow is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg" alt="Software flowchart of the voice-tracking car control feature" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The App uses a virtual robot in the PC-side Gazebo simulation environment as an example. The published control commands can also be used directly to control a physical robot.
 
@@ -25,11 +25,11 @@ The DOA angle information for sound source localization output by the intelligen
 
 Linear microphone:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg" alt="Linear microphone array DOA angle diagram" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Circular microphone:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg" alt="Circular microphone array DOA angle diagram" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
@@ -167,7 +167,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful startup, the robot in the simulation environment appears as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo simulation scene after the robot car starts" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Start the program on the RDK platform:
 
@@ -351,6 +351,6 @@ angular:
 
 Voice tracking control for robot movement in the PC simulation environment is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif" alt="Animation of the simulated car turning toward a sound source via voice tracking" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The left side of the image above shows the simulation robot turning according to the sound source localization angle. The right side shows the program output log, which includes DOA angle information.

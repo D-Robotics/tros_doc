@@ -17,7 +17,7 @@ import DocScope from '@site/src/components/DocScope';
 
 流程如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg" alt="语音追踪控制小车运动功能整体软件流程图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
@@ -25,11 +25,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 线形麦克风：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg" alt="线形麦克风阵列声源定位 DOA 角度示意图" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 环形麦克风：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg" alt="环形麦克风阵列声源定位 DOA 角度示意图" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 代码仓库： (https://github.com/D-Robotics/audio_tracking.git)
 
@@ -165,7 +165,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo 仿真环境中小车启动后的场景效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 RDK平台启动程序：
 
@@ -343,6 +343,6 @@ angular:
 
 PC端仿真环境中语音追踪控制小车运动，效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif" alt="仿真环境中语音追踪控制小车转向声源的运动效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 上图中左边为仿真小车根据声源定位角度转动，右边为程序输出的log，log中包含有DOA角度信息。

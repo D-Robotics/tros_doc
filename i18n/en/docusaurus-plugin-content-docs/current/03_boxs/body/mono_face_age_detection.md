@@ -170,5 +170,5 @@ The output log shows that the program ran successfully. During inference, the al
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_age_det_render.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_age_det_render.png" alt="Web UI screenshot of face age detection render results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

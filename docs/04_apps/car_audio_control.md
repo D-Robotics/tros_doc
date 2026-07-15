@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 语音控制小车运动功能通过语音控制机器人向前、向后、向左、向右运动，需要搭配D-Robotics RDK机器人操作系统的智能语音模块一起使用。流程如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg" alt="语音控制小车运动功能整体软件流程图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 APP以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
@@ -149,7 +149,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo 仿真环境中小车启动后的场景效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 RDK平台启动程序：
 
@@ -287,4 +287,4 @@ angular:
 
 PC端仿真环境中小车跟随语音控制命令词的指示进行运动，仿真小车运动效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif" alt="仿真小车跟随语音控制命令词运动的效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

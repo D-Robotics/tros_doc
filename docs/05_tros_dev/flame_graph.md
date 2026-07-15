@@ -9,7 +9,7 @@ sidebar_products: RDK-X3,RDK-X5
 
 火焰图是用图形化的方式来展现perf等工具采集的性能数据，对数据进行统计和分析，方便找出性能热点。
 
-![http-bw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png" alt="火焰图原理示意：用图形化方式展示性能采样热点" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 火焰图中的每一个方框是一个函数，方框的长度，代表了它的执行时间，所以越宽的函数，执行越久。
 
@@ -62,4 +62,4 @@ sidebar_products: RDK-X3,RDK-X5
 
 经过前一节的使用流程，记录下来RDK的系统内的函数调用如下图所示
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png" alt="在 RDK 上采集并生成的系统函数调用火焰图结果" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

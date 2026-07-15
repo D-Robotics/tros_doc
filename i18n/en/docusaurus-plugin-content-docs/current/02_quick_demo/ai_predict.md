@@ -110,7 +110,7 @@ The output log shows that the algorithm inferred 6 targets from the input image 
 
 Rendered image `render_feedback_0_0.jpeg`:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg" alt="Saved algorithm render result from the AI inference local image-feedback example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 ## Multi-Algorithm Inference
@@ -161,4 +161,4 @@ ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_s
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg" alt="Browser web UI screenshot showing image and algorithm render results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

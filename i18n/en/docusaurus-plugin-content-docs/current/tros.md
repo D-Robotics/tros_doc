@@ -12,7 +12,7 @@ TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manu
 
 TogetheROS.Bot supports running on RDK platforms, and also provides a simulator version for X86 platforms. RDK platforms cover all the features shown in the diagram below. X86 platforms support experiencing some features through image playback, improving algorithm development and verification efficiency, and enabling quick migration to RDK platforms.
 
-![TROS-Diagram](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png" alt="Diagram of TogetheROS.Bot feature coverage on RDK and X86 platforms" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 TogetheROS.Bot source code is hosted on GitHub under the [D-Robotics organization](https://github.com/D-Robotics).
 

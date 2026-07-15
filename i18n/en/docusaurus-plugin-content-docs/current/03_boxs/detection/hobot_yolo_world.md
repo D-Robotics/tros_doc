@@ -201,7 +201,7 @@ The terminal outputs the following information during execution:
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg" alt="Web UI render of YOLO-World open-vocabulary detection" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 ## Advanced Usage

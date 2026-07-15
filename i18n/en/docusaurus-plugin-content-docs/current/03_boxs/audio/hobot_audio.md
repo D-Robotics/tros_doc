@@ -83,7 +83,7 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 
 The circular microphone board is an integrated design. The physical product is shown below:
 
-![cir_mic_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cir_mic_board.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cir_mic_board.png" alt="Photo of the integrated circular microphone array board" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Purchase link:
 
@@ -93,7 +93,7 @@ Connection steps:
 
 1. Connect the microphone board to the RDK X3 40PIN GPIO interface. After connection, the physical setup is shown below:
 
-   ![circle_mic_full](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/circle_mic_full.png" alt="Circular mic board connected to the RDK X3 40-pin GPIO" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. Connect power, Ethernet cable, etc.
 
@@ -103,23 +103,23 @@ The linear microphone array consists of an audio adapter board and a linear micr
 
 Audio adapter board:
 
-![connect_board](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/connect_board.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/connect_board.jpg" alt="Photo of the linear microphone array audio adapter board" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Linear microphone board:
 
-![line_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/line_mic.jpg" alt="Photo of the linear microphone pickup board" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 1. First, connect the RDK X3 to the audio adapter board. Pin-to-pin alignment is required. The physical connection is shown below:
 
-   ![link](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link.jpg" alt="Photo of RDK X3 pin-aligned with the audio adapter board" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. Next, connect the RDK X3 to the microphone array pickup board. Connect the adapter board FPC interface to the microphone array pickup board via a 15-pin reverse-side FFC cable, with the gold fingers facing down. The physical connection is shown below:
 
-   ![link_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/link_mic.jpg" alt="Photo of the adapter board connected to the linear mic board via an FFC cable" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. Connect the AEC cable.
 
-   ![mic_line](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/mic_line.jpg)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/mic_line.jpg" alt="Connection diagram for the AEC reference line on the linear mic array" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 4. Connect power, Ethernet cable, etc.
 
@@ -127,7 +127,7 @@ Linear microphone board:
 
 After connecting the RDK and microphone array, power on the device. On the serial console, use the command `i2cdetect -r -y 0` to check device connection status. If connected successfully, three addresses can be read on I2C by default, as shown below:
 
-![detect_mic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg" alt="Terminal output of i2cdetect showing three I2C addresses for the mic array" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 If not detected, please recheck the device connections.
 
@@ -150,7 +150,7 @@ After the intelligent voice hobot_audio package starts running, it collects audi
 
 The process flow is shown below:
 
-![hobot_audio](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_audio.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_audio.jpg" alt="hobot_audio smart speech processing flow and output events diagram" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The intelligent voice functionality supports ASR recognition after noise reduction of raw audio. Default wake words and command words are defined in the *config/hrsc/cmd_word.json* file at the root of the intelligent voice code module:
 
@@ -173,11 +173,11 @@ Additionally, the intelligent voice functionality supports output of DOA angle i
 
 The relative angular position relationship is strongly related to the microphone installation position. The DOA angle diagram for the circular microphone array is shown below:
 
-![doa_circle](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg" alt="Circular microphone array DOA angle relative-position diagram" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The DOA angle diagram for the linear microphone array is shown below:
 
-![doa_line](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg" alt="Linear microphone array DOA angle relative-position diagram" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Run the hobot_audio package on the RDK board:
 

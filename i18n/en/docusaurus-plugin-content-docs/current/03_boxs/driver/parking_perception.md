@@ -549,7 +549,7 @@ In the example, inference results from reading local images are rendered onto th
 
 
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png" alt="Parking perception web UI highlighting the top-right settings entry" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 
@@ -557,7 +557,7 @@ Select the "Full Image Segmentation" option to display the rendering effect.
 
 
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_2.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_2.png" alt="Web UI checkbox for enabling full-image segmentation render" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 
@@ -565,7 +565,7 @@ The visualization results show that in outdoor scenes, parking areas are effecti
 
 
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png" alt="Outdoor parking/driving-area segmentation and distant vehicle detection visualization" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 

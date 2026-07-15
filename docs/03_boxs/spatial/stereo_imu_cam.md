@@ -60,14 +60,14 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 
 - 注意相机有黑色金属外壳和亚克力外壳两个版本，功能都是一样的
 
-![LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam.jpg" alt="带 IMU 的双目相机模组实物图（金属/亚克力外壳）" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 4.2. 硬件连接
 
 1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
 2. 相机的黑色杜邦线要连接RDK X5的`37`管脚，需要外部触发控制相机和IMU的时间同步，管脚定义可参考RDK X5硬件手册中的40PIN章节。
 
-![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png" alt="双目 IMU 相机杜邦线连接 RDK X5 第 37 管脚的接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 4.3. RDK X5配置
 
@@ -83,10 +83,10 @@ cat /etc/version
 srpi-config
 ```
 
-![LH_IMU_cam_config1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config1.png)
-![LH_IMU_cam_config2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config2.png)
-![LH_IMU_cam_config3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png)
-![LH_IMU_cam_config4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config1.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤一" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config2.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤二" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤三" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤四" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. 重启后，确认目录`/sys/bus/iio/devices/`有`iio:device1`和`iio:device2`则代表配置成功
 
@@ -94,7 +94,7 @@ srpi-config
 ll /sys/bus/iio/devices/
 ```
 
-![LH_IMU_cam_config5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config5.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config5.png" alt="查看 /sys/bus/iio/devices 下 IMU 设备节点的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 4.4. 相机启动指令
 
@@ -125,7 +125,7 @@ log_level:=info
 
 2. 程序运行成功会打印如下日志，包括相机全部的标定参数，目前双目标定采用鱼眼模式，可以参考[OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html)的介绍：
 
-![LH_IMU_cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png" alt="双目 IMU 相机启动成功并打印标定参数的日志" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. 发布的话题如下：
 
@@ -133,7 +133,7 @@ log_level:=info
 ros2 topic list -v
 ```
 
-![LH_IMU_cam_topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_topic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_topic.png" alt="ros2 topic list -v 查看双目 IMU 相机发布话题的输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - /image_combine_raw 为上下拼接的双目图像，mipi_channel:=2 mipi_channel2:=0 参数控制拼接顺序
 - /image_left_raw//image_right_raw 为左右目数据话题，mipi_channel:=2 mipi_channel2:=0 参数控制顺序
@@ -160,7 +160,7 @@ bash run_stereo.sh --mipi_rotation 0.0
 
 - 启动后，可以在web端查看RGB图和深度图，在浏览器输入 `http://ip:8000` (图中RDK IP是192.168.128.10)：
 
-![LH_IMU_cam_DStereo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png" alt="Web 端查看双目 IMU 相机 RGB 图与深度图的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 6. 双目VIO算法（以OpenVINS为例）
 
@@ -425,5 +425,5 @@ rosrun rviz rviz -d <OpenVINS目录>/open_vins/ov_msckf/launch/display.rviz
 rosbag play xxx_ros1.bag
 ```
 
-![LH_IMU_cam_OpneVINS](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_OpneVINS.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_OpneVINS.gif" alt="使用双目 IMU 数据运行 OpenVINS 定位的可视化效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

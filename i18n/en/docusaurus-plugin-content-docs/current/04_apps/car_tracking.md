@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 The robot human following App controls the robot to follow a person. The App consists of MIPI image capture, human detection and tracking, human following strategy, image encoding/decoding, and a Web display client. The workflow is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/body_tracking_workflow.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/body_tracking_workflow.jpg" alt="Flowchart of the body-following car app from detection to control policy" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The App uses a virtual robot in the PC-side Gazebo simulation environment as an example. The published control commands can also be used directly to control a physical robot.
 
@@ -112,7 +112,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful startup, the robot in the simulation environment appears as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo simulation scene after the robot car starts" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 **Publish images using MIPI camera**
@@ -260,4 +260,4 @@ angular:
 
 In the PC simulation environment, the robot follows the person. The simulation result is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/tracking.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/tracking.gif" alt="Animation of the simulated car following a person" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

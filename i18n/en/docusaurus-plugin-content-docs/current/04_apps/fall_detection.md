@@ -142,4 +142,4 @@ The log output shows that body_kps data was subscribed and a pose event was publ
 
 Enter `http://IP:8000` in a PC browser to view the human detection boxes, keypoints, and pose detection results rendered on the web (IP is the RDK's IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg" alt="Web UI render of fall detection with body boxes, keypoints, and pose results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
