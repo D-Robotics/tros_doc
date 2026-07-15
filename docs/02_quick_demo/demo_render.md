@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-## Web展示
+## Web 展示
 
 ### 功能介绍
 
-Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网络将图像和算法结果传输到PC浏览器，然后进行渲染显示。该展示端还支持仅显示视频，而不渲染智能结果。
+Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过网络将图像和算法结果传输到 PC 浏览器，然后进行渲染显示。该展示端还支持仅显示视频，而不渲染智能结果。
 
 代码仓库：[https://github.com/D-Robotics/hobot_websocket](https://github.com/D-Robotics/hobot_websocket)
 
@@ -22,34 +22,34 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
-| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动MIPI摄像头，并通过Web展示图像 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
-| X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动 MIPI 摄像头，并通过 Web 展示图像 |
+| RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动 MIPI 摄像头，并通过 Web 展示图像 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动 MIPI 摄像头，并通过 Web 展示图像 |
+| X86     | Ubuntu 20.04 (Foxy) | 启动 USB 摄像头，并通过 Web 展示图像 |
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. 确认摄像头F37正确接到RDK上
+1. 确认摄像头 F37 正确接到 RDK 上
 
-2. 确认PC可以通过网络访问RDK
+2. 确认 PC 可以通过网络访问 RDK
 
-3. 确认已成功安装TogetheROS.Bot
+3. 确认已成功安装 TogetheROS.Bot
 
-#### X86平台
+#### X86 平台
 
-1. 确认X86平台系统为Ubuntu 20.04，且已成功安装tros.b
+1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b
 
-2. 确认USB摄像头接入主机USB插口，并可正常识别
+2. 确认 USB 摄像头接入主机 USB 插口，并可正常识别
 
 ### 使用方式
 
-#### RDK平台
+#### RDK 平台
 
-1. 通过SSH登录RDK，启动板端相关程序
+1. 通过 SSH 登录 RDK，启动板端相关程序
 
-    a. 启动mipi_cam
+    a. 启动 mipi_cam
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -176,7 +176,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ros2 launch hobot_codec hobot_codec_encode.launch.py
    ```
 
-    c. 启动websocket
+    c. 启动 websocket
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -239,13 +239,13 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
    ```
 
-2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP为RDK IP地址。
+2. PC 浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP 为 RDK IP 地址。
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png" alt="浏览器通过 WebSocket 查看 RDK 实时图像的 Web 展示界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-#### X86平台
+#### X86 平台
 
-1. 启动hobot_usb_cam节点
+1. 启动 hobot_usb_cam 节点
 
    ```bash
    # 配置tros.b环境
@@ -254,7 +254,7 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
    ```
 
-2. 启动websocket节点
+2. 启动 websocket 节点
 
    ```bash
    # 配置tros.b环境
@@ -262,23 +262,23 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
    ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
    ```
 
-3. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像效果，IP为PC IP地址，若在本机访问，也可使用localhost。
+3. PC 浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像效果，IP 为 PC IP 地址，若在本机访问，也可使用 localhost。
 
 ### 注意事项
 
-1. websocket需要使用8000端口，如果端口被占用，则会启动失败，解决方法如下：
+1. websocket 需要使用 8000 端口，如果端口被占用，则会启动失败，解决方法如下：
 
-   - 使用`lsof -i:8000`命令查看8000端口占用进程，使用`kill <PID>`关闭占用8000端口进程，然后重新启动websocket即可。
+   - 使用`lsof -i:8000`命令查看 8000 端口占用进程，使用`kill <PID>`关闭占用 8000 端口进程，然后重新启动 websocket 即可。
 
-   - 若用户不想停止当前正在占用8000端口的服务，可以修改 `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` 配置文件中的`listen`端口号，改为大于1024且未使用的端口号。修改端口号后，浏览器端使用的URL也要同步修改。
+   - 若用户不想停止当前正在占用 8000 端口的服务，可以修改 `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` 配置文件中的`listen`端口号，改为大于 1024 且未使用的端口号。修改端口号后，浏览器端使用的 URL 也要同步修改。
 
 <DocScope products="RDK X3,RDK X5">
 
-## HDMI展示
+## HDMI 展示
 
 ### 功能介绍
 
-本章节介绍通过HDMI展示camera nv12图像的使用，RDK通过HDMI接显示器即可显示实时图像效果，对应于hobot_hdmi package。
+本章节介绍通过 HDMI 展示 camera nv12 图像的使用，RDK 通过 HDMI 接显示器即可显示实时图像效果，对应于 hobot_hdmi package。
 
 代码仓库：[https://github.com/D-Robotics/hobot_hdmi](https://github.com/D-Robotics/hobot_hdmi)
 
@@ -286,30 +286,30 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 
 | 平台     | 运行方式     | 示例功能                       |
 | -------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过HDMI展示图像 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过HDMI展示图像 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI 摄像头，并通过 HDMI 展示图像 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI 摄像头，并通过 HDMI 展示图像 |
 
 :::caution **注意**
-HDMI展示**EOL**说明：
-- `RDK X3`和`RDK X3 Module`平台支持到`2.1.0`版本，对应TROS版本`2.2.0 (2024-04-11)`。
-- `RDK X5`和`RDK X5 Module`平台支持到`2.4.2`版本，对应TROS版本`2.3.1 (2024-11-20)`。
+HDMI 展示**EOL**说明：
+- `RDK X3`和`RDK X3 Module`平台支持到`2.1.0`版本，对应 TROS 版本`2.2.0 (2024-04-11)`。
+- `RDK X5`和`RDK X5 Module`平台支持到`2.4.2`版本，对应 TROS 版本`2.3.1 (2024-11-20)`。
 :::
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已HDMI连接显示器。
+3. RDK 已 HDMI 连接显示器。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
-通过SSH登录开发板，启动板端相关程序：
+通过 SSH 登录开发板，启动板端相关程序：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -346,7 +346,7 @@ source /opt/tros/jazzy/setup.bash
 
 
 
-使用RDK X5时, 需要额外使用下面命令:
+使用 RDK X5 时, 需要额外使用下面命令:
 ```bash
 # 关闭桌面显示
 sudo systemctl stop lightdm
@@ -375,11 +375,11 @@ ros2 launch hobot_hdmi hobot_hdmi.launch.py device:=F37
 
 </DocScope>
 
-## RViz2展示
+## RViz2 展示
 
 ### 功能介绍
 
-TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获取图像。
+TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2 获取图像。
 
 ### 支持平台
 
@@ -390,41 +390,41 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu桌面版本系统镜像。
+1. RDK 已烧录好 Ubuntu 桌面版本系统镜像。
 
-2. RDK已成功安装tros.b。
+2. RDK 已成功安装 tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 20.04/Ubuntu 22.04 系统、ROS2 Foxy/Humble 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`foxy`、`humble`。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 22.04 系统、ROS2 Humble 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`humble`。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 24.04 系统、ROS2 Jazzy 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Jazzy 版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`jazzy`。
 </DocScope>
 
 ### 使用方式
 
-#### RDK平台
+#### RDK 平台
 
-1. 通过SSH登录RDK，启动板端相关程序
+1. 通过 SSH 登录 RDK，启动板端相关程序
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -488,7 +488,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ros2 launch mipi_cam mipi_cam.launch.py mipi_out_format:=bgr8 mipi_image_width:=480 mipi_image_height:=272 mipi_io_method:=ros mipi_video_device:=F37
    ```
 
-   注意: mipi_out_format请勿随意更改，RViz2只支持RGB8, RGBA8, BGR8, BGRA8等图像格式.
+   注意: mipi_out_format 请勿随意更改，RViz2 只支持 RGB8, RGBA8, BGR8, BGRA8 等图像格式.
 
    如程序输出如下信息，说明节点已成功启动：
 
@@ -498,7 +498,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    [INFO] [mipi_cam-1]: process started with pid [2881781]
    ```
 
-2. RDK新建一个窗口，查询话题命令及返回结果如下：
+2. RDK 新建一个窗口，查询话题命令及返回结果如下：
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -571,7 +571,7 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    /rosout
    ```
 
-3. RDK上启动RViz2订阅话题，并预览摄像头数据；
+3. RDK 上启动 RViz2 订阅话题，并预览摄像头数据；
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -632,9 +632,9 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    ros2 run rviz2 rviz2
    ```
 
-   注意：RDK上运行rviz，需要使用mobaxterm等工具进行ssh连接，或者命令行ssh连接时加上“-Y”参数。
+   注意：RDK 上运行 rviz，需要使用 mobaxterm 等工具进行 ssh 连接，或者命令行 ssh 连接时加上“-Y” 参数。
 
-   在 RViz2 界面上首先点击 add 按钮，然后按照topic选择发布的图像，在该示例中topic名为/image_raw，然后点击image：
+   在 RViz2 界面上首先点击 add 按钮，然后按照 topic 选择发布的图像，在该示例中 topic 名为/image_raw，然后点击 image：
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-config.png" alt="在 RViz2 中添加 Image 显示并选择 /image_raw 话题的配置界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -643,11 +643,11 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png" alt="RViz2 成功显示摄像头图像话题后的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
-## RQt展示
+## RQt 展示
 
 ### 功能介绍
 
-TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大幅度降低网络带宽消耗。本章节的示例将会在RDK上启动MIPI摄像头获取图像，然后在RDK上使用RQt预览。
+TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以大幅度降低网络带宽消耗。本章节的示例将会在 RDK 上启动 MIPI 摄像头获取图像，然后在 RDK 上使用 RQt 预览。
 
 ### 支持平台
 
@@ -658,41 +658,41 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu桌面版本系统镜像。
+1. RDK 已烧录好 Ubuntu 桌面版本系统镜像。
 
-2. RDK已成功安装tros.b。
+2. RDK 已成功安装 tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 20.04/Ubuntu 22.04 系统、ROS2 Foxy/Humble 桌面版和数据可视化工具 RQt，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`foxy`、`humble`。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 22.04 系统、ROS2 Humble 桌面版和数据可视化工具 RQt，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`humble`。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
+3. PC 已安装 Ubuntu 24.04 系统、ROS2 Jazzy 桌面版和数据可视化工具 RQt，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
-   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+   - ROS2 安装参考：[Jazzy 版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`jazzy`。
 </DocScope>
 
 ### 使用方式
 
-#### RDK平台
+#### RDK 平台
 
-1. 通过SSH登录RDK开发板，启动mipi camera：
+1. 通过 SSH 登录 RDK 开发板，启动 mipi camera：
 
    <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
@@ -755,7 +755,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ros2 launch mipi_cam mipi_cam.launch.py mipi_image_width:=640 mipi_image_height:=480 mipi_video_device:=F37
    ```
 
-2. 在RDK上启动hobot_codec, 发布compressed格式图像：
+2. 在 RDK 上启动 hobot_codec, 发布 compressed 格式图像：
 
    <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
@@ -818,7 +818,7 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ros2 launch hobot_codec hobot_codec_encode.launch.py codec_out_format:=jpeg codec_pub_topic:=/image_raw/compressed
    ```
 
-3. RDK上订阅话题，并预览摄像头数据；
+3. RDK 上订阅话题，并预览摄像头数据；
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -877,21 +877,21 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
    ros2 run rqt_image_view rqt_image_view
    ```
 
-   注意：RDK上运行rqt，需要使用mobaxterm等工具进行ssh连接，或者命令行ssh连接时加上“-Y”参数。
+   注意：RDK 上运行 rqt，需要使用 mobaxterm 等工具进行 ssh 连接，或者命令行 ssh 连接时加上“-Y” 参数。
 
    选择话题`/image_raw/compressed`，图像效果图如下：
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png" alt="rqt 订阅 /image_raw/compressed 话题后显示的图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-## Foxglove展示
+## Foxglove 展示
 
 ### 功能介绍
 
-Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机器人系统的开发和调试。它提供了一系列用于构建机器人应用程序的功能。
+Foxglove 是一个开源的工具包，包括线上和线下版。旨在简化机器人系统的开发和调试。它提供了一系列用于构建机器人应用程序的功能。
 
-本章节主要用到Foxglove数据记录和回放功能：Foxglove允许将ROS2话题的数据记录到文件中，以便后续回放和分析。这对于系统故障诊断、性能优化和算法调试非常有用。
+本章节主要用到 Foxglove 数据记录和回放功能：Foxglove 允许将 ROS2 话题的数据记录到文件中，以便后续回放和分析。这对于系统故障诊断、性能优化和算法调试非常有用。
 
-演示中，我们会利用TogetheROS开发的hobot_visualization功能包，将智能推理结果转换为ROS2渲染的话题信息。
+演示中，我们会利用 TogetheROS 开发的 hobot_visualization 功能包，将智能推理结果转换为 ROS2 渲染的话题信息。
 
 代码仓库：[https://github.com/D-Robotics/hobot_visualization](https://github.com/D-Robotics/hobot_visualization)
 
@@ -906,23 +906,23 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. 确认摄像头F37正确接到RDK上
+1. 确认摄像头 F37 正确接到 RDK 上
 
-2. 确认PC可以通过网络访问RDK
+2. 确认 PC 可以通过网络访问 RDK
 
-3. 确认已成功安装TogetheROS.Bot
+3. 确认已成功安装 TogetheROS.Bot
 
-#### X86平台
+#### X86 平台
 
-1. 确认X86平台系统为Ubuntu 20.04，且已成功安装tros.b
+1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b
 
 ### 使用方式
 
-#### RDK平台 / X86平台
+#### RDK 平台 / X86 平台
 
-1. 通过SSH登录RDK平台，启动板端相关程序：
+1. 通过 SSH 登录 RDK 平台，启动板端相关程序：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -988,7 +988,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_file:=config/yolov2workconfig.json
 ```
 
-同时，利用ssh登录另一个终端，在板端记录话题信息：
+同时，利用 ssh 登录另一个终端，在板端记录话题信息：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -1052,9 +1052,9 @@ source /opt/tros/jazzy/setup.bash
 ros2 bag record -a
 ```
 
-2. Foxglove在线页面播放rosbag数据
+2. Foxglove 在线页面播放 rosbag 数据
 
-1）PC浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio) , 进入foxglove官网
+1）PC 浏览器（chrome/firefox/edge）输入 (https://foxglove.dev/studio) , 进入 foxglove 官网
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_1.png" alt="Foxglove Studio 官网首页入口界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1066,11 +1066,11 @@ PS: 首次使用需要注册, 可使用谷歌账号或第三方邮箱进行注�
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_2.png" alt="Foxglove Studio 可视化功能主界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-3）点击选中本地rosbag文件
+3）点击选中本地 rosbag 文件
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_3.png" alt="在 Foxglove 中选择本地 rosbag 文件的操作界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-4）打开布局界面，在布局界面右上角，点击设置，选中图标，打开播放maker渲染消息功能
+4）打开布局界面，在布局界面右上角，点击设置，选中图标，打开播放 maker 渲染消息功能
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/foxglove_guide_4.png" alt="Foxglove 布局设置中开启 Marker 渲染消息的配置步骤" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1082,6 +1082,6 @@ PS: 首次使用需要注册, 可使用谷歌账号或第三方邮箱进行注�
 
 ### 注意事项
 
-1. Foxglove可视化图像数据，需采用ROS2官方的消息格式，使用foxglove支持的图像编码格式，详情请见 (https://foxglove.dev/docs/studio/panels/image)。
+1. Foxglove 可视化图像数据，需采用 ROS2 官方的消息格式，使用 foxglove 支持的图像编码格式，详情请见 (https://foxglove.dev/docs/studio/panels/image)。
 
-2. rosbag进行消息记录时，可能会录制其他设备的话题信息，因此为了保证rosbag数据的干净，可以通过设置'export ROS_DOMAIN_ID=xxx' ，如'export ROS_DOMAIN_ID=1'的方法。
+2. rosbag 进行消息记录时，可能会录制其他设备的话题信息，因此为了保证 rosbag 数据的干净，可以通过设置'export ROS_DOMAIN_ID=xxx' ，如'export ROS_DOMAIN_ID=1'的方法。

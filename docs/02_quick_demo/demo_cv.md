@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 功能介绍
 
-实现高斯滤波功能，加速类型分为BPU加速和NEON加速，BPU加速暂时只支持int16格式，NEON加速暂时只支持int16和uint16格式。
+实现高斯滤波功能，加速类型分为 BPU 加速和 NEON 加速，BPU 加速暂时只支持 int16 格式，NEON 加速暂时只支持 int16 和 uint16 格式。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -23,19 +23,19 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取ToF图片，进行高斯滤波 |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取 ToF 图片，进行高斯滤波 |
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
-#### BPU加速
+#### BPU 加速
 
 当前版本支持的参数范围如下：
 
@@ -45,13 +45,13 @@ import DocScope from '@site/src/components/DocScope';
 
 - 支持的分辨率：320x240。
 
-- 滤波核：高斯3x3
+- 滤波核：高斯 3x3
 
 - sigmax:  0
 
 - sigmay: 0
 
-#### NEON加速
+#### NEON 加速
 
 当前版本支持的参数范围如下：
 
@@ -59,15 +59,15 @@ import DocScope from '@site/src/components/DocScope';
 
 - 支持的数据类型：int16、uint16
 
-- 滤波核：高斯3x3，5x5
+- 滤波核：高斯 3x3，5x5
 
 - sigmax:  0
 
 - sigmay: 0
 
-package中提供了简单测试程序，输入为本地的ToF图片，调用hobot_cv中接口实现高斯滤波功能。具体接口说明可参考hobot_cv pakcage中的README.md进一步了解。
+package 中提供了简单测试程序，输入为本地的 ToF 图片，调用 hobot_cv 中接口实现高斯滤波功能。具体接口说明可参考 hobot_cv pakcage 中的 README.md 进一步了解。
 
-#### RDK平台
+#### RDK 平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -103,7 +103,7 @@ ros2 launch hobot_cv hobot_cv_neon_blur.launch.py
 
 ### 结果分析
 
-#### BPU加速
+#### BPU 加速
 
 ```text
 输出结果：
@@ -139,26 +139,26 @@ analyse_result end
 
 其中：
 
-infe cost time:1314　//表示hobotcv加速的高斯滤波耗时1314微秒。
+infe cost time:1314　//表示 hobotcv 加速的高斯滤波耗时 1314 微秒。
 
-guss_time cost time:2685　//表示opencv的高斯滤波耗时2685微秒。
+guss_time cost time:2685　//表示 opencv 的高斯滤波耗时 2685 微秒。
 
 hobotcv save rate = （guss_time cost time - infe cost time）/ guss_time cost time = 0.510615
 
-从以上比较结果，经过hobot_cv加速后性能提升50%。
+从以上比较结果，经过 hobot_cv 加速后性能提升 50%。
 
 error sum:8.46524e+06,max:2,mean_error:0.439232　//单张图片总误差是：8.46524e+06，单个像素最大误差是：2，平均误差：0.439232
 
 平均误差　＝　sum / (width *height) = 8.46524e+06  / (320* 240)
 
-hobot_cv高斯滤波BPU加速与opencv高斯滤波性能对比结果如下：
+hobot_cv 高斯滤波 BPU 加速与 opencv 高斯滤波性能对比结果如下：
 
-| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核CPU占比(%) |
+| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核 CPU 占比(%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv gaussian   | Size(3,3)     | 1.10435     |    15.9       |
 | Opencv gaussian    | Size(3,3)     | 2.41861     |    49.7       |
 
-#### NEON加速
+#### NEON 加速
 
 ```text
 输出结果：
@@ -183,14 +183,14 @@ hobot_cv高斯滤波BPU加速与opencv高斯滤波性能对比结果如下：
 [neon_example-1] -------------------------
 ```
 
-hobotcv gaussian cost time:603 //hobotcv 高斯滤波neon加速接口耗时603微秒。
-opencv gaussian cost time:2545 //表示opencv的高斯滤波耗时2545微秒。
+hobotcv gaussian cost time:603 //hobotcv 高斯滤波 neon 加速接口耗时 603 微秒。
+opencv gaussian cost time:2545 //表示 opencv 的高斯滤波耗时 2545 微秒。
 hobotcv gaussian save rate = （opencv cost time - hobotcv cost time）/ opencv cost time = 0.763065
-从以上比较结果，经过hobotcv加速后高斯滤波性能提升76%。
+从以上比较结果，经过 hobotcv 加速后高斯滤波性能提升 76%。
 
-hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
+hobot_cv 高斯滤波 NEON 加速与 opencv 高斯滤波性能对比结果如下：
 
-| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核CPU占比(%) |
+| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核 CPU 占比(%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv gaussian   | Size(3,3)     | 0.430284    |    27.1   |
 | Opencv gaussian    | Size(3,3)     | 2.42225     |    47     |
@@ -201,7 +201,7 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 ### 功能介绍
 
-实现均值滤波功能，加速方式为NEON加速，暂时只支持int16，uint16格式。
+实现均值滤波功能，加速方式为 NEON 加速，暂时只支持 int16，uint16 格式。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -209,15 +209,15 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取ToF图片，进行均值滤波 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 读取 ToF 图片，进行均值滤波 |
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
@@ -229,9 +229,9 @@ hobot_cv高斯滤波NEON加速与opencv高斯滤波性能对比结果如下：
 
 - 滤波核：3x3，5x5
 
-package中提供了简单测试程序，输入为本地的ToF图片，调用hobot_cv中接口实现均值滤波功能。具体接口说明可参考hobot_cv pakcage中的README.md进一步了解。
+package 中提供了简单测试程序，输入为本地的 ToF 图片，调用 hobot_cv 中接口实现均值滤波功能。具体接口说明可参考 hobot_cv pakcage 中的 README.md 进一步了解。
 
-#### RDK平台
+#### RDK 平台
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -281,17 +281,17 @@ ros2 launch hobot_cv hobot_cv_neon_blur.launch.py
 
 其中：
 
-hobotcv mean cost time:674 //hobot_cv 均值滤波neon加速接口耗时674微秒。
-opencv mean cost time:1025 //表示opencv的均值滤波耗时1025微秒。
+hobotcv mean cost time:674 //hobot_cv 均值滤波 neon 加速接口耗时 674 微秒。
+opencv mean cost time:1025 //表示 opencv 的均值滤波耗时 1025 微秒。
 hobotcv mean save rate = （opencv cost time - hobotcv cost time）/ opencv cost time = 0.342439
-从以上比较结果，经过hobotcv加速后均值滤波性能提升34%
+从以上比较结果，经过 hobotcv 加速后均值滤波性能提升 34%
 
 error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总误差是：8.43744e+06，单个像素最大误差是：1，平均误差：0.430833
 均值滤波平均误差　＝　sum / (width x height) = 8.43744e+06 / (320 x 240)
 
-#### hobot_cv与opencv处理性能对比
+#### hobot_cv 与 opencv 处理性能对比
 
-| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核CPU占比(%) |
+| 接口类型            | 滤波核大小     | 耗时(ms)    | 单核 CPU 占比(%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv mean       | Size(3,3)     | 0.466397    |       31.8   |
 | Opencv mean        | Size(3,3)     | 0.676677    |       40.2   |
@@ -305,7 +305,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 ### 功能介绍
 
-实现图像裁剪功能，暂时只支持NV12格式。
+实现图像裁剪功能，暂时只支持 NV12 格式。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -318,15 +318,15 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
 
 <Tabs groupId="tros-distro">
@@ -368,13 +368,13 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 [INFO] [crop_example-1]: process has finished cleanly [pid 3064]
 ```
 
-根据log显示，测试程序完成了对本地1920x1080分辨率图片crop的处理，耗时如下：
+根据 log 显示，测试程序完成了对本地 1920x1080 分辨率图片 crop 的处理，耗时如下：
 
 | 图片处理                              | 运行耗时      |
 | ------------------------------------- | ------------- |
-| 1920x1080 crop出960x540               | 1ms           |
+| 1920x1080 crop 出 960x540               | 1ms           |
 
-本地原图1920x1080、crop左上角960x540区域，效果图片展示如下：
+本地原图 1920x1080、crop 左上角 960x540 区域，效果图片展示如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png" alt="原图 1920×1080 裁剪左上角 960×540 区域后的效果对比" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -383,7 +383,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ### 功能介绍
 
-实现图像缩放功能，暂时只支持NV12格式。
+实现图像缩放功能，暂时只支持 NV12 格式。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -400,15 +400,15 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-#### X86平台
+#### X86 平台
 
-1. 确认X86平台系统为Ubuntu 20.04，且已成功安装TogetheROS.Bot。
+1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
@@ -481,7 +481,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 ### 结果分析
 
-#### RDK X3平台resize
+#### RDK X3 平台 resize
 
 ```shell
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -493,29 +493,29 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 [INFO] [resize_example-1]: process has finished cleanly [pid 3083]
 ```
 
-根据log显示，测试程序完成了对本地1920x1080分辨率图片resize的处理。接口调用两次，两次耗时分别如下。
+根据 log 显示，测试程序完成了对本地 1920x1080 分辨率图片 resize 的处理。接口调用两次，两次耗时分别如下。
 
 | 图片处理                               | 第一次运行耗时 | 第二次运行耗时 |
 | ------------------------------------- | ------------- | ------------- |
-| 1920x1080 resize到960x540              | 297ms        | 15ms          |
+| 1920x1080 resize 到 960x540              | 297ms        | 15ms          |
 
-因为第一次运行，需要对vps硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
+因为第一次运行，需要对 vps 硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
 
-本地原图1920x1080、resize后960x540图片如下：
+本地原图 1920x1080、resize 后 960x540 图片如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png" alt="原图 1920×1080 缩放为 960×540 后的效果对比" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-#### RDK X3平台性能对比
+#### RDK X3 平台性能对比
 
-使用top命令查看cpu占用，cpu占用为测试进程cpu占比。
-耗时统计单位为ms，循环处理1000次取平均值。
-测试时锁定cpu频率:
+使用 top 命令查看 cpu 占用，cpu 占用为测试进程 cpu 占比。
+耗时统计单位为 ms，循环处理 1000 次取平均值。
+测试时锁定 cpu 频率:
 
 ```shell
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-| src wxh  | dst wxh   | vps耗时 | vps接口<br/>cpu占用  | bpu耗时| bpu接口<br/>cpu占用 | opencv耗时| opencv处理<br/>cpu占用|
+| src wxh  | dst wxh   | vps 耗时 | vps 接口<br/>cpu 占用  | bpu 耗时| bpu 接口<br/>cpu 占用 | opencv 耗时| opencv 处理<br/>cpu 占用|
 | -------- | --------- | --------| -------------------|--------|-------------------|-----------|---------------------|
 | 512x512  | 128x128   | 1.53789 |     25.9           |1.11054 |    89             |  1.71119  |        100.3        |
 | 640x640  | 320x320   | 2.48536 |     28.5           |1.82232 |    88             |  1.82384  |        338.9        |
@@ -530,7 +530,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 ### 功能介绍
 
-rotate实现图像旋转功能，暂时只支持NV12格式的图片，支持的旋转角度为90、180、270。
+rotate 实现图像旋转功能，暂时只支持 NV12 格式的图片，支持的旋转角度为 90、180、270。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -542,15 +542,15 @@ rotate实现图像旋转功能，暂时只支持NV12格式的图片，支持的�
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
 
 <Tabs groupId="tros-distro">
@@ -594,31 +594,31 @@ ros2 launch hobot_cv hobot_cv_rotate.launch.py
 [INFO] [rotate_example-1]: process has finished cleanly [pid 3096]
 ```
 
-根据log显示，测试程序完成了对本地1920x1080分辨率图片rotate的处理。接口调用两次，两次耗时分别如下。
+根据 log 显示，测试程序完成了对本地 1920x1080 分辨率图片 rotate 的处理。接口调用两次，两次耗时分别如下。
 
 | 图片处理                               | 第一次运行耗时 | 第二次运行耗时 |
 | ------------------------------------- | ------------- | ------------- |
-| 1920x1080旋转180度                     | 415ms        | 40ms          |
+| 1920x1080 旋转 180 度                     | 415ms        | 40ms          |
 
-因为第一次运行，需要对vps硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
+因为第一次运行，需要对 vps 硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
 
-本地原图1920x1080、rotate后1920x1080图片如下：
+本地原图 1920x1080、rotate 后 1920x1080 图片如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg" alt="用于旋转示例的原始输入图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg" alt="原图旋转处理后的输出效果图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-#### hobot_cv与opencv处理性能对比
+#### hobot_cv 与 opencv 处理性能对比
 
-使用top命令查看cpu占用，cpu占用为测试进程cpu占比。
-耗时统计单位为ms，循环处理1000次取平均值。
-测试时锁定cpu频率:
+使用 top 命令查看 cpu 占用，cpu 占用为测试进程 cpu 占比。
+耗时统计单位为 ms，循环处理 1000 次取平均值。
+测试时锁定 cpu 频率:
 
 ```shell
 sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor'
 ```
 
-| src wxh    |  旋转角度  |  hobotcv耗时 | hobotcv接口cpu占用  | opencv耗时  | opencv处理cpu占用 |
+| src wxh    |  旋转角度  |  hobotcv 耗时 | hobotcv 接口 cpu 占用  | opencv 耗时  | opencv 处理 cpu 占用 |
 | ---------- | --------- | ------------ | ------------------ |------------ |----------------- |
 | 1920x1080  |    90     |    37.6568   |       61.6         |   55.8886   |     100.0        |
 | 640x640    |    180    |    7.3133    |       66.8         |    5.1806   |     100.0        |
@@ -628,7 +628,7 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 ### 功能介绍
 
-实现图像金字塔缩放功能，暂时只支持NV12格式。
+实现图像金字塔缩放功能，暂时只支持 NV12 格式。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -640,15 +640,15 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
 
 <Tabs groupId="tros-distro">
@@ -692,27 +692,27 @@ ros2 launch hobot_cv hobot_cv_pyramid.launch.py
 [INFO] [pyramid_example-1]: process has finished cleanly [pid 3071]
 ```
 
-根据log显示，测试程序完成了对本地1920x1080分辨率图片金字塔缩小的处理。接口调用两次，两次耗时分别如下。
+根据 log 显示，测试程序完成了对本地 1920x1080 分辨率图片金字塔缩小的处理。接口调用两次，两次耗时分别如下。
 
 | 图片处理                               | 第一次运行耗时 | 第二次运行耗时 |
 | ------------------------------------- | ------------- | ------------- |
-| 1920x1080金字塔六层基础层输出           | 299ms        | 19ms          |
+| 1920x1080 金字塔六层基础层输出           | 299ms        | 19ms          |
 
-因为第一次运行，需要对vps硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
+因为第一次运行，需要对 vps 硬件进行配置所以耗时较多，如果不再更改硬件配置属性，硬件直接进行处理，耗时就会显著降低。
 
-本地原图1920x1080、pyramid缩放后图片如下：
+本地原图 1920x1080、pyramid 缩放后图片如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg" alt="原图经金字塔缩放后的多尺度输出效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-输出基础层六层，每一层size是上一层的1/2
+输出基础层六层，每一层 size 是上一层的 1/2
 
 #### 性能对比
 
-输入图片1920x1080，向上获取5层输出获取到960x540、480x270、240x134、120x66、60x32分辨率的图片。分别对比opencv和hobotcv效率，结果如下：
+输入图片 1920x1080，向上获取 5 层输出获取到 960x540、480x270、240x134、120x66、60x32 分辨率的图片。分别对比 opencv 和 hobotcv 效率，结果如下：
 
-cpu占用为单核百分比，耗时统计单位为ms
+cpu 占用为单核百分比，耗时统计单位为 ms
 
-| VPS接口耗时 | vps接口cpu占比| opencv耗时 | opencv接口cpu占比|
+| VPS 接口耗时 | vps 接口 cpu 占比| opencv 耗时 | opencv 接口 cpu 占比|
 | -----------| ------------- | ----------- | --------------|
 |    19ms    |      42.5     |      56     |       100     |
 
@@ -724,7 +724,7 @@ cpu占用为单核百分比，耗时统计单位为ms
 
 ### 功能介绍
 
-实现图像的nv12,bgr24之间的转换。
+实现图像的 nv12,bgr24 之间的转换。
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
@@ -732,20 +732,20 @@ cpu占用为单核百分比，耗时统计单位为ms
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------- | ------------------------------ |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,bgr24之间的转换 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | nv12,bgr24之间的转换 |
+| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) | nv12,bgr24 之间的转换 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | nv12,bgr24 之间的转换 |
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
 
 <DocScope products="RDK-X5">

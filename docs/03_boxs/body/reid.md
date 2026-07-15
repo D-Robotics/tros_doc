@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git) 量化部署的使用示例。图像数据来源于本地图片回灌和订阅到的image msg。Reid 依赖人体检测框输入进行人体特征提取, 将每个人物特征编码为[1, 512] 大小的特征, 通过特征余弦相似度的对比, 来判断是否是同个人物。这类方法最大特点是当跟随的目标重新出现在画面时, 会根据特征库里的特征对比, 判断是否是同个实例ID。
+Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git) 量化部署的使用示例。图像数据来源于本地图片回灌和订阅到的 image msg。Reid 依赖人体检测框输入进行人体特征提取, 将每个人物特征编码为[1, 512] 大小的特征, 通过特征余弦相似度的对比, 来判断是否是同个人物。这类方法最大特点是当跟随的目标重新出现在画面时, 会根据特征库里的特征对比, 判断是否是同个实例 ID。
 
 代码仓库：
 
@@ -26,9 +26,9 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌, 推理渲染结果在 Web 显示 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌, 推理渲染结果在 Web 显示 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | · 启动 MIPI/USB 摄像头/本地回灌, 推理渲染结果在 Web 显示 |
 
 ## 算法信息
 
@@ -56,19 +56,19 @@ Reid package 是基于[Reid](https://github.com/KaiyangZhou/deep-person-reid.git
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ## 使用介绍
 
-package对外发布包含实例ID信息的算法msg, 用户可以订阅 "/perception/detection/reid" 话题用于应用开发。
+package 对外发布包含实例 ID 信息的算法 msg, 用户可以订阅 "/perception/detection/reid" 话题用于应用开发。
 
-### RDK平台
+### RDK 平台
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -134,7 +134,7 @@ export CAM_TYPE=mipi
 ros2 launch reid reid.launch.py
 ```
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -268,7 +268,7 @@ ros2 launch reid reid.launch.py publish_image_source:=config/person_body.jpg pub
 
 **使用图片工具发布图片**
 
-package初始化后, 在运行终端输出如下信息：
+package 初始化后, 在运行终端输出如下信息：
 
 ```
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-07-28-12-05-31-492990-ubuntu-24131
@@ -409,6 +409,6 @@ webserver has launch
 [mono2d_body_detection-3] [WARN] [1753675536.166313555] [mono2d_body_det]: SharedMemImgProcess Recved img encoding: nv12, h: 1088, w: 1920, step: 1920, index: 31, stamp: 1753675536_158953660, data size: 3133440, comm delay [7.3511]ms
 ```
 
-示例中推理的结果会渲染到Web上, 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）, 其中每个人物上的id为实例ID结果。
+示例中推理的结果会渲染到 Web 上, 在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）, 其中每个人物上的 id 为实例 ID 结果。
 
 <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_reid.png" alt="Web 端行人重识别结果及实例 ID 渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

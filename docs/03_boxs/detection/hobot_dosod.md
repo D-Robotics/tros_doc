@@ -16,15 +16,15 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 
 代码仓库： (https://github.com/D-Robotics/hobot_dosod)
 
-应用场景：DOSOD强大的零样本检测能力使得其具有更强的泛化能力，可以应用在智能驾驶、智能家居、地质检测等领域。
+应用场景：DOSOD 强大的零样本检测能力使得其具有更强的泛化能力，可以应用在智能驾驶、智能家居、地质检测等领域。
 
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -52,24 +52,24 @@ DOSOD (Decoupled Open-Set Object Detector)[https://github.com/D-Robotics-AI-Lab/
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-DOSOD (hobot_dosod) package订阅sensor package发布的图片，并输入模型推理，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
+DOSOD (hobot_dosod) package 订阅 sensor package 发布的图片，并输入模型推理，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果。
 
 
-### RDK平台
+### RDK 平台
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -133,7 +133,7 @@ export CAM_TYPE=mipi
 ros2 launch hobot_dosod dosod.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -375,7 +375,7 @@ webserver has launch
 [hobot_dosod-3] [WARN] [1736305421.860964318] [hobot_dosod]: Sub img fps: 9.99, Smart fps: 9.99, pre process time ms: 14, infer time ms: 100, post process time ms: 7
 ```
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg" alt="Web 端 DOSOD 开放词汇目标检测渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

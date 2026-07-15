@@ -10,18 +10,18 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-本章节介绍RDK和X86平台如何通过源码安装TogetheROS.Bot。
+本章节介绍 RDK 和 X86 平台如何通过源码安装 TogetheROS.Bot。
 
-## RDK平台
+## RDK 平台
 
 前提：
 
 - 开发机能够正常访问[D-Robotics](https://github.com/D-Robotics)组织
-- 开发机已安装docker
+- 开发机已安装 docker
 
-### 编译tros.b
+### 编译 tros.b
 
-#### 1 使用docker文件
+#### 1 使用 docker 文件
 
 该部分操作均在开发机内完成。
 
@@ -130,11 +130,11 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imag
 </DocScope>
 
 
-#### 2 获取tros.b源码
+#### 2 获取 tros.b 源码
 
-该部分操作均在开发机的docker内完成。
+该部分操作均在开发机的 docker 内完成。
 
-这里以docker中/mnt/test目录为例。
+这里以 docker 中/mnt/test 目录为例。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -236,17 +236,17 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 │       └── src
 ```
 
-其中`tros_ws/robot_dev_config`路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件；`tros_ws/src`路径存放拉取的代码；`sysroot_docker`路径包含交叉编译依赖的头文件和库，和RDK的`/`目录对应。例如媒体库在`sysroot_docker`中的路径为`sysroot_docker/usr/lib/hbmedia/`，在RDK中的路径为`/usr/lib/hbmedia/`。
+其中`tros_ws/robot_dev_config`路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件；`tros_ws/src`路径存放拉取的代码；`sysroot_docker`路径包含交叉编译依赖的头文件和库，和 RDK 的`/`目录对应。例如媒体库在`sysroot_docker`中的路径为`sysroot_docker/usr/lib/hbmedia/`，在 RDK 中的路径为`/usr/lib/hbmedia/`。
 
 编译时，在`robot_dev_config/aarch64_toolchainfile.cmake`编译脚本中通过`CMAKE_SYSROOT`宏指定`sysroot_docker`的安装路径。
 
 :::info
-robot_dev_config的tag号（版本信息），请查看[版本发布记录](./changelog.md)章节。
+robot_dev_config 的 tag 号（版本信息），请查看[版本发布记录](./changelog.md)章节。
 :::
 
 #### 3 交叉编译
 
-该部分操作均在开发机的docker内完成。
+该部分操作均在开发机的 docker 内完成。
 
 <DocScope products="RDK X3">
 
@@ -284,17 +284,17 @@ bash ./robot_dev_config/build.sh -p S600
 ```
 </DocScope>
 
-编译成功后会提示总计N packages编译通过。
+编译成功后会提示总计 N packages 编译通过。
 
-若使用minimal_build.sh进行最小化编译，还可通过执行./minimal_deploy.sh -d “install_path”，进一步压缩部署包大小。
+若使用 minimal_build.sh 进行最小化编译，还可通过执行./minimal_deploy.sh -d “install_path”，进一步压缩部署包大小。
 
-### 安装tros.b
+### 安装 tros.b
 
-将编译生成的install目录拷贝至RDK中并重命名为tros，这里我们将部署包放在/opt/tros目录下与deb安装目录保持一致
+将编译生成的 install 目录拷贝至 RDK 中并重命名为 tros，这里我们将部署包放在/opt/tros 目录下与 deb 安装目录保持一致
 
-### 编译指定版本tros.b
+### 编译指定版本 tros.b
 
-在本章节**编译tros.b**小节第2步**获取tros.b源码**中，默认是获取的最新版本tros.b源码。如果需要获取某个指定发布版本源码，该步骤需要做如下修改
+在本章节**编译 tros.b**小节第 2 步**获取 tros.b 源码**中，默认是获取的最新版本 tros.b 源码。如果需要获取某个指定发布版本源码，该步骤需要做如下修改
 
 ```bash
 ## 获取配置文件
@@ -310,20 +310,20 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
 :::info
-robot_dev_config的tag号（版本信息），请查看[版本发布记录](./changelog.md)章节。
+robot_dev_config 的 tag 号（版本信息），请查看[版本发布记录](./changelog.md)章节。
 :::
 
-## X86平台
+## X86 平台
 
 ### 系统要求
 
-必须为Ubuntu 20.04 64位系统，也可使用RDK平台交叉编译docker镜像，但编译和运行必须都在docker中进行。
+必须为 Ubuntu 20.04 64 位系统，也可使用 RDK 平台交叉编译 docker 镜像，但编译和运行必须都在 docker 中进行。
 
-**注意！X86平台仅支持2.0.0版本TogetheROS.Bot。**
+**注意！X86 平台仅支持 2.0.0 版本 TogetheROS.Bot。**
 
 ### 系统设置
 
-#### 设置local
+#### 设置 local
 
 确保语言环境支持 UTF-8
 
@@ -338,7 +338,7 @@ export LANG=en_US.UTF-8
 locale  # verify settings
 ```
 
-#### 添加apt源
+#### 添加 apt 源
 
 ```shell
 # 首先确保已启用 Ubuntu Universe
@@ -356,7 +356,7 @@ sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyri
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo    tee /etc/apt/sources.list.d/sunrise.list > /dev/null
 ```
 
-#### 安装ROS工具包
+#### 安装 ROS 工具包
 
 ```shell
 sudo apt update && sudo apt install -y \
@@ -366,7 +366,7 @@ sudo apt update && sudo apt install -y \
   ros-dev-tools
 ```
 
-### 获取tros.b源码
+### 获取 tros.b 源码
 
 ```shell
 git config --global credential.helper store
@@ -489,20 +489,20 @@ sudo apt install --no-install-recommends -y \
 bash ./robot_dev_config/build.sh -p X86
 ```
 
-编译成功后会提示总计N packages编译通过。
+编译成功后会提示总计 N packages 编译通过。
 
-### 安装tros.b
+### 安装 tros.b
 
-将编译生成的install目录拷贝至/opt目录下并重命名为tros，与deb安装目录保持一致
+将编译生成的 install 目录拷贝至/opt 目录下并重命名为 tros，与 deb 安装目录保持一致
 
 ## 常见问题
 
-Q1： 如何判断VCS是否成功拉取代码
+Q1： 如何判断 VCS 是否成功拉取代码
 
-A1：如下图所示，vcs import过程中打印.表示成功拉取repo，如果打印E表示该repo拉取失败可以通过执行后的log看到具体失败的repo，碰到这种情况可以尝试删除src里面的内容重新vcs import或者手动拉取失败的repo.
+A1：如下图所示，vcs import 过程中打印.表示成功拉取 repo，如果打印 E 表示该 repo 拉取失败可以通过执行后的 log 看到具体失败的 repo，碰到这种情况可以尝试删除 src 里面的内容重新 vcs import 或者手动拉取失败的 repo.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/cross_compile/vcs_import_error.png" alt="vcs import 拉取仓库时成功打印点号、失败打印 E 的终端日志示例" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-Q2：条件受限无法从github拉取代码
+Q2：条件受限无法从 github 拉取代码
 
-A2：可以直接在[TogetheROS文件服务器](http://archive.d-robotics.cc/TogetheROS/source_code/)中选择下载需要的版本代码。例如`tros_2.0.0_source_code.tar.gz`文件对应于tros.b 2.0.0版本。
+A2：可以直接在[TogetheROS 文件服务器](http://archive.d-robotics.cc/TogetheROS/source_code/)中选择下载需要的版本代码。例如`tros_2.0.0_source_code.tar.gz`文件对应于 tros.b 2.0.0 版本。

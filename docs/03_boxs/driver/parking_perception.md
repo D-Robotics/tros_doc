@@ -12,8 +12,8 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-parking_perception package 是基于 hobot_dnn package开发的路面结构化算法示例，利用BPU进行模型推理，从而得到算法推理结果。
-本package支持直接订阅sensors/msg/image类型的话题，并且支持读取本地图片的形式进行推理，将算法信息通过话题发布的同时会将结果在Web页面渲染可视化，同时支持渲染图片保存在程序运行的result目录。
+parking_perception package 是基于 hobot_dnn package 开发的路面结构化算法示例，利用 BPU 进行模型推理，从而得到算法推理结果。
+本 package 支持直接订阅 sensors/msg/image 类型的话题，并且支持读取本地图片的形式进行推理，将算法信息通过话题发布的同时会将结果在 Web 页面渲染可视化，同时支持渲染图片保存在程序运行的 result 目录。
 
 算法支持的目标检测类别如下：
 
@@ -48,8 +48,8 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，推理渲染结果在Web显示/保存在本地 |
-| X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果在Web显示/保存在本地             |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，推理渲染结果在 Web 显示/保存在本地 |
+| X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果在 Web 显示/保存在本地             |
 
 ## 算法信息
 
@@ -63,25 +63,25 @@ parking_perception package 是基于 hobot_dnn package开发的路面结构化�
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-### X86平台
+### X86 平台
 
-1. X86环境已配置Ubuntu 20.04系统镜像。
+1. X86 环境已配置 Ubuntu 20.04 系统镜像。
 
-2. X86环境已成功安装tros.b。
+2. X86 环境已成功安装 tros.b。
 
 ## 使用介绍
 
-package对外发布包含语义分割和目标检测信息的算法msg，用户可以订阅发布msg用于应用开发。
+package 对外发布包含语义分割和目标检测信息的算法 msg，用户可以订阅发布 msg 用于应用开发。
 
-### RDK平台
+### RDK 平台
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -121,7 +121,7 @@ export CAM_TYPE=mipi
 ros2 launch parking_perception parking_perception.launch.py 
 ```
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -201,7 +201,7 @@ ros2 launch parking_perception parking_perception.launch.py
 ```
 
 
-### X86平台
+### X86 平台
 
 **使用单张回灌图片**
 
@@ -221,9 +221,9 @@ ros2 launch parking_perception parking_perception.launch.py
 
 ## 结果分析
 
-**使用mipi摄像头发布图片**
+**使用 mipi 摄像头发布图片**
 
-package初始化后，在运行终端输出如下信息：
+package 初始化后，在运行终端输出如下信息：
 
 ```
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-08-02-06-46-55-605266-ubuntu-3669
@@ -259,7 +259,7 @@ package初始化后，在运行终端输出如下信息：
 
 **使用单张回灌图片**
 
-示例中读取本地图片推理的结果会渲染到图片上，在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置。
+示例中读取本地图片推理的结果会渲染到图片上，在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png" alt="车位感知 Web 展示界面右上角设置入口示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -271,4 +271,4 @@ package初始化后，在运行终端输出如下信息：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_parking.png" alt="室外场景停车区、行车区分割及远处车辆检测的可视化结果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-"dump_render_img"设置为"1"时，渲染效果保存在当前路径的result目录下。
+"dump_render_img"设置为"1"时，渲染效果保存在当前路径的 result 目录下。

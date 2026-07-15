@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-本章节介如何在RDK平台体验端侧 Vision Language Model (VLM)。得益于[书生大模型](https://hf-mirror.com/OpenGVLab/InternVL2_5-1B), [SmolVLM](https://hf-mirror.com/HuggingFaceTB/SmolVLM2-256M-Video-Instruct) 的优秀成果, 我们在RDK平台上实现了量化与部署。同时, 本示例基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 中 KV Cache 的强大管理能力, 结合 RDK 平台 BPU 模块的计算优势, 实现了本地 VLM 模型部署。
+本章节介如何在 RDK 平台体验端侧 Vision Language Model (VLM)。得益于[书生大模型](https://hf-mirror.com/OpenGVLab/InternVL2_5-1B), [SmolVLM](https://hf-mirror.com/HuggingFaceTB/SmolVLM2-256M-Video-Instruct) 的优秀成果, 我们在 RDK 平台上实现了量化与部署。同时, 本示例基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 中 KV Cache 的强大管理能力, 结合 RDK 平台 BPU 模块的计算优势, 实现了本地 VLM 模型部署。
 
 代码仓库： (https://github.com/D-Robotics/hobot_llamacpp.git)
 
@@ -60,10 +60,10 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
 3. 下载安装功能包
 
 <DocScope products="RDK-X5">
@@ -112,11 +112,11 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 
 4. 系统配置
 
-使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
+使用命令`srpi-config`修改 ION memory 大小为 1.6GB，重启后设置 CPU 为最高频率。
 
 - ION 大小配置参考: [srpi-config 工具配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config) 
 
-- CPU 频率配置参考：手册 [Thermal和CPU频率管理](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/frequency_management)
+- CPU 频率配置参考：手册 [Thermal 和 CPU 频率管理](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/frequency_management)
 
 ## 使用方式
 
@@ -215,4 +215,4 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 ## 注意事项
 
-X5平台 修改ION memory大小为1.6GB, S100平台修改ION memory大小大于1.6GB, 否则会导致模型加载失败。
+X5 平台 修改 ION memory 大小为 1.6GB, S100 平台修改 ION memory 大小大于 1.6GB, 否则会导致模型加载失败。

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 5.1.2 apt安装与升级
+# 5.1.2 apt 安装与升级
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,22 +10,22 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-本章节介绍RDK和X86平台如何使用apt安装TogetheROS.Bot。
+本章节介绍 RDK 和 X86 平台如何使用 apt 安装 TogetheROS.Bot。
 
-## RDK平台
+## RDK 平台
 
 前提
 
 - 已完成[环境准备](./preparation.md)章节工作
-- RDK已安装Ubuntu系统
-- RDK能够正常访问互联网
-- RDK能够远程ssh
+- RDK 已安装 Ubuntu 系统
+- RDK 能够正常访问互联网
+- RDK 能够远程 ssh
 
 <DocScope products="RDK-X3">
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download?v=3.0.0&p=RDK+X3)
+安装 TogetheROS 前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download?v=3.0.0&p=RDK+X3)
 
 :::
 
@@ -35,7 +35,7 @@ import DocScope from '@site/src/components/DocScope';
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download?v=3.5.0&p=RDK+X5)
+安装 TogetheROS 前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_x_doc/Quick_start/download?v=3.5.0&p=RDK+X5)
 
 :::
 
@@ -45,7 +45,7 @@ import DocScope from '@site/src/components/DocScope';
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download?v=4.0.5&p=RDK+S100)
+安装 TogetheROS 前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download?v=4.0.5&p=RDK+S100)
 
 :::
 
@@ -55,7 +55,7 @@ import DocScope from '@site/src/components/DocScope';
 
 :::info 📋 系统版本确认与下载
 
-安装TogetheROS前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download?v=5.1.0&p=RDK+S600)
+安装 TogetheROS 前需要确认系统版本和下载最新镜像，系统镜像下载请参考：[下载资源汇总](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/download?v=5.1.0&p=RDK+S600)
 
 :::
 
@@ -64,12 +64,12 @@ import DocScope from '@site/src/components/DocScope';
 <DocScope products="RDK X3">
 
 
-RDK X3平台请注意：
+RDK X3 平台请注意：
 
 :::caution 注意
-- **2.x版本tros.b仅支持2.x版本系统镜像，[1.x版本tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持1.x版本系统。**
-- **如果您使用的是1.x版本系统镜像，需要将[环境准备](./preparation.md)到2.x版本。**
-- **系统和tros.b版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
+- **2.x 版本 tros.b 仅支持 2.x 版本系统镜像，[1.x 版本 tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持 1.x 版本系统。**
+- **如果您使用的是 1.x 版本系统镜像，需要将[环境准备](./preparation.md)到 2.x 版本。**
+- **系统和 tros.b 版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
 
@@ -79,22 +79,22 @@ RDK X3平台请注意：
 
 | 依赖关系    | 1.x tros.b  | 2.x tros.b |
 | -----------| ------------| ------------|
-| 1.x系统镜像 |       √     |       x     |
-| 2.x系统镜像 |       x     |       √     |
+| 1.x 系统镜像 |       √     |       x     |
+| 2.x 系统镜像 |       x     |       √     |
 
 </DocScope>
 
-### 安装tros.b
+### 安装 tros.b
 
-**注意：这里使用的RDK IP为10.64.61.241，安装时需要根据自己的RDK IP进行替换**
+**注意：这里使用的 RDK IP 为 10.64.61.241，安装时需要根据自己的 RDK IP 进行替换**
 
-登录RDK：
+登录 RDK：
 
 ```shell
 ssh root@10.64.61.241
 ```
 
-安装tros.b功能包：
+安装 tros.b 功能包：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -157,7 +157,7 @@ sudo apt install tros-jazzy
 
 :::caution **注意**
 - **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -166,7 +166,7 @@ sudo apt install tros-jazzy
 
 :::caution **注意**
 - **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -175,7 +175,7 @@ sudo apt install tros-jazzy
 
 :::caution **注意**
 - **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -184,33 +184,33 @@ sudo apt install tros-jazzy
 
 :::caution **注意**
 - **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装tros.b。**
+- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
 
 
 
-安装完成后，查看/opt目录下文件
+安装完成后，查看/opt 目录下文件
 
 ```bash
 root@ubuntu:/userdata# ls /opt/
 hobot  tros
 ```
 
-可以看到tros.b已安装在/opt目录下
+可以看到 tros.b 已安装在/opt 目录下
 
-### 升级tros.b
+### 升级 tros.b
 
-以RDK安装为例，X86 Ubuntu升级方法和RDK一致。
+以 RDK 安装为例，X86 Ubuntu 升级方法和 RDK 一致。
 
-登录RDK
+登录 RDK
 
 ```shell
 ssh root@10.64.61.241
 ```
 
-升级tros.b deb包
+升级 tros.b deb 包
 
 ```shell
 sudo apt update
@@ -249,7 +249,7 @@ sudo apt upgrade
 
 </DocScope>
 
-### 查看当前tros.b版本
+### 查看当前 tros.b 版本
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -269,7 +269,7 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.0.0版本
+可以看到当前 tros.b 版本已升级为 2.0.0 版本
 
 </TabItem>
 
@@ -291,7 +291,7 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.2.0版本。
+可以看到当前 tros.b 版本已升级为 2.2.0 版本。
 
 </TabItem>
 
@@ -313,7 +313,7 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.5.0版本。
+可以看到当前 tros.b 版本已升级为 2.5.0 版本。
 
 </TabItem>
 </Tabs>
@@ -339,7 +339,7 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.2.0版本。
+可以看到当前 tros.b 版本已升级为 2.2.0 版本。
 
 </TabItem>
 </Tabs>
@@ -365,7 +365,7 @@ Description: TogetheROS Bot
 
 ```
 
-可以看到当前tros.b版本已升级为2.5.0版本。
+可以看到当前 tros.b 版本已升级为 2.5.0 版本。
 
 </TabItem>
 </Tabs>
@@ -376,14 +376,14 @@ Description: TogetheROS Bot
 - `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
 :::
 
-## X86平台
+## X86 平台
 
 前提：
 
 - 已完成[环境准备](./preparation.md)章节工作
-- Ubuntu系统为Ubuntu 20.04，且能够正常访问互联网
+- Ubuntu 系统为 Ubuntu 20.04，且能够正常访问互联网
 
-1. 设置locale和启用universe软件源
+1. 设置 locale 和启用 universe 软件源
 
    ```bash
    sudo apt update && sudo apt install locales
@@ -395,7 +395,7 @@ Description: TogetheROS Bot
    sudo add-apt-repository universe
    ```
 
-2. 下载gpg密钥文件并添加源列表：
+2. 下载 gpg 密钥文件并添加源列表：
 
    ```bash
    sudo apt update && sudo apt install curl
@@ -407,7 +407,7 @@ Description: TogetheROS Bot
    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
    ```
 
-3. 更新源信息，安装tros.b：
+3. 更新源信息，安装 tros.b：
 
    ```bash
    sudo apt update
@@ -417,8 +417,8 @@ Description: TogetheROS Bot
 <DocScope products="RDK-X3">
 
 :::caution
-- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
 </DocScope>
@@ -426,8 +426,8 @@ Description: TogetheROS Bot
 <DocScope products="RDK-X5">
 
 :::caution
-- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
 </DocScope>
@@ -435,8 +435,8 @@ Description: TogetheROS Bot
 <DocScope products="RDK-S100">
 
 :::caution
-- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
 </DocScope>
@@ -444,8 +444,8 @@ Description: TogetheROS Bot
 <DocScope products="RDK-S600">
 
 :::caution
-- **如果您的X86平台已安装1.x版本tros.b，请先使用命令`sudo apt remove tros`删除后再安装2.x版本tros.b**。
-- **关于如何查看tros.b版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
 </DocScope>

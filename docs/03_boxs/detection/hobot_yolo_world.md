@@ -12,18 +12,18 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-YOLO-World是一种先进的开放词汇目标检测方法，根据输入文本的变化可以实现以零样本的方式高效检测出不同的全新类别目标。
+YOLO-World 是一种先进的开放词汇目标检测方法，根据输入文本的变化可以实现以零样本的方式高效检测出不同的全新类别目标。
 
 代码仓库： (https://github.com/D-Robotics/hobot_yolo_world)
 
-应用场景：YOLO-World强大的零样本检测能力使得其具有更强的泛化能力，可以应用在智能驾驶、智能家居、地质检测等领域。
+应用场景：YOLO-World 强大的零样本检测能力使得其具有更强的泛化能力，可以应用在智能驾驶、智能家居、地质检测等领域。
 
 
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -37,24 +37,24 @@ YOLO-World是一种先进的开放词汇目标检测方法，根据输入文本�
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-YOLO-World(hobot_yolo_world) package订阅sensor package发布的图片，同时YOLO-World支持根据输入文本变化改变检测类别，其中文本特征来源于本地特征库，通过输入文本查询对应特征，并输入模型推理，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
+YOLO-World(hobot_yolo_world) package 订阅 sensor package 发布的图片，同时 YOLO-World 支持根据输入文本变化改变检测类别，其中文本特征来源于本地特征库，通过输入文本查询对应特征，并输入模型推理，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果。
 
 
-### RDK平台
+### RDK 平台
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -94,7 +94,7 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 ```
 
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -200,7 +200,7 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 [hobot_yolo_world-3] [WARN] [0000003718.707619939] [hobot_yolo_world]: Sub img fps: 1.00, Smart fps: 1.00, pre process time ms: 39, infer time ms: 121, post process time ms: 6
 ```
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_yolo_world.jpeg" alt="Web 端 YOLO-World 开放词汇检测渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

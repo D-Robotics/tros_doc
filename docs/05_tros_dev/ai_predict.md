@@ -25,25 +25,25 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 功能背景
 
-`hobot_dnn`是TogetheROS.Bot软件栈中的板端算法推理框架，在RDK上利用BPU处理器实现算法推理功能，基于D-Robotics算法推理框架和ROS2 Node进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
+`hobot_dnn`是 TogetheROS.Bot 软件栈中的板端算法推理框架，在 RDK 上利用 BPU 处理器实现算法推理功能，基于 D-Robotics 算法推理框架和 ROS2 Node 进行二次开发，为机器人应用开发提供更简单易用的模型集成开发接口，包括模型管理、基于模型描述的输入处理及结果解析，以及模型输出内存分配管理等功能。
 
-通过阅读本章节，用户可以使用D-Robotics提供的模型，在RDK上基于`hobot_dnn`创建并运行一个人体检测的算法Node。借助tros.b提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在PC端的Web浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
+通过阅读本章节，用户可以使用 D-Robotics 提供的模型，在 RDK 上基于`hobot_dnn`创建并运行一个人体检测的算法 Node。借助 tros.b 提供的组件，订阅摄像头采集&发布的图像，对图像进行算法推理检测出人体框后，使用多目标跟踪（`multi-target tracking`，即`MOT`）算法对检测框进行跟踪和目标编号分配，最终实现在 PC 端的 Web 浏览器上实时渲染展示图像、人体框检测和目标跟踪结果。
 
 ### 前置条件
 
-1 RDK开发板，并且已安装好相关软件，包括：
+1 RDK 开发板，并且已安装好相关软件，包括：
 
-- Ubuntu系统镜像。
+- Ubuntu 系统镜像。
 
-- tros.b软件包。
+- tros.b 软件包。
 
-- ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
+- ROS2 软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
 
-2 RDK已安装F37或者GC4663摄像头。
+2 RDK 已安装 F37 或者 GC4663 摄像头。
 
-3 可以通过网络访问RDK的PC。
+3 可以通过网络访问 RDK 的 PC。
 
-关于`hobot_dnn`的详细使用说明可以参考`hobot_dnn`代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn的使用逻辑流程如下：
+关于`hobot_dnn`的详细使用说明可以参考`hobot_dnn`代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn 的使用逻辑流程如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg" alt="hobot_dnn / DNN Node 算法推理节点工作流程示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -51,7 +51,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 任务内容
 
-#### 1 创建package
+#### 1 创建 package
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -105,7 +105,7 @@ dev_ws/
 5 directories, 3 files
 ```
 
-在RDK上使用vi/vim等工具打开创建的代码源文件`body_det_demo.cpp`：`vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
+在 RDK 上使用 vi/vim 等工具打开创建的代码源文件`body_det_demo.cpp`：`vi ~/dev_ws/src/cpp_dnn_demo/src/body_det_demo.cpp`
 
 拷贝如下代码到文件中：
 
@@ -343,11 +343,11 @@ int main(int argc, char** argv) {
 ```
 
 
-##### 2.1 Node设计
+##### 2.1 Node 设计
 
-示例的人体检测算法Node主要包含三部分逻辑独立的功能。
+示例的人体检测算法 Node 主要包含三部分逻辑独立的功能。
 
-**（1）Node初始化和启动**
+**（1）Node 初始化和启动**
 
 配置算法使用的模型信息，创建算法推理消息的发布者和图像消息的订阅者，启动目标跟踪算法引擎。
 
@@ -359,7 +359,7 @@ int main(int argc, char** argv) {
 
 算法推理完成后，通过注册的回调`PostProcess`输出推理结果，回调中对检测结果进行多目标跟踪算法（`HobotMot`）处理后，发布算法推理结果消息。
 
-Node的设计和流程逻辑如下图：
+Node 的设计和流程逻辑如下图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg" alt="自定义推理 Node 的设计架构与处理流程逻辑图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -374,9 +374,9 @@ Node的设计和流程逻辑如下图：
 
 算法模型输出解析方法头文件`dnn_node/util/output_parser/detection/fasterrcnn_output_parser.h`，用于模型推理完成后，从输出地址解析出结构化数据（对于本示例使用的人体检测算法，对应的结构化数据为人体检测框）。
 
-ROS Msg头文件，用于消息的订阅和发布。
+ROS Msg 头文件，用于消息的订阅和发布。
 
-MOT算法引擎头文件，用于对检测出的人体框进行目标跟踪。
+MOT 算法引擎头文件，用于对检测出的人体框进行目标跟踪。
 
 ```c++
 #include "dnn_node/dnn_node.h"
@@ -398,13 +398,13 @@ struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
 };
 ```
 
-**创建算法推理Node**
+**创建算法推理 Node**
 
 继承`hobot_dnn`中的`DnnNode`虚基类，定义算法推理节点`BodyDetNode`，实现`DnnNode`中定义的虚接口。
 
   `int SetNodePara()`：配置模型参数。
 
-  `int PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutput> &node_output)`：推理结果回调，将解析后结构化的模型输出数据封装成ROS Msg后发布。
+  `int PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutput> &node_output)`：推理结果回调，将解析后结构化的模型输出数据封装成 ROS Msg 后发布。
 
 ```c++
 class BodyDetNode : public hobot::dnn_node::DnnNode {
@@ -418,13 +418,13 @@ class BodyDetNode : public hobot::dnn_node::DnnNode {
     override;
 ```
 
-**实现BodyDetNode子类的构造**
+**实现 BodyDetNode 子类的构造**
 
-`BodyDetNode`子类的构造函数中进行Node的初始化，同时通过`GetModelInputSize`接口获取了模型输入图片的尺寸，包括图片的宽`model_input_width_`和高`model_input_height_`，用于模型前处理，不同的模型一般输入图片的尺寸不同。
+`BodyDetNode`子类的构造函数中进行 Node 的初始化，同时通过`GetModelInputSize`接口获取了模型输入图片的尺寸，包括图片的宽`model_input_width_`和高`model_input_height_`，用于模型前处理，不同的模型一般输入图片的尺寸不同。
 
-通过零拷贝的通信方式，创建图片消息的订阅者，从摄像头节点订阅图像消息，用于算法模型推理。订阅的topic为`/hbmem_img`，消息类型为tros.b中定义的图片消息类型`hbm_img_msgs::msg::HbmMsg1080P`。
+通过零拷贝的通信方式，创建图片消息的订阅者，从摄像头节点订阅图像消息，用于算法模型推理。订阅的 topic 为`/hbmem_img`，消息类型为 tros.b 中定义的图片消息类型`hbm_img_msgs::msg::HbmMsg1080P`。
 
-创建消息发布者，用于发布算法推理消息。发布的topic为`/cpp_dnn_demo`，消息类型为tros.b中定义的算法消息类型`ai_msgs::msg::PerceptionTargets`。
+创建消息发布者，用于发布算法推理消息。发布的 topic 为`/cpp_dnn_demo`，消息类型为 tros.b 中定义的算法消息类型`ai_msgs::msg::PerceptionTargets`。
 
 创建多目标跟踪（MOT）算法引擎，用于对每个人体检测框进行目标跟踪。
 
@@ -452,7 +452,7 @@ BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOption
 }
 ```
 
-其中`Init()`是`DnnNode`基类中定义并实现的接口，执行算法推理初始化，只做pipeline的串联，具体的`SetNodePara()`步骤由用户（子类中）实现。串联的初始化流程如下：
+其中`Init()`是`DnnNode`基类中定义并实现的接口，执行算法推理初始化，只做 pipeline 的串联，具体的`SetNodePara()`步骤由用户（子类中）实现。串联的初始化流程如下：
 
 ```c++
 int DnnNode::Init() {
@@ -528,7 +528,7 @@ std::shared_ptr<NV12PyramidInput> GetNV12PyramidFromNV12Img(
     const int& scaled_img_width);
 ```
 
-创建`FasterRcnnOutput`类型的模型输出数据。订阅到的消息中包含消息头（frame_id和时间戳），使用订阅到的消息头填充输出数据的消息头，用于表述算法推理输出对应的图片信息。
+创建`FasterRcnnOutput`类型的模型输出数据。订阅到的消息中包含消息头（frame_id 和时间戳），使用订阅到的消息头填充输出数据的消息头，用于表述算法推理输出对应的图片信息。
 
 启动推理。使用`DnnNode`基类中的`Run`接口以异步模式运行推理，接口的第四个参数为`false`表示使用效率更高的异步推理模式。`Run`接口定义如下：
 
@@ -583,15 +583,15 @@ void BodyDetNode::FeedImg(const hbm_img_msgs::msg::HbmMsg1080P::ConstSharedPtr i
 
 **实现推理结果回调**
 
-算法推理结果回调是将解析后结构化的模型输出数据经过MOT算法处理后，输出带有目标编号的人体检测框和消失的目标编号数据，封装成ROS Msg后发布。
+算法推理结果回调是将解析后结构化的模型输出数据经过 MOT 算法处理后，输出带有目标编号的人体检测框和消失的目标编号数据，封装成 ROS Msg 后发布。
 
 创建`Filter2DResult`类型的结构化推理结果数据。
 
-使用hobot dnn内置的Parse解析方法，解析人体检测算法输出。
+使用 hobot dnn 内置的 Parse 解析方法，解析人体检测算法输出。
 
 运行多目标跟踪算法。将算法推理输出的人体检测框转成`MOT`算法输入数据类型，并根据消息头计算当前帧的时间戳，经过`MOT`算法处理后得到带有目标编号的人体检测框和消失的目标编号。
 
-发布算法推理结果。创建ROS Msg，填充算法推理结果对应的图片消息头（帧ID和时间戳），带有目标编号的人体检测框，算法推理输出的帧率统计，消失的目标编号。发布的ROS Msg可以被其他ROS Node订阅和使用。
+发布算法推理结果。创建 ROS Msg，填充算法推理结果对应的图片消息头（帧 ID 和时间戳），带有目标编号的人体检测框，算法推理输出的帧率统计，消失的目标编号。发布的 ROS Msg 可以被其他 ROS Node 订阅和使用。
 
 ```c++
 int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutput> &node_output) {
@@ -714,7 +714,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
 }
 ```
 
-dnn node中内置了多种检测、分类和分割算法的模型输出解析方法，RDK上安装tros.b后查询支持的解析方法如下：
+dnn node 中内置了多种检测、分类和分割算法的模型输出解析方法，RDK 上安装 tros.b 后查询支持的解析方法如下：
 
 ```shell
 root@ubuntu:~# tree /opt/tros/include/dnn_node/util/output_parser
@@ -773,13 +773,13 @@ int main(int argc, char** argv) {
 
 ##### 2.3 编译依赖
 
-步骤1的创建package中通过`ros2 pkg create`命令创建了cpp_dnn_demo package，在`dev_ws/src/cpp_dnn_demo`路径下已经自动创建了CMakeLists.txt和package.xml。
+步骤 1 的创建 package 中通过`ros2 pkg create`命令创建了 cpp_dnn_demo package，在`dev_ws/src/cpp_dnn_demo`路径下已经自动创建了 CMakeLists.txt 和 package.xml。
 
-在package.xml中自动添加了编译依赖的pkg，涉及到的依赖包括`rclcpp`、`sensor_msgs`、`ai_msgs`、`hbm_img_msgs`、`dnn_node`和`hobot_mot`。其中`ai_msgs`为TogatherROS中定义的算法输出消息格式，`hbm_img_msgs`为TogatherROS中定义的用于零拷贝通信方式下使用的图片消息格式，`dnn_node`为算法推理框架，`hobot_mot`为多目标跟踪算法。在TogatherROS安装时已安装这些pkg。
+在 package.xml 中自动添加了编译依赖的 pkg，涉及到的依赖包括`rclcpp`、`sensor_msgs`、`ai_msgs`、`hbm_img_msgs`、`dnn_node`和`hobot_mot`。其中`ai_msgs`为 TogatherROS 中定义的算法输出消息格式，`hbm_img_msgs`为 TogatherROS 中定义的用于零拷贝通信方式下使用的图片消息格式，`dnn_node`为算法推理框架，`hobot_mot`为多目标跟踪算法。在 TogatherROS 安装时已安装这些 pkg。
 
 ##### 2.4 编译脚本
 
-在 CMakeLists.txt 中添加pkg依赖和编译安装信息。
+在 CMakeLists.txt 中添加 pkg 依赖和编译安装信息。
 
 （1）添加多目标跟踪算法和算法推理引擎库依赖
 
@@ -790,7 +790,7 @@ link_directories(
 )
 ```
 
-（2）添加pkg编译信息
+（2）添加 pkg 编译信息
 
 ```cmake
 add_executable(${PROJECT_NAME}
@@ -808,7 +808,7 @@ ament_target_dependencies(
 )
 ```
 
-（3）添加pkg安装信息，实现通过ros2 run运行编译出来的pkg
+（3）添加 pkg 安装信息，实现通过 ros2 run 运行编译出来的 pkg
 
 ```cmake
 install(
@@ -817,7 +817,7 @@ install(
 )
 ```
 
-完整的CMakeLists.txt如下：
+完整的 CMakeLists.txt 如下：
 
 ```cmake
 cmake_minimum_required(VERSION 3.5)
@@ -878,7 +878,7 @@ ament_package()
 
 ##### 3.1 编译
 
-在安装了tros.b的RDK上，执行以下命令编译pkg：
+在安装了 tros.b 的 RDK 上，执行以下命令编译 pkg：
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -911,7 +911,7 @@ cd ~/dev_ws
 colcon build --packages-select cpp_dnn_demo
 ```
 
-如果编译成功，在编译所在路径下产生cpp_dnn_demo pkg的部署包install，编译终端输出如下信息：
+如果编译成功，在编译所在路径下产生 cpp_dnn_demo pkg 的部署包 install，编译终端输出如下信息：
 
 ```shell
 Starting >>> cpp_dnn_demo
@@ -956,7 +956,7 @@ Summary: 0 packages finished [3.44s]
   1 package had stderr output: cpp_dnn_demo
 ```
 
-说明ROS2环境没有配置成功。在终端输入ros2命令进行环境检查：
+说明 ROS2 环境没有配置成功。在终端输入 ros2 命令进行环境检查：
 
 ```
 # ros2
@@ -964,7 +964,7 @@ Summary: 0 packages finished [3.44s]
 -bash: ros2: command not found
 ```
 
-如果提示“command not found”，说明ROS2环境没有配置成功，检查source /opt/tros/setup.bash命令是否执行成功。配置成功的输出信息如下：
+如果提示 “command not found”，说明 ROS2 环境没有配置成功，检查 source /opt/tros/setup.bash 命令是否执行成功。配置成功的输出信息如下：
 
 ```
 # ros2
@@ -977,7 +977,7 @@ optional arguments:
   -h, --help            show this help message and exit
 ```
 
-2、查找不到dnn_node package
+2、查找不到 dnn_node package
 
 具体错误信息如下：
 
@@ -1004,21 +1004,21 @@ Summary: 0 packages finished [1min 1s]
  1 package had stderr output: cpp_dnn_demo
 ```
 
-说明hobot_dnn环境没有配置成功，检查/opt/tros/share/dnn_node是否存在。
+说明 hobot_dnn 环境没有配置成功，检查/opt/tros/share/dnn_node 是否存在。
 
 ##### 3.3 运行
 
-为了更好的展示算法推理效果，体验感知能力，使用tros.b中的MIPI摄像头图像采集、图像编码和WEB数据展示Node，提供数据传感和展示的能力，实现在RDK上发布摄像头采集到的图像，对图像进行算法推理检测出人体框后，在PC端的WEB浏览器上实时渲染展示图像和人体框检测结果。
+为了更好的展示算法推理效果，体验感知能力，使用 tros.b 中的 MIPI 摄像头图像采集、图像编码和 WEB 数据展示 Node，提供数据传感和展示的能力，实现在 RDK 上发布摄像头采集到的图像，对图像进行算法推理检测出人体框后，在 PC 端的 WEB 浏览器上实时渲染展示图像和人体框检测结果。
 
 运行时系统流程图如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg" alt="AI 推理示例运行时系统数据流与处理流程图" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-RDK上的运行4个node，其中算法推理为本示例。
+RDK 上的运行 4 个 node，其中算法推理为本示例。
 
 系统启动流程如下：
 
-（1）RDK上打开终端1，启动算法推理node
+（1）RDK 上打开终端 1，启动算法推理 node
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1060,9 +1060,9 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_mot/config/iou2_method_param.json confi
 ros2 run cpp_dnn_demo cpp_dnn_demo --ros-args --log-level warn
 ```
 
-（2）RDK上打开终端2，启动tros.b中的图像发布、编码和展示Node
+（2）RDK 上打开终端 2，启动 tros.b 中的图像发布、编码和展示 Node
 
-由于启动的Node比较多，使用启动脚本通过launch批量启动Node。在RDK的任意路径下创建启动脚本`cpp_dnn_demo.launch.py`，内容如下：
+由于启动的 Node 比较多，使用启动脚本通过 launch 批量启动 Node。在 RDK 的任意路径下创建启动脚本`cpp_dnn_demo.launch.py`，内容如下：
 
 ```python
 import os
@@ -1166,7 +1166,7 @@ ros2 launch cpp_dnn_demo.launch.py
 
 `error while loading shared libraries: libdnn_node.so: cannot open shared object file: No such file or directory`
 
-说明配置hobot_dnn环境失败，使用`ros2 pkg prefix dnn_node`命令检查dnn_node是否存在。
+说明配置 hobot_dnn 环境失败，使用`ros2 pkg prefix dnn_node`命令检查 dnn_node 是否存在。
 
 ##### 3.5 运行结果
 
@@ -1196,9 +1196,9 @@ root@ubuntu:~/dev_ws# ros2 run cpp_dnn_demo cpp_dnn_demo
 [WARN] [1666629243.576435625] [dnn_demo]: input fps: 30.01, out fps: 30.07
 ```
 
-输出log显示，初始化时算法推理使用的模型输入图片分辨率为960x544，使用一个推理任务，`MOT`算法引擎使用的配置文件为`config/iou2_method_param.json`。推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
+输出 log 显示，初始化时算法推理使用的模型输入图片分辨率为 960x544，使用一个推理任务，`MOT`算法引擎使用的配置文件为`config/iou2_method_param.json`。推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-在RDK上使用ros2命令查询并输出推理Node发布的`/cpp_dnn_demo`话题消息内容：
+在 RDK 上使用 ros2 命令查询并输出推理 Node 发布的`/cpp_dnn_demo`话题消息内容：
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1309,9 +1309,9 @@ disappeared_targets: []
 
 ```
 
-输出的`/cpp_dnn_demo`话题消息表明算法检测出5个人体框（rois type为body），并输出了每个检测框的坐标（rect）和对应的目标跟踪结果(track_id)。
+输出的`/cpp_dnn_demo`话题消息表明算法检测出 5 个人体框（rois type 为 body），并输出了每个检测框的坐标（rect）和对应的目标跟踪结果(track_id)。
 
-在PC端的WEB浏览器上输入 `http://IP:8000`（IP为RDK的IP地址，如本示例使用的IP地址为10.64.28.88）查看实时的图片和算法推理渲染效果：
+在 PC 端的 WEB 浏览器上输入 `http://IP:8000`（IP 为 RDK 的 IP 地址，如本示例使用的 IP 地址为 10.64.28.88）查看实时的图片和算法推理渲染效果：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg" alt="浏览器 Web 端实时查看图片与算法推理渲染效果的截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1321,45 +1321,45 @@ disappeared_targets: []
 
 ### 本节总结
 
-本章节介绍了如何使用D-Robotics提供的模型，基于`hobot_dnn`创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在PC端浏览器上实时渲染展示图片和算法推理结果。
+本章节介绍了如何使用 D-Robotics 提供的模型，基于`hobot_dnn`创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在 PC 端浏览器上实时渲染展示图片和算法推理结果。
 
 用户可以参考`hobot_dnn`中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
 
-## 算法wokflow构建
+## 算法 wokflow 构建
 
 ### 功能背景
 
-ROS2的节点（[Node](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)）将复杂的机器人软件系统拆解成多个功能和逻辑独立的模块，例如一个机器人应用可能包含多个传感和算法感知功能的Node。Node之间通过“话题”（[Topic](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)）进行数据交换，机器人软件系统中不同功能的ROS2 Node通过Topic连接起来形成一个有向无环图（DAG）。
+ROS2 的节点（[Node](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)）将复杂的机器人软件系统拆解成多个功能和逻辑独立的模块，例如一个机器人应用可能包含多个传感和算法感知功能的 Node。Node 之间通过“话题”（[Topic](http://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)）进行数据交换，机器人软件系统中不同功能的 ROS2 Node 通过 Topic 连接起来形成一个有向无环图（DAG）。
 
-TogetheROS.Bot软件栈中包含丰富的机器人开发组件和算法Node，其中传感Node支持从摄像头采集图像数据并发布，用于感知算法推理使用。感知算法库中的人手框检测算法Node使用图像数据进行推理，输出人手框检测结果；人手关键点检测算法Node使用图像数据和人手框检测结果推理输出人手关键点检测结果。因此人手关键点检测算法Node需要基于Topic通信，订阅人手框检测算法Node发布的人手框消息。
+TogetheROS.Bot 软件栈中包含丰富的机器人开发组件和算法 Node，其中传感 Node 支持从摄像头采集图像数据并发布，用于感知算法推理使用。感知算法库中的人手框检测算法 Node 使用图像数据进行推理，输出人手框检测结果；人手关键点检测算法 Node 使用图像数据和人手框检测结果推理输出人手关键点检测结果。因此人手关键点检测算法 Node 需要基于 Topic 通信，订阅人手框检测算法 Node 发布的人手框消息。
 
-通过阅读本章节，用户可以在RDK上使用tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起传感和感知Node，实现开发复杂机器人算法应用的目标。
+通过阅读本章节，用户可以在 RDK 上使用 tros.b 中的传感 Node、人手框检测和人手关键点检测算法 Node，基于 ROS2 Topic 通信，串联起传感和感知 Node，实现开发复杂机器人算法应用的目标。
 
 
 ### 前置条件
 
-1 RDK开发板，并且已安装好相关软件，包括：
+1 RDK 开发板，并且已安装好相关软件，包括：
 
-- Ubuntu系统镜像。
+- Ubuntu 系统镜像。
 
-- tros.b软件包。
+- tros.b 软件包。
 
-2 RDK已安装F37或者GC4663摄像头。
+2 RDK 已安装 F37 或者 GC4663 摄像头。
 
-3 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+3 和 RDK 在同一网段（有线或者连接同一无线网，IP 地址前三段需保持一致）的 PC，PC 端需要安装的环境包括：
 
-  - Ubuntu系统
+  - Ubuntu 系统
 
-  - [ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+  - [ROS2 Foxy 桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
-  - [rqt图形化工具](http://docs.ros.org/en/foxy/Concepts/About-RQt.html)
+  - [rqt 图形化工具](http://docs.ros.org/en/foxy/Concepts/About-RQt.html)
 
 
 ### 任务内容
 
-#### 1 启动数据采集Node
+#### 1 启动数据采集 Node
 
-RDK上打开一个终端启动图像发布Node，从F37摄像头采集图像数据并发布，用于算法推理使用：
+RDK 上打开一个终端启动图像发布 Node，从 F37 摄像头采集图像数据并发布，用于算法推理使用：
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1390,11 +1390,11 @@ source /opt/tros/humble/local_setup.bash
 ros2 run mipi_cam mipi_cam --ros-args -p out_format:=nv12 -p image_width:=960 -p image_height:=544 -p video_device:=F37 -p io_method:=shared_mem --log-level warn
 ```
 
-#### 2 启动人手框检测算法Node
+#### 2 启动人手框检测算法 Node
 
-RDK上打开一个终端启动人手框检测算法Node，订阅数据采集Node发布的图像消息，检测并发布人手检测框消息。
+RDK 上打开一个终端启动人手框检测算法 Node，订阅数据采集 Node 发布的图像消息，检测并发布人手检测框消息。
 
-启动命令中指定了发布的Topic为`hobot_hand_detection`。
+启动命令中指定了发布的 Topic 为`hobot_hand_detection`。
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1426,11 +1426,11 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 ros2 run mono2d_body_detection mono2d_body_detection --ros-args --log-level warn --ros-args -p ai_msg_pub_topic_name:=hobot_hand_detection
 ```
 
-#### 3 启动人手关键点检测算法Node
+#### 3 启动人手关键点检测算法 Node
 
-RDK上打开一个终端启动人手关键点检测算法Node，订阅数据采集Node发布的图像消息以及人手框检测算法Node发布的人手框消息。
+RDK 上打开一个终端启动人手关键点检测算法 Node，订阅数据采集 Node 发布的图像消息以及人手框检测算法 Node 发布的人手框消息。
 
-启动命令中指定了发布消息的Topic为`hobot_hand_lmk_detection`，订阅消息的Topic为`hobot_hand_detection`。
+启动命令中指定了发布消息的 Topic 为`hobot_hand_lmk_detection`，订阅消息的 Topic 为`hobot_hand_detection`。
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1464,9 +1464,9 @@ ros2 run hand_lmk_detection hand_lmk_detection --ros-args --log-level warn --ros
 
 #### 4 查看算法推理结果输出
 
-RDK上打开一个终端使用ROS2命令查看算法推理Node发布的Topic消息。
+RDK 上打开一个终端使用 ROS2 命令查看算法推理 Node 发布的 Topic 消息。
 
-**查看人手框检测算法Node发布出来的人手框检测消息**
+**查看人手框检测算法 Node 发布出来的人手框检测消息**
 
 查询命令：
 
@@ -1524,9 +1524,9 @@ targets:
 disappeared_targets: []
 ```
 
-可以看到人手框检测算法Node发布出来的消息中包含一个人手框检测结果（roi type为hand）。
+可以看到人手框检测算法 Node 发布出来的消息中包含一个人手框检测结果（roi type 为 hand）。
 
-**查看人手关键点检测算法Node发布出来的人手关键点检测消息**
+**查看人手关键点检测算法 Node 发布出来的人手关键点检测消息**
 
 查询命令：
 
@@ -1650,12 +1650,12 @@ targets:
 disappeared_targets: []
 ```
 
-可以看到人手关键点检测算法Node在订阅到人手检测框消息并用于推理后，发布出来的消息中包含一个人手框和人手关键点检测结果（roi type为hand，points type为hand_kps）。发布出来的人手框消息内容来源于订阅到的人手框消息，和上一步查出来的数据一致。
+可以看到人手关键点检测算法 Node 在订阅到人手检测框消息并用于推理后，发布出来的消息中包含一个人手框和人手关键点检测结果（roi type 为 hand，points type 为 hand_kps）。发布出来的人手框消息内容来源于订阅到的人手框消息，和上一步查出来的数据一致。
 
 
-#### 5 Node串联出来的Graph
+#### 5 Node 串联出来的 Graph
 
-RDK上打开一个终端使用ROS2命令查看运行时设备的Node和Topic信息：
+RDK 上打开一个终端使用 ROS2 命令查看运行时设备的 Node 和 Topic 信息：
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1696,22 +1696,22 @@ root@ubuntu:~# ros2 topic list
 /rosout
 ```
 
-查询到RDK上运行着3个Node。
+查询到 RDK 上运行着 3 个 Node。
 
-在PC端（**PC需要和RDK处于同一网段**）通过rqt的Node Graph功能可以可视化的展示RDK上运行的Node，Node发布和订阅的topic，以及Node基于这些Topic组成的graph，如下图：
+在 PC 端（**PC 需要和 RDK 处于同一网段**）通过 rqt 的 Node Graph 功能可以可视化的展示 RDK 上运行的 Node，Node 发布和订阅的 topic，以及 Node 基于这些 Topic 组成的 graph，如下图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg" alt="rqt Node Graph 展示人手关键点示例相关 Node 与 Topic 拓扑图" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-其中椭圆形框内为Node名，矩形框内为Topic名。可以看到，整个graph由3个Node和2个Topic组成。
+其中椭圆形框内为 Node 名，矩形框内为 Topic 名。可以看到，整个 graph 由 3 个 Node 和 2 个 Topic 组成。
 
-mipi_cam（传感Node）为起点，实现从摄像头采集和发布图像。
+mipi_cam（传感 Node）为起点，实现从摄像头采集和发布图像。
 
-mono2d_body_det（算法感知Node）为中间节点，订阅mipi_cam Node发布的图像数据，实现人手框的检测。
+mono2d_body_det（算法感知 Node）为中间节点，订阅 mipi_cam Node 发布的图像数据，实现人手框的检测。
 
-hand_lmk_det（算法感知Node）为终点，订阅mipi_cam Node发布的图像数据以及mono2d_body_det Node发布的人手框检测数据，实现人手关键点的检测。
+hand_lmk_det（算法感知 Node）为终点，订阅 mipi_cam Node 发布的图像数据以及 mono2d_body_det Node 发布的人手框检测数据，实现人手关键点的检测。
 
 ### 本节总结
 
-本章节介绍了在RDK上使用tros.b中的传感Node、人手框检测和人手关键点检测算法Node，基于ROS2 Topic通信，串联起两个感知算法Node，实现从摄像头采集图像后用于算法推理并发布检测出的人手关键点消息的功能。
+本章节介绍了在 RDK 上使用 tros.b 中的传感 Node、人手框检测和人手关键点检测算法 Node，基于 ROS2 Topic 通信，串联起两个感知算法 Node，实现从摄像头采集图像后用于算法推理并发布检测出的人手关键点消息的功能。
 
-基于本章节介绍的算法串联原理，用户可以在RDK上串联更多算法Node，开发出功能丰富的机器人算法应用。
+基于本章节介绍的算法串联原理，用户可以在 RDK 上串联更多算法 Node，开发出功能丰富的机器人算法应用。

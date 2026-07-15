@@ -14,9 +14,9 @@ import DocScope from '@site/src/components/DocScope';
 
 激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`CenterPoint`算法模型。
 
-算法输入为32线激光雷达点云数据，输出信息包括目标的3D检测框、置信度、类别。支持的目标检测类型包括car、truck、bus、barrier、motorcycle、pedestrian共六大类别。
+算法输入为 32 线激光雷达点云数据，输出信息包括目标的 3D 检测框、置信度、类别。支持的目标检测类型包括 car、truck、bus、barrier、motorcycle、pedestrian 共六大类别。
 
-此示例使用本地激光雷达点云文件作为输入，利用BPU进行算法推理，发布包含点云数据、目标检测框和朝向的渲染图片消息，在PC端浏览器上渲染显示算法结果。
+此示例使用本地激光雷达点云文件作为输入，利用 BPU 进行算法推理，发布包含点云数据、目标检测框和朝向的渲染图片消息，在 PC 端浏览器上渲染显示算法结果。
 
 代码仓库： (https://github.com/D-Robotics/hobot_centerpoint)
 
@@ -24,25 +24,25 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台      | 运行方式     | 示例功能                                |
 | --------- | ------------ | --------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过 web 展示推理渲染结果 |
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. 确认PC机能够通过网络访问RDK。
+3. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
 ### 使用本地点云文件回灌
 
-激光雷达物体检测算法示例使用激光雷达点云文件回灌，经过推理后将算法结果渲染后的图片msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+激光雷达物体检测算法示例使用激光雷达点云文件回灌，经过推理后将算法结果渲染后的图片 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
 准备激光雷达点云文件：
 
@@ -142,8 +142,8 @@ webserver has launch
 </Tabs>
 </DocScope>
 
-输出log显示，发布算法推理结果的topic为`/hobot_centerpoint`, 获取的回灌点云文件为81个。算法经过推理，后处理(包含推理结果的渲染和发布)，帧率约为2.4fps。
+输出 log 显示，发布算法推理结果的 topic 为`/hobot_centerpoint`, 获取的回灌点云文件为 81 个。算法经过推理，后处理(包含推理结果的渲染和发布)，帧率约为 2.4fps。
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg" alt="Web 端 CenterPoint 点云目标检测渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

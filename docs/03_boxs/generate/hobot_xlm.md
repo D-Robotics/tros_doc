@@ -3,7 +3,7 @@ sidebar_position: 3
 sidebar_products: RDK-S100
 ---
 
-# DeepSeek大语言模型
+# DeepSeek 大语言模型
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-本章节介绍如何在RDK S100系列平台体验端侧 Large Language Model (LLM)。
+本章节介绍如何在 RDK S100 系列平台体验端侧 Large Language Model (LLM)。
 
 代码仓库： (https://github.com/D-Robotics/hobot_xlm.git)
 
@@ -27,7 +27,7 @@ import DocScope from '@site/src/components/DocScope';
 
 <DocScope products="RDK-S100">
 
-| 模型 | 参数量 | Token长度 | 量化方式 | 平台 | prefill eval (tokens/s) | eval (tokens/s) |
+| 模型 | 参数量 | Token 长度 | 量化方式 | 平台 | prefill eval (tokens/s) | eval (tokens/s) |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Deepseek-R1 | 1.5B | 1024 | Q8 | S100 | 635.24 | 17.05 |
 | Deepseek-R1 | 7B | 1024 | Q8 | S100 | 279.17 | 3.72 |
@@ -40,8 +40,8 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 系统准备
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ### 模型下载
 
@@ -108,7 +108,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 程序启动后，可直接在当前终端和机器人聊天。
 
-当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于RDK S100P。
+当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于 RDK S100P。
 
 #### 订阅发布体验
 
@@ -140,9 +140,9 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
-    当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于RDK S100P。
+    当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于 RDK S100P。
 
-2. 新开一个终端订阅输出结果topic
+2. 新开一个终端订阅输出结果 topic
 
    
 

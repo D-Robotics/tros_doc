@@ -14,10 +14,10 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 功能介绍
 
-TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大尺寸数据的通信延时和CPU占用。tros.b通过集成performance_test工具，可以方便的评测开启零拷贝前后的性能差异。performance_test工具能够实现sub数量、消息大小、QoS等参数配置，方便评估不同场景下的通信性能，主要性能指标如下：
+TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低大尺寸数据的通信延时和 CPU 占用。tros.b 通过集成 performance_test 工具，可以方便的评测开启零拷贝前后的性能差异。performance_test 工具能够实现 sub 数量、消息大小、QoS 等参数配置，方便评估不同场景下的通信性能，主要性能指标如下：
 
-- 时延（latency）：对应消息从pub到sub的传输时间
-- CPU使用率（CPU usage）：通信活动所占CPU使用百分比
+- 时延（latency）：对应消息从 pub 到 sub 的传输时间
+- CPU 使用率（CPU usage）：通信活动所占 CPU 使用百分比
 - 驻留内存（resident memory）：包括堆分配内存、共享内存以及用于系统内部的栈内存
 - 样本统计（sample statistics）：包括每次实验发送、接收以及丢失的消息数量
 
@@ -27,8 +27,8 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
   - [https://github.com/D-Robotics/benchmark](https://github.com/D-Robotics/benchmark)
 
 :::info
-- tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
-- tros.b Humble版本以及之后版本使用的是ROS2的“zero-copy”功能。
+- tros.b Foxy 版本基于 ROS2 Foxy 新增了 “zero-copy” 功能。
+- tros.b Humble 版本以及之后版本使用的是 ROS2 的 “zero-copy” 功能。
 :::
 
 ### 支持平台
@@ -43,7 +43,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 #### RDK
 
-1. 开始测试前，需要将RDK调整为性能模型，以保证测试结果准确性。命令如下：
+1. 开始测试前，需要将 RDK 调整为性能模型，以保证测试结果准确性。命令如下：
 
    ```bash
    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
@@ -72,7 +72,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
  
 
-2. RDK已成功安装performance_test工具包，安装命令：
+2. RDK 已成功安装 performance_test 工具包，安装命令：
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -151,9 +151,9 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 </DocScope>
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
-1. 不开启零拷贝功能的4M数据传输测试，命令如下：
+1. 不开启零拷贝功能的 4M 数据传输测试，命令如下：
 
  <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
@@ -252,7 +252,7 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
     Maximum runtime reached. Exiting.
     ```
 
-1. 开启零拷贝功能(加入--zero-copy参数)的4M数据传输测试，命令如下：
+1. 开启零拷贝功能(加入--zero-copy 参数)的 4M 数据传输测试，命令如下：
 
  <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
@@ -369,10 +369,10 @@ TogetheROS.Bot提供了灵活、高效的零拷贝功能，可以显著降低大
 
 ### 结果分析
 
-performance_test工具可输出多种类型的统计结果，下面主要对比延时、系统占用的差异：
+performance_test 工具可输出多种类型的统计结果，下面主要对比延时、系统占用的差异：
 
 **latency**
-  对比关闭和打开“zero-copy”功能的通信时延均值分别为4.546ms和0.195ms，可以看出“zero-copy”功能显著降低通信时延。
+  对比关闭和打开 “zero-copy” 功能的通信时延均值分别为 4.546ms 和 0.195ms，可以看出 “zero-copy” 功能显著降低通信时延。
 
 **system usage**
 
@@ -390,14 +390,14 @@ performance_test工具可输出多种类型的统计结果，下面主要对比�
 
 | 通信方式      | latency  | utime+stime |maxrss | minflt | majflt | nvcsw | nivcsw |
 | --------------| ---------| ------------|-------|--------|--------|-------|--------|
-| 非“zero-copy” | 0.004546 | 23242551000 | 65092 | 11578  |   2    | 9885  |  7193  |
+| 非 “zero-copy” | 0.004546 | 23242551000 | 65092 | 11578  |   2    | 9885  |  7193  |
 | “zero-copy”   | 0.000381 | 9035033000  | 46224 | 6440   |   0    | 9734  |  2544  |
 
 对比可知
 
-- “zero-copy” utime和stime之和明显低于非“zero-copy”，表明“zero-copy”消耗的CPU资源更少
-- “zero-copy” maxrss少于非“zero-copy”，表明“zero-copy”占用的内存少
-- “zero-copy” minflt、majflt明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
-- “zero-copy” nvcsw、nivcsw明显少于非“zero-copy”，表明“zero-copy”通信抖动更小
+- “zero-copy” utime 和 stime 之和明显低于非 “zero-copy”，表明 “zero-copy” 消耗的 CPU 资源更少
+- “zero-copy” maxrss 少于非 “zero-copy”，表明 “zero-copy” 占用的内存少
+- “zero-copy” minflt、majflt 明显少于非 “zero-copy”，表明 “zero-copy” 通信抖动更小
+- “zero-copy” nvcsw、nivcsw 明显少于非 “zero-copy”，表明 “zero-copy” 通信抖动更小
 
-总的来说对于大数据通信，“zero-copy”在CPU消耗、内存占用以及通信延迟抖动方面均明显优于非“zero-copy”
+总的来说对于大数据通信，“zero-copy” 在 CPU 消耗、内存占用以及通信延迟抖动方面均明显优于非 “zero-copy”

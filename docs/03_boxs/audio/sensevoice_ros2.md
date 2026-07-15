@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-智能语音算法采用SenseVoiceGGUF的算法，订阅音频数据后送给sensevoicegguf模型处理，然后发布**命令词识别**、**语音ASR识别结果**等消息。智能语音功能的实现对应于TogetheROS.Bot的**sensevoice_ros2** package，适用于3.5mm的耳麦。
+智能语音算法采用 SenseVoiceGGUF 的算法，订阅音频数据后送给 sensevoicegguf 模型处理，然后发布**命令词识别**、**语音 ASR 识别结果**等消息。智能语音功能的实现对应于 TogetheROS.Bot 的**sensevoice_ros2** package，适用于 3.5mm 的耳麦。
 
 代码仓库： (https://github.com/D-Robotics/sensevoice_ros2.git)
 
@@ -30,9 +30,9 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
-3. RDK已成功安装智能语音2算法包，安装命令：
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
+3. RDK 已成功安装智能语音 2 算法包，安装命令：
 
    <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
@@ -101,14 +101,14 @@ import DocScope from '@site/src/components/DocScope';
 </DocScope>
 :::
 </DocScope>
-4. 音频板正确连接到RDK X5的3.5mm的耳麦接口。
-5. USB音响正确连接到RDK X5的usb接口。
+4. 音频板正确连接到 RDK X5 的 3.5mm 的耳麦接口。
+5. USB 音响正确连接到 RDK X5 的 usb 接口。
 
 ## 使用介绍
 
-智能语音sensevoice_ros2 package开始运行之后，会从麦克风采集音频，并且将采集到的音频数据送入语音智能算法做智能处理，输出命令词、ASR结果等智能信息，其中命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR结果通过`std_msgs::msg::String`类型消息发布。
+智能语音 sensevoice_ros2 package 开始运行之后，会从麦克风采集音频，并且将采集到的音频数据送入语音智能算法做智能处理，输出命令词、ASR 结果等智能信息，其中命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR 结果通过`std_msgs::msg::String`类型消息发布。
 
-智能语音功能支持对原始音频进行ASR识别，默认的命令词定义在智能语音功能代码模块根目录下*config/cmd_word.json*文件，默认为：
+智能语音功能支持对原始音频进行 ASR 识别，默认的命令词定义在智能语音功能代码模块根目录下*config/cmd_word.json*文件，默认为：
 
 ```json
 {
@@ -122,9 +122,9 @@ import DocScope from '@site/src/components/DocScope';
 }
 ```
 
-RDK板端运行sensevoice_ros2 package：
+RDK 板端运行 sensevoice_ros2 package：
 
-1. 配置tros.b环境和启动应用
+1. 配置 tros.b 环境和启动应用
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -195,7 +195,7 @@ RDK板端运行sensevoice_ros2 package：
 
 ## 结果分析
 
-在RDK上运行终端输出如下信息：
+在 RDK 上运行终端输出如下信息：
 
 ```text
 alsa_device_init, snd_pcm_open. handle((nil)), name(plughw:0,0), direct(1), mode(0)
@@ -211,9 +211,9 @@ alsa_device_init. hwparams(0xaaaad12484a0), swparams(0xaaaad124a7a0)
 
 ```
 
-以上log显示，音频设备初始化成功，并且打开了音频设备，可正常采集音频。
+以上 log 显示，音频设备初始化成功，并且打开了音频设备，可正常采集音频。
 
-当人依次在麦克风旁边说出“向前走”、“向左转”、“向右转”、“向后退”命令词，语音算法经过智能处理后输出识别结果，log显示如下：
+当人依次在麦克风旁边说出“向前走”、“向左转”、“向右转”、“向后退”命令词，语音算法经过智能处理后输出识别结果，log 显示如下：
 
 ```text
 cost time :769 ms
@@ -239,7 +239,7 @@ result_str:向后退,
 
 ```
 
-sensevoice_ros2默认发布的智能语音消息话题名为：**/audio_smart** 和 **/asr_text**，`ros2 topic list`结果为：
+sensevoice_ros2 默认发布的智能语音消息话题名为：**/audio_smart** 和 **/asr_text**，`ros2 topic list`结果为：
 
 ```shell
 $ ros2 topic list

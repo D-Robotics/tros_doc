@@ -26,13 +26,13 @@ EdgeTAM (Edge Track Anything Model) 是基于 Facebook Research 开源的 [EdgeT
 
  (https://github.com/D-Robotics/mono_edgetam)
 
-应用场景：EdgeTAM能够通过点/框提示对任意目标进行持续的跟踪与分割，可实现视频目标分割、交互式视频编辑等功能，主要应用于自动驾驶、视频分析、智能交互等领域。
+应用场景：EdgeTAM 能够通过点/框提示对任意目标进行持续的跟踪与分割，可实现视频目标分割、交互式视频编辑等功能，主要应用于自动驾驶、视频分析、智能交互等领域。
 
 ## 支持平台
 
 | 平台                     | 运行方式     | 示例功能                                                 |
 | ------------------------ | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -47,15 +47,15 @@ EdgeTAM (Edge Track Anything Model) 是基于 Facebook Research 开源的 [EdgeT
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK 已烧录好 Ubuntu 22.04 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG格式图片的方式体验算法效果。
+3. RDK 已安装 MIPI 或者 USB 摄像头，无摄像头的情况下通过回灌本地 JPEG 格式图片的方式体验算法效果。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ### 下载模型与数据
 
@@ -84,7 +84,7 @@ EdgeTAM 跟踪分割包含两个阶段：**提示阶段** 和 **跟踪阶段**�
 
 prompt 初始化节点基于输入图像和点/框提示做模型推理，生成 **traget embedding** 提示特征文件保存到本地，供后续跟踪节点加载。
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 
 
@@ -108,7 +108,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 </Tabs>
 </DocScope>
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 
 
@@ -158,7 +158,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 #### Web 展示
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
 
 提示阶段渲染效果：
 
@@ -184,7 +184,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 **注意**：在**相同目录**下运行 `mono_edgetam_track` 跟踪节点，确保跟踪节点加载的是提示阶段生成的特征文件。
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 
 
@@ -208,7 +208,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 </Tabs>
 </DocScope>
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 
 
@@ -261,7 +261,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 ### Web 展示
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
 
 跟踪阶段渲染效果：
 

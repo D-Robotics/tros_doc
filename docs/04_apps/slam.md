@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 5.4.1 SLAM建图
+# 5.4.1 SLAM 建图
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -12,9 +12,9 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简称SLAM）。
-本章节使用ROS2的SLAM-Toolbox作为建图算法，在Gazebo中控制小车行驶建立地图，并通过Rviz2观察建图效果。
-其中SLAM-Toolbox运行在RDK上，Gazebo和Rviz2运行在与RDK同一网段的PC上。
+SLAM 指即时定位与地图构建（Simultaneous Localization and Mapping，简称 SLAM）。
+本章节使用 ROS2 的 SLAM-Toolbox 作为建图算法，在 Gazebo 中控制小车行驶建立地图，并通过 Rviz2 观察建图效果。
+其中 SLAM-Toolbox 运行在 RDK 上，Gazebo 和 Rviz2 运行在与 RDK 同一网段的 PC 上。
 
 ## 支持平台
 
@@ -26,13 +26,13 @@ SLAM指即时定位与地图构建（Simultaneous Localization and Mapping，简
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. tros.b成功安装后，安装SLAM-Toolbox
+3. tros.b 成功安装后，安装 SLAM-Toolbox
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -135,7 +135,7 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 :::
 
-4. 和RDK在同一网段的PC，PC已安装Ubuntu系统、ROS2桌面版和仿真环境Gazebo，数据可视化工具Rviz2。
+4. 和 RDK 在同一网段的 PC，PC 已安装 Ubuntu 系统、ROS2 桌面版和仿真环境 Gazebo，数据可视化工具 Rviz2。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -145,7 +145,7 @@ source /opt/tros/jazzy/setup.bash
 source /opt/ros/foxy/setup.bash
 ```
 
-Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+Ubuntu 20.04 系统和[ROS2 Foxy 桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 
@@ -154,7 +154,7 @@ Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installat
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+Ubuntu 22.04 系统和[ROS2 Humble 桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 
@@ -163,7 +163,7 @@ Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Insta
 ```bash
 source /opt/ros/jazzy/setup.bash
 ```
-Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+Ubuntu 24.04 系统和[ROS2 Jazzy 桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 </Tabs>
@@ -176,7 +176,7 @@ Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Install
 ```bash
 source /opt/ros/humble/setup.bash
 ```
-Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+Ubuntu 22.04 系统和[ROS2 Humble 桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 </Tabs>
@@ -189,14 +189,14 @@ Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Insta
 ```bash
 source /opt/ros/jazzy/setup.bash
 ```
-Ubuntu 24.04系统和[ROS2 Jazzy桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
+Ubuntu 24.04 系统和[ROS2 Jazzy 桌面版](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
 </Tabs>
 </DocScope>
 
 
-PC的ROS2安装成功后安装Gazebo和Turtlebot3相关的功能包，安装方法为：
+PC 的 ROS2 安装成功后安装 Gazebo 和 Turtlebot3 相关的功能包，安装方法为：
 
 ```bash
 sudo apt-get install ros-${ROS_DISTRO}-gazebo-*
@@ -208,11 +208,11 @@ sudo apt install ros-${ROS_DISTRO}-teleop-twist-keyboard
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
-本小节介绍如何使用RDK运行SLAM算法，并使用PC观察建图效果。
+本小节介绍如何使用 RDK 运行 SLAM 算法，并使用 PC 观察建图效果。
 
-PC端启动仿真环境：
+PC 端启动仿真环境：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -279,7 +279,7 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 仿真环境如下图所示：
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/gazebo.jpg" alt="SLAM 示例中 Gazebo 仿真环境启动后的场景" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-PC端开启另外一个控制台，启动Rviz2 用于观察建图效果：
+PC 端开启另外一个控制台，启动 Rviz2 用于观察建图效果：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -338,10 +338,10 @@ source /opt/ros/jazzy/setup.bash
 ros2 launch turtlebot3_bringup rviz2.launch.py
 ```
 
-打开Rviz2后，需要添加“map”可视化选项，用于展示建立的地图，步骤如下所示：
+打开 Rviz2 后，需要添加 “map” 可视化选项，用于展示建立的地图，步骤如下所示：
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg" alt="在 RViz2 中添加 map 可视化选项以展示建图结果的配置步骤" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-RDK板端运行SLAM-Toolbox：
+RDK 板端运行 SLAM-Toolbox：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -406,7 +406,7 @@ source /opt/tros/jazzy/setup.bash
 ros2 launch slam_toolbox online_sync_launch.py
 ```
 
-PC端开启另外一个控制台，PC端启动控制工具，通过键盘控制小车运动，控制方法见控制台打印的log，在此不再赘述：
+PC 端开启另外一个控制台，PC 端启动控制工具，通过键盘控制小车运动，控制方法见控制台打印的 log，在此不再赘述：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -465,12 +465,12 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 </Tabs>
 </DocScope>
 
-控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM算法也建立起环境地图，可以在Rviz2上观察到建图效果。
+控制小车行驶，随着小车雷达探测到更多的环境信息，SLAM 算法也建立起环境地图，可以在 Rviz2 上观察到建图效果。
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg" alt="小车行驶过程中 RViz2 上逐步建立的环境地图效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## 结果分析
 
-在RDK板端运行终端输出如下信息：
+在 RDK 板端运行终端输出如下信息：
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2022-06-10-06-40-34-204213-ubuntu-5390

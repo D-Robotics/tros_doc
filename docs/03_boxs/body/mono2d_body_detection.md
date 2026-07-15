@@ -12,9 +12,9 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-人体检测和跟踪算法示例订阅图片，利用BPU进行算法推理，发布包含人体、人头、人脸、人手框和人体关键点检测结果msg，并通过多目标跟踪（multi-target tracking，即MOT）功能，实现检测框的跟踪。X86版本暂不支持多目标跟踪以及Web端展示功能。
+人体检测和跟踪算法示例订阅图片，利用 BPU 进行算法推理，发布包含人体、人头、人脸、人手框和人体关键点检测结果 msg，并通过多目标跟踪（multi-target tracking，即 MOT）功能，实现检测框的跟踪。X86 版本暂不支持多目标跟踪以及 Web 端展示功能。
 
-算法支持的检测类别，以及不同类别在算法msg中对应的数据类型如下：
+算法支持的检测类别，以及不同类别在算法 msg 中对应的数据类型如下：
 
 | 类别     | 说明       | 数据类型 |
 | -------- | ---------- | -------- |
@@ -35,15 +35,15 @@ import DocScope from '@site/src/components/DocScope';
 
 姿态检测案例：[姿态检测](../../04_apps/fall_detection.md)    
 小车人体跟随案例：[小车人体跟随](../../04_apps/car_tracking.md)  
-基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转 X3 派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过Web展示推理渲染结果                |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
+| X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过 Web 展示推理渲染结果                |
 
 ## 算法信息
 
@@ -64,29 +64,29 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
-### X86平台
+### X86 平台
 
-1. X86环境已配置Ubuntu 20.04系统镜像。
+1. X86 环境已配置 Ubuntu 20.04 系统镜像。
 
-2. X86环境已成功安装tros.b。
+2. X86 环境已成功安装 tros.b。
 
 ## 使用介绍
 
-人体检测和跟踪(mono2d_body_detection)package订阅sensor package发布的图片，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
+人体检测和跟踪(mono2d_body_detection)package 订阅 sensor package 发布的图片，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果。
 
-### RDK平台
+### RDK 平台
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -125,7 +125,7 @@ export CAM_TYPE=mipi
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -204,7 +204,7 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 
 ```
 
-### X86平台
+### X86 平台
 
 **使用本地回灌图片**
 
@@ -262,8 +262,8 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 [mono2d_body_detection-3] [WARN] [1660219828.955764872] [mono2d_body_det]: input fps: 30.01, out fps: 30.00
 ```
 
-输出log显示，程序运行成功，推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
+输出 log 显示，程序运行成功，推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为RDK/X86设备的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪 ID，人体关键点）渲染效果（IP 为 RDK/X86 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg" alt="Web 端人体、人头、人脸、人手检测框与人体关键点渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

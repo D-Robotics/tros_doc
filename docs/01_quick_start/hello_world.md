@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 5.1.4 运行“Hello World”
+# 5.1.4 运行 “Hello World”
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-前提：已通过deb包或者源码安装的方式成功安装TogetheROS.Bot
+前提：已通过 deb 包或者源码安装的方式成功安装 TogetheROS.Bot
 
-启动两个终端，均ssh登陆至RDK或X86平台设备
+启动两个终端，均 ssh 登陆至 RDK 或 X86 平台设备
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -36,7 +36,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 <TabItem value="humble" label="Humble">
 
-安装`Hello World` example对应的package：
+安装`Hello World` example 对应的 package：
 
 ```shell
 sudo apt update
@@ -70,7 +70,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 <TabItem value="jazzy" label="Jazzy">
 
-安装`Hello World` example对应的package：
+安装`Hello World` example 对应的 package：
 
 ```shell
 sudo apt update
@@ -108,7 +108,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
-安装`Hello World` example对应的package：
+安装`Hello World` example 对应的 package：
 
 ```shell
 sudo apt update
@@ -141,7 +141,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 <Tabs groupId="tros-distro">
 <TabItem value="jazzy" label="Jazzy">
 
-安装`Hello World` example对应的package：
+安装`Hello World` example 对应的 package：
 
 ```shell
 sudo apt update
@@ -174,6 +174,6 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 运行效果如下图
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png" alt="Hello World 示例中 publisher 与 subscriber 两端终端收发消息的运行效果" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-可以看到左侧终端作为pub，在不断发送“'Hello, world! N”，右侧终端作为sub端不断收到“'Hello, world! N”
+可以看到左侧终端作为 pub，在不断发送“'Hello, world! N”，右侧终端作为 sub 端不断收到“'Hello, world! N”
 
-OK tros.b目前已成功安装并验证！
+OK tros.b 目前已成功安装并验证！

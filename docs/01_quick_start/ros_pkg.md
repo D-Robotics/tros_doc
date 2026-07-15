@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 5.1.5 使用ROS2 package
+# 5.1.5 使用 ROS2 package
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -10,17 +10,17 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-前提：已成功安装TogetheROS.Bot
+前提：已成功安装 TogetheROS.Bot
 
-tros.b和ROS2 Foxy/Humble/Jazzy版本接口完全兼容，能够复用ROS2丰富工具包，这里以安装和使用ROS2 image-transport为例介绍如何在tros.b中使用ROS package。
+tros.b 和 ROS2 Foxy/Humble/Jazzy 版本接口完全兼容，能够复用 ROS2 丰富工具包，这里以安装和使用 ROS2 image-transport 为例介绍如何在 tros.b 中使用 ROS package。
 
-## 安装ROS2 package
+## 安装 ROS2 package
 
-### 1 添加ROS apt源
+### 1 添加 ROS apt 源
 
-安装tros.b时，已自动添加ROS apt源，无需手动添加。
+安装 tros.b 时，已自动添加 ROS apt 源，无需手动添加。
 
-更新apt仓库
+更新 apt 仓库
 
 ```shell
 sudo apt update
@@ -47,7 +47,7 @@ sudo apt update
 :::
 </DocScope>
 
-### 2 安装packages
+### 2 安装 packages
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -104,9 +104,9 @@ sudo apt install ros-jazzy-image-transport-plugins
 </Tabs>
 </DocScope>
 
-## 使用ROS2 package
+## 使用 ROS2 package
 
-与ROS使用一样
+与 ROS 使用一样
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -163,7 +163,7 @@ ros2 run image_transport list_transports
 </Tabs>
 </DocScope>
 
-运行结果如下，展示了image_transport package支持的图像格式
+运行结果如下，展示了 image_transport package 支持的图像格式
 
 ```shell
 root@ubuntu:/opt/tros# ros2 run image_transport list_transports
