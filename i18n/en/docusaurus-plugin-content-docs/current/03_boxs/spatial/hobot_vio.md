@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 ## Overview
 
 Visual-Inertial Odometry (VIO) is an algorithm that fuses camera and Inertial Measurement Unit (IMU) data to achieve robot localization. VIO localization has advantages such as low cost and wide applicability. In outdoor environments, it can effectively compensate for satellite positioning failure scenarios such as occlusion and multipath interference. Excellent and robust VIO algorithms are key to achieving high-precision outdoor navigation and localization.
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_vio_rviz.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_vio_rviz.jpeg" alt="RViz2 visualization of VIO trajectory and pose estimates" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 Code repository: (https://github.com/D-Robotics/hobot_vio.git)
 
 ## Supported Platforms

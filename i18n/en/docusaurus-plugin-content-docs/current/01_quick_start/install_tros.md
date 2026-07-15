@@ -162,7 +162,7 @@ sudo apt install tros-jazzy
 
 :::caution **Note**
 - **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
+- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` , first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
 </DocScope>
@@ -171,7 +171,7 @@ sudo apt install tros-jazzy
 
 :::caution **Note**
 - **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
+- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` , first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
 </DocScope>
@@ -180,7 +180,7 @@ sudo apt install tros-jazzy
 
 :::caution **Note**
 - **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/hardware_and_system?v=4.0.5&p=RDK+S100#q6-how-do-i-handle-apt-update-failures-or-errors) section `Q6: How to handle apt update command failure or error?` for resolution.**
-- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
+- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` , first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
 </DocScope>
@@ -189,7 +189,7 @@ sudo apt install tros-jazzy
 
 :::caution **Note**
 - **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-how-do-i-handle-apt-update-failures-or-errors) section `Q6: How to handle apt update command failure or error?` for resolution.**
-- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`, first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
+- **If after running the install command you see `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` , first run `apt --fix-broken install` to install related dependencies, then install tros.b.**
 :::
 
 </DocScope>

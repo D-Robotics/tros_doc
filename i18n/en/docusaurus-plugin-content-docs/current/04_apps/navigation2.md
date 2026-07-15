@@ -197,12 +197,12 @@ source /opt/ros/humble/setup.bash
    ```
 
    :::info
-   If startup fails with the error `[ERROR] [gzclient-2]: process has died`, run `source /usr/share/gazebo/setup.sh` and start again.
+   If startup fails with the error `[ERROR] [gzclient-2]: process has died` , run `source /usr/share/gazebo/setup.sh` and start again.
    :::
 
    The simulation environment is shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/gazebo.png" alt="Gazebo simulation scene after starting the Navigation2 example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. **RDK**: Start navigation
 
@@ -292,23 +292,23 @@ source /opt/tros/humble/setup.bash
 
    Rviz2 display is shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz.png" alt="Overall Navigation2 visualization in RViz2" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 (1) Set the robot's initial position and orientation in Rviz2
 
    After Rviz2 starts, the robot initially does not know its location. By default, Nav2 waits for the user to provide an approximate starting position. Check the robot's position in Gazebo and locate it on the map. Click the "2D Pose Estimate" button in Rviz2, then click on the map at the robot's estimated position. Drag forward from the clicked position to set the robot's initial movement direction. As shown below:
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_init.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_init.png" alt="Setting the robot initial pose in RViz2 with 2D Pose Estimate" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
    Once the robot's initial position is set, the transform tree is completed and Nav2 becomes fully active and ready. You can then see the robot and point cloud.
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_start.png" alt="RViz2 ready state showing the robot and point cloud after pose initialization" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 (2) Set the destination in Rviz2
 
    Click the "Navigaton2 Goal" button and select a destination.
 
-   ![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_goal.png)
+   <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_goal.png" alt="Selecting a navigation goal in RViz2 with Navigation2 Goal" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
    You can now see the robot moving.
 
@@ -316,4 +316,4 @@ source /opt/tros/humble/setup.bash
 
 The navigation result is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_nav2.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/nav2/rviz_nav2.gif" alt="Animation of the robot navigating to the goal with Navigation2" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

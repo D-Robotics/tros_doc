@@ -91,7 +91,7 @@ The gesture recognition (hand_gesture_detection) package subscribes to hand keyp
 
 ### Start Dynamic Gesture Recognition
 
-The launch script starts static gesture recognition by default. You can switch to dynamic gesture recognition only at runtime using the `is_dynamic_gesture` parameter, for example: `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`.
+The launch script starts static gesture recognition by default. You can switch to dynamic gesture recognition only at runtime using the `is_dynamic_gesture` parameter, for example: `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True` .
 
 The examples below start static gesture recognition by default.
 
@@ -262,4 +262,4 @@ The output log shows that the subscribed algorithm message contains one hand (in
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg" alt="Web UI screenshot of hand gesture recognition render results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

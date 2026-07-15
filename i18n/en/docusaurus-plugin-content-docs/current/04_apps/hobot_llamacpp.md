@@ -31,7 +31,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 1. RDK with 4GB memory version
 2. The RDK has been flashed with the RDK OS system.
 3. TogetheROS.Bot has been successfully installed on the RDK.
-4. Install the ASR module for voice input with the command `apt install tros-humble-sensevoice-ros2`.
+4. Install the ASR module for voice input with the command `apt install tros-humble-sensevoice-ros2` .
 
 ## Usage
 
@@ -58,13 +58,13 @@ The audio device name shown should be "plughw:0,0".
 
 
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg" alt="Headset/audio device used for voice interaction on RDK X5" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg" alt="USB audio device used on RDK S100" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 </DocScope>
 
 ### Instructions
@@ -320,7 +320,7 @@ After the program starts, you can interact with the device via voice prompts. Us
 
 ## Notes
 
-1. About the ASR module: After ASR starts, the program serial port will output logs even if no wake word is detected. You can speak at this time to verify detection. If nothing is detected, first check the device status and device number with `ls /dev/snd/`.
+1. About the ASR module: After ASR starts, the program serial port will output logs even if no wake word is detected. You can speak at this time to verify detection. If nothing is detected, first check the device status and device number with `ls /dev/snd/` .
 
 2. About wake word functionality: Using the "你好" wake word may not be recognized with some probability, preventing subsequent content from being output. When functionality is abnormal, check the logs for the `[llama_cpp_node]: Recved string data: xxx` field. If present, text was recognized.
 

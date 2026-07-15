@@ -16,7 +16,7 @@ The hand keypoint detection example subscribes to images and smart messages cont
 
 Hand keypoint indices are shown in the figure below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg" alt="Hand landmark index numbering diagram" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Code repository:
 
@@ -275,4 +275,4 @@ The output log shows that the program ran successfully. After initialization, a 
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address):
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg" alt="Web UI render of MediaPipe hand landmarks and gesture recognition" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

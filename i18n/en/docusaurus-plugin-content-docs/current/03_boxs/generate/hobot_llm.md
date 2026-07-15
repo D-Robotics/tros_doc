@@ -41,7 +41,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llm.git)
 1. RDK is the 4GB RAM version
 2. RDK has been flashed with the Ubuntu system image.
 3. TogetheROS.Bot has been successfully installed on the RDK.
-4. Install transformers with the command `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`.
+4. Install transformers with the command `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple` .
 
 ## Usage
 

@@ -167,7 +167,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 After the program starts, you can use local images and custom prompts for output.
 
-![internvlm_result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png" alt="InternVLM multimodal output example from a local image and custom prompt" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### SmolVLM
 
@@ -212,7 +212,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 After the program starts, you can use local images and custom prompts for output.
 
-![smolvlm_result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png" alt="SmolVLM multimodal output example from a local image and custom prompt" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Notes
 

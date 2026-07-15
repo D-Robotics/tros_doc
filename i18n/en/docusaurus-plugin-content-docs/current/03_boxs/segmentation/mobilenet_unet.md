@@ -354,13 +354,13 @@ The following information is output in the running terminal:
 [example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
 
-The output log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The frame rate of image publishing adapts based on the algorithm inference output frame rate. Additionally, rendering semantic segmentation results and saving images in the runtime directory on the RDK may reduce the frame rate.
+The output log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection` , and the topic for subscribing to images is `/hbmem_img` . The frame rate of image publishing adapts based on the algorithm inference output frame rate. Additionally, rendering semantic segmentation results and saving images in the runtime directory on the RDK may reduce the frame rate.
 
 Original image:
-![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg" alt="Original input image used in the MobileNet-UNet semantic segmentation example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Rendered image:
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg" alt="Web UI render of MobileNet-UNet semantic segmentation" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Using Local Image Injection
 
@@ -380,6 +380,6 @@ The following information is output in the running terminal:
 [example-1] [INFO] [1654769881.995920396] [UnetPostProcess]: Draw result to file: render_unet_feedback_0_0.jpeg
 ```
 
-The output log shows that the algorithm uses the input image `config/raw_unet.jpeg` for inference, and the saved rendered image file is named `render_unet_feedback_0_0.jpeg`. The rendered image effect is as follows:
+The output log shows that the algorithm uses the input image `config/raw_unet.jpeg` for inference, and the saved rendered image file is named `render_unet_feedback_0_0.jpeg` . The rendered image effect is as follows:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg" alt="Saved segmentation render from MobileNet-UNet local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

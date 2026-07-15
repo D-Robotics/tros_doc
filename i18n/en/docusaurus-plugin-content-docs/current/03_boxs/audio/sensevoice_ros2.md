@@ -258,4 +258,4 @@ $ ros2 topic list
 
 The /asr_text topic requires a specific wake word "你好，地瓜机器人" to produce output. The `ros2 topic echo /asr_text` result is:
 
-![Execution Result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg" alt="Terminal echo of /asr_text topic output after wake-word speech recognition" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

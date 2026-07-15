@@ -262,9 +262,9 @@ ros2 launch hobot_dosod dosod.launch.py
 
 In addition to setting the model, you can also change the model and configuration.
 
-- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` , and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` .
 
-- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` , and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` .
 
 ## Result Analysis
 
@@ -371,7 +371,7 @@ webserver has launch
 
 Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering effects (IP is the IP address of the RDK):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg" alt="Web UI render of DOSOD open-vocabulary object detection" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Advanced Usage
 

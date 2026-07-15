@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_products: RDK-X3
 ---
 
-# Bloom大语言模型
+# Bloom 大语言模型
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-本章节介如何在RDK平台体验端侧Large Language Model (LLM)。
+本章节介如何在 RDK 平台体验端侧 Large Language Model (LLM)。
 
 代码仓库： (https://github.com/D-Robotics/hobot_llm.git)
 
@@ -21,9 +21,9 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台                            | 运行方式     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X3, RDK X3 Module (4GB内存) | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 端侧大语言模型体验 |
+| RDK X3, RDK X3 Module (4GB 内存) | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 端侧大语言模型体验 |
 
-**注意：仅支持RDK X3，RDK X3 Module 4GB内存版本。**
+**注意：仅支持 RDK X3，RDK X3 Module 4GB 内存版本。**
 
 ## 算法信息
 
@@ -37,16 +37,16 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK为4GB内存版本
-2. RDK已烧录好Ubuntu系统镜像。
-3. RDK已成功安装TogetheROS.Bot。
-4. 安装transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`。
+1. RDK 为 4GB 内存版本
+2. RDK 已烧录好 Ubuntu 系统镜像。
+3. RDK 已成功安装 TogetheROS.Bot。
+4. 安装 transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple` 。
 
 ## 使用方式
 
-### RDK平台
+### RDK 平台
 
 运行程序前，需要下载模型文件并解压，命令如下：
 
@@ -85,9 +85,9 @@ wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-使用命令`srpi-config`修改ION memory大小为1.9GB，设置方法参考RDK用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
+使用命令 `srpi-config` 修改 ION memory 大小为 1.9GB，设置方法参考 RDK 用户手册配置工具 `srpi-config` 使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
 
-重启后设置CPU最高频率为1.5GHz，以及调度模式为`performance`，命令如下：
+重启后设置 CPU 最高频率为 1.5GHz，以及调度模式为 `performance` ，命令如下：
 
 ```bash
 sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'
@@ -166,7 +166,7 @@ ros2 run hobot_llm hobot_llm_chat
     ros2 run hobot_llm hobot_llm
     ```
 
-2. 新开一个终端订阅输出结果topic
+2. 新开一个终端订阅输出结果 topic
     <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
@@ -234,4 +234,4 @@ ros2 run hobot_llm hobot_llm_chat
 
 ## 注意事项
 
-确认开发板内存为4GB，同时修改ION memory大小为1.9GB，否则会导致模型加载失败。
+确认开发板内存为 4GB，同时修改 ION memory 大小为 1.9GB，否则会导致模型加载失败。

@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-本章节介如何在RDK平台体验 ASR + VLM/LLM + TTS 全链路的使用方法。
+本章节介如何在 RDK 平台体验 ASR + VLM/LLM + TTS 全链路的使用方法。
 
 代码仓库： (https://github.com/D-Robotics/hobot_llamacpp.git)
 
@@ -26,24 +26,24 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK为4GB内存版本
-2. RDK已烧录好RDK OS系统。
-3. RDK已成功安装TogetheROS.Bot。
-4. 安装ASR模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2`。
+1. RDK 为 4GB 内存版本
+2. RDK 已烧录好 RDK OS 系统。
+3. RDK 已成功安装 TogetheROS.Bot。
+4. 安装 ASR 模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2` 。
 
 ## 使用方式
 
-### RDK平台
+### RDK 平台
 
 - 可以使用视觉语言模型 [视觉语言模型](../03_boxs/generate/hobot_llamacpp.md)
 
-- 可以使用TTS工具 [文本转语音](../02_quick_demo/hobot_tts.md)
+- 可以使用 TTS 工具 [文本转语音](../02_quick_demo/hobot_tts.md)
 
-- 已安装ASR工具
+- 已安装 ASR 工具
 
-- RDK 设备外接 usb 音箱含麦克风扬声器（部分RDK 产品包含3.5 mm 耳机孔, 可接入有线耳机体验）插入后检测音频设备是否正常:
+- RDK 设备外接 usb 音箱含麦克风扬声器（部分 RDK 产品包含 3.5 mm 耳机孔, 可接入有线耳机体验）插入后检测音频设备是否正常:
 
         
 ```bash
@@ -58,20 +58,20 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 
 
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg" alt="RDK X5 场景下语音交互所用耳机/音频设备示意" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg" alt="RDK S100 场景下所用 USB 音频设备示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 </DocScope>
 
 ### 使用说明
 
 <DocScope products="RDK-X5">
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 ```shell
 source /opt/tros/humble/setup.bash
@@ -81,7 +81,7 @@ export CAM_TYPE=mipi
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 ```shell
 source /opt/tros/humble/setup.bash
@@ -104,7 +104,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 
 <DocScope products="RDK-S100">
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -152,7 +152,7 @@ export CAM_TYPE=mipi
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -258,7 +258,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 
 2. 设备："好的, 让我看看先哈."
 
-3. 设备："这张图片显示了xxx."
+3. 设备："这张图片显示了 xxx."
 
 ## 进阶功能
 
@@ -320,10 +320,10 @@ ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qw
 
 ## 注意事项
 
-1. 关于ASR模块: ASR 启动后, 即使没检测到唤醒词, 程序串口也会输出日志, 此时可以说话验证是否有检测到。如无检测到, 请先通过 `ls /dev/snd/` 检查设备状态与设备号。
+1. 关于 ASR 模块: ASR 启动后, 即使没检测到唤醒词, 程序串口也会输出日志, 此时可以说话验证是否有检测到。如无检测到, 请先通过 `ls /dev/snd/` 检查设备状态与设备号。
 
 2. 关于唤醒功能：使用"你好"唤醒词有概率未识别到, 导致后面的内容无法输出。功能异常时, 可关注日志中是否有 `[llama_cpp_node]: Recved string data: xxx` 字段, 如有为识别到文本。
 
-3. 关于音频设备: 一般建议录音播放设备为同一个设备, 避免回音。如录音、播放设备不是同个设备, 可在`/opt/tros/${TROS_DISTRO}/share/hobot_llamacpp/launch/llama_vlm.launch.py` 文件中搜索 `audio_device` 字段修改设备名。
+3. 关于音频设备: 一般建议录音播放设备为同一个设备, 避免回音。如录音、播放设备不是同个设备, 可在 `/opt/tros/${TROS_DISTRO}/share/hobot_llamacpp/launch/llama_vlm.launch.py` 文件中搜索 `audio_device` 字段修改设备名。
 
 4. 关于模型选择：目前 VLM 模型只支持本示例提供的大模型, LLM 模型则支持使用 https://huggingface.co/models?search=GGUF 社区上 GGUF 转换的模型进行推理。

@@ -2,7 +2,7 @@
 sidebar_position: 1
 sidebar_products: RDK-S100
 ---
-# BEV感知算法
+# BEV 感知算法
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -12,11 +12,11 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-BEV感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`BEV`多任务模型。
+BEV 感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `BEV` 多任务模型。
 
-算法输入为6组图像数据，分别是前视，左前，右前，后视，左后，右后图。模型输出为10个类别的目标以及对应的3D检测框，包括障碍物、多种类型车辆、交通标志等，以及车道线、人行道、马路边缘的语义分割。
+算法输入为 6 组图像数据，分别是前视，左前，右前，后视，左后，右后图。模型输出为 10 个类别的目标以及对应的 3D 检测框，包括障碍物、多种类型车辆、交通标志等，以及车道线、人行道、马路边缘的语义分割。
 
-此示例使用本地图像数据作为输入，利用BPU进行算法推理，发布算法感知结果渲染的图片消息，在PC端浏览器上渲染显示算法结果。
+此示例使用本地图像数据作为输入，利用 BPU 进行算法推理，发布算法感知结果渲染的图片消息，在 PC 端浏览器上渲染显示算法结果。
 
 代码仓库： (https://github.com/D-Robotics/hobot_bev.git)
 
@@ -24,21 +24,21 @@ BEV感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fi
 
 | 平台      | 运行方式     | 示例功能                                |
 | --------- | ------------ | --------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 使用本地回灌，并通过 web 展示推理渲染结果 |
 
 ## 准备工作
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. 确认PC机能够通过网络访问RDK。
+3. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
 ### 使用本地数据集回灌
 
-使用本地数据集回灌，经过推理后发布算法结果渲染后的图片消息，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+使用本地数据集回灌，经过推理后发布算法结果渲染后的图片消息，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
 ***准备回灌数据集***
 
@@ -137,7 +137,7 @@ ros2 launch hobot_bev hobot_bev.launch.py
 </Tabs>
 </DocScope>
 
-在PC端的浏览器输入`http://IP:8000`即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 
 
@@ -145,7 +145,7 @@ ros2 launch hobot_bev hobot_bev.launch.py
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg" alt="BEV 鸟瞰感知算法在 Web 端的渲染可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 </TabItem>
 

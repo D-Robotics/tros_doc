@@ -242,7 +242,7 @@ The complete project directory structure is as follows
 │       └── src
 ```
 
-The `tros_ws/robot_dev_config` path contains configuration and script files needed for code pulling, building, and packaging; the `tros_ws/src` path stores the pulled code; the `sysroot_docker` path contains header files and libraries for cross-compilation dependencies, corresponding to the RDK's `/` directory. For example, the media library path in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/`, and on RDK it is `/usr/lib/hbmedia/`.
+The `tros_ws/robot_dev_config` path contains configuration and script files needed for code pulling, building, and packaging; the `tros_ws/src` path stores the pulled code; the `sysroot_docker` path contains header files and libraries for cross-compilation dependencies, corresponding to the RDK's `/` directory. For example, the media library path in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/` , and on RDK it is `/usr/lib/hbmedia/` .
 
 During compilation, the `sysroot_docker` installation path is specified via the `CMAKE_SYSROOT` macro in the `robot_dev_config/aarch64_toolchainfile.cmake` build script.
 
@@ -507,7 +507,7 @@ Q1: How to determine if VCS successfully pulled code
 
 A1: As shown below, a `.` printed during vcs import indicates successful repo pull. If `E` is printed, that repo pull failed. You can see the specific failed repo in the log after execution. In this case, try deleting the contents in src and re-running vcs import, or manually pull the failed repo.
 
-![vcs_import](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/cross_compile/vcs_import_error.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/cross_compile/vcs_import_error.png" alt="Terminal log example showing dots for successful vcs import pulls and E for failed repos" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Q2: Unable to pull code from GitHub due to restrictions
 

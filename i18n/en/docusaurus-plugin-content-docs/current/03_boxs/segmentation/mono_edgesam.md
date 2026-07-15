@@ -348,7 +348,7 @@ webserver has launch
 
 The inference results in the example are rendered on the web. Enter `http://IP:8000` in a browser on a PC to view the image and algorithm rendering effects (IP is the IP address of the RDK). Open the settings in the top-right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png" alt="Web UI EdgeSAM segmentation render with Full Image Segmentation enabled" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Advanced Usage
 

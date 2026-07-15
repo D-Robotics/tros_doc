@@ -25,32 +25,32 @@ import DocScope from '@site/src/components/DocScope';
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持RDK X3，RDK X3 Module暂不支持， RDK S100/S600只支持USB语音设备。**
+**注意：仅支持 RDK X3，RDK X3 Module 暂不支持， RDK S100/S600 只支持 USB 语音设备。**
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
-3. 已有RDK适配的音频驱动板，并参考[智能语音章节](../03_boxs/audio/hobot_audio.md)搭建好环境。
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
+3. 已有 RDK 适配的音频驱动板，并参考[智能语音章节](../03_boxs/audio/hobot_audio.md)搭建好环境。
 4. 音频板耳机接口连接耳机或音响。
 
 </DocScope>
 
 <DocScope products="RDK-S100,RDK-S600">
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
 3. 音频板耳机接口连接耳机或音响。
 
 </DocScope>
 
 ## 使用方式
 
-### RDK平台
+### RDK 平台
 
 1. 首次运行需要下载模型文件并解压，详细命令如下：
 
@@ -127,20 +127,20 @@ import DocScope from '@site/src/components/DocScope';
 <DocScope products="RDK-X3,RDK-X5">
 :::caution **注意**
 <DocScope products="RDK-X3">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 <DocScope products="RDK-X5">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 :::
 </DocScope>
 <DocScope products="RDK-S100,RDK-S600">
 :::caution **注意**
 <DocScope products="RDK-S100">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 <DocScope products="RDK-S600">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 :::
 </DocScope>
@@ -152,20 +152,20 @@ import DocScope from '@site/src/components/DocScope';
     by-path  controlC0  pcmC0D0c  pcmC0D1p  timer
     ```
 
-    如果出现类似`pcmC0D1p`音频播放设备则表示设备正常。
+    如果出现类似 `pcmC0D1p` 音频播放设备则表示设备正常。
 
     <DocScope products="RDK X3">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X3微雪Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3)章节。
+    首次使用音频板需要使用 `srpi-config` 进行配置，配置方法参考 RDK 用户手册[RDK X3 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3)章节。
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考RDK用户手册[RDK X5微雪Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5)章节。
+    首次使用音频板需要使用 `srpi-config` 进行配置，配置方法参考 RDK 用户手册[RDK X5 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5)章节。
     
     </DocScope>
 
-3. 启动hobot_tts程序
+3. 启动 hobot_tts 程序
 
     <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
@@ -231,9 +231,9 @@ import DocScope from '@site/src/components/DocScope';
     ros2 run hobot_tts hobot_tts
     ```
 
-    注意：若音频播放设备不是`pcmC0D1p`，则需要使用参数`playback_device`指定播放音频设备。例如音频播放设备为`pcmC1D1p`，微雪板子启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`；usb语音设备启动命令为：`ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
+    注意：若音频播放设备不是 `pcmC0D1p` ，则需要使用参数 `playback_device` 指定播放音频设备。例如音频播放设备为 `pcmC1D1p` ，微雪板子启动命令为： `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"` ；usb 语音设备启动命令为： `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
-4. 新开一个终端，使用echo命令发布一条topic
+4. 新开一个终端，使用 echo 命令发布一条 topic
 
   <DocScope products="RDK-X3,RDK-X5">
   <Tabs groupId="tros-distro">

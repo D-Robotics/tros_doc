@@ -110,7 +110,7 @@ apt update
 **Run the commands in this document as the `root` user. Other users may lack sufficient permissions and cause unnecessary errors.**
 :::
 
-![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="Terminal prompt indicating the current login user is root" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.2. MIPI Stereo Camera Installation
 
@@ -118,35 +118,35 @@ apt update
 
 - The official RDK 230AI MIPI stereo camera is shown below:
 
-![RDK_Stereo_Cam_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png" alt="Photo of the official RDK 230AI MIPI stereo camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 <p style={{ color: 'red' }}> Note: Check that the camera back silkscreen shows CDPxxx-V3/V4 to confirm V3 or V4 version </p>
 
 - RDK X5 installation is shown below:
 
-![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="Installation diagram of the 230AI stereo camera on RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
-![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### (2) 132GS MIPI Stereo Camera
 
 - The official RDK 132GS MIPI stereo camera is shown below:
 
-![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png" alt="Photo of the official RDK 132GS MIPI stereo camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - RDK X5 installation is shown below:
 
-![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png" alt="Installation diagram of the 132GS stereo camera on RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - The latest cables have been upgraded. Note that cables are directional: CAM end connects to the camera, RDK end connects to the development board. (Both white and black cables work normally; either may be shipped randomly)
 
-![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="Directional MIPI cable connection between the 132GS camera and RDK" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
-![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.3. Online Startup Commands
 
@@ -164,7 +164,7 @@ i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
-![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png" alt="Terminal output of i2cdetect showing the 230AI stereo camera addresses" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 - To verify 132GS stereo camera I2C signal, connect to RDK via SSH and run the following commands. If addresses such as 0x32, 0x33, 0x50 appear, the camera connection is normal:
@@ -179,7 +179,7 @@ i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
-![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png" alt="Terminal output of i2cdetect showing the 132GS stereo camera addresses" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 :::caution **Note**
 **If I2C signal cannot be detected, the camera will not work properly**
@@ -265,7 +265,7 @@ bash run_cam.sh --rotation 90.0 --log_level INFO
 
 - Using 132GS camera on X5 as an example, a correctly started camera prints the following log (S100 or different camera models will print different logs):
 
-![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png" alt="Example success log after the stereo camera node starts correctly" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 - Log analysis:
@@ -623,15 +623,15 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 
 - Left/right camera definition. <span style={{ color: 'red' }}> Confirm that the RGB image displayed on the web page below is captured by the left camera </span>:
 
-![230ai_left_right_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png" alt="Left/right camera definition and orientation for the 230AI stereo camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - After successful stereo algorithm startup, the following log is printed. `fx/fy/cx/cy/baseline` are camera intrinsics; `fps` is the algorithm running frame rate:
 
-![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet startup success log showing intrinsics and FPS" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - View RGB and depth images via the web page. Enter http://ip:8000 in a browser (RDK IP in the figure is 192.168.1.100):
 
-![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png" alt="Web UI showing RGB and depth images side by side" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - View point cloud via rviz2. rviz2 can be installed directly on RDK. Note the following rviz2 configuration:
 
@@ -643,7 +643,7 @@ source /opt/tros/humble/setup.bash
 rviz2
 ```
 
-![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="RViz2 visualization of Stereonet point cloud/depth results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 #### (5) Parameter Definitions
@@ -651,8 +651,8 @@ rviz2
 The `run_stereo.sh` script has many configurable parameters. Common parameter definitions are introduced below; refer to source code comments for others:
 
 - stereonet_version controls which algorithm version to launch
-  - RDK X5 can be set to `v2.0`, `v2.1`, `v2.2`, `v2.3`, `v2.4_int16`, `v2.4_int8`, `v2.5_int16`, `v2.5_int16_96`, `v2.5_int16_544_448`, `v2.5_int16_544_448_96`
-  - RDK S100 can be set to `v2.1`, `v2.4`, `v2.4_1280_704`
+  - RDK X5 can be set to `v2.0` , `v2.1` , `v2.2` , `v2.3` , `v2.4_int16` , `v2.4_int8` , `v2.5_int16` , `v2.5_int16_96` , `v2.5_int16_544_448` , `v2.5_int16_544_448_96`
+  - RDK S100 can be set to `v2.1` , `v2.4` , `v2.4_1280_704`
 - stereo_node_name controls the ROS node name
 - uncertainty_th is the confidence threshold. Only effective for models with confidence output when set to a positive value. If enabling, recommended value is `0.10`
 - stereo_image_topic/camera_info_topic are topic names the ROS node subscribes to: stereo image and corresponding camera parameters
@@ -665,11 +665,11 @@ The `run_stereo.sh` script has many configurable parameters. Common parameter de
 - mipi_channel and mipi_channel2 swap left/right image output order
 
 - calib_method controls rectification method
-  - When `mipi_gdc_enable:=True`, the `hobot_mipi_cam` package has already rectified images; `hobot_stereonet` does not need further rectification. Set calib_method to `none`
-  - When `mipi_gdc_enable:=False`, or when the camera cannot rectify images, set calib_method to `custom` and specify `stereo_calib_file_path`
+  - When `mipi_gdc_enable:=True` , the `hobot_mipi_cam` package has already rectified images; `hobot_stereonet` does not need further rectification. Set calib_method to `none`
+  - When `mipi_gdc_enable:=False` , or when the camera cannot rectify images, set calib_method to `custom` and specify `stereo_calib_file_path`
 - stereo_calib_file_path controls the path to custom calibration parameters
 
-- render_type controls rendering mode. Default is `distance`, which auto-renders pseudocolor based on depth for web display. Can be set to `indoor` or `outdoor`; `indoor` is not recommended
+- render_type controls rendering mode. Default is `distance` , which auto-renders pseudocolor based on depth for web display. Can be set to `indoor` or `outdoor` ; `indoor` is not recommended
 - render_perf controls whether CPU, BPU usage, latency, and FPS are shown on rendered images. Can be `True` or `False`
 
 - speckle_filter_enable controls speckle filter. Can be `True` or `False`
@@ -749,9 +749,9 @@ bash run_stereo.sh \
 # save_pcd_flag       Save point cloud data
 ```
 
-![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png" alt="Runtime log after enabling options such as point-cloud saving" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png" alt="List of locally saved Stereonet point-cloud and image files" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - Method 2: After successful startup, open another terminal and run the following to save data
 
@@ -791,7 +791,7 @@ ros2 param set /StereoNetNode save_result_flag true
 #### (8) Enable Epipolar Alignment Detection Mode
 
 Poor depth quality may be due to incorrect left/right stitching order or lack of epipolar alignment between left/right images.
-Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel`.
+Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel` .
 
 This program provides two epipolar alignment detection methods: chessboard calibration board (stricter, recommended);
 and ORB feature-based method (no calibration board needed, runs in texture-rich scenes, but epipolar error may be larger).
@@ -807,7 +807,7 @@ bash run_stereo.sh --epipolar_mode True \
 
 After successful startup, the following image appears on the web:
 
-![epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg" alt="Web UI left/right images after epipolar rectification" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 For chessboard-based detection, epipolar and reprojection errors should both be within `1 pixel` for qualified stereo images; otherwise calibration parameters are incorrect
 
@@ -820,9 +820,9 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 After successful startup, the following image appears on the web:
 
-![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="Web UI feature matching result in feature-epipolar mode" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-ORB feature-based detection is less strict. Empirically, for 640×352 images epipolar error should be less than `1 pixel`; for 1280×1088 images less than `2 pixel` for qualified stereo images
+ORB feature-based detection is less strict. Empirically, for 640×352 images epipolar error should be less than `1 pixel` ; for 1280×1088 images less than `2 pixel` for qualified stereo images
 
 
 ### 5.4. Offline Startup Commands
@@ -831,11 +831,11 @@ ORB feature-based detection is less strict. Empirically, for 640×352 images epi
 
 - To evaluate algorithm performance with local images, prepare the following data and upload to RDK:
 
-1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left`, right images must contain `right`. The algorithm iterates through images by index until all are processed:
+1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left` , right images must contain `right` . The algorithm iterates through images by index until all are processed:
 
-![stereonet_rdk](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="Offline stereo left/right image naming format with left/right fields" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt`. Reference content:
+2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt` . Reference content:
 ```bash
 # fx fy cx cy baseline(m)
 215.762581 215.762581 325.490113 173.881556 0.079957
@@ -880,11 +880,11 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 - After successful startup, the following log is printed
 
-![stereonet_offline_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png" alt="Success log from Stereonet offline image inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - View RGB and depth images via web. Enter http://ip:8000 in browser (RDK IP in figure is 192.168.128.10):
 
-![web_depth_visual_offline](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png" alt="Web UI RGB and depth visualization in offline mode" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.5. Running with ZED Camera
 
@@ -892,7 +892,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 - ZED stereo camera is shown below:
 
-![zed_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png" alt="Photo of a ZED stereo camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - Connect ZED camera to RDK via USB
 
@@ -920,7 +920,7 @@ Parameter description:
 <p style={{ color: 'red' }}> Note: RDK must be online when running ZED camera, as ZED requires internet to download calibration files </p>
 
 
-![stereonet_zed_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png" alt="Terminal success log after running Stereonet with a ZED camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 When online, the program automatically downloads calibration files. If RDK is offline, manually download and upload calibration files to RDK.
 Based on log info, open a browser on PC and visit (https://calib.stereolabs.com/?SN=38085162) to download calibration file SN38085162.conf.

@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 The voice-controlled robot movement feature uses voice commands to control the robot to move forward, backward, left, and right. It must be used together with the intelligent voice module of the D-Robotics RDK robot operating system. The workflow is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg" alt="Software flowchart of the voice-controlled car motion feature" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The App uses a virtual robot in the PC-side Gazebo simulation environment as an example. The published control commands can also be used directly to control a physical robot.
 
@@ -149,7 +149,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 After successful startup, the robot in the simulation environment appears as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo simulation scene after the robot car starts" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Start the program on the RDK platform:
 
@@ -185,7 +185,7 @@ source /opt/tros/humble/setup.bash
 
 2. Confirm the microphone device
 
-    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd`, for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
+    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd` , for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
 
 3. Start the program
 
@@ -287,4 +287,4 @@ angular:
 
 In the PC simulation environment, the robot moves according to voice control command words. The simulation result is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_control/move.gif" alt="Animation of the simulated car moving according to voice command words" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

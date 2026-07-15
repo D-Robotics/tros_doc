@@ -12,12 +12,12 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-智能盒子App功能为实现IPC视频流输入后智能分析，App由RTSP视频流、视频解码、人体人脸检测、图像编码、Web展示端组成，流程如下图：
+智能盒子 App 功能为实现 IPC 视频流输入后智能分析，App 由 RTSP 视频流、视频解码、人体人脸检测、图像编码、Web 展示端组成，流程如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg" alt="智能盒子 App 从 RTSP 解码到 Web 展示的流程图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-对应实际的客户应用中显示部分由客户的业务系统完成，智能盒子的主要功能由RTSP视频流、视频解码、人体人脸检测，智能结果和图像发布给客户的业务系统，流程如下图：
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
+对应实际的客户应用中显示部分由客户的业务系统完成，智能盒子的主要功能由 RTSP 视频流、视频解码、人体人脸检测，智能结果和图像发布给客户的业务系统，流程如下图：
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg" alt="智能盒子向客户业务系统发布智能结果与图像的应用流程图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 代码仓库： (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
@@ -33,13 +33,13 @@ import DocScope from '@site/src/components/DocScope';
 ## 准备工作
 
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK安装TogetheROS.Bot参照[apt安装与升级](../01_quick_start/install_tros.md)。
+2. RDK 安装 TogetheROS.Bot 参照[apt 安装与升级](../01_quick_start/install_tros.md)。
 
-3. 准备支持传输H264/H265码流RTSP协议的IPC设备，并且配置同一网段的IP地址。
+3. 准备支持传输 H264/H265 码流 RTSP 协议的 IPC 设备，并且配置同一网段的 IP 地址。
 
-4. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段[192.168.1.x]需保持一致）的PC.
+4. 和 RDK 在同一网段（有线或者连接同一无线网，IP 地址前三段[192.168.1.x]需保持一致）的 PC.
 
 5. 系统配置成性能模式
 
@@ -49,25 +49,25 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 <DocScope products="RDK-X3">
 
-6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
+6. 启动多路时，ion_size 配置成 1G，请参考[srpi-config 配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
 <DocScope products="RDK-X5">
 
-6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
+6. 启动多路时，ion_size 配置成 1G，请参考[srpi-config 配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
+6. 启动多路时，ion_size 配置成 1G，请参考[srpi-config 配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
 
 </DocScope>
 
 <DocScope products="RDK-S600">
 
-6. 启动多路时，ion_size配置成1G，请参考[srpi-config配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
+6. 启动多路时，ion_size 配置成 1G，请参考[srpi-config 配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
@@ -77,7 +77,7 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 ### 多路启动的方法
 
-channle 1（终端1）:
+channle 1（终端 1）:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -148,7 +148,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py hobot_rtsp_url_num:=1 hobot_rtsp_url_0:='rtsp://admin:admin123@10.112.148.57:554/0' hobot_transport_0:='udp'  websocket_channel:=0
 ```
 
-channle 2（终端2）:
+channle 2（终端 2）:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -222,16 +222,16 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 ...
 
 **注意**
-1. 不同的channel设置不同的ROS_DOMAIN_ID和websocket_channel。
-2. 上述展示2个通道的方法，依据相关的方法启动其他通道3~8等。
-3. launch脚本带"_plugin"，将以component模式启动；如hobot_rtsp_client_ai_websocket_plugin.launch.py和hobot_rtsp_client_ai_plugin.launch.py
-4. launch脚本带"_websocket"，可以实现web的浏览；如hobot_rtsp_client_ai_websocket_plugin.launch.py和hobot_rtsp_client_ai_websocket.launch.py
-5. 为了增加连接通道的能力，需要多视频流降帧，需要从IPC进行帧率配置。
+1. 不同的 channel 设置不同的 ROS_DOMAIN_ID 和 websocket_channel。
+2. 上述展示 2 个通道的方法，依据相关的方法启动其他通道 3~8 等。
+3. launch 脚本带"_plugin"，将以 component 模式启动；如 hobot_rtsp_client_ai_websocket_plugin.launch.py 和 hobot_rtsp_client_ai_plugin.launch.py
+4. launch 脚本带"_websocket"，可以实现 web 的浏览；如 hobot_rtsp_client_ai_websocket_plugin.launch.py 和 hobot_rtsp_client_ai_websocket.launch.py
+5. 为了增加连接通道的能力，需要多视频流降帧，需要从 IPC 进行帧率配置。
 
 ### 算法模型切换
-launch脚本中默认的算法引用yolov8;
+launch 脚本中默认的算法引用 yolov8;
 
-请参考hobot_rtsp_client_ai_websocket_plugin.launch.py
+请参考 hobot_rtsp_client_ai_websocket_plugin.launch.py
 ```shell
     ComposableNode(
         package='dnn_node_example',
@@ -248,11 +248,11 @@ launch脚本中默认的算法引用yolov8;
         extra_arguments=[{'use_intra_process_comms': True}],
     ) 
 ```
-如果引用算法yolov5，请修改config_file为"config/yolov5xworkconfig.json"，参考[YOLO](../03_boxs/detection/yolo.md)，
+如果引用算法 yolov5，请修改 config_file 为"config/yolov5xworkconfig.json"，参考[YOLO](../03_boxs/detection/yolo.md)，
 
 ## 结果分析
 
-在RDK板端运行终端输出如下信息：
+在 RDK 板端运行终端输出如下信息：
 
 ```text
 [hobot_codec_republish-2] [WARN] [1732169402.355433988] [hobot_codec_decoder]: Sub imgRaw fps = -1774563328
@@ -264,7 +264,7 @@ launch脚本中默认的算法引用yolov8;
 
 ```
 
-启另一个终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
+启另一个终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ export ROS_DOMAIN_ID=101
@@ -278,13 +278,13 @@ $ ros2 topic list
 
 ```
 
-其中`/rtsp_image_ch_0`是RDK发布的通过RTSP获取IPC视频后发布的视频，`/hobot_dnn_detection`
-是RDK发布的包含人体检测结果的算法msg，`/image_decode`是RDK接收H264后解码的NV12图片，`/image_mjpeg`是RDK编码后的JPEG图片。
+其中 `/rtsp_image_ch_0` 是 RDK 发布的通过 RTSP 获取 IPC 视频后发布的视频， `/hobot_dnn_detection`
+是 RDK 发布的包含人体检测结果的算法 msg， `/image_decode` 是 RDK 接收 H264 后解码的 NV12 图片， `/image_mjpeg` 是 RDK 编码后的 JPEG 图片。
 
-在PC端的浏览器输入 `http://IP:8000` ，分屏配置
+在 PC 端的浏览器输入 `http://IP:8000` ，分屏配置
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg" alt="Web 端多路视频分屏配置界面截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-人体人脸检测框，关键点和姿态检测结果在web端展示渲染效果（IP为RDK的IP地址）：
+人体人脸检测框，关键点和姿态检测结果在 web 端展示渲染效果（IP 为 RDK 的 IP 地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg" alt="Web 端人体人脸检测框、关键点与姿态渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

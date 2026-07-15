@@ -11,13 +11,13 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-mobilenet_unet分割算法示例使用图片作为输入，利用BPU进行算法推理，发布包含分割结果msg。
+mobilenet_unet 分割算法示例使用图片作为输入，利用 BPU 进行算法推理，发布包含分割结果 msg。
 
-mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的Onnx模型，支持对人、车辆、路面、路标等类别进行分割。
+mobilenet_unet 是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据集训练出来的 Onnx 模型，支持对人、车辆、路面、路标等类别进行分割。
 
 代码仓库： https://github.com/D-Robotics/hobot_dnn
 
-应用场景：mobilenet_unet由MobileNet与UNet组成，能够从像素级别分割图像内容，可实现道路识别、遥感地图分析、医学影像诊断等功能，主要应用于自动驾驶、地质检测，医疗影像分析等领域。
+应用场景：mobilenet_unet 由 MobileNet 与 UNet 组成，能够从像素级别分割图像内容，可实现道路识别、遥感地图分析、医学影像诊断等功能，主要应用于自动驾驶、地质检测，医疗影像分析等领域。
 
 背景虚化案例： https://github.com/rusito-23/mobile_unet_segmentation
 
@@ -25,10 +25,10 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| RDK S100, RDK S100P| Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
-| RDK S600| Ubuntu 24.04 (Jazzy) | · 启动MIPI/USB摄像头/本地回灌，渲染结果保存在本地 |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
+| RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
+| RDK S100, RDK S100P| Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
+| RDK S600| Ubuntu 24.04 (Jazzy) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
 | X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
@@ -64,29 +64,29 @@ mobilenet_unet是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG/PNG格式图片的方式体验算法效果。
+3. RDK 已安装 MIPI 或者 USB 摄像头，无摄像头的情况下通过回灌本地 JPEG/PNG 格式图片的方式体验算法效果。
 
-### X86平台
+### X86 平台
 
-1. X86环境已配置好Ubuntu 20.04系统镜像。
+1. X86 环境已配置好 Ubuntu 20.04 系统镜像。
 
-2. X86环境系统已成功安装tros.b。
+2. X86 环境系统已成功安装 tros.b。
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
 #### 使用摄像头发布图片
 
-##### 使用MIPI摄像头发布图片
+##### 使用 MIPI 摄像头发布图片
 
-mobilenet_unet分割示例订阅sensor package发布的图片，经过推理后发布算法msg，并在运行路径下自动保存渲染后的图片，命名方式为render_frameid_时间戳秒_时间戳纳秒.jpg。
+mobilenet_unet 分割示例订阅 sensor package 发布的图片，经过推理后发布算法 msg，并在运行路径下自动保存渲染后的图片，命名方式为 render_frameid_时间戳秒_时间戳纳秒.jpg。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -154,7 +154,7 @@ export CAM_TYPE=mipi
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_img:=1 dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
-##### 使用USB摄像头发布图片
+##### 使用 USB 摄像头发布图片
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -223,7 +223,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_dump_render_
 
 #### 使用本地图片回灌
 
-mobilenet_unet分割示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
+mobilenet_unet 分割示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -287,11 +287,11 @@ source /opt/tros/jazzy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
 ```
 
-### X86平台
+### X86 平台
 
 #### 使用本地图片回灌
 
-mobilenet_unet分割示例使用本地JPEG/PNG格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
+mobilenet_unet 分割示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -355,13 +355,13 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
 
-输出log显示，发布算法推理结果的topic为`hobot_dnn_detection`，订阅图片的topic为`/hbmem_img`，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，RDK上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
+输出 log 显示，发布算法推理结果的 topic 为 `hobot_dnn_detection` ，订阅图片的 topic 为 `/hbmem_img` ，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，RDK 上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
 
 原始图片：
-![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg" alt="MobileNet-UNet 语义分割示例使用的原始输入图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 渲染后的图片：
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_web.jpeg" alt="Web 端 MobileNet-UNet 语义分割算法渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 使用本地图片回灌
 
@@ -381,6 +381,6 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-1] [INFO] [1654769881.995920396] [UnetPostProcess]: Draw result to file: render_unet_feedback_0_0.jpeg
 ```
 
-输出log显示，算法使用输入的图片config/raw_unet.jpeg推理，存储的渲染图片文件名为render_unet_feedback_0_0.jpeg，渲染图片效果：
+输出 log 显示，算法使用输入的图片 config/raw_unet.jpeg 推理，存储的渲染图片文件名为 render_unet_feedback_0_0.jpeg，渲染图片效果：
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_render_feedback.jpeg" alt="MobileNet-UNet 本地回灌推理后保存的分割渲染图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

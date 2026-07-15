@@ -216,11 +216,11 @@ The terminal outputs the following information during execution:
 
 ```
 
-The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`. The subscribed image and algorithm inference output frame rate is approximately 30 fps.
+The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection` , and the topic for subscribing to images is `/hbmem_img` . The subscribed image and algorithm inference output frame rate is approximately 30 fps.
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_web.jpeg" alt="Web UI render of FCOS object detection results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Use Local Image Feedback
 
@@ -238,4 +238,4 @@ The terminal outputs the following information during execution:
 
 The log shows that the algorithm detected 6 objects from the input image and output the bounding box coordinates (in the order of top-left x and y, then bottom-right x and y) and categories. The saved rendered image file is named render_feedback_0_0.jpeg. Rendered image result:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/fcos_render_feedback.jpeg" alt="Saved detection-box render from FCOS local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

@@ -64,7 +64,7 @@ Application scenarios: YOLOv8-Seg can identify individual objects in an image an
 
 ##### Publish Images Using a MIPI Camera
 
-The YOLOv8-Seg instance segmentation example subscribes to images published by the sensor package and publishes algorithm messages after inference. Rendered images are not saved by default. To save them, set `dnn_example_dump_render_img` to 1 at runtime. Rendered images will be automatically saved in the runtime directory with filenames in the format `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg`.
+The YOLOv8-Seg instance segmentation example subscribes to images published by the sensor package and publishes algorithm messages after inference. Rendered images are not saved by default. To save them, set `dnn_example_dump_render_img` to 1 at runtime. Rendered images will be automatically saved in the runtime directory with filenames in the format `render_frameid_timestamp_seconds_timestamp_nanoseconds.jpg` .
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -229,13 +229,13 @@ The terminal outputs the following information during runtime:
 [example-3] [WARN] [0000001251.528909346] [example]: Sub img fps: 4.98, Smart fps: 5.00, infer time ms: 8, post process time ms: 67
 ```
 
-The log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the topic subscribing to images is `/hbmem_img`. The image publishing frame rate adapts according to the algorithm inference output frame rate. In addition, instance segmentation results are rendered and saved as images on RDK, which reduces the frame rate.
+The log shows that the topic publishing algorithm inference results is `hobot_dnn_detection` , and the topic subscribing to images is `/hbmem_img` . The image publishing frame rate adapts according to the algorithm inference output frame rate. In addition, instance segmentation results are rendered and saved as images on RDK, which reduces the frame rate.
 
 Original image:
-![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg" alt="Original input image used in the YOLOv8 instance segmentation example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Rendered image:
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg" alt="Web UI render of YOLOv8 instance segmentation" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Local Image Playback
 
@@ -270,6 +270,6 @@ The terminal outputs the following information during runtime:
 [WARN] [0000001746.276824624] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The log shows that the algorithm uses the input image `config/test.jpeg` for inference, and the saved rendered image file is named `render_feedback_0_0.jpeg`. The rendered image effect is shown below:
+The log shows that the algorithm uses the input image `config/test.jpeg` for inference, and the saved rendered image file is named `render_feedback_0_0.jpeg` . The rendered image effect is shown below:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg" alt="Saved render from YOLOv8 instance segmentation local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

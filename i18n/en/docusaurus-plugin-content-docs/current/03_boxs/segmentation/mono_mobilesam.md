@@ -229,7 +229,7 @@ After the package initializes, the runtime terminal outputs the following inform
 
 In this example, inference results are rendered on the Web. Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering effects (IP is the RDK IP address). Open the settings in the upper-right corner of the interface and select the "Full Image Segmentation" option to display the rendering effect.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png" alt="Web UI MobileSAM segmentation render with full-image segmentation enabled" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Advanced Usage
 

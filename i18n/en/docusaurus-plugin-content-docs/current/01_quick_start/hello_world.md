@@ -188,7 +188,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 The running effect is shown below
 
-![hello world](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png" alt="Hello World demo showing publisher and subscriber terminals exchanging messages" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 You can see the left terminal acts as pub, continuously sending "'Hello, world! N", and the right terminal acts as sub, continuously receiving "'Hello, world! N"
 
 OK, tros.b has been successfully installed and verified!

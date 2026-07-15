@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-elevation_net是基于hobot_dnn package开发的高程网络检测算法示例，在RDK上使用高程网络模型和室内数据利用BPU进行模型推理，从而得到算法推理结果。
+elevation_net 是基于 hobot_dnn package 开发的高程网络检测算法示例，在 RDK 上使用高程网络模型和室内数据利用 BPU 进行模型推理，从而得到算法推理结果。
 
 代码仓库： (https://github.com/D-Robotics/elevation_net)
 
@@ -45,23 +45,23 @@ elevation_net是基于hobot_dnn package开发的高程网络检测算法示例�
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-### X86平台
+### X86 平台
 
-1. X86环境已配置Ubuntu 20.04系统镜像。
+1. X86 环境已配置 Ubuntu 20.04 系统镜像。
 
-2. X86环境已成功安装tros.b。
+2. X86 环境已成功安装 tros.b。
 
 ## 使用介绍
 
-单目高程网络检测算法示例package采用读取本地图片的形式，经过算法推理后检测出Image基于像素的深度和高度信息，同时package将深度和高度信息进行处理，发布PointCloud2话题数据，用户可以订阅PointCloud2数据用于应用开发。
+单目高程网络检测算法示例 package 采用读取本地图片的形式，经过算法推理后检测出 Image 基于像素的深度和高度信息，同时 package 将深度和高度信息进行处理，发布 PointCloud2 话题数据，用户可以订阅 PointCloud2 数据用于应用开发。
 
-### RDK平台
+### RDK 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -97,7 +97,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 ros2 launch elevation_net elevation_net.launch.py
 ```
 
-### X86平台
+### X86 平台
 
 ```bash
 # 配置tros.b环境
@@ -112,7 +112,7 @@ ros2 launch elevation_net elevation_net.launch.py
 
 ## 结果分析
 
-package在运行终端推理输出如下信息：
+package 在运行终端推理输出如下信息：
 
 ```shell
 [16:15:17:520]root@ubuntu:/userdata# ros2 run elevation_net elevation_net
@@ -187,4 +187,4 @@ package在运行终端推理输出如下信息：
 [16:15:19:417][INFO] [1655108119.810410741] [elevation_net_parser]: depth: 998.000000
 ```
 
-log显示，读取本地图片推理之后输出image基于像素的深度和高度信息。
+log 显示，读取本地图片推理之后输出 image 基于像素的深度和高度信息。

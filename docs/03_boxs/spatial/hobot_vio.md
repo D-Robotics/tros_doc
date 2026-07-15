@@ -12,44 +12,44 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-视觉惯性里程计（Visual Inertial Odometry，VIO）是融合相机与惯性测量单元（Inertial Measurement Unit，IMU）数据实现机器人定位的算法。VIO定位算法具有成本低、适用环境广等优点，在室外环境下能够有效弥补卫星定位中遮挡、多路径干扰等失效场景。优秀、鲁棒的VIO算法是实现室外高精度导航定位的关键。
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_vio_rviz.jpeg)
+视觉惯性里程计（Visual Inertial Odometry，VIO）是融合相机与惯性测量单元（Inertial Measurement Unit，IMU）数据实现机器人定位的算法。VIO 定位算法具有成本低、适用环境广等优点，在室外环境下能够有效弥补卫星定位中遮挡、多路径干扰等失效场景。优秀、鲁棒的 VIO 算法是实现室外高精度导航定位的关键。
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hobot_vio_rviz.jpeg" alt="视觉惯性里程计 VIO 在 RViz2 中的轨迹与位姿可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 代码仓库： (https://github.com/D-Robotics/hobot_vio.git)
 
 ## 支持平台
 
 | 平台   | 运行方式     | 示例功能                                                     |
 | ------ | ------------ | ------------------------------------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 使用realsense的图像和IMU数据作为算法输入，算法输出机器人运动轨迹，轨迹可在PC的rviz2上可视化 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 使用realsense的图像和IMU数据作为算法输入，算法输出机器人运动轨迹，轨迹可在PC的rviz2上可视化 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 使用 realsense 的图像和 IMU 数据作为算法输入，算法输出机器人运动轨迹，轨迹可在 PC 的 rviz2 上可视化 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 使用 realsense 的图像和 IMU 数据作为算法输入，算法输出机器人运动轨迹，轨迹可在 PC 的 rviz2 上可视化 |
 ## 准备工作
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot和Realsense的ROS2 Package。
+2. RDK 已成功安装 TogetheROS.Bot 和 Realsense 的 ROS2 Package。
 
-3. realsense相机，连接到RDK的USB 3.0接口。
+3. realsense 相机，连接到 RDK 的 USB 3.0 接口。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-算法订阅realsense相机的图像和IMU数据作为算法的输入，经过计算得到相机的轨迹信息，并通过ROS2的话题机制发布相机的运动轨迹，轨迹结果可在PC的rviz2软件查看。算法的输入和输出topic如下表所示：
+算法订阅 realsense 相机的图像和 IMU 数据作为算法的输入，经过计算得到相机的轨迹信息，并通过 ROS2 的话题机制发布相机的运动轨迹，轨迹结果可在 PC 的 rviz2 软件查看。算法的输入和输出 topic 如下表所示：
 
-### 输入topic
+### 输入 topic
 
 | 参数名      | 类型        | 解释                                                         | 是否必须 | 默认值                                             |
 | ----------- | ----------- | ------------------------------------------------------------ | -------- | -------------------------------------------------- |
-| path_config | std::string | vio算法配置文件路径                                          | 是       | `/opt/tros/${TROS_DISTRO}/lib/hobot_vio/config/realsenseD435i.yaml` |
-| image_topic | std::string | vio算法订阅的图像数据话题名                                  | 是       | /camera/infra1/image_rect_raw                      |
-| imu_topic   | std::string | vio算法订阅的IMU数据话题名                                   | 是       | /camera/imu                                        |
-| sample_gap  | std::string | vio算法处理频率，1表示每帧图像都会参与轨迹计算，2表示每两帧图像计算一次，依此类推 | 是       | 2                                                  |
+| path_config | std::string | vio 算法配置文件路径                                          | 是       | `/opt/tros/${TROS_DISTRO}/lib/hobot_vio/config/realsenseD435i.yaml` |
+| image_topic | std::string | vio 算法订阅的图像数据话题名                                  | 是       | /camera/infra1/image_rect_raw                      |
+| imu_topic   | std::string | vio 算法订阅的 IMU 数据话题名                                   | 是       | /camera/imu                                        |
+| sample_gap  | std::string | vio 算法处理频率，1 表示每帧图像都会参与轨迹计算，2 表示每两帧图像计算一次，依此类推 | 是       | 2                                                  |
 
-### 输出topic
+### 输出 topic
 
-| topic名                      | 类型                | 解释                        |
+| topic 名                      | 类型                | 解释                        |
 | ---------------------------- | ------------------- | --------------------------- |
-| horizon_vio/horizon_vio_path | nav_msgs::msg::Path | vio算法输出的机器人运动轨迹 |
+| horizon_vio/horizon_vio_path | nav_msgs::msg::Path | vio 算法输出的机器人运动轨迹 |
 
 启动命令：
 
@@ -86,7 +86,7 @@ ros2 launch hobot_vio hobot_vio.launch.py
 
 ## 结果分析
 
-在RDK上启动算法示例后在运行终端输出如下信息，首先启动realsense节点发布图像和IMU数据，随后算法进入初始化流程，此时等待用户平移相机完成初始化，初始化完成后算法开始输出定位坐标：
+在 RDK 上启动算法示例后在运行终端输出如下信息，首先启动 realsense 节点发布图像和 IMU 数据，随后算法进入初始化流程，此时等待用户平移相机完成初始化，初始化完成后算法开始输出定位坐标：
 
 ```text
 [INFO] [launch]: All log files can be found below /root/.ros/log/2023-07-07-19-48-31-464088-ubuntu-562910

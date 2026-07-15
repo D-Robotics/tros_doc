@@ -14,11 +14,11 @@ import DocScope from '@site/src/components/DocScope';
 
 The Smart Box app is designed to perform intelligent analysis after inputting an IPC video stream. The app consists of an RTSP video stream, video decoding, human body and face detection, image encoding, and a web display interface. The workflow is illustrated below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg" alt="Flowchart of the smart video box app from RTSP decode to web display" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 In actual customer applications, the display part is handled by the customer's business system. The main functions of the Smart Box include RTSP video stream, video decoding, human body and face detection, and publishing intelligent results and images to the customer's business system. The workflow is as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg" alt="Application flowchart of the smart box publishing results and images to a business system" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Code Repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
@@ -220,15 +220,15 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 **Notes:**
 1. Set different `ROS_DOMAIN_ID` and `websocket_channel` for different channels.
 2. The above shows how to start 2 channels. Use the same method to start other channels 3~8.
-3. Launch scripts with `_plugin` will start in component mode, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_plugin.launch.py`.
-4. Launch scripts with `_websocket` enable web browsing, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_websocket.launch.py`.
+3. Launch scripts with `_plugin` will start in component mode, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_plugin.launch.py` .
+4. Launch scripts with `_websocket` enable web browsing, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_websocket.launch.py` .
 5. To increase the number of connection channels and handle multiple video streams, reduce the frame rate by configuring the IPC accordingly.
 
 ### Algorithm Model Switching
 
 The default algorithm referenced in the launch script is YOLOv8.
 
-Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py`:
+Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py` :
 
 ```shell
     ComposableNode(
@@ -247,7 +247,7 @@ Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py`:
     ) 
 ```
 
-To switch to the YOLOv5 algorithm, modify `config_file` to `"config/yolov5xworkconfig.json"`. Refer to [YOLO](../03_boxs/detection/yolo.md).
+To switch to the YOLOv5 algorithm, modify `config_file` to `"config/yolov5xworkconfig.json"` . Refer to [YOLO](../03_boxs/detection/yolo.md).
 
 ## Result Analysis
 
@@ -280,8 +280,8 @@ Among these, `/rtsp_image_ch_0` is the video published by the RDK after obtainin
 
 Enter `http://IP:8000` in a browser on the PC for split-screen configuration:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg" alt="Web UI screenshot of multi-stream split-screen configuration" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Human body and face detection boxes, key points, and pose detection results are rendered on the web interface (where `IP` is the IP address of the RDK):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg" alt="Web UI render of body/face boxes, keypoints, and pose detection results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

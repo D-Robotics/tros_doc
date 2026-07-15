@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 5.5 使用“zero-copy”
+# 5.5 使用 “zero-copy”
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -12,25 +12,25 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能背景
 
-通信是机器人开发引擎的基础功能，原生ROS2 Foxy进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy基于RDK系统软件库hbmem实现了“zero-copy”功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用tros.b Foxy/Humble/Jazzy创建publisher和subscriber node进行大块数据传输，并计算传输延时。
+通信是机器人开发引擎的基础功能，原生 ROS2 Foxy 进行大数据量通信时存在时延较大、系统负载较高等问题。TogetheROS.Bot Foxy 基于 RDK 系统软件库 hbmem 实现了 “zero-copy” 功能，数据跨进程传输零拷贝，可大大减少大块数据传输延时和系统资源占用。本节介绍如何使用 tros.b Foxy/Humble/Jazzy 创建 publisher 和 subscriber node 进行大块数据传输，并计算传输延时。
 
 :::info
-- tros.b Foxy版本基于ROS2 Foxy新增了“zero-copy”功能。
-- tros.b Humble以及之后的版本使用的是ROS2的“zero-copy”功能，具体使用方法请参考ROS2官方[文档](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#)和[代码](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp)。
-- tros.b Humble之后的版本使用方式和Humble版本一致，参考本章节的Humble版本示例。
+- tros.b Foxy 版本基于 ROS2 Foxy 新增了 “zero-copy” 功能。
+- tros.b Humble 以及之后的版本使用的是 ROS2 的 “zero-copy” 功能，具体使用方法请参考 ROS2 官方[文档](https://docs.ros.org/en/humble/Tutorials/Advanced/FastDDS-Configuration.html#)和[代码](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/src/topics/talker_loaned_message.cpp)。
+- tros.b Humble 之后的版本使用方式和 Humble 版本一致，参考本章节的 Humble 版本示例。
 :::
 
 ## 前置条件
 
-已按照[apt安装与升级](../01_quick_start/install_tros.md)成功安装tros.b，并已掌握ROS2 node，topic，qos等基础知识，以及如何创建package和使用自定义消息，具体教程可见 ROS2 官方教程[Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)。
+已按照[apt 安装与升级](../01_quick_start/install_tros.md)成功安装 tros.b，并已掌握 ROS2 node，topic，qos 等基础知识，以及如何创建 package 和使用自定义消息，具体教程可见 ROS2 官方教程[Creating a package](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)。
 
-ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev-tools`
+ROS2 软件包构建、编译等工具。安装命令： `sudo apt install ros-dev-tools`
 
 ## 任务内容
 
-### 1. 创建package
+### 1. 创建 package
 
-打开一个新的终端，source tros.b setup脚本，确保`ros2`命令可以运行。
+打开一个新的终端，source tros.b setup 脚本，确保 `ros2` 命令可以运行。
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -41,7 +41,7 @@ ROS2软件包构建、编译等工具。安装命令：`sudo apt install ros-dev
 source /opt/tros/setup.bash
 ```
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
+使用以下命令创建一个 workspace，详细介绍可见 ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 
@@ -52,7 +52,7 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+使用以下命令创建一个 workspace，详细介绍可见 ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 
@@ -63,7 +63,7 @@ source /opt/tros/humble/setup.bash
 source /opt/tros/jazzy/setup.bash
 ```
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+使用以下命令创建一个 workspace，详细介绍可见 ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 </Tabs>
@@ -78,7 +78,7 @@ source /opt/tros/jazzy/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+使用以下命令创建一个 workspace，详细介绍可见 ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 </Tabs>
@@ -93,7 +93,7 @@ source /opt/tros/humble/setup.bash
 source /opt/tros/jazzy/setup.bash
 ```
 
-使用以下命令创建一个workspace，详细介绍可见ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
+使用以下命令创建一个 workspace，详细介绍可见 ROS2 官方教程[Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)。
 
 </TabItem>
 </Tabs>
@@ -107,7 +107,7 @@ mkdir -p ~/dev_ws/src
 cd ~/dev_ws/src
 ```
 
-运行以下命令创建一个package
+运行以下命令创建一个 package
 
 ```shell
 ros2 pkg create --build-type ament_cmake hbmem_pubsub
@@ -117,14 +117,14 @@ ros2 pkg create --build-type ament_cmake hbmem_pubsub
 
 #### 2.1 新建消息文件
 
-运行以下命令，创建`msg`目录用来存放自定义消息文件
+运行以下命令，创建 `msg` 目录用来存放自定义消息文件
 
 ```shell
 cd ~/dev_ws/src/hbmem_pubsub
 mkdir msg
 ```
 
-在`msg`目录下新建`SampleMessage.msg`文件，具体内容如下:
+在 `msg` 目录下新建 `SampleMessage.msg` 文件，具体内容如下:
 
 ```idl
 int32 index
@@ -136,7 +136,7 @@ uint32 MAX_SIZE=4194304
 
 #### 2.2 编译依赖
 
-返回到`~/dev_ws/src/hbmem_pubsub`目录，修改`package.xml`，在`<buildtool_depend>ament_cmake</buildtool_depend>`下面添加以下内容：
+返回到 `~/dev_ws/src/hbmem_pubsub` 目录，修改 `package.xml` ，在 `<buildtool_depend>ament_cmake</buildtool_depend>` 下面添加以下内容：
 
 ```xml
 <build_depend>rosidl_default_generators</build_depend>
@@ -146,7 +146,7 @@ uint32 MAX_SIZE=4194304
 
 #### 2.3 编译脚本
 
-修改`CMakeLists.txt`，在`# find_package(<dependency> REQUIRED)`下面添加以下内容，进行msg编译:
+修改 `CMakeLists.txt` ，在 `# find_package(<dependency> REQUIRED)` 下面添加以下内容，进行 msg 编译:
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -159,7 +159,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 #### 3.1 新建消息发布节点文件
 
-在`~/dev_ws/src/hbmem_pubsub/src`目录下新建` publisher_hbmem.cpp`文件，用来创建publisher node，具体代码和解释如下：
+在 `~/dev_ws/src/hbmem_pubsub/src` 目录下新建 `publisher_hbmem.cpp` 文件，用来创建 publisher node，具体代码和解释如下：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -404,7 +404,7 @@ int main(int argc, char * argv[])
 
 #### 3.2 编译依赖
 
-返回到`~/dev_ws/src/hbmem_pubsub`目录，修改`package.xml`，在`<member_of_group>rosidl_interface_packages</member_of_group>`  下面增加`rclcpp`依赖：
+返回到 `~/dev_ws/src/hbmem_pubsub` 目录，修改 `package.xml` ，在 `<member_of_group>rosidl_interface_packages</member_of_group>`  下面增加 `rclcpp` 依赖：
 
 ```xml
   <depend>rclcpp</depend>
@@ -412,7 +412,7 @@ int main(int argc, char * argv[])
 
 #### 3.3 编译脚本
 
-修改`CMakeLists.txt`，在`rosidl_generate_interfaces`语句下面添加以下内容，完成publisher编译：
+修改 `CMakeLists.txt` ，在 `rosidl_generate_interfaces` 语句下面添加以下内容，完成 publisher 编译：
 
 ```cmake
 find_package(rclcpp REQUIRED)
@@ -431,7 +431,7 @@ install(TARGETS
 
 #### 4.1 新建消息接收节点文件
 
-在`~/dev_ws/src/hbmem_pubsub/src`目录下新建`  subscriber_hbmem.cpp`文件，用来创建subscriber node，具体代码和解释如下：
+在 `~/dev_ws/src/hbmem_pubsub/src` 目录下新建 `subscriber_hbmem.cpp` 文件，用来创建 subscriber node，具体代码和解释如下：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -601,9 +601,9 @@ int main(int argc, char * argv[])
 
 #### 4.2 编译脚本
 
-返回到`~/dev_ws/src/hbmem_pubsub`目录，之前已经在`package.xml`中增加`rclcpp`依赖，故不需要需改`package.xml`。
+返回到 `~/dev_ws/src/hbmem_pubsub` 目录，之前已经在 `package.xml` 中增加 `rclcpp` 依赖，故不需要需改 `package.xml` 。
 
-修改`CMakeLists.txt`，在`install`语句下面添加以下内容，完成subscriber编译：
+修改 `CMakeLists.txt` ，在 `install` 语句下面添加以下内容，完成 subscriber 编译：
 
 ```cmake
 add_executable(listener src/subscriber_hbmem.cpp)
@@ -618,7 +618,7 @@ install(TARGETS
 
 ### 5. 编译
 
-整个workspace目录结构如下：
+整个 workspace 目录结构如下：
 
 ```shell
 dev_ws/
@@ -635,7 +635,7 @@ dev_ws/
             └── subscriber_hbmem.cpp
 ```
 
-完整的`package.xml`内容如下：
+完整的 `package.xml` 内容如下：
 
 ```xml
 <?xml version="1.0"?>
@@ -665,7 +665,7 @@ dev_ws/
 
 ```
 
-完整的`CMakeLists.txt`内容如下：
+完整的 `CMakeLists.txt` 内容如下：
 
 ```cmake
 cmake_minimum_required(VERSION 3.5)
@@ -731,13 +731,13 @@ ament_package()
 
 ```
 
-在workspace根目录`~/dev_ws`，编译package:
+在 workspace 根目录 `~/dev_ws` ，编译 package:
 
 ```shell
 colcon build --packages-select hbmem_pubsub
 ```
 
-若提示`colcon`命令未安装，使用以下命令安装即可：
+若提示 `colcon` 命令未安装，使用以下命令安装即可：
 
 ```shell
 sudo apt install ros-dev-tools
@@ -745,7 +745,7 @@ sudo apt install ros-dev-tools
 
 ### 6. 运行
 
-打开一个新的终端，`cd`到`dev_ws`目录，source tros.b和当前workspace setup文件：
+打开一个新的终端， `cd` 到 `dev_ws` 目录，source tros.b 和当前 workspace setup 文件：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -847,7 +847,7 @@ ros2 run hbmem_pubsub talker
 [INFO] [1649227473.630857041] [minimal_hbmem_publisher]: message: 5
 ```
 
-再打开一个新的终端，同样`cd`到`dev_ws`目录，然后souce setup文件，之后运行listener node:
+再打开一个新的终端，同样 `cd` 到 `dev_ws` 目录，然后 souce setup 文件，之后运行 listener node:
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -933,7 +933,7 @@ ros2 run hbmem_pubsub listener
 </Tabs>
 </DocScope>
 
-终端上会有如下打印，表明subscriber已成功接收到publisher发送的消息：
+终端上会有如下打印，表明 subscriber 已成功接收到 publisher 发送的消息：
 
 ```text
 [INFO] [1649227450.387089523] [minimal_hbmem_subscriber]: msg 10, time cost 1663us
@@ -944,7 +944,7 @@ ros2 run hbmem_pubsub listener
 [INFO] [1649227450.587002681] [minimal_hbmem_subscriber]: msg 15, time cost 1768us
 ```
 
-使用`Ctrl+C`可结束每个Node的运行。
+使用 `Ctrl+C` 可结束每个 Node 的运行。
 
 ## 本节总结
 
@@ -952,7 +952,7 @@ ros2 run hbmem_pubsub listener
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
-如果你已经掌握ROS2的publisher和subscriber使用方式，那么很容易切换到使用基于hbmem零拷贝的publisher和subscriber，使用时只需要做以下改动：
+如果你已经掌握 ROS2 的 publisher 和 subscriber 使用方式，那么很容易切换到使用基于 hbmem 零拷贝的 publisher 和 subscriber，使用时只需要做以下改动：
 
 - **rclcpp::Publisher** 改为 **rclcpp::PublisherHbmem**
 - **create_publisher** 改为 **create_publisher_hbmem**
@@ -963,9 +963,9 @@ ros2 run hbmem_pubsub listener
 
 注意：
 
-- 使用基于hbmem的零拷贝会占用ion内存，若创建多个较大消息的publisher，可能出现ion内存不够用，导致创建失败问题。
+- 使用基于 hbmem 的零拷贝会占用 ion 内存，若创建多个较大消息的 publisher，可能出现 ion 内存不够用，导致创建失败问题。
 
-- 创建publisher时会一次性申请KEEPLAST的三倍个消息大小的ion内存（最大为256MB），用于消息的传输，之后不会再动态申请。若subscriber端消息处理出错或者未及时处理，则会出现消息buffer都被占用，publisher一直获取不到可用消息的情况。
+- 创建 publisher 时会一次性申请 KEEPLAST 的三倍个消息大小的 ion 内存（最大为 256MB），用于消息的传输，之后不会再动态申请。若 subscriber 端消息处理出错或者未及时处理，则会出现消息 buffer 都被占用，publisher 一直获取不到可用消息的情况。
 
 </TabItem>
 
@@ -987,11 +987,11 @@ ros2 run hbmem_pubsub listener
 
 ## 使用限制
 
-和ROS2的publisher/subscriber数据传输方式相比，使用零拷贝传输存在以下限制：
+和 ROS2 的 publisher/subscriber 数据传输方式相比，使用零拷贝传输存在以下限制：
 
-- QOS History只支持KEEPLAST，不支持KEEPALL，且KEEPLAST不能设置太大，有内存限制，目前设置为最大占用256M内存
-- 传输的消息大小是固定的，即消息的`sizeof`值是不变的，不能包含可变长度类型数据，例如：string，动态数组
-- 对于TROS Humble以及之后版本，推荐QOS Reliability使用RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT（建议直接使用rclcpp::SensorDataQoS()设置QOS），RMW_QOS_POLICY_RELIABILITY_RELIABLE在多种通信方式下存在稳定性问题。
+- QOS History 只支持 KEEPLAST，不支持 KEEPALL，且 KEEPLAST 不能设置太大，有内存限制，目前设置为最大占用 256M 内存
+- 传输的消息大小是固定的，即消息的 `sizeof` 值是不变的，不能包含可变长度类型数据，例如：string，动态数组
+- 对于 TROS Humble 以及之后版本，推荐 QOS Reliability 使用 RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT（建议直接使用 rclcpp::SensorDataQoS()设置 QOS），RMW_QOS_POLICY_RELIABILITY_RELIABLE 在多种通信方式下存在稳定性问题。
 - 只能用于同一设备进程间通信，不可跨设备传输
-- publisher消息要先获取再赋值发送，且要判断是否获取成功
-- subscriber收到的消息有效期仅限回调函数中，不能在回调函数之外使用
+- publisher 消息要先获取再赋值发送，且要判断是否获取成功
+- subscriber 收到的消息有效期仅限回调函数中，不能在回调函数之外使用

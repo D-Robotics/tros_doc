@@ -26,13 +26,13 @@ EdgeTAM (Edge Track Anything Model) 是基于 Facebook Research 开源的 [EdgeT
 
  (https://github.com/D-Robotics/mono_edgetam)
 
-应用场景：EdgeTAM能够通过点/框提示对任意目标进行持续的跟踪与分割，可实现视频目标分割、交互式视频编辑等功能，主要应用于自动驾驶、视频分析、智能交互等领域。
+应用场景：EdgeTAM 能够通过点/框提示对任意目标进行持续的跟踪与分割，可实现视频目标分割、交互式视频编辑等功能，主要应用于自动驾驶、视频分析、智能交互等领域。
 
 ## 支持平台
 
 | 平台                     | 运行方式     | 示例功能                                                 |
 | ------------------------ | ------------ | -------------------------------------------------------- |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -47,15 +47,15 @@ EdgeTAM (Edge Track Anything Model) 是基于 Facebook Research 开源的 [EdgeT
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu 22.04系统镜像。
+1. RDK 已烧录好 Ubuntu 22.04 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头，无摄像头的情况下通过回灌本地JPEG格式图片的方式体验算法效果。
+3. RDK 已安装 MIPI 或者 USB 摄像头，无摄像头的情况下通过回灌本地 JPEG 格式图片的方式体验算法效果。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ### 下载模型与数据
 
@@ -84,7 +84,7 @@ EdgeTAM 跟踪分割包含两个阶段：**提示阶段** 和 **跟踪阶段**�
 
 prompt 初始化节点基于输入图像和点/框提示做模型推理，生成 **traget embedding** 提示特征文件保存到本地，供后续跟踪节点加载。
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 
 
@@ -108,7 +108,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 </Tabs>
 </DocScope>
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 
 
@@ -158,11 +158,11 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 #### Web 展示
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
 
 提示阶段渲染效果：
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png" alt="EdgeTAM 单帧目标分割在 Web 端的渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 提示阶段节点完成一次推理后，会自动将生成的特征文件保存到当前工作目录，供后续跟踪节点加载使用。
 
@@ -170,9 +170,9 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 - **保存时机**：节点接收到图像并完成推理后，会立即将 memory 特征张量写入本地文件。选择分割结果最好的帧退出, 这时保存当前目前的跟踪特征。
 - **生成文件**：
-  - `cond_maskmem_features.bin`：mask memory 特征文件
-  - `cond_maskmem_pos_enc.bin`：memory positional encoding 文件
-  - `cond_obj_ptr.bin`：object pointer 文件
+  - `cond_maskmem_features.bin` ：mask memory 特征文件
+  - `cond_maskmem_pos_enc.bin` ：memory positional encoding 文件
+  - `cond_obj_ptr.bin` ：object pointer 文件
 
 :::warning
 **注意**：跟踪节点启动时将从当前工作目录加载这些特征文件。如果在提示阶段和跟踪阶段之间切换了工作目录，请将生成的特征文件拷贝到跟踪节点的工作目录下，或将两个阶段在相同目录下运行。
@@ -180,11 +180,11 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 ### 2. 启动 mono_edgetam_track（跟踪阶段）
 
-跟踪节点加载特征文件（`cond_maskmem_features.bin`、`cond_maskmem_pos_enc.bin`、`cond_obj_ptr.bin`），对视频流中的目标进行连续跟踪与分割，并发布分割结果。
+跟踪节点加载特征文件（ `cond_maskmem_features.bin` 、 `cond_maskmem_pos_enc.bin` 、 `cond_obj_ptr.bin` ），对视频流中的目标进行连续跟踪与分割，并发布分割结果。
 
 **注意**：在**相同目录**下运行 `mono_edgetam_track` 跟踪节点，确保跟踪节点加载的是提示阶段生成的特征文件。
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 
 
@@ -208,7 +208,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 </Tabs>
 </DocScope>
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 
 
@@ -261,11 +261,11 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 ### Web 展示
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置，选中"Full Image Segmentation"选项，可以显示分割渲染效果。
 
 跟踪阶段渲染效果：
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif" alt="EdgeTAM 连续帧目标分割在 Web 端的渲染效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 进阶使用
 
@@ -273,12 +273,12 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 prompt 模式通过 `edgetam_prompt_mode` 参数设置：
 
-- `0`：**框类提示**（默认） — 算法使用边界框来定义目标区域。框内的物体将被作为目标进行跟踪与分割。
-- `1`：**点类提示** — 算法使用点坐标来定义目标区域。基于 SAM 机制，算法会选择指定点附近最显著的目标物体。可以通过指定最多两个点来细化选择范围。
+- `0` ：**框类提示**（默认） — 算法使用边界框来定义目标区域。框内的物体将被作为目标进行跟踪与分割。
+- `1` ：**点类提示** — 算法使用点坐标来定义目标区域。基于 SAM 机制，算法会选择指定点附近最显著的目标物体。可以通过指定最多两个点来细化选择范围。
 
 **点类提示如何选择区域**
 
-当设置 `edgetam_prompt_mode:=1`（点类提示模式）时，需要指定至少一个点坐标。每个点通过一个 `rect`（`width=0, height=0`）来表示，其中 `x_offset` 和 `y_offset` 定义了该点在图像上的像素坐标。算法利用 SAM 的分割能力来识别给定点附近的目标物体。
+当设置 `edgetam_prompt_mode:=1` （点类提示模式）时，需要指定至少一个点坐标。每个点通过一个 `rect` （ `width=0, height=0` ）来表示，其中 `x_offset` 和 `y_offset` 定义了该点在图像上的像素坐标。算法利用 SAM 的分割能力来识别给定点附近的目标物体。
 
 以下示例中指定了两个点：
 - 第一个点 `{x_offset: 210, y_offset: 350}` 作为 **正向点**，算法将包含该位置附近的目标物体。

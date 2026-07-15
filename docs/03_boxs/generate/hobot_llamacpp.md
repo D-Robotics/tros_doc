@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-本章节介如何在RDK平台体验端侧 Vision Language Model (VLM)。得益于[书生大模型](https://hf-mirror.com/OpenGVLab/InternVL2_5-1B), [SmolVLM](https://hf-mirror.com/HuggingFaceTB/SmolVLM2-256M-Video-Instruct) 的优秀成果, 我们在RDK平台上实现了量化与部署。同时, 本示例基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 中 KV Cache 的强大管理能力, 结合 RDK 平台 BPU 模块的计算优势, 实现了本地 VLM 模型部署。
+本章节介如何在 RDK 平台体验端侧 Vision Language Model (VLM)。得益于[书生大模型](https://hf-mirror.com/OpenGVLab/InternVL2_5-1B), [SmolVLM](https://hf-mirror.com/HuggingFaceTB/SmolVLM2-256M-Video-Instruct) 的优秀成果, 我们在 RDK 平台上实现了量化与部署。同时, 本示例基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 中 KV Cache 的强大管理能力, 结合 RDK 平台 BPU 模块的计算优势, 实现了本地 VLM 模型部署。
 
 代码仓库： (https://github.com/D-Robotics/hobot_llamacpp.git)
 
@@ -60,10 +60,10 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
-2. RDK已成功安装TogetheROS.Bot。
+1. RDK 已烧录好 Ubuntu 系统镜像。
+2. RDK 已成功安装 TogetheROS.Bot。
 3. 下载安装功能包
 
 <DocScope products="RDK-X5">
@@ -101,22 +101,22 @@ sudo apt install tros-${TROS_DISTRO}-hobot-llamacpp
 
 <DocScope products="RDK-X5">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 </DocScope>
 <DocScope products="RDK-S100">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 </DocScope>
 
 4. 系统配置
 
-使用命令`srpi-config`修改ION memory大小为1.6GB，重启后设置CPU为最高频率。
+使用命令 `srpi-config` 修改 ION memory 大小为 1.6GB，重启后设置 CPU 为最高频率。
 
 - ION 大小配置参考: [srpi-config 工具配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config) 
 
-- CPU 频率配置参考：手册 [Thermal和CPU频率管理](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/frequency_management)
+- CPU 频率配置参考：手册 [Thermal 和 CPU 频率管理](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/frequency_management)
 
 ## 使用方式
 
@@ -166,7 +166,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
-![internvlm_result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png" alt="InternVLM 多模态模型基于本地图片与提示词的输出结果示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### SmolVLM
 
@@ -211,8 +211,8 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
-![smolvlm_result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png" alt="SmolVLM 多模态模型基于本地图片与提示词的输出结果示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 注意事项
 
-X5平台 修改ION memory大小为1.6GB, S100平台修改ION memory大小大于1.6GB, 否则会导致模型加载失败。
+X5 平台 修改 ION memory 大小为 1.6GB, S100 平台修改 ION memory 大小大于 1.6GB, 否则会导致模型加载失败。

@@ -13,9 +13,9 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-姿态检测App通过订阅摄像头发布的图片消息，检测出人体关键点后分析人体姿态，并发布姿态事件。
+姿态检测 App 通过订阅摄像头发布的图片消息，检测出人体关键点后分析人体姿态，并发布姿态事件。
 
-姿态事件使用自定义算法msg发布出去, 用户可以订阅此topic的msg用于应用开发。
+姿态事件使用自定义算法 msg 发布出去, 用户可以订阅此 topic 的 msg 用于应用开发。
 
 目前只支持跌倒检测功能，检测人体是否跌倒。
 
@@ -25,29 +25,29 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台     | 运行方式     | 示例功能                       |
 | -------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头获取图像，并进行人体关键点检测以及姿态检测，最后通过Web展示图像和算法效果，发布姿态事件 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头获取图像，并进行人体关键点检测以及姿态检测，最后通过Web展示图像和算法效果，发布姿态事件 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头获取图像，并进行人体关键点检测以及姿态检测，最后通过 Web 展示图像和算法效果，发布姿态事件 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头获取图像，并进行人体关键点检测以及姿态检测，最后通过 Web 展示图像和算法效果，发布姿态事件 |
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. 确认PC机跟RDK处于同一网段，IP地址前三段需保持一致
+3. 确认 PC 机跟 RDK 处于同一网段，IP 地址前三段需保持一致
 
-4. RDK已安装MIPI或者USB摄像头。
+4. RDK 已安装 MIPI 或者 USB 摄像头。
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
-姿态检测pkg订阅人体关键点检测pkg发布的数据，经过算法推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+姿态检测 pkg 订阅人体关键点检测 pkg 发布的数据，经过算法推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
-友情提示：体验App时，将摄像头旋转90度，模拟人跌倒的效果。
+友情提示：体验 App 时，将摄像头旋转 90 度，模拟人跌倒的效果。
 
-**使用mipi摄像头发布图片**
+**使用 mipi 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -87,7 +87,7 @@ export CAM_TYPE=mipi
 ros2 launch hobot_falldown_detection hobot_falldown_detection.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -127,19 +127,19 @@ export CAM_TYPE=usb
 ros2 launch hobot_falldown_detection hobot_falldown_detection.launch.py
 ```
 
-运行命令中的参数说明，参考hobot_falldown_detection package源码中的README.md。
+运行命令中的参数说明，参考 hobot_falldown_detection package 源码中的 README.md。
 
 ## 结果分析
 
-启动姿态检测pkg后，在运行终端输出如下信息：
+启动姿态检测 pkg 后，在运行终端输出如下信息：
 
 ```shell
 [hobot_falldown_detection-4] [INFO] [1660271558.250055538] [body_kps_Subscriber]: receive targetType: personpointType: body_kps
 [hobot_falldown_detection-4] [INFO] [1660271558.250598996] [fall_down_publisher]: track_id: 1 is fall down
 ```
 
-输出log显示，订阅到了body_kps数据，并发布了姿态事件。
+输出 log 显示，订阅到了 body_kps 数据，并发布了姿态事件。
 
-在PC端的浏览器输入 `http://IP:8000`，人体检测框，关键点和姿态检测结果在web端展示渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` ，人体检测框，关键点和姿态检测结果在 web 端展示渲染效果（IP 为 RDK 的 IP 地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg" alt="Web 端跌倒检测人体框、关键点与姿态结果渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

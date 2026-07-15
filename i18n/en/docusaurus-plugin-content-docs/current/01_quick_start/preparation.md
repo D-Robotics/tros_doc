@@ -55,7 +55,7 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 </DocScope>
 
-If the image is already installed, you can upgrade using the commands `sudo apt update` and `sudo apt upgrade`.
+If the image is already installed, you can upgrade using the commands `sudo apt update` and `sudo apt upgrade` .
 
 <DocScope products="RDK-X3">
 
@@ -133,7 +133,7 @@ A normal ping response indicates that internet access and DNS configuration are 
 
 Upgrade the system image and source information: `sudo apt update` `sudo apt upgrade`
 
-Test ssh: `ssh root@RDK IP address`. Here the RDK IP address is 10.64.61.228, so enter `ssh root@10.64.61.228`. The first ssh login will show the following prompt:
+Test ssh: `ssh root@RDK IP address` . Here the RDK IP address is 10.64.61.228, so enter `ssh root@10.64.61.228` . The first ssh login will show the following prompt:
 
 ```shell
  ssh root@10.64.61.241

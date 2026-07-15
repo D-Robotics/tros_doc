@@ -304,7 +304,7 @@ source /opt/tros/jazyy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2 algorithm, other algorithms in the YOLO series are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"`; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"`; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"`; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"`; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"`; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"`; for YOLO26, set `dnn_example_config_file:="config/yolo26workconfig.json"`.
+In addition to the YOLOv2 algorithm, other algorithms in the YOLO series are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` ; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"` ; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"` ; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"` ; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"` ; for YOLO26, set `dnn_example_config_file:="config/yolo26workconfig.json"` .
 
 ### X86 Platform
 
@@ -320,7 +320,7 @@ source /opt/tros/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2 algorithm, YOLOv3 is also supported. YOLOv5 is currently not supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"`.
+In addition to the YOLOv2 algorithm, YOLOv3 is also supported. YOLOv5 is currently not supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` .
 
 ## Result Analysis
 
@@ -339,11 +339,11 @@ The terminal output will display information like this:
 [example-3] [WARN] [1655095351.011915729] [example]: Smart fps 11.30
 ```
 
-The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`.
+The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection` , and the topic for subscribing to images is `/hbmem_img` .
 
 Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering effects (where IP is the RDK's IP address):
 
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg" alt="Web UI render of YOLO object detection results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Using Local Image Injection
 
@@ -361,6 +361,6 @@ The terminal output will display information like this:
 [example-1] [INFO] [1654925067.952743463] [PostProcessBase]: det rect: 54.0955 256.68 88.6269 266.159, det type: book, score:0.307426
 ```
 
-The log indicates that the algorithm inferred 8 objects from the input image and output the coordinates of the object detection boxes (the output coordinates are the top-left x and y, and the bottom-right x and y of the object bounding box) along with their categories. The rendered image is saved as `render_feedback_0_0.jpeg`, and its effect is as follows:
+The log indicates that the algorithm inferred 8 objects from the input image and output the coordinates of the object detection boxes (the output coordinates are the top-left x and y, and the bottom-right x and y of the object bounding box) along with their categories. The rendered image is saved as `render_feedback_0_0.jpeg` , and its effect is as follows:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg" alt="Saved detection-box render from YOLO local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

@@ -13,23 +13,23 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-语音追踪控制小车运动功能根据声源定位的DOA角度信息控制机器人转向声源方向，并且控制机器人向前移动。此功能需要搭配D-Robotics RDK机器人操作系统的智能语音模块一起使用。当用户说出智能语音识别模块配置的唤醒词唤醒设备之后，语音追踪控制小车功能会激活，后续用户说出唤醒词或者配置的命令词，智能语音识别模块会输出声源的DOA角度信息，此模块收到DOA角度信息之后会控制消息转向声源方向，并且前进一定距离。
+语音追踪控制小车运动功能根据声源定位的 DOA 角度信息控制机器人转向声源方向，并且控制机器人向前移动。此功能需要搭配 D-Robotics RDK 机器人操作系统的智能语音模块一起使用。当用户说出智能语音识别模块配置的唤醒词唤醒设备之后，语音追踪控制小车功能会激活，后续用户说出唤醒词或者配置的命令词，智能语音识别模块会输出声源的 DOA 角度信息，此模块收到 DOA 角度信息之后会控制消息转向声源方向，并且前进一定距离。
 
 流程如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_control.jpg" alt="语音追踪控制小车运动功能整体软件流程图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
+App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
-智能语音功能输出的声源定位DOA角度信息，单位为角度，支持线形和环形两种类型麦克风阵列，其中线形麦克风阵列角度范围为0度到180度，环形麦克风阵列角度范围为0度到360度。麦克风角度的相对位置关系与麦克风的安装位置强相关，实际角度示意图如下：
+智能语音功能输出的声源定位 DOA 角度信息，单位为角度，支持线形和环形两种类型麦克风阵列，其中线形麦克风阵列角度范围为 0 度到 180 度，环形麦克风阵列角度范围为 0 度到 360 度。麦克风角度的相对位置关系与麦克风的安装位置强相关，实际角度示意图如下：
 
 线形麦克风：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_line.jpg" alt="线形麦克风阵列声源定位 DOA 角度示意图" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 环形麦克风：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/doa_circle.jpg" alt="环形麦克风阵列声源定位 DOA 角度示意图" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 代码仓库： (https://github.com/D-Robotics/audio_tracking.git)
 
@@ -37,20 +37,20 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过Gazebo展示追踪效果 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过Gazebo展示追踪效果 |
+| RDK X3 | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过 Gazebo 展示追踪效果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动智能语音模块解析语音信息并进行语音追踪通过 Gazebo 展示追踪效果 |
 
-**注意：仅支持RDK X3，RDK X3 Module暂不支持。**
+**注意：仅支持 RDK X3，RDK X3 Module 暂不支持。**
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已成功安装智能语音算法包，安装命令：
+3. RDK 已成功安装智能语音算法包，安装命令：
 
    <DocScope products="RDK-X3,RDK-X5">
    <Tabs groupId="tros-distro">
@@ -80,28 +80,28 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 <DocScope products="RDK-X3">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
 
-5. RDK已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/audio/hobot_audio.md)）。
+5. RDK 已成功接好适配的音频板（可参考[智能语音章节](../03_boxs/audio/hobot_audio.md)）。
 
-6. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+6. 和 RDK 在同一网段（有线或者连接同一无线网，IP 地址前三段需保持一致）的 PC，PC 端需要安装的环境包括：
 
  <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
-    - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
+    - Ubuntu 20.04 系统和[ROS2 Foxy 桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo 和 Turtlebot3 相关的功能包，安装方法：
 
      ```shell
      sudo apt-get install ros-foxy-gazebo-*
@@ -113,8 +113,8 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
   <TabItem value="humble" label="Humble">
 
-    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
+    - Ubuntu 22.04 系统和[ROS2 Humble 桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo 和 Turtlebot3 相关的功能包，安装方法：
 
      ```shell
      sudo apt-get install ros-humble-gazebo-*
@@ -131,11 +131,11 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
-运行语音追踪功能后，语音追踪控制模块会接收从智能语音功能模块发布的智能语音消息结果，并且解析消息，根据消息中的唤醒事件以及DOA角度信息发布控制小车转向某个方向特定角度的指令，当小车转向特定角度之后，继续控制小车前进一定距离（此模块默认控制小车前进0.2米的距离）。
+运行语音追踪功能后，语音追踪控制模块会接收从智能语音功能模块发布的智能语音消息结果，并且解析消息，根据消息中的唤醒事件以及 DOA 角度信息发布控制小车转向某个方向特定角度的指令，当小车转向特定角度之后，继续控制小车前进一定距离（此模块默认控制小车前进 0.2 米的距离）。
 
-PC端启动仿真环境：
+PC 端启动仿真环境：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -165,9 +165,9 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 启动成功后，仿真环境中小车效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo 仿真环境中小车启动后的场景效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-RDK平台启动程序：
+RDK 平台启动程序：
 
 1. 拷贝音频配置文件和加载音频驱动
 
@@ -201,7 +201,7 @@ source /opt/tros/humble/setup.bash
 
 2. 确认麦克风设备
 
-    麦克风设备号通过配置文件 *config/audio_config.json* 中 `micphone_name` 字段设置，默认为"hw:0,0"，表示音频设备Card0 Device0，设备号可通过命令 `ls /dev/snd`  查看如："pcmC0D1c"；最后字母c表示capture设备，C0表示Card0，D1表示Device1，修改参数为"hw:0,1"。
+    麦克风设备号通过配置文件 *config/audio_config.json* 中 `micphone_name` 字段设置，默认为"hw:0,0"，表示音频设备 Card0 Device0，设备号可通过命令 `ls /dev/snd`  查看如："pcmC0D1c"；最后字母 c 表示 capture 设备，C0 表示 Card0，D1 表示 Device1，修改参数为"hw:0,1"。
 
 3. 启动程序
 
@@ -235,7 +235,7 @@ source /opt/tros/humble/setup.bash
 
 ## 结果分析
 
-在RDK运行终端输出如下信息：
+在 RDK 运行终端输出如下信息：
 
 ```text
 
@@ -279,9 +279,9 @@ rotate_step: 0.348
 [WARN] [1663149823.377099758] [audio_tracking]: cancel move
 ```
 
-以上log截取了一段音频控制pkg启动后的输出。log内容显示，智能语音识别模块配置的设备唤醒词是“D-Robotics 你好”，语音追踪控制模块接收到唤醒事件之后接收到DOA角度信息，如log上面显示DOA是80度，此时语音追踪控制模块发布控制小车左转20度，转动之后控制小车前进，后面控制小车停止运动。
+以上 log 截取了一段音频控制 pkg 启动后的输出。log 内容显示，智能语音识别模块配置的设备唤醒词是 “D-Robotics 你好”，语音追踪控制模块接收到唤醒事件之后接收到 DOA 角度信息，如 log 上面显示 DOA 是 80 度，此时语音追踪控制模块发布控制小车左转 20 度，转动之后控制小车前进，后面控制小车停止运动。
 
-PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
+PC 端在终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -289,9 +289,9 @@ $ ros2 topic list
 /cmd_vel
 ```
 
-其中`/audio_smart`是X3发布的包含智能语音结果的算法感知msg，`/cmd_vel`是RDK发布的运动控制指令。
+其中 `/audio_smart` 是 X3 发布的包含智能语音结果的算法感知 msg， `/cmd_vel` 是 RDK 发布的运动控制指令。
 
-PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到是RDK发布的运动控制指令：
+PC 端在终端使用 `ros2 topic echo /cmd_vel` 命令可以查看到是 RDK 发布的运动控制指令：
 
 ```text
 linear:
@@ -341,8 +341,8 @@ angular:
 ---
 ```
 
-PC端仿真环境中语音追踪控制小车运动，效果如下：
+PC 端仿真环境中语音追踪控制小车运动，效果如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_audio_tracking/audio_tracking.gif" alt="仿真环境中语音追踪控制小车转向声源的运动效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-上图中左边为仿真小车根据声源定位角度转动，右边为程序输出的log，log中包含有DOA角度信息。
+上图中左边为仿真小车根据声源定位角度转动，右边为程序输出的 log，log 中包含有 DOA 角度信息。

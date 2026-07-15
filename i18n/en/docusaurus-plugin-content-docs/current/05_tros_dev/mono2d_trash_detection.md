@@ -103,13 +103,13 @@ The `config_file` configuration file uses JSON format. This example uses [ppyolo
   }
 ```
 
-Note: The actual size of each preset anchor is `anchors_table x strides`.
+Note: The actual size of each preset anchor is `anchors_table x strides` .
 
 ## Usage
 
 Full algorithm development and deployment workflow:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png" alt="End-to-end flowchart of trash detection algorithm development and deployment" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Step 1 (Paddle model training) and step 2 (toolchain model conversion) are described in the links below. This section mainly covers on-board deployment.
 
@@ -311,7 +311,7 @@ After the package initializes, the running terminal outputs the following inform
 
 Real-time running effect:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif" alt="Animation/log view of real-time trash detection FPS and latency" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 **Use a Single Feedback Image**
 
@@ -340,4 +340,4 @@ After the package initializes, the terminal outputs the following information:
 
 Local rendering effect:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg" alt="Saved render result from trash detection local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

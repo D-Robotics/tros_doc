@@ -14,11 +14,11 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 功能介绍
 
-图片发布工具支持批量读取本地图片或视频文件，并按照ROS消息格式发布，从而提高算法调试和部署效率。
+图片发布工具支持批量读取本地图片或视频文件，并按照 ROS 消息格式发布，从而提高算法调试和部署效率。
 
-对于图片发布，支持读取JPEG/JPG/PNG/NV12格式的图片，发布压缩图片或者将压缩图片转换为NV12格式进行发布。
+对于图片发布，支持读取 JPEG/JPG/PNG/NV12 格式的图片，发布压缩图片或者将压缩图片转换为 NV12 格式进行发布。
 
-对于视频发布，支持H264/H265/MP4格式，读取视频文件后提取相关的视频流进行发布。
+对于视频发布，支持 H264/H265/MP4 格式，读取视频文件后提取相关的视频流进行发布。
 
 代码仓库: (https://github.com/D-Robotics/hobot_image_publisher.git)
 
@@ -32,30 +32,30 @@ import DocScope from '@site/src/components/DocScope';
 | X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
-X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.265视频发布功能无法在X86平台展示。
+X86 平台不支持将 H.264、H.265 视频解码为 NV12 格式，因此 H.264、H.265 视频发布功能无法在 X86 平台展示。
 :::
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像
+1. RDK 已烧录好 Ubuntu 系统镜像
 
-2. RDK已成功安装tros.b
+2. RDK 已成功安装 tros.b
 
-3. 可以通过网络访问RDK的PC
+3. 可以通过网络访问 RDK 的 PC
 
-#### X86平台
+#### X86 平台
 
-1. X86环境已配置Ubuntu 20.04系统镜像
+1. X86 环境已配置 Ubuntu 20.04 系统镜像
 
-2. X86环境已安装X86版本 tros.b
+2. X86 环境已安装 X86 版本 tros.b
 
 ### 图片发布使用介绍
 
-循环读取本地的一张NV12格式图片并发布，使用图像编解码模块将图片压缩编码成JPEG格式，在PC的Web端展示图片。
+循环读取本地的一张 NV12 格式图片并发布，使用图像编解码模块将图片压缩编码成 JPEG 格式，在 PC 的 Web 端展示图片。
 
-#### RDK/X86平台
+#### RDK/X86 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -133,17 +133,17 @@ webserver has launch
 [INFO] [websocket-3]: process started with pid [24519]
 ```
 
-输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
+输出 log 显示出 webserver 已启动，hobot_image_pub、hobot_codec_republish、websocket 都正常运行
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK/X86 设备的 IP 地址）：
 
-![hobot_img_pub](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png" alt="hobot_img_pub 发布本地图片后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 视频发布使用介绍
 
-读取本地video.list文件，获取list文件中的视频文件路径，循环读取视频文件并发布，先使用图像编解码模块将视频流解码成NV12格式图片，再使用图像编解码模块将图片压缩编码成JPEG格式，在PC的Web端展示图片。
+读取本地 video.list 文件，获取 list 文件中的视频文件路径，循环读取视频文件并发布，先使用图像编解码模块将视频流解码成 NV12 格式图片，再使用图像编解码模块将图片压缩编码成 JPEG 格式，在 PC 的 Web 端展示图片。
 
-#### RDK平台
+#### RDK 平台
 
 
 <DocScope products="RDK-X3,RDK-X5">
@@ -210,7 +210,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
 ```
 
-#### X86平台
+#### X86 平台
 
 ```bash
 # 配置tros.b环境
@@ -237,47 +237,47 @@ webserver has launch
 [INFO] [websocket-4]: process started with pid [702603]
 ```
 
-输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行。
+输出 log 显示出 webserver 已启动，hobot_image_pub、hobot_codec_republish、websocket 都正常运行。
 
 :::info
-如果输出log显示如下告警信息：
+如果输出 log 显示如下告警信息：
 [HobotVdec]: findSPSPPSVPS fail. ret: -1, nSPSLen: 0, nLen: 59
-并且PC端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
+并且 PC 端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
 :::
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK/X86 设备的 IP 地址）：
 
-![hobot_img_pub](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg" alt="hobot_img_pub 发布视频后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 <DocScope products="RDK-X3">
 
-## Trigger记录工具
+## Trigger 记录工具
 
 ### 功能介绍
 
-所谓Trigger，是在设定好已有Trigger机制基础上，监测Trigger模块订阅的消息变化，例如检测框结果数量变化，小车控制信息变化等，触发对应Trigger事件，记录指定时间区间内的ROS2消息，从而帮助开发人员定位和复现机器人场景中的感知、规控等问题。
+所谓 Trigger，是在设定好已有 Trigger 机制基础上，监测 Trigger 模块订阅的消息变化，例如检测框结果数量变化，小车控制信息变化等，触发对应 Trigger 事件，记录指定时间区间内的 ROS2 消息，从而帮助开发人员定位和复现机器人场景中的感知、规控等问题。
 
-trigger_node package 是D-Robotics基于ROS2开发的Trigger基础模块，用于在触发Trigger事件后，获取指定rosbag数据的功能包。package支持直接订阅ai_msg/msg/PerceptionTargets类型的话题，在话题回调函数中，判断是否触发Trigger事件，并记录Trigger事件相关的rosbag包，最后将Trigger事件信息保存，并发布std_msg/msg/String类型的Trigger事件话题。
+trigger_node package 是 D-Robotics 基于 ROS2 开发的 Trigger 基础模块，用于在触发 Trigger 事件后，获取指定 rosbag 数据的功能包。package 支持直接订阅 ai_msg/msg/PerceptionTargets 类型的话题，在话题回调函数中，判断是否触发 Trigger 事件，并记录 Trigger 事件相关的 rosbag 包，最后将 Trigger 事件信息保存，并发布 std_msg/msg/String 类型的 Trigger 事件话题。
 
-本章节展示的示例，是D-Robotics在自定义trigger基础模块基础上，开发的Trigger模块使用示例。本示例展示的功能，是订阅垃圾检测框信息，根据垃圾检测框的数量是否大于等于3，判断是否触发Trigger事件。若检测框数量大于等于3，则触发Trigger事件。
+本章节展示的示例，是 D-Robotics 在自定义 trigger 基础模块基础上，开发的 Trigger 模块使用示例。本示例展示的功能，是订阅垃圾检测框信息，根据垃圾检测框的数量是否大于等于 3，判断是否触发 Trigger 事件。若检测框数量大于等于 3，则触发 Trigger 事件。
 
 代码仓库：(https://github.com/D-Robotics/hobot_trigger.git)
 
-应用场景：机器人数据闭环链路，机器人Trigger事件上报场景，可配合感知、规控等任务，记录Trigger事件发生时的rosbag数据。
+应用场景：机器人数据闭环链路，机器人 Trigger 事件上报场景，可配合感知、规控等任务，记录 Trigger 事件发生时的 rosbag 数据。
 
 ### 支持平台
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头，触发记录的rosbag数据记录在本地 |
+| RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头，触发记录的 rosbag 数据记录在本地 |
 
 ### 使用说明
 
-#### Trigger初始化配置说明   
+#### Trigger 初始化配置说明   
 
-Trigger基础模块，定义了初始化配置需要的参数。
+Trigger 基础模块，定义了初始化配置需要的参数。
 
-config_file配置文件格式为json格式，具体配置如下：
+config_file 配置文件格式为 json 格式，具体配置如下：
 
 ```bash
 { 
@@ -309,13 +309,13 @@ config_file配置文件格式为json格式，具体配置如下：
 }
   ```
 
-#### Trigger事件触发配置说明
+#### Trigger 事件触发配置说明
 
-在trigger_node基类中，定义了Config结构体，其中部分配置与初始化时Trigger配置保持一致，剩下内容需由Trigger触发时根据实际情况填充。
+在 trigger_node 基类中，定义了 Config 结构体，其中部分配置与初始化时 Trigger 配置保持一致，剩下内容需由 Trigger 触发时根据实际情况填充。
 
-用户基于Trigger_node进行二次开发时，仅需要在每次Trigger发生时，实例化一个结构体变量，将Trigger发生时的相关信息填入结构体变量，如 "timestamp"、"gps_pos"等，送入Trigger事件记录队列 "requests_"中。
+用户基于 Trigger_node 进行二次开发时，仅需要在每次 Trigger 发生时，实例化一个结构体变量，将 Trigger 发生时的相关信息填入结构体变量，如 "timestamp"、"gps_pos"等，送入 Trigger 事件记录队列 "requests_"中。
 
-在此基础上，用户就可以开发自定义的Trigger模块，更多信息请在代码仓库中参考 trigger_node_example 的实现方式。
+在此基础上，用户就可以开发自定义的 Trigger 模块，更多信息请在代码仓库中参考 trigger_node_example 的实现方式。
 
 代码仓库：(https://github.com/D-Robotics/hobot_trigger.git)
 
@@ -344,19 +344,19 @@ struct Config {
 
 ### 准备工作
 
-#### RDK平台
+#### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. 安装功能包 `apt install tros-humble-trigger-node-example`。
+3. 安装功能包 `apt install tros-humble-trigger-node-example` 。
 
 ### 使用介绍
 
-#### RDK平台
+#### RDK 平台
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -394,7 +394,7 @@ export CAM_TYPE=mipi
 ros2 launch trigger_node_example hobot_trigger_example.launch.py
 ```
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -432,9 +432,9 @@ ros2 launch trigger_node_example hobot_trigger_example.launch.py
 
 ### 结果分析
 
-**使用mipi摄像头发布图片**
+**使用 mipi 摄像头发布图片**
 
-package初始化后，在终端输出如下信息：
+package 初始化后，在终端输出如下信息：
 
 ```shell
   [INFO] [launch]: All log files can be found below /root/.ros/log/2023-05-13-17-31-53-158704-ubuntu-2981490
@@ -458,22 +458,22 @@ package初始化后，在终端输出如下信息：
 
 ```
 
-运行后Trigger触发产生的rosbag数据，将记录在当前运行目录 "trigger" 目录下。记录的rosbag数据，可以在foxglove中播放。在foxglove中播放rosbag文件的方法，可以参考手册 2.2 数据展示——foxglove展示。
+运行后 Trigger 触发产生的 rosbag 数据，将记录在当前运行目录 "trigger" 目录下。记录的 rosbag 数据，可以在 foxglove 中播放。在 foxglove 中播放 rosbag 文件的方法，可以参考手册 2.2 数据展示——foxglove 展示。
 
-foxglove中播放效果：
+foxglove 中播放效果：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/trigger_example_trash_det.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/trigger_example_trash_det.gif" alt="Foxglove 中播放垃圾检测示例 rosbag 的可视化效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-说明：该Trigger示例记录了事件发生前5s和事件发生后5s的数据。同时看到在事件中间时刻，记录了Trigger事件发生的原因：即在场景中丢入了一个垃圾,使得场景中垃圾达到三个，触发Trigger。
+说明：该 Trigger 示例记录了事件发生前 5s 和事件发生后 5s 的数据。同时看到在事件中间时刻，记录了 Trigger 事件发生的原因：即在场景中丢入了一个垃圾,使得场景中垃圾达到三个，触发 Trigger。
 
 
 ### 拓展功能
 
-#### 给Trigger模块下发任务
+#### 给 Trigger 模块下发任务
 
-Trigger模块支持由其他节点下发Trigger任务,控制Trigger配置。下发方式,通过发布std_msg的话题消息,消息数据为json格式的String数据。将任务协议发送到Trigger模块。
+Trigger 模块支持由其他节点下发 Trigger 任务,控制 Trigger 配置。下发方式,通过发布 std_msg 的话题消息,消息数据为 json 格式的 String 数据。将任务协议发送到 Trigger 模块。
 
-##### Trigger任务协议
+##### Trigger 任务协议
 ```json
 {
    "version": "v0.0.1_20230421",       // Trigger模块版本信息。
@@ -494,7 +494,7 @@ Trigger模块支持由其他节点下发Trigger任务,控制Trigger配置。下�
 
 ##### 运行
 
-在前面启动Trigger节点基础上,在另一个终端,发布话题名为"/hobot_agent"的std_msg话题消息。
+在前面启动 Trigger 节点基础上,在另一个终端,发布话题名为"/hobot_agent"的 std_msg 话题消息。
 
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
@@ -528,6 +528,6 @@ ros2 topic pub /hobot_agent std_msgs/String "data: '{\"version\":\"v0.0.1_202304
    [WARN] [1691670626.026859316] [example]: TriggerExampleNode Init.
    [INFO] [1691670626.517232775] [TriggerNode]: Updated Trigger Config: {"domain":"robot","desc":"trigger lane","duration_ts_back":5000,"duration_ts_front":3000,"gps_pos":{"latitude":-1,"longitude":-1},"level":1,"rosbag_path":"","src_module_id":203,"strategy_version":"Robot_sweeper_V1.0_20230526","timestamp":0,"topic":["/image_raw/compressed","/ai_msg_mono2d_trash_detection","/hobot_visualization"],"trigger_type":1110,"unique_id":"OriginBot002","version":"v0.0.1_20230421","extra_kv":[]}
 ```
-分析: 对Trigger模块下发配置任务的时候,可以成功更新Trigger节点的配置。（Trigger节点Log日志为INFO时可看到日志更新）
+分析: 对 Trigger 模块下发配置任务的时候,可以成功更新 Trigger 节点的配置。（Trigger 节点 Log 日志为 INFO 时可看到日志更新）
 
 </DocScope>

@@ -117,7 +117,7 @@ ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 
 - After the program starts, you can view stereo images published by ZED-2i via the web page. Enter `http://ip:8000` in a PC browser to view stereo images, where ip is the RDK board IP (e.g., `192.168.128.10` in the example). Ensure the PC and RDK can communicate over the network.
 
-![ZED-2i-stereo-img](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/ZED-2i-stereo-img.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/ZED-2i-stereo-img.png" alt="Web viewer showing stereo images published by a ZED-2i camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - After the program starts, you can view the occupancy grid via rviz2. rviz2 can be installed directly on RDK. Note the following rviz2 configuration:
 
@@ -167,7 +167,7 @@ sudo apt install ros-humble-rviz2
 rviz2
 ```
 
-![rviz2-occ](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2-occ.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2-occ.png" alt="RViz2 visualization of stereo occupancy grid results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - To save results, add the following parameters. `save_occ_flag` enables saving, `save_occ_dir` controls the save directory (created automatically if it does not exist), `save_freq` controls save frequency, and `save_total` controls the total number of saves:
 
@@ -220,11 +220,11 @@ save_occ_flag:=True save_occ_dir:=./occ_result save_freq:=4 save_total:=10
 
 - Prepare offline data and upload it to the RDK board. The offline data format is as follows:
     - The offline directory must contain left and right images. The program checks that left images contain the `left` field (png or jpg format) and right images contain the `right` field with the same naming as the left images.
-    - Image resolution must be `640*352`; other resolutions are not supported.
+    - Image resolution must be `640*352` ; other resolutions are not supported.
     - Left and right images must be rectified to achieve epipolar alignment.
     - Since the model is currently trained with ZED-2i data, try to make offline image intrinsics close to ZED-2i. ZED-2i camera parameters are: `fx=354.9999, fy=354.9999, cx=322.9469, cy=176.2076, baseline=0.12`
 
-![stereonet_rdk](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="Offline stereo image naming and format requirements (left/right fields)" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - Execute the following command on RDK (supported on both X5 and S100). `local_image_dir` controls the offline data directory. `save_occ_flag` enables saving, and `save_occ_dir` controls the save directory (created automatically if it does not exist):
 

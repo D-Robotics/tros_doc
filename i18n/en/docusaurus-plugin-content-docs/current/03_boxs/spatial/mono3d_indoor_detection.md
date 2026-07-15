@@ -152,8 +152,8 @@ After the mono3d_indoor_detection package processes one frame of image data, the
 [mono3d_indoor_detection-1] [INFO] [1662612553.869126765] [mono3d_detection]: target type: score, value: 0.875521
 ```
 
-The log excerpt shows the processing result of one frame. The results show that the target type in the subscribed algorithm message is `trash_can`, along with 3D dimensions, distance, and rotation angle information for `trash_can`.
+The log excerpt shows the processing result of one frame. The results show that the target type in the subscribed algorithm message is `trash_can` , along with 3D dimensions, distance, and rotation angle information for `trash_can` .
 
-The rendering result of reading a local image (you can replace the image by modifying the `feed_image` field in `mono3d_indoor_detection.launch.py`) is saved as an image in the `result` directory where the program runs. The corresponding image inference result and rendering information are shown below:
+The rendering result of reading a local image (you can replace the image by modifying the `feed_image` field in `mono3d_indoor_detection.launch.py` ) is saved as an image in the `result` directory where the program runs. The corresponding image inference result and rendering information are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg" alt="Indoor 3D detection local-image inference result and render info" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
