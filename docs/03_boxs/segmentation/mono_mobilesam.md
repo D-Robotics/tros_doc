@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像数据来源于本地图片回灌和订阅到的image msg。SAM 依赖检测框输入进行分割, 并分割检测框中的目标, 无需指定目标的类别信息, 仅需提供框。最终将算法信息通过话题发布, 同时在Web页面渲染可视化。
+mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像数据来源于本地图片回灌和订阅到的 image msg。SAM 依赖检测框输入进行分割, 并分割检测框中的目标, 无需指定目标的类别信息, 仅需提供框。最终将算法信息通过话题发布, 同时在 Web 页面渲染可视化。
 
 本示例中, 我们提供了两种部署展示方式:
 - 固定框分割：固定了检测框（图片中央）用以分割。
@@ -26,7 +26,7 @@ mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像
 
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动MIPI/USB摄像头/本地回灌, 推理渲染结果在Web显示/保存在本地 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌, 推理渲染结果在 Web 显示/保存在本地 |
 
 ## 算法信息
 
@@ -40,19 +40,19 @@ mono_mobilesam package 是基于 Mobile SAM 量化部署的使用示例。图像
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
 ## 使用介绍
 
-package对外发布包含语义分割和目标检测信息的算法msg, 用户可以订阅发布msg用于应用开发。
+package 对外发布包含语义分割和目标检测信息的算法 msg, 用户可以订阅发布 msg 用于应用开发。
 
-### RDK平台
+### RDK 平台
 
-**mipi摄像头发布图片**
+**mipi 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -91,7 +91,7 @@ export CAM_TYPE=mipi
 ros2 launch mono_mobilesam sam.launch.py 
 ```
 
-**使用usb摄像头发布图片**
+**使用 usb 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -171,9 +171,9 @@ ros2 launch mono_mobilesam sam.launch.py
 
 ## 结果分析
 
-**使用mipi摄像头发布图片**
+**使用 mipi 摄像头发布图片**
 
-package初始化后, 在运行终端输出如下信息：
+package 初始化后, 在运行终端输出如下信息：
 
 ```
 [INFO] [launch]: All log files can be found below .ros/log/1970-01-02-22-39-09-001251-buildroot-22955
@@ -228,22 +228,22 @@ package初始化后, 在运行终端输出如下信息：
 [mono_mobilesam-3] [WARN] [0000167952.295540585] [mono_mobilesam]: Smart fps: 5.00, pre process time ms: 35, infer time ms: 150, post process time ms: 21
 ```
 
-示例中推理的结果会渲染到Web上, 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）, 打开界面右上角设置, 选中”全图分割“选项, 可以显示渲染效果。
+示例中推理的结果会渲染到 Web 上, 在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）, 打开界面右上角设置, 选中”全图分割“选项, 可以显示渲染效果。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png" alt="Web 端 MobileSAM 分割渲染效果（开启全图分割）" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 进阶使用
 
-如需调整检测框大小, 可参考下面方法验证。更重要的是可以通过上游检测节点检测结果作为sam输入。
+如需调整检测框大小, 可参考下面方法验证。更重要的是可以通过上游检测节点检测结果作为 sam 输入。
 
-运行sam, 取消固定框模式 sam_is_regular_box:=0
+运行 sam, 取消固定框模式 sam_is_regular_box:=0
 ```shell
 ros2 launch mono_mobilesam sam.launch.py sam_is_regular_box:=0
 ```
 
-在另一个终端发布ai话题。
+在另一个终端发布 ai 话题。
 ```shell
 ros2 topic pub /hobot_dnn_detection ai_msgs/msg/PerceptionTargets '{"targets": [{"rois": [{"rect": {"x_offset": 96, "y_offset": 96, "width": 192, "height": 96}, "type": "anything"}]}] }'
 ```
 
-说明：这里发布的话题名为"/hobot_dnn_detection", 检测框坐标起点(96, 96), 宽度192, 高度96。这里检测框起止点, 应该不超过输入图像的大小, 在实际使用中需留意。
+说明：这里发布的话题名为"/hobot_dnn_detection", 检测框坐标起点(96, 96), 宽度 192, 高度 96。这里检测框起止点, 应该不超过输入图像的大小, 在实际使用中需留意。

@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-光流估计算法是使用PwcNet在[FlyingChairs数据集](https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)上训练出来的光流估计模型。
+光流估计算法是使用 PwcNet 在[FlyingChairs 数据集](https://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)上训练出来的光流估计模型。
 
 算法输入为两帧连续的图像数据，输出第一帧图像的光流图，显示第一帧图像中物体分别在水平和竖直方向上的运动矢量。
 
@@ -26,7 +26,7 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台                             | 运行方式     | 示例功能                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头/本地回灌，并通过Web展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头/本地回灌，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -40,23 +40,23 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-光流估计(mono_pwcnet)package订阅sensor package发布的图片，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果。
+光流估计(mono_pwcnet)package 订阅 sensor package 发布的图片，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果。
 
-### RDK平台
+### RDK 平台
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -96,7 +96,7 @@ export CAM_TYPE=mipi
 ros2 launch mono_pwcnet pwcnet.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -212,6 +212,6 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 [mono_pwcnet-3] [WARN] [0000000507.422862825] [mono_pwcnet]: Sub img fps: 5.04, Smart fps: 5.00, pre process time ms: 38, infer time ms: 41, post process time ms: 1
 ```
 
-在PC端的浏览器输入`http://IP:8000` ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP为RDK设备的IP地址）
+在 PC 端的浏览器输入`http://IP:8000` ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP 为 RDK 设备的 IP 地址）
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif" alt="Web 端开启全图分割后查看光流渲染效果的动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

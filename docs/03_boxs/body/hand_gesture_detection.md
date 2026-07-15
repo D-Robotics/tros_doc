@@ -12,22 +12,22 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-手势识别算法示例订阅包含人手框、人手关键点信息的算法msg，利用BPU进行推理，发布包含手势信息的智能结果msg。
+手势识别算法示例订阅包含人手框、人手关键点信息的算法 msg，利用 BPU 进行推理，发布包含手势信息的智能结果 msg。
 
-算法支持的手势识别类别，以及手势类别在算法msg（Attribute成员，type为"gesture"）中对应的数值如下：
+算法支持的手势识别类别，以及手势类别在算法 msg（Attribute 成员，type 为"gesture"）中对应的数值如下：
 
 1. 静态手势
 
 | 手势       | 说明       | 数值 |
 | ---------- | ---------- | ---- |
 | ThumbUp    | 竖起大拇指 | 2    |
-| Victory    | “V”手势    | 3    |
+| Victory    | “V” 手势    | 3    |
 | Mute       | “嘘”手势   | 4    |
 | Palm       | 手掌       | 5    |
-| Okay       | OK手势     | 11   |
+| Okay       | OK 手势     | 11   |
 | ThumbLeft  | 大拇指向左 | 12   |
 | ThumbRight | 大拇指向右 | 13   |
-| Awesome    | 666手势    | 14   |
+| Awesome    | 666 手势    | 14   |
 
 2. 动态手势
 
@@ -49,14 +49,14 @@ import DocScope from '@site/src/components/DocScope';
 
 小车手势控制案例：[小车手势控制](../../04_apps/car_gesture_control.md)
 
-基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转X3派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转 X3 派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
 
 ## 支持平台
 
 | 平台                             | 运行方式     | 示例功能                                        |
 | -------------------------------- | ------------ | ----------------------------------------------- |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
 ## 算法信息
 
 <DocScope products="RDK-X3">
@@ -76,33 +76,33 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-手势识别(hand_gesture_detection)package订阅人手关键点检测package发布的人手关键点检测结果，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+手势识别(hand_gesture_detection)package 订阅人手关键点检测 package 发布的人手关键点检测结果，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
 ### 启动动态手势识别
 
-launch启动脚本默认只启动静态手势识别，可以在运行时使用`is_dynamic_gesture`参数切换为只启动动态手势识别，例如：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
+launch 启动脚本默认只启动静态手势识别，可以在运行时使用`is_dynamic_gesture`参数切换为只启动动态手势识别，例如：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
 
 以下示例默认只启动静态手势识别。
 
 :::warning
 1. `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py`启动命令只支持输出静态或者动态手势识别，如需同时启动静态和动态手势识别，请使用`ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py`启动命令。
 
-2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt安装与升级](../../01_quick_start/install_tros.md)。
+2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS 版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
 :::
 
-### 使用MIPI摄像头
+### 使用 MIPI 摄像头
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -142,7 +142,7 @@ export CAM_TYPE=mipi
 ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ```
 
-### 使用USB摄像头
+### 使用 USB 摄像头
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -187,7 +187,7 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 :::warning
 仅`TROS Humble 2.3.1`以及后续版本支持此功能。
 
-`TROS`版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt安装与升级](../../01_quick_start/install_tros.md)。
+`TROS`版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
 :::
 
 
@@ -257,10 +257,10 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_imag
 [hand_gesture_detection-5] [WARN] [1660268384.256141566] [hand_gesture_det]: Pub smart fps 30.39
 ```
 
-输出log显示，程序运行成功，推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
+输出 log 显示，程序运行成功，推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-输出log显示，订阅到的算法msg中有一个hand（包含人手框和人手关键点检测结果），手势识别算法输出的手势分类结果是“Palm”手势（分类结果为5）。
+输出 log 显示，订阅到的算法 msg 中有一个 hand（包含人手框和人手关键点检测结果），手势识别算法输出的手势分类结果是 “Palm” 手势（分类结果为 5）。
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg" alt="Web 端手势识别算法渲染效果截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

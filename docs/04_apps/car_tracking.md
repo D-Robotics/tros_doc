@@ -13,11 +13,11 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-小车人体跟随App功能为控制机器人跟随人体移动，App由MIPI图像采集、人体检测和跟踪、人体跟随策略、图像编解码、Web展示端组成，流程如下图：
+小车人体跟随 App 功能为控制机器人跟随人体移动，App 由 MIPI 图像采集、人体检测和跟踪、人体跟随策略、图像编解码、Web 展示端组成，流程如下图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/body_tracking_workflow.jpg" alt="小车人体跟随 App 从检测跟踪到控制策略的流程图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
+App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指令也可以直接用于控制实物小车。
 
 代码仓库： (https://github.com/D-Robotics/body_tracking)
 
@@ -29,22 +29,22 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)|
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 和RDK在同一网段（有线或者连接同一无线网，IP地址前三段需保持一致）的PC，PC端需要安装的环境包括：
+4. 和 RDK 在同一网段（有线或者连接同一无线网，IP 地址前三段需保持一致）的 PC，PC 端需要安装的环境包括：
 
  <DocScope products="RDK-X3,RDK-X5">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
-    - Ubuntu 20.04系统和[ROS2 Foxy桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
+    - Ubuntu 20.04 系统和[ROS2 Foxy 桌面版](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo 和 Turtlebot3 相关的功能包，安装方法：
 
      ```shell
      sudo apt-get install ros-foxy-gazebo-*
@@ -56,8 +56,8 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
   <TabItem value="humble" label="Humble">
 
-    - Ubuntu 22.04系统和[ROS2 Humble桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-    - Gazebo和Turtlebot3相关的功能包，安装方法：
+    - Ubuntu 22.04 系统和[ROS2 Humble 桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo 和 Turtlebot3 相关的功能包，安装方法：
 
      ```shell
      sudo apt-get install ros-humble-gazebo-*
@@ -74,13 +74,13 @@ App以PC端Gazebo仿真环境下的虚拟小车举例，发布的控制指令也
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
-运行小车人体跟随App后，小车运动控制package选择距离小车前方最近的人体（人体检测框宽度最大）作为跟随对象。当人体距离小车较远时，小车开始前进运动靠近人体，并保持人体在小车正前方。
+运行小车人体跟随 App 后，小车运动控制 package 选择距离小车前方最近的人体（人体检测框宽度最大）作为跟随对象。当人体距离小车较远时，小车开始前进运动靠近人体，并保持人体在小车正前方。
 
-APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为RDK的IP地址）。
+APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP 为 RDK 的 IP 地址）。
 
-PC端启动仿真环境：
+PC 端启动仿真环境：
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -115,7 +115,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/gazebo.jpeg" alt="Gazebo 仿真环境中小车启动后的场景效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
-**使用mipi摄像头发布图片**
+**使用 mipi 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -155,7 +155,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 ```
 
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -197,7 +197,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 
 ## 结果分析
 
-在RDK板端运行终端输出如下信息：
+在 RDK 板端运行终端输出如下信息：
 
 ```shell
 [body_tracking-7] [WARN] [1653430533.523069034] [ParametersClass]: TrackCfg param are
@@ -218,9 +218,9 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 
 ```
 
-以上log截取了一段App启动后的输出。启动后先打印相关配置（TrackCfg param）。检测到人体后小车就开始进入跟随状态（tracking_sta值为1），并以0.3m/s的速度前进运动（RobotCtl, angular: 0 0 0, linear: 0.3 0 0）靠近人体。
+以上 log 截取了一段 App 启动后的输出。启动后先打印相关配置（TrackCfg param）。检测到人体后小车就开始进入跟随状态（tracking_sta 值为 1），并以 0.3m/s 的速度前进运动（RobotCtl, angular: 0 0 0, linear: 0.3 0 0）靠近人体。
 
-PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
+PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -233,9 +233,9 @@ $ ros2 topic list
 /rosout
 ```
 
-其中`/image`是RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/hobot_mono2d_body_detection`是RDK发布的包含人体检测结果的算法msg，`/cmd_vel`是RDK发布的运动控制指令。
+其中`/image`是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片，`/hobot_mono2d_body_detection`是 RDK 发布的包含人体检测结果的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
 
-PC端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到RDK发布的运动控制指令：
+PC 端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到 RDK 发布的运动控制指令：
 
 ```shell
 linear:
@@ -258,6 +258,6 @@ angular:
 ---
 ```
 
-PC端仿真环境中小车跟随人体运动，仿真小车运动效果如下：
+PC 端仿真环境中小车跟随人体运动，仿真小车运动效果如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/car_tracking/tracking.gif" alt="仿真小车跟随人体移动的运动效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

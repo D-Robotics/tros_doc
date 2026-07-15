@@ -3,7 +3,7 @@ sidebar_position: 5
 sidebar_products: RDK-X3,RDK-X5
 ---
 
-# 人脸106关键点检测
+# 人脸 106 关键点检测
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-**人脸106关键点检测示例**订阅图片和包含人脸框信息的智能msg，利用BPU进行算法推理，发布包含人脸106关键点信息的算法msg。
+**人脸 106 关键点检测示例**订阅图片和包含人脸框信息的智能 msg，利用 BPU 进行算法推理，发布包含人脸 106 关键点信息的算法 msg。
 
 代码仓库：(https://github.com/D-Robotics/face_landmarks_detection)
 
@@ -21,8 +21,8 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台                    | 运行方式                  | 示例功能                         |
 |-----------------------|-----------------------|------------------------------|
-| RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
-| RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头，并通过Web展示推理渲染结果 |
+| RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
+| RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
 
 ## 算法信息
 
@@ -43,22 +43,22 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好RDK OS系统。
+1. RDK 已烧录好 RDK OS 系统。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
-4. 确认PC机能够通过网络访问RDK。
+4. 确认 PC 机能够通过网络访问 RDK。
 
 ## 使用介绍
 
-**人脸106关键点检测(face_landmarks_detection)package**订阅sensor package发布的图片以及人体检测和跟踪package发布的*
-*人脸框检测结果**，经过推理后发布算法msg，通过websocket package实现在PC端浏览器上渲染显示发布的图片和对应的算法结果。
+**人脸 106 关键点检测(face_landmarks_detection)package**订阅 sensor package 发布的图片以及人体检测和跟踪 package 发布的*
+*人脸框检测结果**，经过推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -97,7 +97,7 @@ export CAM_TYPE=mipi
 ros2 launch face_landmarks_detection body_det_face_landmarks_det.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -167,9 +167,9 @@ ros2 launch face_landmarks_detection body_det_face_landmarks_det.launch.py
 [mono2d_body_detection-3] [DNN] Runtime version = 1.23.10_(3.15.54 HBRT)
 ```
 
-输出log显示，程序运行成功，推理时算法输入和输出帧率为30fps，每秒钟刷新一次统计帧率。
+输出 log 显示，程序运行成功，推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
+在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/face_landmarks_det_render.png" alt="Web 端人脸关键点检测算法渲染效果截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

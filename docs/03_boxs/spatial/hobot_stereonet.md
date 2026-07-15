@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 1. 功能介绍
 
-地瓜双目深度估计算法输入为双目图像数据，输出为左视图对应的视差图和深度图。算法借鉴IGEV网络，采用了GRU架构，具有较好的数据泛化性和较高的推理效率。
+地瓜双目深度估计算法输入为双目图像数据，输出为左视图对应的视差图和深度图。算法借鉴 IGEV 网络，采用了 GRU 架构，具有较好的数据泛化性和较高的推理效率。
 
 算法整体数据流如下图所示：
 
@@ -57,9 +57,9 @@ flowchart LR
 
 双目算法代码仓库：https://github.com/D-Robotics/hobot_stereonet
 
-mipi相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
+mipi 相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
 
-zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
+zed 相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 双目算法讲解：
 
@@ -99,13 +99,13 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 4. 准备工作
 
-### 4.1. RDK平台
+### 4.1. RDK 平台
 
-1. RDK已烧录好RDK OS系统
-2. RDK已成功安装TogetheROS.Bot
-3. 如果需要在线推理，请准备好双目相机，目前支持多款MIPI相机、ZED mini/2i USB相机
+1. RDK 已烧录好 RDK OS 系统
+2. RDK 已成功安装 TogetheROS.Bot
+3. 如果需要在线推理，请准备好双目相机，目前支持多款 MIPI 相机、ZED mini/2i USB 相机
 4. 如果需要离线推理，请准备好双目图像数据
-5. 确认PC机能够通过网络访问RDK
+5. 确认 PC 机能够通过网络访问 RDK
 
 ### 4.2. 系统和功能包版本
 
@@ -178,35 +178,35 @@ apt update
 
 ### 5.1. 230AI MIPI双目相机
 
-- RDK官方230AI MIPI双目相机如图所示：
+- RDK 官方 230AI MIPI 双目相机如图所示：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png" alt="RDK 官方 230AI MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-<p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有CDPxxx-V3/V4，确认相机是V3或V4版本 </p>
+<p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有 CDPxxx-V3/V4，确认相机是 V3 或 V4 版本 </p>
 
-- RDK X5安装方式如图所示：
+- RDK X5 安装方式如图所示：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="230AI 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 5.2. 132GS MIPI双目相机
 
-- RDK官方132GS MIPI双目相机如图所示：
+- RDK 官方 132GS MIPI 双目相机如图所示：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png" alt="RDK 官方 132GS MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK X5安装方式如图所示：
+- RDK X5 安装方式如图所示：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png" alt="132GS 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- 最新线材做了升级，注意线材是带有方向的，CAM端接入相机，RDK端接入开发板。（白色和黑色线材均能正常使用，两种线材随机发货）
+- 最新线材做了升级，注意线材是带有方向的，CAM 端接入相机，RDK 端接入开发板。（白色和黑色线材均能正常使用，两种线材随机发货）
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="132GS 相机与 RDK 之间带方向的 MIPI 线材接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -1196,7 +1196,7 @@ bash run_stereo.sh --epipolar_mode True \
 --chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
 ```
 
-运行成功后，可以在web端看到如下图像：
+运行成功后，可以在 web 端看到如下图像：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg" alt="极线校正模式下 Web 端显示的左右目对齐图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -1213,7 +1213,7 @@ bash run_stereo.sh --epipolar_mode True \
 bash run_stereo.sh --feature_epipolar_mode True
 ```
 
-运行成功后，可以在web端看到如下图像：
+运行成功后，可以在 web 端看到如下图像：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="特征点极线模式下 Web 端显示的匹配效果图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

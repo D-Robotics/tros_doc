@@ -13,11 +13,11 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-车位寻找控制App功能为通过车位检测算法指导机器人运动到停车位，包括左右旋转和前后平移运动。App由MIPI图像采集、车位检测算法、车位寻找控制策略、图像编解码、Web展示端组成，流程如下图：
+车位寻找控制 App 功能为通过车位检测算法指导机器人运动到停车位，包括左右旋转和前后平移运动。App 由 MIPI 图像采集、车位检测算法、车位寻找控制策略、图像编解码、Web 展示端组成，流程如下图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png" alt="车位寻找控制 App 从检测到运动决策的流程图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-App通过车位寻找控制策略发布的控制指令直接控制实物小车，也可以利用PC端Gazebo仿真环境下的虚拟小车进行测试。
+App 通过车位寻找控制策略发布的控制指令直接控制实物小车，也可以利用 PC 端 Gazebo 仿真环境下的虚拟小车进行测试。
 
 代码仓库： (https://github.com/D-Robotics/parking_search.git)
 
@@ -25,13 +25,13 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI/USB摄像头获取图像，并进行停车区域检测和车位寻找，最后通过实车运动展示寻找效果 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头获取图像，并进行停车区域检测和车位寻找，最后通过实车运动展示寻找效果 |
 
 ## 设计说明
 
 1.视野设置:
 
-将视野场景区域分为“左”、“中”、“右”三个区域。计算每个区域内停车区域和行车区域的IOU，根据阈值判断对应区域类型，从而完成小车运动决策。
+将视野场景区域分为“左”、“中”、“右”三个区域。计算每个区域内停车区域和行车区域的 IOU，根据阈值判断对应区域类型，从而完成小车运动决策。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png" alt="将相机视野划分为左中右三区用于车位决策的示意图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -49,7 +49,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 | 停车区域 IOU | | | | | √ | √ | | |
 | 行车区域 IOU | √ | | √ | √ | √ | √ | | |
 
-说明：由于实际检测中，由于算法本身检测精度不能达到100%，存在将行车区域误检为停车区域的情况，因此计算行车区域时将停车区域类别包括其中。
+说明：由于实际检测中，由于算法本身检测精度不能达到 100%，存在将行车区域误检为停车区域的情况，因此计算行车区域时将停车区域类别包括其中。
 
 4.算法流程:
 
@@ -57,13 +57,13 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 ## 准备工作
 
-### RDK平台
+### RDK 平台
 
-1. RDK已烧录好Ubuntu系统镜像。
+1. RDK 已烧录好 Ubuntu 系统镜像。
 
-2. RDK已成功安装TogetheROS.Bot。
+2. RDK 已成功安装 TogetheROS.Bot。
 
-3. RDK已安装MIPI或者USB摄像头。
+3. RDK 已安装 MIPI 或者 USB 摄像头。
 
 4. 一台古月居小车作为控制下位机。
 
@@ -71,15 +71,15 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 ## 使用介绍
 
-### RDK平台
+### RDK 平台
 
-将小车置于水平地面，调整相机角度为水平，运行车位寻找App后，小车根据停车区域检测算法的结果，自动进行决策并控制小车运动，直到找到车位并进入车位停止。
+将小车置于水平地面，调整相机角度为水平，运行车位寻找 App 后，小车根据停车区域检测算法的结果，自动进行决策并控制小车运动，直到找到车位并进入车位停止。
 
-APP启动后可以在PC端浏览器上渲染显示sensor发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP为RDK的IP地址）。
+APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP 为 RDK 的 IP 地址）。
 
-打开Web端，需打开界面右上角设置，选中”全图分割“选项，可显示渲染效果。（参考4.2 Boxs应用算法——室外停车区域检测）
+打开 Web 端，需打开界面右上角设置，选中”全图分割“选项，可显示渲染效果。（参考 4.2 Boxs 应用算法——室外停车区域检测）
 
-启动古月居小车，在RDK上运行控制下位机节点：
+启动古月居小车，在 RDK 上运行控制下位机节点：
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -108,7 +108,7 @@ ros2 run originbot_base originbot_base
 
 
 
-启动成功后，RDK输出log信息：
+启动成功后，RDK 输出 log 信息：
 
 ```shell
 Loading parameters:
@@ -120,7 +120,7 @@ Loading parameters:
 [INFO] [1662551769.742268424] [originbot_base]: OriginBot Start, enjoy it.
 ```
 
-**使用MIPI摄像头发布图片**
+**使用 MIPI 摄像头发布图片**
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -159,7 +159,7 @@ export CAM_TYPE=mipi
 ros2 launch parking_search parking_search.launch.py
 ```
 
-**使用USB摄像头发布图片**
+**使用 USB 摄像头发布图片**
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -200,7 +200,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ## 结果分析
 
-1.小车在行车区域搜寻前进时RDK运行终端输出log信息，其中控制小车以0.1m/s的速度前进运动（do move, direction: 0, step: 0.100000）。
+1.小车在行车区域搜寻前进时 RDK 运行终端输出 log 信息，其中控制小车以 0.1m/s 的速度前进运动（do move, direction: 0, step: 0.100000）。
 
 ```shell
 [parking_search-4] [WARN] [1661942399.306904646] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -212,7 +212,7 @@ ros2 launch parking_search parking_search.launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif" alt="车位寻找过程中小车平移靠近停车区域的运行效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-2.小车发现车位后转向时在RDK运行终端输出log信息:
+2.小车发现车位后转向时在 RDK 运行终端输出 log 信息:
 
 ```shell
 [parking_search-4] [WARN] [1662539779.408424498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
@@ -226,7 +226,7 @@ ros2 launch parking_search parking_search.launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif" alt="车位寻找过程中小车旋转调整朝向的运行效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-3.小车确定车位后前进并最终停止时在RDK运行终端输出log信息:
+3.小车确定车位后前进并最终停止时在 RDK 运行终端输出 log 信息:
 
 ```shell
 [parking_search-4] [WARN] [1662539796.196264298] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
@@ -244,7 +244,7 @@ ros2 launch parking_search parking_search.launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif" alt="小车到达停车区域后提示 Parking Area Arrived 的效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
+PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -260,4 +260,4 @@ $ ros2 topic list
 /tf
 ```
 
-其中`/image_jpeg`是RDK发布的从MIPI sensor采集图像后经过JPEG格式编码的图片，`/ai_msg_parking_perception`是RDK发布的包含车位检测信息的算法msg，`/cmd_vel`是RDK发布的运动控制指令。
+其中`/image_jpeg`是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片，`/ai_msg_parking_perception`是 RDK 发布的包含车位检测信息的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
