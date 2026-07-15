@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## Functional Background
 
-Communication is a fundamental function of robot development engines. The native ROS2 Foxy has issues with high latency and high system load when handling large-volume data communication. TogetheROS.Bot Foxy implements the "zero-copy" feature based on the RDK system software library `hbmem`, enabling zero-copy data transfer across processes, significantly reducing large data transfer latency and system resource usage. This section describes how to use tros.b Foxy/Humble/Jazzy to create publisher and subscriber nodes for large data transfer and calculate the transfer latency.
+Communication is a fundamental function of robot development engines. The native ROS2 Foxy has issues with high latency and high system load when handling large-volume data communication. TogetheROS.Bot Foxy implements the "zero-copy" feature based on the RDK system software library `hbmem` , enabling zero-copy data transfer across processes, significantly reducing large data transfer latency and system resource usage. This section describes how to use tros.b Foxy/Humble/Jazzy to create publisher and subscriber nodes for large data transfer and calculate the transfer latency.
 
 :::info
 - The tros.b Foxy version adds the "zero-copy" feature to ROS2 Foxy.
@@ -133,7 +133,7 @@ uint32 MAX_SIZE=4194304
 
 #### 2.2 Build dependencies
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and add the following content below `<buildtool_depend>ament_cmake</buildtool_depend>`:
+Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml` , and add the following content below `<buildtool_depend>ament_cmake</buildtool_depend>` :
 
 ```xml
 <build_depend>rosidl_default_generators</build_depend>
@@ -143,7 +143,7 @@ Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and a
 
 #### 2.3 Build script
 
-Modify `CMakeLists.txt`, add the following content below `# find_package(<dependency> REQUIRED)` to compile the msg:
+Modify `CMakeLists.txt` , add the following content below `# find_package(<dependency> REQUIRED)` to compile the msg:
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -401,7 +401,7 @@ int main(int argc, char * argv[])
 
 #### 3.2 Build dependencies
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and add the `rclcpp` dependency below `<member_of_group>rosidl_interface_packages</member_of_group>`:
+Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml` , and add the `rclcpp` dependency below `<member_of_group>rosidl_interface_packages</member_of_group>` :
 
 ```xml
   <depend>rclcpp</depend>
@@ -409,7 +409,7 @@ Return to the `~/dev_ws/src/hbmem_pubsub` directory, modify `package.xml`, and a
 
 #### 3.3 Build script
 
-Modify `CMakeLists.txt`, add the following content below the `rosidl_generate_interfaces` statement to compile the publisher:
+Modify `CMakeLists.txt` , add the following content below the `rosidl_generate_interfaces` statement to compile the publisher:
 
 ```cmake
 find_package(rclcpp REQUIRED)
@@ -598,9 +598,9 @@ int main(int argc, char * argv[])
 
 #### 4.2 Build script
 
-Return to the `~/dev_ws/src/hbmem_pubsub` directory. The `rclcpp` dependency has already been added to `package.xml`, so no modification to `package.xml` is needed.
+Return to the `~/dev_ws/src/hbmem_pubsub` directory. The `rclcpp` dependency has already been added to `package.xml` , so no modification to `package.xml` is needed.
 
-Modify `CMakeLists.txt`, add the following content below the `install` statement to compile the subscriber:
+Modify `CMakeLists.txt` , add the following content below the `install` statement to compile the subscriber:
 
 ```cmake
 add_executable(listener src/subscriber_hbmem.cpp)
@@ -728,7 +728,7 @@ ament_package()
 
 ```
 
-In the workspace root directory `~/dev_ws`, compile the package:
+In the workspace root directory `~/dev_ws` , compile the package:
 
 ```shell
 colcon build --packages-select hbmem_pubsub

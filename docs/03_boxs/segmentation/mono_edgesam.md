@@ -348,7 +348,7 @@ webserver has launch
 [mono_edgesam-3] [WARN] [1753703494.973585807] [mono_edgesam]: Smart fps: 11.00, pre process time ms: 13, infer time ms: 82, post process time ms: 40
 ```
 
-示例中推理的结果会渲染到 Web 上, 在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）, 打开界面右上角设置, 选中” Full Image Segmentation “选项, 可以显示渲染效果。
+示例中推理的结果会渲染到 Web 上, 在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）, 打开界面右上角设置, 选中” Full Image Segmentation “选项, 可以显示渲染效果。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png" alt="Web 端 EdgeSAM 分割渲染效果（开启 Full Image Segmentation）" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

@@ -268,9 +268,9 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 
 1. websocket 需要使用 8000 端口，如果端口被占用，则会启动失败，解决方法如下：
 
-   - 使用`lsof -i:8000`命令查看 8000 端口占用进程，使用`kill <PID>`关闭占用 8000 端口进程，然后重新启动 websocket 即可。
+   - 使用 `lsof -i:8000` 命令查看 8000 端口占用进程，使用 `kill <PID>` 关闭占用 8000 端口进程，然后重新启动 websocket 即可。
 
-   - 若用户不想停止当前正在占用 8000 端口的服务，可以修改 `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` 配置文件中的`listen`端口号，改为大于 1024 且未使用的端口号。修改端口号后，浏览器端使用的 URL 也要同步修改。
+   - 若用户不想停止当前正在占用 8000 端口的服务，可以修改 `/opt/tros/${TROS_DISTRO}/lib/websocket/webservice/conf/nginx.conf` 配置文件中的 `listen` 端口号，改为大于 1024 且未使用的端口号。修改端口号后，浏览器端使用的 URL 也要同步修改。
 
 <DocScope products="RDK X3,RDK X5">
 
@@ -291,8 +291,8 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 
 :::caution **注意**
 HDMI 展示**EOL**说明：
-- `RDK X3`和`RDK X3 Module`平台支持到`2.1.0`版本，对应 TROS 版本`2.2.0 (2024-04-11)`。
-- `RDK X5`和`RDK X5 Module`平台支持到`2.4.2`版本，对应 TROS 版本`2.3.1 (2024-11-20)`。
+- `RDK X3` 和 `RDK X3 Module` 平台支持到 `2.1.0` 版本，对应 TROS 版本 `2.2.0 (2024-04-11)` 。
+- `RDK X5` 和 `RDK X5 Module` 平台支持到 `2.4.2` 版本，对应 TROS 版本 `2.3.1 (2024-11-20)` 。
 :::
 
 ### 准备工作
@@ -401,7 +401,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
    - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`foxy`、`humble`。
+   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `foxy` 、 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S100">
@@ -409,7 +409,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
    - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`humble`。
+   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -417,7 +417,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
    - ROS2 安装参考：[Jazzy 版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为 ROS2 版本，如`jazzy`。
+   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `jazzy` 。
 </DocScope>
 
 ### 使用方式
@@ -669,7 +669,7 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`foxy`、`humble`。
+   - PC 端安装 rqt-image-view ： `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `foxy` 、 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S100">
@@ -677,7 +677,7 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`humble`。
+   - PC 端安装 rqt-image-view ： `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -685,7 +685,7 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    - ROS2 安装参考：[Jazzy 版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为 ROS2 版本，如`jazzy`。
+   - PC 端安装 rqt-image-view ： `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `jazzy` 。
 </DocScope>
 
 ### 使用方式
@@ -879,7 +879,7 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    注意：RDK 上运行 rqt，需要使用 mobaxterm 等工具进行 ssh 连接，或者命令行 ssh 连接时加上“-Y” 参数。
 
-   选择话题`/image_raw/compressed`，图像效果图如下：
+   选择话题 `/image_raw/compressed` ，图像效果图如下：
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png" alt="rqt 订阅 /image_raw/compressed 话题后显示的图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

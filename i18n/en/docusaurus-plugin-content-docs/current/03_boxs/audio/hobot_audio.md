@@ -135,12 +135,12 @@ If not detected, please recheck the device connections.
 
     <DocScope products="RDK X3">
 
-    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
+    For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    For first-time use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
+    For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
 
     </DocScope>
 
@@ -235,9 +235,9 @@ Run the hobot_audio package on the RDK board:
    ```
 
    Configurations to verify: microphone device number, microphone array type, and whether ASR results should be published.
-   - **Microphone device number** is set via the `micphone_name` field. Default is "hw:0,0", meaning audio device Card0 Device0. Device numbers can be checked with the command `ls /dev/snd`, e.g., "pcmC0D1c"; the last letter c indicates a capture device, C0 means Card0, D1 means Device1 — change the parameter to "hw:0,1".
-   - **Microphone array type** is set via the `mic_type` field. Default value is `0`, indicating a circular microphone array. If using a linear microphone array, change this field to `1`.
-   - **ASR output** is set via the `asr_mode` field. Default value is `0`, meaning ASR results are not output. To enable ASR result output, change this field to `1` or `2`, where `1` means perform ASR recognition once after wake-up and publish results, and `2` means continuously perform ASR recognition and publish results.
+   - **Microphone device number** is set via the `micphone_name` field. Default is "hw:0,0", meaning audio device Card0 Device0. Device numbers can be checked with the command `ls /dev/snd` , e.g., "pcmC0D1c"; the last letter c indicates a capture device, C0 means Card0, D1 means Device1 — change the parameter to "hw:0,1".
+   - **Microphone array type** is set via the `mic_type` field. Default value is `0` , indicating a circular microphone array. If using a linear microphone array, change this field to `1` .
+   - **ASR output** is set via the `asr_mode` field. Default value is `0` , meaning ASR results are not output. To enable ASR result output, change this field to `1` or `2` , where `1` means perform ASR recognition once after wake-up and publish results, and `2` means continuously perform ASR recognition and publish results.
 
 2. Configure tros.b environment and start application
 

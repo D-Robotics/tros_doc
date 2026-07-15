@@ -220,7 +220,7 @@ save_occ_flag:=True save_occ_dir:=./occ_result save_freq:=4 save_total:=10
 
 - Prepare offline data and upload it to the RDK board. The offline data format is as follows:
     - The offline directory must contain left and right images. The program checks that left images contain the `left` field (png or jpg format) and right images contain the `right` field with the same naming as the left images.
-    - Image resolution must be `640*352`; other resolutions are not supported.
+    - Image resolution must be `640*352` ; other resolutions are not supported.
     - Left and right images must be rectified to achieve epipolar alignment.
     - Since the model is currently trained with ZED-2i data, try to make offline image intrinsics close to ZED-2i. ZED-2i camera parameters are: `fx=354.9999, fy=354.9999, cx=322.9469, cy=176.2076, baseline=0.12`
 

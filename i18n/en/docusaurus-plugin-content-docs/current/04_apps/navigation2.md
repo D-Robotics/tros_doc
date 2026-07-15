@@ -197,7 +197,7 @@ source /opt/ros/humble/setup.bash
    ```
 
    :::info
-   If startup fails with the error `[ERROR] [gzclient-2]: process has died`, run `source /usr/share/gazebo/setup.sh` and start again.
+   If startup fails with the error `[ERROR] [gzclient-2]: process has died` , run `source /usr/share/gazebo/setup.sh` and start again.
    :::
 
    The simulation environment is shown below:

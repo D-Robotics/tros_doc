@@ -208,7 +208,7 @@ source /opt/tros/jazzy/setup.bash
 ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
 ```
 
-5. On the PC, open a browser (`Chrome`/`Firefox`/`Edge`), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live USB camera feed.
+5. On the PC, open a browser ( `Chrome` / `Firefox` / `Edge` ), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live USB camera feed.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Live USB camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -790,7 +790,7 @@ The following describes how to acquire and preview camera data:
 
 ### Notes
 
-1. mipi_cam provides calibration files for F37 and GC4663 cameras. By default, it reads the F37 calibration file `F37_calibration.yaml`. If you use GC4663, change the camera calibration file path as follows:
+1. mipi_cam provides calibration files for F37 and GC4663 cameras. By default, it reads the F37 calibration file `F37_calibration.yaml` . If you use GC4663, change the camera calibration file path as follows:
 
     <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
@@ -1293,7 +1293,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
     ros2 run rviz2 rviz2
     ```
 
-    In rviz2, click the **Add** button and add the topics published by rgbd_sensor (see the rgbd_CP3AM-related topics listed in step 3). To subscribe to point clouds, change **Fixed Frame** in **Global Options** to `depth` to view live point cloud data. In the point cloud topic configuration, set **Point Type** to `points`.
+    In rviz2, click the **Add** button and add the topics published by rgbd_sensor (see the rgbd_CP3AM-related topics listed in step 3). To subscribe to point clouds, change **Fixed Frame** in **Global Options** to `depth` to view live point cloud data. In the point cloud topic configuration, set **Point Type** to `points` .
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png" alt="RViz2 view after subscribing to RGBD topics and displaying the point cloud" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1627,11 +1627,11 @@ sudo swapon /swapfile
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png" alt="Commands for creating and enabling a swapfile" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-After configuring swap space, use `swapon --show`, `free -h`, or `htop` to check current swap usage. For example, using `htop`:
+After configuring swap space, use `swapon --show` , `free -h` , or `htop` to check current swap usage. For example, using `htop` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png" alt="htop screenshot showing system swap usage" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-This configuration is temporary and will be lost after a reboot. To keep using this swap file after restart, run `sudo swapon /swapfile` again or add it to `/etc/fstab`.
+This configuration is temporary and will be lost after a reboot. To keep using this swap file after restart, run `sudo swapon /swapfile` again or add it to `/etc/fstab` .
 
 ```shell
 # Open /etc/fstab with vim
@@ -1792,6 +1792,6 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 [anypub_stereo_imgs-1] [INFO] [0946684888.883419384] [pub_stereo_imgs_nv12_node]: => rectify img size: [1280, 640]
 ```
 
-3. On the PC, open a browser (`Chrome`/`Firefox`/`Edge`), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live ZED camera feed.
+3. On the PC, open a browser ( `Chrome` / `Firefox` / `Edge` ), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live ZED camera feed.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Live ZED camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

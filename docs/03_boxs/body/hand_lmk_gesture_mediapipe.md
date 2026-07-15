@@ -274,6 +274,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py publish_image_sour
 
 输出 log 显示，程序运行成功，初始化完成之后单次的推理耗时 0.87ms。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_web.jpg" alt="Web 端 MediaPipe 人手关键点与手势识别渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

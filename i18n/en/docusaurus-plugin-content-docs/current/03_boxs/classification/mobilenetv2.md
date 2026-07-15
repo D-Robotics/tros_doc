@@ -14,7 +14,7 @@ import DocScope from '@site/src/components/DocScope';
 The mobilenetv2 image classification algorithm example uses images as input, performs algorithm inference using the BPU, and publishes algorithm messages containing object categories.
 
 mobilenetv2 is a caffe model trained using the [ImageNet data](http://www.image-net.org/) dataset. The model source is: https://github.com/shicai/MobileNet-Caffe.
-It supports a total of 1000 object types, including people, animals, fruits, vehicles, etc. For the specific supported categories, please refer to the RDK board file at /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list (TogetheROS.Bot installed).
+It supports a total of 1000 object types, including people, animals, fruits, vehicles, etc. For the specific supported categories, please refer to the RDK board file at /opt/tros/ `${TROS_DISTRO}` /lib/dnn_node_example/config/imagenet.list (TogetheROS.Bot installed).
 
 Code repository: https://github.com/D-Robotics/hobot_dnn
 
@@ -317,7 +317,7 @@ The following information is output in the running terminal:
 [example-3] [WARN] [1655095486.057854228] [example]: Smart fps 30.07
 ```
 
-The output log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the topic subscribing to images is `/hbmem_img`. The frame rate for subscribed images and algorithm inference output is approximately 30fps.
+The output log shows that the topic publishing algorithm inference results is `hobot_dnn_detection` , and the topic subscribing to images is `/hbmem_img` . The frame rate for subscribed images and algorithm inference output is approximately 30fps.
 
 Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering效果 (IP is the IP address of the RDK):
 

@@ -60,10 +60,10 @@ import DocScope from '@site/src/components/DocScope';
 
 :::caution **注意**
 <DocScope products="RDK-X3">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 <DocScope products="RDK-X5">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 :::
 
@@ -119,7 +119,7 @@ import DocScope from '@site/src/components/DocScope';
 
 #### 上电检查
 
-将 RDK 与麦克风阵列接好之后上电，在串口上使用指令`i2cdetect -r -y 0`可以检查设备的接入情况，若成功接好，默认可以在 I2C 上读取到三个地址。如下图：
+将 RDK 与麦克风阵列接好之后上电，在串口上使用指令 `i2cdetect -r -y 0` 可以检查设备的接入情况，若成功接好，默认可以在 I2C 上读取到三个地址。如下图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/detect_mic.jpg" alt="i2cdetect 检测到麦克风阵列三个 I2C 地址的终端输出" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -129,18 +129,18 @@ import DocScope from '@site/src/components/DocScope';
 
     <DocScope products="RDK-X3">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考 RDK 用户手册[RDK X3 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3)章节。
+    首次使用音频板需要使用 `srpi-config` 进行配置，配置方法参考 RDK 用户手册[RDK X3 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3)章节。
 
     </DocScope>
     <DocScope products="RDK-X5">
 
-    首次使用音频板需要使用`srpi-config`进行配置，配置方法参考 RDK 用户手册[RDK X5 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5)章节。
+    首次使用音频板需要使用 `srpi-config` 进行配置，配置方法参考 RDK 用户手册[RDK X5 微雪 Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5)章节。
 
     </DocScope>
 
 ## 使用介绍
 
-智能语音 hobot_audio package 开始运行之后，会从麦克风阵列采集音频，并且将采集到的音频数据送入语音智能算法 SDK 模块做智能处理，输出唤醒事件、命令词、ASR 结果等智能信息，其中唤醒事件、命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR 结果通过`std_msgs::msg::String`类型消息发布。
+智能语音 hobot_audio package 开始运行之后，会从麦克风阵列采集音频，并且将采集到的音频数据送入语音智能算法 SDK 模块做智能处理，输出唤醒事件、命令词、ASR 结果等智能信息，其中唤醒事件、命令词通过 `audio_msg::msg::SmartAudioData` 类型消息发布，ASR 结果通过 `std_msgs::msg::String` 类型消息发布。
 
 具体流程如下图：
 
@@ -229,9 +229,9 @@ RDK 板端运行 hobot_audio package：
    ```
 
    需要确认的配置有：麦克风设备号，麦克风阵列类型，以及是否需要发布 ASR 结果。
-   - **麦克风设备号**通过`micphone_name`字段设置，默认为"hw:0,0"，表示音频设备 Card0 Device0，设备号可通过命令 `ls /dev/snd` 查看如："pcmC0D1c"；最后字母 c 表示 capture 设备，C0 表示 Card0，D1 表示 Device1，修改参数为"hw:0,1"。
-   - **麦克风阵列类型**通过`mic_type`字段设置，默认值为`0`，表示环形麦克风阵列。如果使用线形麦克风阵列，需要修改该字段为`1`。
-   - **ASR 输出**通过`asr_mode`字段设置，默认值为`0`，表示不输出 ASR 结果。若要开启 ASR 结果输出，需要将该字段改为`1`或`2`，其中`1`表示唤醒后进行一次 ASR 识别并发布结果，`2`表示一直进行 ASR 识别并发布结果。
+   - **麦克风设备号**通过 `micphone_name` 字段设置，默认为"hw:0,0"，表示音频设备 Card0 Device0，设备号可通过命令 `ls /dev/snd` 查看如："pcmC0D1c"；最后字母 c 表示 capture 设备，C0 表示 Card0，D1 表示 Device1，修改参数为"hw:0,1"。
+   - **麦克风阵列类型**通过 `mic_type` 字段设置，默认值为 `0` ，表示环形麦克风阵列。如果使用线形麦克风阵列，需要修改该字段为 `1` 。
+   - **ASR 输出**通过 `asr_mode` 字段设置，默认值为 `0` ，表示不输出 ASR 结果。若要开启 ASR 结果输出，需要将该字段改为 `1` 或 `2` ，其中 `1` 表示唤醒后进行一次 ASR 识别并发布结果， `2` 表示一直进行 ASR 识别并发布结果。
 
 2. 配置 tros.b 环境和启动应用
 
@@ -312,14 +312,14 @@ recv hrsc sdk command data: 向后退
 
 log 显示，识别到语音命令词“向前走”、“向左转”、“向右转”、“向后退”，并且输出 DOA 的角度信息，如 “recv hrsc sdk doa data: 110” 字段表示 DOA 角度为 110 度。
 
-hobot_audio 默认发布的智能语音消息话题名为：**/audio_smart**,  在另一个终端执行使用`ros2 topic list`命令可以查询到此 topic 信息：
+hobot_audio 默认发布的智能语音消息话题名为：**/audio_smart**,  在另一个终端执行使用 `ros2 topic list` 命令可以查询到此 topic 信息：
 
 ```shell
 $ ros2 topic list
 /audio_smart
 ```
 
-若开启 ASR 输出，发布消息话题为：**/audio_asr**，`ros2 topic list`结果为：
+若开启 ASR 输出，发布消息话题为：**/audio_asr**， `ros2 topic list` 结果为：
 
 ```shell
 $ ros2 topic list

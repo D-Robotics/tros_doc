@@ -88,16 +88,16 @@ import DocScope from '@site/src/components/DocScope';
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 </DocScope>
 <DocScope products="RDK-S100,RDK-S600">
 :::caution **注意**
 <DocScope products="RDK-S100">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 <DocScope products="RDK-S600">
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 </DocScope>
 :::
 </DocScope>
@@ -106,7 +106,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 使用介绍
 
-智能语音 sensevoice_ros2 package 开始运行之后，会从麦克风采集音频，并且将采集到的音频数据送入语音智能算法做智能处理，输出命令词、ASR 结果等智能信息，其中命令词通过`audio_msg::msg::SmartAudioData`类型消息发布，ASR 结果通过`std_msgs::msg::String`类型消息发布。
+智能语音 sensevoice_ros2 package 开始运行之后，会从麦克风采集音频，并且将采集到的音频数据送入语音智能算法做智能处理，输出命令词、ASR 结果等智能信息，其中命令词通过 `audio_msg::msg::SmartAudioData` 类型消息发布，ASR 结果通过 `std_msgs::msg::String` 类型消息发布。
 
 智能语音功能支持对原始音频进行 ASR 识别，默认的命令词定义在智能语音功能代码模块根目录下*config/cmd_word.json*文件，默认为：
 
@@ -239,7 +239,7 @@ result_str:向后退,
 
 ```
 
-sensevoice_ros2 默认发布的智能语音消息话题名为：**/audio_smart** 和 **/asr_text**，`ros2 topic list`结果为：
+sensevoice_ros2 默认发布的智能语音消息话题名为：**/audio_smart** 和 **/asr_text**， `ros2 topic list` 结果为：
 
 ```shell
 $ ros2 topic list
@@ -247,6 +247,6 @@ $ ros2 topic list
 /asr_text
 ```
 
-/asr_text 话题需要特定的唤醒词 “你好，地瓜机器人” 才会有输出，`ros2 topic echo /asr_text`结果为：
+/asr_text 话题需要特定的唤醒词 “你好，地瓜机器人” 才会有输出， `ros2 topic echo /asr_text` 结果为：
 
 <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg" alt="唤醒后 /asr_text 话题输出语音识别文本的终端回显结果" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

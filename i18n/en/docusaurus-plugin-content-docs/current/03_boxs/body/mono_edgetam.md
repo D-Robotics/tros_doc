@@ -169,9 +169,9 @@ After the prompt phase node completes one inference, it automatically saves the 
 
 - **Save timing**: After the node receives an image and completes inference, it immediately writes the memory feature tensor to a local file. Exit when the frame with the best segmentation result is selected — at this point the current tracking features are saved.
 - **Generated files**:
-  - `cond_maskmem_features.bin`: mask memory feature file
-  - `cond_maskmem_pos_enc.bin`: memory positional encoding file
-  - `cond_obj_ptr.bin`: object pointer file
+  - `cond_maskmem_features.bin` : mask memory feature file
+  - `cond_maskmem_pos_enc.bin` : memory positional encoding file
+  - `cond_obj_ptr.bin` : object pointer file
 
 :::warning
 **Note**: The tracking node loads these feature files from the current working directory at startup. If you switch working directories between the prompt phase and tracking phase, copy the generated feature files to the tracking node's working directory, or run both phases in the same directory.
@@ -179,7 +179,7 @@ After the prompt phase node completes one inference, it automatically saves the 
 
 ### 2. Start mono_edgetam_track (Tracking Phase)
 
-The tracking node loads feature files (`cond_maskmem_features.bin`, `cond_maskmem_pos_enc.bin`, `cond_obj_ptr.bin`), continuously tracks and segments targets in the video stream, and publishes segmentation results.
+The tracking node loads feature files ( `cond_maskmem_features.bin` , `cond_maskmem_pos_enc.bin` , `cond_obj_ptr.bin` ), continuously tracks and segments targets in the video stream, and publishes segmentation results.
 
 **Note**: Run the `mono_edgetam_track` tracking node in the **same directory** to ensure the tracking node loads the feature files generated during the prompt phase.
 
@@ -272,12 +272,12 @@ Tracking phase rendering effect:
 
 Prompt mode is set via the `edgetam_prompt_mode` parameter:
 
-- `0`: **Box prompt** (default) — The algorithm uses a bounding box to define the target region. Objects within the box will be tracked and segmented as the target.
-- `1`: **Point prompt** — The algorithm uses point coordinates to define the target region. Based on the SAM mechanism, the algorithm selects the most prominent target object near the specified point. You can specify up to two points to refine the selection range.
+- `0` : **Box prompt** (default) — The algorithm uses a bounding box to define the target region. Objects within the box will be tracked and segmented as the target.
+- `1` : **Point prompt** — The algorithm uses point coordinates to define the target region. Based on the SAM mechanism, the algorithm selects the most prominent target object near the specified point. You can specify up to two points to refine the selection range.
 
 **How to Select Region with Point Prompt**
 
-When setting `edgetam_prompt_mode:=1` (point prompt mode), you need to specify at least one point coordinate. Each point is represented by a `rect` (`width=0, height=0`), where `x_offset` and `y_offset` define the pixel coordinates of the point on the image. The algorithm uses SAM's segmentation capability to identify target objects near the given point.
+When setting `edgetam_prompt_mode:=1` (point prompt mode), you need to specify at least one point coordinate. Each point is represented by a `rect` ( `width=0, height=0` ), where `x_offset` and `y_offset` define the pixel coordinates of the point on the image. The algorithm uses SAM's segmentation capability to identify target objects near the given point.
 
 In the example below, two points are specified:
 - The first point `{x_offset: 210, y_offset: 350}` serves as a **positive point** — the algorithm will include the target object near this location.

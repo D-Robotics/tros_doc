@@ -126,7 +126,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="Installation diagram of the 230AI stereo camera on RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -144,7 +144,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="Directional MIPI cable connection between the 132GS camera and RDK" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -651,8 +651,8 @@ rviz2
 The `run_stereo.sh` script has many configurable parameters. Common parameter definitions are introduced below; refer to source code comments for others:
 
 - stereonet_version controls which algorithm version to launch
-  - RDK X5 can be set to `v2.0`, `v2.1`, `v2.2`, `v2.3`, `v2.4_int16`, `v2.4_int8`, `v2.5_int16`, `v2.5_int16_96`, `v2.5_int16_544_448`, `v2.5_int16_544_448_96`
-  - RDK S100 can be set to `v2.1`, `v2.4`, `v2.4_1280_704`
+  - RDK X5 can be set to `v2.0` , `v2.1` , `v2.2` , `v2.3` , `v2.4_int16` , `v2.4_int8` , `v2.5_int16` , `v2.5_int16_96` , `v2.5_int16_544_448` , `v2.5_int16_544_448_96`
+  - RDK S100 can be set to `v2.1` , `v2.4` , `v2.4_1280_704`
 - stereo_node_name controls the ROS node name
 - uncertainty_th is the confidence threshold. Only effective for models with confidence output when set to a positive value. If enabling, recommended value is `0.10`
 - stereo_image_topic/camera_info_topic are topic names the ROS node subscribes to: stereo image and corresponding camera parameters
@@ -665,11 +665,11 @@ The `run_stereo.sh` script has many configurable parameters. Common parameter de
 - mipi_channel and mipi_channel2 swap left/right image output order
 
 - calib_method controls rectification method
-  - When `mipi_gdc_enable:=True`, the `hobot_mipi_cam` package has already rectified images; `hobot_stereonet` does not need further rectification. Set calib_method to `none`
-  - When `mipi_gdc_enable:=False`, or when the camera cannot rectify images, set calib_method to `custom` and specify `stereo_calib_file_path`
+  - When `mipi_gdc_enable:=True` , the `hobot_mipi_cam` package has already rectified images; `hobot_stereonet` does not need further rectification. Set calib_method to `none`
+  - When `mipi_gdc_enable:=False` , or when the camera cannot rectify images, set calib_method to `custom` and specify `stereo_calib_file_path`
 - stereo_calib_file_path controls the path to custom calibration parameters
 
-- render_type controls rendering mode. Default is `distance`, which auto-renders pseudocolor based on depth for web display. Can be set to `indoor` or `outdoor`; `indoor` is not recommended
+- render_type controls rendering mode. Default is `distance` , which auto-renders pseudocolor based on depth for web display. Can be set to `indoor` or `outdoor` ; `indoor` is not recommended
 - render_perf controls whether CPU, BPU usage, latency, and FPS are shown on rendered images. Can be `True` or `False`
 
 - speckle_filter_enable controls speckle filter. Can be `True` or `False`
@@ -791,7 +791,7 @@ ros2 param set /StereoNetNode save_result_flag true
 #### (8) Enable Epipolar Alignment Detection Mode
 
 Poor depth quality may be due to incorrect left/right stitching order or lack of epipolar alignment between left/right images.
-Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel`.
+Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel` .
 
 This program provides two epipolar alignment detection methods: chessboard calibration board (stricter, recommended);
 and ORB feature-based method (no calibration board needed, runs in texture-rich scenes, but epipolar error may be larger).
@@ -822,7 +822,7 @@ After successful startup, the following image appears on the web:
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="Web UI feature matching result in feature-epipolar mode" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-ORB feature-based detection is less strict. Empirically, for 640×352 images epipolar error should be less than `1 pixel`; for 1280×1088 images less than `2 pixel` for qualified stereo images
+ORB feature-based detection is less strict. Empirically, for 640×352 images epipolar error should be less than `1 pixel` ; for 1280×1088 images less than `2 pixel` for qualified stereo images
 
 
 ### 5.4. Offline Startup Commands
@@ -831,11 +831,11 @@ ORB feature-based detection is less strict. Empirically, for 640×352 images epi
 
 - To evaluate algorithm performance with local images, prepare the following data and upload to RDK:
 
-1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left`, right images must contain `right`. The algorithm iterates through images by index until all are processed:
+1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left` , right images must contain `right` . The algorithm iterates through images by index until all are processed:
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="Offline stereo left/right image naming format with left/right fields" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt`. Reference content:
+2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt` . Reference content:
 ```bash
 # fx fy cx cy baseline(m)
 215.762581 215.762581 325.490113 173.881556 0.079957

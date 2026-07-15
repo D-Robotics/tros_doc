@@ -116,7 +116,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 ```
 
-- 程序启动后可以通过网页查看 ZED-2i 发布的双目图像，在 PC 端浏览器输入http://ip:8000 即可查看双目图像，ip 为 RDK 板端的 ip，例子中为`192.168.128.10`，并且要保证 PC 和 RDK 能通过网络通讯
+- 程序启动后可以通过网页查看 ZED-2i 发布的双目图像，在 PC 端浏览器输入http://ip:8000 即可查看双目图像，ip 为 RDK 板端的 ip，例子中为 `192.168.128.10` ，并且要保证 PC 和 RDK 能通过网络通讯
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/ZED-2i-stereo-img.png" alt="网页端查看 ZED-2i 发布的双目图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -170,7 +170,7 @@ rviz2
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/rviz2-occ.png" alt="RViz2 中显示立体占用栅格（Occupancy）可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- 如需保存结果请加入以下参数，`save_occ_flag`打开保存开关，`save_occ_dir`控制保存的目录（如果目录不存在会自动创建），`save_freq`控制保存频率，`save_total`控制保存的总数：
+- 如需保存结果请加入以下参数， `save_occ_flag` 打开保存开关， `save_occ_dir` 控制保存的目录（如果目录不存在会自动创建）， `save_freq` 控制保存频率， `save_total` 控制保存的总数：
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -220,14 +220,14 @@ save_occ_flag:=True save_occ_dir:=./occ_result save_freq:=4 save_total:=10
 ### 2. 使用自定义数据离线推理
 
 - 需要准备离线数据上传到 RDK 板端，离线数据的格式如下：
-    - 离线目录需要包含左右图片，程序会进行判断，左图需要包含`left`字段，格式为 png 或者 jpg，右图需要包含`right`字段、其它和左图一致
-    - 图像分辨率为`640*352`，不支持其它分辨率
+    - 离线目录需要包含左右图片，程序会进行判断，左图需要包含 `left` 字段，格式为 png 或者 jpg，右图需要包含 `right` 字段、其它和左图一致
+    - 图像分辨率为 `640*352` ，不支持其它分辨率
     - 左右图需要进行矫正，达到极线对齐的状态
     - 由于目前采用 ZED-2i 的数据训练模型，所以尽量使离线图像的内参接近 ZED-2i，ZED-2i 相机参数为: `fx=354.9999, fy=354.9999, cx=322.9469, cy=176.2076, baseline=0.12`
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="离线双目图像命名与格式要求示意（left/right 字段）" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- 在 RDK 上执行以下命令（X5 和 S100 均支持），`local_image_dir`控制离线数据的目录，`save_occ_flag`打开保存开关，`save_occ_dir`控制保存的目录（如果目录不存在会自动创建）:
+- 在 RDK 上执行以下命令（X5 和 S100 均支持）， `local_image_dir` 控制离线数据的目录， `save_occ_flag` 打开保存开关， `save_occ_dir` 控制保存的目录（如果目录不存在会自动创建）:
 
 ```bash
 ros2 launch dstereo_occnet offline_infer_web_visual.launch.py \

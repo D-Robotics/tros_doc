@@ -107,7 +107,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 After the program starts, you can chat with the robot directly in the current terminal.
 
-Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"`. The 7B model is only applicable to RDK S100P.
+Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"` . The 7B model is only applicable to RDK S100P.
 
 #### Subscribe and Publish Experience
 
@@ -139,7 +139,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
-    Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"`. The 7B model is only applicable to RDK S100P.
+    Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepSeek_R1_Distill_Qwen_7B"` . The 7B model is only applicable to RDK S100P.
 
 2. Open a new terminal to subscribe to the output result topic
 

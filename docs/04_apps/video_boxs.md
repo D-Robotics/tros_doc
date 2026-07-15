@@ -264,7 +264,7 @@ launch 脚本中默认的算法引用 yolov8;
 
 ```
 
-启另一个终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
+启另一个终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ export ROS_DOMAIN_ID=101
@@ -278,8 +278,8 @@ $ ros2 topic list
 
 ```
 
-其中`/rtsp_image_ch_0`是 RDK 发布的通过 RTSP 获取 IPC 视频后发布的视频，`/hobot_dnn_detection`
-是 RDK 发布的包含人体检测结果的算法 msg，`/image_decode`是 RDK 接收 H264 后解码的 NV12 图片，`/image_mjpeg`是 RDK 编码后的 JPEG 图片。
+其中 `/rtsp_image_ch_0` 是 RDK 发布的通过 RTSP 获取 IPC 视频后发布的视频， `/hobot_dnn_detection`
+是 RDK 发布的包含人体检测结果的算法 msg， `/image_decode` 是 RDK 接收 H264 后解码的 NV12 图片， `/image_mjpeg` 是 RDK 编码后的 JPEG 图片。
 
 在 PC 端的浏览器输入 `http://IP:8000` ，分屏配置
 

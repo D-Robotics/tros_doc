@@ -236,9 +236,9 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 │       └── src
 ```
 
-其中`tros_ws/robot_dev_config`路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件；`tros_ws/src`路径存放拉取的代码；`sysroot_docker`路径包含交叉编译依赖的头文件和库，和 RDK 的`/`目录对应。例如媒体库在`sysroot_docker`中的路径为`sysroot_docker/usr/lib/hbmedia/`，在 RDK 中的路径为`/usr/lib/hbmedia/`。
+其中 `tros_ws/robot_dev_config` 路径包含代码拉取、编译、打包等功能所需要的配置、脚本文件； `tros_ws/src` 路径存放拉取的代码； `sysroot_docker` 路径包含交叉编译依赖的头文件和库，和 RDK 的 `/` 目录对应。例如媒体库在 `sysroot_docker` 中的路径为 `sysroot_docker/usr/lib/hbmedia/` ，在 RDK 中的路径为 `/usr/lib/hbmedia/` 。
 
-编译时，在`robot_dev_config/aarch64_toolchainfile.cmake`编译脚本中通过`CMAKE_SYSROOT`宏指定`sysroot_docker`的安装路径。
+编译时，在 `robot_dev_config/aarch64_toolchainfile.cmake` 编译脚本中通过 `CMAKE_SYSROOT` 宏指定 `sysroot_docker` 的安装路径。
 
 :::info
 robot_dev_config 的 tag 号（版本信息），请查看[版本发布记录](./changelog.md)章节。
@@ -505,4 +505,4 @@ A1：如下图所示，vcs import 过程中打印.表示成功拉取 repo，如�
 
 Q2：条件受限无法从 github 拉取代码
 
-A2：可以直接在[TogetheROS 文件服务器](http://archive.d-robotics.cc/TogetheROS/source_code/)中选择下载需要的版本代码。例如`tros_2.0.0_source_code.tar.gz`文件对应于 tros.b 2.0.0 版本。
+A2：可以直接在[TogetheROS 文件服务器](http://archive.d-robotics.cc/TogetheROS/source_code/)中选择下载需要的版本代码。例如 `tros_2.0.0_source_code.tar.gz` 文件对应于 tros.b 2.0.0 版本。

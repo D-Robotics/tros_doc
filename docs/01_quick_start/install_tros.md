@@ -156,8 +156,8 @@ sudo apt install tros-jazzy
 <DocScope products="RDK-X3">
 
 :::caution **注意**
-- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
+- **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
+- **如果您运行安装命令后提示 `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` ，先执行 `apt --fix-broken install` 命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -165,8 +165,8 @@ sudo apt install tros-jazzy
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
+- **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
+- **如果您运行安装命令后提示 `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` ，先执行 `apt --fix-broken install` 命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -174,8 +174,8 @@ sudo apt install tros-jazzy
 <DocScope products="RDK-S100">
 
 :::caution **注意**
-- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
+- **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
+- **如果您运行安装命令后提示 `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` ，先执行 `apt --fix-broken install` 命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -183,8 +183,8 @@ sudo apt install tros-jazzy
 <DocScope products="RDK-S600">
 
 :::caution **注意**
-- **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
-- **如果您运行安装命令后提示`E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).`，先执行`apt --fix-broken install`命令安装相关依赖后再安装 tros.b。**
+- **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
+- **如果您运行安装命令后提示 `E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).` ，先执行 `apt --fix-broken install` 命令安装相关依赖后再安装 tros.b。**
 :::
 
 </DocScope>
@@ -220,7 +220,7 @@ sudo apt upgrade
 <DocScope products="RDK-X3">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -228,7 +228,7 @@ sudo apt upgrade
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -236,7 +236,7 @@ sudo apt upgrade
 <DocScope products="RDK-S100">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -244,7 +244,7 @@ sudo apt upgrade
 <DocScope products="RDK-S600">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=5.1.0&p=RDK+S600#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -372,8 +372,8 @@ Description: TogetheROS Bot
 </DocScope>
 
 :::caution 注意
-- 查询显示的版本号`Version`是实际安装的`tros.b`的版本，可能和本示例中显示的版本号`Version`不一致。
-- `tros.b`的发布版本信息详见[版本发布记录](./changelog)。
+- 查询显示的版本号 `Version` 是实际安装的 `tros.b` 的版本，可能和本示例中显示的版本号 `Version` 不一致。
+- `tros.b` 的发布版本信息详见[版本发布记录](./changelog)。
 :::
 
 ## X86 平台
@@ -417,7 +417,7 @@ Description: TogetheROS Bot
 <DocScope products="RDK-X3">
 
 :::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
 - **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
@@ -426,7 +426,7 @@ Description: TogetheROS Bot
 <DocScope products="RDK-X5">
 
 :::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
 - **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
@@ -435,7 +435,7 @@ Description: TogetheROS Bot
 <DocScope products="RDK-S100">
 
 :::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
 - **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 
@@ -444,7 +444,7 @@ Description: TogetheROS Bot
 <DocScope products="RDK-S600">
 
 :::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令`sudo apt remove tros`删除后再安装 2.x 版本 tros.b**。
+- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
 - **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
 :::
 

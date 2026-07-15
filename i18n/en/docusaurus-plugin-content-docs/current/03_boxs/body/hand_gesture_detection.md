@@ -91,7 +91,7 @@ The gesture recognition (hand_gesture_detection) package subscribes to hand keyp
 
 ### Start Dynamic Gesture Recognition
 
-The launch script starts static gesture recognition by default. You can switch to dynamic gesture recognition only at runtime using the `is_dynamic_gesture` parameter, for example: `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`.
+The launch script starts static gesture recognition by default. You can switch to dynamic gesture recognition only at runtime using the `is_dynamic_gesture` parameter, for example: `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True` .
 
 The examples below start static gesture recognition by default.
 

@@ -8,17 +8,17 @@ sidebar_position: 6
 
 ### Version: 2.5.4 (2026-05-19)
 
-Changes (`RDK S600` platform):
+Changes ( `RDK S600` platform):
 
-- Adapted to system SDK `RKD S600 v5.1.0`.
+- Adapted to system SDK `RKD S600 v5.1.0` .
 
 ### Version: 2.5.3 (2026-05-08)
 
-New Features (`RDK S100` Platform):
+New Features ( `RDK S100` Platform):
 - Added mono_edgetam_prompt: Supports two prompt styles via prompt_mode: point prompts or box prompts. Exports prompt initialization results (memory feature file) for downstream tracking, and provides optional local rendering output.
 - Added mono_edgetam_track to load features and use them as tracking initialization. Supports continuous tracking in both local image and subscription stream modes. Updates tracking memory frame by frame and publishes segmentation/tracking results.
 
-Feature Changes (`RDK S100` Platform):
+Feature Changes ( `RDK S100` Platform):
 - Adapted to system version: RDKS100_V4.0.6.
 
 
@@ -26,7 +26,7 @@ Feature Changes (`RDK S100` Platform):
 
 Changes:
 
-- Adapted to system SDK `RKD S600 v5.0.1`.
+- Adapted to system SDK `RKD S600 v5.0.1` .
 - Refactored `mipi_cam` videobuff management from stream capture to message publishing, as well as the stitching thread; changed calibration info topics for stitched images to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info".
 
 New Features:
@@ -48,67 +48,67 @@ New Features:
 
 ### Version: 2.5.3 (2026-05-08)
 
-New Features (`RDK S100` platform):
+New Features ( `RDK S100` platform):
 - Added mono_edgetam_prompt: supports two prompt styles via prompt_mode—point prompts or box prompts. Exports prompt initialization results (in-memory feature files) for downstream tracking, with optional local rendering output.
 - Added mono_edgetam_track to load features and use them for tracking initialization. Supports continuous tracking in local image and subscribed stream modes. Updates tracking memory frame by frame and publishes segmentation/tracking results.
 
-Changes (`RDK S100` platform):
+Changes ( `RDK S100` platform):
 - Adapted to system version: RDKS100_V4.0.6.
 
 
 ### Version: 2.5.2 (2026-03-17)
 
-New Features (`RDK X5` platform):
+New Features ( `RDK X5` platform):
 - Added epipolar alignment detection to the stereo depth estimation algorithm; adjusted subscribed messages per hobot_mipi_cam to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info"
 - Stereo OCC algorithm supports mipi cameras.
-- Object detection algorithm supports `yolo26`.
+- Object detection algorithm supports `yolo26` .
 - `sensevoice_ros2` algorithm adds configuration options for Chinese/English mode.
-- Added hand keypoint and gesture recognition algorithm based on `palm_detection_mediapipe` and `hand_landmarks_mediapipe`.
+- Added hand keypoint and gesture recognition algorithm based on `palm_detection_mediapipe` and `hand_landmarks_mediapipe` .
 
-Changes (`RDK X5` platform):
+Changes ( `RDK X5` platform):
 - Adapted to system version: RDK 3.5.0 (Linux SDK V1.1.2)
 - Refactored `mipi_cam` videobuff management from stream capture to message publishing and the stitching thread. Changed calibration info topics for stitched images to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info". Refactored X5 eeprom read handling. Added subdirectory publishing on X5. Added combined 132gs imu data publishing.
 
 
 ### Version: 2.4.6 (2026-02-02)
 
-Changes (`RDK S100` platform):
-- Adapted to system version `V4.0.5` and `OE` version `V3.7.0`.
+Changes ( `RDK S100` platform):
+- Adapted to system version `V4.0.5` and `OE` version `V3.7.0` .
 
 
 ### Version: 2.4.5 (2025-10-28)
 
-Bug Fixes (`RDK X5` platform):
+Bug Fixes ( `RDK X5` platform):
 
-- Fixed a bug in the image processing acceleration module [`hobot_cv`](../02_quick_demo/demo_cv.md) when using vse to accelerate image resize.
-- Fixed incorrect inference latency statistics in the on-board model inference framework [`dnn_node`](https://github.com/D-Robotics/hobot_dnn.git).
+- Fixed a bug in the image processing acceleration module [ `hobot_cv` ](../02_quick_demo/demo_cv.md) when using vse to accelerate image resize.
+- Fixed incorrect inference latency statistics in the on-board model inference framework [ `dnn_node` ](https://github.com/D-Robotics/hobot_dnn.git).
 - Fixed runtime loading failures caused by incorrect installation paths for `ros component so` in MIPI image capture and algorithm modules.
 - Optimized [image codec](../02_quick_demo/hobot_codec.md) configuration: removed invalid configuration parameters and added debug configuration parameters.
 
 
 ### Version: 2.4.4 (2025-10-24)
 
-New Features (`RDK S100` platform):
+New Features ( `RDK S100` platform):
 
-- On-board algorithm inference framework [`dnn_node`](https://github.com/D-Robotics/hobot_dnn.git) adds `ROI` inference mode; the number of output `output tensor`s is `output_size x roi_size`.
+- On-board algorithm inference framework [ `dnn_node` ](https://github.com/D-Robotics/hobot_dnn.git) adds `ROI` inference mode; the number of output `output tensor` s is `output_size x roi_size` .
 - Added [human detection and tracking (Ultralytics YOLO Pose)](../03_boxs/body/mono2d_yolo_pose.md) algorithm example.
-- Added [human instance tracking](../03_boxs/body/reid.md) algorithm example, which extracts human features using the `reid` model and stores, manages, and queries features via an `SQlite` database. The launch file disables ROI-based human tracking in the human detection and tracking node `mono2d_body_detection`; input `ROI` size is limited to less than 3.5x the actual model input size.
+- Added [human instance tracking](../03_boxs/body/reid.md) algorithm example, which extracts human features using the `reid` model and stores, manages, and queries features via an `SQlite` database. The launch file disables ROI-based human tracking in the human detection and tracking node `mono2d_body_detection` ; input `ROI` size is limited to less than 3.5x the actual model input size.
 - Added [hand keypoint and gesture recognition (mediapipe)](../03_boxs/body/hand_lmk_gesture_mediapipe.md) algorithm example. Implements basic palm detection, pre/post-processing, and `ai msg` publishing; supports mipi camera, usb camera, and local image replay; supports zero-copy and non-zero-copy image acquisition.
 - Added [DeepSeek large language model](../03_boxs/generate/hobot_xlm.md) algorithm example. Supports human-machine dialogue; `RDK S100` and `RDK S100P` newly support `DeepSeek_R1_Distill_Qwen_1.5B` and `DeepSeek_R1_Distill_Qwen_7B` models.
 
 ### Version: 2.4.3 (2025-9-15)
 
-New Features (`RDK X5` platform):
+New Features ( `RDK X5` platform):
 
 - [MIPI image capture](../02_quick_demo/demo_sensor.md) supports launching multi-channel image capture.
 - [Stereo MIPI image capture](../02_quick_demo/demo_sensor.md) supports `sc132gs` stereo camera.
 
 ### Version: 2.4.2 (2025-8-29)
 
-New Features (`RDK S100` platform):
+New Features ( `RDK S100` platform):
 
 - [MIPI image capture](../02_quick_demo/demo_sensor.md) supports `230ai` stereo module.
-- [YOLO object detection](../03_boxs/detection/yolo.md) supports `yolo11` and `yolov12` algorithms; added component-based launch scripts supporting 4K image inference with `mipi cam`.
+- [YOLO object detection](../03_boxs/detection/yolo.md) supports `yolo11` and `yolov12` algorithms; added component-based launch scripts supporting 4K image inference with `mipi cam` .
 - [EdgeSAM segment anything](../03_boxs/segmentation/mono_edgesam.md) algorithm adds `edgesam` for model inference; adds `nv12` format data input; adds padding for segmentation results for joint visualization in stereo depth use cases.
 - Added [text-image feature retrieval algorithm](../03_boxs/function/hobot_clip.md) for text-image feature extraction and retrieval.
 - Added [DOSOD algorithm](../03_boxs/detection/hobot_dosod.md), D-Robotics open-vocabulary detection DOSOD on-device deployment package; added re-parameterization quantization method for customizing detection categories in DOSOD models.
@@ -119,7 +119,7 @@ New Features (`RDK S100` platform):
 
 ### Version: 2.4.1 (2025-7-30)
 
-New Features (`RDK X5` platform):
+New Features ( `RDK X5` platform):
 
 - [MIPI image capture](../02_quick_demo/demo_sensor.md) supports `imx415` module.
 - [EdgeSAM segment anything](../03_boxs/segmentation/mono_edgesam.md) algorithm adds `edgesam` for model inference; adds `nv12` format data input; adds padding for segmentation results for joint visualization in stereo depth use cases.
@@ -139,9 +139,9 @@ New Features:
 New Features:
 
 - Support for `RDK X5 Module` platform.
-- Added [ASR open-source solution](../03_boxs/audio/sensevoice_ros2.md) based on `sensevoice_cpp`, supporting command word and ASR data publishing.
+- Added [ASR open-source solution](../03_boxs/audio/sensevoice_ros2.md) based on `sensevoice_cpp` , supporting command word and ASR data publishing.
 - [Stereo depth estimation algorithm](../03_boxs/spatial/hobot_stereonet.md) optimizes post-processing time; added V2.3 model version.
-- Added on-device [vision-language model](../04_apps/hobot_llamacpp.md) algorithm example based on `llama.cpp`.
+- Added on-device [vision-language model](../04_apps/hobot_llamacpp.md) algorithm example based on `llama.cpp` .
 
 
 ### Version: 2.3.2 (2025-1-15)
@@ -207,12 +207,12 @@ New Features:
 Changes:
 
 - Based on TROS Foxy 2.1.3, adapted to Ubuntu 22.04 and ROS2 Humble.
-- TROS installation path changed from `/opt/tros` to `/opt/tros/humble`, consistent with ROS2 installation path hierarchy and naming.
+- TROS installation path changed from `/opt/tros` to `/opt/tros/humble` , consistent with ROS2 installation path hierarchy and naming.
 - No longer provides `tros-ros-base` package (includes rclcpp, rclpy, ros2cli and other ROS2 base packages); uses standard ROS2 distribution packages; installing TROS Humble automatically installs dependent ROS2 Humble.
 - Uses ROS2 fastdds zero-copy communication for modules involving image data such as data acquisition, image codec, and algorithm examples.
 - Zero-copy communication QoS Reliability changed from `RMW_QOS_POLICY_RELIABILITY_RELIABLE` (rclcpp::QoS()) to `RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT` (rclcpp::SensorDataQoS()) to avoid potential stability risks when using zero-copy.
-- Refactored `hobot_dnn` to use lower-level on-board inference framework `libdnn` instead of `easydnn`.
-- `hobot_audio` upgraded speech algorithm SDK to use lower-level on-board inference framework `libdnn` instead of `easydnn`.
+- Refactored `hobot_dnn` to use lower-level on-board inference framework `libdnn` instead of `easydnn` .
+- `hobot_audio` upgraded speech algorithm SDK to use lower-level on-board inference framework `libdnn` instead of `easydnn` .
 - `hobot_trigger` adapted to ROS2 Humble version rosbag2.
 
 New Features:
@@ -230,9 +230,9 @@ Bug Fixes:
 
 Changes:
 
-- JPEG compressed image data type changed from `sensor_msgs::msg::Image` to standard `sensor_msgs::msg::CompressedImage`, enabling tools such as foxglove and ros2 rqt to view TROS-published JPEG images. Affects hobot_websocket, hobot_codec, hobot_image_publisher, hobot_usb_cam modules.
+- JPEG compressed image data type changed from `sensor_msgs::msg::Image` to standard `sensor_msgs::msg::CompressedImage` , enabling tools such as foxglove and ros2 rqt to view TROS-published JPEG images. Affects hobot_websocket, hobot_codec, hobot_image_publisher, hobot_usb_cam modules.
 - Unified use of jpeg/mjpeg configuration options for publishing/subscribing JPEG compressed images; removed jpeg-compressed/mjpeg-compressed configuration options. Affects hobot_codec and hobot_usb_cam modules.
-- Introduced TROS_DISTRO environment variable to indicate TROS distribution. After running `source /opt/tros/setup.bash`/`source /opt/tros/local_setup.bash`, the `TROS_DISTRO` environment variable is empty. Configuration file paths for hobot_codec, hobot_audio, hobot_mipi_cam, hobot_usb_cam and other modules changed from `/opt/tros/lib` to `/opt/tros/${TROS_DISTRO}/lib`.
+- Introduced TROS_DISTRO environment variable to indicate TROS distribution. After running `source /opt/tros/setup.bash` / `source /opt/tros/local_setup.bash` , the `TROS_DISTRO` environment variable is empty. Configuration file paths for hobot_codec, hobot_audio, hobot_mipi_cam, hobot_usb_cam and other modules changed from `/opt/tros/lib` to `/opt/tros/${TROS_DISTRO}/lib` .
 
 
 ### Version: 2.1.2 (2024-01-19)
@@ -263,7 +263,7 @@ Bug Fixes:
 Changes:
 
 - `tros-ros-base` updated to latest ROS2 foxy source, compatible with latest ROS2 foxy packages.
-- Using ROS2 foxy packages only requires `source /opt/tros/setup.bash`; no longer need scripts to create symlinks.
+- Using ROS2 foxy packages only requires `source /opt/tros/setup.bash` ; no longer need scripts to create symlinks.
 
 New Features:
 
@@ -280,11 +280,11 @@ Bug Fixes:
 
 Changes:
 
-- ROS2 source configured during tros.b installation (`/etc/apt/sources.list.d/ros2.list`) changed to Tsinghua mirror, fixing slow and failed ROS2 package installation.
+- ROS2 source configured during tros.b installation ( `/etc/apt/sources.list.d/ros2.list` ) changed to Tsinghua mirror, fixing slow and failed ROS2 package installation.
 
 New Features:
 
-- Added permission check when tros.b startup scripts configure the environment (`source /opt/tros/setup.bash` and `source /opt/tros/local_setup.bash`). If the current account lacks root permissions, automatically enters the process to switch to root account, fixing tros.b usage failures due to insufficient permissions.
+- Added permission check when tros.b startup scripts configure the environment ( `source /opt/tros/setup.bash` and `source /opt/tros/local_setup.bash` ). If the current account lacks root permissions, automatically enters the process to switch to root account, fixing tros.b usage failures due to insufficient permissions.
 - Intelligent speech algorithm `hobot_audio` node added audio device number parameter configuration for easier secondary development.
 - Event trigger `hobot_trigger` node added ability to assign tasks to Trigger module via std_msg topics, standardizing Trigger configuration.
 

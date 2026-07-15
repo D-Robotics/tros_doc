@@ -31,7 +31,7 @@ import DocScope from '@site/src/components/DocScope';
 1. RDK 为 4GB 内存版本
 2. RDK 已烧录好 RDK OS 系统。
 3. RDK 已成功安装 TogetheROS.Bot。
-4. 安装 ASR 模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2`。
+4. 安装 ASR 模块用于语言输入，命令为 `apt install tros-humble-sensevoice-ros2` 。
 
 ## 使用方式
 
@@ -324,6 +324,6 @@ ros2 launch hobot_llamacpp llama_llm.launch.py llamacpp_gguf_model_file_name:=Qw
 
 2. 关于唤醒功能：使用"你好"唤醒词有概率未识别到, 导致后面的内容无法输出。功能异常时, 可关注日志中是否有 `[llama_cpp_node]: Recved string data: xxx` 字段, 如有为识别到文本。
 
-3. 关于音频设备: 一般建议录音播放设备为同一个设备, 避免回音。如录音、播放设备不是同个设备, 可在`/opt/tros/${TROS_DISTRO}/share/hobot_llamacpp/launch/llama_vlm.launch.py` 文件中搜索 `audio_device` 字段修改设备名。
+3. 关于音频设备: 一般建议录音播放设备为同一个设备, 避免回音。如录音、播放设备不是同个设备, 可在 `/opt/tros/${TROS_DISTRO}/share/hobot_llamacpp/launch/llama_vlm.launch.py` 文件中搜索 `audio_device` 字段修改设备名。
 
 4. 关于模型选择：目前 VLM 模型只支持本示例提供的大模型, LLM 模型则支持使用 https://huggingface.co/models?search=GGUF 社区上 GGUF 转换的模型进行推理。

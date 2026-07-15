@@ -274,7 +274,7 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
 :::info
- If the launch fails with the error `[ERROR] [gzclient-2]: process has died`, run the command `source /usr/share/gazebo/setup.sh` before launching again.
+ If the launch fails with the error `[ERROR] [gzclient-2]: process has died` , run the command `source /usr/share/gazebo/setup.sh` before launching again.
 :::
 
 The simulation environment is shown below:

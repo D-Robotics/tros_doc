@@ -300,8 +300,8 @@ Code repository: [https://github.com/D-Robotics/hobot_hdmi](https://github.com/D
 
 :::caution **Note**
 HDMI display **EOL** notice:
-- `RDK X3` and `RDK X3 Module` platforms are supported up to version `2.1.0`, corresponding to TROS version `2.2.0 (2024-04-11)`.
-- `RDK X5` and `RDK X5 Module` platforms are supported up to version `2.4.2`, corresponding to TROS version `2.3.1 (2024-11-20)`.
+- `RDK X3` and `RDK X3 Module` platforms are supported up to version `2.1.0` , corresponding to TROS version `2.2.0 (2024-04-11)` .
+- `RDK X5` and `RDK X5 Module` platforms are supported up to version `2.4.2` , corresponding to TROS version `2.3.1 (2024-11-20)` .
 :::
 
 ### Prerequisites
@@ -404,7 +404,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
    - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
 </DocScope>
 
 <DocScope products="RDK-S100">
@@ -412,7 +412,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
    - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `humble`.
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -420,7 +420,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
    - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`. Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy`.
+   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy` .
 </DocScope>
 
 ### Usage
@@ -681,7 +681,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
    - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble`.
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
 </DocScope>
 
 <DocScope products="RDK-S100">
@@ -689,7 +689,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
    - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `humble`.
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -697,7 +697,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
    - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`. Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy`.
+   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy` .
 </DocScope>
 
 ### Usage
@@ -900,7 +900,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
    Note: To run rqt on RDK, use tools such as MobaXterm for SSH connection, or add the "-Y" parameter when connecting via command-line SSH.
 
-   Select the topic `/image_raw/compressed`. The image output looks like this:
+   Select the topic `/image_raw/compressed` . The image output looks like this:
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png" alt="Image view in rqt after subscribing to /image_raw/compressed" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1111,4 +1111,4 @@ PS: Registration is required for first-time use. You can register using a Google
 
 1. For Foxglove to visualize image data, ROS2 official message formats must be used with image encoding formats supported by Foxglove. For details, see (https://foxglove.dev/docs/studio/panels/image).
 
-2. When recording messages with rosbag, topic information from other devices may also be recorded. To ensure clean rosbag data, you can set `export ROS_DOMAIN_ID=xxx`, such as `export ROS_DOMAIN_ID=1`.
+2. When recording messages with rosbag, topic information from other devices may also be recorded. To ensure clean rosbag data, you can set `export ROS_DOMAIN_ID=xxx` , such as `export ROS_DOMAIN_ID=1` .

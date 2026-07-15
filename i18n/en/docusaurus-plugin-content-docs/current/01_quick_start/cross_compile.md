@@ -242,7 +242,7 @@ The complete project directory structure is as follows
 │       └── src
 ```
 
-The `tros_ws/robot_dev_config` path contains configuration and script files needed for code pulling, building, and packaging; the `tros_ws/src` path stores the pulled code; the `sysroot_docker` path contains header files and libraries for cross-compilation dependencies, corresponding to the RDK's `/` directory. For example, the media library path in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/`, and on RDK it is `/usr/lib/hbmedia/`.
+The `tros_ws/robot_dev_config` path contains configuration and script files needed for code pulling, building, and packaging; the `tros_ws/src` path stores the pulled code; the `sysroot_docker` path contains header files and libraries for cross-compilation dependencies, corresponding to the RDK's `/` directory. For example, the media library path in `sysroot_docker` is `sysroot_docker/usr/lib/hbmedia/` , and on RDK it is `/usr/lib/hbmedia/` .
 
 During compilation, the `sysroot_docker` installation path is specified via the `CMAKE_SYSROOT` macro in the `robot_dev_config/aarch64_toolchainfile.cmake` build script.
 

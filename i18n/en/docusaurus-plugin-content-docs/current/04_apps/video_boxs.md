@@ -220,15 +220,15 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 **Notes:**
 1. Set different `ROS_DOMAIN_ID` and `websocket_channel` for different channels.
 2. The above shows how to start 2 channels. Use the same method to start other channels 3~8.
-3. Launch scripts with `_plugin` will start in component mode, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_plugin.launch.py`.
-4. Launch scripts with `_websocket` enable web browsing, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_websocket.launch.py`.
+3. Launch scripts with `_plugin` will start in component mode, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_plugin.launch.py` .
+4. Launch scripts with `_websocket` enable web browsing, e.g., `hobot_rtsp_client_ai_websocket_plugin.launch.py` and `hobot_rtsp_client_ai_websocket.launch.py` .
 5. To increase the number of connection channels and handle multiple video streams, reduce the frame rate by configuring the IPC accordingly.
 
 ### Algorithm Model Switching
 
 The default algorithm referenced in the launch script is YOLOv8.
 
-Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py`:
+Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py` :
 
 ```shell
     ComposableNode(
@@ -247,7 +247,7 @@ Refer to `hobot_rtsp_client_ai_websocket_plugin.launch.py`:
     ) 
 ```
 
-To switch to the YOLOv5 algorithm, modify `config_file` to `"config/yolov5xworkconfig.json"`. Refer to [YOLO](../03_boxs/detection/yolo.md).
+To switch to the YOLOv5 algorithm, modify `config_file` to `"config/yolov5xworkconfig.json"` . Refer to [YOLO](../03_boxs/detection/yolo.md).
 
 ## Result Analysis
 

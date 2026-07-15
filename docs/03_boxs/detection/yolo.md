@@ -310,7 +310,7 @@ source /opt/tros/jazyy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了 YOLOv2 算法，还支持 YOLO 系列其他算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`，使用 YOLOv5 算法的启动配置为`dnn_example_config_file:="config/yolov5workconfig.json"`，使用 YOLOv8 算法的启动配置为`dnn_example_config_file:="config/yolov8workconfig.json"`，使用 YOLOv10 算法的启动配置为`dnn_example_config_file:="config/yolov10workconfig.json"`，使用 YOLOv11 算法的启动配置为`dnn_example_config_file:="config/yolov11workconfig.json"`，使用 YOLOv12 算法的启动配置为`dnn_example_config_file:="config/yolov12workconfig.json"`，使用 YOLO26 算法的启动配置为`dnn_example_config_file:="config/yolo26workconfig.json"`。
+除了 YOLOv2 算法，还支持 YOLO 系列其他算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` ，使用 YOLOv8 算法的启动配置为 `dnn_example_config_file:="config/yolov8workconfig.json"` ，使用 YOLOv10 算法的启动配置为 `dnn_example_config_file:="config/yolov10workconfig.json"` ，使用 YOLOv11 算法的启动配置为 `dnn_example_config_file:="config/yolov11workconfig.json"` ，使用 YOLOv12 算法的启动配置为 `dnn_example_config_file:="config/yolov12workconfig.json"` ，使用 YOLO26 算法的启动配置为 `dnn_example_config_file:="config/yolo26workconfig.json"` 。
 
 ### X86 平台
 
@@ -326,7 +326,7 @@ source /opt/tros/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了 YOLOv2 算法，还支持 YOLOv3 算法，YOLOv5 算法暂不支持。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为`dnn_example_config_file:="config/yolov3workconfig.json"`。
+除了 YOLOv2 算法，还支持 YOLOv3 算法，YOLOv5 算法暂不支持。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` 。
 
 ## 结果分析
 
@@ -345,9 +345,9 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655095351.011915729] [example]: Smart fps 11.30
 ```
 
-输出 log 显示，发布算法推理结果的 topic 为`hobot_dnn_detection`，订阅图片的 topic 为`/hbmem_img`。
+输出 log 显示，发布算法推理结果的 topic 为 `hobot_dnn_detection` ，订阅图片的 topic 为 `/hbmem_img` 。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg" alt="Web 端 YOLO 目标检测算法渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

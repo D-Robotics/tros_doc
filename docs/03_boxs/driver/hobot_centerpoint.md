@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的`CenterPoint`算法模型。
+激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `CenterPoint` 算法模型。
 
 算法输入为 32 线激光雷达点云数据，输出信息包括目标的 3D 检测框、置信度、类别。支持的目标检测类型包括 car、truck、bus、barrier、motorcycle、pedestrian 共六大类别。
 
@@ -142,8 +142,8 @@ webserver has launch
 </Tabs>
 </DocScope>
 
-输出 log 显示，发布算法推理结果的 topic 为`/hobot_centerpoint`, 获取的回灌点云文件为 81 个。算法经过推理，后处理(包含推理结果的渲染和发布)，帧率约为 2.4fps。
+输出 log 显示，发布算法推理结果的 topic 为 `/hobot_centerpoint` , 获取的回灌点云文件为 81 个。算法经过推理，后处理(包含推理结果的渲染和发布)，帧率约为 2.4fps。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg" alt="Web 端 CenterPoint 点云目标检测渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

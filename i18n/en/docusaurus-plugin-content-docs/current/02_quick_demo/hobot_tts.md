@@ -167,12 +167,12 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
     <DocScope products="RDK X3">
 
-    On first use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
+    On first use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
 
     </DocScope>
     <DocScope products="RDK X5">
 
-    On first use of the audio board, configure it using `srpi-config`. For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
+    On first use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
     
     </DocScope>
 
@@ -245,7 +245,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
     ros2 run hobot_tts hobot_tts
     ```
 
-    Note: If the audio playback device is not `pcmC0D1p`, use the `playback_device` parameter to specify the playback device. For example, if the playback device is `pcmC1D1p`, the Waveshare board startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"`; the USB audio device startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
+    Note: If the audio playback device is not `pcmC0D1p` , use the `playback_device` parameter to specify the playback device. For example, if the playback device is `pcmC1D1p` , the Waveshare board startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="hw:1,1"` ; the USB audio device startup command is: `ros2 run hobot_tts hobot_tts --ros-args -p playback_device:="plughw:1,1"`
 
 4. Open a new terminal and use the echo command to publish a topic
 

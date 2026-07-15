@@ -14,7 +14,7 @@ import DocScope from '@site/src/components/DocScope';
 mobilenetv2 图片分类算法示例使用图片作为输入，利用 BPU 进行算法推理，发布包含物体类别的算法 msg。
 
 mobilenetv2 是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的 caffe 模型，模型来源： https://github.com/shicai/MobileNet-Caffe 。
-支持的目标类型包括人、动物、水果、交通工具等共 1000 种类型。具体支持的类别详见 RDK 板端文件 /opt/tros/`${TROS_DISTRO}`/lib/dnn_node_example/config/imagenet.list（已安装 TogetheROS.Bot）。
+支持的目标类型包括人、动物、水果、交通工具等共 1000 种类型。具体支持的类别详见 RDK 板端文件 /opt/tros/ `${TROS_DISTRO}` /lib/dnn_node_example/config/imagenet.list（已安装 TogetheROS.Bot）。
 
 代码仓库： https://github.com/D-Robotics/hobot_dnn
 
@@ -319,9 +319,9 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655095486.057854228] [example]: Smart fps 30.07
 ```
 
-输出 log 显示，发布算法推理结果的 topic 为`hobot_dnn_detection`，订阅图片的 topic 为`/hbmem_img`，订阅到的图片和算法推理输出帧率约为 30fps。
+输出 log 显示，发布算法推理结果的 topic 为 `hobot_dnn_detection` ，订阅图片的 topic 为 `/hbmem_img` ，订阅到的图片和算法推理输出帧率约为 30fps。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg" alt="Web 端 MobileNetV2 图像分类算法渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

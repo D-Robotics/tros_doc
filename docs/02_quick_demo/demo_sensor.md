@@ -49,7 +49,7 @@ import DocScope from '@site/src/components/DocScope';
 
 RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 
-1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以`/dev/video8`为例
+1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以 `/dev/video8` 为例
 
 2. 并通过下述命令启动 USB 摄像头
 
@@ -202,7 +202,7 @@ source /opt/tros/jazzy/setup.bash
 ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
 ```
 
-5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
+5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000` （IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Web 端展示的 USB 摄像头实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -211,7 +211,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 ### 使用方式 2（usb_pixel_format 为 yuyv2rgb）
 RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 
-1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以`/dev/video8`为例
+1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以 `/dev/video8` 为例
 
 2. 并通过下述命令启动 USB 摄像头
 
@@ -499,7 +499,7 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_camera_calibration_file_path:=（实际标定文件绝对路径）
     ```
 
-3. 对于 X86 平台，如果 Ubuntu 20.04 系统运行在虚拟机中，需要在`虚拟机设置`中将`USB控制器`的`USB兼容性`设置为`USB 3.1`。
+3. 对于 X86 平台，如果 Ubuntu 20.04 系统运行在虚拟机中，需要在 `虚拟机设置` 中将 `USB控制器` 的 `USB兼容性` 设置为 `USB 3.1` 。
 
 4. pixel_format 配置的更改
 
@@ -662,7 +662,7 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-5. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP 为 RDK IP 地址），点击左上方 Web 端展示即可看到 F37 输出的实时画面
+5. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP 为 RDK IP 地址），点击左上方 Web 端展示即可看到 F37 输出的实时画面
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web 端查看 F37 摄像头 JPEG 编码实时画面的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 6. 在 PC 机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
@@ -761,7 +761,7 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 
 ### 注意事项
 
-1. mipi_cam 提供 F37 以及 GC4663 两种摄像头的标定文件，默认读取 F37 的标定文件`F37_calibration.yaml`，如使用 GC4663，请更改相机标定文件的读取路径，具体步骤如下：
+1. mipi_cam 提供 F37 以及 GC4663 两种摄像头的标定文件，默认读取 F37 的标定文件 `F37_calibration.yaml` ，如使用 GC4663，请更改相机标定文件的读取路径，具体步骤如下：
 
     <DocScope products="RDK-X3,RDK-X5">
     <Tabs groupId="tros-distro">
@@ -1030,7 +1030,7 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     ros2 launch mipi_cam mipi_cam_dual_channel_websocket.launch.py
     ```
 
-    (2) PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP 为 RDK IP 地址），点击左上方 Web 端展示即可看到双目输出的实时画面
+    (2) PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP 为 RDK IP 地址），点击左上方 Web 端展示即可看到双目输出的实时画面
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg" alt="Web 端查看双目摄像头输出实时画面的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
@@ -1445,12 +1445,12 @@ ros2 launch realsense2_camera rs_launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png" alt="RealSense 相机 ros2 launch 启动成功后的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-可以通过`ros2 topic list`查看 RealSense 发布的话题，默认参数启动 RealSense 相机只会开启相机的深度数据流和 RGB 数据流。
+可以通过 `ros2 topic list` 查看 RealSense 发布的话题，默认参数启动 RealSense 相机只会开启相机的深度数据流和 RGB 数据流。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png" alt="默认参数下 RealSense 发布的深度与 RGB 话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
-RealSense ROS wrapper 提供了很多可设置参数，例如`enable_infra1:=true`和`pointcloud.enable:=true`会开启相机的左 IR 数据流和点云数据流。
+RealSense ROS wrapper 提供了很多可设置参数，例如 `enable_infra1:=true` 和 `pointcloud.enable:=true` 会开启相机的左 IR 数据流和点云数据流。
 
 ```shell
 ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
@@ -1460,7 +1460,7 @@ ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png" alt="RealSense 红外与点云相关话题对应的图像/数据示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-此外 RealSense 还开启了一些服务，可以通过`ros2 service list`查看，例如可以通过服务查询相机的序列号、固件版本等信息。
+此外 RealSense 还开启了一些服务，可以通过 `ros2 service list` 查看，例如可以通过服务查询相机的序列号、固件版本等信息。
 
 ```shell
 ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
@@ -1483,11 +1483,11 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 5. 图像和点云的显示
 
-要显示 RealSense 的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在 PC 机上使用`rviz2`显示，这种方式需要确认 PC 机能够通过网络访问 RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示 RealSense 的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在 PC 机上使用 `rviz2` 显示，这种方式需要确认 PC 机能够通过网络访问 RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png" alt="在 RViz2 中显示 RealSense 图像与点云的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
+推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过 `ros2 topic echo topic_name` 打印数据或者编写代码订阅相应话题。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="使用 ros2 topic echo 在板端确认 RealSense 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1570,7 +1570,7 @@ cd tros_ws/src
 git clone https://github.com/orbbec/OrbbecSDK_ROS2.git
 ```
 
-注意，OrbbecSDK_ROS2 这个仓库已经包含了 Orbbec 相机的 SDK 库文件，在`OrbbecSDK_ROS2/orbbec_camera/SDK`目录下，在 RDK 平台编译的过程中会依赖`arm64`的版本。
+注意，OrbbecSDK_ROS2 这个仓库已经包含了 Orbbec 相机的 SDK 库文件，在 `OrbbecSDK_ROS2/orbbec_camera/SDK` 目录下，在 RDK 平台编译的过程中会依赖 `arm64` 的版本。
 
 下载好源码，接下来就要进行编译，但编译该程序至少需要 4GB 以上的内存，在 RDK 平台可能会出现内存不足的情况，导致编译失败。
 
@@ -1596,11 +1596,11 @@ sudo swapon /swapfile
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png" alt="创建并启用 swapfile 交换分区的命令执行示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-设置好 swap 空间后，可以使用`swapon --show`、`free -h`或`htop`命令查看当前的 swap 使用情况，例如使用`htop`命令查看：
+设置好 swap 空间后，可以使用 `swapon --show` 、 `free -h` 或 `htop` 命令查看当前的 swap 使用情况，例如使用 `htop` 命令查看：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png" alt="使用 htop 查看系统 swap 使用情况的界面截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-这样设置只是临时生效，断电重启后 swap 空间会失效，如果希望系统重启后仍然使用这个 swap 文件，可以重新执行一下`sudo swapon /swapfile`，或者将其添加到`/etc/fstab文`件中。
+这样设置只是临时生效，断电重启后 swap 空间会失效，如果希望系统重启后仍然使用这个 swap 文件，可以重新执行一下 `sudo swapon /swapfile` ，或者将其添加到 `/etc/fstab文` 件中。
 
 ```shell
 # 通过vim打开/etc/fstab
@@ -1651,13 +1651,13 @@ ros2 launch orbbec_camera gemini2.launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png" alt="Orbbec Gemini2 相机 launch 启动成功后的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-可以通过`ros2 topic list`查看 Gemini2 发布的话题，默认参数启动 Gemini2 相机会开启相机的深度数据流、RGB 数据流、IR 数据流和点云数据流。
+可以通过 `ros2 topic list` 查看 Gemini2 发布的话题，默认参数启动 Gemini2 相机会开启相机的深度数据流、RGB 数据流、IR 数据流和点云数据流。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png" alt="Gemini2 默认启动后发布的深度、RGB、IR 与点云话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-Orbbec ROS2 wrapper 提供了很多可设置参数，例如`enable_point_cloud:=false`和`enable_colored_point_cloud:=false`会关闭相机的点云数据流。
+Orbbec ROS2 wrapper 提供了很多可设置参数，例如 `enable_point_cloud:=false` 和 `enable_colored_point_cloud:=false` 会关闭相机的点云数据流。
 
-此外 Orbbec 相机还开启了一些服务，可以通过`ros2 service list`查看，例如可以通过服务查询相机的 SDK 版本、查询或设置曝光时间和增益、开启或关闭激光等，例如：
+此外 Orbbec 相机还开启了一些服务，可以通过 `ros2 service list` 查看，例如可以通过服务查询相机的 SDK 版本、查询或设置曝光时间和增益、开启或关闭激光等，例如：
 
 ```shell
 # 查询SDK版本
@@ -1684,11 +1684,11 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 #### 5. 图像和点云的显示
 
-要显示 Orbbec 的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在 PC 机上使用`rviz2`显示，这种方式需要确认 PC 机能够通过网络访问 RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
+要显示 Orbbec 的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在 PC 机上使用 `rviz2` 显示，这种方式需要确认 PC 机能够通过网络访问 RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png" alt="在 RViz2 中显示 Orbbec 图像与点云的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
+推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过 `ros2 topic echo topic_name` 打印数据或者编写代码订阅相应话题。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="使用 ros2 topic echo 确认 Orbbec 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1761,6 +1761,6 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 [anypub_stereo_imgs-1] [INFO] [0946684888.883419384] [pub_stereo_imgs_nv12_node]: => rectify img size: [1280, 640]
 ```
 
-3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 ZED 相机实时画面。
+3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000` （IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 ZED 相机实时画面。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Web 端展示的 ZED 相机实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

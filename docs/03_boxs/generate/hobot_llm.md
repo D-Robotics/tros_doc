@@ -42,7 +42,7 @@ import DocScope from '@site/src/components/DocScope';
 1. RDK 为 4GB 内存版本
 2. RDK 已烧录好 Ubuntu 系统镜像。
 3. RDK 已成功安装 TogetheROS.Bot。
-4. 安装 transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple`。
+4. 安装 transformers，命令为 `pip3 install transformers -i https://pypi.tuna.tsinghua.edu.cn/simple` 。
 
 ## 使用方式
 
@@ -85,9 +85,9 @@ wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-使用命令`srpi-config`修改 ION memory 大小为 1.9GB，设置方法参考 RDK 用户手册配置工具`srpi-config`使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
+使用命令 `srpi-config` 修改 ION memory 大小为 1.9GB，设置方法参考 RDK 用户手册配置工具 `srpi-config` 使用指南[Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options)章节。
 
-重启后设置 CPU 最高频率为 1.5GHz，以及调度模式为`performance`，命令如下：
+重启后设置 CPU 最高频率为 1.5GHz，以及调度模式为 `performance` ，命令如下：
 
 ```bash
 sudo bash -c 'echo 1 > /sys/devices/system/cpu/cpufreq/boost'

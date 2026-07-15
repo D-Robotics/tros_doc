@@ -108,7 +108,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 程序启动后，可直接在当前终端和机器人聊天。
 
-当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于 RDK S100P。
+当前支持的模型类型为 `DeepSeek_R1_Distill_Qwen_1.5B"` ， `"DeepSeek_R1_Distill_Qwen_7B"` 。其中 7B 模型仅适用于 RDK S100P。
 
 #### 订阅发布体验
 
@@ -140,7 +140,7 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
-    当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于 RDK S100P。
+    当前支持的模型类型为 `DeepSeek_R1_Distill_Qwen_1.5B"` ， `"DeepSeek_R1_Distill_Qwen_7B"` 。其中 7B 模型仅适用于 RDK S100P。
 
 2. 新开一个终端订阅输出结果 topic
 

@@ -92,12 +92,12 @@ apt update
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 </DocScope>
 <DocScope products="RDK-S100">
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 </DocScope>
 ## 5. 算法启动
@@ -105,7 +105,7 @@ apt update
 ### 5.1. 注意事项（必看！！！）
 
 :::caution **注意**
-**请用`root`用户执行文档中的命令，其他用户执行可能权限不够，造成一些不必要的错误。**
+**请用 `root` 用户执行文档中的命令，其他用户执行可能权限不够，造成一些不必要的错误。**
 :::
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="系统当前登录用户为 root 的终端提示示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
@@ -124,7 +124,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="230AI 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -142,7 +142,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="132GS 相机与 RDK 之间带方向的 MIPI 线材接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -191,7 +191,7 @@ i2cdetect -r -y 2
 cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
 ```
 
-- 方法 2：手动创建启动脚本`run_cam.sh`，写入以下内容
+- 方法 2：手动创建启动脚本 `run_cam.sh` ，写入以下内容
 
 ```bash
 #!/bin/bash
@@ -269,10 +269,10 @@ bash run_cam.sh --rotation 90.0 --log_level INFO
 - 日志解析：
 
 I2C bus 是**控制通道编号**，可以用于配置传感器寄存器，例如设置分辨率、设置帧率、启动 streaming，图像数据不走 I2C，I2C 只负责**控制**。
-程序会检测 X5 的第 4 路和第 6 路 I2C 控制器，是否能扫到 sensor 地址。日志中检测到 0x32、0x30 两个地址，对应 I2C bus-4 和 I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描 sensor 地址。
+程序会检测 X5 的第 4 路和第 6 路 I2C 控制器，是否能扫到 sensor 地址。日志中检测到 0x32、0x30 两个地址，对应 I2C bus-4 和 I2C bus-6，也可以使用上文提到的 `i2cdetect -r -y 4` 指令扫描 sensor 地址。
 
 mipi rx phy 是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
-日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以设置到下文提到的`channel`和`mipi_channel`参数，用于改变左右目图像的拼接顺序。
+日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以设置到下文提到的 `channel` 和 `mipi_channel` 参数，用于改变左右目图像的拼接顺序。
 
 
 #### (3) 创建双目算法启动脚本
@@ -283,7 +283,7 @@ mipi rx phy 是**图像数据通道编号**，相机采集的图像数据会走�
 cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
-- 方法 2：手动创建启动脚本`run_stereo.sh`，写入以下内容
+- 方法 2：手动创建启动脚本 `run_stereo.sh` ，写入以下内容
 
 ```bash
 #!/bin/bash
@@ -614,7 +614,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 </Tabs>
 
 :::caution **注意**
-**如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
+**如果程序没有正确启动，可以通过 `ros2 topic list -v` 检查一下是否存在 `stereo_image_topic` 和 `camera_info_topic` 对应的话题**
 
 **如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考下文确认左右图是否满足极线对齐要求**
 :::
@@ -623,7 +623,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png" alt="230AI 双目相机左右目定义与朝向示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- 双目算法启动成功后会打印如下日志，`fx/fy/cx/cy/baseline`是相机内参，`fps`是算法运行的帧率：
+- 双目算法启动成功后会打印如下日志， `fx/fy/cx/cy/baseline` 是相机内参， `fps` 是算法运行的帧率：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet 算法启动成功并打印内参与帧率的日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -646,37 +646,37 @@ rviz2
 
 #### (5) 参数定义
 
-`run_stereo.sh`脚本有很多可设置参数，下面介绍一些常用参数的定义，其它参数请参考源码中的解释：
+`run_stereo.sh` 脚本有很多可设置参数，下面介绍一些常用参数的定义，其它参数请参考源码中的解释：
 
 - stereonet_version 控制启动不同版本的算法
-  - RDK X5 可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`、`v2.5_int16`、`v2.5_int16_96`、`v2.5_int16_544_448`、`v2.5_int16_544_448_96`
-  - RDK S100 可以设置为`v2.1`、`v2.4`、`v2.4_1280_704`
+  - RDK X5 可以设置为 `v2.0` 、 `v2.1` 、 `v2.2` 、 `v2.3` 、 `v2.4_int16` 、 `v2.4_int8` 、 `v2.5_int16` 、 `v2.5_int16_96` 、 `v2.5_int16_544_448` 、 `v2.5_int16_544_448_96`
+  - RDK S100 可以设置为 `v2.1` 、 `v2.4` 、 `v2.4_1280_704`
 - stereo_node_name 控制 ros 节点的名称
-- uncertainty_th 为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为`0.10`
+- uncertainty_th 为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为 `0.10`
 - stereo_image_topic/camera_info_topic 为 ros 节点需要接收的话题名称，分别为双目图像和对应的相机参数
 - depth_image_topic/pointcloud2_topic/visual_image_topic 等控制 ros 节点发布的话题名称
 
 - mipi_image_width、mipi_image_height、mipi_image_framerate 控制相机的分辨率和帧率
 - mipi_gdc_enable 控制相机开启 GDC 矫正，相机会读取 EEPROM 存储的参数进行图像的畸变矫正，目前生成的相机都带有出厂标定参数
 - mipi_lpwm_enable 控制相机开启硬件同步，使得双目相机获取的左右图像时间戳是一致的，如果设置为 False，则使用软同步，同步误差较大
-- mipi_rotation 控制图像是否进行旋转，目前 132GS 相机 CMOS 安装时有 90°旋转，需要设置该参数为`90.0`
+- mipi_rotation 控制图像是否进行旋转，目前 132GS 相机 CMOS 安装时有 90°旋转，需要设置该参数为 `90.0`
 - mipi_channel、mipi_channel2 用于调换左右图输出顺序
 
 - calib_method 控制矫正方式
-  - 当`mipi_gdc_enable:=True`时，代表`hobot_mipi_cam`功能包已经对图像经过矫正，`hobot_stereonet`功能包不需要再进行矫正，calib_method 设置为`none`即可
-  - 当`mipi_gdc_enable:=False`时，或者相机无法对图像进行矫正时，需要将 calib_method 设置为`custom`，并且需要指定`stereo_calib_file_path`
+  - 当 `mipi_gdc_enable:=True` 时，代表 `hobot_mipi_cam` 功能包已经对图像经过矫正， `hobot_stereonet` 功能包不需要再进行矫正，calib_method 设置为 `none` 即可
+  - 当 `mipi_gdc_enable:=False` 时，或者相机无法对图像进行矫正时，需要将 calib_method 设置为 `custom` ，并且需要指定 `stereo_calib_file_path`
 - stereo_calib_file_path 控制自定义标定参数的路径
 
-- render_type 控制渲染方式，默认是`distance`，会自动根据深度图距离自动渲染伪彩色图像用于网页端显示，可以设置为`indoor`、`outdoor`，不建议设置为`indoor`
-- render_perf 控制渲染图像上是否展示 CPU、BPU 占用率、Latency、FPS 信息，可以设置为`True`、`False`
+- render_type 控制渲染方式，默认是 `distance` ，会自动根据深度图距离自动渲染伪彩色图像用于网页端显示，可以设置为 `indoor` 、 `outdoor` ，不建议设置为 `indoor`
+- render_perf 控制渲染图像上是否展示 CPU、BPU 占用率、Latency、FPS 信息，可以设置为 `True` 、 `False`
 
-- speckle_filter_enable 控制是否开启 speckle filter 滤波，可以设置为`True`、`False`
+- speckle_filter_enable 控制是否开启 speckle filter 滤波，可以设置为 `True` 、 `False`
 - max_speckle_size 控制 speckle 的大小，小于该大小的 speckle 将会被滤除，设置越大，滤波效果更强
 - max_disp_diff 控制 speckle 中视差的差异阈值，邻域小于该阈值的像素点将划分为同一个 speckle，设置越小，滤波效果更强
 
 - pointcloud_height_min/pointcloud_height_max/pointcloud_depth_max 控制点云的显示范围，单位是 m
 
-- pcl_filter_enable 控制是否开启点云滤波，可以设置为`True`、`False`
+- pcl_filter_enable 控制是否开启点云滤波，可以设置为 `True` 、 `False`
 - grid_size 控制点云滤波时的网格大小，单位 m
 - grid_min_point_count 控制点云滤波时的网格最小点数，小于该数量的点会被滤除
 
@@ -689,7 +689,7 @@ rviz2
 - local_image_dir 控制本地图像目录，离线推理时使用
 
 - epipolar_mode 控制是否开启基于棋盘格的极线对齐检测
-- epipolar_img 控制使用`origin`原图还是使用`rect`图
+- epipolar_img 控制使用 `origin` 原图还是使用 `rect` 图
 - chessboard_per_rows/chessboard_per_cols/chessboard_square_size 控制棋盘格内点数和棋盘格方块大小（单位 m）
 - feature_epipolar_mode 控制是否开启基于 ORB 特征点的极线对齐检测 
 
@@ -789,7 +789,7 @@ ros2 param set /StereoNetNode save_result_flag true
 #### (8) 开启极线对齐检测模式
 
 如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
-双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于`1 pixel`。
+双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于 `1 pixel` 。
 
 本程序开发了两种极线对齐检测方式：一种是基于棋盘格标定板的方式，这种方式比较严格，推荐使用；
 另一种是基于 ORB 特征点的方式，这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
@@ -807,7 +807,7 @@ bash run_stereo.sh --epipolar_mode True \
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg" alt="极线校正模式下 Web 端显示的左右目对齐图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在`1 pixel`内，双目图像才是合格图像，否则使用的标定参数是错误的
+基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在 `1 pixel` 内，双目图像才是合格图像，否则使用的标定参数是错误的
 
 - 基于 ORB 特征点极线对齐检测程序启动指令（以 X5 搭配 132GS 相机为例）：
 
@@ -820,7 +820,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="特征点极线模式下 Web 端显示的匹配效果图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-基于 ORB 特征点的极线对齐检测没有那么严格，根据经验值，如果是 640×352 分辨率的图像，极线对齐误差要小于`1 pixel`，如果是 1280×1088 分辨率的图像，极线对齐误差要小于`2 pixel`，双目图像才是合格图像
+基于 ORB 特征点的极线对齐检测没有那么严格，根据经验值，如果是 640×352 分辨率的图像，极线对齐误差要小于 `1 pixel` ，如果是 1280×1088 分辨率的图像，极线对齐误差要小于 `2 pixel` ，双目图像才是合格图像
 
 
 ### 5.4. 离线启动指令
@@ -829,11 +829,11 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 - 如果想利用本地图像评估算法效果，需要准备如下数据并上传到 RDK：
 
-1. **去畸变、极线对齐**的左右目图像，png 或者 jpg 格式，图片需要按照规则命名，左目图像需要带有`left`字段，右目图像需要带有`right`字段，算法按序号遍历图像，直至图像全部计算完毕：
+1. **去畸变、极线对齐**的左右目图像，png 或者 jpg 格式，图片需要按照规则命名，左目图像需要带有 `left` 字段，右目图像需要带有 `right` 字段，算法按序号遍历图像，直至图像全部计算完毕：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="离线双目左右目图像命名格式（含 left/right 字段）示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-2. 相机内参文件，保存在图像目录下，命名为`camera_intrinsic.txt`，参考内容如下：
+2. 相机内参文件，保存在图像目录下，命名为 `camera_intrinsic.txt` ，参考内容如下：
 ```bash
 # fx fy cx cy baseline(m)
 215.762581 215.762581 325.490113 173.881556 0.079957
@@ -922,7 +922,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 
 联网的情况下程序会自动下载标定文件，如果 RDK 没有联网，可以手动下载标定文件然后上传到 RDK。
 根据 log 信息，在 PC 端打开浏览器，输入(https://calib.stereolabs.com/?SN=38085162) ，即可下载标定文件 SN38085162.conf。
-注意每台 ZED 的 SN 码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到`/root/zed/settings/`目录下，如果目录不存在则手动创建。
+注意每台 ZED 的 SN 码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到 `/root/zed/settings/` 目录下，如果目录不存在则手动创建。
 
 - 然后，启动双目算法，开启另一个终端执行：
 

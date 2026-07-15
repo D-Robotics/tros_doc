@@ -118,9 +118,9 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 本节介绍多个算法同时推理，融合推理结果后在 WEB 端展示算法效果。
 
 :::warning
-仅`TROS Humble 2.3.1`以及后续版本支持此功能。
+仅 `TROS Humble 2.3.1` 以及后续版本支持此功能。
 
-`TROS`版本发布记录：[版本发布记录](../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../01_quick_start/install_tros.md)。
+`TROS` 版本发布记录：[版本发布记录](../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../01_quick_start/install_tros.md)。
 :::
 
 **使用 MIPI/USB 摄像头发布图片**
@@ -159,6 +159,6 @@ export CAM_TYPE=fb
 ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_source:=config/person_face_hand.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544 publish_fps:=30
 ```
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg" alt="浏览器 Web 端查看图像与算法渲染效果的界面截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

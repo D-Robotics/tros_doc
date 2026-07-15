@@ -355,7 +355,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655095725.093525634] [img_sub]: Sub img fps 3.91
 ```
 
-输出 log 显示，发布算法推理结果的 topic 为`hobot_dnn_detection`，订阅图片的 topic 为`/hbmem_img`，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，RDK 上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
+输出 log 显示，发布算法推理结果的 topic 为 `hobot_dnn_detection` ，订阅图片的 topic 为 `/hbmem_img` ，其中图片发布的帧率根据会根据算法推理输出帧率自适应。此外，RDK 上会渲染语义分割结果并存储图片在运行路径下，会使帧率下降。
 
 原始图片：
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/mobilenet_unet/mobilenet_unet_raw.jpeg" alt="MobileNet-UNet 语义分割示例使用的原始输入图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

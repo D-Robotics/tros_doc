@@ -240,7 +240,7 @@ import DocScope from '@site/src/components/DocScope';
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP 为 RDK/X86 设备 IP 地址，点击左上方 Web 端展示即可查看 JPEG 编码的实时画面
+3. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，IP 为 RDK/X86 设备 IP 地址，点击左上方 Web 端展示即可查看 JPEG 编码的实时画面
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web 端查看 JPEG 编码实时画面的展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -442,7 +442,7 @@ import DocScope from '@site/src/components/DocScope';
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP 为 RDK/X86 设备 IP 地址，点击左上方 Web 端展示即可查看 JPEG 编码的实时画面。
+3. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，IP 为 RDK/X86 设备 IP 地址，点击左上方 Web 端展示即可查看 JPEG 编码的实时画面。
 
 ## 注意事项
 

@@ -249,7 +249,7 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. Open a browser on the PC (Chrome/Firefox/Edge) and enter `http://IP:8000`, where IP is the RDK/X86 device IP address. Click Web Display in the upper left to view the real-time JPEG encoded feed.
+3. Open a browser on the PC (Chrome/Firefox/Edge) and enter `http://IP:8000` , where IP is the RDK/X86 device IP address. Click Web Display in the upper left to view the real-time JPEG encoded feed.
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web viewer showing the JPEG-encoded live stream" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -460,7 +460,7 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. Open a browser on the PC (Chrome/Firefox/Edge) and enter `http://IP:8000`, where IP is the RDK/X86 device IP address. Click Web Display in the upper left to view the real-time JPEG encoded feed.
+3. Open a browser on the PC (Chrome/Firefox/Edge) and enter `http://IP:8000` , where IP is the RDK/X86 device IP address. Click Web Display in the upper left to view the real-time JPEG encoded feed.
 
 ## Notes
 

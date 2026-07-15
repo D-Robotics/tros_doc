@@ -71,7 +71,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 
 ### 4.3. RDK X5 Configuration
 
-1. RDK X5 requires configuration to read IMU data. First check system version meets requirements (`3.4.1` or above):
+1. RDK X5 requires configuration to read IMU data. First check system version meets requirements ( `3.4.1` or above):
 
 ```bash
 cat /etc/version
@@ -140,7 +140,7 @@ ros2 topic list -v
 - /imu_data is IMU data topic publishing gyroscope and accelerometer data
 
 :::caution **Note**
-**In IMU data topic, `angular_velocity` is in rad/s, `linear_acceleration` is in m/s², and gravity is `9.81`**
+**In IMU data topic, `angular_velocity` is in rad/s, `linear_acceleration` is in m/s², and gravity is `9.81` **
 :::
 
 ## 5. Start Stereo Depth Algorithm

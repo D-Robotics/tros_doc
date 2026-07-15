@@ -75,7 +75,7 @@ App 通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 将小车置于水平地面，调整相机角度为水平，运行车位寻找 App 后，小车根据停车区域检测算法的结果，自动进行决策并控制小车运动，直到找到车位并进入车位停止。
 
-APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP 为 RDK 的 IP 地址）。
+APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000` ，IP 为 RDK 的 IP 地址）。
 
 打开 Web 端，需打开界面右上角设置，选中”全图分割“选项，可显示渲染效果。（参考 4.2 Boxs 应用算法——室外停车区域检测）
 
@@ -244,7 +244,7 @@ ros2 launch parking_search parking_search.launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif" alt="小车到达停车区域后提示 Parking Area Arrived 的效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
+PC 端在终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -260,4 +260,4 @@ $ ros2 topic list
 /tf
 ```
 
-其中`/image_jpeg`是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片，`/ai_msg_parking_perception`是 RDK 发布的包含车位检测信息的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
+其中 `/image_jpeg` 是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片， `/ai_msg_parking_perception` 是 RDK 发布的包含车位检测信息的算法 msg， `/cmd_vel` 是 RDK 发布的运动控制指令。

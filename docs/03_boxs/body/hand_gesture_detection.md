@@ -92,14 +92,14 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 启动动态手势识别
 
-launch 启动脚本默认只启动静态手势识别，可以在运行时使用`is_dynamic_gesture`参数切换为只启动动态手势识别，例如：`ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True`。
+launch 启动脚本默认只启动静态手势识别，可以在运行时使用 `is_dynamic_gesture` 参数切换为只启动动态手势识别，例如： `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py is_dynamic_gesture:=True` 。
 
 以下示例默认只启动静态手势识别。
 
 :::warning
-1. `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py`启动命令只支持输出静态或者动态手势识别，如需同时启动静态和动态手势识别，请使用`ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py`启动命令。
+1. `ros2 launch hand_gesture_detection hand_gesture_detection.launch.py` 启动命令只支持输出静态或者动态手势识别，如需同时启动静态和动态手势识别，请使用 `ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py` 启动命令。
 
-2. 动态手势识别功能仅限于`TROS Humble 2.3.1`以及后续版本。TROS 版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
+2. 动态手势识别功能仅限于 `TROS Humble 2.3.1` 以及后续版本。TROS 版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
 :::
 
 ### 使用 MIPI 摄像头
@@ -185,9 +185,9 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 ### 使用本地图片回灌
 
 :::warning
-仅`TROS Humble 2.3.1`以及后续版本支持此功能。
+仅 `TROS Humble 2.3.1` 以及后续版本支持此功能。
 
-`TROS`版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
+`TROS` 版本发布记录：[版本发布记录](../../01_quick_start/changelog.md)，版本查看方法：[apt 安装与升级](../../01_quick_start/install_tros.md)。
 :::
 
 
@@ -261,6 +261,6 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py publish_imag
 
 输出 log 显示，订阅到的算法 msg 中有一个 hand（包含人手框和人手关键点检测结果），手势识别算法输出的手势分类结果是 “Palm” 手势（分类结果为 5）。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/gesture_render.jpeg" alt="Web 端手势识别算法渲染效果截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

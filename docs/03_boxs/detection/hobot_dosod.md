@@ -268,9 +268,9 @@ ros2 launch hobot_dosod dosod.launch.py
 
 除了设定模型，还支持变更模型与配置。
 
-- X5: 更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
+- X5: 更改模型文件配置为 `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` ，更改模型类别配置为 `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` 。
 
-- S100: 更改模型文件配置为`dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"`，更改模型类别配置为`dosod_vocabulary_file_name:=config/offline_vocabulary.json"`。
+- S100: 更改模型文件配置为 `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` ，更改模型类别配置为 `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` 。
 
 ## 结果分析
 
@@ -375,7 +375,7 @@ webserver has launch
 [hobot_dosod-3] [WARN] [1736305421.860964318] [hobot_dosod]: Sub img fps: 9.99, Smart fps: 9.99, pre process time ms: 14, infer time ms: 100, post process time ms: 7
 ```
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg" alt="Web 端 DOSOD 开放词汇目标检测渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

@@ -184,7 +184,7 @@ The terminal outputs the following information during execution:
 [example-3] [WARN] [1655093202.302124315] [example]: Smart fps 7.10
 ```
 
-The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection`, and the topic for subscribing to images is `/hbmem_img`.
+The log shows that the topic for publishing algorithm inference results is `hobot_dnn_detection` , and the topic for subscribing to images is `/hbmem_img` .
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK's IP address):
 

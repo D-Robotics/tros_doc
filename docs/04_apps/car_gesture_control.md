@@ -87,7 +87,7 @@ App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指�
 
 运行小车手势控制 App 后，通过 “666 手势/Awesome” 手势控制小车前进，“yeah/Victory” 手势控制小车后退，“大拇指向右/ThumbRight” 手势控制小车右转，“大拇指向左/ThumbLeft” 手势控制小车左转。其中左转/右转分别是向人的左/右方向（大拇指的指向）转动。
 
-App 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP 为 RDK 的 IP 地址）。
+App 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000` ，IP 为 RDK 的 IP 地址）。
 
 PC 端启动仿真环境：
 
@@ -223,7 +223,7 @@ ros2 launch gesture_control gesture_control.launch.py
 
 从时间戳 frame_ts_ms: 3698315358 开始通过 666 手势（gesture: 14）控制小车以 0.5m/s 的速度前进运动（do move, direction: 0, step: 0.500000）。
 
-PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
+PC 端在终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -238,9 +238,9 @@ $ ros2 topic list
 /rosout
 ```
 
-其中`/image`是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片，`/hobot_hand_gesture_detection`是 RDK 发布的包含手势识别信息的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
+其中 `/image` 是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片， `/hobot_hand_gesture_detection` 是 RDK 发布的包含手势识别信息的算法 msg， `/cmd_vel` 是 RDK 发布的运动控制指令。
 
-PC 端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到 RDK 发布的运动控制指令：
+PC 端在终端使用 `ros2 topic echo /cmd_vel` 命令可以查看到 RDK 发布的运动控制指令：
 
 ```shell
 linear:

@@ -262,9 +262,9 @@ ros2 launch hobot_dosod dosod.launch.py
 
 In addition to setting the model, you can also change the model and configuration.
 
-- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- X5: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` , and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` .
 
-- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"`, and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"`.
+- S100: Change the model file configuration to `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` , and change the model category configuration to `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` .
 
 ## Result Analysis
 
