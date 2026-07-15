@@ -67,7 +67,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 1. Set the module back switch to `EXT` mode, not `LPWM` mode
 2. Connect the camera black Dupont wire to RDK X5 pin `37` for external trigger to synchronize camera and IMU timestamps. See [Pin Definition and Application](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md) for pin definitions
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png" alt="Dupont-wire connection from the stereo IMU camera to RDK X5 pin 37" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam-en.png" alt="Dupont-wire connection from the stereo IMU camera to RDK X5 pin 37" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 4.3. RDK X5 Configuration
 
