@@ -157,4 +157,4 @@ log截取显示了一帧的处理结果，结果显示，订阅到的算法msg�
 
 读取本地图片（可以通过修改mono3d_indoor_detection.launch.py中feed_image字段替换图片）渲染的结果保存成图片在程序运行的result目录下。对应图片推理结果以及渲染信息如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/indoor_render.jpeg" alt="室内 3D 检测本地图片推理结果与渲染信息示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

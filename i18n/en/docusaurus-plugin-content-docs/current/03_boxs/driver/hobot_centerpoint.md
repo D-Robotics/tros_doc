@@ -146,4 +146,4 @@ The output log shows that the topic publishing algorithm inference results is `/
 
 Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering results (IP is the RDK's IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_centerpoint_det.jpg" alt="Web UI render of CenterPoint point-cloud object detection" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

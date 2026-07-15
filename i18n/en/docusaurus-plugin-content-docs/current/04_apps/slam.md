@@ -278,7 +278,7 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 :::
 
 The simulation environment is shown below:
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/gazebo.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/gazebo.jpg" alt="Gazebo simulation scene after starting the SLAM example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Open another terminal on the PC and launch Rviz2 to visualize the mapping effect:
 
@@ -339,7 +339,7 @@ ros2 launch turtlebot3_bringup rviz2.launch.py
 ```
 
 After launching Rviz2, add the "map" visualization option to display the constructed map. Follow the steps shown below:
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/slam/rvizsetting.jpg" alt="RViz2 configuration steps for adding a map display to show mapping results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Run SLAM-Toolbox on the RDK board:
 
@@ -465,7 +465,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=True
 </DocScope>
 
 As the robot moves, its radar detects more environmental information, and the SLAM algorithm builds an environmental map. The mapping effect can be observed in Rviz2.
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/06_Application_case/amr/map.jpg" alt="Environment map gradually built in RViz2 while the car drives" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Result Analysis
 

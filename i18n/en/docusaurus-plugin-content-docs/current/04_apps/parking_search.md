@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 The parking space search control App guides the robot to a parking space using a parking space detection algorithm, including left/right rotation and forward/backward translation. The App consists of MIPI image capture, parking space detection algorithm, parking space search control strategy, image encoding/decoding, and a Web display client. The workflow is shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png" alt="Flowchart of the parking-search control app from detection to motion decisions" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 The App directly controls a physical robot using control commands published by the parking space search control strategy. It can also be tested using a virtual robot in the PC-side Gazebo simulation environment.
 
@@ -33,7 +33,7 @@ Code repository: (https://github.com/D-Robotics/parking_search.git)
 
 The field of view is divided into three regions: "left", "center", and "right". Calculate the IOU of parking areas and driving areas in each region, determine the corresponding region type based on thresholds, and complete robot movement decisions.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png" alt="Diagram dividing the camera view into left/center/right regions for parking decisions" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. Threshold settings:
 
@@ -53,7 +53,7 @@ Note: In actual detection, since the algorithm detection accuracy cannot reach 1
 
 4. Algorithm workflow:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png" alt="Diagram of parking/driving-area IOU calculation and motion decision flow" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Preparation
 
@@ -67,7 +67,7 @@ Note: In actual detection, since the algorithm detection accuracy cannot reach 1
 
 4. An OriginBot robot as the control lower-level device.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/car.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/car.jpg" alt="Photo of the Guyueju robot car used as the motion controller" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Usage
 
@@ -210,7 +210,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1661942399.449585563] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif" alt="Animation of the car translating toward a parking area during search" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. When the robot turns after detecting a parking space, the RDK terminal outputs log information:
 
@@ -224,7 +224,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif" alt="Animation of the car rotating to adjust heading during parking search" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. When the robot confirms the parking space, moves forward, and finally stops, the RDK terminal outputs log information:
 
@@ -242,7 +242,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif" alt="Animation showing Parking Area Arrived after the car reaches the parking zone" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 

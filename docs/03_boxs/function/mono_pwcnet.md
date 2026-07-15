@@ -20,7 +20,7 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：光流估计是一种用于确定图像序列中物体表面上像素移动模式的技术，可以应用在自动驾驶、运动分析、目标追踪等领域中。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg" alt="PWC-Net 光流估计本地回灌渲染结果示例" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 支持平台
 
@@ -214,4 +214,4 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 
 在PC端的浏览器输入`http://IP:8000` ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP为RDK设备的IP地址）
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif" alt="Web 端开启全图分割后查看光流渲染效果的动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

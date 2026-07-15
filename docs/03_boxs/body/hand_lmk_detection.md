@@ -16,7 +16,7 @@ import DocScope from '@site/src/components/DocScope';
 
 人手关键点索引如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_lmk_index.jpeg" alt="人手关键点索引编号示意图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 代码仓库：
 
@@ -177,4 +177,4 @@ ros2 launch hand_lmk_detection hand_lmk_detection.launch.py
 
 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/hand_render.jpeg" alt="Web 端人手关键点检测算法渲染效果截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

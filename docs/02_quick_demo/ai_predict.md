@@ -110,7 +110,7 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 
 渲染后的图片render_feedback_0_0.jpeg：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg" alt="AI 推理示例本地回灌后保存的算法渲染结果图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
 ## 多算法推理
@@ -161,4 +161,4 @@ ros2 launch hand_gesture_detection hand_gesture_fusion.launch.py publish_image_s
 
 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/ai_predict_all_perc_render.jpg" alt="浏览器 Web 端查看图像与算法渲染效果的界面截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

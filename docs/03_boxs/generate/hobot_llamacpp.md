@@ -166,7 +166,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p image:=conf
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
-![internvlm_result](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/vlm_result.png" alt="InternVLM 多模态模型基于本地图片与提示词的输出结果示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### SmolVLM
 
@@ -211,7 +211,7 @@ ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=0 -p model_type:
 
 程序启动后，可使用本地图片与自定义提示词进行输出。
 
-![smolvlm_result](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_llamacpp/smolvlm_result.png" alt="SmolVLM 多模态模型基于本地图片与提示词的输出结果示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 注意事项
 

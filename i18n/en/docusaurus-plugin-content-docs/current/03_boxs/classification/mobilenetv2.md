@@ -321,7 +321,7 @@ The output log shows that the topic publishing algorithm inference results is `h
 
 Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering效果 (IP is the IP address of the RDK):
 
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg" alt="Web UI render of MobileNetV2 image classification results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Using Local Image Injection
 
@@ -343,4 +343,4 @@ The following information is output in the running terminal:
 
 The output log shows that the algorithm, using the input image config/target_class.jpg, infers the image classification result as window-shade with a confidence of 0.776356 (the algorithm only outputs the classification result with the highest confidence). The saved rendered image file is named render_feedback_0_0.jpeg. The rendered image effect:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_feedback.jpeg" alt="Saved classification render image from MobileNetV2 local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

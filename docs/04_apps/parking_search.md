@@ -15,7 +15,7 @@ import DocScope from '@site/src/components/DocScope';
 
 车位寻找控制App功能为通过车位检测算法指导机器人运动到停车位，包括左右旋转和前后平移运动。App由MIPI图像采集、车位检测算法、车位寻找控制策略、图像编解码、Web展示端组成，流程如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/msg_workflow.png" alt="车位寻找控制 App 从检测到运动决策的流程图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 App通过车位寻找控制策略发布的控制指令直接控制实物小车，也可以利用PC端Gazebo仿真环境下的虚拟小车进行测试。
 
@@ -33,7 +33,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 将视野场景区域分为“左”、“中”、“右”三个区域。计算每个区域内停车区域和行车区域的IOU，根据阈值判断对应区域类型，从而完成小车运动决策。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/view_area.png" alt="将相机视野划分为左中右三区用于车位决策的示意图" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 2.阈值设置:
 
@@ -53,7 +53,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 4.算法流程:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png" alt="停车区域与行车区域 IOU 计算及运动决策流程说明图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 准备工作
 
@@ -67,7 +67,7 @@ App通过车位寻找控制策略发布的控制指令直接控制实物小车�
 
 4. 一台古月居小车作为控制下位机。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/car.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/car.jpg" alt="作为控制下位机的古月居小车实物图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 使用介绍
 
@@ -210,7 +210,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1661942399.449585563] [ParkingSearchEngine]: do move, direction: 0, step: 0.100000
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap1.gif" alt="车位寻找过程中小车平移靠近停车区域的运行效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2.小车发现车位后转向时在RDK运行终端输出log信息:
 
@@ -224,7 +224,7 @@ ros2 launch parking_search parking_search.launch.py
 [parking_search-4] [WARN] [1662539779.604272498] [ParkingSearchEngine]: do rotate, direction: 2, step: 0.100000
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap2.gif" alt="车位寻找过程中小车旋转调整朝向的运行效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3.小车确定车位后前进并最终停止时在RDK运行终端输出log信息:
 
@@ -242,7 +242,7 @@ ros2 launch parking_search parking_search.launch.py
 
 ```
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/parking_search/cap3.gif" alt="小车到达停车区域后提示 Parking Area Arrived 的效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 PC端在终端使用`ros2 topic list`命令可以查询到RDK的topic信息：
 

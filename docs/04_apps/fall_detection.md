@@ -142,4 +142,4 @@ ros2 launch hobot_falldown_detection hobot_falldown_detection.launch.py
 
 在PC端的浏览器输入 `http://IP:8000`，人体检测框，关键点和姿态检测结果在web端展示渲染效果（IP为RDK的IP地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/fall_detection/falldown.jpg" alt="Web 端跌倒检测人体框、关键点与姿态结果渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

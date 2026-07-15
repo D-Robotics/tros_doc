@@ -145,7 +145,7 @@ Enter `http://IP:8000` in a PC browser to view the images and algorithm renderin
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg" alt="Web UI visualization of BEV bird's-eye-view perception results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 </TabItem>
 

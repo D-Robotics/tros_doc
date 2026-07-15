@@ -173,7 +173,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 运行效果如下图
 
-![hello world](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png" alt="Hello World 示例中 publisher 与 subscriber 两端终端收发消息的运行效果" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 可以看到左侧终端作为pub，在不断发送“'Hello, world! N”，右侧终端作为sub端不断收到“'Hello, world! N”
 
 OK tros.b目前已成功安装并验证！

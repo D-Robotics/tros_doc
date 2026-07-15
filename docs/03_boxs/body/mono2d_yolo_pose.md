@@ -23,7 +23,7 @@ import DocScope from '@site/src/components/DocScope';
 
 人体关键点算法结果索引如下图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_yolo_index.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_yolo_index.jpeg" alt="YOLO Pose 人体关键点算法结果索引示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 代码仓库： (https://github.com/D-Robotics/mono2d_body_detection)
@@ -260,4 +260,4 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_
 
 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪ID，人体关键点）渲染效果（IP为RDK/X86设备的IP地址）：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.png" alt="Web 端 YOLO Pose 人体检测框与关键点渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

@@ -202,6 +202,6 @@ Terminal log on successful retrieval:
 
 Enter http://IP:8080 in a PC browser to view image retrieval results (IP is the device IP address).
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png" alt="Browser UI showing CLIP image retrieval results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Result analysis: You can see retrieval results ordered by similarity between the search text and images. Only the CLIP.png image is provided in this example; other images are from the user's actual config directory. Therefore, only the first image in the expected visualization result should match the example.

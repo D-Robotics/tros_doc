@@ -26,7 +26,7 @@ Supported detection categories and their corresponding data types in the algorit
 
 Body keypoint algorithm result indices are shown in the figure below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg" alt="Human body keypoint result index numbering diagram" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
@@ -265,4 +265,4 @@ The output log shows that the program ran successfully. During inference, the al
 
 Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg" alt="Web UI render of body/head/face/hand boxes and human keypoints" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

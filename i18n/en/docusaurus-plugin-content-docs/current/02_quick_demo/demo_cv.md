@@ -376,7 +376,7 @@ According to the log, the test program completed crop processing on a local 1920
 
 The original local image at 1920x1080 and the cropped top-left 960x540 region are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png" alt="Comparison after cropping the top-left 960x540 region from a 1920x1080 source image" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 </DocScope>
 ## resize
@@ -506,7 +506,7 @@ The first run takes longer because the VPS hardware needs to be configured. If t
 
 The original local image at 1920x1080 and the resized 960x540 image are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png" alt="Comparison after resizing a 1920x1080 source image to 960x540" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### RDK X3 Platform Performance Comparison
 
@@ -607,9 +607,9 @@ The first run takes longer because the VPS hardware needs to be configured. If t
 
 The original local image at 1920x1080 and the rotated 1920x1080 image are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg" alt="Original input image used in the rotation example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg" alt="Output image after rotating the source image" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### hobot_cv vs OpenCV Performance Comparison
 
@@ -705,7 +705,7 @@ The first run takes longer because the VPS hardware needs to be configured. If t
 
 The original local image at 1920x1080 and the pyramid-scaled image are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg" alt="Multi-scale outputs after pyramid downscaling of the source image" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Outputs six base layers; each layer's size is half that of the previous layer.
 

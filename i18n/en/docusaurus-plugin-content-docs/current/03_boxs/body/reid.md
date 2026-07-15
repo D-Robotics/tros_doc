@@ -410,4 +410,4 @@ webserver has launch
 
 In this example, inference results are rendered on the Web. Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (IP is the RDK IP address). The ID on each person is the instance ID result.
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_reid.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_reid.png" alt="Web UI render of person re-identification results with instance IDs" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

@@ -204,7 +204,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面。
 
-![USB 摄像头实时画面](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Web 端展示的 USB 摄像头实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
 
@@ -429,7 +429,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
 6. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP为RDK IP地址），点击左上方Web端展示即可查看USB摄像头实时画面
-    ![image-usb-camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Web 端展示的 USB 摄像头实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
 ### 注意事项
@@ -537,11 +537,11 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 | 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
-| 1    | F37    | ![F37](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg)       | 200W像素 | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
-| 2    | GC4663 | ![GC4663](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg) | 400W像素 | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
-| 4    | IMX477 | ![IMX477](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg) | 200W像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
-| 5    | OV5647 | ![OV5647](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg) | 200W像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | ![IMX415](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg) | 200W像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+| 1    | F37    | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg" alt="F37 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} />       | 200W像素 | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
+| 2    | GC4663 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg" alt="GC4663 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 400W像素 | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 4    | IMX477 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg" alt="IMX477 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
+| 5    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="OV5647 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 6    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="IMX415 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
 代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
 
@@ -553,11 +553,11 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     如 F37 摄像头的接入RDK X3方式如下图：
 
-    ![image-X3-PI-Camera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="F37 摄像头接入 RDK X3 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
     如 imx219 摄像头的接入RDK S100方式如下图：
     
-    ![image-S100-imx219](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg" alt="IMX219 摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 2. RDK已烧录好Ubuntu系统镜像
 
@@ -663,7 +663,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
 5. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到F37输出的实时画面
-    ![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web 端查看 F37 摄像头 JPEG 编码实时画面的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 6. 在PC机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
 
@@ -872,11 +872,11 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     如 SC230ai 双目摄像头的接入RDK X5, RDK X5 Module方式如下图：
 
-    ![image-X5-PI-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg" alt="SC230AI 双目摄像头接入 RDK X5 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
     如SC230ai 双目摄像头的接入S100方式如下图：
 
-    ![image-S100-sc230ai-DualCamera](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png" alt="SC230AI 双目摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 2. RDK已烧录好RDK OS系统
 
@@ -1031,7 +1031,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     ```
 
     (2) PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`（IP为RDK IP地址），点击左上方Web端展示即可看到双目输出的实时画面
-    ![web-dualcamera-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg" alt="Web 端查看双目摄像头输出实时画面的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 
 ### 注意事项
@@ -1071,7 +1071,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 1. 确认摄像头正确接入RDK，RGBD模组接入RDK X3方式如下图：
 
-    ![hobot_rgbd](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd.png" alt="RGBD 模组接入 RDK X3 的硬件连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
     **注意：RGBD模组需要额外转接板才能接到RDK X3上**。
 2. RDK已烧录好Ubuntu系统镜像。
@@ -1262,7 +1262,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
     在 rviz2 界面上点击 add 按钮，添加rgbd_sensor 所发布 topic （参见目录3所标示的 rgbd_CP3AM 相关 topic），订阅点云需要把rviz2 配置的Global Options 里面的选项“Fixed Frame”修改为 “depth”，就可以观看实时点云信息。在 point 话题配置中，里面point type 选择points 即可。
 
-    ![hobot_rgbd_sensor](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/hobot_rgbd_sensor.png" alt="在 RViz2 中订阅 RGBD 相关话题并显示点云的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 5. 在PC机上查询相机内参
 
@@ -1369,7 +1369,7 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
 
 所以，双目相机ROS功能包的一般安装流程是：首先安装相机的SDK库文件，然后安装相机的ROS封装功能包。
 
-![stereo-camera-ros-arch](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png" alt="双目相机 SDK 与 ROS 功能包分层安装架构示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 本节介绍RealSense相机在RDK平台上的使用方法。
 
@@ -1443,11 +1443,11 @@ sudo apt-get install ros-$ROS_DISTRO-realsense2-* -y
 ros2 launch realsense2_camera rs_launch.py
 ```
 
-![realsense-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-start-up-log.png" alt="RealSense 相机 ros2 launch 启动成功后的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 可以通过`ros2 topic list`查看RealSense发布的话题，默认参数启动RealSense相机只会开启相机的深度数据流和RGB数据流。
 
-![realsense-basic-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png" alt="默认参数下 RealSense 发布的深度与 RGB 话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 RealSense ROS wrapper提供了很多可设置参数，例如`enable_infra1:=true`和`pointcloud.enable:=true`会开启相机的左IR数据流和点云数据流。
@@ -1456,9 +1456,9 @@ RealSense ROS wrapper提供了很多可设置参数，例如`enable_infra1:=true
 ros2 launch realsense2_camera rs_launch.py enable_infra1:=true pointcloud.enable:=true
 ```
 
-![realsense-ir-pointcloud-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-ir-pointcloud-topic.png" alt="开启红外与点云后 RealSense 发布的话题列表示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-![realsense-image](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image.png" alt="RealSense 红外与点云相关话题对应的图像/数据示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 此外RealSense还开启了一些服务，可以通过`ros2 service list`查看，例如可以通过服务查询相机的序列号、固件版本等信息。
 
@@ -1477,19 +1477,19 @@ ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
 ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true align_depth.enable:=true enable_color:=true enable_depth:=true
 ```
 
-![realsense-d2c-topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-d2c-topic.png" alt="开启深度对齐到彩色后 RealSense 发布的话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-![realsense-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-image-align.png" alt="RealSense 深度对齐彩色（D2C）后的图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### 5. 图像和点云的显示
 
 要显示RealSense的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
-![realsense-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-rviz2.png" alt="在 RViz2 中显示 RealSense 图像与点云的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 推荐直接在RDK上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
 
-![realsense-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="使用 ros2 topic echo 在板端确认 RealSense 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## 奥比中光(Orbbec)相机图像采集
 
@@ -1501,7 +1501,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 所以，双目相机ROS功能包的一般安装流程是：首先安装相机的SDK库文件，然后安装相机的ROS封装功能包。
 
-![stereo-camera-ros-arch](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/stereo-camera-ros-arch.png" alt="双目相机 SDK 与 ROS 功能包分层安装架构示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 本节介绍Orbbec相机在RDK平台上的使用方法。
 
@@ -1594,11 +1594,11 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
 
-![swapfile](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/swapfile.png" alt="创建并启用 swapfile 交换分区的命令执行示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 设置好swap空间后，可以使用`swapon --show`、`free -h`或`htop`命令查看当前的swap使用情况，例如使用`htop`命令查看：
 
-![htop-swap](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/htop-swap.png" alt="使用 htop 查看系统 swap 使用情况的界面截图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 这样设置只是临时生效，断电重启后swap空间会失效，如果希望系统重启后仍然使用这个swap文件，可以重新执行一下`sudo swapon /swapfile`，或者将其添加到`/etc/fstab文`件中。
 
@@ -1611,7 +1611,7 @@ sudo vim /etc/fstab
 sync
 ```
 
-![etc-fstab](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/etc-fstab.png" alt="在 /etc/fstab 中配置 swap 开机自动挂载的文件内容示意" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 如果要删除swap空间的话，可以执行如下命令。
 
@@ -1637,7 +1637,7 @@ colcon build
 
 在RDK X3平台的编译结果：
 
-![orbbec-ros-colcon-build](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-ros-colcon-build.png" alt="Orbbec 相机 ROS 包在 RDK X3 上 colcon 编译成功的结果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 #### 3. Orbbec相机启动
 
@@ -1649,11 +1649,11 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py
 ```
 
-![orbbec-start-up-log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-start-up-log.png" alt="Orbbec Gemini2 相机 launch 启动成功后的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 可以通过`ros2 topic list`查看Gemini2发布的话题，默认参数启动Gemini2相机会开启相机的深度数据流、RGB数据流、IR数据流和点云数据流。
 
-![orbbec-topic-echo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-list.png" alt="Gemini2 默认启动后发布的深度、RGB、IR 与点云话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Orbbec ROS2 wrapper提供了很多可设置参数，例如`enable_point_cloud:=false`和`enable_colored_point_cloud:=false`会关闭相机的点云数据流。
 
@@ -1680,17 +1680,17 @@ source ./install/setup.bash
 ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 ```
 
-![orbbec-image-align](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-image-align.png" alt="Orbbec 开启深度配准后的图像对齐效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 #### 5. 图像和点云的显示
 
 要显示Orbbec的图像和点云，有多种方式，可参考[数据展示](./demo_render.md)，例如可以在PC机上使用`rviz2`显示，这种方式需要确认PC机能够通过网络访问RDK，数据通过网络传输，压力较大，可能会出现卡顿的现象。
 
-![orbbec-rviz2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-rviz2.png" alt="在 RViz2 中显示 Orbbec 图像与点云的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 推荐直接在RDK上直接读取数据，确认出流是否正常，可以通过`ros2 topic echo topic_name`打印数据或者编写代码订阅相应话题。
 
-![orbbec-topic-echo.png](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="使用 ros2 topic echo 确认 Orbbec 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 ## ZED相机图像采集
@@ -1763,4 +1763,4 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 
 3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000`（IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看ZED相机实时画面。
 
-![ZED相机实时画面](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Web 端展示的 ZED 相机实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

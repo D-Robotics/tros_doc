@@ -249,4 +249,4 @@ $ ros2 topic list
 
 /asr_text 话题需要特定的唤醒词 “你好，地瓜机器人” 才会有输出，`ros2 topic echo /asr_text`结果为：
 
-![执行结果](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg" alt="唤醒后 /asr_text 话题输出语音识别文本的终端回显结果" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

@@ -14,11 +14,11 @@ import DocScope from '@site/src/components/DocScope';
 
 The Smart Box app is designed to perform intelligent analysis after inputting an IPC video stream. The app consists of an RTSP video stream, video decoding, human body and face detection, image encoding, and a web display interface. The workflow is illustrated below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow.jpg" alt="Flowchart of the smart video box app from RTSP decode to web display" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 In actual customer applications, the display part is handled by the customer's business system. The main functions of the Smart Box include RTSP video stream, video decoding, human body and face detection, and publishing intelligent results and images to the customer's business system. The workflow is as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_workflow2.jpg" alt="Application flowchart of the smart box publishing results and images to a business system" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Code Repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
@@ -280,8 +280,8 @@ Among these, `/rtsp_image_ch_0` is the video published by the RDK after obtainin
 
 Enter `http://IP:8000` in a browser on the PC for split-screen configuration:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_boxs_websocket.jpg" alt="Web UI screenshot of multi-stream split-screen configuration" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Human body and face detection boxes, key points, and pose detection results are rendered on the web interface (where `IP` is the IP address of the RDK):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/video_boxs/video_box_detection.jpg" alt="Web UI render of body/face boxes, keypoints, and pose detection results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

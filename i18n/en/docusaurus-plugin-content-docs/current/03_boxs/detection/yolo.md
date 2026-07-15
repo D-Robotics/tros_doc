@@ -343,7 +343,7 @@ The log shows that the topic for publishing algorithm inference results is `hobo
 
 Enter `http://IP:8000` in a PC browser to view the images and algorithm rendering effects (where IP is the RDK's IP address):
 
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_web.jpeg" alt="Web UI render of YOLO object detection results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Using Local Image Injection
 
@@ -363,4 +363,4 @@ The terminal output will display information like this:
 
 The log indicates that the algorithm inferred 8 objects from the input image and output the coordinates of the object detection boxes (the output coordinates are the top-left x and y, and the bottom-right x and y of the object bounding box) along with their categories. The rendered image is saved as `render_feedback_0_0.jpeg`, and its effect is as follows:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/yolov2_render_feedback.jpeg" alt="Saved detection-box render from YOLO local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

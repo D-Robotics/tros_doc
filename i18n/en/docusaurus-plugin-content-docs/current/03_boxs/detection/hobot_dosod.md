@@ -371,7 +371,7 @@ webserver has launch
 
 Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering effects (IP is the IP address of the RDK):
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_dosod.jpeg" alt="Web UI render of DOSOD open-vocabulary object detection" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Advanced Usage
 

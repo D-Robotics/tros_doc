@@ -376,7 +376,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 本地原图1920x1080、crop左上角960x540区域，效果图片展示如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-crop.png" alt="原图 1920×1080 裁剪左上角 960×540 区域后的效果对比" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 </DocScope>
 ## resize
@@ -503,7 +503,7 @@ ros2 launch hobot_cv hobot_cv_resize.launch.py
 
 本地原图1920x1080、resize后960x540图片如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/ori-resize.png" alt="原图 1920×1080 缩放为 960×540 后的效果对比" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 #### RDK X3平台性能对比
 
@@ -604,9 +604,9 @@ ros2 launch hobot_cv hobot_cv_rotate.launch.py
 
 本地原图1920x1080、rotate后1920x1080图片如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg" alt="用于旋转示例的原始输入图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/rotate.jpg" alt="原图旋转处理后的输出效果图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### hobot_cv与opencv处理性能对比
 
@@ -702,7 +702,7 @@ ros2 launch hobot_cv hobot_cv_pyramid.launch.py
 
 本地原图1920x1080、pyramid缩放后图片如下：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_cv/pym_ds.jpg" alt="原图经金字塔缩放后的多尺度输出效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 输出基础层六层，每一层size是上一层的1/2
 

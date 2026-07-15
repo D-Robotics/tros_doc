@@ -145,7 +145,7 @@ ros2 launch hobot_bev hobot_bev.launch.py
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_bev_s100.jpeg" alt="BEV 鸟瞰感知算法在 Web 端的渲染可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 </TabItem>
 

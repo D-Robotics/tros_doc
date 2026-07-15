@@ -60,14 +60,14 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 
 - Note: the camera is available in black metal and acrylic housing versions with identical functionality
 
-![LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam.jpg" alt="Photo of a stereo camera module with IMU (metal/acrylic housing)" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 4.2. Hardware Connection
 
 1. Set the module back switch to `EXT` mode, not `LPWM` mode
 2. Connect the camera black Dupont wire to RDK X5 pin `37` for external trigger to synchronize camera and IMU timestamps. See [Pin Definition and Application](../../../03_Basic_Application/01_40pin_user_sample/40pin_define.md) for pin definitions
 
-![RDK_X5_LH_IMU_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png" alt="Dupont-wire connection from the stereo IMU camera to RDK X5 pin 37" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 4.3. RDK X5 Configuration
 
@@ -83,10 +83,10 @@ cat /etc/version
 srpi-config
 ```
 
-![LH_IMU_cam_config1](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config1.png)
-![LH_IMU_cam_config2](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config2.png)
-![LH_IMU_cam_config3](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png)
-![LH_IMU_cam_config4](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config1.png" alt="srpi-config step 1 for stereo IMU camera related options" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config2.png" alt="srpi-config step 2 for stereo IMU camera related options" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png" alt="srpi-config step 3 for stereo IMU camera related options" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png" alt="srpi-config step 4 for stereo IMU camera related options" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. After reboot, confirm `/sys/bus/iio/devices/` contains `iio:device1` and `iio:device2` for successful configuration
 
@@ -94,7 +94,7 @@ srpi-config
 ll /sys/bus/iio/devices/
 ```
 
-![LH_IMU_cam_config5](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config5.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config5.png" alt="Terminal listing of IMU device nodes under /sys/bus/iio/devices" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 4.4. Camera Startup Commands
 
@@ -125,7 +125,7 @@ Parameter description:
 
 2. On successful startup, the following log is printed including all camera calibration parameters. Stereo calibration currently uses fisheye mode; see [OpenCV fisheye](https://docs.opencv.org/4.x/db/d58/group__calib3d__fisheye.html):
 
-![LH_IMU_cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_run_success_log.png" alt="Success log of the stereo IMU camera startup with calibration parameters" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 3. Published topics:
 
@@ -133,7 +133,7 @@ Parameter description:
 ros2 topic list -v
 ```
 
-![LH_IMU_cam_topic](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_topic.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_topic.png" alt="Output of ros2 topic list -v for stereo IMU camera topics" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - /image_combine_raw is vertically stacked stereo image; mipi_channel:=2 mipi_channel2:=0 controls stitching order
 - /image_left_raw and /image_right_raw are left/right data topics; mipi_channel:=2 mipi_channel2:=0 controls order
@@ -160,7 +160,7 @@ bash run_stereo.sh --mipi_rotation 0.0
 
 - After startup, view RGB and depth images on web at `http://ip:8000` (RDK IP in figure is 192.168.128.10):
 
-![LH_IMU_cam_DStereo](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_DStereo.png" alt="Web UI showing RGB and depth images from the stereo IMU camera" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## 6. Stereo VIO Algorithm (OpenVINS Example)
 
@@ -425,5 +425,5 @@ rosrun rviz rviz -d <OpenVINS目录>/open_vins/ov_msckf/launch/display.rviz
 rosbag play xxx_ros1.bag
 ```
 
-![LH_IMU_cam_OpneVINS](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_OpneVINS.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_OpneVINS.gif" alt="Animation of OpenVINS localization using stereo IMU data" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

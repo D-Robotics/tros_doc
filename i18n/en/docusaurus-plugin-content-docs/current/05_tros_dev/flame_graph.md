@@ -9,7 +9,7 @@ sidebar_products: RDK-X3,RDK-X5
 
 A flame graph is a graphical way to display performance data collected by tools such as perf. It aggregates and analyzes the data to help identify performance hotspots.
 
-![http-bw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flamegraph.png" alt="Flame graph concept diagram for visualizing performance sampling hotspots" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Each box in a flame graph represents a function. The width of a box represents its execution time, so wider functions take longer to execute.
 
@@ -62,4 +62,4 @@ Steps 1 and 2 are performed on the RDK. Steps 3 and 4 can be performed on a PC o
 
 After following the workflow in the previous section, the function calls recorded on the RDK system are shown below.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/flame_graph/flame_graph_result.png" alt="Generated system function-call flame graph collected on RDK" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

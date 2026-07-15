@@ -109,7 +109,7 @@ config_file配置文件格式为json格式，本示例[ppyoloworkconfig.json](ht
 
 完整算法开发部署流程图：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/workflow.png" alt="垃圾检测算法从开发到部署的完整流程图" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 其中第一步Paddle模型训练、第二部工具链模型转换，将在下方链接中介绍，这里将主要介绍上板部署相关流程。
 
@@ -311,7 +311,7 @@ package初始化后，在运行终端输出如下信息：
 
 实时运行效果：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/realtime.gif" alt="垃圾检测实时推理运行时帧率与耗时日志及效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 **使用单张回灌图片**
 
@@ -340,4 +340,4 @@ package初始化后，在终端输出如下信息：
 
 本地渲染效果：
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/mono2d_trash_detection/render.jpeg" alt="垃圾检测本地回灌推理后保存的渲染结果图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

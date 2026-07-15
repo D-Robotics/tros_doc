@@ -58,13 +58,13 @@ by-id  by-path  controlC0  controlC2  pcmC0D0c  pcmC0D0p  pcmC2D0c  pcmC2D0p  ti
 
 
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/headset.jpg" alt="RDK X5 场景下语音交互所用耳机/音频设备示意" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-![headset](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vlm_boxs/usb_audio.jpg" alt="RDK S100 场景下所用 USB 音频设备示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 </DocScope>
 
 ### 使用说明

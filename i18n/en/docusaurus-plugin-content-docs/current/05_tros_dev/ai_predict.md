@@ -45,7 +45,7 @@ By reading this section, users can use models provided by D-Robotics to create a
 
 For detailed usage of `hobot_dnn`, refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The usage workflow of hobot_dnn is as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg" alt="Workflow diagram of the hobot_dnn / DNN Node inference pipeline" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Even without understanding the `hobot_dnn` usage workflow, users can follow this section to develop a model inference example using `hobot_dnn`.
 
@@ -361,7 +361,7 @@ After algorithm inference completes, inference results are output through the re
 
 The Node design and workflow are shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/node_architecture.jpg" alt="Architecture and processing-logic diagram of a custom inference Node" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 ##### 2.2 Code Description
@@ -1012,7 +1012,7 @@ To better demonstrate algorithm inference results and experience perception capa
 
 The runtime system workflow is as follows:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/pipeline.jpg" alt="Runtime system data-flow and processing pipeline for the AI inference example" style={{ width: '70%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Four nodes run on RDK, including the algorithm inference node in this example.
 
@@ -1313,7 +1313,7 @@ The output `/cpp_dnn_demo` topic message shows that the algorithm detected 5 hum
 
 Enter `http://IP:8000` in a WEB browser on a PC (IP is the RDK IP address; e.g., this example uses IP address 10.64.28.88) to view real-time images and algorithm inference rendering results:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/render.jpg" alt="Browser web UI screenshot of live images and algorithm inference rendering" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Each detection box renders the detection box type (e.g., `body` indicates a human body detection box) and target tracking result. The `fps` field in the lower left corner of the browser indicates the real-time algorithm inference output frame rate.
 
@@ -1700,7 +1700,7 @@ Three Nodes are running on RDK.
 
 On the PC (**the PC must be on the same network segment as RDK**), the rqt Node Graph feature can visually display Nodes running on RDK, Topics published and subscribed by Nodes, and the graph formed by Nodes based on these Topics, as shown below:
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/rosgraph_handlmk.jpg" alt="rqt Node Graph showing Nodes and Topics for the hand-landmark example" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Oval boxes contain Node names; rectangular boxes contain Topic names. The entire graph consists of 3 Nodes and 2 Topics.
 

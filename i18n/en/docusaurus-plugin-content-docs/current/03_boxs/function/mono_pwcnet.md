@@ -20,7 +20,7 @@ Code repository: (https://github.com/D-Robotics/mono_pwcnet)
 
 Application scenario: Optical flow estimation is a technique used to determine the pixel movement patterns on object surfaces in image sequences. It can be applied in autonomous driving, motion analysis, object tracking, and other fields.
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_pwcnet_feedback_0_0.jpeg" alt="PWC-Net optical-flow local feedback render example" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Supported Platforms
 
@@ -213,4 +213,4 @@ The running terminal outputs the following information:
 
 Enter `http://IP:8000` in a PC browser, then click 'Full Image Segmentation' on the right to view the rendering effect (IP is the RDK device's IP address)
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif" alt="Web UI animation of optical-flow render with full-image segmentation enabled" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

@@ -350,7 +350,7 @@ webserver has launch
 
 示例中推理的结果会渲染到Web上, 在PC端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP为RDK的IP地址）, 打开界面右上角设置, 选中”Full Image Segmentation“选项, 可以显示渲染效果。
 
-![](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/render_sam.png" alt="Web 端 EdgeSAM 分割渲染效果（开启 Full Image Segmentation）" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 进阶使用
 

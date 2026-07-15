@@ -162,7 +162,7 @@ ros2 launch mono_edgetam_prompt mono_edgetam_prompt.launch.py edgetam_prompt_mod
 
 提示阶段渲染效果：
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png" alt="EdgeTAM 单帧目标分割在 Web 端的渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 提示阶段节点完成一次推理后，会自动将生成的特征文件保存到当前工作目录，供后续跟踪节点加载使用。
 
@@ -265,7 +265,7 @@ ros2 launch mono_edgetam_track mono_edgetam_track.launch.py edgetam_is_overwrite
 
 跟踪阶段渲染效果：
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif" alt="EdgeTAM 连续帧目标分割在 Web 端的渲染效果动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ## 进阶使用
 

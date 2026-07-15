@@ -232,10 +232,10 @@ The terminal outputs the following information during runtime:
 The log shows that the topic publishing algorithm inference results is `hobot_dnn_detection`, and the topic subscribing to images is `/hbmem_img`. The image publishing frame rate adapts according to the algorithm inference output frame rate. In addition, instance segmentation results are rendered and saved as images on RDK, which reduces the frame rate.
 
 Original image:
-![raw](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/test.jpg" alt="Original input image used in the YOLOv8 instance segmentation example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 Rendered image:
-![render_web](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/web.jpeg" alt="Web UI render of YOLOv8 instance segmentation" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### Local Image Playback
 
@@ -272,4 +272,4 @@ The terminal outputs the following information during runtime:
 
 The log shows that the algorithm uses the input image `config/test.jpeg` for inference, and the saved rendered image file is named `render_feedback_0_0.jpeg`. The rendered image effect is shown below:
 
-![render_feedback](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg)
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/segmentation/image/yolov8_seg/local.jpeg" alt="Saved render from YOLOv8 instance segmentation local feedback inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

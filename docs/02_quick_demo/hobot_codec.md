@@ -242,7 +242,7 @@ import DocScope from '@site/src/components/DocScope';
 
 3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为RDK/X86设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面
 
-    ![web-f37-codec](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png)
+    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web 端查看 JPEG 编码实时画面的展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### X86平台
 

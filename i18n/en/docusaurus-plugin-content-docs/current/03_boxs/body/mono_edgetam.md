@@ -161,7 +161,7 @@ Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering
 
 Prompt phase rendering effect:
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frame0.png" alt="EdgeTAM single-frame target segmentation render in the web UI" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 After the prompt phase node completes one inference, it automatically saves the generated feature file to the current working directory for the tracking node to load.
 
@@ -264,7 +264,7 @@ Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering
 
 Tracking phase rendering effect:
 
-![](http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif)
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/body/image/render_frames.gif" alt="EdgeTAM multi-frame target segmentation render animation in the web UI" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ## Advanced Usage
 
