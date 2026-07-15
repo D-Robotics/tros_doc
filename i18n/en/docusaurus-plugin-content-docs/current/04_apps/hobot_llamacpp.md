@@ -375,7 +375,7 @@ After the program starts, you can interact with the device via voice prompts. Us
 
 ## Notes
 
-1. About the ASR module: After ASR starts, the program serial port will output logs even if no wake word is detected. You can speak at this time to verify detection. If nothing is detected, first check the device status and device number with `ls /dev/snd/`.
+1. About the ASR module: After ASR starts, the program serial port will output logs even if no wake word is detected. You can speak at this time to verify detection. If nothing is detected, first check the device status and device number with `ls /dev/snd/` .
 
 2. About wake word functionality: Using the "你好" wake word may not be recognized with some probability, preventing subsequent content from being output. When functionality is abnormal, check the logs for the `[llama_cpp_node]: Recved string data: xxx` field. If present, text was recognized.
 

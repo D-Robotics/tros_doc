@@ -51,7 +51,7 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 ```
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 ## 4. 启动双目相机
@@ -64,14 +64,14 @@ sudo apt install --only-upgrade tros-humble-mipi-cam
 
 ### 4.2. 硬件连接
 
-1. 模组背后开关设置为`EXT`模式，不要在`LPWM`模式
-2. 相机的黑色杜邦线要连接 RDK X5 的`37`管脚，需要外部触发控制相机和 IMU 的时间同步，管脚定义可参考 RDK X5 硬件手册中的 40PIN 章节。
+1. 模组背后开关设置为 `EXT` 模式，不要在 `LPWM` 模式
+2. 相机的黑色杜邦线要连接 RDK X5 的 `37` 管脚，需要外部触发控制相机和 IMU 的时间同步，管脚定义可参考 RDK X5 硬件手册中的 40PIN 章节。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_LH_IMU_cam.png" alt="双目 IMU 相机杜邦线连接 RDK X5 第 37 管脚的接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 ### 4.3. RDK X5 配置
 
-1. RDK X5 上要进行相应的设置才能读取 IMU 数据，首先检查一下系统版本是否符合要求，需要`3.4.1`版本以上：
+1. RDK X5 上要进行相应的设置才能读取 IMU 数据，首先检查一下系统版本是否符合要求，需要 `3.4.1` 版本以上：
 
 ```bash
 cat /etc/version
@@ -88,7 +88,7 @@ srpi-config
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config3.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤三" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/LH_IMU_cam_config4.png" alt="srpi-config 配置双目 IMU 相机相关选项的界面步骤四" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-3. 重启后，确认目录`/sys/bus/iio/devices/`有`iio:device1`和`iio:device2`则代表配置成功
+3. 重启后，确认目录 `/sys/bus/iio/devices/` 有 `iio:device1` 和 `iio:device2` 则代表配置成功
 
 ```bash
 ll /sys/bus/iio/devices/
@@ -140,7 +140,7 @@ ros2 topic list -v
 - /imu_data 为 IMU 数据话题，发布陀螺仪和加速度计数据
 
 :::caution **注意**
-**imu 数据话题中`angular_velocity` 单位是 rad/s，`linear_acceleration`单位是 m/s²，重力加速度值是`9.81`**
+**imu 数据话题中 `angular_velocity` 单位是 rad/s， `linear_acceleration` 单位是 m/s²，重力加速度值是 `9.81` **
 :::
 
 ## 5. 启动双目深度算法
@@ -194,7 +194,7 @@ ros2 bag record /imu_data /image_combine_raw --max-cache-size 1073741824
 
 ### 6.2. 准备 VIO 参数
 
-配置 OpenVINS 的参数，在 OpenVINS 的 config 目录新建文件夹`drobotics_stereo_imu_cam`，创建以下 3 个文件，注意相机的标定文件需要根据上文的命令读取
+配置 OpenVINS 的参数，在 OpenVINS 的 config 目录新建文件夹 `drobotics_stereo_imu_cam` ，创建以下 3 个文件，注意相机的标定文件需要根据上文的命令读取
 
 - estimator_config.yaml
 

@@ -68,14 +68,14 @@ APP 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指�
 <DocScope products="RDK-X3">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
 <DocScope products="RDK-X5">
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -243,7 +243,7 @@ Audio control commnad word definitions are:
 
 以上 log 截取了一段音频控制 pkg 启动后的输出。log 内容显示，此语音控制模块配置的设备唤醒词是 “D-Robotics 你好”，控制小车运动的命令词有：“向前走”、“向后退”、“向左转”，“向右转”。
 
-PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
+PC 端在终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -251,9 +251,9 @@ $ ros2 topic list
 /cmd_vel
 ```
 
-其中`/audio_smart`是 X3 发布的包含智能语音结果的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
+其中 `/audio_smart` 是 X3 发布的包含智能语音结果的算法 msg， `/cmd_vel` 是 RDK 发布的运动控制指令。
 
-PC 端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到 RDK 发布的运动控制指令：
+PC 端在终端使用 `ros2 topic echo /cmd_vel` 命令可以查看到 RDK 发布的运动控制指令：
 
 ```shell
 linear:

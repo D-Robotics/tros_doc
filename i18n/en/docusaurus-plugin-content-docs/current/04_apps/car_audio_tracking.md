@@ -206,7 +206,7 @@ source /opt/tros/humble/setup.bash
 
 2. Confirm the microphone device
 
-    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd`, for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
+    The microphone device number is set via the `micphone_name` field in the configuration file *config/audio_config.json*. The default is "hw:0,0", which represents audio device Card0 Device0. The device number can be checked with the command `ls /dev/snd` , for example "pcmC0D1c"; the last letter c indicates a capture device, C0 indicates Card0, D1 indicates Device1. Change the parameter to "hw:0,1".
 
 3. Start the program
 

@@ -264,6 +264,6 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 
 输出 log 显示，程序运行成功，推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪 ID，人体关键点）渲染效果（IP 为 RDK/X86 设备的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪 ID，人体关键点）渲染效果（IP 为 RDK/X86 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg" alt="Web 端人体、人头、人脸、人手检测框与人体关键点渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

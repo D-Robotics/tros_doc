@@ -11,7 +11,7 @@ Breakpad is a tool suite more powerful than the Linux core mechanism for recordi
 
 ## Prerequisites
 
-Breakpad is located in the [code repository](https://github.com/D-Robotics/breakpad.git) on the `develop` branch. The directory contains cross-compiled `bin`, `lib`, `includes`, and other folders that include Breakpad tools, static link libraries, header files, and more, which can run on RDK.
+Breakpad is located in the [code repository](https://github.com/D-Robotics/breakpad.git) on the `develop` branch. The directory contains cross-compiled `bin` , `lib` , `includes` , and other folders that include Breakpad tools, static link libraries, header files, and more, which can run on RDK.
 
 ## Supported Platforms
 
@@ -21,7 +21,7 @@ Breakpad is located in the [code repository](https://github.com/D-Robotics/break
 
 ## Task Content
 ### 1. Create, Compile, and Run the Test Program
-After downloading the source code, create a test program `test.cpp` in the Breakpad directory and compile it into the executable `test` with the `-g` option. Create the `/tmp` directory, then run the executable `test`.
+After downloading the source code, create a test program `test.cpp` in the Breakpad directory and compile it into the executable `test` with the `-g` option. Create the `/tmp` directory, then run the executable `test` .
 
 ```c++
 //  test.cpp
@@ -87,7 +87,7 @@ root@ubuntu:~/cc_ws/tros_ws/src/tools/breakpad# ./bin/minidump_stackwalk /tmp/41
 
 ### 3. Analysis
 
-The output of the command in step 4 of the previous section is shown below. You can see that the program crashed at line 11 of `test.cpp`, which matches the expected behavior.
+The output of the command in step 4 of the previous section is shown below. You can see that the program crashed at line 11 of `test.cpp` , which matches the expected behavior.
 
 ```text
 Thread 0 (crashed)

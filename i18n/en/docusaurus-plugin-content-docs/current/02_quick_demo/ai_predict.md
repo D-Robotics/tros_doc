@@ -81,7 +81,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```
 
-After successful execution, the rendered image is automatically saved in the working directory with the filename `render_feedback_0_0.jpeg`. Press Ctrl+C to exit the program.
+After successful execution, the rendered image is automatically saved in the working directory with the filename `render_feedback_0_0.jpeg` . Press Ctrl+C to exit the program.
 
 For parameter descriptions in the run command and how to subscribe to and use images published by the camera for algorithm inference, refer to README.md in the dnn_node_example package source code.
 
@@ -106,9 +106,9 @@ The terminal outputs the following information during execution:
 [example-1] [WARN] [1679901151.612652352] [ImageUtils]: Draw result to file: render_feedback_0_0.jpeg
 ```
 
-The output log shows that the algorithm inferred 6 targets from the input image and output the category (`target type`) and bounding box coordinates (top-left x coordinate `x_offset`, y coordinate `y_offset`, width `width`, and height `height`) for each target. The saved rendered image filename is `render_feedback_0_0.jpeg`.
+The output log shows that the algorithm inferred 6 targets from the input image and output the category ( `target type` ) and bounding box coordinates (top-left x coordinate `x_offset` , y coordinate `y_offset` , width `width` , and height `height` ) for each target. The saved rendered image filename is `render_feedback_0_0.jpeg` .
 
-Rendered image `render_feedback_0_0.jpeg`:
+Rendered image `render_feedback_0_0.jpeg` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg" alt="Saved algorithm render result from the AI inference local image-feedback example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

@@ -26,7 +26,7 @@ Code repository: (https://github.com/brendangregg/FlameGraph.git)
 
 ### RDK Platform
 
-1. The flame graph tool consists of two parts. The first part is the `perf` executable. `perf` is a software performance analysis tool used to collect and output function call statistics for the system or a specific process. The RDK operating system already includes `perf`, so you can use it directly.
+1. The flame graph tool consists of two parts. The first part is the `perf` executable. `perf` is a software performance analysis tool used to collect and output function call statistics for the system or a specific process. The RDK operating system already includes `perf` , so you can use it directly.
 
 2. The second part of the flame graph tool is a script that parses perf text output. The script parses the text data collected by perf and generates an SVG function call flame graph for easy observation and analysis.
 
@@ -38,13 +38,13 @@ Code repository: (https://github.com/brendangregg/FlameGraph.git)
     root@ubuntu:~# perf record -F 99 -a -g -- sleep 60
     ```
 
-2. Use `perf script` to parse the `perf.data` file and generate `out.perf`.
+2. Use `perf script` to parse the `perf.data` file and generate `out.perf` .
 
     ```shell
     root@ubuntu:~# perf script > out.perf
     ```
 
-3. On a PC or RDK, run `git clone https://github.com/brendangregg/FlameGraph.git`, enter the flamegraph directory, and copy the `out.perf` file generated in step 2 into the flamegraph directory. Use `stackcollapse-perf.pl` from the flame graph tool package to collapse `out.perf` into `out.folded`.
+3. On a PC or RDK, run `git clone https://github.com/brendangregg/FlameGraph.git` , enter the flamegraph directory, and copy the `out.perf` file generated in step 2 into the flamegraph directory. Use `stackcollapse-perf.pl` from the flame graph tool package to collapse `out.perf` into `out.folded` .
 
     ```shell
     ./stackcollapse-perf.pl out.perf > out.folded

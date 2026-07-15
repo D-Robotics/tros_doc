@@ -78,7 +78,7 @@ App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指�
 
 运行小车人体跟随 App 后，小车运动控制 package 选择距离小车前方最近的人体（人体检测框宽度最大）作为跟随对象。当人体距离小车较远时，小车开始前进运动靠近人体，并保持人体在小车正前方。
 
-APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000`，IP 为 RDK 的 IP 地址）。
+APP 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和对应的算法结果（浏览器输入 `http://IP:8000` ，IP 为 RDK 的 IP 地址）。
 
 PC 端启动仿真环境：
 
@@ -220,7 +220,7 @@ ros2 launch body_tracking body_tracking_without_gesture.launch.py
 
 以上 log 截取了一段 App 启动后的输出。启动后先打印相关配置（TrackCfg param）。检测到人体后小车就开始进入跟随状态（tracking_sta 值为 1），并以 0.3m/s 的速度前进运动（RobotCtl, angular: 0 0 0, linear: 0.3 0 0）靠近人体。
 
-PC 端在终端使用`ros2 topic list`命令可以查询到 RDK 的 topic 信息：
+PC 端在终端使用 `ros2 topic list` 命令可以查询到 RDK 的 topic 信息：
 
 ```shell
 $ ros2 topic list
@@ -233,9 +233,9 @@ $ ros2 topic list
 /rosout
 ```
 
-其中`/image`是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片，`/hobot_mono2d_body_detection`是 RDK 发布的包含人体检测结果的算法 msg，`/cmd_vel`是 RDK 发布的运动控制指令。
+其中 `/image` 是 RDK 发布的从 MIPI sensor 采集图像后经过 JPEG 格式编码的图片， `/hobot_mono2d_body_detection` 是 RDK 发布的包含人体检测结果的算法 msg， `/cmd_vel` 是 RDK 发布的运动控制指令。
 
-PC 端在终端使用`ros2 topic echo /cmd_vel`命令可以查看到 RDK 发布的运动控制指令：
+PC 端在终端使用 `ros2 topic echo /cmd_vel` 命令可以查看到 RDK 发布的运动控制指令：
 
 ```shell
 linear:

@@ -259,7 +259,7 @@ package 初始化后，在运行终端输出如下信息：
 
 **使用单张回灌图片**
 
-示例中读取本地图片推理的结果会渲染到图片上，在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置。
+示例中读取本地图片推理的结果会渲染到图片上，在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址），打开界面右上角设置。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/operation_1.png" alt="车位感知 Web 展示界面右上角设置入口示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

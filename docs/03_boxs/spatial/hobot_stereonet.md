@@ -161,7 +161,7 @@ apt update
 ```
 
 :::caution **注意**
-**如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 </DocScope>
@@ -188,7 +188,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="230AI 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -206,7 +206,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="132GS 相机与 RDK 之间带方向的 MIPI 线材接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到`LPWM`和`3.3V`：
+- RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -790,7 +790,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 </Tabs>
 
 :::caution **注意**
-**如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
+**如果程序没有正确启动，可以通过 `ros2 topic list -v` 检查一下是否存在 `stereo_image_topic` 和 `camera_info_topic` 对应的话题**
 
 **如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考[极线对齐检测](#12-极线对齐检测)章节确认左右图是否满足极线对齐要求**
 :::

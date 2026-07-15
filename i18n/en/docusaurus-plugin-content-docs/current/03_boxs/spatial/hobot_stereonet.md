@@ -188,7 +188,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="Installation diagram of the 230AI stereo camera on RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -206,7 +206,7 @@ apt update
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="Directional MIPI cable connection between the 132GS camera and RDK" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
+- RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS stereo camera installation on RDK S100 with CAM daughter-board DIP settings" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1179,7 +1179,7 @@ ros2 param set /StereoNetNode save_result_flag true
 ## 12. Epipolar Alignment Detection
 
 Poor depth quality may be due to incorrect left/right stitching order or lack of epipolar alignment between left/right images.
-Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel`.
+Stereo algorithms require strict epipolar alignment; left/right epipolar error should generally be less than `1 pixel` .
 
 This program provides two epipolar alignment detection methods:
 

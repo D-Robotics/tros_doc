@@ -212,6 +212,6 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 [mono_pwcnet-3] [WARN] [0000000507.422862825] [mono_pwcnet]: Sub img fps: 5.04, Smart fps: 5.00, pre process time ms: 38, infer time ms: 41, post process time ms: 1
 ```
 
-在 PC 端的浏览器输入`http://IP:8000` ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP 为 RDK 设备的 IP 地址）
+在 PC 端的浏览器输入 `http://IP:8000` ,然后点击右侧的 'Full Image Segmentation' 查看渲染效果（IP 为 RDK 设备的 IP 地址）
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/pwcnet.gif" alt="Web 端开启全图分割后查看光流渲染效果的动图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />

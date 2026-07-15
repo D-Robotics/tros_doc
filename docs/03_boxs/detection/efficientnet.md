@@ -185,9 +185,9 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 [example-3] [WARN] [1655093202.302124315] [example]: Smart fps 7.10
 ```
 
-输出 log 显示，发布算法推理结果的 topic 为`hobot_dnn_detection`，订阅图片的 topic 为`/hbmem_img`。
+输出 log 显示，发布算法推理结果的 topic 为 `hobot_dnn_detection` ，订阅图片的 topic 为 `/hbmem_img` 。
 
-在 PC 端的浏览器输入`http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法渲染效果（IP 为 RDK 的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/detection/image/box_basic/efficient_det_render_web.jpeg" alt="Web 端 EfficientDet 目标检测算法渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

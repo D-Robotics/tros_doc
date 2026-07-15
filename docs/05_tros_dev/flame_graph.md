@@ -44,7 +44,7 @@ sidebar_products: RDK-X3,RDK-X5
     root@ubuntu:~# perf script > out.perf
     ```
 
-3. 在 PC 或者 RDK 上 `git clone https://github.com/brendangregg/FlameGraph.git`，进入 flamegraph 目录，把第 2 步生成的 out.perf 拷贝到 flamegraph 目录内。使用 flamegraph 工具包内的 stackcollapse-perf.pl 对 out.perf 反折叠生成 out.folded
+3. 在 PC 或者 RDK 上 `git clone https://github.com/brendangregg/FlameGraph.git` ，进入 flamegraph 目录，把第 2 步生成的 out.perf 拷贝到 flamegraph 目录内。使用 flamegraph 工具包内的 stackcollapse-perf.pl 对 out.perf 反折叠生成 out.folded
 
     ```shell
     ./stackcollapse-perf.pl out.perf > out.folded

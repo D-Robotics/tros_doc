@@ -103,7 +103,7 @@ The `config_file` configuration file uses JSON format. This example uses [ppyolo
   }
 ```
 
-Note: The actual size of each preset anchor is `anchors_table x strides`.
+Note: The actual size of each preset anchor is `anchors_table x strides` .
 
 ## Usage
 
