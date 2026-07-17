@@ -946,45 +946,6 @@ ros2 run hbmem_pubsub listener
 
 使用 `Ctrl+C` 可结束每个 Node 的运行。
 
-## 本节总结
-
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-如果你已经掌握 ROS2 的 publisher 和 subscriber 使用方式，那么很容易切换到使用基于 hbmem 零拷贝的 publisher 和 subscriber，使用时只需要做以下改动：
-
-- **rclcpp::Publisher** 改为 **rclcpp::PublisherHbmem**
-- **create_publisher** 改为 **create_publisher_hbmem**
-- **rclcpp::Subscription** 改为 **rclcpp::SubscriptionHbmem**
-- **create_subscription** 改为 **create_subscription_hbmem**
-- **publisher**发送消息前要先调用**borrow_loaned_message**获取消息，然后**确认消息是否可用**，若可用，再进行赋值，发送
-- **subscription**在回调函数中处理接收到的消息，且**接收到的消息只能在回调函数中使用**，回调函数执行完，该消息就会释放
-
-注意：
-
-- 使用基于 hbmem 的零拷贝会占用 ion 内存，若创建多个较大消息的 publisher，可能出现 ion 内存不够用，导致创建失败问题。
-
-- 创建 publisher 时会一次性申请 KEEPLAST 的三倍个消息大小的 ion 内存（最大为 256MB），用于消息的传输，之后不会再动态申请。若 subscriber 端消息处理出错或者未及时处理，则会出现消息 buffer 都被占用，publisher 一直获取不到可用消息的情况。
-
-</TabItem>
-
-<TabItem value="humble" label="Humble/Jazzy">
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble/Jazzy">
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
 ## 使用限制
 
 和 ROS2 的 publisher/subscriber 数据传输方式相比，使用零拷贝传输存在以下限制：
