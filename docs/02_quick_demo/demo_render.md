@@ -395,27 +395,15 @@ TogetheROS.Bot兼容ROS2，为了方便预览图像效果，可以通过RViz2获
 2. RDK已成功安装tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+3. RDK已安装数据可视化工具RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中`${TROS_DISTRO}`为tros.b版本，如`foxy`、`humble`。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+3. RDK已安装数据可视化工具RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中`${TROS_DISTRO}`为tros.b版本，如`humble`。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RViz2，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2：`sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+3. RDK已安装数据可视化工具RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中`${TROS_DISTRO}`为tros.b版本，如`jazzy`。
 </DocScope>
 
 ### 使用方式
@@ -687,27 +675,15 @@ TogetheROS.Bot兼容ROS2，支持通过RQt预览压缩格式图像，可以大�
 2. RDK已成功安装tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. PC已安装Ubuntu 20.04/Ubuntu 22.04系统、ROS2 Foxy/Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Foxy版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`foxy`、`humble`。
+3. RDK已安装数据可视化工具RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中`${TROS_DISTRO}`为tros.b版本，如`foxy`、`humble`。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. PC已安装Ubuntu 22.04系统、ROS2 Humble桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Humble版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`humble`。
+3. RDK已安装数据可视化工具RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中`${TROS_DISTRO}`为tros.b版本，如`humble`。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. PC已安装Ubuntu 24.04系统、ROS2 Jazzy桌面版和数据可视化工具RQt，并且和RDK在同一网段（IP地址前三位相同）。
-
-   - ROS2安装参考：[Jazzy版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 rqt-image-view ：`ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt`。其中`$ROS_DISTRO`为ROS2版本，如`jazzy`。
+3. RDK已安装数据可视化工具RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中`${TROS_DISTRO}`为tros.b版本，如`jazzy`。
 </DocScope>
 
 ### 使用方式
