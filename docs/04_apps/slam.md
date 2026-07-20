@@ -491,7 +491,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=true
 ```
 
 </TabItem>

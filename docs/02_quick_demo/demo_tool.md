@@ -30,11 +30,6 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
-
-:::caution
-X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.265视频发布功能无法在X86平台展示。
-:::
 
 ### 准备工作
 
@@ -46,17 +41,11 @@ X86平台不支持将H.264、H.265视频解码为NV12格式，因此H.264、H.26
 
 3. 可以通过网络访问RDK的PC
 
-#### X86平台
-
-1. X86环境已配置Ubuntu 20.04系统镜像
-
-2. X86环境已安装X86版本 tros.b
-
 ### 图片发布使用介绍
 
 循环读取本地的一张NV12格式图片并发布，使用图像编解码模块将图片压缩编码成JPEG格式，在PC的Web端展示图片。
 
-#### RDK/X86平台
+#### RDK平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -143,7 +132,7 @@ webserver has launch
 
 输出log显示出webserver已启动，hobot_image_pub、hobot_codec_republish、websocket都正常运行
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
+在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK设备的IP地址）：
 
 ![hobot_img_pub](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png)
 
@@ -225,19 +214,6 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
 ```
 
-#### X86平台
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的图片文件
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
-
-# 启动图片发布节点，使用本地MP4格式视频文件进行发布（可以根据自己的需求进行参数配置），暂不支持Web端显示
-/opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/hobot_image_pub --ros-args -p image_source:=./config/video.list -p fps:=30 -p image_format:=mp4
-```
-
 ### 视频发布结果分析
 
 在运行终端输出如下信息：
@@ -260,7 +236,7 @@ webserver has launch
 并且PC端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
 :::
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK/X86设备的IP地址）：
+在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK设备的IP地址）：
 
 ![hobot_img_pub](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg)
 

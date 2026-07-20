@@ -26,7 +26,6 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头，并通过Web展示图像 |
-| X86     | Ubuntu 20.04 (Foxy) | 启动USB摄像头，并通过Web展示图像 |
 
 ### 准备工作
 
@@ -37,12 +36,6 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 2. 确认PC可以通过网络访问RDK
 
 3. 确认已成功安装TogetheROS.Bot
-
-#### X86平台
-
-1. 确认X86平台系统为Ubuntu 20.04，且已成功安装tros.b
-
-2. 确认USB摄像头接入主机USB插口，并可正常识别
 
 ### 使用方式
 
@@ -267,27 +260,6 @@ Web展示用于预览摄像头图像（JPEG格式）和算法效果，通过网�
 2. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP为RDK IP地址。
 
    ![websocket](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png)
-
-#### X86平台
-
-1. 启动hobot_usb_cam节点
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   # usb_video_device需要更改为实际usb摄像头video节点
-   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-   ```
-
-2. 启动websocket节点
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-   ```
-
-3. PC浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像效果，IP为PC IP地址，若在本机访问，也可使用localhost。
 
 ### 注意事项
 
@@ -975,7 +947,6 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
@@ -987,13 +958,9 @@ Foxglove是一个开源的工具包，包括线上和线下版。旨在简化机
 
 3. 确认已成功安装TogetheROS.Bot
 
-#### X86平台
-
-1. 确认X86平台系统为Ubuntu 20.04，且已成功安装tros.b
-
 ### 使用方式
 
-#### RDK平台 / X86平台
+#### RDK平台
 
 1. 通过SSH登录RDK平台，启动板端相关程序：
 
