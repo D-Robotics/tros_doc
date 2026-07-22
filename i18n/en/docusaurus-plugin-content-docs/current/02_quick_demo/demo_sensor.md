@@ -673,6 +673,30 @@ The following describes how to acquire and preview camera data:
     </Tabs>
     </DocScope>
 
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure the tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure the tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+
     
 
     
@@ -725,6 +749,30 @@ The following describes how to acquire and preview camera data:
     </Tabs>
     </DocScope>
 
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
+
+        ```bash
+        # Configure the tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+        </TabItem>
+
+        <TabItem value="jazzy" label="Jazzy">
+
+        ```bash
+        # Configure the tros.b environment
+        source /opt/tros/jazzy/setup.bash
+        ```
+
+        </TabItem>
+
+    </Tabs>
+    </DocScope>
+
+
     
 
     
@@ -733,7 +781,7 @@ The following describes how to acquire and preview camera data:
     # Start encoding
     ros2 launch hobot_codec hobot_codec_encode.launch.py
 
-    # Open another terminal and configure the tros.b environment
+    # Open another terminal and run the source command for the corresponding version above again to configure the tros.b environment
     # Start websocket
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```

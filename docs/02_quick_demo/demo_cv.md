@@ -412,7 +412,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 ### 使用介绍
 
-#### RDK/X86
+#### RDK 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -484,6 +484,21 @@ source /opt/tros/jazzy/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
 
 # 启动launch文件
+ros2 launch hobot_cv hobot_cv_resize.launch.py
+```
+
+#### X86 平台
+
+目前 X86 平台仅支持 Ubuntu 20.04（Foxy）。
+
+```bash
+# 配置 tros.b Foxy 环境
+source /opt/tros/setup.bash
+
+# 从 TogetheROS 的安装路径中拷贝出运行示例需要的模型和配置文件。
+cp -r /opt/tros/lib/hobot_cv/config/ .
+
+# 启动 launch 文件
 ros2 launch hobot_cv hobot_cv_resize.launch.py
 ```
 

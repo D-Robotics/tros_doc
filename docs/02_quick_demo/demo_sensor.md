@@ -654,6 +654,29 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     </Tabs>
     </DocScope>
 
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置 tros.b 环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置 tros.b 环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+
     ```shell
     # launch 方式启动
     ros2 launch mipi_cam mipi_cam.launch.py
@@ -701,11 +724,34 @@ RDK和X86平台使用方式相同，其中以RDK平台为例：
     </Tabs>
     </DocScope>
 
+    <DocScope products="RDK-S100">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
+
+    ```bash
+    # 配置 tros.b 环境
+    source /opt/tros/humble/setup.bash
+    ```
+
+    </TabItem>
+
+    <TabItem value="jazzy" label="Jazzy">
+
+    ```bash
+    # 配置 tros.b 环境
+    source /opt/tros/jazzy/setup.bash
+    ```
+
+    </TabItem>
+    </Tabs>
+    </DocScope>
+
+
     ```shell
     # 启动编码
     ros2 launch hobot_codec hobot_codec_encode.launch.py
 
-    # 再起一个终端，并且配置tros.b环境
+    # 再起一个终端，重新执行上方对应版本的 source 命令配置 tros.b 环境
     # 启动websocket
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```

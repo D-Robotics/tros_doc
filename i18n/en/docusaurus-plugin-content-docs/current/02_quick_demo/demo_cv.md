@@ -412,7 +412,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 ### Usage
 
-#### RDK/X86
+#### RDK Platform
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -485,6 +485,21 @@ source /opt/tros/jazzy/setup.bash
 ```shell
 # Copy the models and configuration files required to run the example from the TogetheROS installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_cv/config/ .
+
+# Launch the launch file
+ros2 launch hobot_cv hobot_cv_resize.launch.py
+```
+
+#### X86 Platform
+
+The X86 platform currently supports only Ubuntu 20.04 (Foxy).
+
+```bash
+# Configure the tros.b Foxy environment
+source /opt/tros/setup.bash
+
+# Copy the models and configuration files required to run the example from the TogetheROS installation path.
+cp -r /opt/tros/lib/hobot_cv/config/ .
 
 # Launch the launch file
 ros2 launch hobot_cv hobot_cv_resize.launch.py

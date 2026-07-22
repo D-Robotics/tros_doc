@@ -351,6 +351,28 @@ Description: TogetheROS Bot
 可以看到当前tros.b版本已升级为2.2.0版本。
 
 </TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+root@ubuntu:~# apt show tros-jazzy
+Package: tros-jazzy
+Version: 2.5.5-noble.20260702.072702
+Priority: optional
+Section: misc
+Maintainer: zhuo <zhuo.wang@d-robotics.cc>
+Installed-Size: 52.2 kB
+Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-msg, tros-jazzy-base, tros-jazzy-clip-encode-image, tros-jazzy-clip-encode-text, tros-jazzy-clip-manage, tros-jazzy-clip-msgs, tros-jazzy-dnn-node, tros-jazzy-dnn-node-example, tros-jazzy-dstereo-occnet, tros-jazzy-hand-landmarks-mediapipe, tros-jazzy-hbm-img-msgs, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-dosod, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-rtsp-client, tros-jazzy-hobot-shm, tros-jazzy-hobot-stereonet, tros-jazzy-hobot-stereonet-utils, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-visualization, tros-jazzy-hobot-zed-cam, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-mipi-cam, tros-jazzy-mono-edgesam, tros-jazzy-mono-edgetam-prompt, tros-jazzy-mono-edgetam-track, tros-jazzy-mono2d-body-detection, tros-jazzy-palm-detection-mediapipe, tros-jazzy-reid, tros-jazzy-websocket, tros-jazzy-ros-workspace
+Download-Size: 6154 B
+APT-Manual-Installed: yes
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk-s100-rc noble/main arm64 Packages
+Description: TogetheROS Bot
+
+```
+
+可以看到当前安装的 tros.b Jazzy 版本为 2.5.5。
+
+</TabItem>
+
 </Tabs>
 </DocScope>
 
