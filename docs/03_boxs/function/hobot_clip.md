@@ -201,7 +201,7 @@ python -m http.server 8080
 
 **检索结果可视化**
 
-在 PC 端的浏览器输入http://IP:8080 即可查看图像检索结果（IP 为设备 IP 地址）。
+在 PC 端的浏览器输入 `http://IP:8080` 即可查看图像检索结果（IP 为设备 IP 地址）。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png" alt="CLIP 图像检索结果在浏览器端的展示界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

@@ -110,7 +110,7 @@ apt update
 **Run the commands in this document as the `root` user. Other users may lack sufficient permissions and cause unnecessary errors.**
 :::
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="Terminal prompt indicating the current login user is root" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="Terminal prompt indicating the current login user is root" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.2. MIPI Stereo Camera Installation
 
@@ -629,7 +629,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet startup success log showing intrinsics and FPS" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- View RGB and depth images via the web page. Enter http://ip:8000 in a browser (RDK IP in the figure is 192.168.1.100):
+- View RGB and depth images via the web page. Enter `http://ip:8000` in a browser (RDK IP in the figure is 192.168.1.100):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png" alt="Web UI showing RGB and depth images side by side" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -882,7 +882,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png" alt="Success log from Stereonet offline image inference" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- View RGB and depth images via web. Enter http://ip:8000 in browser (RDK IP in figure is 192.168.128.10):
+- View RGB and depth images via web. Enter `http://ip:8000` in browser (RDK IP in figure is 192.168.128.10):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png" alt="Web UI RGB and depth visualization in offline mode" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -932,7 +932,7 @@ Note each ZED has a different SN. Download the corresponding calibration file ba
 bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
-- View depth map via web at http://ip:8000 (ip is RDK IP). For **point cloud** and **save images**, refer to corresponding settings above
+- View depth map via web at `http://ip:8000` (ip is RDK IP). For **point cloud** and **save images**, refer to corresponding settings above
 
 ## 6. Package Topic Description
 

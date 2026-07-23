@@ -113,12 +113,17 @@ source /opt/tros/jazzy/setup.bash
 :::
 
 <DocScope products="RDK-X3,RDK-X5">
+
 :::caution **Note**
+
 <DocScope products="RDK-X3">
-**If the `sudo apt update` command fails or returns an error, please refer to the `Q10: How to handle apt update command failure or error?` section in the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) for a solution.**
+
+**If the `sudo apt update` command fails or returns an error, please refer to the `Q10: How to handle apt update command failure or error?` section in the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) for a solution.**
+
 </DocScope>
 <DocScope products="RDK-X5">
-**If the `sudo apt update` command fails or returns an error, please refer to the `Q10: How to handle apt update command failure or error?` section in the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) for a solution.**
+
+**If the `sudo apt update` command fails or returns an error, please refer to the `Q10: How to handle apt update command failure or error?` section in the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86) for a solution.**
 </DocScope>
 :::
 </DocScope>

@@ -108,7 +108,7 @@ apt update
 **请用 `root` 用户执行文档中的命令，其他用户执行可能权限不够，造成一些不必要的错误。**
 :::
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="系统当前登录用户为 root 的终端提示示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png" alt="系统当前登录用户为 root 的终端提示示意" style={{ width: '50%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.2. MIPI 双目相机安装
 
@@ -116,35 +116,35 @@ apt update
 
 - RDK 官方 230AI MIPI 双目相机如图所示：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png" alt="RDK 官方 230AI MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_230ai.png" alt="RDK 官方 230AI MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 <p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有 CDPxxx-V3/V4，确认相机是 V3 或 V4 版本 </p>
 
 - RDK X5 安装方式如图所示：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="230AI 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png" alt="230AI 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png" alt="230AI 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 #### (2) 132GS MIPI 双目相机
 
 - RDK 官方 132GS MIPI 双目相机如图所示：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png" alt="RDK 官方 132GS MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png" alt="RDK 官方 132GS MIPI 双目相机实物图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - RDK X5 安装方式如图所示：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png" alt="132GS 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png" alt="132GS 双目相机在 RDK X5 上的安装方式示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - 最新线材做了升级，注意线材是带有方向的，CAM 端接入相机，RDK 端接入开发板。（白色和黑色线材均能正常使用，两种线材随机发货）
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="132GS 相机与 RDK 之间带方向的 MIPI 线材接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png" alt="132GS 相机与 RDK 之间带方向的 MIPI 线材接法示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - RDK S100 安装方式如图所示，注意 S100 的 CAM 子板拨码开关要拨到 `LPWM` 和 `3.3V` ：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png" alt="132GS 双目相机在 RDK S100 上的安装及 CAM 子板拨码示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.3. 在线启动指令
 
@@ -162,7 +162,7 @@ i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png" alt="i2cdetect 检测到 230AI 双目相机设备地址的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png" alt="i2cdetect 检测到 230AI 双目相机设备地址的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 - 确认 132GS 双目相机 I2C 信号是否正常，通过 ssh 连接 RDK，执行以下命令，如果输出 0x32、0x33、0x50 等地址，则代表相机连接正常：
@@ -177,7 +177,7 @@ i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png" alt="i2cdetect 检测到 132GS 双目相机设备地址的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png" alt="i2cdetect 检测到 132GS 双目相机设备地址的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 :::caution **注意**
 **如果 I2C 信号检测不到，相机无法正常工作**
@@ -263,7 +263,7 @@ bash run_cam.sh --rotation 90.0 --log_level INFO
 
 - 以 X5 上接入 132GS 相机为例，正确启动相机会打印如下日志（S100 或不同型号相机接入会打印不同的日志）：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png" alt="双目相机节点正确启动后的成功日志示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png" alt="双目相机节点正确启动后的成功日志示例" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>   
 
 
 - 日志解析：
@@ -621,15 +621,15 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 
 - 左右目相机定义，<span style={{ color: 'red' }}> 需要确认下文网页端显示的 RGB 图像是否是左相机拍摄的图像 </span>：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png" alt="230AI 双目相机左右目定义与朝向示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png" alt="230AI 双目相机左右目定义与朝向示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - 双目算法启动成功后会打印如下日志， `fx/fy/cx/cy/baseline` 是相机内参， `fps` 是算法运行的帧率：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet 算法启动成功并打印内参与帧率的日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet 算法启动成功并打印内参与帧率的日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- 通过网页端查看 RGB 图和深度图，在浏览器输入 http://ip:8000 (图中 RDK ip 是 192.168.1.100)：
+- 通过网页端查看 RGB 图和深度图，在浏览器输入 `http://ip:8000` (图中 RDK ip 是 192.168.1.100)：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png" alt="网页端同时查看 RGB 图与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png" alt="网页端同时查看 RGB 图与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - 通过 rviz2 查看点云，RDK 可直接安装 rviz2 查看，注意 rviz2 中需要做如下配置：
 
@@ -641,7 +641,7 @@ source /opt/tros/humble/setup.bash
 rviz2
 ```
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="在 RViz2 中查看 Stereonet 点云/深度可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="在 RViz2 中查看 Stereonet 点云/深度可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 
 #### (5) 参数定义
@@ -747,9 +747,9 @@ bash run_stereo.sh \
 # save_pcd_flag       保存点云数据
 ```
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png" alt="开启保存点云等数据开关后的运行日志示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png" alt="开启保存点云等数据开关后的运行日志示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png" alt="Stereonet 保存到本地的点云与图像文件列表示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png" alt="Stereonet 保存到本地的点云与图像文件列表示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - 方法 2：程序运行成功后，可以开启另一个终端，执行如下指令保存数据
 
@@ -805,7 +805,7 @@ bash run_stereo.sh --epipolar_mode True \
 
 运行成功后，可以在 web 端看到如下图像：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg" alt="极线校正模式下 Web 端显示的左右目对齐图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg" alt="极线校正模式下 Web 端显示的左右目对齐图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在 `1 pixel` 内，双目图像才是合格图像，否则使用的标定参数是错误的
 
@@ -818,7 +818,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 运行成功后，可以在 web 端看到如下图像：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="特征点极线模式下 Web 端显示的匹配效果图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="特征点极线模式下 Web 端显示的匹配效果图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 基于 ORB 特征点的极线对齐检测没有那么严格，根据经验值，如果是 640×352 分辨率的图像，极线对齐误差要小于 `1 pixel` ，如果是 1280×1088 分辨率的图像，极线对齐误差要小于 `2 pixel` ，双目图像才是合格图像
 
@@ -831,7 +831,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 1. **去畸变、极线对齐**的左右目图像，png 或者 jpg 格式，图片需要按照规则命名，左目图像需要带有 `left` 字段，右目图像需要带有 `right` 字段，算法按序号遍历图像，直至图像全部计算完毕：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="离线双目左右目图像命名格式（含 left/right 字段）示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="离线双目左右目图像命名格式（含 left/right 字段）示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 2. 相机内参文件，保存在图像目录下，命名为 `camera_intrinsic.txt` ，参考内容如下：
 ```bash
@@ -878,11 +878,11 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 - 运行成功后，会打印如下日志
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png" alt="Stereonet 离线图像推理运行成功后的日志输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png" alt="Stereonet 离线图像推理运行成功后的日志输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-- 通过网页端查看 RGB 图和深度图，在浏览器输入 http://ip:8000 (图中 RDK ip 是 192.168.128.10)：
+- 通过网页端查看 RGB 图和深度图，在浏览器输入 `http://ip:8000` (图中 RDK ip 是 192.168.128.10)：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png" alt="离线模式下网页端查看 RGB 与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png" alt="离线模式下网页端查看 RGB 与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 ### 5.5. 搭配 ZED 相机运行
 
@@ -890,7 +890,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 - ZED 双目摄像头如图所示：
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png" alt="ZED 双目摄像头实物外观图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png" alt="ZED 双目摄像头实物外观图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 - 将 ZED 相机通过 USB 连接到 RDK 即可
 
@@ -918,7 +918,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 <p style={{ color: 'red' }}> 注意：运行 ZED 相机 RDK 一定要联网，因为 ZED 需要联网下载标定文件 </p>
 
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png" alt="接入 ZED 相机后 Stereonet 运行成功的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png" alt="接入 ZED 相机后 Stereonet 运行成功的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/> 
 
 联网的情况下程序会自动下载标定文件，如果 RDK 没有联网，可以手动下载标定文件然后上传到 RDK。
 根据 log 信息，在 PC 端打开浏览器，输入(https://calib.stereolabs.com/?SN=38085162) ，即可下载标定文件 SN38085162.conf。
@@ -930,7 +930,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
-- 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip 为 RDK 对应的 ip 地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
+- 通过网页端查看深度图，在浏览器输入 `http://ip:8000` (ip 为 RDK 对应的 ip 地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
 
 ## 6. 功能包话题说明
 

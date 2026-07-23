@@ -116,7 +116,7 @@ source /opt/tros/humble/setup.bash
 ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 ```
 
-- 程序启动后可以通过网页查看 ZED-2i 发布的双目图像，在 PC 端浏览器输入http://ip:8000 即可查看双目图像，ip 为 RDK 板端的 ip，例子中为 `192.168.128.10` ，并且要保证 PC 和 RDK 能通过网络通讯
+- 程序启动后可以通过网页查看 ZED-2i 发布的双目图像，在 PC 端浏览器输入 `http://ip:8000` 即可查看双目图像，ip 为 RDK 板端的 ip，例子中为 `192.168.128.10` ，并且要保证 PC 和 RDK 能通过网络通讯
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/ZED-2i-stereo-img.png" alt="网页端查看 ZED-2i 发布的双目图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
