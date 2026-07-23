@@ -58,6 +58,29 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_1.5B
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_7B_1024.hbm --ftp-password=Oeftp~123$%
 ```
 
+### Package Installation
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+apt install tros-humble-hobot-xlm
+```
+
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+apt install tros-jazzy-hobot-xlm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
 ### System Configuration
 
 - Set ION memory to maximum to meet large model inference requirements
@@ -79,14 +102,12 @@ Two experience modes are currently provided: direct terminal text chat, and subs
 
 #### Terminal Interactive Experience
 
-
-
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# setup tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -95,10 +116,9 @@ source /opt/tros/humble/setup.bash
 <TabItem value="jazzy" label="Jazzy">
 
 ```bash
-# 配置tros.b环境
+# setup tros.b environment
 source /opt/tros/jazzy/setup.bash
 ```
-
 
 </TabItem>
 
@@ -107,10 +127,10 @@ source /opt/tros/jazzy/setup.bash
 
 
 ```bash
-lib=/opt/tros/humble/lib/hobot_xlm/lib
+lib=/opt/tros/${TROS_DISTRO}/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
-# config中为示例使用的模型配置文件
-cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
+# copy config files
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
 
@@ -122,26 +142,22 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 1. Start hobot_llm
 
-   
-
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/humble/setup.bash
       ```
-
 
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/jazzy/setup.bash
       ```
-
 
       </TabItem>
 
@@ -150,10 +166,10 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 
     ```bash
-    lib=/opt/tros/humble/lib/hobot_xlm/lib
+    lib=/opt/tros/${TROS_DISTRO}/lib/hobot_xlm/lib
     export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
-    # config中为示例使用的模型配置文件
-    cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
+    # copy model file
+    cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
@@ -162,31 +178,27 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 2. Open a new terminal to subscribe to the output result topic
 
    
-
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/humble/setup.bash
       ```
-
 
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/jazzy/setup.bash
       ```
-
 
       </TabItem>
 
    </Tabs>
    </DocScope>
-
 
     ```bash
     ros2 topic echo /tts_text
@@ -194,26 +206,22 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 3. Open a new terminal to publish a message
 
-   
-
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/humble/setup.bash
       ```
-
 
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
       ```bash
-      # 配置tros.b环境
+      # setup tros.b environment
       source /opt/tros/jazzy/setup.bash
       ```
-
 
       </TabItem>
 
@@ -222,7 +230,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 
     ```bash
-    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"
+    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""Briefly describe the development of artificial intelligence""}"
     ```
 
 After sending the message, you can view the output results in the terminal subscribed to the output.
@@ -266,50 +274,38 @@ After sending the message, you can view the output results in the terminal subsc
 板端大模型多轮对话交互demo，请输入你的问题并按下回车
 - 退出请输入Ctrl C
 - 清除缓存请输入reset
-[User] <<< 简单描述人工智能的发展
-[Assistant] >>> ...
+[User] <<< Briefly describe the development of artificial intelligence
+[Assistant] >>> Okay, so I need to describe the development of artificial intelligence in a brief but meaningful way. I remember that AI is a big field, with different subfields and a long history. Let me start by recalling some key milestones and areas.
 
-人工智能（AI）的发展可以分为几个主要阶段：
+First, the 50s and 60s might have been foundational. Maybe the pioneers like McCarthy and M Organization, who laid the groundwork. They probably focused on logical problem-solving, like in chess, by creating something called the M Organization and the M Program, which used look-around tables. That was a big step.
 
-1. **早期AI**：
-   - **人工智能**：最初用于特定任务，如游戏和客服。
-   - **机器学习**：1950年代，计算机开始学习，如自动识别和语音识别。
-   - **专家系统**：1970年代，如“维基”系统，模拟人类专家。
+Then, in the 70s and 80s, there were big moves in research and development on things like neural networks. The Coworkers paper from 1983 was foundational, introducing concepts like backpropagation and neural networks. That definitely changed the way machines learn.
 
-2. **计算机视觉**：
-   - **图像识别**：1980年代，计算机识别简单的图像，如手写数字。
-   - **自然语言处理**：1990年代，如维基百科的自动搜索和编辑。
+Moving into the 90s, cognitive science began to play a larger role in AI development. People started focusing on understanding human thought processes, which led to work on speech recognition, robotics, and natural language processing. Notable examples like IBM's Watson and speech recognition systems.
 
-3. **深度学习**：
-   - **神经网络**：1980年代，神经网络用于处理复杂数据。
-   - **卷积神经网络（CNN）**：1990年代，用于图像识别，如自动驾驶汽车。
-   - **深度学习**：2010年代，如GPT和BERT，用于自然语言处理。
+2000s saw AI reach new heights. The Netflix Recommendation Engine was a big deal, leveraging machine learning algorithms. The Human Genome Project and other breakthroughs in computational power allowed for more complex AI, like ChatGPT and GPT-4, which are widely used today.
 
-4. **强化学习**：
-   - **机器人控制**：1980年代，机器人学习动作。
-   - **自动驾驶**：2010年代，如自动驾驶汽车。
+2010s have brought more ethical and societal impacts. There were debates about job displacement, privacy, and the impact of AI on society. The rise of companies like DeepMind and organizations working on bias and transparency in AI is important to consider.
 
-5. **深度学习和神经网络**：
-   - **图像识别**：如分类、分割和生成。
-   - **自然语言处理**：如文本生成、翻译和对话。
-   - **语音识别**：如转录和语音合成。
+Now, challenges remain. Terms like spurious correlations and the "catastrophic effect" show that AI can develop without proper grounding in causality. Privacy laws like GDPR and ethical guidelines for AI researchers are still evolving.
 
-6. **AI应用**：
-   - **医疗**：如诊断和药物研发。
-   - **交通**：如自动驾驶和交通管理系统。
-   - **教育**：如智能学习系统。
-   - **金融**：如自动交易和风险管理。
+Putting this all together, I need to structure it clearly, maybe with sections for history, key areas like machine learning, applications, ethical considerations, and current challenges. Each section should briefly explain what they are and their significance. I might need to make sure the transition between sections is smooth and that key points are highlighted without getting too detailed.
 
-7. **伦理和挑战**：
-   - **隐私问题**：数据泄露和隐私侵犯。
-   - **伦理争议**：如算法偏见和隐私问题。
+I should also ensure that I cover the main breakthroughs in key areas and mention any ongoing debates or challenges mentioned earlier. Maybe conclude by summarizing how the field is evolving and the ongoing debates around its impact and ethical implications.
 
-8. **未来展望**：
-   - **AI芯片**：用于训练和推理。
-   - **边缘AI**：在设备上运行，减少数据传输。
-   - **多模态AI**：结合视觉、听觉等多模态数据。
-   - **人类助手**：如聊天机器人和生命支持系统。
+I think I have the main points covered, but I should check if I've missed any major milestones or if there's more to include. Maybe touch upon how different industries have leveraged AI, like healthcare, finance, and transportation. Also, the role of research institutions and funding agencies has been crucial in advancing the field.
 
-AI将继续在多个领域发展，推动技术进步和社会变革。
+I need to write it concisely, so each paragraph can focus on one major area or part of the field. Start with a broad overview, then delve into specific areas and milestones, and conclude with current challenges and future directions.
+
+Okay, let me organize this into a brief overview, perhaps four parts: history, key areas, ethical debates, and future directions.
+
+In history, I can mention the 50s-60s with focus on symbolic AI, the 70s-80s with neural networks, 90s with cognitive science and early ML, and 2000s growth with big ML systems.
+
+Key areas would cover symbolic AI, machine learning, NLP, NPI, ethics, human-AI collaboration, and societal challenges.
+
+Ethical debates would include issues like fairness, data privacy, diversity, inclusion, and transparency.
+
+Future directions might touch on autonomous systems, societal impact, and emerging technologies.
+
 Performance prefill: 1113.04tokens/s    decode: 20.22tokens/s
 ```

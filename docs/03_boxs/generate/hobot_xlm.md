@@ -59,6 +59,30 @@ wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_1.5B
 wget -c ftp://oeftp@sdk.d-robotics.cc/oe_llm/model/DeepSeek_R1_Distill_Qwen_7B_1024.hbm --ftp-password=Oeftp~123$%
 ```
 
+### 功能包安装
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+apt install tros-humble-hobot-xlm
+```
+
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+apt install tros-jazzy-hobot-xlm
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+
 ### 系统配置
 
 - 设置 ION 内存空间最大, 满足大模型推理需求
@@ -100,18 +124,16 @@ source /opt/tros/humble/setup.bash
 source /opt/tros/jazzy/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
 ```bash
-lib=/opt/tros/humble/lib/hobot_xlm/lib
+lib=/opt/tros/${TROS_DISTRO}/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
 # config中为示例使用的模型配置文件
-cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
 
@@ -123,8 +145,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 1. 启动 hobot_llm
 
-   
-
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
@@ -134,7 +154,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       source /opt/tros/humble/setup.bash
       ```
 
-
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
@@ -142,7 +161,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       # 配置tros.b环境
       source /opt/tros/jazzy/setup.bash
       ```
-
 
       </TabItem>
 
@@ -151,18 +169,16 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
 
 
     ```bash
-    lib=/opt/tros/humble/lib/hobot_xlm/lib
+    lib=/opt/tros/${TROS_DISTRO}/lib/hobot_xlm/lib
     export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
     # config中为示例使用的模型配置文件
-    cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
+    cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
 
     当前支持的模型类型为`DeepSeek_R1_Distill_Qwen_1.5B"`，`"DeepSeek_R1_Distill_Qwen_7B"`。其中 7B 模型仅适用于RDK S100P。
 
 2. 新开一个终端订阅输出结果topic
-
-   
 
    <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
@@ -173,7 +189,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       source /opt/tros/humble/setup.bash
       ```
 
-
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
@@ -181,7 +196,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       # 配置tros.b环境
       source /opt/tros/jazzy/setup.bash
       ```
-
 
       </TabItem>
 
@@ -206,7 +220,6 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       source /opt/tros/humble/setup.bash
       ```
 
-
       </TabItem>
       <TabItem value="jazzy" label="Jazzy">
 
@@ -215,12 +228,10 @@ ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek
       source /opt/tros/jazzy/setup.bash
       ```
 
-
       </TabItem>
 
    </Tabs>
    </DocScope>
-
 
     ```bash
     ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"
