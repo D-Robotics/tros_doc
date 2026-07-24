@@ -109,10 +109,27 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 
 <DocScope products="RDK-S100">
 
-```shell
-# 配置ROS2环境
-source /opt/tros/humble/setup.bash
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
@@ -121,8 +138,6 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_mode
 ```
 
 </DocScope>
-
-
 
 **模式2 检索**
 
@@ -144,10 +159,27 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=c
 
 <DocScope products="RDK-S100">
 
-```shell
-# 配置ROS2环境
-source /opt/tros/humble/setup.bash
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/jazzy/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+
+```shell
 # 启动launch文件
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
