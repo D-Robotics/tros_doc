@@ -61,7 +61,10 @@ mipi相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
 
 zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
-双目算法讲解：[直播回放 | 基于RDK X5的AI双目算法部署实战](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
+双目算法讲解：
+
+- [视频：直播回放 | 基于RDK X5的AI双目算法部署实战](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
+- [博客：地瓜AI双目算法：双目立体匹配算法发展综述](https://mp.weixin.qq.com/s/09kvfQzYgO4dKLUMNLweTg)
 
 ## 2. 支持平台
 
@@ -215,15 +218,19 @@ apt update
 
 - 将ZED相机通过USB连接到RDK即可
 
-## 6. MIPI相机启动
+## 6. 注意事项
 
-:::caution **注意**
-**请用`root`用户执行以下命令，其他用户执行可能权限不够，造成一些不必要的错误。**
+:::caution **重要**
+**请务必使用`root`用户执行本文档中的所有命令。**
+
+其他用户执行可能权限不够，造成一些不必要的错误。可通过以下命令确认当前用户：
 :::
 
 ![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
 
-### 6.1. 获取启动脚本
+## 7. MIPI相机启动
+
+### 7.1. 获取启动脚本
 
 `run_stereo.sh`脚本已内置在功能包中，可通过以下方式获取：
 
@@ -662,7 +669,7 @@ stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-### 6.2. 确认I2C信号
+### 7.2. 确认I2C信号
 
 通过ssh连接RDK，执行以下命令检测相机I2C信号。
 
@@ -698,7 +705,7 @@ i2cdetect -r -y 2
 **如果I2C信号检测不到，相机无法正常工作**
 :::
 
-### 6.3. 验证相机出流
+### 7.3. 验证相机出流
 
 先启动相机，确认图像采集正常。
 
@@ -738,7 +745,7 @@ bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv1
 
 在连接 RDK 板端的PC上，打开浏览器，输入 `http://ip:8000`（ip 为 RDK 对应的 ip 地址），即可查看左右目图像。通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
 
-### 6.4. 启动双目算法
+### 7.4. 启动双目算法
 
 通过ssh连接RDK，执行以下命令启动算法：
 
@@ -785,14 +792,14 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 :::caution **注意**
 **如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
 
-**如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考[极线对齐检测](#11-极线对齐检测)章节确认左右图是否满足极线对齐要求**
+**如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考[极线对齐检测](#12-极线对齐检测)章节确认左右图是否满足极线对齐要求**
 :::
 
 左右目相机定义，<span style={{ color: 'red' }}> 需要确认网页端显示的RGB图像是否是左相机拍摄的图像 </span>：
 
 ![230ai_left_right_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png)
 
-### 6.5. 查看结果
+### 7.5. 查看结果
 
 双目算法启动成功后会打印如下日志，`fx/fy/cx/cy/baseline`是相机内参，`fps`是算法运行的帧率：
 
@@ -805,9 +812,6 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 **RViz2查看点云：** RDK可直接安装rviz2查看，注意rviz2中需要做如下配置：
 
 ```bash
-# 安装rviz2
-sudo apt install ros-humble-rviz2
-# 启动rviz2
 if [[ -f /opt/tros/humble/setup.bash ]]; then
   source /opt/tros/humble/setup.bash
 elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
@@ -816,14 +820,17 @@ else
   echo "Error: neither Humble nor Jazzy TROS environment was found"
   exit 1
 fi
+# 安装rviz2
+sudo apt install ros-$ROS_DISTRO-rviz2
+# 启动rviz2
 rviz2
 ```
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="在 RViz2 中查看 Stereonet 点云/深度可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-## 7. ZED相机启动
+## 8. ZED相机启动
 
-### 7.1. 启动ZED相机节点
+### 8.1. 启动ZED相机节点
 
 通过ssh连接RDK，X5和S100执行相同指令：
 
@@ -857,7 +864,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 根据log信息，在PC端打开浏览器，输入 `https://calib.stereolabs.com/?SN=38085162`，即可下载标定文件SN38085162.conf。
 注意每台ZED的SN码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到 `/root/zed/settings/` 目录下，如果目录不存在则手动创建。
 
-### 7.2. 启动双目算法
+### 8.2. 启动双目算法
 
 开启另一个终端执行：
 
@@ -865,13 +872,13 @@ need_rectify:=true dst_width:=640 dst_height:=352
 bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
-### 7.3. 查看结果
+### 8.3. 查看结果
 
-通过网页端查看深度图，在浏览器输入 `http://ip:8000`（ip为RDK对应的ip地址）。如需查看**点云**和**保存图像**，请参考[MIPI相机启动-查看结果](#65-查看结果)和[数据保存](#10-数据保存)章节。
+通过网页端查看深度图，在浏览器输入 `http://ip:8000`（ip为RDK对应的ip地址）。如需查看**点云**和**保存图像**，请参考[MIPI相机启动-查看结果](#75-查看结果)和[数据保存](#11-数据保存)章节。
 
-## 8. 离线启动
+## 9. 离线启动
 
-### 8.1. 准备离线数据
+### 9.1. 准备离线数据
 
 如果想利用本地图像评估算法效果，需要准备如下数据并上传到RDK：
 
@@ -886,7 +893,7 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 215.762581 215.762581 325.490113 173.881556 0.079957
 ```
 
-### 8.2. 启动双目算法
+### 9.2. 启动双目算法
 
 通过ssh连接RDK，执行以下命令：
 
@@ -923,7 +930,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 </TabItem>
 </Tabs>
 
-### 8.3. 查看结果
+### 9.3. 查看结果
 
 运行成功后，会打印如下日志：
 
@@ -933,11 +940,11 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 ![web_depth_visual_offline](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png)
 
-## 9. 启动参数参考
+## 10. 启动参数参考
 
 `run_stereo.sh` 脚本支持以下参数，可通过 `--参数名 参数值` 的方式在命令行传入。
 
-### 9.1. 模型与节点
+### 10.1. 模型与节点
 
 | 参数                | 说明                                 | 默认值          | 可选值                                                                                                                                                                                                                                                                                                                                 |
 | ------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -946,7 +953,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `uncertainty_th`    | 置信度阈值，设为正数时启用置信度过滤 | `-0.10`         | 建议设为 `0.10`                                                                                                                                                                                                                                                                                                                        |
 | `infer_thread_num`  | 推理线程数，多线程帧率高但延迟大     | `2`             | `1` / `2`                                                                                                                                                                                                                                                                                                                              |
 
-### 9.2. 相机参数
+### 10.2. 相机参数
 
 | 参数                   | 说明                                 | 默认值 | 可选值                          |
 | ---------------------- | ------------------------------------ | ------ | ------------------------------- |
@@ -961,7 +968,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `mipi_channel2`        | 右目相机MIPI通道编号                 | `0`    | X5: `0` / `2`; S100: `0` / `1`  |
 | `mipi_cal_rotation`    | 标定旋转角度                         | `0.0`  | 一般保持默认                    |
 
-### 9.3. 标定
+### 10.3. 标定
 
 | 参数                                                  | 说明                         | 默认值       | 可选值                                                |
 | ----------------------------------------------------- | ---------------------------- | ------------ | ----------------------------------------------------- |
@@ -971,7 +978,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `baseline`                                            | 双目基线长度（m）            | `0.0`        | 浮点数                                                |
 | `doffs`                                               | 视差偏移                     | `0.0`        | 浮点数                                                |
 
-### 9.4. 渲染
+### 10.4. 渲染
 
 | 参数              | 说明                                       | 默认值     | 可选值                                                |
 | ----------------- | ------------------------------------------ | ---------- | ----------------------------------------------------- |
@@ -981,7 +988,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `render_z_near`   | 渲染最近距离（m）                          | `-1.0`     | 浮点数                                                |
 | `render_z_range`  | 渲染距离范围（m）                          | `3.0`      | 浮点数                                                |
 
-### 9.5. 点云
+### 10.5. 点云
 
 | 参数                         | 说明              | 默认值 | 可选值 |
 | ---------------------------- | ----------------- | ------ | ------ |
@@ -991,7 +998,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `pointcloud_downsample_step` | 点云下采样步长    | `2`    | 整数   |
 | `pointcloud_coord`           | 点云坐标系        | `ROS`  | `ROS`  |
 
-### 9.6. 滤波
+### 10.6. 滤波
 
 | 参数                    | 说明                                   | 默认值  | 可选值               |
 | ----------------------- | -------------------------------------- | ------- | -------------------- |
@@ -1002,7 +1009,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `grid_size`             | 体素滤波网格大小（m）                  | `0.1`   | 浮点数               |
 | `grid_min_point_count`  | 网格内最小点数，小于该数量的点被滤除   | `5`     | 整数                 |
 
-### 9.7. 数据保存
+### 10.7. 数据保存
 
 | 参数               | 说明                               | 默认值     | 可选值           |
 | ------------------ | ---------------------------------- | ---------- | ---------------- |
@@ -1018,7 +1025,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `save_visual_flag` | 保存Web端渲染的可视化图            | `True`     | `True` / `False` |
 | `save_pcd_flag`    | 保存点云数据                       | `False`    | `True` / `False` |
 
-### 9.8. 离线推理
+### 10.8. 离线推理
 
 | 参数                   | 说明                       | 默认值      | 可选值           |
 | ---------------------- | -------------------------- | ----------- | ---------------- |
@@ -1026,7 +1033,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `local_image_dir`      | 离线图像目录               | `./offline` | 路径             |
 | `image_sleep`          | 每帧图像间的停顿时间（ms） | `0`         | 整数             |
 
-### 9.9. 极线对齐检测
+### 10.9. 极线对齐检测
 
 | 参数                     | 说明                                | 默认值  | 可选值            |
 | ------------------------ | ----------------------------------- | ------- | ----------------- |
@@ -1037,7 +1044,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `chessboard_square_size` | 棋盘格方块大小（m）                 | `0.06`  | 浮点数            |
 | `feature_epipolar_mode`  | 是否开启基于ORB特征点的极线对齐检测 | `False` | `True` / `False`  |
 
-### 9.10. Web可视化
+### 10.10. Web可视化
 
 | 参数                    | 说明                        | 默认值                                | 可选值           |
 | ----------------------- | --------------------------- | ------------------------------------- | ---------------- |
@@ -1047,7 +1054,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `codec_pub_topic`       | 编码发布的话题              | `/image_jpeg`                         | 话题名           |
 | `websocket_image_topic` | WebSocket图像话题           | `/image_jpeg`                         | 话题名           |
 
-### 9.11. 话题
+### 10.11. 话题
 
 | 参数                        | 说明                 | 默认值                                 |
 | --------------------------- | -------------------- | -------------------------------------- |
@@ -1062,9 +1069,9 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `origin_left_image_topic`   | 发布的原始左图话题   | `/StereoNetNode/origin_left_image`     |
 | `origin_right_image_topic`  | 发布的原始右图话题   | `/StereoNetNode/origin_right_image`    |
 
-## 10. 数据保存
+## 11. 数据保存
 
-### 10.1. 运行时保存一帧
+### 11.1. 运行时保存一帧
 
 程序运行成功后，开启另一个终端，执行如下指令保存一帧数据：
 
@@ -1088,7 +1095,7 @@ ros2 param set /StereoNetNode save_dir /root/online_once
 ros2 param set /StereoNetNode save_result_once true
 ```
 
-### 10.2. 启动时批量保存
+### 11.2. 启动时批量保存
 
 在启动命令中指定保存参数：
 
@@ -1125,7 +1132,7 @@ bash run_stereo.sh \
 
 ![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-### 10.3. 运行时批量保存
+### 11.3. 运行时批量保存
 
 程序运行成功后，开启另一个终端，执行如下指令保存数据：
 
@@ -1169,14 +1176,14 @@ ros2 param set /StereoNetNode save_total 10
 ros2 param set /StereoNetNode save_result_flag true
 ```
 
-## 11. 极线对齐检测
+## 12. 极线对齐检测
 
 如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
 双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于 `1 pixel`。
 
 本程序提供了两种极线对齐检测方式：
 
-### 11.1. 基于棋盘格（推荐）
+### 12.1. 基于棋盘格（推荐）
 
 这种方式比较严格，推荐使用。需要准备棋盘格标定板。
 
@@ -1195,7 +1202,7 @@ bash run_stereo.sh --epipolar_mode True \
 
 基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在 `1 pixel` 内，双目图像才是合格图像，否则使用的标定参数是错误的。
 
-### 11.2. 基于ORB特征点
+### 12.2. 基于ORB特征点
 
 这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
 
@@ -1212,16 +1219,16 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel`，双目图像才是合格图像。
 
-## 12. 话题说明
+## 13. 话题说明
 
-### 12.1. 订阅话题
+### 13.1. 订阅话题
 
 | 默认名称（参数可调）                         | 消息类型                     | 说明                                       |
 | -------------------------------------------- | ---------------------------- | ------------------------------------------ |
 | /image_combine_raw                           | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
 | /image_combine_raw/right/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
 
-### 12.2. 发布话题
+### 13.2. 发布话题
 
 | 默认名称（参数可调）                 | 消息类型                      | 说明                 |
 | ------------------------------------ | ----------------------------- | -------------------- |
@@ -1232,3 +1239,316 @@ bash run_stereo.sh --feature_epipolar_mode True
 | /StereoNetNode/rectify_right_image   | sensor_msgs::msg::Image       | 矫正后右图，输入算法 |
 | /StereoNetNode/origin_left_image     | sensor_msgs::msg::Image       | 原始左图，不输入算法 |
 | /StereoNetNode/origin_right_image    | sensor_msgs::msg::Image       | 原始右图，不输入算法 |
+
+## 14. 开发接入指南
+
+如果用户希望在自己的程序中接入双目深度估计算法，有两种方式：**ROS2 话题接入**和**C++ API 直接调用**。
+
+### 14.1. ROS2 话题接入
+
+这是最简单的接入方式。用户只需在自己的程序中发布双目图像话题和相机参数话题，StereoNetNode 订阅后即可自动推理并输出深度图、点云等结果。
+
+**输入话题要求：**
+
+| 话题                                                        | 消息类型                       | 说明                              |
+| ----------------------------------------------------------- | ------------------------------ | --------------------------------- |
+| 双目图像话题（默认 `/image_combine_raw`）                   | `sensor_msgs::msg::Image`      | 左右目图像上下拼接，格式为 `nv12` |
+| 相机参数话题（默认 `/image_combine_raw/right/camera_info`） | `sensor_msgs::msg::CameraInfo` | 右目相机标定参数，用于视差转深度  |
+
+**图像拼接格式：**
+
+左右目图像需要上下拼接为一张图像，上半部分为左目图像，下半部分为右目图像，两幅图像分辨率必须相同。例如模型输入尺寸为 640x352，则拼接后的图像为 640x704。
+
+```
+┌──────────────┐
+│   左目图像    │  640x352
+├──────────────┤
+│   右目图像    │  640x352
+└──────────────┘
+```
+
+**发布示例代码：**
+
+```cpp
+#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/image.hpp>
+#include <sensor_msgs/msg/camera_info.hpp>
+#include <cv_bridge/cv_bridge.h>
+
+// 发布拼接后的双目图像
+auto stereo_img_pub = node->create_publisher<sensor_msgs::msg::Image>("/image_combine_raw", 10);
+
+// 上下拼接左右目图像
+cv::Mat combined(704, 640, CV_8UC3); // 640x352 x2 = 640x704
+cv::Mat left_img = cv::imread("left.png");
+cv::Mat right_img = cv::imread("right.png");
+left_img.copyTo(combined(cv::Rect(0, 0, 640, 352)));
+right_img.copyTo(combined(cv::Rect(0, 352, 640, 352)));
+
+auto msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", combined).toImageMsg();
+stereo_img_pub->publish(*msg);
+
+// 发布相机参数
+auto cam_info_pub = node->create_publisher<sensor_msgs::msg::CameraInfo>(
+    "/image_combine_raw/right/camera_info", 10);
+sensor_msgs::msg::CameraInfo info_msg;
+info_msg.k[0] = fx; info_msg.k[2] = cx;  // 内参矩阵
+info_msg.k[4] = fy; info_msg.k[5] = cy;
+info_msg.k[8] = 1.0;
+cam_info_pub->publish(info_msg);
+```
+
+**启动 StereoNetNode：**
+
+```bash
+# 通过 run_stereo.sh 启动，指定不使用 MIPI 相机
+bash run_stereo.sh --use_mipi_cam False
+```
+
+**订阅输出话题获取结果：**
+
+StereoNetNode 启动后会自动发布以下话题，用户可订阅获取深度图和点云：
+
+| 输出话题                               | 消息类型                        | 说明                     |
+| -------------------------------------- | ------------------------------- | ------------------------ |
+| `/StereoNetNode/stereonet_depth`       | `sensor_msgs::msg::Image`       | 深度图，单位为 mm，16UC1 |
+| `/StereoNetNode/stereonet_pointcloud2` | `sensor_msgs::msg::PointCloud2` | 点云，单位为 m           |
+| `/StereoNetNode/stereonet_visual`      | `sensor_msgs::msg::Image`       | 可视化渲染图像           |
+
+### 14.2. C++ API 直接调用
+
+如果不想依赖 ROS2 框架，可以直接使用 `stereonet::StereonetProcess` 类进行推理，适用于嵌入式和离线评估场景。
+
+#### 14.2.1. Standalone 参考工程
+
+项目源码中提供了完整的 standalone 参考工程，可以直接编译运行：
+
+https://github.com/D-Robotics/hobot_stereonet/tree/develop/standalone
+
+**编译**
+
+standalone 使用 ARM 交叉编译工具链进行编译，生成可在 RDK 板端运行的可执行文件。
+
+**依赖：**
+
+- ARM 交叉编译工具链（如 `arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu`）
+- 下载地址：https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
+
+**编译步骤：**
+
+```bash
+# 1. 下载并解压交叉编译工具链
+tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz -C /opt
+
+# 2. 进入 standalone 目录，执行编译脚本
+cd hobot_stereonet/standalone
+bash run_build_X5.sh
+```
+
+编译完成后，`build/` 目录下会生成 `StereoInfer_X5.tar.gz` 测试包，将其拷贝到 RDK 板端解压即可使用：
+
+```bash
+cd /userdata/
+tar -zxvf StereoInfer_X5.tar.gz
+cd StereoInfer
+bash make_ln.sh
+```
+
+**两个参考例子**
+
+standalone 工程包含两个可执行程序，覆盖了常见的两种使用场景：
+
+**1. infer — 离线批量推理**
+
+适合对一组已有图像进行深度估计，输入为本地图像目录，输出为视差图、深度图、点云等文件。
+
+```bash
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
+./infer ./model/DStereoV2.4_int16.bin ./img 0.10
+```
+
+输入目录格式（支持多子目录批量处理）：
+
+```text
+img/
+ ├── scene1/
+ │    ├── left_xxx.png
+ │    ├── right_xxx.png
+ │    ├── camera_intrinsic.txt
+ ├── scene2/
+ │    ├── ...
+```
+
+源代码 `infer.cpp` 展示了完整的调用流程：初始化模型 → 读取图像 → 格式转换 → 推理 → 视差/深度/点云/可视化输出。
+
+**2. test_perf — 性能测试**
+
+模拟相机采集管线，持续推理并统计性能指标。
+
+```bash
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
+./test_perf ./model/DStereoV2.4_int16.bin 1 30 0.10
+```
+
+参数含义：`模型路径 推理线程数 模拟帧率 置信度阈值`。
+
+运行后控制台会输出 fps、latency、cpu_usage、bpu_usage 等信息，同时也会记录到 `performance_xx.txt` 文件中。
+
+源代码 `test_perf.cpp` 展示了多线程管线的搭建方式：采集线程 → 推理线程 → 后处理/保存线程，可作为高性能实时场景的参考。
+
+####  14.2.2. 自行搭建 C++ 工程
+
+如果需要在独立工程中调用双目算法 API，可以按照以下步骤操作。
+
+**工程目录结构**
+
+```
+my_stereo_project/
+├── CMakeLists.txt
+├── main.cpp
+├── include/                          # 从 hobot_stereonet/include/ 复制
+│   ├── stereonet_process.h
+│   ├── camera_intrinsic.h
+│   ├── img_convert_utils.h
+│   ├── dnn_platform.h
+│   ├── timer_utils.h
+│   ├── log_macros.h
+│   └── ...
+├── src/                              # 从 hobot_stereonet/src/ 复制
+│   ├── stereonet_process.cpp
+│   ├── img_convert_utils.cpp
+│   ├── timer_utils.cpp
+│   └── ...
+└── 3rdparty/                         # 依赖库
+    ├── libdnn/                       # 或 ucp_3.13.6（S100/S600）
+    ├── lib_opencv4.5.4/
+    ├── eigen3/
+    ├── magic_enum/
+    ├── concurrentqueue/
+    └── thread-pool/
+```
+
+**CMakeLists.txt 示例**
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(MyStereoProject)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# 平台定义（X5 / S100 / S600 三选一）
+add_definitions(-DPLATFORM_X5)
+
+# OpenCV
+set(OpenCV_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/lib_opencv4.5.4/lib/cmake/opencv4)
+find_package(OpenCV REQUIRED)
+
+# 包含路径
+include_directories(
+    include
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/eigen3
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/concurrentqueue
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/magic_enum/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/thread-pool/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/libdnn
+)
+
+# 链接路径
+link_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/libdnn
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/libdnn/hobot/lib
+)
+
+# 编译可执行文件
+add_executable(my_stereo
+    main.cpp
+    src/stereonet_process.cpp
+    src/timer_utils.cpp
+    src/img_convert_utils.cpp
+)
+
+# 链接库
+target_link_libraries(my_stereo
+    dnn cnn_intf hbmem hbrt_bayes_aarch64 alog
+    ${OpenCV_LIBS}
+)
+```
+
+**交叉编译**
+
+```bash
+cd my_stereo_project
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release .. \
+  -DCMAKE_C_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc \
+  -DCMAKE_CXX_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-g++
+make -j$(nproc)
+```
+
+**调用 API 示例**
+
+```cpp
+#include "stereonet_process.h"
+#include "camera_intrinsic.h"
+#include "img_convert_utils.h"
+#include <opencv2/opencv.hpp>
+
+int main() {
+  // 1. 初始化模型
+  auto process = std::make_shared<stereonet::StereonetProcess>();
+  process->init("./model/DStereoV2.4_int16.bin");
+
+  // 2. 获取模型输入尺寸
+  int w, h;
+  process->get_model_input_size(w, h); // 例如 640x352
+
+  // 3. 读取左右目图像并 resize
+  cv::Mat left = cv::imread("left.png");
+  cv::Mat right = cv::imread("right.png");
+  cv::resize(left, left, cv::Size(w, h));
+  cv::resize(right, right, cv::Size(w, h));
+
+  // 4. 转换为 NV12 格式（模型要求的输入格式）
+  size_t nv12_size = w * h * 3 / 2;
+  std::vector<uint8_t> left_nv12(nv12_size), right_nv12(nv12_size);
+  ImgConvertUtils::bgr_mat_to_nv12(left, left_nv12.data());
+  ImgConvertUtils::bgr_mat_to_nv12(right, right_nv12.data());
+
+  // 5. 同步推理
+  cv::Mat disp, uncert;
+  process->forward_sync(left_nv12, right_nv12, 0.10, disp, uncert);
+
+  // 6. 设置相机内参，将视差转为深度
+  stereonet::CameraIntrinsic intrinsic;
+  intrinsic.fx = 215.76; intrinsic.fy = 215.76;
+  intrinsic.cx = 325.49; intrinsic.cy = 173.88;
+  intrinsic.baseline = 0.08; // 基线长度，单位 m
+
+  cv::Mat depth;
+  process->disp_to_depth(disp, depth, intrinsic);
+
+  // 7. 生成点云
+  std::vector<stereonet::PointXYZRGB> pointcloud;
+  process->depth_to_pointcloud_rgb(depth, left, intrinsic, pointcloud, 5.0f);
+  process->dump_pcd_file_rgb("output.pcd", pointcloud);
+
+  // 8. 生成可视化图像
+  cv::Mat visual;
+  process->convert_visual_img(left, disp, depth, intrinsic, visual);
+  cv::imwrite("visual.jpg", visual);
+
+  return 0;
+}
+```
+
+**核心 API 说明：**
+
+| 接口                                                      | 功能                                 |
+| --------------------------------------------------------- | ------------------------------------ |
+| `init(model_path)`                                        | 加载模型文件，初始化 BPU             |
+| `get_model_input_size(w, h)`                              | 获取模型需要的输入图像尺寸           |
+| `forward_sync(left_nv12, right_nv12, th, disp, uncert)`   | 同步推理，输入 NV12 数据，输出视差图 |
+| `disp_to_depth(disp, depth, intrinsic)`                   | 视差图转深度图，需要相机内参         |
+| `depth_to_pointcloud_rgb(depth, rgb, intrinsic, pcl)`     | 深度图 + RGB 图生成彩色点云          |
+| `convert_visual_img(rgb, disp, depth, intrinsic, visual)` | 生成带深度标注的可视化图像           |
+
