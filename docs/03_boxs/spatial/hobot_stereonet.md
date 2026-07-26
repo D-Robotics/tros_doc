@@ -15,6 +15,46 @@ import DocScope from '@site/src/components/DocScope';
 
 地瓜双目深度估计算法输入为双目图像数据，输出为左视图对应的视差图和深度图。算法借鉴IGEV网络，采用了GRU架构，具有较好的数据泛化性和较高的推理效率。
 
+算法整体数据流如下图所示：
+
+```mermaid
+flowchart LR
+    subgraph 输入
+        A[MIPI双目相机<br/>230AI / 132GS]
+        B[ZED USB相机<br/>ZED mini / 2i]
+        C[离线双目图像<br/>本地png/jpg]
+    end
+
+    subgraph 预处理
+        D[GDC畸变矫正<br/>极线对齐]
+    end
+
+    subgraph 推理
+        E[StereoNetNode<br/>BPU推理]
+    end
+
+    subgraph 输出
+        F[深度图<br/>stereonet_depth]
+        G[点云<br/>stereonet_pointcloud2]
+        H[可视化渲染<br/>stereonet_visual]
+    end
+
+    subgraph 展示
+        I[Web浏览器<br/>:8000]
+        J[RViz2]
+    end
+
+    A --> D --> E
+    B --> E
+    C --> E
+    E --> F
+    E --> G
+    E --> H
+    H --> I
+    F --> J
+    G --> J
+```
+
 双目算法代码仓库：https://github.com/D-Robotics/hobot_stereonet
 
 mipi相机代码仓库：https://github.com/D-Robotics/hobot_mipi_cam
@@ -32,20 +72,27 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 3. 模型版本
 
-| 平台 | 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                       |
-| ---- | --------------------- | -------- | ----------- | ----------------- | ---------------------------------------------- |
-| X5   | V2.0                  | int16    | 640x352x3x2 | 15                | 历史版本                                       |
-| X5   | V2.1                  | int16    | 640x352x3x2 | 15                | 历史版本，带置信度输出                         |
-| X5   | V2.2                  | int8     | 640x352x3x2 | 23                | 历史版本                                       |
-| X5   | V2.3                  | int8     | 640x352x3x2 | 27                | 历史版本，最高帧率                             |
-| X5   | V2.4_int16            | int16    | 640x352x3x2 | 15                | 当前主版本，高精度深度估计                     |
-| X5   | V2.4_int8             | int8     | 640x352x3x2 | 23                | 当前主版本，高帧率深度估计                     |
-| X5   | V2.5_int16            | int16    | 640x352x3x2 | 16                | 最新版本，高精度深度估计                       |
-| X5   | V2.5_int16_96         | int16    | 640x352x3x2 | 18                | 最新版本，最大搜索视差 96 视差                 |
-| X5   | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544*448 分辨率                       |
-| X5   | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544*448 分辨率，最大搜索视差 96 视差 |
-| S100 | V2.1                  | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出                         |
-| S100 | V2.4                  | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出                       |
+### 3.1. X5 模型
+
+| 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                       |
+| --------------------- | -------- | ----------- | ----------------- | ---------------------------------------------- |
+| V2.0                  | int16    | 640x352x3x2 | 15                | 历史版本                                       |
+| V2.1                  | int16    | 640x352x3x2 | 15                | 历史版本，带置信度输出                         |
+| V2.2                  | int8     | 640x352x3x2 | 23                | 历史版本                                       |
+| V2.3                  | int8     | 640x352x3x2 | 27                | 历史版本，最高帧率                             |
+| V2.4_int16            | int16    | 640x352x3x2 | 15                | 当前主版本，高精度深度估计                     |
+| V2.4_int8             | int8     | 640x352x3x2 | 23                | 当前主版本，高帧率深度估计                     |
+| V2.5_int16            | int16    | 640x352x3x2 | 16                | 最新版本，高精度深度估计                       |
+| V2.5_int16_96         | int16    | 640x352x3x2 | 18                | 最新版本，最大搜索视差 96 视差                 |
+| V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544x448 分辨率                       |
+| V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544x448 分辨率，最大搜索视差 96 视差 |
+
+### 3.2. S100 模型
+
+| 算法版本 | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                 |
+| -------- | -------- | ----------- | ----------------- | ------------------------ |
+| V2.1     | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出   |
+| V2.4     | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出 |
 
 ## 4. 准备工作
 
@@ -67,8 +114,8 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | tros-humble-mipi-cam 功能包版本        | 2.3.13 及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam 功能包版本   | 2.3.3 及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
 
-- 如果系统镜像版本不符合要求，请参考文档对应章节进行镜像烧录
-- 如果功能包版本不符合要求，请执行以下指令进行更新：
+- 如果**系统镜像版本**不符合要求，请参考文档对应章节进行镜像烧录
+- 如果**功能包版本**不符合要求，请执行以下指令进行更新：
 
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
@@ -94,7 +141,11 @@ sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
 </TabItem>
 </Tabs>
 
-- 如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
+### 4.3. Beta源配置（X5专用）
+
+<DocScope products="RDK-X5">
+
+如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
 
 ```bash
 # 修改为beta源，执行以下命令：
@@ -106,13 +157,12 @@ sudo echo 'deb [signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robo
 apt update
 ```
 
-<DocScope products="RDK-X5">
-
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
 
 </DocScope>
+
 <DocScope products="RDK-S100">
 
 :::caution **注意**
@@ -121,19 +171,9 @@ apt update
 
 </DocScope>
 
-## 5. 算法启动
+## 5. 硬件安装
 
-### 5.1. 注意事项（必看！！！）
-
-:::caution **注意**
-**请用`root`用户执行文档中的命令，其他用户执行可能权限不够，造成一些不必要的错误。**
-:::
-
-![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
-
-### 5.2. MIPI双目相机安装
-
-#### (1) 230AI MIPI双目相机
+### 5.1. 230AI MIPI双目相机
 
 - RDK官方230AI MIPI双目相机如图所示：
 
@@ -149,7 +189,7 @@ apt update
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
 
-#### (2) 132GS MIPI双目相机
+### 5.2. 132GS MIPI双目相机
 
 - RDK官方132GS MIPI双目相机如图所示：
 
@@ -167,52 +207,51 @@ apt update
 
 ![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
 
-### 5.3. 在线启动指令
+### 5.3. ZED相机连接
 
-#### (1) 确认双目相机I2C信号正常
+- ZED双目摄像头如图所示：
 
-- 确认230AI双目相机I2C信号是否正常，通过ssh连接RDK，执行以下命令，如果输出0x30、0x32、0x50等地址，则代表相机连接正常：
+![zed_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
 
-```bash
-# RDK X5
-i2cdetect -r -y 4
-i2cdetect -r -y 6
+- 将ZED相机通过USB连接到RDK即可
 
-# RDK S100
-i2cdetect -r -y 1
-i2cdetect -r -y 2
-```
-
-![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
-
-
-- 确认132GS双目相机I2C信号是否正常，通过ssh连接RDK，执行以下命令，如果输出0x32、0x33、0x50等地址，则代表相机连接正常：
-
-```bash
-# RDK X5
-i2cdetect -r -y 4
-i2cdetect -r -y 6
-
-# RDK S100
-i2cdetect -r -y 1
-i2cdetect -r -y 2
-```
-
-![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+## 6. MIPI相机启动
 
 :::caution **注意**
-**如果I2C信号检测不到，相机无法正常工作**
+**请用`root`用户执行以下命令，其他用户执行可能权限不够，造成一些不必要的错误。**
 :::
 
-#### (2) 确认相机出流正常
+![os_user](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/os_user.png)
 
-- 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
+### 6.1. 获取启动脚本
+
+`run_stereo.sh`脚本已内置在功能包中，可通过以下方式获取：
+
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
-- 方法2：手动创建启动脚本`run_cam.sh`，写入以下内容
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```bash
+cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_cam.sh ./
+cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_codec_web.sh ./
+cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_stereo.sh ./
+```
+
+</TabItem>
+</Tabs>
+
+如果无法从功能包中复制，也可以手动创建以下三个脚本。
+
+#### run_cam.sh
 
 ```bash
 #!/bin/bash
@@ -268,47 +307,7 @@ ros2 run mipi_cam mipi_cam --ros-args \
 --log-level $log_level
 ```
 
-- 执行如下指令：
-
-<Tabs groupId="Stereo Cam">
-<TabItem value="230AI" label="230AI">
-
-```bash
-bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rotation 0.0 --log_level INFO
-```
-
-</TabItem>
-<TabItem value="132GS" label="132GS">
-
-```bash
-bash run_cam.sh --log_level INFO
-```
-
-</TabItem>
-</Tabs>
-
-- 以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或不同型号相机接入会打印不同的日志）：
-
-![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
-
-
-- 日志解析：
-
-I2C bus是**控制通道编号**，可以用于配置传感器寄存器，例如设置分辨率、设置帧率、启动 streaming，图像数据不走I2C，I2C只负责**控制**。
-程序会检测X5的第4路和第6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
-
-mipi rx phy 是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
-日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以设置到下文提到的 `channel` 和 `mipi_channel` 参数，用于改变左右目图像的拼接顺序。
-
-- 相机启动后可通过如下方式查看相机图像是否正确
-
-- 方法1：如果已经安装 tros-humble-hobot-stereonet 功能包，则可以直接复制
-
-```bash
-cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
-```
-
-- 方法2：手动创建启动脚本 `run_codec_web.sh` ，写入以下内容
+#### run_codec_web.sh
 
 ```bash
 #!/bin/bash
@@ -343,26 +342,7 @@ codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format codec_pub_to
 websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-- 执行如下指令：
-
-```bash
-bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv12
-```
-
-程序启动后，在 RDK 板端，可通过 WebSocket 将话题`/image_combine_raw`发布的实时图像数据持续发布到网络中。连接到同一网络的 PC 只需使用浏览器访问开发板提供的 Web 页面，即可通过 WebSocket 实时接收并显示图像，无需安装额外客户端软件，便于图像预览、算法调试以及远程监控。
-
-在连接 RDK 板端的PC上，可以打开浏览器，输入 http://ip:8000 (ip 为 RDK 对应的 ip 地址)，即可查看左右目图像，可以通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
-
-
-#### (3) 创建双目算法启动脚本
-
-- 方法1：如果已经安装tros-humble-hobot-stereonet功能包，则可以直接复制
-
-```bash
-cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
-```
-
-- 方法2：手动创建启动脚本`run_stereo.sh`，写入以下内容
+#### run_stereo.sh
 
 ```bash
 #!/bin/bash
@@ -682,9 +662,85 @@ stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
 
-#### (4) 执行双目算法启动指令
+### 6.2. 确认I2C信号
 
-- 通过ssh连接RDK，执行以下命令，则可以启动算法：
+通过ssh连接RDK，执行以下命令检测相机I2C信号。
+
+- 230AI双目相机：如果输出0x30、0x32、0x50等地址，则代表相机连接正常
+
+```bash
+# RDK X5
+i2cdetect -r -y 4
+i2cdetect -r -y 6
+
+# RDK S100
+i2cdetect -r -y 1
+i2cdetect -r -y 2
+```
+
+![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
+
+- 132GS双目相机：如果输出0x32、0x33、0x50等地址，则代表相机连接正常
+
+```bash
+# RDK X5
+i2cdetect -r -y 4
+i2cdetect -r -y 6
+
+# RDK S100
+i2cdetect -r -y 1
+i2cdetect -r -y 2
+```
+
+![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+
+:::caution **注意**
+**如果I2C信号检测不到，相机无法正常工作**
+:::
+
+### 6.3. 验证相机出流
+
+先启动相机，确认图像采集正常。
+
+<Tabs groupId="Stereo Cam">
+<TabItem value="230AI" label="230AI">
+
+```bash
+bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rotation 0.0 --log_level INFO
+```
+
+</TabItem>
+<TabItem value="132GS" label="132GS">
+
+```bash
+bash run_cam.sh --log_level INFO
+```
+
+</TabItem>
+</Tabs>
+
+以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或不同型号相机接入会打印不同的日志）：
+
+![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
+
+**日志解析：**
+
+- **I2C bus** 是控制通道编号，用于配置传感器寄存器（如设置分辨率、帧率、启动 streaming），图像数据不走I2C，I2C只负责控制。程序会检测板子的I2C控制器是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6。
+- **mipi rx phy** 是图像数据通道编号，相机采集的图像数据走该高速通道传输到芯片。日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以通过 `channel` 和 `mipi_channel` 参数调整，用于改变左右目图像的拼接顺序。
+
+相机启动后，可通过以下方式查看图像是否正确。启动 `run_codec_web.sh`：
+
+```bash
+bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv12
+```
+
+程序启动后，在 RDK 板端，可通过 WebSocket 将话题 `/image_combine_raw` 发布的实时图像数据持续发布到网络中。连接到同一网络的 PC 只需使用浏览器访问开发板提供的 Web 页面，即可通过 WebSocket 实时接收并显示图像，无需安装额外客户端软件，便于图像预览、算法调试以及远程监控。
+
+在连接 RDK 板端的PC上，打开浏览器，输入 `http://ip:8000`（ip 为 RDK 对应的 ip 地址），即可查看左右目图像。通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
+
+### 6.4. 启动双目算法
+
+通过ssh连接RDK，执行以下命令启动算法：
 
 <Tabs groupId="RDK">
 <TabItem value="RDK X5" label="RDK X5">
@@ -695,13 +751,13 @@ bash run_stereo.sh --mipi_rotation 0.0
 
 # 搭配132GS相机
 bash run_stereo.sh
-
-# 注意：
-# 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
-# 如果左右目相机顺序不正确，有两个方法调整：
-# 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 2 或 --mipi_channel 2 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
+
+**注意：**
+- 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
+- 如果左右目相机顺序不正确，有两个方法调整：
+  - 方法1：交换MIPI线
+  - 方法2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 2` 或 `--mipi_channel 2 --mipi_channel2 0`，看看哪种情况能输出正确的结果
 
 </TabItem>
 <TabItem value="RDK S100" label="RDK S100">
@@ -715,13 +771,13 @@ bash run_stereo.sh --stereonet_version v2.4
 
 # S100还支持大分辨率模型，以132GS相机为例，启动指令如下
 bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --mipi_image_height 704
-
-# 注意：
-# 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
-# 如果左右目相机顺序不正确，有两个方法调整：
-# 方法1：交换MIPI线
-# 方法2：在上面的运行指令上，加入参数：--mipi_channel 0 --mipi_channel2 1 或 --mipi_channel 1 --mipi_channel2 0，看看哪种情况能输出正确的结果
 ```
+
+**注意：**
+- 需要观察网页端图像RGB图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
+- 如果左右目相机顺序不正确，有两个方法调整：
+  - 方法1：交换MIPI线
+  - 方法2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 1` 或 `--mipi_channel 1 --mipi_channel2 0`，看看哪种情况能输出正确的结果
 
 </TabItem>
 </Tabs>
@@ -729,230 +785,110 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 :::caution **注意**
 **如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
 
-**如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考下文确认左右图是否满足极线对齐要求**
+**如果程序正确启动，但深度效果不好，要确认：1.左右目图像的拼接顺序为左上右下; 2.参考[极线对齐检测](#11-极线对齐检测)章节确认左右图是否满足极线对齐要求**
 :::
 
-- 左右目相机定义，<span style={{ color: 'red' }}> 需要确认下文网页端显示的RGB图像是否是左相机拍摄的图像 </span>：
+左右目相机定义，<span style={{ color: 'red' }}> 需要确认网页端显示的RGB图像是否是左相机拍摄的图像 </span>：
 
 ![230ai_left_right_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/230ai_left_right_cam.png)
 
-- 双目算法启动成功后会打印如下日志，`fx/fy/cx/cy/baseline`是相机内参，`fps`是算法运行的帧率：
+### 6.5. 查看结果
+
+双目算法启动成功后会打印如下日志，`fx/fy/cx/cy/baseline`是相机内参，`fps`是算法运行的帧率：
 
 ![stereonet_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png)
 
-- 通过网页端查看RGB图和深度图，在浏览器输入 http://ip:8000 (图中RDK ip是192.168.1.100)：
+**Web端查看：** 在浏览器输入 `http://ip:8000`（图中RDK ip是192.168.1.100），即可查看RGB图和深度图：
 
 ![web_depth_visual](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png)
 
-- 通过rviz2查看点云，RDK可直接安装rviz2查看，注意rviz2中需要做如下配置：
+**RViz2查看点云：** RDK可直接安装rviz2查看，注意rviz2中需要做如下配置：
 
 ```bash
 # 安装rviz2
 sudo apt install ros-humble-rviz2
 # 启动rviz2
-source /opt/tros/humble/setup.bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
 rviz2
 ```
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="在 RViz2 中查看 Stereonet 点云/深度可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-#### (5) 参数定义
+## 7. ZED相机启动
 
-`run_stereo.sh`脚本有很多可设置参数，下面介绍一些常用参数的定义，其它参数请参考源码中的解释：
+### 7.1. 启动ZED相机节点
 
-- stereonet_version控制启动不同版本的算法
-  - RDK X5可以设置为`v2.0`、`v2.1`、`v2.2`、`v2.3`、`v2.4_int16`、`v2.4_int8`、`v2.5_int16`、`v2.5_int16_96`、`v2.5_int16_544_448`、`v2.5_int16_544_448_96`
-  - RDK S100可以设置为`v2.1`、`v2.4`、`v2.4_1280_704`
-- stereo_node_name控制ros节点的名称
-- uncertainty_th为置信度阈值，只有带置信度的模型并且设置为正数时才会生效，如果需要开启，建议设置为`0.10`
-- stereo_image_topic/camera_info_topic为ros节点需要接收的话题名称，分别为双目图像和对应的相机参数
-- depth_image_topic/pointcloud2_topic/visual_image_topic等控制ros节点发布的话题名称
-
-- mipi_image_width、mipi_image_height、mipi_image_framerate控制相机的分辨率和帧率
-- mipi_gdc_enable控制相机开启GDC矫正，相机会读取EEPROM存储的参数进行图像的畸变矫正，目前生成的相机都带有出厂标定参数
-- mipi_lpwm_enable控制相机开启硬件同步，使得双目相机获取的左右图像时间戳是一致的，如果设置为False，则使用软同步，同步误差较大
-- mipi_rotation控制图像是否进行旋转，目前132GS相机CMOS安装时有90°旋转，需要设置该参数为`90.0`
-- mipi_channel、mipi_channel2用于调换左右图输出顺序
-
-- calib_method控制矫正方式
-  - 当`mipi_gdc_enable:=True`时，代表`hobot_mipi_cam`功能包已经对图像经过矫正，`hobot_stereonet`功能包不需要再进行矫正，calib_method设置为`none`即可
-  - 当`mipi_gdc_enable:=False`时，或者相机无法对图像进行矫正时，需要将calib_method设置为`custom`，并且需要指定`stereo_calib_file_path`
-- stereo_calib_file_path控制自定义标定参数的路径
-
-- render_type控制渲染方式，默认是`distance`，会自动根据深度图距离自动渲染伪彩色图像用于网页端显示，可以设置为`indoor`、`outdoor`，不建议设置为`indoor`
-- render_perf控制渲染图像上是否展示CPU、BPU占用率、Latency、FPS信息，可以设置为`True`、`False`
-
-- speckle_filter_enable控制是否开启speckle filter滤波，可以设置为`True`、`False`
-- max_speckle_size控制speckle的大小，小于该大小的speckle将会被滤除，设置越大，滤波效果更强
-- max_disp_diff控制speckle中视差的差异阈值，邻域小于该阈值的像素点将划分为同一个speckle，设置越小，滤波效果更强
-
-- pointcloud_height_min/pointcloud_height_max/pointcloud_depth_max控制点云的显示范围，单位是m
-
-- pcl_filter_enable控制是否开启点云滤波，可以设置为`True`、`False`
-- grid_size控制点云滤波时的网格大小，单位m
-- grid_min_point_count控制点云滤波时的网格最小点数，小于该数量的点会被滤除
-
-- save_result_flag控制是否保存结果，如果开启保存则会保存**相机参数、原始左右图、矫正后左右图、视差图、深度图、点云**
-- save_dir控制保存的目录，目录不存在会自动创建，请确保该目录下有足够空间，否则会保存失败
-- save_freq控制保存的频率，例如设置为4代表每隔4帧保存一次
-- save_total控制保存的总数，设置为-1代表一直保存，设置为100代表保存100帧则不再保存
-
-- use_local_image_flag控制是否开启离线推理
-- local_image_dir控制本地图像目录，离线推理时使用
-
-- epipolar_mode控制是否开启基于棋盘格的极线对齐检测
-- epipolar_img控制使用`origin`原图还是使用`rect`图
-- chessboard_per_rows/chessboard_per_cols/chessboard_square_size控制棋盘格内点数和棋盘格方块大小（单位m）
-- feature_epipolar_mode控制是否开启基于ORB特征点的极线对齐检测 
-
-- infer_thread_num控制推理线程数，默认是2个推理线程，多线程推理帧率高，但latency较大。可以改为1，单线程推理帧率稍低，但latency也低
-
-- stereonet_pub_web控制是否开启web端发布可视化图像
-
-#### (6) 保存一帧图像
-
-- 程序运行成功后，可以开启另一个终端，执行如下指令保存一帧数据：
+通过ssh连接RDK，X5和S100执行相同指令：
 
 ```bash
-source /opt/tros/humble/setup.bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
 
-# 首先查看一下节点是否正常运行，注意一下是否设置了ROS_DOMAIN_ID或者改变了节点名称
-ros2 node list
-
-# 如果/StereoNetNode节点正常运行，运行如下指令可以保存一帧数据
-# 设置保存目录，建议设置绝对路径，如果保存目录不存在会自动创建
-ros2 param set /StereoNetNode save_dir /root/online_once
-# 保存一帧数据，可重复执行
-ros2 param set /StereoNetNode save_result_once true
+ros2 launch hobot_zed_cam zed_cam_node.launch.py \
+resolution:=720p \
+need_rectify:=true dst_width:=640 dst_height:=352
 ```
 
-#### (7) 保存批量数据
+| 参数         | 定义                                                                    |
+| ------------ | ----------------------------------------------------------------------- |
+| resolution   | zed 原始输出分辨率，带畸变，720p 表示 1280*720 的分辨率，可设置为 1080p |
+| need_rectify | 表示最终输出的图像是否需要矫正                                          |
+| dst_width    | 最终输出的矫正后图像分辨率为 640*352                                    |
+| dst_height   | 最终输出的矫正后图像分辨率为 640*352                                    |
 
-- 方法1：在启动时指定参数保存
+<p style={{ color: 'red' }}> 注意：运行ZED相机RDK一定要联网，因为ZED需要联网下载标定文件 </p>
+
+![stereonet_zed_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
+
+联网的情况下程序会自动下载标定文件，如果RDK没有联网，可以手动下载标定文件然后上传到RDK。
+根据log信息，在PC端打开浏览器，输入 `https://calib.stereolabs.com/?SN=38085162`，即可下载标定文件SN38085162.conf。
+注意每台ZED的SN码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到 `/root/zed/settings/` 目录下，如果目录不存在则手动创建。
+
+### 7.2. 启动双目算法
+
+开启另一个终端执行：
 
 ```bash
-# 搭配230AI相机
-bash run_stereo.sh --mipi_rotation 0.0 \
---save_result_flag True --save_dir /root/online_batch \
---save_freq 1 --save_total -1 \
---save_stereo_flag True --save_origin_flag False \
---save_disp_flag True --save_uncert_flag False \
---save_depth_flag True --save_visual_flag True \
---save_pcd_flag False
-
-# 搭配132GS相机
-bash run_stereo.sh \
---save_result_flag True --save_dir /root/online_batch \
---save_freq 1 --save_total -1 \
---save_stereo_flag True --save_origin_flag False \
---save_disp_flag True --save_uncert_flag False \
---save_depth_flag True --save_visual_flag True \
---save_pcd_flag False
-
-# S100需要指定模型版本，例如增加参数--stereonet_version v2.4
-# save_stereo_flag    保存双目图像，该图像会输入算法进行推理
-# save_origin_flag    保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
-# save_disp_flag      保存视差图
-# save_uncert_flag    保存置信度图，只有带置信度的模型支持
-# save_depth_flag     保存深度图
-# save_visual_flag    保存web端渲染的可视化图
-# save_pcd_flag       保存点云数据
+bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
 ```
 
-![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
+### 7.3. 查看结果
 
-![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
+通过网页端查看深度图，在浏览器输入 `http://ip:8000`（ip为RDK对应的ip地址）。如需查看**点云**和**保存图像**，请参考[MIPI相机启动-查看结果](#65-查看结果)和[数据保存](#10-数据保存)章节。
 
-- 方法2：程序运行成功后，可以开启另一个终端，执行如下指令保存数据
+## 8. 离线启动
 
-```bash
-source /opt/tros/humble/setup.bash
+### 8.1. 准备离线数据
 
-# 首先查看一下节点是否正常运行，注意一下是否设置了ROS_DOMAIN_ID或者改变了节点名称
-ros2 node list
+如果想利用本地图像评估算法效果，需要准备如下数据并上传到RDK：
 
-# 如果/StereoNetNode节点正常运行，运行如下指令可以保存数据
-# 设置保存目录，建议设置绝对路径，如果保存目录不存在会自动创建
-ros2 param set /StereoNetNode save_dir /root/online_batch
-# 设置保存总数
-ros2 param set /StereoNetNode save_total 10
-# 设置保存频率
-ros2 param set /StereoNetNode save_freq 1
-
-# 设置保存内容，按需要设置
-ros2 param set /StereoNetNode save_stereo_flag true   # 保存双目图像，该图像会输入算法进行推理
-ros2 param set /StereoNetNode save_origin_flag true   # 保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
-ros2 param set /StereoNetNode save_disp_flag true     # 保存视差图
-ros2 param set /StereoNetNode save_uncert_flag true   # 保存置信度图，只有带置信度的模型支持
-ros2 param set /StereoNetNode save_depth_flag true    # 保存深度图
-ros2 param set /StereoNetNode save_visual_flag true   # 保存web端渲染的可视化图
-ros2 param set /StereoNetNode save_pcd_flag true      # 保存点云数据
-
-# 执行保存命令
-ros2 param set /StereoNetNode save_result_flag true
-
-# 如果保存完毕后，还需要继续保存，需要再执行一下下面两条指令
-# 重新设置保存总数
-ros2 param set /StereoNetNode save_total 10
-# 执行保存命令
-ros2 param set /StereoNetNode save_result_flag true
-```
-
-#### (8) 开启极线对齐检测模式
-
-如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
-双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于`1 pixel`。
-
-本程序开发了两种极线对齐检测方式：一种是基于棋盘格标定板的方式，这种方式比较严格，推荐使用；
-另一种是基于ORB特征点的方式，这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
-
-- 基于棋盘格标定板极线对齐检测程序启动指令（以X5搭配132GS相机为例）：
-
-```bash
-# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
-# 注意棋盘格参数的设置，例子中使用每行内角点20、每列内角度11、方格大小为0.06m的棋盘格
-bash run_stereo.sh --epipolar_mode True \
---chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
-```
-
-运行成功后，可以在web端看到如下图像：
-
-![epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg)
-
-基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在`1 pixel`内，双目图像才是合格图像，否则使用的标定参数是错误的
-
-- 基于ORB特征点极线对齐检测程序启动指令（以X5搭配132GS相机为例）：
-
-```bash
-# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
-bash run_stereo.sh --feature_epipolar_mode True
-```
-
-运行成功后，可以在web端看到如下图像：
-
-![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
-
-基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel` ，双目图像才是合格图像
-
-### 5.4. 离线启动指令
-
-#### (1) 准备离线图像
-
-- 如果想利用本地图像评估算法效果，需要准备如下数据并上传到RDK：
-
-1. **去畸变、极线对齐**的左右目图像，png或者jpg格式，图片需要按照规则命名，左目图像需要带有`left`字段，右目图像需要带有`right`字段，算法按序号遍历图像，直至图像全部计算完毕：
+1. **去畸变、极线对齐**的左右目图像，png或者jpg格式，图片需要按照规则命名，左目图像需要带有 `left` 字段，右目图像需要带有 `right` 字段，算法按序号遍历图像，直至图像全部计算完毕：
 
 ![stereonet_rdk](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png)
 
-2. 相机内参文件，保存在图像目录下，命名为`camera_intrinsic.txt`，参考内容如下：
+2. 相机内参文件，保存在图像目录下，命名为 `camera_intrinsic.txt`，参考内容如下：
+
 ```bash
 # fx fy cx cy baseline(m)
 215.762581 215.762581 325.490113 173.881556 0.079957
 ```
 
-#### (2) 执行启动指令
+### 8.2. 启动双目算法
 
-- 通过ssh连接RDK，执行以下命令：
+通过ssh连接RDK，执行以下命令：
 
 <Tabs groupId="RDK">
 <TabItem value="RDK X5" label="RDK X5">
@@ -987,72 +923,305 @@ bash run_stereo.sh --stereonet_version v2.4 \
 </TabItem>
 </Tabs>
 
-- 运行成功后，会打印如下日志
+### 8.3. 查看结果
+
+运行成功后，会打印如下日志：
 
 ![stereonet_offline_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png)
 
-- 通过网页端查看RGB图和深度图，在浏览器输入 http://ip:8000 (图中RDK ip是192.168.128.10)：
+通过网页端查看RGB图和深度图，在浏览器输入 `http://ip:8000`（图中RDK ip是192.168.128.10）：
 
 ![web_depth_visual_offline](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png)
 
-### 5.5. 搭配ZED相机运行
+## 9. 启动参数参考
 
-#### (1) ZED相机安装
+`run_stereo.sh` 脚本支持以下参数，可通过 `--参数名 参数值` 的方式在命令行传入。
 
-- ZED双目摄像头如图所示：
+### 9.1. 模型与节点
 
-![zed_cam](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/zed_cam.png)
+| 参数                | 说明                                 | 默认值          | 可选值                                                                                                                                                                                                                                                                                                                                 |
+| ------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stereonet_version` | 算法版本                             | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.4_int16_1280_704` / `v2.4_int16_320_256` / `v2.4_int16_640_480` / `v2.4_int8_544_448` / `v2.4_int8_544_448_96` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96`<br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` / `v2.4_640_416` |
+| `stereo_node_name`  | ROS节点名称                          | `StereoNetNode` | 任意合法ROS节点名                                                                                                                                                                                                                                                                                                                      |
+| `uncertainty_th`    | 置信度阈值，设为正数时启用置信度过滤 | `-0.10`         | 建议设为 `0.10`                                                                                                                                                                                                                                                                                                                        |
+| `infer_thread_num`  | 推理线程数，多线程帧率高但延迟大     | `2`             | `1` / `2`                                                                                                                                                                                                                                                                                                                              |
 
-- 将ZED相机通过USB连接到RDK即可
+### 9.2. 相机参数
 
-#### (2) 启动指令
+| 参数                   | 说明                                 | 默认值 | 可选值                          |
+| ---------------------- | ------------------------------------ | ------ | ------------------------------- |
+| `use_mipi_cam`         | 是否启动MIPI相机                     | `True` | `True` / `False`                |
+| `mipi_image_width`     | 相机输出图像宽度                     | `640`  | 根据相机型号设置                |
+| `mipi_image_height`    | 相机输出图像高度                     | `352`  | 根据相机型号设置                |
+| `mipi_image_framerate` | 相机输出帧率                         | `30.0` | 根据相机型号设置                |
+| `mipi_rotation`        | 图像旋转角度                         | `90.0` | 132GS设为`90.0`，230AI设为`0.0` |
+| `mipi_gdc_enable`      | 开启GDC畸变矫正                      | `True` | `True` / `False`                |
+| `mipi_lpwm_enable`     | 开启硬件同步，保证左右图像时间戳一致 | `True` | `True` / `False`                |
+| `mipi_channel`         | 左目相机MIPI通道编号                 | `2`    | X5: `0` / `2`; S100: `0` / `1`  |
+| `mipi_channel2`        | 右目相机MIPI通道编号                 | `0`    | X5: `0` / `2`; S100: `0` / `1`  |
+| `mipi_cal_rotation`    | 标定旋转角度                         | `0.0`  | 一般保持默认                    |
 
-- 首先，启动ZED相机，通过ssh连接RDK，X5和S100执行相同指令：
+### 9.3. 标定
+
+| 参数                                                  | 说明                         | 默认值       | 可选值                                                |
+| ----------------------------------------------------- | ---------------------------- | ------------ | ----------------------------------------------------- |
+| `calib_method`                                        | 矫正方式                     | `none`       | `none`（相机已做GDC矫正）/ `custom`（自定义标定文件） |
+| `stereo_calib_file_path`                              | 自定义标定参数文件路径       | `calib.yaml` | 文件路径                                              |
+| `camera_fx` / `camera_fy` / `camera_cx` / `camera_cy` | 相机内参（自定义标定时使用） | `0.0`        | 浮点数                                                |
+| `baseline`                                            | 双目基线长度（m）            | `0.0`        | 浮点数                                                |
+| `doffs`                                               | 视差偏移                     | `0.0`        | 浮点数                                                |
+
+### 9.4. 渲染
+
+| 参数              | 说明                                       | 默认值     | 可选值                                                |
+| ----------------- | ------------------------------------------ | ---------- | ----------------------------------------------------- |
+| `render_type`     | 渲染方式                                   | `distance` | `distance` / `indoor` / `outdoor`（不建议用`indoor`） |
+| `render_perf`     | 渲染图像上是否展示CPU/BPU占用率、延迟、FPS | `True`     | `True` / `False`                                      |
+| `render_max_disp` | 渲染最大视差                               | `80`       | 整数                                                  |
+| `render_z_near`   | 渲染最近距离（m）                          | `-1.0`     | 浮点数                                                |
+| `render_z_range`  | 渲染距离范围（m）                          | `3.0`      | 浮点数                                                |
+
+### 9.5. 点云
+
+| 参数                         | 说明              | 默认值 | 可选值 |
+| ---------------------------- | ----------------- | ------ | ------ |
+| `pointcloud_height_min`      | 点云最小高度（m） | `-5.0` | 浮点数 |
+| `pointcloud_height_max`      | 点云最大高度（m） | `5.0`  | 浮点数 |
+| `pointcloud_depth_max`       | 点云最大深度（m） | `5.0`  | 浮点数 |
+| `pointcloud_downsample_step` | 点云下采样步长    | `2`    | 整数   |
+| `pointcloud_coord`           | 点云坐标系        | `ROS`  | `ROS`  |
+
+### 9.6. 滤波
+
+| 参数                    | 说明                                   | 默认值  | 可选值               |
+| ----------------------- | -------------------------------------- | ------- | -------------------- |
+| `speckle_filter_enable` | 是否开启视差散斑滤波                   | `False` | `True` / `False`     |
+| `max_speckle_size`      | 散斑最大尺寸，小于该尺寸的散斑会被滤除 | `100`   | 整数，越大滤波越强   |
+| `max_disp_diff`         | 散斑视差差异阈值                       | `1.0`   | 浮点数，越小滤波越强 |
+| `pcl_filter_enable`     | 是否开启点云体素滤波                   | `False` | `True` / `False`     |
+| `grid_size`             | 体素滤波网格大小（m）                  | `0.1`   | 浮点数               |
+| `grid_min_point_count`  | 网格内最小点数，小于该数量的点被滤除   | `5`     | 整数                 |
+
+### 9.7. 数据保存
+
+| 参数               | 说明                               | 默认值     | 可选值           |
+| ------------------ | ---------------------------------- | ---------- | ---------------- |
+| `save_result_flag` | 是否开启保存                       | `False`    | `True` / `False` |
+| `save_dir`         | 保存目录，不存在会自动创建         | `./result` | 路径             |
+| `save_freq`        | 保存频率，每隔N帧保存一次          | `1`        | 整数             |
+| `save_total`       | 保存总数，-1表示一直保存           | `-1`       | 整数             |
+| `save_stereo_flag` | 保存双目图像（输入算法的图像）     | `True`     | `True` / `False` |
+| `save_origin_flag` | 保存原始图像（未预处理）           | `False`    | `True` / `False` |
+| `save_disp_flag`   | 保存视差图                         | `True`     | `True` / `False` |
+| `save_uncert_flag` | 保存置信度图（仅带置信度模型支持） | `False`    | `True` / `False` |
+| `save_depth_flag`  | 保存深度图                         | `True`     | `True` / `False` |
+| `save_visual_flag` | 保存Web端渲染的可视化图            | `True`     | `True` / `False` |
+| `save_pcd_flag`    | 保存点云数据                       | `False`    | `True` / `False` |
+
+### 9.8. 离线推理
+
+| 参数                   | 说明                       | 默认值      | 可选值           |
+| ---------------------- | -------------------------- | ----------- | ---------------- |
+| `use_local_image_flag` | 是否开启离线推理           | `False`     | `True` / `False` |
+| `local_image_dir`      | 离线图像目录               | `./offline` | 路径             |
+| `image_sleep`          | 每帧图像间的停顿时间（ms） | `0`         | 整数             |
+
+### 9.9. 极线对齐检测
+
+| 参数                     | 说明                                | 默认值  | 可选值            |
+| ------------------------ | ----------------------------------- | ------- | ----------------- |
+| `epipolar_mode`          | 是否开启基于棋盘格的极线对齐检测    | `False` | `True` / `False`  |
+| `epipolar_img`           | 检测使用的图像类型                  | `rect`  | `origin` / `rect` |
+| `chessboard_per_rows`    | 棋盘格每行内角点数                  | `20`    | 整数              |
+| `chessboard_per_cols`    | 棋盘格每列内角点数                  | `11`    | 整数              |
+| `chessboard_square_size` | 棋盘格方块大小（m）                 | `0.06`  | 浮点数            |
+| `feature_epipolar_mode`  | 是否开启基于ORB特征点的极线对齐检测 | `False` | `True` / `False`  |
+
+### 9.10. Web可视化
+
+| 参数                    | 说明                        | 默认值                                | 可选值           |
+| ----------------------- | --------------------------- | ------------------------------------- | ---------------- |
+| `stereonet_pub_web`     | 是否开启Web端发布可视化图像 | `True`                                | `True` / `False` |
+| `codec_sub_topic`       | 编码订阅的话题              | `/$stereo_node_name/stereonet_visual` | 话题名           |
+| `codec_in_format`       | 编码输入格式                | `bgr8`                                | 格式名           |
+| `codec_pub_topic`       | 编码发布的话题              | `/image_jpeg`                         | 话题名           |
+| `websocket_image_topic` | WebSocket图像话题           | `/image_jpeg`                         | 话题名           |
+
+### 9.11. 话题
+
+| 参数                        | 说明                 | 默认值                                 |
+| --------------------------- | -------------------- | -------------------------------------- |
+| `stereo_image_topic`        | 订阅的双目图像话题   | `/image_combine_raw`                   |
+| `camera_info_topic`         | 订阅的相机参数话题   | `/image_combine_raw/right/camera_info` |
+| `left_camera_info_topic`    | 订阅的左相机参数话题 | `/image_combine_raw/left/camera_info`  |
+| `depth_image_topic`         | 发布的深度图话题     | `/StereoNetNode/stereonet_depth`       |
+| `pointcloud2_topic`         | 发布的点云话题       | `/StereoNetNode/stereonet_pointcloud2` |
+| `visual_image_topic`        | 发布的可视化渲染话题 | `/StereoNetNode/stereonet_visual`      |
+| `rectify_left_image_topic`  | 发布的矫正左图话题   | `/StereoNetNode/rectify_left_image`    |
+| `rectify_right_image_topic` | 发布的矫正右图话题   | `/StereoNetNode/rectify_right_image`   |
+| `origin_left_image_topic`   | 发布的原始左图话题   | `/StereoNetNode/origin_left_image`     |
+| `origin_right_image_topic`  | 发布的原始右图话题   | `/StereoNetNode/origin_right_image`    |
+
+## 10. 数据保存
+
+### 10.1. 运行时保存一帧
+
+程序运行成功后，开启另一个终端，执行如下指令保存一帧数据：
 
 ```bash
-source /opt/tros/humble/setup.bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
 
-ros2 launch hobot_zed_cam zed_cam_node.launch.py \
-resolution:=720p \
-need_rectify:=true dst_width:=640 dst_height:=352
+# 首先查看一下节点是否正常运行，注意一下是否设置了ROS_DOMAIN_ID或者改变了节点名称
+ros2 node list
+
+# 如果/StereoNetNode节点正常运行，运行如下指令可以保存一帧数据
+# 设置保存目录，建议设置绝对路径，如果保存目录不存在会自动创建
+ros2 param set /StereoNetNode save_dir /root/online_once
+# 保存一帧数据，可重复执行
+ros2 param set /StereoNetNode save_result_once true
 ```
 
-参数解释：
+### 10.2. 启动时批量保存
 
-| 参数         | 定义                                                                    |
-| ------------ | ----------------------------------------------------------------------- |
-| resolution   | zed 原始输出分辨率，带畸变，720p 表示 1280*720 的分辨率，可设置为 1080p |
-| need_rectify | 表示最终输出的图像是否需要矫正                                          |
-| dst_width    | 最终输出的矫正后图像分辨率为 640*352                                    |
-| dst_height   | 最终输出的矫正后图像分辨率为 640*352                                    |
-
-<p style={{ color: 'red' }}> 注意：运行ZED相机RDK一定要联网，因为ZED需要联网下载标定文件 </p>
-
-
-![stereonet_zed_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png)
-
-联网的情况下程序会自动下载标定文件，如果RDK没有联网，可以手动下载标定文件然后上传到RDK。
-根据log信息，在PC端打开浏览器，输入(https://calib.stereolabs.com/?SN=38085162) ，即可下载标定文件SN38085162.conf。
-注意每台ZED的SN码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到`/root/zed/settings/`目录下，如果目录不存在则手动创建。
-
-- 然后，启动双目算法，开启另一个终端执行：
+在启动命令中指定保存参数：
 
 ```bash
-bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/camera_info
+# 搭配230AI相机
+bash run_stereo.sh --mipi_rotation 0.0 \
+--save_result_flag True --save_dir /root/online_batch \
+--save_freq 1 --save_total -1 \
+--save_stereo_flag True --save_origin_flag False \
+--save_disp_flag True --save_uncert_flag False \
+--save_depth_flag True --save_visual_flag True \
+--save_pcd_flag False
+
+# 搭配132GS相机
+bash run_stereo.sh \
+--save_result_flag True --save_dir /root/online_batch \
+--save_freq 1 --save_total -1 \
+--save_stereo_flag True --save_origin_flag False \
+--save_disp_flag True --save_uncert_flag False \
+--save_depth_flag True --save_visual_flag True \
+--save_pcd_flag False
+
+# S100需要指定模型版本，例如增加参数--stereonet_version v2.4
+# save_stereo_flag    保存双目图像，该图像会输入算法进行推理
+# save_origin_flag    保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
+# save_disp_flag      保存视差图
+# save_uncert_flag    保存置信度图，只有带置信度的模型支持
+# save_depth_flag     保存深度图
+# save_visual_flag    保存web端渲染的可视化图
+# save_pcd_flag       保存点云数据
 ```
 
-- 通过网页端查看深度图，在浏览器输入 http://ip:8000 (ip为RDK对应的ip地址)，如需查看**点云**和**保存图像**请参考上文对应的设置
+![stereonet_save_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_log.png)
 
-## 6. 功能包话题说明
+![stereonet_save_files](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_save_files.png)
 
-### 6.1. 订阅话题
+### 10.3. 运行时批量保存
+
+程序运行成功后，开启另一个终端，执行如下指令保存数据：
+
+```bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
+
+# 首先查看一下节点是否正常运行，注意一下是否设置了ROS_DOMAIN_ID或者改变了节点名称
+ros2 node list
+
+# 如果/StereoNetNode节点正常运行，运行如下指令可以保存数据
+# 设置保存目录，建议设置绝对路径，如果保存目录不存在会自动创建
+ros2 param set /StereoNetNode save_dir /root/online_batch
+# 设置保存总数
+ros2 param set /StereoNetNode save_total 10
+# 设置保存频率
+ros2 param set /StereoNetNode save_freq 1
+
+# 设置保存内容，按需要设置
+ros2 param set /StereoNetNode save_stereo_flag true   # 保存双目图像，该图像会输入算法进行推理
+ros2 param set /StereoNetNode save_origin_flag true   # 保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
+ros2 param set /StereoNetNode save_disp_flag true     # 保存视差图
+ros2 param set /StereoNetNode save_uncert_flag true   # 保存置信度图，只有带置信度的模型支持
+ros2 param set /StereoNetNode save_depth_flag true    # 保存深度图
+ros2 param set /StereoNetNode save_visual_flag true   # 保存web端渲染的可视化图
+ros2 param set /StereoNetNode save_pcd_flag true      # 保存点云数据
+
+# 执行保存命令
+ros2 param set /StereoNetNode save_result_flag true
+
+# 如果保存完毕后，还需要继续保存，需要再执行一下下面两条指令
+# 重新设置保存总数
+ros2 param set /StereoNetNode save_total 10
+# 执行保存命令
+ros2 param set /StereoNetNode save_result_flag true
+```
+
+## 11. 极线对齐检测
+
+如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
+双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于 `1 pixel`。
+
+本程序提供了两种极线对齐检测方式：
+
+### 11.1. 基于棋盘格（推荐）
+
+这种方式比较严格，推荐使用。需要准备棋盘格标定板。
+
+以X5搭配132GS相机为例：
+
+```bash
+# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+# 注意棋盘格参数的设置，例子中使用每行内角点20、每列内角度11、方格大小为0.06m的棋盘格
+bash run_stereo.sh --epipolar_mode True \
+--chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
+```
+
+运行成功后，可以在web端看到如下图像：
+
+![epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/epipolar_mode.jpg)
+
+基于棋盘格的极线对齐检测，极线对齐误差和重投影误差都应该在 `1 pixel` 内，双目图像才是合格图像，否则使用的标定参数是错误的。
+
+### 11.2. 基于ORB特征点
+
+这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
+
+以X5搭配132GS相机为例：
+
+```bash
+# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+bash run_stereo.sh --feature_epipolar_mode True
+```
+
+运行成功后，可以在web端看到如下图像：
+
+![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
+
+基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel`，双目图像才是合格图像。
+
+## 12. 话题说明
+
+### 12.1. 订阅话题
 
 | 默认名称（参数可调）                         | 消息类型                     | 说明                                       |
 | -------------------------------------------- | ---------------------------- | ------------------------------------------ |
 | /image_combine_raw                           | sensor_msgs::msg::Image      | 左右目上下拼接的图像，用于模型推理         |
 | /image_combine_raw/right/camera_info（可选） | sensor_msgs::msg::CameraInfo | 相机标定参数，用于视差图和深度图之间的转换 |
 
-### 6.2. 发布话题
+### 12.2. 发布话题
 
 | 默认名称（参数可调）                 | 消息类型                      | 说明                 |
 | ------------------------------------ | ----------------------------- | -------------------- |
@@ -1063,12 +1232,3 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 | /StereoNetNode/rectify_right_image   | sensor_msgs::msg::Image       | 矫正后右图，输入算法 |
 | /StereoNetNode/origin_left_image     | sensor_msgs::msg::Image       | 原始左图，不输入算法 |
 | /StereoNetNode/origin_right_image    | sensor_msgs::msg::Image       | 原始右图，不输入算法 |
-
-
-
-
-
-
-
-
-
