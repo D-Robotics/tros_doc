@@ -25,27 +25,27 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 2. 支持平台
 
-| 平台                  | 系统支持              | 示例功能                                    |
-| --------------------- | --------------------- | ------------------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动双目相机，推理出深度结果，并在Web端显示 |
-| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动双目相机，推理出深度结果，并在Web端显示 |
+| 平台                  | 系统支持                           | 示例功能                                      |
+| --------------------- | ---------------------------------- | --------------------------------------------- |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)              | 启动双目相机，推理出深度结果，并在 Web 端显示 |
+| RDK S100, RDK S100P   | Ubuntu 22.04/24.04 (Humble, Jazzy) | 启动双目相机，推理出深度结果，并在 Web 端显示 |
 
 ## 3. 模型版本
 
-| 平台 | 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                    |
-| ---- | --------------------- | -------- | ----------- | ----------------- | ------------------------------------------- |
-| X5   | V2.0                  | int16    | 640x352x3x2 | 15                | 历史版本                                    |
-| X5   | V2.1                  | int16    | 640x352x3x2 | 15                | 历史版本，带置信度输出                      |
-| X5   | V2.2                  | int8     | 640x352x3x2 | 23                | 历史版本                                    |
-| X5   | V2.3                  | int8     | 640x352x3x2 | 27                | 历史版本，最高帧率                          |
-| X5   | V2.4_int16            | int16    | 640x352x3x2 | 15                | 当前主版本，高精度深度估计                  |
-| X5   | V2.4_int8             | int8     | 640x352x3x2 | 23                | 当前主版本，高帧率深度估计                  |
-| X5   | V2.5_int16            | int16    | 640x352x3x2 | 16                | 最新版本，高精度深度估计                    |
-| X5   | V2.5_int16_96         | int16    | 640x352x3x2 | 18                | 最新版本，最大搜索视差96视差                |
-| X5   | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544*448分辨率                     |
-| X5   | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544*448分辨率，最大搜索视差96视差 |
-| S100 | V2.1                  | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出                      |
-| S100 | V2.4                  | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出                    |
+| 平台 | 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                       |
+| ---- | --------------------- | -------- | ----------- | ----------------- | ---------------------------------------------- |
+| X5   | V2.0                  | int16    | 640x352x3x2 | 15                | 历史版本                                       |
+| X5   | V2.1                  | int16    | 640x352x3x2 | 15                | 历史版本，带置信度输出                         |
+| X5   | V2.2                  | int8     | 640x352x3x2 | 23                | 历史版本                                       |
+| X5   | V2.3                  | int8     | 640x352x3x2 | 27                | 历史版本，最高帧率                             |
+| X5   | V2.4_int16            | int16    | 640x352x3x2 | 15                | 当前主版本，高精度深度估计                     |
+| X5   | V2.4_int8             | int8     | 640x352x3x2 | 23                | 当前主版本，高帧率深度估计                     |
+| X5   | V2.5_int16            | int16    | 640x352x3x2 | 16                | 最新版本，高精度深度估计                       |
+| X5   | V2.5_int16_96         | int16    | 640x352x3x2 | 18                | 最新版本，最大搜索视差 96 视差                 |
+| X5   | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544*448 分辨率                       |
+| X5   | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544*448 分辨率，最大搜索视差 96 视差 |
+| S100 | V2.1                  | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出                         |
+| S100 | V2.4                  | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出                       |
 
 ## 4. 准备工作
 
@@ -59,16 +59,13 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ### 4.2. 系统和功能包版本
 
-|                                       | 版本             | 查询方法                                        |
-| ------------------------------------- | ---------------- | ----------------------------------------------- |
-| RDK X5系统镜像版本                    | 3.3.3及以上      | `cat /etc/version`                              |
-| RDK S100系统镜像版本                  | 4.0.2-Beta及以上 | `cat /etc/version`                              |
-| tros-humble-hobot-stereonet功能包版本 | 2.5.0及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
-| tros-humble-mipi-cam功能包版本        | 2.3.13及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
-| tros-humble-hobot-zed-cam功能包版本   | 2.3.3及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
-| tros-jazzy-hobot-stereonet功能包版本  | 2.5.0及以上      | `apt list \| grep tros-jazzy-hobot-stereonet/`  |
-| tros-jazzy-mipi-cam功能包版本         | 2.3.13及以上     | `apt list \| grep tros-jazzy-mipi-cam/`         |
-| tros-jazzy-hobot-zed-cam功能包版本    | 2.3.3及以上      | `apt list \| grep tros-jazzy-hobot-zed-cam/`    |
+|                                        | 版本              | 查询方法                                        |
+| -------------------------------------- | ----------------- | ----------------------------------------------- |
+| RDK X5 系统镜像版本                    | 3.3.3 及以上      | `cat /etc/version`                              |
+| RDK S100 系统镜像版本                  | 4.0.2-Beta 及以上 | `cat /etc/version`                              |
+| tros-humble-hobot-stereonet 功能包版本 | 2.5.0 及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
+| tros-humble-mipi-cam 功能包版本        | 2.3.13 及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
+| tros-humble-hobot-zed-cam 功能包版本   | 2.3.3 及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
 
 - 如果系统镜像版本不符合要求，请参考文档对应章节进行镜像烧录
 - 如果功能包版本不符合要求，请执行以下指令进行更新：
@@ -114,12 +111,16 @@ apt update
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q10: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+
 </DocScope>
 <DocScope products="RDK-S100">
+
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
 :::
+
 </DocScope>
+
 ## 5. 算法启动
 
 ### 5.1. 注意事项（必看！！！）
@@ -215,9 +216,14 @@ cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
 
 ```bash
 #!/bin/bash
-source /opt/tros/humble/setup.bash
-
-ros2 pkg prefix mipi_cam
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
 
 image_width=1280
 image_height=1088
@@ -275,7 +281,7 @@ bash run_cam.sh --image_width 1920 --image_height 1080 --rotation 0.0 --cal_rota
 <TabItem value="132GS" label="132GS">
 
 ```bash
-bash run_cam.sh --rotation 90.0 --log_level INFO
+bash run_cam.sh --log_level INFO
 ```
 
 </TabItem>
@@ -291,8 +297,61 @@ bash run_cam.sh --rotation 90.0 --log_level INFO
 I2C bus是**控制通道编号**，可以用于配置传感器寄存器，例如设置分辨率、设置帧率、启动 streaming，图像数据不走I2C，I2C只负责**控制**。
 程序会检测X5的第4路和第6路I2C控制器，是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6，也可以使用上文提到的`i2cdetect -r -y 4`指令扫描sensor地址。
 
-mipi rx phy是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
-日志显示X5有两个mipi phy，分别是编号0和编号2，对应左右目相机。该编号可以设置到下文提到的`channel`和`mipi_channel`参数，用于改变左右目图像的拼接顺序。
+mipi rx phy 是**图像数据通道编号**，相机采集的图像数据会走该高速通道传输到芯片。
+日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以设置到下文提到的 `channel` 和 `mipi_channel` 参数，用于改变左右目图像的拼接顺序。
+
+- 相机启动后可通过如下方式查看相机图像是否正确
+
+- 方法1：如果已经安装 tros-humble-hobot-stereonet 功能包，则可以直接复制
+
+```bash
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
+```
+
+- 方法2：手动创建启动脚本 `run_codec_web.sh` ，写入以下内容
+
+```bash
+#!/bin/bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
+
+codec_sub_topic=/StereoNetNode/stereonet_visual
+codec_in_format=bgr8
+codec_pub_topic=/image_jpeg
+websocket_image_topic=/image_jpeg
+websocket_channel=0
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --codec_sub_topic) codec_sub_topic=$2; shift 2 ;;
+    --codec_in_format) codec_in_format=$2; shift 2 ;;
+    --codec_pub_topic) codec_pub_topic=$2; shift 2 ;;
+    --websocket_image_topic) websocket_image_topic=$2; shift 2 ;;
+    --websocket_channel) websocket_channel=$2; shift 2 ;;
+    *) echo "unknown param: $1"; exit 1 ;;
+  esac
+done
+
+ros2 launch hobot_stereonet codec_web_visual.launch.py \
+codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format codec_pub_topic:=$codec_pub_topic \
+websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
+```
+
+- 执行如下指令：
+
+```bash
+bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv12
+```
+
+程序启动后，在 RDK 板端，可通过 WebSocket 将话题`/image_combine_raw`发布的实时图像数据持续发布到网络中。连接到同一网络的 PC 只需使用浏览器访问开发板提供的 Web 页面，即可通过 WebSocket 实时接收并显示图像，无需安装额外客户端软件，便于图像预览、算法调试以及远程监控。
+
+在连接 RDK 板端的PC上，可以打开浏览器，输入 http://ip:8000 (ip 为 RDK 对应的 ip 地址)，即可查看左右目图像，可以通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
 
 
 #### (3) 创建双目算法启动脚本
@@ -307,7 +366,14 @@ cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 
 ```bash
 #!/bin/bash
-source /opt/tros/humble/setup.bash
+if [[ -f /opt/tros/humble/setup.bash ]]; then
+  source /opt/tros/humble/setup.bash
+elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
+  source /opt/tros/jazzy/setup.bash
+else
+  echo "Error: neither Humble nor Jazzy TROS environment was found"
+  exit 1
+fi
 
 ros2 pkg prefix mipi_cam
 ros2 pkg prefix hobot_stereonet
@@ -366,6 +432,7 @@ render_perf=True
 render_max_disp=80
 render_z_near=-1.0
 render_z_range=3.0
+depth_decimal_num=2
 
 # speckle filter
 speckle_filter_enable=False
@@ -376,6 +443,8 @@ max_disp_diff=1.0
 pointcloud_height_min=-5.0
 pointcloud_height_max=5.0
 pointcloud_depth_max=5.0
+pointcloud_downsample_step=2
+pointcloud_coord=ROS
 
 # pcl filter
 pcl_filter_enable=False
@@ -423,6 +492,14 @@ chessboard_per_rows=20
 chessboard_per_cols=11
 chessboard_square_size=0.06
 feature_epipolar_mode=False
+
+# angle calc
+ground_angle_enable=False
+ground_roi_center_x=-1
+ground_roi_center_y=-1
+ground_roi_width=80
+ground_roi_height=40
+ground_roi_min_valid_points=100
 
 # web
 stereonet_pub_web=True
@@ -486,6 +563,7 @@ while [[ $# -gt 0 ]]; do
     --render_max_disp) render_max_disp=$2; shift 2 ;;
     --render_z_near) render_z_near=$2; shift 2 ;;
     --render_z_range) render_z_range=$2; shift 2 ;;
+    --depth_decimal_num) depth_decimal_num=$2; shift 2 ;;
 
     # speckle filter
     --speckle_filter_enable) speckle_filter_enable=$2; shift 2 ;;
@@ -496,6 +574,8 @@ while [[ $# -gt 0 ]]; do
     --pointcloud_height_min) pointcloud_height_min=$2; shift 2 ;;
     --pointcloud_height_max) pointcloud_height_max=$2; shift 2 ;;
     --pointcloud_depth_max) pointcloud_depth_max=$2; shift 2 ;;
+    --pointcloud_downsample_step) pointcloud_downsample_step=$2; shift 2 ;;
+    --pointcloud_coord) pointcloud_coord=$2; shift 2 ;;
 
     # pcl filter
     --pcl_filter_enable) pcl_filter_enable=$2; shift 2 ;;
@@ -542,6 +622,15 @@ while [[ $# -gt 0 ]]; do
     --chessboard_per_rows) chessboard_per_rows=$2; shift 2 ;;
     --chessboard_per_cols) chessboard_per_cols=$2; shift 2 ;;
     --chessboard_square_size) chessboard_square_size=$2; shift 2 ;;
+    --feature_epipolar_mode) feature_epipolar_mode=$2; shift 2 ;;
+
+    # angle calc
+    --ground_angle_enable) ground_angle_enable=$2; shift 2 ;;
+    --ground_roi_center_x) ground_roi_center_x=$2; shift 2 ;;
+    --ground_roi_center_y) ground_roi_center_y=$2; shift 2 ;;
+    --ground_roi_width) ground_roi_width=$2; shift 2 ;;
+    --ground_roi_height) ground_roi_height=$2; shift 2 ;;
+    --ground_roi_min_valid_points) ground_roi_min_valid_points=$2; shift 2 ;;
 
     # web
     --stereonet_pub_web) stereonet_pub_web=$2; shift 2 ;;
@@ -571,8 +660,10 @@ mipi_gdc_enable:=$mipi_gdc_enable mipi_lpwm_enable:=$mipi_lpwm_enable mipi_rotat
 mipi_channel:=$mipi_channel mipi_channel2:=$mipi_channel2 mipi_cal_rotation:=$mipi_cal_rotation \
 calib_method:=$calib_method stereo_calib_file_path:=$stereo_calib_file_path \
 render_type:=$render_type render_perf:=$render_perf render_max_disp:=$render_max_disp render_z_near:=$render_z_near render_z_range:=$render_z_range \
+depth_decimal_num:=$depth_decimal_num \
 speckle_filter_enable:=$speckle_filter_enable max_speckle_size:=$max_speckle_size max_disp_diff:=$max_disp_diff \
 pointcloud_height_min:=$pointcloud_height_min pointcloud_height_max:=$pointcloud_height_max pointcloud_depth_max:=$pointcloud_depth_max \
+pointcloud_downsample_step:=$pointcloud_downsample_step pointcloud_coord:=$pointcloud_coord \
 pcl_filter_enable:=$pcl_filter_enable grid_size:=$grid_size grid_min_point_count:=$grid_min_point_count \
 infer_thread_num:=$infer_thread_num save_thread_num:=$save_thread_num max_save_task:=$max_save_task \
 use_local_image_flag:=$use_local_image_flag local_image_dir:=$local_image_dir image_sleep:=$image_sleep \
@@ -585,6 +676,8 @@ left_img_mask_enable:=$left_img_mask_enable \
 epipolar_mode:=$epipolar_mode epipolar_img:=$epipolar_img \
 chessboard_per_rows:=$chessboard_per_rows chessboard_per_cols:=$chessboard_per_cols chessboard_square_size:=$chessboard_square_size \
 feature_epipolar_mode:=$feature_epipolar_mode \
+ground_angle_enable:=$ground_angle_enable ground_roi_center_x:=$ground_roi_center_x ground_roi_center_y:=$ground_roi_center_y \
+ground_roi_width:=$ground_roi_width ground_roi_height:=$ground_roi_height ground_roi_min_valid_points:=$ground_roi_min_valid_points \
 stereonet_pub_web:=$stereonet_pub_web codec_sub_topic:=$codec_sub_topic codec_in_format:=$codec_in_format \
 codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic websocket_channel:=$websocket_channel
 ```
@@ -661,8 +754,7 @@ source /opt/tros/humble/setup.bash
 rviz2
 ```
 
-![stereonet_rviz](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png)
-
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_rviz.png" alt="在 RViz2 中查看 Stereonet 点云/深度可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 #### (5) 参数定义
 
@@ -840,8 +932,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 ![feature_epipolar_mode](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png)
 
-基于ORB特征点的极线对齐检测没有那么严格，根据经验值，如果是640×352分辨率的图像，极线对齐误差要小于`1 pixel`，如果是1280×1088分辨率的图像，极线对齐误差要小于`2 pixel`，双目图像才是合格图像
-
+基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel` ，双目图像才是合格图像
 
 ### 5.4. 离线启动指令
 
@@ -928,12 +1019,12 @@ need_rectify:=true dst_width:=640 dst_height:=352
 
 参数解释：
 
-| 参数         | 定义                                                               |
-| ------------ | ------------------------------------------------------------------ |
-| resolution   | zed原始输出分辨率，带畸变，720p表示1280*720的分辨率，可设置为1080p |
-| need_rectify | 表示最终输出的图像是否需要矫正                                     |
-| dst_width    | 最终输出的矫正后图像分辨率为640*352                                |
-| dst_height   | 最终输出的矫正后图像分辨率为640*352                                |
+| 参数         | 定义                                                                    |
+| ------------ | ----------------------------------------------------------------------- |
+| resolution   | zed 原始输出分辨率，带畸变，720p 表示 1280*720 的分辨率，可设置为 1080p |
+| need_rectify | 表示最终输出的图像是否需要矫正                                          |
+| dst_width    | 最终输出的矫正后图像分辨率为 640*352                                    |
+| dst_height   | 最终输出的矫正后图像分辨率为 640*352                                    |
 
 <p style={{ color: 'red' }}> 注意：运行ZED相机RDK一定要联网，因为ZED需要联网下载标定文件 </p>
 
@@ -967,7 +1058,7 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 | ------------------------------------ | ----------------------------- | -------------------- |
 | /StereoNetNode/stereonet_depth       | sensor_msgs::msg::Image       | 深度图像，单位为毫米 |
 | /StereoNetNode/stereonet_visual      | sensor_msgs::msg::Image       | 可视化渲染图像       |
-| /StereoNetNode/stereonet_pointcloud2 | sensor_msgs::msg::PointCloud2 | 点云，单位为m        |
+| /StereoNetNode/stereonet_pointcloud2 | sensor_msgs::msg::PointCloud2 | 点云，单位为 m       |
 | /StereoNetNode/rectify_left_image    | sensor_msgs::msg::Image       | 矫正后左图，输入算法 |
 | /StereoNetNode/rectify_right_image   | sensor_msgs::msg::Image       | 矫正后右图，输入算法 |
 | /StereoNetNode/origin_left_image     | sensor_msgs::msg::Image       | 原始左图，不输入算法 |
