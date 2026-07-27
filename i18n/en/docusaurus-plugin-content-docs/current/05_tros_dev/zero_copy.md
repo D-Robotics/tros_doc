@@ -942,45 +942,6 @@ The terminal will display output similar to the following, indicating that the s
 
 Press `Ctrl+C` to stop each node.
 
-## Section Summary
-
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-If you are already familiar with using ROS2 publishers and subscribers, switching to hbmem-based zero-copy publishers and subscribers is easy. Only the following changes are needed:
-
-- Change **rclcpp::Publisher** to **rclcpp::PublisherHbmem**
-- Change **create_publisher** to **create_publisher_hbmem**
-- Change **rclcpp::Subscription** to **rclcpp::SubscriptionHbmem**
-- Change **create_subscription** to **create_subscription_hbmem**
-- Before sending a message, the **publisher** must call **borrow_loaned_message** to get the message, then **confirm whether the message is available**. If available, assign values and send.
-- The **subscription** processes the received message in the callback function, and **the received message can only be used within the callback function**. Once the callback function completes, the message is released.
-
-Note:
-
-- Using hbmem-based zero-copy consumes ion memory. Creating multiple publishers with large messages may lead to insufficient ion memory, causing creation failures.
-
-- When creating a publisher, ion memory equivalent to three times the size of KEEPLAST messages (up to 256MB) is allocated upfront for message transmission, and no dynamic allocation occurs afterward. If the subscriber side encounters errors processing messages or does not process them in time, all message buffers may be occupied, causing the publisher to be unable to obtain available messages.
-
-</TabItem>
-
-<TabItem value="humble" label="Humble/Jazzy">
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble/Jazzy">
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
 ## Usage Limitations
 
 Compared to ROS2's publisher/subscriber data transfer method, using zero-copy transfer has the following limitations:

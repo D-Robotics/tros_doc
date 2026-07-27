@@ -58,20 +58,14 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 
    
 
-<DocScope products="RDK-X3">
-
 :::caution **Note**
+<DocScope products="RDK-X3">
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
 <DocScope products="RDK-X5">
-
-:::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
+:::
 
 4. Connect the circular or linear four-microphone audio board to the RDK as described below.
 
@@ -133,12 +127,12 @@ If not detected, please recheck the device connections.
 
 #### Configure Audio Board
 
-    <DocScope products="RDK X3">
+    <DocScope products="RDK-X3">
 
     For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
 
     </DocScope>
-    <DocScope products="RDK X5">
+    <DocScope products="RDK-X5">
 
     For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
 
