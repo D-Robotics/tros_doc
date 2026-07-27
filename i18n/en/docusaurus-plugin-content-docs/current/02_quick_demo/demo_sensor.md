@@ -1130,6 +1130,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 1. Log in to the RDK via SSH and start the hobot_sensor node with the following commands
 
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -1150,6 +1151,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
         </TabItem>
 
     </Tabs>
+    </DocScope>
 
     ```shell
     cp -r /opt/tros/${TROS_DISTRO}/lib/rgbd_sensor/parameter .

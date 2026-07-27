@@ -320,6 +320,7 @@ HDMI display **EOL** notice:
 
 Log in to the development board via SSH and start the board-side programs:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -348,6 +349,7 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
 
 When using RDK X5, run the following additional commands:
 ```bash

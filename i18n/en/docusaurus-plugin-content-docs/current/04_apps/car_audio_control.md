@@ -1,6 +1,6 @@
 ---
 sidebar_position: 6
-sidebar_products: RDK X3,RDK-X5,RDK S100
+sidebar_products: RDK X3,RDK-X5
 ---
 
 # 5.4.6 Voice-Controlled Robot Movement

@@ -200,7 +200,7 @@ Terminal log on successful retrieval:
 
 **Retrieval Result Visualization**
 
-Enter http://IP:8080 in a PC browser to view image retrieval results (IP is the device IP address).
+Enter `http://IP:8080` in a PC browser to view image retrieval results (IP is the device IP address).
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png" alt="Browser UI showing CLIP image retrieval results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

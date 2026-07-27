@@ -49,25 +49,25 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 <DocScope products="RDK-X3">
 
-6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
 <DocScope products="RDK-X5">
 
-6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.5.0&p=RDK+X5)
 
 </DocScope>
 
 <DocScope products="RDK-S100">
 
-6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/srpi-config?v=4.0.5&p=RDK+S100)
 
 </DocScope>
 
 <DocScope products="RDK-S600">
 
-6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
+6. When starting multiple channels, configure `ion_size` to 1G. Refer to [srpi-config configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/srpi-config?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
