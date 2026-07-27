@@ -38,7 +38,7 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 :::caution **Note**
 - **If you are using RDK X3 with a 1.x version system, you need to upgrade the system to 2.x version.**
-- **For system version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples).**
+- **For system version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples).**
 :::
 
 </DocScope>

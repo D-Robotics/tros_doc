@@ -127,16 +127,16 @@ If not detected, please recheck the device connections.
 
 #### Configure Audio Board
 
-    <DocScope products="RDK-X3">
+<DocScope products="RDK-X3">
 
     For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X3 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x3_and_rdk_x3_module/audio_driver_hat2_rev2?v=3.0.0&p=RDK+X3) section.
 
-    </DocScope>
-    <DocScope products="RDK-X5">
+</DocScope>
+<DocScope products="RDK-X5">
 
     For first-time use of the audio board, configure it using `srpi-config` . For configuration instructions, refer to the RDK user manual [RDK X5 Waveshare Audio Drive](https://developer.d-robotics.cc/rdk_x_doc/en/Basic_Application/audio/rdk_x5/audio_driver_hat2_rev2?v=3.5.0&p=RDK+X5) section.
 
-    </DocScope>
+</DocScope>
 
 ## Usage
 
