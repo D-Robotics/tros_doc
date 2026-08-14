@@ -161,7 +161,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 在 `~/dev_ws/src/hbmem_pubsub/src` 目录下新建 `publisher_hbmem.cpp` 文件，用来创建 publisher node，具体代码和解释如下：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -240,7 +240,89 @@ int main(int argc, char * argv[])
 
 </TabItem>
 
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // 创建publisher_hbmem，topic为"topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // 定时器回调函数
+  void timer_callback() {
+    // 获取要发送的消息
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    if (loanedMsg.is_valid()) {
+      // 引用方式获取实际的消息
+      auto& msg = loanedMsg.get();
+      
+      // 获取当前时间，单位为us
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // 对消息的index和time_stamp进行赋值
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // 打印发送消息
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // 注意，发送后，loanedMsg已不可用
+      // 计数器加一
+      count_++;
+    } else {
+      // 获取消息失败，丢弃该消息
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // 定时器
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // 计数器
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```c++
 #include <chrono>
@@ -322,7 +404,166 @@ int main(int argc, char * argv[])
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // 创建publisher_hbmem，topic为"topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // 定时器回调函数
+  void timer_callback() {
+    // 获取要发送的消息
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    if (loanedMsg.is_valid()) {
+      // 引用方式获取实际的消息
+      auto& msg = loanedMsg.get();
+      
+      // 获取当前时间，单位为us
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // 对消息的index和time_stamp进行赋值
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // 打印发送消息
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // 注意，发送后，loanedMsg已不可用
+      // 计数器加一
+      count_++;
+    } else {
+      // 获取消息失败，丢弃该消息
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // 定时器
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // 计数器
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // 创建publisher_hbmem，topic为"topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // 定时器，每隔40毫秒调用一次timer_callback进行消息发送
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // 定时器回调函数
+  void timer_callback() {
+    // 获取要发送的消息
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // 判断消息是否可用，可能出现获取消息失败导致消息不可用的情况
+    if (loanedMsg.is_valid()) {
+      // 引用方式获取实际的消息
+      auto& msg = loanedMsg.get();
+      
+      // 获取当前时间，单位为us
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // 对消息的index和time_stamp进行赋值
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // 打印发送消息
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // 注意，发送后，loanedMsg已不可用
+      // 计数器加一
+      count_++;
+    } else {
+      // 获取消息失败，丢弃该消息
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // 定时器
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // 计数器
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
 
 ```c++
 #include <chrono>

@@ -30,9 +30,13 @@ Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application scenarios: Body detection and tracking is an important part of human motion visual analysis, enabling body pose analysis and people counting. It is mainly used in human-computer interaction, gaming, and entertainment.
 
+<DocScope products="RDK-X3,RDK-X5">
+
 Pose detection example: [Pose Detection](../../04_apps/fall_detection.md)    
 Car body following example: [Car Body Following](../../04_apps/car_tracking.md)  
 Game character control example based on body pose analysis and gesture recognition: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+
+</DocScope>
 
 ## Supported Platforms
 

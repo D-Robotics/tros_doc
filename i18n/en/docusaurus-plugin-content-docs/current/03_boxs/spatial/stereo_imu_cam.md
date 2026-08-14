@@ -368,6 +368,12 @@ imu0:
 
 - kalibr_imucam_chain.yaml
 
+    :::info Note
+
+    The following is a calibration example. Time alignment was not performed during calibration, so do not use the timeshift values as a reference. When running with the driver, timeshift can be configured as 0.
+
+    :::
+
 ```yaml
 %YAML:1.0
 cam0:

@@ -30,9 +30,13 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
 
+<DocScope products="RDK-X3,RDK-X5">
+
 姿态检测案例：[姿态检测](../../04_apps/fall_detection.md)    
 小车人体跟随案例：[小车人体跟随](../../04_apps/car_tracking.md)  
 基于人体姿态分析以及手势识别实现游戏人物控制案例：[玩转 X3 派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+
+</DocScope>
 
 ## 支持平台
 

@@ -158,7 +158,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 Create a new `publisher_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create a publisher node. The specific code and explanation are as follows:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -237,7 +237,89 @@ int main(int argc, char * argv[])
 
 </TabItem>
 
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // Create publisher_hbmem with topic "topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // Timer, calls timer_callback every 40 milliseconds to send messages
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // Timer callback function
+  void timer_callback() {
+    // Get the message to send
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // Check if the message is available; it may be unavailable if acquisition fails
+    if (loanedMsg.is_valid()) {
+      // Get the actual message by reference
+      auto& msg = loanedMsg.get();
+      
+      // Get the current time in microseconds
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // Assign values to the message's index and time_stamp
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // Print the sent message
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
+      count_++;
+    } else {
+      // Failed to get the message, discard it
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // Timer
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // Counter
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```c++
 #include <chrono>
@@ -319,7 +401,166 @@ int main(int argc, char * argv[])
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // Create publisher_hbmem with topic "topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // Timer, calls timer_callback every 40 milliseconds to send messages
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // Timer callback function
+  void timer_callback() {
+    // Get the message to send
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // Check if the message is available; it may be unavailable if acquisition fails
+    if (loanedMsg.is_valid()) {
+      // Get the actual message by reference
+      auto& msg = loanedMsg.get();
+      
+      // Get the current time in microseconds
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // Assign values to the message's index and time_stamp
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // Print the sent message
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
+      count_++;
+    } else {
+      // Failed to get the message, discard it
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // Timer
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // Counter
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+<TabItem value="jazzy" label="Jazzy">
+
+```c++
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+using namespace std::chrono_literals;
+
+class MinimalHbmemPublisher  : public rclcpp::Node {
+ public:
+  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
+    // Create publisher_hbmem with topic "topic"
+    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
+        "topic", rclcpp::SensorDataQoS());
+
+    // Timer, calls timer_callback every 40 milliseconds to send messages
+    timer_ = this->create_wall_timer(
+        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
+  }
+
+ private:
+  // Timer callback function
+  void timer_callback() {
+    // Get the message to send
+    auto loanedMsg = publisher_->borrow_loaned_message();
+    // Check if the message is available; it may be unavailable if acquisition fails
+    if (loanedMsg.is_valid()) {
+      // Get the actual message by reference
+      auto& msg = loanedMsg.get();
+      
+      // Get the current time in microseconds
+      auto time_now =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::steady_clock::now().time_since_epoch()).count();
+      
+      // Assign values to the message's index and time_stamp
+      msg.index = count_;
+      msg.time_stamp = time_now;
+      
+      // Print the sent message
+      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
+      publisher_->publish(std::move(loanedMsg));
+      // Note: after sending, loanedMsg is no longer available
+      // Increment the counter
+      count_++;
+    } else {
+      // Failed to get the message, discard it
+      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
+    }
+  }
+  
+  // Timer
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  // hbmem publisher
+  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
+  
+  // Counter
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-S600">
+<Tabs groupId="tros-distro">
+<TabItem value="jazzy" label="Jazzy">
 
 ```c++
 #include <chrono>

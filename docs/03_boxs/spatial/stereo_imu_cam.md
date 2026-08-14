@@ -368,6 +368,12 @@ imu0:
 
 - kalibr_imucam_chain.yaml
 
+    :::info 说明
+
+    以下为标定示例，标定时未做时间对齐，请勿参考 timeshift 值，用驱动运行时 timeshift 可配置为 0。
+
+    :::
+
 ```yaml
 %YAML:1.0
 cam0:
