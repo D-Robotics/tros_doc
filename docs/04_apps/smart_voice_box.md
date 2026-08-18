@@ -69,7 +69,11 @@ import DocScope from '@site/src/components/DocScope';
     # 安装用于语义理解的hobot_llamacpp模块
     sudo apt install tros-${ROS_DISTRO}-hobot-llamacpp
     ```
-4. 详细的安装和使用说明请参考对应模块的文档。
+4. 详细的安装和使用说明请参考对应模块的文档：
+    - 音频前处理和唤醒模块：[speech_agent_audio](../03_boxs/audio/speech_agent_audio.md)
+    - 语音识别模块：[speech_agent_asr](../03_boxs/audio/speech_agent_asr.md)
+    - 语义理解模块：[hobot_llamacpp](../03_boxs/generate/hobot_llamacpp.md)
+    - 语音合成模块：[speech_agent_tts](../03_boxs/audio/speech_agent_tts.md)
 
 ## 使用方法
 
@@ -106,11 +110,7 @@ import DocScope from '@site/src/components/DocScope';
 
 </DocScope>
 
-### 操作说明
-
-### 多终端启动
-
-终端 1 —— 启动语义理解模块：
+### 启动
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -134,39 +134,12 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# 启动 hobot_llamacpp 节点前，要先下载语言模型到本地，同时注意要指定 prompt 和 LLM 模型文件路径
-cp -r /opt/tros/${ROS_DISTRO}/lib/hobot_llamacpp/config/ .
-ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=2 -p system_prompt:="config/system_prompt.txt" -p llm_model_name:=qwen2.5-0.5b-instruct-q4_0.gguf
-```
-
-终端 2 —— 启动语音模块：
-
-<DocScope products="RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-```shell
-# 同时启动Audio、ASR和TTS模块（根据音频板类型设置mic_type，默认为4mic）
-ros2 launch speech_agent_audio speech_agent.launch.py mic_type:=4mic asr_pub_topic:=/prompt_text
+# 在启动智能语音盒子之前，你要先下载语言模型到本地，同时要指定 prompt 和 LLM 模型文件路径（启动脚本默认使用线性4麦克风阵列）
+ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./qwen2.5-0.5b-instruct-q4_0.gguf
 
 ```
+
+关于语言模型的选择：LLM模型支持使用 https://huggingface.co/models?search=GGUF 社区中转换为 GGUF 格式的模型进行推理，例如 Qwen2.5-0.5B-Instruct-Q4_0.gguf。
 
 ## 结果展示
 
@@ -192,5 +165,3 @@ buffer: '讲个笑话'
 1. 语音交互链路中的ASR模块启动相对较慢。当日志中出现`[speech_agent_asr]: asr init success`信息时，表示ASR模块已完成初始化。
 
 2. 如果在使用过程中发现句子开头偶尔会被吞掉，可以尝试在说完唤醒词后稍作停顿，再说文本内容。例如，用“土豆土豆”唤醒设备后，停顿 0.5s ~ 1s 后，说“一加一等于几”。
-
-3. 关于语言模型的选择：LLM模型支持使用 https://huggingface.co/models?search=GGUF 社区中转换为 GGUF 格式的模型进行推理，例如 Qwen2.5-0.5B-Instruct-Q4_0.gguf。

@@ -147,14 +147,11 @@ RDK板端运行speech_agent_audio package：
    </DocScope>
 
    ```shell
-   # 启动 launch 文件（默认 4mic）
+   # 启动 launch 文件（默认使用线性4麦克风阵列）
    ros2 launch speech_agent_audio speech_agent_audio.launch.py
 
-   # 6mic
+   # 指定使用环形6麦克风阵列
    ros2 launch speech_agent_audio speech_agent_audio.launch.py mic_type:=6mic
-
-   # 启动 hobot_llamacpp 语言模型后，可以使用下面脚本同时启动audio、asr和tts模块
-   ros2 launch speech_agent_audio speech_agent.launch.py asr_pub_topic:=/prompt_text 
    ```
 
 ## 结果分析

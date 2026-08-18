@@ -70,6 +70,10 @@ The full voice interaction pipeline is illustrated below:
     sudo apt install tros-${ROS_DISTRO}-hobot-llamacpp
     ```
 4. Refer to the corresponding module documentation for detailed installation and usage instructions.
+    - Audio Pre-processing and Wake-up Module:[speech_agent_audio](../03_boxs/audio/speech_agent_audio.md)
+    - Automatic Speech Recognition Module:[speech_agent_asr](../03_boxs/audio/speech_agent_asr.md)
+    - Large Language Model Module:[hobot_llamacpp](../03_boxs/generate/hobot_llamacpp.md)
+    - Text-to-Speech Module:[speech_agent_tts](../03_boxs/audio/speech_agent_tts.md)
 
 ## Usage
 
@@ -106,11 +110,7 @@ As shown above, the audio board recording device is "plughw:0,1", and the audio 
 
 </DocScope>
 
-### Instructions
-
-### Multi-terminal Startup
-
-Terminal 1 — Start the semantic understanding module:
+### Launch
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
@@ -134,39 +134,12 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# Before launching the hobot_llamacpp node, you need to download the language model locally first, and make sure to specify the paths for both the prompt and the LLM model file.
-cp -r /opt/tros/${ROS_DISTRO}/lib/hobot_llamacpp/config/ .
-ros2 run hobot_llamacpp hobot_llamacpp --ros-args -p feed_type:=2 -p system_prompt:="config/system_prompt.txt" -p llm_model_name:=qwen2.5-0.5b-instruct-q4_0.gguf
-```
-
-Terminal 2 — Start the voice module:
-
-<DocScope products="RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-```shell
-# Start the Audio, ASR, and TTS modules simultaneously (set mic_type according to the audio board type; default is 4mic)
-ros2 launch speech_agent_audio speech_agent.launch.py mic_type:=4mic asr_pub_topic:=/prompt_text
+# Before starting the smart voice box, you need to download the language model locally, and specify the file paths for the prompt and LLM model. (The launch script uses a 4‑microphone linear array by default.)
+ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./qwen2.5-0.5b-instruct-q4_0.gguf
 
 ```
+
+About language model selection: The LLM model supports inference using GGUF-converted models from the https://huggingface.co/models?search=GGUF community, such as Qwen2.5-0.5B-Instruct-Q4_0.gguf.
 
 ## Results
 
@@ -192,5 +165,3 @@ buffer: '讲个笑话'
 1. The ASR module in the voice interaction pipeline starts relatively slowly. When the log message `[speech_agent_asr]: asr init success` appears, it indicates that the ASR module has completed initialization.
 
 2. If you notice that the beginning of a sentence is occasionally lost during use, try slightly extending the pause after the wake word before speaking the text content. For example, after waking the device with "土豆土豆", pause for 0.5s ~ 1s, then say "一加一等于几".
-
-3. About language model selection: The LLM model supports inference using GGUF-converted models from the https://huggingface.co/models?search=GGUF community, such as Qwen2.5-0.5B-Instruct-Q4_0.gguf.

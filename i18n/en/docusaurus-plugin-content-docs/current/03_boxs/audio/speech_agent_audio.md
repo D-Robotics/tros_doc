@@ -147,14 +147,11 @@ Running the speech_agent_audio package on the RDK:
    </DocScope>
 
    ```shell
-   # Start the launch file (default 4mic)
+   # Launch launch file (default: 4‑mic linear array)
    ros2 launch speech_agent_audio speech_agent_audio.launch.py
 
-   # 6mic
+   # Use 6‑mic circular array
    ros2 launch speech_agent_audio speech_agent_audio.launch.py mic_type:=6mic
-
-   # After starting the hobot_llamacpp language model, use the following script to start the audio, asr, and tts modules simultaneously
-   ros2 launch speech_agent_audio speech_agent.launch.py asr_pub_topic:=/prompt_text 
    ```
 
 ## Result Analysis
