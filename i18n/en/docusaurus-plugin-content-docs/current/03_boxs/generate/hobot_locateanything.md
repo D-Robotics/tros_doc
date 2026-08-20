@@ -83,6 +83,15 @@ cp -r /opt/tros/jazzy/lib/hobot_locateanything/config .
 cp -r /opt/tros/jazzy/lib/hobot_locateanything/image .
 ```
 
+### System Configuration
+
+- Set ION memory to maximum to meet large model inference requirements
+
+```shell
+/usr/hobot/bin/hb_switch_ion.sh bpu_first
+reboot
+```
+
 ## Basic Feature: Object Detection
 
 ### Console Inference

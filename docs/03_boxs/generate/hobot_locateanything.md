@@ -78,6 +78,15 @@ cp -r /opt/tros/jazzy/lib/hobot_locateanything/config .
 cp -r /opt/tros/jazzy/lib/hobot_locateanything/image .
 ```
 
+### 系统配置
+
+- 设置 ION 内存空间最大, 满足大模型推理需求
+
+```shell
+/usr/hobot/bin/hb_switch_ion.sh bpu_first
+reboot
+```
+
 ## 基础功能：目标检测
 
 ### Console 推理
