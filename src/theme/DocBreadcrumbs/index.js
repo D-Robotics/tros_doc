@@ -13,6 +13,7 @@ import {shouldShowInSidebar} from '@site/src/context/sidebar-scope-config';
 import {
   flattenSingleChildCategories,
   renumberVisibleItems,
+  stripNumberPrefix,
 } from '@site/src/utils/sidebar-numbering';
 import styles from './styles.module.css';
 
@@ -56,37 +57,67 @@ function normalizePathTail(path) {
   const normalized = normalizePath(path);
   if (!normalized) return '';
   return normalized
+    .replace(/^\/tros_doc\//, '/')
     .replace(/^\/rdk_s_doc\//, '/')
     .replace(/^\/en\//, '/');
 }
 
-function collectLabelMap(items, map = new Map()) {
-  if (!Array.isArray(items)) return map;
-  for (const item of items) {
-    const permalink = item?.href || item?.permalink || null;
-    if (permalink && item?.label) {
-      map.set(normalizePath(permalink), item.label);
-      map.set(normalizePathTail(permalink), item.label);
-    }
-    if (item?.type === 'category' && Array.isArray(item.items)) {
-      collectLabelMap(item.items, map);
-    }
-  }
-  return map;
+function hrefsMatch(a, b) {
+  if (!a || !b) return false;
+  return (
+    normalizePath(a) === normalizePath(b) ||
+    normalizePathTail(a) === normalizePathTail(b)
+  );
 }
 
-function resolveLabelFromMap(labelMap, href, fallbackPathname) {
-  if (href) {
-    const key = normalizePath(href);
-    const keyTail = normalizePathTail(href);
-    return labelMap.get(key) || labelMap.get(keyTail) || null;
-  }
-  if (fallbackPathname) {
-    const current = normalizePath(fallbackPathname);
-    const currentTail = normalizePathTail(fallbackPathname);
-    return labelMap.get(current) || labelMap.get(currentTail) || null;
+/**
+ * 在已重编号的侧栏中查找与面包屑项对应的节点。
+ * 无独立页面的目录没有 href，需要按去掉章节号后的标题匹配。
+ */
+function findMatchingSidebarItem(items, crumb) {
+  if (!Array.isArray(items) || !crumb) return null;
+
+  const crumbHref = crumb.href || '';
+  const crumbLabelRest = stripNumberPrefix(crumb.label || '');
+
+  for (const item of items) {
+    const itemHref = item?.href || item?.permalink || '';
+    if (crumbHref && hrefsMatch(itemHref, crumbHref)) {
+      return item;
+    }
+    if (crumbLabelRest && stripNumberPrefix(item?.label || '') === crumbLabelRest) {
+      return item;
+    }
   }
   return null;
+}
+
+function remapBreadcrumbs(processedItems, breadcrumbs, pathname) {
+  if (!breadcrumbs) return null;
+
+  let currentLevel = processedItems;
+  const result = [];
+
+  breadcrumbs.forEach((item, idx) => {
+    const isLast = idx === breadcrumbs.length - 1;
+    let match = findMatchingSidebarItem(currentLevel, item);
+    if (!match && isLast && pathname) {
+      match = findMatchingSidebarItem(currentLevel, {...item, href: pathname});
+    }
+
+    if (match) {
+      result.push({...item, label: match.label});
+      currentLevel = Array.isArray(match.items) ? match.items : [];
+      return;
+    }
+
+    // 当前页始终保留；中间目录若已从侧栏扁平化掉则跳过，保证与目录一致
+    if (isLast) {
+      result.push(item);
+    }
+  });
+
+  return result;
 }
 
 function BreadcrumbsItemLink({children, href, isLast}) {
@@ -125,18 +156,9 @@ export default function DocBreadcrumbs() {
     return processSidebarItems(docsSidebar?.items, version, product);
   }, [docsSidebar?.items, version, product]);
 
-  const labelMap = useMemo(() => {
-    return collectLabelMap(processedSidebarItems, new Map());
-  }, [processedSidebarItems]);
-
   const scopedBreadcrumbs = useMemo(() => {
-    if (!breadcrumbs) return null;
-    return breadcrumbs.map((item, idx) => {
-      const isLast = idx === breadcrumbs.length - 1;
-      const mapped = resolveLabelFromMap(labelMap, item?.href, isLast ? pathname : null);
-      return mapped ? {...item, label: mapped} : item;
-    });
-  }, [breadcrumbs, labelMap, pathname]);
+    return remapBreadcrumbs(processedSidebarItems, breadcrumbs, pathname);
+  }, [processedSidebarItems, breadcrumbs, pathname]);
 
   if (!scopedBreadcrumbs) {
     return null;
