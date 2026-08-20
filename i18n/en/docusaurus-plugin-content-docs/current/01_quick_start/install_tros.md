@@ -70,7 +70,7 @@ Please note for RDK X3 platform:
 :::caution Note
 - **2.x version tros.b only supports 2.x version system images. [1.x version tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) only supports 1.x version systems.**
 - **If you are using a 1.x version system image, you need to upgrade from [Environment Preparation](./preparation.md) to 2.x version.**
-- **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples).**
+- **For system and tros.b version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples).**
 :::
 
 

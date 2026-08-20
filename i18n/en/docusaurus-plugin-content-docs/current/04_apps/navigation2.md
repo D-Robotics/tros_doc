@@ -41,7 +41,7 @@ Nav2 (Navigation2) is the built-in navigation framework in ROS2, designed to fin
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -50,7 +50,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -64,7 +64,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -211,7 +211,7 @@ source /opt/ros/humble/setup.bash
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy/share/nav2_bringup/maps/turtlebot3_world.yaml
 ```
@@ -221,7 +221,7 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
 ```
@@ -236,7 +236,7 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
 ```
@@ -253,7 +253,7 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -262,7 +262,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/ros/humble/setup.bash
 ```
 
@@ -276,8 +276,8 @@ source /opt/ros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
+# Configure tros.b environment
+source /opt/ros/humble/setup.bash
 ```
 
 </TabItem>

@@ -14,7 +14,7 @@ import DocScope from '@site/src/components/DocScope';
 
 启动两个终端，均 ssh 登陆至 RDK 或 X86 平台设备
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -44,12 +44,75 @@ sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-example
 ```
 
 :::caution **注意**
-<DocScope products="RDK-X3">
 **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
+:::
+
+第一个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+```
+
+第二个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+```
+
+</TabItem>
+
+</Tabs>
 </DocScope>
+
 <DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+安装 `Hello World` example 对应的 package：
+
+```shell
+sudo apt update
+sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
+```
+
+:::caution **注意**
 **如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
+:::
+
+第一个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+```
+
+第二个终端运行
+
+```shell
+source /opt/tros/humble/setup.bash
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+```
+
+</TabItem>
+
+</Tabs>
 </DocScope>
+
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+安装 `Hello World` example 对应的 package：
+
+```shell
+sudo apt update
+sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
+```
+
+:::caution **注意**
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=4.0.5&p=RDK+S100#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 第一个终端运行
@@ -78,12 +141,7 @@ sudo apt install ros-jazzy-examples-rclcpp-minimal-publisher ros-jazzy-examples-
 ```
 
 :::caution **注意**
-<DocScope products="RDK-X3">
-**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
-</DocScope>
-<DocScope products="RDK-X5">
-**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q10: apt update 命令执行失败或报错如何处理？` 解决。**
-</DocScope>
+**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system?v=4.0.5&p=RDK+S100#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
 :::
 
 第一个终端运行
@@ -101,39 +159,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 ```
 
 </TabItem>
-</Tabs>
-</DocScope>
 
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-安装 `Hello World` example 对应的 package：
-
-```shell
-sudo apt update
-sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
-```
-
-:::caution **注意**
-**如果 `sudo apt update` 命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的 `Q6: apt update 命令执行失败或报错如何处理？` 解决。**
-:::
-
-第一个终端运行
-
-```shell
-source /opt/tros/humble/setup.bash
-ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
-```
-
-第二个终端运行
-
-```shell
-source /opt/tros/humble/setup.bash
-ros2 run examples_rclcpp_minimal_publisher publisher_member_function
-```
-
-</TabItem>
 </Tabs>
 </DocScope>
 
@@ -167,6 +193,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 ```
 
 </TabItem>
+
 </Tabs>
 </DocScope>
 
