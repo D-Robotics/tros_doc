@@ -261,6 +261,6 @@ The terminal output during execution is as follows:
 
 The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK device IP address):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/yolo_pose_render.png" alt="Web UI render of YOLO Pose body boxes and keypoints" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

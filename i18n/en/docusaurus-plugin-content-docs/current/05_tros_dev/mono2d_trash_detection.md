@@ -36,7 +36,6 @@ Supported object detection categories:
 | Platform    | Runtime Environment      | Example Features                       |
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local feedback; inference rendering displayed on Web/saved locally |
-| X86     | Ubuntu 20.04 (Foxy) | · Start local feedback; inference rendering displayed on Web/saved locally |
 
 ## Preparation
 
@@ -59,19 +58,6 @@ If pre- and post-processing differ from the above models and cannot be quickly a
 4. Post-processing configuration file (e.g., [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
 
 5. Detection category configuration file (e.g., [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
-
-### X86 Platform
-
-1. X86 environment is configured with Ubuntu 20.04 system image.
-
-2. tros.b has been successfully installed on the X86 environment.
-
-3. Obtain the cross-compiled model (e.g., [ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin) in this example)
-
-4. Post-processing configuration file (e.g., [ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json) in this example)
-
-5. Detection category configuration file (e.g., [trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list) in this example)
-
 
 ## Post-Processing Configuration File Description
 
@@ -141,13 +127,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -180,13 +163,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -219,13 +199,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # Copy the configuration files required to run the example from the tros installation path.
@@ -233,44 +210,6 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
 
 # Launch launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_image:=config/trashDet0028.jpg
-```
-
-### X86 Platform
-
-**Use a Single Feedback Image**
-
-<DocScope products="RDK-X3">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-
-
-```shell
-# Copy the configuration files required to run the example from the tros installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
-
-# Launch trash detection pkg and save rendered image locally
-ros2 run dnn_node_example example --ros-args -p feed_type:=0 -p image:=config/trashDet0028.jpg -p image_type:=0 -p dump_render_img:=1 -p dnn_example_config_file:=config/ppyoloworkconfig.json
 ```
 
 ## Result Analysis

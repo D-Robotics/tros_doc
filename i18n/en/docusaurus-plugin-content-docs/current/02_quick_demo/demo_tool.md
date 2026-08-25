@@ -29,11 +29,6 @@ Code repository: (https://github.com/D-Robotics/hobot_image_publisher.git)
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
-
-:::caution
-The X86 platform does not support decoding H.264 and H.265 videos to NV12 format, so H.264 and H.265 video publishing cannot be demonstrated on the X86 platform.
-:::
 
 ### Prerequisites
 
@@ -45,17 +40,11 @@ The X86 platform does not support decoding H.264 and H.265 videos to NV12 format
 
 3. A PC that can access RDK over the network
 
-#### X86 Platform
-
-1. The X86 environment is configured with Ubuntu 20.04 system image
-
-2. The X86 version of tros.b has been installed
-
 ### Image Publishing Usage
 
 Continuously read a local NV12 format image and publish it. Use the image codec module to compress and encode the image as JPEG format, and display the image on the PC web client.
 
-#### RDK/X86 Platform
+#### RDK Platform
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -138,7 +127,7 @@ webserver has launch
 
 The output log shows that the webserver has started, and hobot_image_pub, hobot_codec_republish, and websocket are all running normally.
 
-Enter `http://IP:8000` in a PC browser to view the image display (IP is the RDK/X86 device IP address):
+Enter `http://IP:8000` in a PC browser to view the image display (IP is the RDK device IP address):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png" alt="Web viewer image display after hobot_img_pub publishes a local picture" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -147,7 +136,6 @@ Enter `http://IP:8000` in a PC browser to view the image display (IP is the RDK/
 Read the local video.list file to obtain video file paths in the list, continuously read video files and publish them. First use the image codec module to decode the video stream to NV12 format images, then use the image codec module to compress and encode the images as JPEG format, and display them on the PC web client.
 
 #### RDK Platform
-
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -207,26 +195,12 @@ source /opt/tros/jazzy/setup.bash
 </Tabs>
 </DocScope>
 
-
 ```shell
 # Copy the image files required for the example from the tros.b installation path
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 
 # Start launch file
 ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
-```
-
-#### X86 Platform
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-
-# Copy the image files required for the example from the tros.b installation path
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
-
-# Start the image publisher node, using a local MP4 format video file for publishing (parameters can be configured as needed). Web display is not supported yet
-/opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/hobot_image_pub --ros-args -p image_source:=./config/video.list -p fps:=30 -p image_format:=mp4
 ```
 
 ### Video Publishing Result Analysis
@@ -251,7 +225,7 @@ If the output log shows the following warning:
 and the PC browser does not display images, this is normal behavior. The decoder is checking the video stream; wait a moment and the image should display normally.
 :::
 
-Enter `http://IP:8000` in a PC browser to view the image display (IP is the RDK/X86 device IP address):
+Enter `http://IP:8000` in a PC browser to view the image display (IP is the RDK device IP address):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg" alt="Web viewer image display after hobot_img_pub publishes a video" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -435,7 +409,6 @@ export CAM_TYPE=usb
 ros2 launch trigger_node_example hobot_trigger_example.launch.py
 ```
 
-
 ### Result Analysis
 
 **Publish images using MIPI camera**
@@ -472,7 +445,6 @@ Foxglove playback effect:
 
 Note: This Trigger example records data from 5 seconds before and 5 seconds after the event. You can also see that at the middle moment of the event, the reason for the Trigger event was recorded: a piece of trash was thrown into the scene, bringing the total number of trash items to three and triggering the event.
 
-
 ### Extended Features
 
 #### Send Tasks to the Trigger Module
@@ -496,7 +468,6 @@ The Trigger module supports receiving Trigger tasks from other nodes to control 
    ]
 }
 ```
-
 
 ##### Execution
 

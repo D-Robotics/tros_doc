@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## Introduction
 
-The body detection and tracking example subscribes to images, performs inference on the BPU, and publishes messages containing body, head, face, hand bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes. The X86 version does not support multi-target tracking or Web display.
+The body detection and tracking example subscribes to images, performs inference on the BPU, and publishes messages containing body, head, face, hand bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes.
 
 Supported detection categories and their corresponding data types in the algorithm message are as follows:
 
@@ -28,7 +28,6 @@ Body keypoint algorithm result indices are shown in the figure below:
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg" alt="Human body keypoint result index numbering diagram" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 Code repository: (https://github.com/D-Robotics/mono2d_body_detection)
 
 Application scenarios: Body detection and tracking is an important part of human motion visual analysis, enabling body pose analysis and people counting. It is mainly used in human-computer interaction, gaming, and entertainment.
@@ -43,7 +42,6 @@ Game character control example based on body pose analysis and gesture recogniti
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
-| X86                              | Ubuntu 20.04 (Foxy) | Start local feedback and display inference rendering results via Web                |
 
 ## Algorithm Info
 
@@ -72,12 +70,6 @@ Game character control example based on body pose analysis and gesture recogniti
 3. A MIPI or USB camera has been installed on the RDK.
 
 4. Confirm that the PC can access the RDK over the network.
-
-### X86 Platform
-
-1. The X86 environment has Ubuntu 20.04 system image configured.
-
-2. tros.b has been successfully installed on the X86 environment.
 
 ## Usage
 
@@ -109,9 +101,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 # Copy the configuration files required to run the example from the tros.b installation path.
@@ -148,8 +137,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 
@@ -188,8 +175,6 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-
-
 ```shell
 # Copy the configuration files required to run the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
@@ -201,25 +186,6 @@ export CAM_TYPE=fb
 # Launch launch file
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544
 
-```
-
-### X86 Platform
-
-**Using Local Feedback Images**
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-
-# Copy the configuration files required to run the example from the tros.b installation path.
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
-
-# Configure local feedback image
-export CAM_TYPE=fb
-
-# Launch launch file
-ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
 ## Result Analysis
@@ -263,6 +229,6 @@ The terminal output during execution is as follows:
 
 The output log shows that the program ran successfully. During inference, the algorithm input and output frame rate is 30 fps, with statistics refreshed once per second.
 
-Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK/X86 device IP address):
+Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering results (body, head, face, hand detection boxes, detection box types and target tracking IDs, body keypoints) (IP is the RDK device IP address):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg" alt="Web UI render of body/head/face/hand boxes and human keypoints" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

@@ -13,7 +13,6 @@ import DocScope from '@site/src/components/DocScope';
 
 YOLO 目标检测算法示例使用图片作为输入，利用 BPU 进行算法推理，发布包含目标类别和检测框的算法 msg。目前支持 YOLOv2、YOLOv3、Ultralytics YOLOv5、YOLOv5x、Ultralytics YOLOv8、YOLOv10、YOLOv11、YOLOv12 等版本。
 
-
 模型使用[COCO 数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共 80 种类型。
 
 也可以使用 Ultralytics 软件包来进行自定义数据集的训练. (https://docs.ultralytics.com/zh/modes/train)
@@ -33,7 +32,6 @@ YOLO 目标检测算法示例使用图片作为输入，利用 BPU 进行算法�
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · 启动 MIPI/USB 摄像头，并通过 web 展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · 启动 MIPI/USB 摄像头，并通过 web 展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | yolov2/yolov3/yolov5 | · 启动 MIPI/USB 摄像头，并通过 web 展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| X86                   | Ubuntu 20.04 (Foxy) | yolov2/yolov3        | · 使用本地回灌，渲染结果保存在本地                           |
 
 ## 算法信息
 
@@ -94,12 +92,6 @@ YOLO 目标检测算法示例使用图片作为输入，利用 BPU 进行算法�
 3. RDK 已安装 MIPI 或者 USB 摄像头，无摄像头的情况下通过回灌本地 JPEG/PNG 格式图片或者 MP4、H.264 和 H.265 的视频方式体验算法效果。
 
 4. 确认 PC 机能够通过网络访问 RDK。
-
-### X86 平台
-
-1. X86 环境已配置好 Ubuntu 20.04 系统镜像。
-
-2. X86 环境系统已成功安装 tros.b。
 
 ## 使用介绍
 
@@ -165,7 +157,6 @@ source /opt/tros/jazyy/setup.bash
 </TabItem>
 </Tabs>
 </DocScope>
-
 
 ```shell
 # 配置MIPI摄像头
@@ -311,22 +302,6 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 ```
 
 除了 YOLOv2 算法，还支持 YOLO 系列其他算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` ，使用 YOLOv8 算法的启动配置为 `dnn_example_config_file:="config/yolov8workconfig.json"` ，使用 YOLOv10 算法的启动配置为 `dnn_example_config_file:="config/yolov10workconfig.json"` ，使用 YOLOv11 算法的启动配置为 `dnn_example_config_file:="config/yolov11workconfig.json"` ，使用 YOLOv12 算法的启动配置为 `dnn_example_config_file:="config/yolov12workconfig.json"` ，使用 YOLO26 算法的启动配置为 `dnn_example_config_file:="config/yolo26workconfig.json"` 。
-
-### X86 平台
-
-#### 使用本地图片回灌
-
-YOLOv2 目标检测算法示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
-```
-
-除了 YOLOv2 算法，还支持 YOLOv3 算法，YOLOv5 算法暂不支持。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` 。
 
 ## 结果分析
 

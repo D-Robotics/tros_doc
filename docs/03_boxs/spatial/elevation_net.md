@@ -24,7 +24,6 @@ elevation_net 是基于 hobot_dnn package 开发的高程网络检测算法示�
 | --------------------- | ------------ | -------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动本地回灌，推理渲染结果保存在本地 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动本地回灌，推理渲染结果保存在本地 |
-| X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果保存在本地 |
 
 ## 算法信息
 
@@ -51,12 +50,6 @@ elevation_net 是基于 hobot_dnn package 开发的高程网络检测算法示�
 
 2. RDK 已成功安装 TogetheROS.Bot。
 
-### X86 平台
-
-1. X86 环境已配置 Ubuntu 20.04 系统镜像。
-
-2. X86 环境已成功安装 tros.b。
-
 ## 使用介绍
 
 单目高程网络检测算法示例 package 采用读取本地图片的形式，经过算法推理后检测出 Image 基于像素的深度和高度信息，同时 package 将深度和高度信息进行处理，发布 PointCloud2 话题数据，用户可以订阅 PointCloud2 数据用于应用开发。
@@ -81,28 +74,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
-
-# 启动launch文件
-ros2 launch elevation_net elevation_net.launch.py
-```
-
-### X86 平台
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 

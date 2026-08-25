@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 前提：已通过 deb 包或者源码安装的方式成功安装 TogetheROS.Bot
 
-启动两个终端，均 ssh 登陆至 RDK 或 X86 平台设备
+启动两个终端，均 ssh 登陆至 RDK 平台设备
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">

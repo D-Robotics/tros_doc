@@ -28,7 +28,6 @@ FCOS 是 D-Robotics 开源的 Onnx 模型，使用[COCO 数据集](http://cocoda
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头，并通过 web 展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头，并通过 web 展示推理渲染结果<br/>· 使用本地回灌，渲染结果保存在本地 |
-| X86                   | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地                           |
 
 ## 算法信息
 
@@ -59,12 +58,6 @@ FCOS 是 D-Robotics 开源的 Onnx 模型，使用[COCO 数据集](http://cocoda
 
 4. 确认 PC 机能够通过网络访问 RDK。
 
-### X86 平台
-
-1. X86 环境已配置好 Ubuntu 20.04 系统镜像。
-
-2. X86 环境系统已成功安装 tros.b。
-
 ## 使用介绍
 
 ### RDK 平台
@@ -91,14 +84,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 # 配置MIPI摄像头
@@ -128,13 +117,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 配置USB摄像头
@@ -166,29 +152,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
 ```shell
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
-```
-
-### X86 平台
-
-#### 使用本地图片回灌
-
-FCOS 目标检测算法示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 启动launch文件
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```

@@ -25,7 +25,6 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | 启动 MIPI 摄像头，并通过 Web 展示图像 |
 | RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | 启动 MIPI 摄像头，并通过 Web 展示图像 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 启动 MIPI 摄像头，并通过 Web 展示图像 |
-| X86     | Ubuntu 20.04 (Foxy) | 启动 USB 摄像头，并通过 Web 展示图像 |
 
 ### 准备工作
 
@@ -36,12 +35,6 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 2. 确认 PC 可以通过网络访问 RDK
 
 3. 确认已成功安装 TogetheROS.Bot
-
-#### X86 平台
-
-1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b
-
-2. 确认 USB 摄像头接入主机 USB 插口，并可正常识别
 
 ### 使用方式
 
@@ -171,7 +164,6 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
    </Tabs>
    </DocScope>
 
-
    ```bash
    ros2 launch hobot_codec hobot_codec_encode.launch.py
    ```
@@ -242,27 +234,6 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 2. PC 浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像，IP 为 RDK IP 地址。
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png" alt="浏览器通过 WebSocket 查看 RDK 实时图像的 Web 展示界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
-
-#### X86 平台
-
-1. 启动 hobot_usb_cam 节点
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   # usb_video_device需要更改为实际usb摄像头video节点
-   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-   ```
-
-2. 启动 websocket 节点
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-   ```
-
-3. PC 浏览器（chrome/firefox/edge）输入 `http://IP:8000` ，即可查看图像效果，IP 为 PC IP 地址，若在本机访问，也可使用 localhost。
 
 ### 注意事项
 
@@ -341,10 +312,6 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 </Tabs>
 </DocScope>
-
-
-
-
 
 使用 RDK X5 时, 需要额外使用下面命令:
 ```bash
@@ -642,7 +609,6 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png" alt="RViz2 成功显示摄像头图像话题后的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-
 ## RQt 展示
 
 ### 功能介绍
@@ -902,7 +868,6 @@ Foxglove 是一个开源的工具包，包括线上和线下版。旨在简化�
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
@@ -914,13 +879,9 @@ Foxglove 是一个开源的工具包，包括线上和线下版。旨在简化�
 
 3. 确认已成功安装 TogetheROS.Bot
 
-#### X86 平台
-
-1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b
-
 ### 使用方式
 
-#### RDK 平台 / X86 平台
+#### RDK 平台
 
 1. 通过 SSH 登录 RDK 平台，启动板端相关程序：
 

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-本章节介绍 RDK 和 X86 平台如何使用 apt 安装 TogetheROS.Bot。
+本章节介绍 RDK 平台如何使用 apt 安装 TogetheROS.Bot。
 
 ## RDK 平台
 
@@ -202,7 +202,7 @@ hobot  tros
 
 ### 升级 tros.b
 
-以 RDK 安装为例，X86 Ubuntu 升级方法和 RDK 一致。
+以下以 RDK 为例介绍升级方法。
 
 登录 RDK
 
@@ -375,77 +375,3 @@ Description: TogetheROS Bot
 - 查询显示的版本号 `Version` 是实际安装的 `tros.b` 的版本，可能和本示例中显示的版本号 `Version` 不一致。
 - `tros.b` 的发布版本信息详见[版本发布记录](./changelog)。
 :::
-
-## X86 平台
-
-前提：
-
-- 已完成[环境准备](./preparation.md)章节工作
-- Ubuntu 系统为 Ubuntu 20.04，且能够正常访问互联网
-
-1. 设置 locale 和启用 universe 软件源
-
-   ```bash
-   sudo apt update && sudo apt install locales
-   sudo locale-gen en_US en_US.UTF-8
-   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-   export LANG=en_US.UTF-8
-
-   sudo apt install software-properties-common
-   sudo add-apt-repository universe
-   ```
-
-2. 下载 gpg 密钥文件并添加源列表：
-
-   ```bash
-   sudo apt update && sudo apt install curl
-
-   sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
-   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo    tee /etc/apt/sources.list.d/sunrise.list > /dev/null
-
-   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-   ```
-
-3. 更新源信息，安装 tros.b：
-
-   ```bash
-   sudo apt update
-   sudo apt install tros
-   ```
-
-<DocScope products="RDK-X3">
-
-:::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
-- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
-:::
-
-</DocScope>
-
-<DocScope products="RDK-X5">
-
-:::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
-- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btrosb%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
-:::
-
-</DocScope>
-
-<DocScope products="RDK-S100">
-
-:::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
-- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
-:::
-
-</DocScope>
-
-<DocScope products="RDK-S600">
-
-:::caution
-- **如果您的 X86 平台已安装 1.x 版本 tros.b，请先使用命令 `sudo apt remove tros` 删除后再安装 2.x 版本 tros.b**。
-- **关于如何查看 tros.b 版本号，请查看[FAQs](https://developer.d-robotics.cc/rdk_s_doc/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-trosb-%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)**。
-:::
-
-</DocScope>

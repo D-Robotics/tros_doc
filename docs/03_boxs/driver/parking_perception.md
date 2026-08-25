@@ -49,7 +49,6 @@ parking_perception package 是基于 hobot_dnn package 开发的路面结构化�
 | 平台                  | 运行方式     | 示例功能                                                     |
 | --------------------- | ------------ | ------------------------------------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，推理渲染结果在 Web 显示/保存在本地 |
-| X86                   | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果在 Web 显示/保存在本地             |
 
 ## 算法信息
 
@@ -68,12 +67,6 @@ parking_perception package 是基于 hobot_dnn package 开发的路面结构化�
 1. RDK 已烧录好 Ubuntu 系统镜像。
 
 2. RDK 已成功安装 TogetheROS.Bot。
-
-### X86 平台
-
-1. X86 环境已配置 Ubuntu 20.04 系统镜像。
-
-2. X86 环境已成功安装 tros.b。
 
 ## 使用介绍
 
@@ -101,14 +94,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -141,13 +130,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -180,35 +166,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
-
 ```shell
-# 从tros的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
-
-# 配置回灌图片
-export CAM_TYPE=fb
-
-# 启动launch文件
-ros2 launch parking_perception parking_perception.launch.py 
-```
-
-
-### X86 平台
-
-**使用单张回灌图片**
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 

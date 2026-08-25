@@ -29,7 +29,6 @@ Background blur case: https://github.com/rusito-23/mobile_unet_segmentation
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, rendered results saved locally |
 | RDK S100, RDK S100P| Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local image injection, rendered results saved locally |
 | RDK S600| Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera/local image injection, rendered results saved locally |
-| X86     | Ubuntu 20.04 (Foxy) | · Use local image injection, rendered results saved locally |
 
 ## Algorithm Information
 
@@ -70,12 +69,6 @@ Background blur case: https://github.com/rusito-23/mobile_unet_segmentation
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
 3. A MIPI or USB camera has been installed on the RDK. If no camera is available, the algorithm effect can be experienced by injecting local JPEG/PNG format images.
-
-### X86 Platform
-
-1. The Ubuntu 20.04 system image has been configured on the X86 environment.
-
-2. tros.b has been successfully installed on the X86 environment.
 
 ## Usage Guide
 
@@ -143,7 +136,6 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 </Tabs>
 </DocScope>
-
 
 ```shell
 # Configure the MIPI camera
@@ -278,54 +270,6 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-</Tabs>
-</DocScope>
-
-```shell
-# Launch the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
-```
-
-### X86 Platform
-
-#### Using Local Image Injection
-
-The mobilenet_unet segmentation example uses local JPEG/PNG format images for injection, performs inference, and saves the rendered images with algorithm results in the local runtime directory.
-
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 

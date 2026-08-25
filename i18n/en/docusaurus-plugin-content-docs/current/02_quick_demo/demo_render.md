@@ -25,7 +25,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
 | RDK X5, RDK X5 Module,RDK S100 | Ubuntu 22.04 (Humble)  | Start MIPI camera and display images via Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
-| X86     | Ubuntu 20.04 (Foxy) | Start USB camera and display images via Web |
 
 ### Prerequisites
 
@@ -36,12 +35,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 2. Confirm the PC can access RDK over the network
 
 3. Confirm TogetheROS.Bot has been successfully installed
-
-#### X86 Platform
-
-1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
-
-2. Confirm the USB camera is connected to the host USB port and can be recognized normally
 
 ### Usage
 
@@ -177,7 +170,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
    </Tabs>
    </DocScope>
 
-
    ```bash
    ros2 launch hobot_codec hobot_codec_encode.launch.py
    ```
@@ -251,27 +243,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 2. Enter `http://IP:8000` in a PC browser (Chrome/Firefox/Edge) to view the image, where IP is the RDK IP address.
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png" alt="Web UI showing RDK live images via WebSocket in the browser" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-
-#### X86 Platform
-
-1. Start the hobot_usb_cam node
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   # Change usb_video_device to the actual USB camera video node
-   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-   ```
-
-2. Start the websocket node
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-   ```
-
-3. Enter `http://IP:8000` in a PC browser (Chrome/Firefox/Edge) to view the image, where IP is the PC IP address. You can also use localhost when accessing locally.
 
 ### Notes
 
@@ -656,7 +627,6 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png" alt="RViz2 visualization after successfully displaying a camera image topic" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 ## RQt Display
 
 ### Overview
@@ -925,7 +895,6 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### Prerequisites
 
@@ -937,13 +906,9 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 
 3. Confirm TogetheROS.Bot has been successfully installed
 
-#### X86 Platform
-
-1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
-
 ### Usage
 
-#### RDK Platform / X86 Platform
+#### RDK Platform
 
 1. Log in to the RDK platform via SSH and start the board-side programs:
 

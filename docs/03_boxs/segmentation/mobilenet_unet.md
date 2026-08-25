@@ -29,7 +29,6 @@ mobilenet_unet 是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
 | RDK S100, RDK S100P| Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
 | RDK S600| Ubuntu 24.04 (Jazzy) | · 启动 MIPI/USB 摄像头/本地回灌，渲染结果保存在本地 |
-| X86     | Ubuntu 20.04 (Foxy) | · 使用本地回灌，渲染结果保存在本地 |
 
 ## 算法信息
 
@@ -71,12 +70,6 @@ mobilenet_unet 是使用[Cityscapes](https://www.cityscapes-dataset.com/)数据�
 2. RDK 已成功安装 TogetheROS.Bot。
 
 3. RDK 已安装 MIPI 或者 USB 摄像头，无摄像头的情况下通过回灌本地 JPEG/PNG 格式图片的方式体验算法效果。
-
-### X86 平台
-
-1. X86 环境已配置好 Ubuntu 20.04 系统镜像。
-
-2. X86 环境系统已成功安装 tros.b。
 
 ## 使用介绍
 
@@ -144,7 +137,6 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 </Tabs>
 </DocScope>
-
 
 ```shell
 # 配置MIPI摄像头
@@ -279,54 +271,6 @@ source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
-</Tabs>
-</DocScope>
-
-```shell
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenet_unet_workconfig.json dnn_example_image:=config/raw_unet.jpg
-```
-
-### X86 平台
-
-#### 使用本地图片回灌
-
-mobilenet_unet 分割示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
-
-<DocScope products="RDK-X3,RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 

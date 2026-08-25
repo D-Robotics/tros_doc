@@ -36,7 +36,6 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的 2D 垃圾�
 | 平台    | 运行方式      | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module| Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · 启动 MIPI/USB 摄像头/本地回灌，推理渲染结果在 Web 显示/保存在本地 |
-| X86     | Ubuntu 20.04 (Foxy) | · 启动本地回灌，推理渲染结果在 Web 显示/保存在本地 |
 
 ## 准备工作
 
@@ -60,18 +59,11 @@ D-Robotics RDK 机器人操作系统提供了[dnn_node_example](https://github.c
 
 5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list))
 
-### X86 平台
-
-1. X86 环境已配置 Ubuntu 20.04 系统镜像。
-
-2. X86 环境已成功安装 tros.b。
-
 3. 获得交叉编译模型（如本例中[ppyolo_trashdet_416x416_nv12.bin](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/x3/ppyolo_trashdet_416x416_nv12.bin)
 
 4. 后处理配置文件 (如本例中[ppyoloworkconfig.json](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/ppyoloworkconfig.json))
 
 5. 检测类别配置文件 (如本例中[trash_coco.list](https://github.com/D-Robotics/mono2d_trash_detection/blob/develop/config/trash_coco.list))
-
 
 ## 后处理配置文件说明
 
@@ -141,13 +133,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -180,13 +169,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -219,13 +205,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 从tros的安装路径中拷贝出运行示例需要的配置文件。
@@ -233,44 +216,6 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
 
 # 启动launch文件
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_image:=config/trashDet0028.jpg
-```
-
-### X86 平台
-
-**使用单张回灌图片**
-
-<DocScope products="RDK-X3">
-<Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="humble" label="Humble">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/humble/setup.bash
-```
-
-
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-
-
-```shell
-# 从tros的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
-
-# 启动垃圾检测pkg，将渲染图片保存到本地
-ros2 run dnn_node_example example --ros-args -p feed_type:=0 -p image:=config/trashDet0028.jpg -p image_type:=0 -p dump_render_img:=1 -p dnn_example_config_file:=config/ppyoloworkconfig.json
 ```
 
 ## 结果分析

@@ -30,7 +30,6 @@ Food type recognition example: https://github.com/frotms/Chinese-and-Western-Foo
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local image injection, rendering results saved locally |
-| X86 | Ubuntu 20.04 (Foxy) | · Use local image injection, rendering results saved locally |
 
 ## Algorithm Information
 
@@ -73,12 +72,6 @@ Food type recognition example: https://github.com/frotms/Chinese-and-Western-Foo
 3. An MIPI or USB camera is installed on the RDK. If no camera is available, experience the algorithm effect by injecting local JPEG/PNG format images or videos in MP4, H.264, and H.265 formats.
 
 4. Ensure that the PC can access the RDK over the network.
-
-### X86 Platform
-
-1. The X86 environment has been configured with the Ubuntu 20.04 system image.
-
-2. tros.b has been successfully installed on the X86 environment.
 
 ## Usage Guide
 
@@ -282,20 +275,6 @@ source /opt/tros/jazzy/setup.bash
 </DocScope>
 
 ```shell
-# Launch the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image:=config/target_class.jpg
-```
-
-### X86 Platform
-
-#### Using Local Image Injection
-
-The mobilenetv2 image classification algorithm example uses local JPEG/PNG format images for injection. After inference, the rendered image with algorithm results is saved in the local runtime path.
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-
 # Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/mobilenetv2workconfig.json dnn_example_image:=config/target_class.jpg
 ```
