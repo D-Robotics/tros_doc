@@ -73,6 +73,10 @@ const config = {
       src: "/tros_doc/js/dify-config.js",
     },
     {
+      src: "/tros_doc/js/umami-events.js",
+      async: true,
+    },
+    {
       src: "https://rdk.d-robotics.cc/embed.min.js",
       id: "rJYrxmxmjOkjEx2c",
       defer: true,
