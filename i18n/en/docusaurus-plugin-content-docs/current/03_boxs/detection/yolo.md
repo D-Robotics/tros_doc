@@ -32,7 +32,6 @@ Fall detection case: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-an
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)   | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12/yolo26 | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
 | RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)   | yolov2/yolov3/yolov5/yolov8/yolov10/yolov11/yolov12 | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
 | RDK S600              | Ubuntu 24.04 (Jazzy)    | yolov2/yolov3/yolov5                    | · Start MIPI/USB camera and display inference results on a web page<br/>· Use local image injection and save rendered results locally           |
-| X86                   | Ubuntu 20.04 (Foxy)     | yolov2/yolov3                           | · Use local image injection and save rendered results locally                                                                                   |
 
 ## Algorithm Information
 
@@ -90,11 +89,6 @@ Fall detection case: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-an
 2. TogetheROS.Bot is successfully installed on the RDK.
 3. A MIPI or USB camera is installed on the RDK. If no camera is available, you can experience the algorithm by injecting local JPEG/PNG images or MP4, H.264, and H.265 videos.
 4. Ensure that the PC can access the RDK over the network.
-
-### X86 Platform
-
-1. The X86 environment is configured with the Ubuntu 20.04 system image.
-2. Tros.b is successfully installed on the X86 environment.
 
 ## Usage Guide
 
@@ -305,22 +299,6 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 ```
 
 In addition to the YOLOv2 algorithm, other algorithms in the YOLO series are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` ; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"` ; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"` ; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"` ; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"` ; for YOLO26, set `dnn_example_config_file:="config/yolo26workconfig.json"` .
-
-### X86 Platform
-
-#### Using Local Image Injection
-
-The YOLOv2 object detection algorithm example uses local JPEG/PNG images for injection, performs inference, and saves the rendered images with algorithm results in the local runtime directory.
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/setup.bash
-
-# Launch the launch file
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
-```
-
-In addition to the YOLOv2 algorithm, YOLOv3 is also supported. YOLOv5 is currently not supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` .
 
 ## Result Analysis
 

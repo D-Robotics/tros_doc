@@ -29,11 +29,6 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
-
-:::caution
-X86 平台不支持将 H.264、H.265 视频解码为 NV12 格式，因此 H.264、H.265 视频发布功能无法在 X86 平台展示。
-:::
 
 ### 准备工作
 
@@ -45,17 +40,11 @@ X86 平台不支持将 H.264、H.265 视频解码为 NV12 格式，因此 H.264�
 
 3. 可以通过网络访问 RDK 的 PC
 
-#### X86 平台
-
-1. X86 环境已配置 Ubuntu 20.04 系统镜像
-
-2. X86 环境已安装 X86 版本 tros.b
-
 ### 图片发布使用介绍
 
 循环读取本地的一张 NV12 格式图片并发布，使用图像编解码模块将图片压缩编码成 JPEG 格式，在 PC 的 Web 端展示图片。
 
-#### RDK/X86 平台
+#### RDK 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -135,7 +124,7 @@ webserver has launch
 
 输出 log 显示出 webserver 已启动，hobot_image_pub、hobot_codec_republish、websocket 都正常运行
 
-在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK/X86 设备的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png" alt="hobot_img_pub 发布本地图片后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -144,7 +133,6 @@ webserver has launch
 读取本地 video.list 文件，获取 list 文件中的视频文件路径，循环读取视频文件并发布，先使用图像编解码模块将视频流解码成 NV12 格式图片，再使用图像编解码模块将图片压缩编码成 JPEG 格式，在 PC 的 Web 端展示图片。
 
 #### RDK 平台
-
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -201,26 +189,12 @@ source /opt/tros/jazzy/setup.bash
 </Tabs>
 </DocScope>
 
-
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的图片文件
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
 
 # 启动launch文件
 ros2 launch hobot_image_publisher hobot_image_publisher_videolist_demo.launch.py
-```
-
-#### X86 平台
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的图片文件
-cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/config/ .
-
-# 启动图片发布节点，使用本地MP4格式视频文件进行发布（可以根据自己的需求进行参数配置），暂不支持Web端显示
-/opt/tros/${TROS_DISTRO}/lib/hobot_image_publisher/hobot_image_pub --ros-args -p image_source:=./config/video.list -p fps:=30 -p image_format:=mp4
 ```
 
 ### 视频发布结果分析
@@ -245,7 +219,7 @@ webserver has launch
 并且 PC 端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
 :::
 
-在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK/X86 设备的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg" alt="hobot_img_pub 发布视频后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -429,7 +403,6 @@ export CAM_TYPE=usb
 ros2 launch trigger_node_example hobot_trigger_example.launch.py
 ```
 
-
 ### 结果分析
 
 **使用 mipi 摄像头发布图片**
@@ -466,7 +439,6 @@ foxglove 中播放效果：
 
 说明：该 Trigger 示例记录了事件发生前 5s 和事件发生后 5s 的数据。同时看到在事件中间时刻，记录了 Trigger 事件发生的原因：即在场景中丢入了一个垃圾,使得场景中垃圾达到三个，触发 Trigger。
 
-
 ### 拓展功能
 
 #### 给 Trigger 模块下发任务
@@ -490,7 +462,6 @@ Trigger 模块支持由其他节点下发 Trigger 任务,控制 Trigger 配置�
    ]
 }
 ```
-
 
 ##### 运行
 

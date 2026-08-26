@@ -38,7 +38,6 @@ Monocular 3D vehicle detection example: (https://github.com/RayXie29/Kaggle-Peki
 | --------------------- | ------------ | ----------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
-| X86                   | Ubuntu 20.04 (Foxy) | · Start local image playback; save inference rendering results locally                |
 
 ## Algorithm Information
 
@@ -63,12 +62,6 @@ Monocular 3D vehicle detection example: (https://github.com/RayXie29/Kaggle-Peki
 1. RDK has been flashed with the Ubuntu system image.
 
 2. TogetheROS.Bot has been successfully installed on RDK.
-
-### X86 Platform
-
-1. Ubuntu 20.04 system image has been configured on the X86 environment.
-
-2. tros.b has been successfully installed on the X86 environment.
 
 ## Usage
 
@@ -96,28 +89,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono3d_indoor_detection/config/ .
-
-# 启动launch文件
-ros2 launch mono3d_indoor_detection mono3d_indoor_detection.launch.py 
-```
-
-### X86 Platform
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono3d_indoor_detection/config/ .
 

@@ -25,7 +25,6 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### Preparation
 
@@ -39,15 +38,9 @@ Code repository: [https://github.com/D-Robotics/hobot_usb_cam.git](https://githu
 
 4. Confirm that the PC can access the RDK over the network
 
-#### X86 Platform
-
-1. Verify that your USB camera works properly, and connect it to the PC or server USB port
-
-1. Confirm that the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
-
 ### Usage (default usb_pixel_format is mjpeg)
 
-The usage is the same on RDK and X86 platforms. The RDK platform is used as an example below:
+The RDK platform is used as an example below:
 
 1. Log in to the RDK via SSH and confirm the USB camera device name. `/dev/video8` is used as an example here
 
@@ -212,10 +205,8 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Live USB camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
-
 ### Usage 2 (usb_pixel_format is yuyv2rgb)
-The usage is the same on RDK and X86 platforms. The RDK platform is used as an example below:
+The RDK platform is used as an example below:
 
 1. Log in to the RDK via SSH and confirm the USB camera device name. `/dev/video8` is used as an example here
 
@@ -446,7 +437,6 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 6. On the PC, open a browser (Chrome/Firefox/Edge), enter `http://IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live USB camera feed
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Live USB camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 ### Notes
 
 1. The USB camera needs to be calibrated, and the path to the camera calibration file must be configured; otherwise, camera intrinsics cannot be published, but other functions are not affected
@@ -517,9 +507,7 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
     ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_camera_calibration_file_path:=(actual absolute path to calibration file)
     ```
 
-3. For the X86 platform, if Ubuntu 20.04 is running in a virtual machine, set **USB compatibility** of **USB Controller** to **USB 3.1** in **Virtual Machine Settings**.
-
-4. Changing pixel_format configuration
+3. Changing pixel_format configuration
 
    hobot_usb_cam supports the following configuration sets:
    "mjpeg","mjpeg2rgb","rgb8","yuyv","yuyv2rgb","uyvy","uyvy2rgb","m4202rgb","mono8","mono16","y102mono8"
@@ -551,7 +539,6 @@ The usage is the same on RDK and X86 platforms. The RDK platform is used as an e
 ### Introduction
 
 To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
-
 
 | No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
@@ -724,10 +711,6 @@ The following describes how to acquire and preview camera data:
 </Tabs>
 </DocScope>
 
-
-
-
-
     ```shell
     root@ubuntu:~# ros2 topic echo /camera_info
         header:
@@ -876,8 +859,6 @@ The following describes how to acquire and preview camera data:
     # Or start with launch
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
-
-
 
 ## Stereo MIPI Image Capture
 
@@ -1068,7 +1049,6 @@ The following uses SC230ai as an example to describe how to acquire and preview 
 
     (2) On the PC, open a browser (Chrome/Firefox/Edge), enter `http://IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live stereo output
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg" alt="Web viewer showing the stereo camera live stream" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-
 
 ### Notes
 
@@ -1482,7 +1462,6 @@ Use `ros2 topic list` to view topics published by RealSense. Starting the RealSe
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png" alt="Default RealSense topic list with depth and RGB streams enabled" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 The RealSense ROS wrapper provides many configurable parameters. For example, `enable_infra1:=true` and `pointcloud.enable:=true` enable the left IR data stream and point cloud data stream.
 
 ```shell
@@ -1500,7 +1479,6 @@ ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
 ```
 
 For more topic and service configuration options, refer to the RealSense ROS wrapper GitHub repository.
-
 
 #### 4. Depth and RGB alignment
 
@@ -1724,7 +1702,6 @@ There are several ways to display Orbbec images and point clouds. Refer to [Data
 It is recommended to read data directly on the RDK to verify that streaming works correctly. You can use `ros2 topic echo topic_name` to print data or write code to subscribe to the corresponding topics.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="Terminal output from ros2 topic echo confirming Orbbec streaming" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-
 
 ## ZED Camera Image Capture
 

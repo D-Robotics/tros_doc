@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-TogetheROS.Bot 支持在 RDK 和 X86 平台的 Ubuntu 系统上安装。使用 Ubuntu 系统通过 DEB 包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
+TogetheROS.Bot 支持在 RDK 平台的 Ubuntu 系统上安装。使用 Ubuntu 系统通过 DEB 包安装的方式简单快捷，建议初期体验的用户尽量采用该方式进行安装。
 
-接下来分别介绍 RDK 和 X86 平台环境准备详情。
+接下来介绍 RDK 平台环境准备详情。
 
 ## RDK 平台
 
@@ -155,7 +155,3 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 4.14.87 aarch64)
 Last login: Sat Apr  2 05:57:05 2022 from 10.64.37.219
 root@ubuntu:~#
 ```
-
-## X86 平台
-
-使用 X86 平台物理机安装 Ubuntu 20.04 64 位系统，并配置好网络环境。也可使用虚拟机安装或 docker，但是运行效率可能会较低。

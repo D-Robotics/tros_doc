@@ -25,12 +25,10 @@ Code repository: [https://github.com/D-Robotics/hobot_dnn](https://github.com/D-
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
 For model inference on RDK S100/S600 platforms, refer to the [Boxs algorithm repository](../03_boxs/detection/yolo.md).
 :::
-
 
 ## Prerequisites
 
@@ -39,10 +37,6 @@ For model inference on RDK S100/S600 platforms, refer to the [Boxs algorithm rep
 1. RDK has been flashed with the Ubuntu system image.
 
 2. TogetheROS.Bot has been successfully installed on RDK.
-
-### X86 Platform
-
-1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed.
 
 ## Usage
 
@@ -70,8 +64,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # Copy the configuration files required for the example from the tros.b installation path. config contains the model used by the example and the local image for feedback
@@ -111,7 +103,6 @@ The output log shows that the algorithm inferred 6 targets from the input image 
 Rendered image `render_feedback_0_0.jpeg` :
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg" alt="Saved algorithm render result from the AI inference local image-feedback example" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-
 
 ## Multi-Algorithm Inference
 

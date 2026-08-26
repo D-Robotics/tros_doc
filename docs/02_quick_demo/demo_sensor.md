@@ -25,7 +25,6 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
@@ -39,15 +38,9 @@ import DocScope from '@site/src/components/DocScope';
 
 4. 确认 PC 机能够通过网络访问 RDK
 
-#### X86 平台
-
-1. 确认手中 USB 摄像头工作正常，将 USB 摄像头接入 PC 或服务器 USB 插槽
-
-1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b
-
 ### 使用方式（默认 usb_pixel_format 为 mjpeg）
 
-RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
+以下以 RDK 平台为例：
 
 1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以 `/dev/video8` 为例
 
@@ -206,10 +199,8 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Web 端展示的 USB 摄像头实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-
-
 ### 使用方式 2（usb_pixel_format 为 yuyv2rgb）
-RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
+以下以 RDK 平台为例：
 
 1. 通过 SSH 登录 RDK，确认 USB 摄像头设备名称，这里以 `/dev/video8` 为例
 
@@ -431,7 +422,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 6. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP 为 RDK IP 地址），点击左上方 Web 端展示即可查看 USB 摄像头实时画面
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/usb_cam_pic.png" alt="Web 端展示的 USB 摄像头实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-
 ### 注意事项
 
 1. USB 摄像头需要进行标定，并设置相机标定文件的读取路径，否则无法发布相机内参，但不影响其它功能
@@ -499,9 +489,7 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_camera_calibration_file_path:=（实际标定文件绝对路径）
     ```
 
-3. 对于 X86 平台，如果 Ubuntu 20.04 系统运行在虚拟机中，需要在 `虚拟机设置` 中将 `USB控制器` 的 `USB兼容性` 设置为 `USB 3.1` 。
-
-4. pixel_format 配置的更改
+3. pixel_format 配置的更改
 
    hobot_usb_cam 支持以下配置集：
    "mjpeg","mjpeg2rgb","rgb8","yuyv","yuyv2rgb","uyvy","uyvy2rgb","m4202rgb","mono8","mono16","y102mono8"
@@ -533,7 +521,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 ### 功能介绍
 
 为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
-
 
 | 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
@@ -695,10 +682,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 </Tabs>
 </DocScope>
 
-
-
-
-
     ```shell
     root@ubuntu:~# ros2 topic echo /camera_info
         header:
@@ -840,8 +823,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     # 或者launch 方式启动
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
-
-
 
 ## 双目 MIPI 图像采集
 
@@ -1033,7 +1014,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
     (2) PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000` （IP 为 RDK IP 地址），点击左上方 Web 端展示即可看到双目输出的实时画面
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/web-dualcamera-codec.jpg" alt="Web 端查看双目摄像头输出实时画面的效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-
 ### 注意事项
 
 1. 摄像头插拔注意事项
@@ -1116,7 +1096,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 
     </Tabs>
     </DocScope>
-
 
     ```shell
     cp -r /opt/tros/${TROS_DISTRO}/lib/rgbd_sensor/parameter .
@@ -1266,7 +1245,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 
 5. 在 PC 机上查询相机内参
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1285,7 +1263,6 @@ RDK 和 X86 平台使用方式相同，其中以 RDK 平台为例：
 </TabItem>
 
 </Tabs>
-
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1449,7 +1426,6 @@ ros2 launch realsense2_camera rs_launch.py
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-basic-topic.png" alt="默认参数下 RealSense 发布的深度与 RGB 话题列表" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 RealSense ROS wrapper 提供了很多可设置参数，例如 `enable_infra1:=true` 和 `pointcloud.enable:=true` 会开启相机的左 IR 数据流和点云数据流。
 
 ```shell
@@ -1467,7 +1443,6 @@ ros2 service call /camera/device_info realsense2_camera_msgs/srv/DeviceInfo
 ```
 
 更多话题和服务的相关设置可参考 RealSense ROS wrapper 的 GitHub 仓库。
-
 
 #### 4. 深度和 RGB 对齐
 
@@ -1691,7 +1666,6 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过 `ros2 topic echo topic_name` 打印数据或者编写代码订阅相应话题。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="使用 ros2 topic echo 确认 Orbbec 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
-
 
 ## ZED 相机图像采集
 

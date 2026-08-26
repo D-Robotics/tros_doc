@@ -24,7 +24,6 @@ Application scenarios: Monocular elevation network detection parses depth and he
 | --------------------- | ------------ | -------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start local image playback; save inference rendering results locally |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start local image playback; save inference rendering results locally |
-| X86                   | Ubuntu 20.04 (Foxy) | · Start local image playback; save inference rendering results locally |
 
 ## Algorithm Information
 
@@ -50,12 +49,6 @@ Application scenarios: Monocular elevation network detection parses depth and he
 
 2. TogetheROS.Bot has been successfully installed on RDK.
 
-### X86 Platform
-
-1. Ubuntu 20.04 system image has been configured on the X86 environment.
-
-2. tros.b has been successfully installed on the X86 environment.
-
 ## Usage
 
 The monocular elevation network detection example package reads local images. After algorithm inference, it detects depth and height information of pixels in the image. The package also processes depth and height information and publishes PointCloud2 topic data. Users can subscribe to PointCloud2 data for application development.
@@ -80,28 +73,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
-
-# 启动launch文件
-ros2 launch elevation_net elevation_net.launch.py
-```
-
-### X86 Platform
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-This section introduces how to install TogetheROS.Bot using apt on RDK and X86 platforms.
+This section introduces how to install TogetheROS.Bot using apt on RDK platforms.
 
 ## RDK Platform
 
@@ -207,7 +207,7 @@ You can see tros.b is installed in the /opt directory.
 
 ### Upgrading tros.b
 
-Using RDK installation as an example, the X86 Ubuntu upgrade method is the same as RDK.
+The following uses RDK installation as an example to introduce the upgrade method.
 
 Log in to RDK
 
@@ -383,77 +383,3 @@ You can see the current tros.b version has been upgraded to 2.5.0.
 - The version number `Version` displayed in the query is the actually installed `tros.b` version, which may differ from the version number `Version` shown in this example.
 - For tros.b release version information, see [Release Notes](./changelog).
 :::
-
-## X86 Platform
-
-Prerequisites:
-
-- Completed the work in [Environment Preparation](./preparation.md)
-- Ubuntu system is Ubuntu 20.04 and can access the internet normally
-
-1. Set locale and enable universe repository
-
-   ```bash
-   sudo apt update && sudo apt install locales
-   sudo locale-gen en_US en_US.UTF-8
-   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-   export LANG=en_US.UTF-8
-
-   sudo apt install software-properties-common
-   sudo add-apt-repository universe
-   ```
-
-2. Download gpg key file and add source list:
-
-   ```bash
-   sudo apt update && sudo apt install curl
-
-   sudo curl -sSL http://archive.d-robotics.cc/keys/sunrise.gpg -o /usr/share/keyrings/sunrise.gpg
-   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/sunrise.gpg] http://archive.d-robotics.cc/ubuntu-rdk-sim focal main" | sudo    tee /etc/apt/sources.list.d/sunrise.list > /dev/null
-
-   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-   ```
-
-3. Update source information and install tros.b:
-
-   ```bash
-   sudo apt update
-   sudo apt install tros
-   ```
-
-<DocScope products="RDK-X3">
-
-:::caution
-- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples?v=3.0.0&p=RDK+X3#q11-how-to-check-the-version-information-of-trosb)**.
-:::
-
-</DocScope>
-
-<DocScope products="RDK-X5">
-
-:::caution
-- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples?v=3.5.0&p=RDK+X5#q11-how-to-check-the-version-information-of-trosb)**.
-:::
-
-</DocScope>
-
-<DocScope products="RDK-S100">
-
-:::caution
-- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/applications_and_examples?v=4.0.5&p=RDK+S100#q11-how-do-i-check-the-trosb-version-information)**.
-:::
-
-</DocScope>
-
-<DocScope products="RDK-S600">
-
-:::caution
-- **If your X86 platform has 1.x version tros.b installed, please first use the command `sudo apt remove tros` to remove it before installing 2.x version tros.b**.
-- **For how to check tros.b version number, please refer to [FAQs](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/applications_and_examples?v=5.1.0&p=RDK+S600#q11-how-do-i-check-the-trosb-version-information)**.
-:::
-
-</DocScope>

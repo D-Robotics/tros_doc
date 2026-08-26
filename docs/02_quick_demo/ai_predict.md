@@ -25,12 +25,10 @@ import DocScope from '@site/src/components/DocScope';
 | ------- | ------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 :::caution
 RDK S100/S600 平台的模型推理功能体验参考[Boxs 算法仓库](../03_boxs/detection/yolo.md)。
 :::
-
 
 ## 准备工作
 
@@ -39,10 +37,6 @@ RDK S100/S600 平台的模型推理功能体验参考[Boxs 算法仓库](../03_b
 1. RDK 已烧录好 Ubuntu 系统镜像。
 
 2. RDK 已成功安装 TogetheROS.Bot。
-
-### X86 平台
-
-1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 tros.b。
 
 ## 使用介绍
 
@@ -70,8 +64,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。config中为example使用的模型，回灌使用的本地图片
@@ -111,7 +103,6 @@ ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_con
 渲染后的图片 render_feedback_0_0.jpeg：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/ai_predict/render1.jpg" alt="AI 推理示例本地回灌后保存的算法渲染结果图片" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
-
 
 ## 多算法推理
 

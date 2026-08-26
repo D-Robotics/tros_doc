@@ -28,7 +28,6 @@ Multispectral object detection case study: (https://github.com/hdjsjyl/Multispec
 | --------------------- | ------------------- | ---------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | · Start MIPI/USB camera and display inference rendering results via web<br/>· Use local feedback; rendered results are saved locally |
-| X86                   | Ubuntu 20.04 (Foxy) | · Use local feedback; rendered results are saved locally |
 
 ## Algorithm Information
 
@@ -58,12 +57,6 @@ Multispectral object detection case study: (https://github.com/hdjsjyl/Multispec
 
 4. Confirm that the PC can access the RDK over the network.
 
-### X86 Platform
-
-1. The X86 environment is configured with Ubuntu 20.04 system image.
-
-2. tros.b has been successfully installed on the X86 environment.
-
 ## Usage
 
 ### RDK Platform
@@ -90,14 +83,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 # 配置MIPI摄像头
@@ -127,13 +116,10 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 # 配置USB摄像头
@@ -165,29 +151,12 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 
-
 </TabItem>
 
 </Tabs>
 </DocScope>
 
-
-
 ```shell
-# 启动launch文件
-ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
-```
-
-### X86 Platform
-
-#### Use Local Image Feedback
-
-The FCOS object detection example uses local JPEG/PNG images for feedback. After inference, images with rendered algorithm results are saved in the local working directory.
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
 # 启动launch文件
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```

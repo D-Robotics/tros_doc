@@ -328,7 +328,6 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 #### RDK 平台
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -387,7 +386,6 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 代码仓库：[https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
-
 ### 支持平台
 
 | 平台    | 运行方式      |
@@ -396,7 +394,6 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) |
 | RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### 准备工作
 
@@ -406,13 +403,9 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 2. RDK 已成功安装 TogetheROS.Bot。
 
-#### X86 平台
-
-1. 确认 X86 平台系统为 Ubuntu 20.04，且已成功安装 TogetheROS.Bot。
-
 ### 使用介绍
 
-#### RDK/X86
+#### RDK
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -552,7 +545,6 @@ rotate 实现图像旋转功能，暂时只支持 NV12 格式的图片，支持�
 
 #### RDK 平台
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -650,7 +642,6 @@ sudo bash -c 'echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 #### RDK 平台
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -746,7 +737,6 @@ cpu 占用为单核百分比，耗时统计单位为 ms
 ### 使用介绍
 
 #### RDK 平台
-
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">

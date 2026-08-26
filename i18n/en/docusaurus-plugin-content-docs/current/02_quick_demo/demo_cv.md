@@ -328,7 +328,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK Platform
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -387,7 +386,6 @@ Implements image scaling. Currently supports only the NV12 format.
 
 Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-Robotics/hobot_cv)
 
-
 ### Supported Platforms
 
 | Platform | Runtime |
@@ -396,7 +394,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 | RDK X5, RDK X5 Module| Ubuntu 22.04 (Humble) |
 | RDK S100 | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### Preparation
 
@@ -406,13 +403,9 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 2. TogetheROS.Bot has been successfully installed on the RDK.
 
-#### X86 Platform
-
-1. Confirm that the X86 platform is running Ubuntu 20.04 and TogetheROS.Bot has been successfully installed.
-
 ### Usage
 
-#### RDK/X86
+#### RDK
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -555,7 +548,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK Platform
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -653,7 +645,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK Platform
 
-
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -749,7 +740,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 ### Usage
 
 #### RDK Platform
-
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">

@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 import DocScope from '@site/src/components/DocScope';
 ```
 
-TogetheROS.Bot supports installation on Ubuntu systems for both RDK and X86 platforms. Installing via DEB packages on Ubuntu is simple and fast. Users who are getting started are recommended to use this installation method.
+TogetheROS.Bot supports installation on Ubuntu systems for RDK platforms. Installing via DEB packages on Ubuntu is simple and fast. Users who are getting started are recommended to use this installation method.
 
-The following sections describe environment preparation details for RDK and X86 platforms respectively.
+The following section describes environment preparation details for RDK platforms.
 
 ## RDK Platform
 
@@ -155,7 +155,3 @@ Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 4.14.87 aarch64)
 Last login: Sat Apr  2 05:57:05 2022 from 10.64.37.219
 root@ubuntu:~#
 ```
-
-## X86 Platform
-
-Install Ubuntu 20.04 64-bit on an X86 physical machine and configure the network environment. You can also use a virtual machine or Docker, but runtime efficiency may be lower.

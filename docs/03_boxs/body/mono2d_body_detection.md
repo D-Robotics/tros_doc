@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-人体检测和跟踪算法示例订阅图片，利用 BPU 进行算法推理，发布包含人体、人头、人脸、人手框和人体关键点检测结果 msg，并通过多目标跟踪（multi-target tracking，即 MOT）功能，实现检测框的跟踪。X86 版本暂不支持多目标跟踪以及 Web 端展示功能。
+人体检测和跟踪算法示例订阅图片，利用 BPU 进行算法推理，发布包含人体、人头、人脸、人手框和人体关键点检测结果 msg，并通过多目标跟踪（multi-target tracking，即 MOT）功能，实现检测框的跟踪。
 
 算法支持的检测类别，以及不同类别在算法 msg 中对应的数据类型如下：
 
@@ -28,7 +28,6 @@ import DocScope from '@site/src/components/DocScope';
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/kps_index.jpeg" alt="人体关键点检测结果索引编号示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-
 代码仓库： (https://github.com/D-Robotics/mono2d_body_detection)
 
 应用场景：人体检测和跟踪算法是人体运动视觉分析的重要组成部分，可实现人体姿态分析以及人流量统计等功能，主要应用于人机交互、游戏娱乐等领域。
@@ -43,7 +42,6 @@ import DocScope from '@site/src/components/DocScope';
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI/USB 摄像头，并通过 Web 展示推理渲染结果 |
-| X86                              | Ubuntu 20.04 (Foxy) | 启动本地回灌，并通过 Web 展示推理渲染结果                |
 
 ## 算法信息
 
@@ -73,12 +71,6 @@ import DocScope from '@site/src/components/DocScope';
 3. RDK 已安装 MIPI 或者 USB 摄像头。
 
 4. 确认 PC 机能够通过网络访问 RDK。
-
-### X86 平台
-
-1. X86 环境已配置 Ubuntu 20.04 系统镜像。
-
-2. X86 环境已成功安装 tros.b。
 
 ## 使用介绍
 
@@ -110,9 +102,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
-
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
@@ -149,8 +138,6 @@ source /opt/tros/humble/setup.bash
 
 </Tabs>
 </DocScope>
-
-
 
 ```shell
 
@@ -189,8 +176,6 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
-
-
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
@@ -202,25 +187,6 @@ export CAM_TYPE=fb
 # 启动launch文件
 ros2 launch mono2d_body_detection mono2d_body_detection.launch.py publish_image_source:=config/person_body.jpg publish_image_format:=jpg publish_output_image_w:=960 publish_output_image_h:=544
 
-```
-
-### X86 平台
-
-**使用本地回灌图片**
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
-cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
-cp -r /opt/tros/${TROS_DISTRO}/lib/dnn_node_example/config/ .
-
-# 配置本地回灌图片
-export CAM_TYPE=fb
-
-# 启动launch文件
-ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 ```
 
 ## 结果分析
@@ -264,6 +230,6 @@ ros2 launch mono2d_body_detection mono2d_body_detection.launch.py
 
 输出 log 显示，程序运行成功，推理时算法输入和输出帧率为 30fps，每秒钟刷新一次统计帧率。
 
-在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪 ID，人体关键点）渲染效果（IP 为 RDK/X86 设备的 IP 地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像和算法（人体、人头、人脸、人手检测框，检测框类型和目标跟踪 ID，人体关键点）渲染效果（IP 为 RDK 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/body_render.jpeg" alt="Web 端人体、人头、人脸、人手检测框与人体关键点渲染效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
