@@ -18,6 +18,8 @@ const copyrightYearLabel =
     ? `${COPYRIGHT_START_YEAR}-${currentYear}`
     : `${COPYRIGHT_START_YEAR}`;
 
+const localePrefix = process.env.DOCUSAURUS_CURRENT_LOCALE === "en" ? "/en" : "";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "RDK DOC",
@@ -73,7 +75,7 @@ const config = {
       src: "/tros_doc/js/dify-config.js",
     },
     {
-      src: "/tros_doc/js/umami-events.js",
+      src: `/tros_doc${localePrefix}/js/umami-events.js`,
       async: true,
     },
     {
