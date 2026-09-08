@@ -2,7 +2,7 @@
 sidebar_position: 3
 sidebar_products: RDK-X5
 ---
-# Intelligent Voice
+# Speech_Agent_Audio
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -82,7 +82,7 @@ Application scenarios: The speech_agent_audio algorithm can detect wake words an
 
 After speech_agent_audio starts running, it captures audio from the microphone array and sends the captured audio data to the algorithm model for processing, outputting wake-up events, command words, VAD events, ASR audio data, and sound source localization DOA angle information. Wake-up events are published via `std_msgs::msg::String` messages, while command words, sound source localization DOA angles, ASR audio data, and VAD events are all published via `audio_msg::msg::SmartAudioData` messages.
 
-speech_agent_audio supports wake words and custom command words. Command words are defined in the */opt/tros/${ROS_DISTRO}/lib/speech_agent_audio/res/cmd_word/cmd_word.json* file, with the following defaults:
+speech_agent_audio supports wake words and custom command words. Command words are defined in the `/opt/tros/${TROS_DISTRO}/lib/speech_agent_audio/res/cmd_word/cmd_word.json` file, with the following defaults:
 
 ```json
 {

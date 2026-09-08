@@ -2,7 +2,7 @@
 sidebar_position: 3
 sidebar_products: RDK-X5
 ---
-# 智能语音
+# Speech_Agent_Audio
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -82,7 +82,7 @@ speech_agent_audio采用本地离线模式运行，将麦克风采集到的音�
 
 speech_agent_audio开始运行后，会从麦克风阵列采集音频，并将采集到的音频数据送入算法模型中进行处理，输出唤醒事件、命令词、VAD事件、ASR音频数据和声源定位DOA角度信息。唤醒事件通过 `std_msgs::msg::String` 类型消息发布，命令词、声源定位DOA角度、ASR音频数据和VAD事件都通过 `audio_msg::msg::SmartAudioData` 类型消息发布。
 
-speech_agent_audio支持唤醒词和自定义命令词。命令词定义在 */opt/tros/${ROS_DISTRO}/lib/speech_agent_audio/res/cmd_word/cmd_word.json* 文件中，默认为：
+speech_agent_audio支持唤醒词和自定义命令词。命令词定义在 `/opt/tros/${TROS_DISTRO}/lib/speech_agent_audio/res/cmd_word/cmd_word.json` 文件中，默认为：
 
 ```json
 {
