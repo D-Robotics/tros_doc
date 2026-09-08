@@ -65,7 +65,7 @@ speech_agent_asr提供语音识别功能，该节点通过订阅的VAD事件来�
 
 ## 使用介绍
 
-speech_agent_asr开始运行后，会接收订阅的VAD状态事件和降噪音频数据，VAD事件用于创建和销毁会话，在每个会话中将降噪音频数据送入模型中进行语音识别，然后将识别出的文字作为结果发布。VAD事件和降噪音频数据均通过 `audio_msg::msg::SmartAudioData` 类型消息订阅，ASR识别结果通过 `std_msgs::msg::String` 类型消息发布。
+speech_agent_asr开始运行后，会接收订阅的VAD状态事件和降噪音频数据，VAD事件用于创建和销毁会话，在每个会话中将降噪音频数据送入模型中进行语音识别，然后将识别出的文字作为结果发布。VAD事件和降噪音频数据均通过 `audio_msg::msg::SmartAudioData` 类型消息订阅，ASR识别结果通过 `std_msgs::msg::String` 类型消息发布。需要注意在第一次使用时需要连接网络，用于鉴权并在本地生成离线鉴权文件，后续使用时就不需要联网了。
 
 RDK板端运行speech_agent_asr package：
 

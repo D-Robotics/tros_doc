@@ -65,7 +65,7 @@ Application scenarios: speech_agent_asr converts audio data into corresponding t
 
 ## Usage
 
-After speech_agent_asr starts running, it receives subscribed VAD status event and denoised audio data. VAD event is used to create and destroy sessions, and within each session the denoised audio data is sent to the model for speech recognition. The recognized text is then published as the result. VAD event and denoised audio data are both subscribed to via `audio_msg::msg::SmartAudioData` messages, and the ASR recognition results are published via `std_msgs::msg::String` messages.
+After speech_agent_asr starts running, it receives subscribed VAD status event and denoised audio data. VAD event is used to create and destroy sessions, and within each session the denoised audio data is sent to the model for speech recognition. The recognized text is then published as the result. VAD event and denoised audio data are both subscribed to via `audio_msg::msg::SmartAudioData` messages, and the ASR recognition results are published via `std_msgs::msg::String` messages.Please note that an internet connection is required on first use for authentication and to generate a local offline license file; no internet connection is needed for subsequent uses.
 
 Running the speech_agent_asr package on the RDK:
 

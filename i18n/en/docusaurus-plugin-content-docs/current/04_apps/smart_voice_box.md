@@ -77,6 +77,8 @@ The full voice interaction pipeline is illustrated below:
 
 ## Usage
 
+- An internet connection is required on first use for authentication and to generate a local offline license file; no internet connection is needed for subsequent uses.
+
 - Audio front-end processing and wake word detection algorithm package installed
 
 - Speech recognition algorithm package installed

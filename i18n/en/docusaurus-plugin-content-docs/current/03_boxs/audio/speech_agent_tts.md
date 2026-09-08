@@ -80,7 +80,7 @@ Application scenarios: speech_agent_tts converts text into corresponding audio, 
 
 ## Usage
 
-After speech_agent_tts starts running, it receives subscribed TTS text messages, synthesizes the text into audio data, and plays it back through the speaker. TTS text messages are subscribed to via `std_msgs::msg::String` messages.
+After speech_agent_tts starts running, it receives subscribed TTS text messages, synthesizes the text into audio data, and plays it back through the speaker. TTS text messages are subscribed to via `std_msgs::msg::String` messages.Please note that an internet connection is required on first use for authentication and to generate a local offline license file; no internet connection is needed for subsequent uses.
 
 Running the speech_agent_tts package on the RDK:
 

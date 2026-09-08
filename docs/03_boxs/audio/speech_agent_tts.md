@@ -80,7 +80,7 @@ speech_agent_tts提供语音合成功能，该节点订阅 **/tts_text** 文本�
 
 ## 使用介绍
 
-speech_agent_tts开始运行后，会接收订阅的TTS文本消息，将文本合成为音频数据，并通过扬声器播放。TTS文本消息通过 `std_msgs::msg::String` 类型消息订阅。
+speech_agent_tts开始运行后，会接收订阅的TTS文本消息，将文本合成为音频数据，并通过扬声器播放。TTS文本消息通过 `std_msgs::msg::String` 类型消息订阅。需要注意在第一次使用时需要连接网络，用于鉴权并在本地生成离线鉴权文件，后续使用时就不需要联网了。
 
 RDK 板端运行 speech_agent_tts package：
 
