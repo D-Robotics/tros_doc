@@ -137,11 +137,11 @@ source /opt/tros/jazzy/setup.bash
 
 ```shell
 # 在启动智能语音盒子之前，你要先下载语言模型到本地，同时要指定 prompt 和 LLM 模型文件路径（启动脚本默认使用线性4麦克风阵列）
-ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./qwen2.5-0.5b-instruct-q4_0.gguf
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
+ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./Qwen2.5-0.5B-Instruct-Q4_0.gguf
 
 ```
-
-关于语言模型的选择：LLM模型支持使用 https://huggingface.co/models?search=GGUF 社区中转换为 GGUF 格式的模型进行推理，例如 Qwen2.5-0.5B-Instruct-Q4_0.gguf。
 
 ## 结果展示
 
