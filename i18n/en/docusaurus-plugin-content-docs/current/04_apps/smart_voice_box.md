@@ -137,11 +137,11 @@ source /opt/tros/jazzy/setup.bash
 
 ```shell
 # Before starting the smart voice box, you need to download the language model locally, and specify the file paths for the prompt and LLM model. (The launch script uses a 4‑microphone linear array by default.)
-ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./qwen2.5-0.5b-instruct-q4_0.gguf
+cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
+wget https://hf-mirror.com/D-Robotics/InternVL2_5-1B-GGUF-BPU/resolve/main/Qwen2.5-0.5B-Instruct-Q4_0.gguf
+ros2 launch speech_agent_audio speech_agent.launch.py system_prompt:=./config/system_prompt.txt llm_model_name:=./Qwen2.5-0.5B-Instruct-Q4_0.gguf
 
 ```
-
-About language model selection: The LLM model supports inference using GGUF-converted models from the https://huggingface.co/models?search=GGUF community, such as Qwen2.5-0.5B-Instruct-Q4_0.gguf.
 
 ## Results
 
