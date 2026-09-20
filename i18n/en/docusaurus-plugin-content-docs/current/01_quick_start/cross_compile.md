@@ -25,7 +25,7 @@ Prerequisites:
 
 All operations in this section are performed on the development machine.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -64,16 +64,22 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC local directory:docker direct
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
 
 ```shell
 ## Create directory
 cd  /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
 ## Get cross-compilation docker
-wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu24.04_v1.0.1.tar.gz
+wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu22.04_v1.0.0.tar.gz
 ## Load docker image
-sudo docker load --input pc_tros_ubuntu24.04_v1.0.1.tar.gz 
+sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz 
 ## View image ID for pc_tros
 sudo docker images
 ## Start docker with mounted directory
@@ -139,7 +145,7 @@ All operations in this section are performed inside the development machine's do
 
 Using the /mnt/test directory in docker as an example.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -170,13 +176,18 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## Get configuration files
-git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 ## Run cd robot_dev_config, use git tag --list to view available release versions
 ## Use git reset --hard [tag] to specify release version. See Build Specific tros.b Version section on this page for details
 ## Pull code

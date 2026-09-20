@@ -56,15 +56,6 @@ package 对外发布包含语义分割和目标检测信息的算法 msg, 用户
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -95,15 +86,6 @@ ros2 launch mono_mobilesam sam.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -134,15 +116,6 @@ ros2 launch mono_mobilesam sam.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

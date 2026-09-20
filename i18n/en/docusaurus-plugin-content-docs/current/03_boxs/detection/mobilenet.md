@@ -66,7 +66,7 @@ License plate detection case study: (https://github.com/soonhahwang/Mobilenet-SS
 
 The MobileNet_SSD object detection example subscribes to images published by the sensor package, performs inference, and publishes algorithm messages. The websocket package renders and displays the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -89,6 +89,20 @@ source /opt/tros/humble/setup.bash
 </Tabs>
 </DocScope>
 
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
 ```shell
 # 配置MIPI摄像头
 export CAM_TYPE=mipi
@@ -99,7 +113,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 #### Publish Images Using a USB Camera
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -110,6 +124,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -134,7 +162,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The MobileNet_SSD object detection example uses local JPEG/PNG images for feedback. After inference, images with rendered algorithm results are saved in the local working directory.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -145,6 +173,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

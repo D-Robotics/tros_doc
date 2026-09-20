@@ -46,7 +46,7 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     a. Start mipi_cam
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -66,11 +66,16 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -112,7 +117,7 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
     b. Start hobot_codec encoding
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -132,11 +137,16 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -178,7 +188,7 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
 2. View JPEG encoded images on the web. Open another terminal:
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -198,11 +208,16 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>

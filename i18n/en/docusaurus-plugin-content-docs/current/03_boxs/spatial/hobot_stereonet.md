@@ -71,7 +71,7 @@ Stereo algorithm tutorial:
 | Platform              | System Support                     | Example Features                                             |
 | --------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)              | Start stereo camera, infer depth results, and display on Web |
-| RDK S100, RDK S100P   | Ubuntu 22.04/24.04 (Humble, Jazzy) | Start stereo camera, infer depth results, and display on Web |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)              | Start stereo camera, infer depth results, and display on Web |
 
 ## 3. Model Versions
 
@@ -120,6 +120,7 @@ Stereo algorithm tutorial:
 - If the **system image version** does not meet requirements, refer to the corresponding documentation section for image flashing
 - If the **package version** does not meet requirements, run the following commands to update:
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -131,18 +132,23 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
-sudo apt install --only-upgrade tros-jazzy-hobot-stereonet
-sudo apt install --only-upgrade tros-jazzy-mipi-cam
-sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
+sudo apt install --only-upgrade tros-humble-hobot-stereonet
+sudo apt install --only-upgrade tros-humble-mipi-cam
+sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
 </Tabs>
+</DocScope>
 
 ### 4.3. Beta Source Configuration (X5 Only)
 
@@ -234,6 +240,7 @@ Other users may lack sufficient permissions, causing unnecessary errors. You can
 
 The `run_stereo.sh` script is bundled with the package and can be obtained as follows:
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -244,17 +251,22 @@ cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_cam.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_codec_web.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_stereo.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
 </Tabs>
+</DocScope>
 
 If you cannot copy from the package, you can also manually create the following three scripts.
 

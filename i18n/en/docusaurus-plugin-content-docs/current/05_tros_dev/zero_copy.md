@@ -32,7 +32,7 @@ ROS2 software package building and compiling tools, etc. Installation command: `
 
 Open a new terminal, source the tros.b setup script, and ensure the `ros2` command can run.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -55,15 +55,19 @@ source /opt/tros/humble/setup.bash
 Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
-Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+Use the following command to create a workspace. For details, see the official ROS2 tutorial [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
 
 </TabItem>
 </Tabs>
@@ -478,83 +482,6 @@ int main(int argc, char * argv[])
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```c++
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <string>
-
-#include "rclcpp/rclcpp.hpp"
-#include "hbmem_pubsub/msg/sample_message.hpp"
-
-using namespace std::chrono_literals;
-
-class MinimalHbmemPublisher  : public rclcpp::Node {
- public:
-  MinimalHbmemPublisher () : Node("minimal_hbmem_publisher"), count_(0) {
-    // Create publisher_hbmem with topic "topic"
-    publisher_ = this->create_publisher<hbmem_pubsub::msg::SampleMessage>(
-        "topic", rclcpp::SensorDataQoS());
-
-    // Timer, calls timer_callback every 40 milliseconds to send messages
-    timer_ = this->create_wall_timer(
-        40ms, std::bind(&MinimalHbmemPublisher ::timer_callback, this));
-  }
-
- private:
-  // Timer callback function
-  void timer_callback() {
-    // Get the message to send
-    auto loanedMsg = publisher_->borrow_loaned_message();
-    // Check if the message is available; it may be unavailable if acquisition fails
-    if (loanedMsg.is_valid()) {
-      // Get the actual message by reference
-      auto& msg = loanedMsg.get();
-      
-      // Get the current time in microseconds
-      auto time_now =
-          std::chrono::duration_cast<std::chrono::microseconds>(
-              std::chrono::steady_clock::now().time_since_epoch()).count();
-      
-      // Assign values to the message's index and time_stamp
-      msg.index = count_;
-      msg.time_stamp = time_now;
-      
-      // Print the sent message
-      RCLCPP_INFO(this->get_logger(), "message: %d", msg.index);
-      publisher_->publish(std::move(loanedMsg));
-      // Note: after sending, loanedMsg is no longer available
-      // Increment the counter
-      count_++;
-    } else {
-      // Failed to get the message, discard it
-      RCLCPP_INFO(this->get_logger(), "Failed to get LoanMessage!");
-    }
-  }
-  
-  // Timer
-  rclcpp::TimerBase::SharedPtr timer_;
-
-  // hbmem publisher
-  rclcpp::Publisher<hbmem_pubsub::msg::SampleMessage>::SharedPtr publisher_;
-  
-  // Counter
-  size_t count_;
-};
-
-int main(int argc, char * argv[])
-{
-  rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalHbmemPublisher>());
-  rclcpp::shutdown();
-  return 0;
-}
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -671,7 +598,7 @@ install(TARGETS
 
 Create a new `subscriber_hbmem.cpp` file in the `~/dev_ws/src/hbmem_pubsub/src` directory to create a subscriber node. The specific code and explanation are as follows:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -725,7 +652,64 @@ int main(int argc, char * argv[])
 
 </TabItem>
 
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
+
+```c++
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "hbmem_pubsub/msg/sample_message.hpp"
+
+class MinimalHbmemSubscriber  : public rclcpp::Node {
+ public:
+  MinimalHbmemSubscriber () : Node("minimal_hbmem_subscriber") {
+    // Create subscription_hbmem with topic "sample"
+    // The message callback function is topic_callback
+    subscription_ =
+        this->create_subscription<hbmem_pubsub::msg::SampleMessage>(
+            "topic", rclcpp::SensorDataQoS(),
+            std::bind(&MinimalHbmemSubscriber ::topic_callback, this,
+                      std::placeholders::_1));
+  }
+
+ private:
+  // Message callback function
+  void topic_callback(
+      const hbmem_pubsub::msg::SampleMessage::SharedPtr msg) const {
+    // Note: msg can only be used within the callback function; after the callback returns, the message will be released
+    // Get the current time
+    auto time_now =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::steady_clock::now().time_since_epoch())
+            .count();
+    // Calculate latency and print it
+    RCLCPP_INFO(this->get_logger(), "msg %d, time cost %dus", msg->index,
+                time_now - msg->time_stamp);
+  }
+  
+  // hbmem subscription
+  rclcpp::Subscription<hbmem_pubsub::msg::SampleMessage>::SharedPtr
+      subscription_;
+};
+
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalHbmemSubscriber>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```c++
 #include <memory>
@@ -782,7 +766,7 @@ int main(int argc, char * argv[])
 
 <DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble/Jazzy">
+<TabItem value="humble" label="Humble">
 
 ```c++
 #include <memory>
@@ -985,7 +969,7 @@ sudo apt install ros-dev-tools
 
 Open a new terminal, `cd` to the `dev_ws` directory, and source the tros.b and current workspace setup files:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1014,15 +998,19 @@ ros2 run hbmem_pubsub talker
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 cd ~/dev_ws
 . install/setup.bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
 # Run the talker node:
@@ -1086,7 +1074,7 @@ The following output will appear on the terminal:
 
 Open another new terminal, `cd` to the `dev_ws` directory, source the setup file, and then run the listener node:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1114,15 +1102,19 @@ ros2 run hbmem_pubsub listener
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 cd ~/dev_ws
 . install/setup.bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
+export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
 export RMW_FASTRTPS_USE_QOS_FROM_XML=1
 export ROS_DISABLE_LOANED_MESSAGES=0
 ros2 run hbmem_pubsub listener

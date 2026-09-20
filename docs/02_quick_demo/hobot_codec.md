@@ -46,7 +46,7 @@ import DocScope from '@site/src/components/DocScope';
 
     a. 启动 mipi_cam
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -65,12 +65,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -109,7 +113,7 @@ import DocScope from '@site/src/components/DocScope';
 
     b. 启动 hobot_codec 编码
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -128,12 +132,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -172,7 +180,7 @@ import DocScope from '@site/src/components/DocScope';
 
 2. Web 端查看 JPEG 编码图像，另起一个终端：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -191,12 +199,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>

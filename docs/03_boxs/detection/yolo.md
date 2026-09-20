@@ -101,7 +101,7 @@ YOLO 目标检测算法示例使用图片作为输入，利用 BPU 进行算法�
 
 YOLOv2 目标检测算法示例订阅 MIPI 摄像头发布的图片，经过算法推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -120,12 +120,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -170,7 +174,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 YOLOv2 目标检测算法示例订阅 USB 摄像头发布的图片，经过算法推理后发布算法 msg，通过 websocket package 实现在 PC 端浏览器上渲染显示发布的图片和对应的算法结果。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -189,12 +193,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -239,7 +247,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 YOLOv2 目标检测算法示例使用本地 JPEG/PNG 格式图片回灌，经过推理后将算法结果渲染后的图片存储在本地的运行路径下。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -258,12 +266,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>

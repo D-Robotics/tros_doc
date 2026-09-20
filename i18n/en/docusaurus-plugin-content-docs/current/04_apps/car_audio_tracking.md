@@ -52,7 +52,7 @@ Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
 3. The intelligent voice algorithm package has been successfully installed on the RDK. Installation commands:
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
 
@@ -63,6 +63,20 @@ Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
       </TabItem>
 
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
@@ -96,7 +110,7 @@ Code repository: (https://github.com/D-Robotics/audio_tracking.git)
 
 6. A PC on the same network as the RDK (wired or on the same Wi-Fi, with the first three octets of the IP address matching). The PC requires the following environment:
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -127,6 +141,24 @@ Code repository: (https://github.com/D-Robotics/audio_tracking.git)
  </Tabs>
  </DocScope>
 
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+    - Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo and Turtlebot3 related packages. Installation:
+
+     ```shell
+     sudo apt-get install ros-humble-gazebo-*
+     sudo apt install ros-humble-turtlebot3
+     sudo apt install ros-humble-turtlebot3-simulations
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
+
  
 
 ## Usage
@@ -137,7 +169,7 @@ After running the voice tracking feature, the voice tracking control module rece
 
 Start the simulation environment on the PC:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -147,6 +179,19 @@ source /opt/ros/foxy/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -173,7 +218,7 @@ Start the program on the RDK platform:
 
 1. Copy the audio configuration file and load the audio driver
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -184,6 +229,21 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -210,7 +270,7 @@ source /opt/tros/humble/setup.bash
 
 3. Start the program
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -221,6 +281,21 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

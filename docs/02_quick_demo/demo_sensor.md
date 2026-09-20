@@ -46,7 +46,7 @@ import DocScope from '@site/src/components/DocScope';
 
 2. 并通过下述命令启动 USB 摄像头
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -65,15 +65,19 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
    </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
-   ```
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
 
-    </TabItem>
+   </TabItem>
     </Tabs>
     </DocScope>
 
@@ -133,7 +137,7 @@ import DocScope from '@site/src/components/DocScope';
 
 4. Web 端查看 USB 摄像头图像，另起一个终端：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -152,12 +156,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -206,7 +214,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 2. 并通过下述命令启动 USB 摄像头
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -225,12 +233,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -293,7 +305,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. 通过 hobot codec 进行编码成 mjpeg
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -312,12 +324,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -357,7 +373,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. Web 端查看 USB 摄像头图像，另起一个终端：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -376,12 +392,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -427,7 +447,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 1. USB 摄像头需要进行标定，并设置相机标定文件的读取路径，否则无法发布相机内参，但不影响其它功能
 2. 设置相机标定文件读取路径，具体步骤如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -446,12 +466,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -562,7 +586,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 2. 并通过下述命令启动 hobot_sensor 节点
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -581,12 +605,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -609,7 +637,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. Web 端查看摄像头图像，由于发布原始数据，需要编码 JPEG 图像，另起两个终端：一个进行订阅 MIPI 数据编码为 JPEG，一个用 webservice 发布
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -628,12 +656,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -654,7 +686,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 6. 在 PC 机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -671,11 +703,15 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
    ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   root@ubuntu:~# source /opt/ros/humble/setup.bash
    ```
 
 </TabItem>
@@ -746,7 +782,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. mipi_cam 提供 F37 以及 GC4663 两种摄像头的标定文件，默认读取 F37 的标定文件 `F37_calibration.yaml` ，如使用 GC4663，请更改相机标定文件的读取路径，具体步骤如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -765,12 +801,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -842,7 +882,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 | 平台   | 运行方式      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
-| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)  |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
@@ -882,15 +922,6 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
         ```bash
         # 配置tros.b环境
         source /opt/tros/humble/setup.bash
-        ```
-
-        </TabItem>
-
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # 配置tros.b环境
-        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -962,15 +993,6 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
         ```bash
         # 配置tros.b环境
         source /opt/tros/humble/setup.bash
-        ```
-
-        </TabItem>
-
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # 配置tros.b环境
-        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -1171,6 +1193,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 3. PC 机上查询当前话题，查询命令及返回结果如下：
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1189,6 +1212,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 topic list
@@ -1216,6 +1240,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. PC 机上订阅话题，并预览摄像头数据
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1234,6 +1259,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 run rviz2 rviz2
@@ -1245,6 +1271,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. 在 PC 机上查询相机内参
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1263,6 +1290,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1376,7 +1404,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 #### 1. 通过串口或者 SSH 登录 RDK，确认 ROS 的版本
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1389,6 +1417,22 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1507,7 +1551,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 1. 通过串口或者 SSH 登录 RDK，确认 ROS 的版本
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1520,6 +1564,22 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell

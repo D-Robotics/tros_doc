@@ -93,15 +93,6 @@ apt install tros-humble-hand-landmarks-mediapipe
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -146,15 +137,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -199,15 +181,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

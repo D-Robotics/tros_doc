@@ -80,15 +80,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -146,15 +137,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -207,15 +189,6 @@ ros2 launch reid reid.launch.py
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

@@ -51,7 +51,7 @@ sudo apt update
 
 ### 2 Install Packages
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -71,11 +71,16 @@ sudo apt install ros-humble-image-transport-plugins
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-sudo apt install ros-jazzy-image-transport
-sudo apt install ros-jazzy-image-transport-plugins
+sudo apt install ros-humble-image-transport
+sudo apt install ros-humble-image-transport-plugins
 ```
 
 </TabItem>
@@ -115,7 +120,7 @@ sudo apt install ros-jazzy-image-transport-plugins
 
 Same as using ROS
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -135,10 +140,15 @@ ros2 run image_transport list_transports
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ros2 run image_transport list_transports
 ```
 

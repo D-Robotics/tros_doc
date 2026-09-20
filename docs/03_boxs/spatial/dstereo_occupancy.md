@@ -74,15 +74,6 @@ zed 相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -124,15 +115,6 @@ ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -174,15 +156,6 @@ rviz2
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

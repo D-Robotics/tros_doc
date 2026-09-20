@@ -43,7 +43,7 @@ Game character control example based on body pose analysis and gesture recogniti
 | Platform                             | Runtime Environment     | Example Functionality                                                 |
 | -------------------------------- | ------------ | -------------------------------------------------------- |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
-| RDK S600 | Ubuntu 24.04 (Humble) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI/USB camera/local feedback and display inference rendering results via Web |
 
 ## Algorithm Info
 

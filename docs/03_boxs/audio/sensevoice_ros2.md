@@ -44,14 +44,6 @@ import DocScope from '@site/src/components/DocScope';
       
        </TabItem>
 
-       <TabItem value="jazzy" label="Jazzy">
-
-       ```bash
-       source /opt/tros/jazzy/setup.bash
-       ```
-
-      </TabItem>
-
    </Tabs>
    </DocScope>
 
@@ -134,19 +126,6 @@ RDK 板端运行 sensevoice_ros2 package：
    # 配置tros.b环境
    
    source /opt/tros/humble/setup.bash
-
-   #启动launch文件
-   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
-   ```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-   ```shell
-   # 配置tros.b环境
-   
-   source /opt/tros/jazzy/setup.bash
 
    #启动launch文件
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"

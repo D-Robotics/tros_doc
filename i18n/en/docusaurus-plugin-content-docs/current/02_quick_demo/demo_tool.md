@@ -46,7 +46,7 @@ Continuously read a local NV12 format image and publish it. Use the image codec 
 
 #### RDK Platform
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -65,13 +65,17 @@ source /opt/tros/humble/setup.bash
 ```
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 
 </Tabs>
@@ -137,7 +141,7 @@ Read the local video.list file to obtain video file paths in the list, continuou
 
 #### RDK Platform
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -156,13 +160,17 @@ source /opt/tros/humble/setup.bash
 ```
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 
 </Tabs>

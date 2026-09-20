@@ -55,15 +55,6 @@ The package publishes algorithm messages containing semantic segmentation and ob
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -94,15 +85,6 @@ ros2 launch mono_mobilesam sam.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -133,15 +115,6 @@ ros2 launch mono_mobilesam sam.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

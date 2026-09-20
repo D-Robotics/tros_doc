@@ -22,7 +22,7 @@ Application scenarios: The speech_agent_audio algorithm can detect wake words an
 
 | Platform   | Runtime Environment     | Example Functionality                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| Start the Audio module and output wake-up results |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| Start the Audio module and output wake-up results |
 
 ## Preparation
 
@@ -51,14 +51,6 @@ Application scenarios: The speech_agent_audio algorithm can detect wake words an
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -131,14 +123,6 @@ Running the speech_agent_audio package on the RDK:
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>

@@ -46,7 +46,7 @@ import DocScope from '@site/src/components/DocScope';
 
 #### RDK 平台
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -64,14 +64,17 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 </Tabs>
 </DocScope>
@@ -134,7 +137,7 @@ webserver has launch
 
 #### RDK 平台
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -152,14 +155,17 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 </Tabs>
 </DocScope>

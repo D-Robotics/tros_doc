@@ -81,15 +81,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -145,15 +136,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -205,15 +187,6 @@ ros2 launch hobot_dosod dosod.launch.py
 ```bash
 # Configure the tros.b environment
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure the tros.b environment
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

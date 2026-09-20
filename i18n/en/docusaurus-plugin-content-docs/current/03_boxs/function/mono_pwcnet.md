@@ -59,15 +59,6 @@ The optical flow estimation (mono_pwcnet) package subscribes to images published
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -99,15 +90,6 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -141,15 +123,6 @@ ros2 launch mono_pwcnet pwcnet.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

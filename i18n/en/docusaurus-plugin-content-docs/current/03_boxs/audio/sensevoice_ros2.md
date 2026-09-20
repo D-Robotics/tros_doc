@@ -44,14 +44,6 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
       
        </TabItem>
 
-       <TabItem value="jazzy" label="Jazzy">
-
-       ```bash
-       source /opt/tros/jazzy/setup.bash
-       ```
-
-      </TabItem>
-
    </Tabs>
    </DocScope>
 
@@ -138,19 +130,6 @@ Run the sensevoice_ros2 package on the RDK board:
    # Configure tros.b environment
    
    source /opt/tros/humble/setup.bash
-
-   # Launch launch file
-   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
-   ```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-   ```shell
-   # Configure tros.b environment
-   
-   source /opt/tros/jazzy/setup.bash
 
    # Launch launch file
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"

@@ -98,7 +98,7 @@ Fall detection case: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-an
 
 The YOLOv2 object detection algorithm example subscribes to images published by the MIPI camera, performs algorithm inference, publishes the algorithm message, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -117,12 +117,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -167,7 +171,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The YOLOv2 object detection algorithm example subscribes to images published by the USB camera, performs algorithm inference, publishes the algorithm message, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -186,12 +190,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -236,7 +244,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The YOLOv2 object detection algorithm example uses local JPEG/PNG images for injection, performs inference, and saves the rendered images with algorithm results in the local runtime directory.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -255,12 +263,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>

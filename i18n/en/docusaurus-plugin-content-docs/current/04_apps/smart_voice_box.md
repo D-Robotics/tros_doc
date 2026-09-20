@@ -25,7 +25,7 @@ The full voice interaction pipeline is illustrated below:
 
 | Platform                            | Runtime Environment     | Example Functionality           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Smart voice box experience |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Smart voice box experience |
 
 ## Preparation
 
@@ -39,14 +39,6 @@ The full voice interaction pipeline is illustrated below:
 
     ```bash
     source /opt/tros/humble/setup.bash
-    ```
-
-    </TabItem>
-
-    <TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -120,14 +112,6 @@ As shown above, the audio board recording device is "plughw:0,1", and the audio 
 
 ```bash
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

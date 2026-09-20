@@ -22,7 +22,7 @@ Application scenarios: speech_agent_tts converts text into corresponding audio, 
 
 | Platform   | Runtime Environment     | Example Functionality                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| Start the TTS module and play the synthesized audio |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| Start the TTS module and play the synthesized audio |
 
 ## Preparation
 
@@ -51,14 +51,6 @@ Application scenarios: speech_agent_tts converts text into corresponding audio, 
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -96,14 +88,6 @@ Running the speech_agent_tts package on the RDK:
 
    </TabItem>
 
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ```
-
-   </TabItem>
-
    </Tabs>
    </DocScope>
 
@@ -122,14 +106,6 @@ Open another terminal and execute the following command. The speaker will play t
 
 ```bash
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

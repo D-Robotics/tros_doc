@@ -56,7 +56,7 @@ elevation_net 是基于 hobot_dnn package 开发的高程网络检测算法示�
 
 ### RDK 平台
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -67,6 +67,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

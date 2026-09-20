@@ -42,7 +42,7 @@ For model inference on RDK S100/S600 platforms, refer to the [Boxs algorithm rep
 
 Use the local JPEG image and model in the hobot_dnn configuration file (FCOS object detection model, supporting 80 detection categories including people, animals, fruits, and vehicles) for feedback-based inference and save the rendered image.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -53,6 +53,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

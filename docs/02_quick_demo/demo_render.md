@@ -44,7 +44,7 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 
     a. 启动 mipi_cam
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -63,12 +63,16 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
    ```
 
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
    </TabItem>
@@ -107,7 +111,7 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 
     b. 启动编码
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -126,12 +130,16 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
    ```
 
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
    </TabItem>
@@ -170,7 +178,7 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
 
     c. 启动 websocket
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -189,12 +197,16 @@ Web 展示用于预览摄像头图像（JPEG 格式）和算法效果，通过�
    ```
 
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
    </TabItem>
@@ -282,7 +294,7 @@ HDMI 展示**EOL**说明：
 
 通过 SSH 登录开发板，启动板端相关程序：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -301,12 +313,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -393,7 +409,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
 1. 通过 SSH 登录 RDK，启动板端相关程序
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -412,12 +428,16 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
    ```
 
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
    </TabItem>
@@ -467,7 +487,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
 2. RDK 新建一个窗口，查询话题命令及返回结果如下：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -486,12 +506,16 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
    ```
 
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
    </TabItem>
@@ -540,7 +564,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
 3. RDK 上启动 RViz2 订阅话题，并预览摄像头数据；
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -557,11 +581,15 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
    ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
-   ```bash
-   source /opt/tros/jazzy/setup.bash
+   ```shell
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -662,29 +690,11 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   ```
-
-   </TabItem>
-
    <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -725,29 +735,11 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
    <DocScope products="RDK-X5">
    <Tabs groupId="tros-distro">
-   <TabItem value="foxy" label="Foxy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/setup.bash
-   ```
-
-   </TabItem>
-
    <TabItem value="humble" label="Humble">
 
    ```bash
    # 配置tros.b环境
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -788,27 +780,11 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-   ```shell
-   source /opt/tros/foxy/setup.bash
-   ```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
    ```shell
    source /opt/tros/humble/setup.bash
    ```
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ```
-
 </TabItem>
 </Tabs>
 </DocScope>
@@ -885,7 +861,7 @@ Foxglove 是一个开源的工具包，包括线上和线下版。旨在简化�
 
 1. 通过 SSH 登录 RDK 平台，启动板端相关程序：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -904,12 +880,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -951,7 +931,7 @@ ros2 launch hobot_visualization hobot_vis_render.launch.py dnn_example_config_fi
 
 同时，利用 ssh 登录另一个终端，在板端记录话题信息：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -970,12 +950,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>

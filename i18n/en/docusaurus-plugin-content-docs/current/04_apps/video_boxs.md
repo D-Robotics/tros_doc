@@ -26,7 +26,7 @@ Code Repository: (https://github.com/D-Robotics/hobot_rtsp_client.git)
 
 | Platform | Operating Mode |
 |-----------------------|-----------------------|
-| RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
@@ -77,7 +77,7 @@ sudo bash -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling
 
 Channel 1 (Terminal 1):
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -96,12 +96,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -147,7 +151,7 @@ ros2 launch hobot_rtsp_client hobot_rtsp_client_ai_websocket_plugin.launch.py ho
 
 Channel 2 (Terminal 2):
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -166,12 +170,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>

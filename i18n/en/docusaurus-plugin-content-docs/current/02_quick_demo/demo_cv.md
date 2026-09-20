@@ -328,6 +328,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK Platform
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -348,6 +349,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # Copy the models and configuration files required to run the example from the tros.b installation path.
@@ -407,7 +423,7 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 
 #### RDK
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -427,11 +443,16 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -748,15 +769,6 @@ Code repository: [https://github.com/D-Robotics/hobot_cv](https://github.com/D-R
 ```bash
 # Configure tros.b environment
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

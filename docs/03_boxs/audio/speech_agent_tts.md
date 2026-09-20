@@ -22,7 +22,7 @@ speech_agent_tts提供语音合成功能，该节点订阅 **/tts_text** 文本�
 
 | 平台   | 运行环境     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| 启动TTS模块并播出合成音频 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| 启动TTS模块并播出合成音频 |
 
 ## 准备工作
 
@@ -51,14 +51,6 @@ speech_agent_tts提供语音合成功能，该节点订阅 **/tts_text** 文本�
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -96,14 +88,6 @@ RDK 板端运行 speech_agent_tts package：
 
    </TabItem>
 
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ```
-
-   </TabItem>
-
    </Tabs>
    </DocScope>
 
@@ -122,14 +106,6 @@ RDK 板端运行 speech_agent_tts package：
 
 ```bash
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

@@ -54,7 +54,7 @@ import DocScope from '@site/src/components/DocScope';
 
 1. 首次运行需要下载模型文件并解压，详细命令如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -75,14 +75,18 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
     sudo apt update
-    sudo apt install tros-jazzy-hobot-tts
-    source /opt/tros/jazzy/setup.bash
+    sudo apt install tros-humble-hobot-tts
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -167,7 +171,7 @@ import DocScope from '@site/src/components/DocScope';
 
 3. 启动 hobot_tts 程序
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -186,12 +190,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -235,7 +243,7 @@ import DocScope from '@site/src/components/DocScope';
 
 4. 新开一个终端，使用 echo 命令发布一条 topic
 
-  <DocScope products="RDK-X3,RDK-X5">
+  <DocScope products="RDK-X3">
   <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -254,13 +262,17 @@ import DocScope from '@site/src/components/DocScope';
   ```
 
   </TabItem>
+  </Tabs>
+  </DocScope>
 
-  <TabItem value="jazzy" label="Jazzy">
+  <DocScope products="RDK-X5">
+  <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
+  ```bash
+  # 配置tros.b环境
+  source /opt/tros/humble/setup.bash
+  ```
 
   </TabItem>
   </Tabs>

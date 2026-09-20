@@ -36,7 +36,7 @@ Nav2 (Navigation2) is the built-in navigation framework in ROS2, designed to fin
 
 3. After tros.b is installed, install Nav2.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -47,6 +47,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -102,7 +116,7 @@ sudo apt install ros-${ROS_DISTRO}-nav2-bringup
 
 4. A PC on the same network as the RDK with Ubuntu, ROS2 desktop edition, Gazebo simulation environment, and Rviz2 visualization tool installed.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -114,6 +128,20 @@ Ubuntu 20.04 and [ROS2 Foxy desktop edition](https://docs.ros.org/en/foxy/Instal
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -157,7 +185,7 @@ This section describes how to set up the simulation environment on the PC, confi
 
 1. **PC**: Start the Gazebo simulation environment
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -167,6 +195,19 @@ source /opt/ros/foxy/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -206,7 +247,7 @@ source /opt/ros/humble/setup.bash
 
 2. **RDK**: Start navigation
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -218,6 +259,21 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/foxy
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humble/share/nav2_bringup/maps/turtlebot3_world.yaml
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -248,7 +304,7 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 
 3. **PC**: Start Rviz2
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -259,6 +315,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

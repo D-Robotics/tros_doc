@@ -22,7 +22,7 @@ Application scenarios: speech_agent_asr converts audio data into corresponding t
 
 | Platform   | Runtime Environment     | Example Functionality                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| Start the ASR module and output recognition results |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| Start the ASR module and output recognition results |
 
 ## Preparation
 
@@ -36,14 +36,6 @@ Application scenarios: speech_agent_asr converts audio data into corresponding t
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -77,14 +69,6 @@ Running the speech_agent_asr package on the RDK:
 
     ```bash
     source /opt/tros/humble/setup.bash
-    ```
-
-    </TabItem>
-
-    <TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>

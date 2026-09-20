@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台                            | 运行环境     | 示例功能           |
 | ------------------------------- | ------------ | ------------------ |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 智能语音盒子体验 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 智能语音盒子体验 |
 
 ## 准备工作
 
@@ -39,14 +39,6 @@ import DocScope from '@site/src/components/DocScope';
 
     ```bash
     source /opt/tros/humble/setup.bash
-    ```
-
-    </TabItem>
-
-    <TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>
@@ -120,14 +112,6 @@ import DocScope from '@site/src/components/DocScope';
 
 ```bash
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

@@ -42,7 +42,7 @@ RDK S100/S600 平台的模型推理功能体验参考[Boxs 算法仓库](../03_b
 
 使用 hobot_dnn 配置文件中的本地 JPEG 格式图片和模型（FCOS 目标检测模型，支持的目标检测类型包括人、动物、水果、交通工具等共 80 种类型），通过回灌进行推理，并存储渲染后的图片。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -53,6 +53,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

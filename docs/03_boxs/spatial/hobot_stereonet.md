@@ -71,7 +71,7 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | 平台                  | 系统支持                           | 示例功能                                      |
 | --------------------- | ---------------------------------- | --------------------------------------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)              | 启动双目相机，推理出深度结果，并在 Web 端显示 |
-| RDK S100, RDK S100P   | Ubuntu 22.04/24.04 (Humble, Jazzy) | 启动双目相机，推理出深度结果，并在 Web 端显示 |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)              | 启动双目相机，推理出深度结果，并在 Web 端显示 |
 
 ## 3. 模型版本
 
@@ -120,6 +120,7 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 - 如果**系统镜像版本**不符合要求，请参考文档对应章节进行镜像烧录
 - 如果**功能包版本**不符合要求，请执行以下指令进行更新：
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -131,18 +132,23 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
-sudo apt install --only-upgrade tros-jazzy-hobot-stereonet
-sudo apt install --only-upgrade tros-jazzy-mipi-cam
-sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
+sudo apt install --only-upgrade tros-humble-hobot-stereonet
+sudo apt install --only-upgrade tros-humble-mipi-cam
+sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
 </Tabs>
+</DocScope>
 
 ### 4.3. Beta源配置（X5专用）
 
@@ -234,6 +240,7 @@ apt update
 
 `run_stereo.sh`脚本已内置在功能包中，可通过以下方式获取：
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -244,17 +251,22 @@ cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_cam.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_codec_web.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_stereo.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
 </Tabs>
+</DocScope>
 
 如果无法从功能包中复制，也可以手动创建以下三个脚本。
 
