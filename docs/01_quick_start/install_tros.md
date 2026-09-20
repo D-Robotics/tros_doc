@@ -68,7 +68,7 @@ RDK X3 平台请注意：
 
 :::caution 注意
 - **2.x 版本 tros.b 仅支持 2.x 版本系统镜像，[1.x 版本 tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持 1.x 版本系统。**
-- **如果您使用的是 1.x 版本系统镜像，需要将[环境准备](./preparation.md)到 2.x 版本。**
+- **如果您使用的是 1.x 版本系统镜像，需要参考[环境准备](./preparation.md)章节将系统升级到 2.x 版本。**
 - **系统和 tros.b 版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
