@@ -1124,6 +1124,8 @@ The following uses SC230ai as an example to describe how to acquire and preview 
     - Verify that the tros.b environment is configured
     - Verify that parameters are correct. For details, refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 
+<DocScope products="RDK-X3">
+
 ## RGBD Image Capture
 
 ### Introduction
@@ -1441,6 +1443,10 @@ If the hobot_sensor node fails to start, troubleshoot using the following steps:
 2. Verify that the tros.b environment is configured
 3. Verify that parameters are correct. For details, refer to Hobot_Sensors README.md
 
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
+
 ## RealSense Image Capture
 
 ### Introduction
@@ -1586,6 +1592,10 @@ There are several ways to display RealSense images and point clouds. Refer to [D
 It is recommended to read data directly on the RDK to verify that streaming works correctly. You can use `ros2 topic echo topic_name` to print data or write code to subscribe to the corresponding topics.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="Board-side terminal output from ros2 topic echo confirming RealSense streaming" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
 
 ## Orbbec Camera Image Capture
 
@@ -1804,6 +1814,10 @@ It is recommended to read data directly on the RDK to verify that streaming work
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="Terminal output from ros2 topic echo confirming Orbbec streaming" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X5">
+
 ## ZED Camera Image Capture
 
 ### Introduction
@@ -1875,3 +1889,5 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 3. On the PC, open a browser ( `Chrome` / `Firefox` / `Edge` ), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live ZED camera feed.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Live ZED camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+</DocScope>

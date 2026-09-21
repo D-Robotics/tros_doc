@@ -1078,6 +1078,8 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     - 是否设置 tros.b 环境
     - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
 
+<DocScope products="RDK-X3">
+
 ## RGBD 图像采集
 
 ### 功能介绍
@@ -1395,6 +1397,10 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 2. 是否设置 tros.b 环境
 3. 参数是否正确，具体参考 Hobot_Sensors README.md
 
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
+
 ## RealSense 图像采集
 
 ### 功能介绍
@@ -1540,6 +1546,10 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 推荐直接在 RDK 上直接读取数据，确认出流是否正常，可以通过 `ros2 topic echo topic_name` 打印数据或者编写代码订阅相应话题。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="使用 ros2 topic echo 在板端确认 RealSense 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
 
 ## 奥比中光(Orbbec)相机图像采集
 
@@ -1758,6 +1768,10 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="使用 ros2 topic echo 确认 Orbbec 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X5">
+
 ## ZED 相机图像采集
 
 ### 功能介绍
@@ -1829,3 +1843,5 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000` （IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 ZED 相机实时画面。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Web 端展示的 ZED 相机实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+</DocScope>
