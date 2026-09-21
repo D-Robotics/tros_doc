@@ -18,7 +18,11 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：智能语音算法能够识别音频中自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
+<DocScope products="RDK-X3,RDK-X5">
+
 语音控制小车运动案例：[语音控制小车运动](../../04_apps/car_audio_control.md)
+
+</DocScope>
 
 ## 支持平台
 

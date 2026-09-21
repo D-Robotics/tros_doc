@@ -39,7 +39,11 @@ Supported gesture recognition categories and their corresponding values in the a
 
 Application scenarios: Gesture recognition integrates hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It supports gesture control and sign language translation, and is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
+<DocScope products="RDK-X3,RDK-X5">
+
 Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_control.md)
+
+</DocScope>
 
 ## Supported Platforms
 

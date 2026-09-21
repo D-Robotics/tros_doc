@@ -39,7 +39,11 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
+<DocScope products="RDK-X3,RDK-X5">
+
 小车手势控制案例：[小车手势控制](../../04_apps/car_gesture_control.md)
+
+</DocScope>
 
 ## 支持平台
 

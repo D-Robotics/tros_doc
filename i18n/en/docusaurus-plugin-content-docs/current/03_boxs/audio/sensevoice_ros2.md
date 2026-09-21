@@ -18,7 +18,11 @@ Code repository: (https://github.com/D-Robotics/sensevoice_ros2.git)
 
 Application scenarios: The intelligent voice algorithm can recognize custom command words in audio and interpret speech content as corresponding commands or convert it to text, enabling voice control and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
+<DocScope products="RDK-X3,RDK-X5">
+
 Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
+
+</DocScope>
 
 ## Supported Platforms
 
