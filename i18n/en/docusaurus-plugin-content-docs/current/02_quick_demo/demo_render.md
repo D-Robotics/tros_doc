@@ -1002,6 +1002,6 @@ PS: Registration is required for first-time use. You can register using a Google
 
 ### Notes
 
-1. For Foxglove to visualize image data, ROS2 official message formats must be used with image encoding formats supported by Foxglove. For details, see (https://foxglove.dev/docs/studio/panels/image).
+1. For Foxglove to visualize image data, ROS2 official message formats must be used with image encoding formats supported by Foxglove. For details, see (https://docs.foxglove.dev/docs/visualization/panels/image).
 
 2. When recording messages with rosbag, topic information from other devices may also be recorded. To ensure clean rosbag data, you can set `export ROS_DOMAIN_ID=xxx` , such as `export ROS_DOMAIN_ID=1` .
