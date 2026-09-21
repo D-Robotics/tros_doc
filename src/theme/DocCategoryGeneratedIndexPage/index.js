@@ -10,6 +10,7 @@ import DocVersionBadge from '@theme/DocVersionBadge';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import Heading from '@theme/Heading';
 import {useDocScopeFilter} from '@site/src/context/DocScopeFilterContext';
+import DocUnavailable from '@site/src/components/DocUnavailable';
 import {shouldShowInSidebar} from '@site/src/context/sidebar-scope-config';
 import {
   flattenSingleChildCategories,
@@ -97,41 +98,6 @@ function findFirstVisiblePermalink(items) {
     }
   }
   return null;
-}
-
-function splitPathSegments(path) {
-  return normalizePathTail(path).split('/').filter(Boolean);
-}
-
-function commonPrefixScore(a, b) {
-  const aSegs = splitPathSegments(a);
-  const bSegs = splitPathSegments(b);
-  const max = Math.min(aSegs.length, bSegs.length);
-  let score = 0;
-  while (score < max && aSegs[score] === bSegs[score]) {
-    score += 1;
-  }
-  return score;
-}
-
-function findClosestVisiblePermalink(items, currentPathname) {
-  const ordered = collectOrderedSidebarLinks(items, []);
-  if (ordered.length === 0) return null;
-  const current = normalizePathTail(currentPathname);
-  let best = null;
-  let bestScore = -1;
-
-  for (const entry of ordered) {
-    const target = entry?.permalink;
-    if (!target) continue;
-    const score = commonPrefixScore(current, target);
-    if (score > bestScore) {
-      best = target;
-      bestScore = score;
-    }
-  }
-
-  return best || ordered[0]?.permalink || null;
 }
 
 function normalizePermalink(permalink) {
@@ -264,7 +230,7 @@ function DocCategoryGeneratedIndexPageContent({categoryGeneratedIndex, displayTi
   const docsSidebar = useDocsSidebar();
   const history = useHistory();
   const location = useLocation();
-  const {version, product} = useDocScopeFilter();
+  const {version, product, consumeSwitchIntent} = useDocScopeFilter();
   const current = normalizePermalink(location.pathname);
   const currentTail = normalizePathTail(location.pathname);
 
@@ -286,14 +252,18 @@ function DocCategoryGeneratedIndexPageContent({categoryGeneratedIndex, displayTi
     [processedSidebarItems, current, currentTail],
   );
 
+  const hasVisibleContent =
+    currentCategoryItems !== null ||
+    (Array.isArray(filteredItems) && filteredItems.length > 0);
+
+  // 分类在当前产品/版本下没有可见内容：只有读者主动切换产品/版本时才跳到第一个
+  // 可见文档；点链接进入的隐藏分类保留 URL，由下面的分支渲染「找不到页面」。
   useEffect(() => {
-    const hasVisibleCards = Array.isArray(filteredItems) && filteredItems.length > 0;
-    if (currentCategoryItems !== null || hasVisibleCards) {
+    const intentionalSwitch = consumeSwitchIntent(version, product);
+    if (hasVisibleContent || !intentionalSwitch) {
       return;
     }
-    const nearestVisible =
-      findClosestVisiblePermalink(processedSidebarItems, location.pathname) ||
-      findFirstVisiblePermalink(processedSidebarItems);
+    const nearestVisible = findFirstVisiblePermalink(processedSidebarItems);
     if (!nearestVisible) {
       return;
     }
@@ -304,12 +274,14 @@ function DocCategoryGeneratedIndexPageContent({categoryGeneratedIndex, displayTi
       history.replace(target);
     }
   }, [
-    currentCategoryItems,
-    filteredItems,
+    hasVisibleContent,
+    consumeSwitchIntent,
     processedSidebarItems,
     location.pathname,
     location.search,
     history,
+    version,
+    product,
   ]);
 
   const visiblePermalinks = useMemo(() => {
@@ -376,6 +348,10 @@ function DocCategoryGeneratedIndexPageContent({categoryGeneratedIndex, displayTi
     current,
     currentTail,
   ]);
+
+  if (!hasVisibleContent) {
+    return <DocUnavailable />;
+  }
 
   return (
     <div className={styles.generatedIndexPage}>

@@ -1,4 +1,5 @@
 import { scopeProductsMatchCurrent } from './doc-scope-product-utils.js';
+import { PRODUCT_VERSION_MATRIX } from './doc-scope-matrix.js';
 import {
   lookupDocScopeConfig,
   normalizeDocIdFromPath,
@@ -51,6 +52,22 @@ export function shouldShowDoc(docId, version, product) {
   }
 
   return true;
+}
+
+/**
+ * 文档在当前产品/版本下不可见时，列出仍有权限查看它的产品（用于「找不到页面」的切换入口）。
+ * 判定与 shouldShowDoc 完全一致：以每个产品支持的首个版本为基准。
+ * @param {string} docId 文档 ID
+ * @returns {string[]} 可查看该文档的产品名（如 RDK X3）；文档没有范围配置时返回空数组
+ */
+export function findApplicableProductsForDoc(docId) {
+  if (!lookupDocScopeConfig(docId, generatedFrontmatterConfig)) {
+    return [];
+  }
+  return Object.keys(PRODUCT_VERSION_MATRIX).filter((productName) => {
+    const versions = PRODUCT_VERSION_MATRIX[productName] || [];
+    return versions.length > 0 && shouldShowDoc(docId, versions[0], productName);
+  });
 }
 
 /**

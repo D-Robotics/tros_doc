@@ -466,3 +466,17 @@ article.markdown .table-responsive > table :is(th, td),
     margin: 0;
   }
 }
+
+/* 当前产品/版本下不存在的文档：适用平台提示 + 操作按钮 */
+.doc-unavailable {
+  text-align: center;
+}
+
+.doc-unavailable__products {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0.75rem;
+}
+
+.doc-unavailable__actions .button {
+  margin: 0.25rem;
+}
