@@ -613,6 +613,8 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png" alt="RViz2 成功显示摄像头图像话题后的可视化效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
+<DocScope products="RDK-X5,RDK-S600">
+
 ## RQt 展示
 
 ### 功能介绍
@@ -623,7 +625,7 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
 | 平台    | 运行方式      |
 | ------- | ------------- |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
@@ -634,20 +636,12 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 
 2. RDK 已成功安装 tros.b。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 3. PC 已安装 Ubuntu 20.04/Ubuntu 22.04 系统、ROS2 Foxy/Humble 桌面版和数据可视化工具 RQt，并且和 RDK 在同一网段（IP 地址前三位相同）。
 
    - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - PC 端安装 rqt-image-view ： `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `foxy` 、 `humble` 。
-</DocScope>
-
-<DocScope products="RDK-S100">
-3. PC 已安装 Ubuntu 22.04 系统、ROS2 Humble 桌面版和数据可视化工具 RQt，并且和 RDK 在同一网段（IP 地址前三位相同）。
-
-   - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 rqt-image-view ： `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -665,19 +659,6 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 1. 通过 SSH 登录 RDK 开发板，启动 mipi camera：
 
    <DocScope products="RDK-X5">
-   <Tabs groupId="tros-distro">
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-   </Tabs>
-   </DocScope>
-
-   <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
    <TabItem value="humble" label="Humble">
 
@@ -722,19 +703,6 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
    </Tabs>
    </DocScope>
 
-   <DocScope products="RDK-S100">
-   <Tabs groupId="tros-distro">
-   <TabItem value="humble" label="Humble">
-
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-   </Tabs>
-   </DocScope>
-
    <DocScope products="RDK-S600">
    <Tabs groupId="tros-distro">
    <TabItem value="jazzy" label="Jazzy">
@@ -755,17 +723,6 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 3. RDK 上订阅话题，并预览摄像头数据；
 
 <DocScope products="RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   source /opt/tros/humble/setup.bash
-   ```
-</TabItem>
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -800,6 +757,8 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
    选择话题 `/image_raw/compressed` ，图像效果图如下：
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png" alt="rqt 订阅 /image_raw/compressed 话题后显示的图像效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+</DocScope>
 
 ## Foxglove 展示
 

@@ -639,6 +639,8 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rviz2-result.png" alt="RViz2 visualization after successfully displaying a camera image topic" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+<DocScope products="RDK-X5,RDK-S600">
+
 ## RQt Display
 
 ### Overview
@@ -649,7 +651,7 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 | Platform    | Runtime Environment      |
 | ------- | ------------- |
-| RDK X5, RDK X5 Module, RDK S100 | Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Prerequisites
@@ -660,20 +662,12 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 
 2. tros.b has been successfully installed on RDK.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X5">
 3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
 
    - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
    - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
-</DocScope>
-
-<DocScope products="RDK-S100">
-3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
 </DocScope>
 
 <DocScope products="RDK-S600">
@@ -691,20 +685,6 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 1. Log in to the RDK development board via SSH and start the mipi camera:
 
    <DocScope products="RDK-X5">
-   <Tabs groupId="tros-distro">
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
-
-   <DocScope products="RDK-S100">
    <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
@@ -752,20 +732,6 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
    </Tabs>
    </DocScope>
 
-   <DocScope products="RDK-S100">
-   <Tabs groupId="tros-distro">
-      <TabItem value="humble" label="Humble">
-
-      ```bash
-      # Configure tros.b environment
-      source /opt/tros/humble/setup.bash
-      ```
-
-      </TabItem>
-
-   </Tabs>
-   </DocScope>
-
    <DocScope products="RDK-S600">
    <Tabs groupId="tros-distro">
       <TabItem value="jazzy" label="Jazzy">
@@ -787,18 +753,6 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 3. Subscribe to topics on RDK and preview camera data;
 
 <DocScope products="RDK-X5">
-<Tabs groupId="tros-distro">
-<TabItem value="humble" label="Humble">
-
-   ```shell
-   source /opt/tros/humble/setup.bash
-   ```
-</TabItem>
-
-</Tabs>
-</DocScope>
-
-<DocScope products="RDK-S100">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -835,6 +789,8 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
    Select the topic `/image_raw/compressed` . The image output looks like this:
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/rqt-result.png" alt="Image view in rqt after subscribing to /image_raw/compressed" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+</DocScope>
 
 ## Foxglove Display
 
