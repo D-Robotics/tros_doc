@@ -544,17 +544,48 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 功能介绍
 
+<DocScope products="RDK-X3">
+
 为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
 
 | 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg" alt="F37 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} />       | 200W 像素 | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg" alt="GC4663 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 400W 像素 | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 3    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg" alt="IMX477 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
 | 5    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="OV5647 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="IMX415 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
-代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 2    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="OV5647 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 3    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="IMX415 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+本小节暂未提供 RDK S600 适配的 MIPI 摄像头清单，具体支持情况请以 [hobot_mipi_cam](https://github.com/D-Robotics/hobot_mipi_cam.git) 代码仓库为准。
+
+</DocScope>
+
 
 ### 准备工作
 

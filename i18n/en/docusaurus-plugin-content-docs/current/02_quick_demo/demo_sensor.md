@@ -568,17 +568,48 @@ The RDK platform is used as an example below:
 
 ### Introduction
 
+<DocScope products="RDK-X3">
+
 To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
 
 | No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg" alt="Photo of an F37 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} />       | 2MP | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg" alt="Photo of a GC4663 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 4MP | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 3    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg" alt="Photo of an IMX477 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
 | 5    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="Photo of an OV5647 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="Photo of an IMX415 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
-Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 2    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="Photo of an OV5647 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 3    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="Photo of an IMX415 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+The MIPI camera modules supported on RDK S600 are not listed here yet; refer to the [hobot_mipi_cam](https://github.com/D-Robotics/hobot_mipi_cam.git) repository for the current support status.
+
+</DocScope>
+
 
 ### Preparation
 
