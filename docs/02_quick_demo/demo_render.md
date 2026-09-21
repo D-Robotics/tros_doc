@@ -379,30 +379,6 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 
 2. RDK 已成功安装 tros.b。
 
-<DocScope products="RDK-X3,RDK-X5">
-3. PC 已安装 Ubuntu 20.04/Ubuntu 22.04 系统、ROS2 Foxy/Humble 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
-
-   - ROS2 安装参考：[Foxy 版本](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)，[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `foxy` 、 `humble` 。
-</DocScope>
-
-<DocScope products="RDK-S100">
-3. PC 已安装 Ubuntu 22.04 系统、ROS2 Humble 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
-
-   - ROS2 安装参考：[Humble 版本](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `humble` 。
-</DocScope>
-
-<DocScope products="RDK-S600">
-3. PC 已安装 Ubuntu 24.04 系统、ROS2 Jazzy 桌面版和数据可视化工具 RViz2，并且和 RDK 在同一网段（IP 地址前三位相同）。
-
-   - ROS2 安装参考：[Jazzy 版本](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - PC 端安装 RViz2： `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` 。其中 `$ROS_DISTRO` 为 ROS2 版本，如 `jazzy` 。
-</DocScope>
-
 ### 使用方式
 
 #### RDK 平台

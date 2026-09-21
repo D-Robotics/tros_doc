@@ -393,30 +393,6 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 
 2. tros.b has been successfully installed on RDK.
 
-<DocScope products="RDK-X3,RDK-X5">
-3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
-</DocScope>
-
-<DocScope products="RDK-S100">
-3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
-</DocScope>
-
-<DocScope products="RDK-S600">
-3. The PC has Ubuntu 24.04, ROS2 Jazzy desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy` .
-</DocScope>
-
 ### Usage
 
 #### RDK Platform
