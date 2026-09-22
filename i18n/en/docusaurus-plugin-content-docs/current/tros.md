@@ -139,7 +139,6 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Image Encoding/Decoding [hobot_codec](./02_quick_demo/hobot_codec.md) | &#10004; |
 | Image Processing Acceleration [hobot_cv](./02_quick_demo/demo_cv.md) | &#10004; |
 | Data Communication [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; |
-| Model Inference [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; |
 | Image Publishing Tool [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | Text-to-Speech [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
 | Object Detection | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |

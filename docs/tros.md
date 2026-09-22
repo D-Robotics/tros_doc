@@ -139,7 +139,6 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 图像编解码 [hobot_codec](./02_quick_demo/hobot_codec.md) | &#10004; |
 | 图像处理加速 [hobot_cv](./02_quick_demo/demo_cv.md) | &#10004; |
 | 数据通信 [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; |
-| 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; |
 | 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
 | 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |
