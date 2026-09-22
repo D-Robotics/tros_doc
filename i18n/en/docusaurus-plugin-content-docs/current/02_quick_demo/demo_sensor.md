@@ -617,13 +617,21 @@ The MIPI camera modules supported on RDK S600 are not listed here yet; refer to 
 
 1. Confirm that the camera is connected to the RDK correctly.
 
+    <DocScope products="RDK-X3">
+
     The following figure shows how to connect an F37 camera to RDK X3:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="Wiring diagram for connecting an F37 camera to RDK X3" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     The following figure shows how to connect an imx219 camera to RDK S100:
     
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg" alt="Wiring diagram for connecting an IMX219 camera to RDK S100" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+    </DocScope>
 
 2. The RDK has been flashed with the Ubuntu system image
 
@@ -968,13 +976,21 @@ Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://gith
 
 1. Confirm that the camera is connected to the RDK correctly.
 
+    <DocScope products="RDK-X5">
+
     The following figure shows how to connect an SC230ai stereo camera to RDK X5 and RDK X5 Module:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg" alt="Wiring diagram for connecting an SC230AI stereo camera to RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     The following figure shows how to connect an SC230ai stereo camera to S100:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png" alt="Wiring diagram for connecting an SC230AI stereo camera to RDK S100" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+    </DocScope>
 
 2. The RDK has been flashed with the RDK OS system
 

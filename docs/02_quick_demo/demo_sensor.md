@@ -593,13 +593,21 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入 RDK。
 
+    <DocScope products="RDK-X3">
+
     如 F37 摄像头的接入 RDK X3 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="F37 摄像头接入 RDK X3 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     如 imx219 摄像头的接入 RDK S100 方式如下图：
     
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg" alt="IMX219 摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+    </DocScope>
 
 2. RDK 已烧录好 Ubuntu 系统镜像
 
@@ -922,13 +930,21 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入 RDK。
 
+    <DocScope products="RDK-X5">
+
     如 SC230ai 双目摄像头的接入 RDK X5, RDK X5 Module 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg" alt="SC230AI 双目摄像头接入 RDK X5 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     如 SC230ai 双目摄像头的接入 S100 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png" alt="SC230AI 双目摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+    </DocScope>
 
 2. RDK 已烧录好 RDK OS 系统
 
