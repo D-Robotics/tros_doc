@@ -76,10 +76,10 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
 | 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
-| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
-| 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) |
-| 人手关键点 | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) |
-| 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) | &#10004; |
+| 人体检测 [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md)| &#10004; |
+| 人手关键点 [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md)| &#10004; |
+| 手势识别 [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md)| &#10004; |
 | [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应 APP 示例 | &#10004; |
 | [人脸 106 关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应 APP 示例 | &#10004; |
 | 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10004; |
@@ -102,16 +102,16 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; |
 | 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
-| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
+| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) |
 | 开放词汇目标检测 [YOLO-World](./03_boxs/detection/hobot_yolo_world.md) | &#10004; |
 | 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10004; |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
-| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) <br/> [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
 | 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10004; |
 | 分割一切 [mono_mobilesam](./03_boxs/segmentation/mono_mobilesam.md) | &#10004; |
-| 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) |
-| 人手关键点 | [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md) |
-| 手势识别 | [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md) |
+| 人体检测 [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md)| &#10004; |
+| 人手关键点 [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md)| &#10004; |
+| 手势识别 [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md)| &#10004; |
 | [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应 APP 示例 | &#10004; |
 | [人脸 106 关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应 APP 示例 | &#10004; |
 | [人体跟随](./03_boxs/body/reid.md) | &#10004; |
@@ -144,11 +144,11 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 |
 | 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10004; |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
-| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) <br/> [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
 | 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10004; |
-| 人体检测 | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
-| 人手关键点 | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
-| 手势识别 | [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md) |
+| 人体检测 [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md)| &#10004; |
+| 人手关键点 [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md)| &#10004; |
+| 手势识别 [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md)| &#10004; |
 | [人体跟随](./03_boxs/body/reid.md) | &#10004; |
 | [BEV](./03_boxs/driver/hobot_bev.md) | &#10004; |
 | 激光雷达目标检测算法[CenterPoint](./03_boxs/driver/hobot_centerpoint.md) | &#10004; |
@@ -176,12 +176,12 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 数据通信 [zero-copy](./02_quick_demo/demo_communication.md) | &#10004; |
 | 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
-| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 |
+| 目标检测 [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 | &#10004; |
 | 开放词汇目标检测 [DOSOD](./03_boxs/detection/hobot_dosod.md) | &#10004; |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
-| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) |
+| 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) | &#10004; |
 | 分割一切 [mono_edgesam](./03_boxs/segmentation/mono_edgesam.md) | &#10004; |
-| 人体检测 | [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md) |
+| 人体检测 [mono2d_yolo_pose](./03_boxs/body/mono2d_yolo_pose.md)| &#10004; |
 | [人体跟随](./03_boxs/body/reid.md) | &#10004; |
 | 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10004; |
 | [SLAM 建图](./04_apps/slam.md) | &#10004; |
