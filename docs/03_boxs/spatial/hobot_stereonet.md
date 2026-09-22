@@ -63,7 +63,12 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 双目算法讲解：
 
+<DocScope products="RDK-X5">
+
 - [视频：直播回放 | 基于RDK X5的AI双目算法部署实战](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
+
+</DocScope>
+
 - [博客：地瓜AI双目算法：双目立体匹配算法发展综述](https://mp.weixin.qq.com/s/09kvfQzYgO4dKLUMNLweTg)
 
 ## 2. 支持平台
@@ -150,9 +155,9 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 </Tabs>
 </DocScope>
 
-### 4.3. Beta源配置（X5专用）
-
 <DocScope products="RDK-X5">
+
+### 4.3. Beta源配置（X5专用）
 
 如果以上指令无法将程序更新到最新版本，则需要将apt源文件修改为beta源：
 
@@ -174,6 +179,8 @@ apt update
 
 <DocScope products="RDK-S100">
 
+### 4.3. Beta源配置
+
 :::caution **注意**
 **如果`sudo apt update`命令执行失败或报错，请查看[常见问题](https://developer.d-robotics.cc/rdk_s_doc/FAQ/hardware_and_system#q6-apt-update-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E6%88%96%E6%8A%A5%E9%94%99%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86)章节的`Q6: apt update 命令执行失败或报错如何处理？`解决。**
 :::
@@ -190,9 +197,13 @@ apt update
 
 <p style={{ color: 'red' }}> 注意：请检查相机背面丝印印有CDPxxx-V3/V4，确认相机是V3或V4版本 </p>
 
+<DocScope products="RDK-X5">
+
 - RDK X5安装方式如图所示：
 
 ![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
+
+</DocScope>
 
 - RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
 
@@ -204,13 +215,21 @@ apt update
 
 ![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
 
+<DocScope products="RDK-X5">
+
 - RDK X5安装方式如图所示：
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
+</DocScope>
+
 - 最新线材做了升级，注意线材是带有方向的，CAM端接入相机，RDK端接入开发板。（白色和黑色线材均能正常使用，两种线材随机发货）
 
+<DocScope products="RDK-X5">
+
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
+
+</DocScope>
 
 - RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
 
@@ -687,31 +706,47 @@ codec_pub_topic:=$codec_pub_topic websocket_image_topic:=$websocket_image_topic 
 
 - 230AI双目相机：如果输出0x30、0x32、0x50等地址，则代表相机连接正常
 
+<DocScope products="RDK-X5">
+
 ```bash
-# RDK X5
 i2cdetect -r -y 4
 i2cdetect -r -y 6
-
-# RDK S100
-i2cdetect -r -y 1
-i2cdetect -r -y 2
 ```
 
 ![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
 
-- 132GS双目相机：如果输出0x32、0x33、0x50等地址，则代表相机连接正常
+</DocScope>
+
+<DocScope products="RDK-S100">
 
 ```bash
-# RDK X5
-i2cdetect -r -y 4
-i2cdetect -r -y 6
-
-# RDK S100
 i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
+</DocScope>
+
+- 132GS双目相机：如果输出0x32、0x33、0x50等地址，则代表相机连接正常
+
+<DocScope products="RDK-X5">
+
+```bash
+i2cdetect -r -y 4
+i2cdetect -r -y 6
+```
+
 ![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```bash
+i2cdetect -r -y 1
+i2cdetect -r -y 2
+```
+
+</DocScope>
 
 :::caution **注意**
 **如果I2C信号检测不到，相机无法正常工作**
@@ -738,14 +773,32 @@ bash run_cam.sh --log_level INFO
 </TabItem>
 </Tabs>
 
-以X5上接入132GS相机为例，正确启动相机会打印如下日志（S100或不同型号相机接入会打印不同的日志）：
+正确启动相机后会打印运行日志，不同平台、不同相机型号打印的日志不同。
+
+<DocScope products="RDK-X5">
+
+以X5上接入132GS相机为例：
 
 ![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
 
+</DocScope>
+
 **日志解析：**
 
-- **I2C bus** 是控制通道编号，用于配置传感器寄存器（如设置分辨率、帧率、启动 streaming），图像数据不走I2C，I2C只负责控制。程序会检测板子的I2C控制器是否能扫到sensor地址。日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6。
-- **mipi rx phy** 是图像数据通道编号，相机采集的图像数据走该高速通道传输到芯片。日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以通过 `channel` 和 `mipi_channel` 参数调整，用于改变左右目图像的拼接顺序。
+- **I2C bus** 是控制通道编号，用于配置传感器寄存器（如设置分辨率、帧率、启动 streaming），图像数据不走I2C，I2C只负责控制。程序会检测板子的I2C控制器是否能扫到sensor地址。
+- **mipi rx phy** 是图像数据通道编号，相机采集的图像数据走该高速通道传输到芯片。该编号可以通过 `channel` 和 `mipi_channel` 参数调整，用于改变左右目图像的拼接顺序。
+
+<DocScope products="RDK-X5">
+
+X5 接入 132GS 相机时，日志中检测到0x32、0x30两个地址，对应I2C bus-4和I2C bus-6；mipi phy 的编号分别是 0 和 2，对应左右目相机。
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+S100 接入 132GS 相机时，I2C 控制器编号为 1 和 2，mipi phy 的编号分别是 0 和 1，对应左右目相机。接入其它型号相机时编号可能不同，请以实际打印的日志为准。
+
+</DocScope>
 
 相机启动后，可通过以下方式查看图像是否正确。启动 `run_codec_web.sh`：
 
@@ -844,7 +897,7 @@ rviz2
 
 ### 8.1. 启动ZED相机节点
 
-通过ssh连接RDK，X5和S100执行相同指令：
+通过ssh连接RDK，执行以下命令：
 
 ```bash
 if [[ -f /opt/tros/humble/setup.bash ]]; then
@@ -1199,10 +1252,10 @@ ros2 param set /StereoNetNode save_result_flag true
 
 这种方式比较严格，推荐使用。需要准备棋盘格标定板。
 
-以X5搭配132GS相机为例：
+以132GS相机为例：
 
 ```bash
-# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+# 接入其它型号相机时，注意参考上文参数的设置
 # 注意棋盘格参数的设置，例子中使用每行内角点20、每列内角度11、方格大小为0.06m的棋盘格
 bash run_stereo.sh --epipolar_mode True \
 --chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
@@ -1218,10 +1271,10 @@ bash run_stereo.sh --epipolar_mode True \
 
 这种方式不需要标定板，只需要在纹理丰富的场景运行即可，但计算出来的极线对齐误差可能偏大。
 
-以X5搭配132GS相机为例：
+以132GS相机为例：
 
 ```bash
-# X5搭配132GS相机，S100或其它相机注意参考上文参数的设置
+# 接入其它型号相机时，注意参考上文参数的设置
 bash run_stereo.sh --feature_epipolar_mode True
 ```
 
@@ -1352,8 +1405,14 @@ standalone 使用 ARM 交叉编译工具链进行编译，生成可在 RDK 板�
 # 1. 下载并解压交叉编译工具链
 tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz -C /opt
 
-# 2. 进入 standalone 目录，执行编译脚本
+# 2. 进入 standalone 目录
 cd hobot_stereonet/standalone
+```
+
+<DocScope products="RDK-X5">
+
+```bash
+# 3. 执行 X5 编译脚本
 bash run_build_X5.sh
 ```
 
@@ -1366,6 +1425,26 @@ cd StereoInfer
 bash make_ln.sh
 ```
 
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```bash
+# 3. 执行 S100 编译脚本
+bash run_build_S100.sh
+```
+
+编译完成后，`build/` 目录下会生成 `StereoInfer_S100.tar.gz` 测试包，将其拷贝到 RDK 板端解压即可使用：
+
+```bash
+cd /userdata/
+tar -zxvf StereoInfer_S100.tar.gz
+cd StereoInfer
+bash make_ln.sh
+```
+
+</DocScope>
+
 **两个参考例子**
 
 standalone 工程包含两个可执行程序，覆盖了常见的两种使用场景：
@@ -1375,6 +1454,7 @@ standalone 工程包含两个可执行程序，覆盖了常见的两种使用场
 适合对一组已有图像进行深度估计，输入为本地图像目录，输出为视差图、深度图、点云等文件。
 
 ```bash
+# 若测试包中带有 3rdparty 目录，先设置依赖库搜索路径
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
 ./infer ./model/DStereoV2.4_int16.bin ./img 0.10
 ```
@@ -1398,6 +1478,7 @@ img/
 模拟相机采集管线，持续推理并统计性能指标。
 
 ```bash
+# 若测试包中带有 3rdparty 目录，先设置依赖库搜索路径
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
 ./test_perf ./model/DStereoV2.4_int16.bin 1 30 0.10
 ```
@@ -1448,9 +1529,27 @@ project(MyStereoProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
+```
+
+<DocScope products="RDK-X5">
+
+```cmake
 # 平台定义（X5 / S100 / S600 三选一）
 add_definitions(-DPLATFORM_X5)
+```
 
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```cmake
+# 平台定义（X5 / S100 / S600 三选一）
+add_definitions(-DPLATFORM_S100)
+```
+
+</DocScope>
+
+```cmake
 # OpenCV
 set(OpenCV_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/lib_opencv4.5.4/lib/cmake/opencv4)
 find_package(OpenCV REQUIRED)
