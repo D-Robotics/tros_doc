@@ -38,7 +38,7 @@ The blue parts in the diagram are optimized or newly added modules. The main fea
 
 Boxs is an intelligent algorithm package based on TogetheROS.Bot launched by D-Robotics for robot manufacturers and ecosystem developers, aiming to improve the efficiency of integrating and deploying intelligent robot algorithms based on the D-Robotics RDK robot operating system.
 
-- Image detection algorithms such as FCOS, YOLO, FasterRCNN, Efficientdet, Mobilenet_ssd;
+- Image detection algorithms such as FCOS, YOLO, FasterRCNN, Efficientdet, Mobilenet_ssd
 - Image classification models such as Mobilenet
 - Semantic segmentation models such as Unet
 - Application algorithm models such as human body detection and tracking, gesture recognition, hand keypoint detection, monocular elevation network, monocular 3D detection, speech processing, etc.

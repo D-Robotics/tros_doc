@@ -38,7 +38,7 @@ Communication 是在 ROS2 Foxy/Humble/Jazzy 版本通信核心组件基础上进
 
 Boxs 是 D-Robotics 面向机器人厂商和生态开发者推出的基于 TogetheROS.Bot 的智能算法包，旨在提升基于 D-Robotics RDK 机器人操作系统进行机器人智能算法集成和落地的效率。
 
-- 图像检测算法如 FCOS、YOLO、FasterRCNN、Efficientdet、Mobilenet_ssd;
+- 图像检测算法如 FCOS、YOLO、FasterRCNN、Efficientdet、Mobilenet_ssd
 - 图像分类模型如 Mobilenet
 - 语义分割模型如 Unet
 - 应用算法模型如人体检测与跟踪、手势识别、人手关键点检测、单目高程网络、单目 3D 检测、语音处理等
