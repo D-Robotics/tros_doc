@@ -80,6 +80,8 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ## 3. 模型版本
 
+<DocScope products="RDK-X5">
+
 ### 3.1. X5 模型
 
 | 算法版本              | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                                       |
@@ -95,12 +97,18 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 | V2.5_int16_544_448    | int16    | 544x448x3x2 | 15                | 最新版本，544x448 分辨率                       |
 | V2.5_int16_544_448_96 | int16    | 544x448x3x2 | 17                | 最新版本，544x448 分辨率，最大搜索视差 96 视差 |
 
-### 3.2. S100 模型
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+### 3.1. S100 模型
 
 | 算法版本 | 量化方式 | 输入尺寸    | 最高推理帧率(fps) | 模型说明                 |
 | -------- | -------- | ----------- | ----------------- | ------------------------ |
 | V2.1     | int16    | 640x352x3x2 | 53                | 历史版本，带置信度输出   |
 | V2.4     | int16    | 640x352x3x2 | 53                | 当前主版本，带置信度输出 |
+
+</DocScope>
 
 ## 4. 准备工作
 
@@ -114,13 +122,27 @@ zed相机代码仓库：https://github.com/D-Robotics/hobot_zed_cam
 
 ### 4.2. 系统和功能包版本
 
+<DocScope products="RDK-X5">
+
 |                                        | 版本              | 查询方法                                        |
 | -------------------------------------- | ----------------- | ----------------------------------------------- |
 | RDK X5 系统镜像版本                    | 3.3.3 及以上      | `cat /etc/version`                              |
+| tros-humble-hobot-stereonet 功能包版本 | 2.5.0 及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
+| tros-humble-mipi-cam 功能包版本        | 2.3.13 及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
+| tros-humble-hobot-zed-cam 功能包版本   | 2.3.3 及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+|                                        | 版本              | 查询方法                                        |
+| -------------------------------------- | ----------------- | ----------------------------------------------- |
 | RDK S100 系统镜像版本                  | 4.0.2-Beta 及以上 | `cat /etc/version`                              |
 | tros-humble-hobot-stereonet 功能包版本 | 2.5.0 及以上      | `apt list \| grep tros-humble-hobot-stereonet/` |
 | tros-humble-mipi-cam 功能包版本        | 2.3.13 及以上     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam 功能包版本   | 2.3.3 及以上      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
+
+</DocScope>
 
 - 如果**系统镜像版本**不符合要求，请参考文档对应章节进行镜像烧录
 - 如果**功能包版本**不符合要求，请执行以下指令进行更新：
@@ -205,9 +227,13 @@ apt update
 
 </DocScope>
 
+<DocScope products="RDK-S100">
+
 - RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
+
+</DocScope>
 
 ### 5.2. 132GS MIPI双目相机
 
@@ -231,9 +257,13 @@ apt update
 
 </DocScope>
 
+<DocScope products="RDK-S100">
+
 - RDK S100安装方式如图所示，注意S100的CAM子板拨码开关要拨到`LPWM`和`3.3V`：
 
 ![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
+
+</DocScope>
 
 ### 5.3. ZED相机连接
 
@@ -814,8 +844,7 @@ bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv1
 
 通过ssh连接RDK，执行以下命令启动算法：
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 # 搭配230AI相机
@@ -831,8 +860,11 @@ bash run_stereo.sh
   - 方法1：交换MIPI线
   - 方法2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 2` 或 `--mipi_channel 2 --mipi_channel2 0`，看看哪种情况能输出正确的结果
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+S100 需要指定模型版本，以下示例统一使用 `--stereonet_version v2.4`：
 
 ```bash
 # 搭配230AI相机
@@ -851,8 +883,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
   - 方法1：交换MIPI线
   - 方法2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 1` 或 `--mipi_channel 1 --mipi_channel2 0`，看看哪种情况能输出正确的结果
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 :::caution **注意**
 **如果程序没有正确启动，可以通过`ros2 topic list -v`检查一下是否存在`stereo_image_topic`和`camera_info_topic`对应的话题**
@@ -962,8 +993,7 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 
 通过ssh连接RDK，执行以下命令：
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 bash run_stereo.sh \
@@ -977,8 +1007,11 @@ bash run_stereo.sh \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+S100 需要指定模型版本：
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
@@ -992,8 +1025,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 # 如果网页端显示太快，可以加入参数控制一下停顿时间：--image_sleep 2000
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 ### 9.3. 查看结果
 
@@ -1013,10 +1045,29 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 | 参数                | 说明                                 | 默认值          | 可选值                                                                                                                                                                                                                                                                                                                                 |
 | ------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `stereonet_version` | 算法版本                             | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.4_int16_1280_704` / `v2.4_int16_320_256` / `v2.4_int16_640_480` / `v2.4_int8_544_448` / `v2.4_int8_544_448_96` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96`<br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` / `v2.4_640_416` |
 | `stereo_node_name`  | ROS节点名称                          | `StereoNetNode` | 任意合法ROS节点名                                                                                                                                                                                                                                                                                                                      |
 | `uncertainty_th`    | 置信度阈值，设为正数时启用置信度过滤 | `-0.10`         | 建议设为 `0.10`                                                                                                                                                                                                                                                                                                                        |
 | `infer_thread_num`  | 推理线程数，多线程帧率高但延迟大     | `2`             | `1` / `2`                                                                                                                                                                                                                                                                                                                              |
+
+`stereonet_version`（算法版本）的可选值按平台区分：
+
+<DocScope products="RDK-X5">
+
+| 参数                | 说明     | 默认值       | 可选值 |
+| ------------------- | -------- | ------------ | ------ |
+| `stereonet_version` | 算法版本 | `v2.4_int16` | `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.4_int16_1280_704` / `v2.4_int16_320_256` / `v2.4_int16_640_480` / `v2.4_int8_544_448` / `v2.4_int8_544_448_96` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96` |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+| 参数                | 说明     | 可选值                             |
+| ------------------- | -------- | ---------------------------------- |
+| `stereonet_version` | 算法版本 | `v2.1` / `v2.4` / `v2.4_1280_704` / `v2.4_640_416` |
+
+S100 需要显式指定模型版本，例如 `--stereonet_version v2.4`。
+
+</DocScope>
 
 ### 10.2. 相机参数
 
@@ -1029,9 +1080,27 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `mipi_rotation`        | 图像旋转角度                         | `90.0` | 132GS设为`90.0`，230AI设为`0.0` |
 | `mipi_gdc_enable`      | 开启GDC畸变矫正                      | `True` | `True` / `False`                |
 | `mipi_lpwm_enable`     | 开启硬件同步，保证左右图像时间戳一致 | `True` | `True` / `False`                |
-| `mipi_channel`         | 左目相机MIPI通道编号                 | `2`    | X5: `0` / `2`; S100: `0` / `1`  |
-| `mipi_channel2`        | 右目相机MIPI通道编号                 | `0`    | X5: `0` / `2`; S100: `0` / `1`  |
 | `mipi_cal_rotation`    | 标定旋转角度                         | `0.0`  | 一般保持默认                    |
+
+`mipi_channel` / `mipi_channel2`（左右目相机MIPI通道编号）的可选值按平台区分：
+
+<DocScope products="RDK-X5">
+
+| 参数            | 说明                 | 默认值 | 可选值    |
+| --------------- | -------------------- | ------ | --------- |
+| `mipi_channel`  | 左目相机MIPI通道编号 | `2`    | `0` / `2` |
+| `mipi_channel2` | 右目相机MIPI通道编号 | `0`    | `0` / `2` |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+| 参数            | 说明                 | 默认值 | 可选值    |
+| --------------- | -------------------- | ------ | --------- |
+| `mipi_channel`  | 左目相机MIPI通道编号 | `2`    | `0` / `1` |
+| `mipi_channel2` | 右目相机MIPI通道编号 | `0`    | `0` / `1` |
+
+</DocScope>
 
 ### 10.3. 标定
 
@@ -1164,6 +1233,12 @@ ros2 param set /StereoNetNode save_result_once true
 
 在启动命令中指定保存参数：
 
+<DocScope products="RDK-S100">
+
+S100 需要指定模型版本，例如在启动命令中增加参数 `--stereonet_version v2.4`。
+
+</DocScope>
+
 ```bash
 # 搭配230AI相机
 bash run_stereo.sh --mipi_rotation 0.0 \
@@ -1183,7 +1258,6 @@ bash run_stereo.sh \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag False
 
-# S100需要指定模型版本，例如增加参数--stereonet_version v2.4
 # save_stereo_flag    保存双目图像，该图像会输入算法进行推理
 # save_origin_flag    保存双目原始图像，该图像不会最终输入算法推理，比如没有矫正的图、和算法模型分辨率不匹配的图，会进行预处理，得到最终可以输入算法的图像
 # save_disp_flag      保存视差图
