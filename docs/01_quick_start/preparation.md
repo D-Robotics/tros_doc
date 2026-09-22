@@ -38,7 +38,7 @@ TogetheROS.Bot 支持在 RDK 平台的 Ubuntu 系统上安装。使用 Ubuntu �
 
 :::caution **注意**
 - **如果您使用的是 RDK X3，并且安装的是 1.x 版本系统，需要将系统升级到 2.x 版本。**
-- **系统版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
+- **系统版本号查看方法以及详细说明，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
 </DocScope>
@@ -90,20 +90,33 @@ TogetheROS.Bot 支持在 RDK 平台的 Ubuntu 系统上安装。使用 Ubuntu �
 
 体验和开发过程中经常需要使用 scp/ssh 等命令通过 IP 地址访问 RDK，因此这里推荐使用动态配置，参考：
 
-<DocScope products="RDK X3,RDK X5">
+<DocScope products="RDK X3">
 
 
-[网络配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth)
-
-</DocScope>
-
-<DocScope products="RDK S100,RDK S600">
-
-
-[网络配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_blueteeth)
+[网络配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
+<DocScope products="RDK X5">
+
+
+[网络配置](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth?v=3.5.0&p=RDK+X5)
+
+</DocScope>
+
+<DocScope products="RDK S100">
+
+
+[网络配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_bluetooth?v=4.0.5&p=RDK+S100)
+
+</DocScope>
+
+<DocScope products="RDK S600">
+
+
+[网络配置](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_bluetooth?v=5.1.0&p=RDK+S600)
+
+</DocScope>
 
 尝试 ping 百度服务器
 
