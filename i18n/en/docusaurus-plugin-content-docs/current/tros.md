@@ -74,7 +74,7 @@ Apps are algorithm application examples developed based on D-Robotics RDK robot 
 | Model Inference [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; |
 | Image Publishing Tool [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | Text-to-Speech [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
-| Object Detection | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
+| Object Detection | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
 | Image Classification [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
 | Image Segmentation [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
 | Human Body Detection | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) |

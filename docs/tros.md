@@ -74,7 +74,7 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 模型推理 [hobot_dnn](./02_quick_demo/ai_predict.md) | &#10004; |
 | 图像发布工具 [hobot_image_publisher](./02_quick_demo/demo_tool.md) | &#10004; |
 | 文本转语音 [hobot_tts](./02_quick_demo/hobot_tts.md) | &#10004; |
-| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 v8 v10 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
+| 目标检测 | [YOLO](./03_boxs/detection/yolo.md): v2 v3 v5 <br /> [FCOS](./03_boxs/detection/fcos.md) <br /> [MobileNet_SSD](./03_boxs/detection/mobilenet.md) <br /> [EfficientNet_Det](./03_boxs/detection/efficientnet.md) |
 | 图像分类 [mobilenetv2](./03_boxs/classification/mobilenetv2.md) | &#10004; |
 | 图像分割 [mobilenet_unet](./03_boxs/segmentation/mobilenet_unet.md) [YOLOv8-Seg](./03_boxs/segmentation/yolov8_seg.md) | &#10004; |
 | 人体检测 | [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md) |
