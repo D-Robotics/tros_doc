@@ -149,7 +149,7 @@ hobotcv save rate = （guss_time cost time - infe cost time）/ guss_time cost t
 
 error sum:8.46524e+06,max:2,mean_error:0.439232　//单张图片总误差是：8.46524e+06，单个像素最大误差是：2，平均误差：0.439232
 
-平均误差　＝　sum / (width *height) = 8.46524e+06  / (320* 240)
+平均误差　＝　sum / (width * height) = 8.46524e+06  / (320 * 240)
 
 hobot_cv 高斯滤波 BPU 加速与 opencv 高斯滤波性能对比结果如下：
 
