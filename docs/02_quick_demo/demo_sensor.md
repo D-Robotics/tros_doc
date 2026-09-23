@@ -903,6 +903,8 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
 
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
+
 ## 双目 MIPI 图像采集
 
 ### 功能介绍
@@ -1092,7 +1094,9 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 2. 如遇到 hobot_sensor 节点启动异常，可通过下述步骤进行问题排查：
     - 检查硬件连接
     - 是否设置 tros.b 环境
-    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README_cn.md)
+
+</DocScope>
 
 <DocScope products="RDK-X3">
 

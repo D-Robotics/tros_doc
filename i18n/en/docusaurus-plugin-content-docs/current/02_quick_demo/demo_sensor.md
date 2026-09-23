@@ -949,6 +949,8 @@ The following describes how to acquire and preview camera data:
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
 
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
+
 ## Stereo MIPI Image Capture
 
 ### Introduction
@@ -1139,6 +1141,8 @@ The following uses SC230ai as an example to describe how to acquire and preview 
     - Check hardware connections
     - Verify that the tros.b environment is configured
     - Verify that parameters are correct. For details, refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+
+</DocScope>
 
 <DocScope products="RDK-X3">
 
