@@ -730,7 +730,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/foxy/setup.bash
+   root@ubuntu:~# source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -738,7 +738,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -750,7 +750,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1247,7 +1247,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1255,7 +1255,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1294,7 +1294,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1302,7 +1302,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1325,7 +1325,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1333,7 +1333,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>

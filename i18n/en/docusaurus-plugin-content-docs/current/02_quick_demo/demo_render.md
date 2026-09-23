@@ -567,7 +567,7 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/tros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>

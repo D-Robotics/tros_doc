@@ -545,7 +545,7 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/tros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>

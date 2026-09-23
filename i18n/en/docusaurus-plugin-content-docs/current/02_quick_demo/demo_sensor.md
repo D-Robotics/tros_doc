@@ -766,7 +766,7 @@ The following describes how to acquire and preview camera data:
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/foxy/setup.bash
+   root@ubuntu:~# source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -774,7 +774,7 @@ The following describes how to acquire and preview camera data:
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -787,7 +787,7 @@ The following describes how to acquire and preview camera data:
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1293,7 +1293,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1301,7 +1301,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1340,7 +1340,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1348,7 +1348,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -1371,7 +1371,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1379,7 +1379,7 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
