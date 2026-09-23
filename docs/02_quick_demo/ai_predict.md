@@ -26,10 +26,6 @@ import DocScope from '@site/src/components/DocScope';
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 
-:::caution
-RDK S100/S600 平台的模型推理功能体验参考[Boxs 算法仓库](../03_boxs/detection/yolo.md)。
-:::
-
 ## 准备工作
 
 ### RDK 平台
