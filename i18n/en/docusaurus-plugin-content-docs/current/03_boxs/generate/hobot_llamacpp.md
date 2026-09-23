@@ -70,7 +70,7 @@ Code repository: (https://github.com/D-Robotics/hobot_llamacpp.git)
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -84,7 +84,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 

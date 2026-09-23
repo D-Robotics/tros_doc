@@ -423,7 +423,7 @@ dosave:=true path_est:=~/openvins_traj.txt
 
 ```bash
 # Start rviz
-rosrun rviz rviz -d <OpenVINS目录>/open_vins/ov_msckf/launch/display.rviz
+rosrun rviz rviz -d <OpenVINS_dir>/open_vins/ov_msckf/launch/display.rviz
 ```
 
 ```bash

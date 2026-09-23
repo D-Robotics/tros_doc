@@ -310,7 +310,7 @@ The following information is output in the running terminal:
 
 The output log shows that the topic publishing algorithm inference results is `hobot_dnn_detection` , and the topic subscribing to images is `/hbmem_img` . The frame rate for subscribed images and algorithm inference output is approximately 30fps.
 
-Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering效果 (IP is the IP address of the RDK):
+Enter `http://IP:8000` in the browser on the PC to view the image and algorithm rendering results (IP is the IP address of the RDK):
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/classification/image/mobilenetv2/mobilenetv2_render_web.jpeg" alt="Web UI render of MobileNetV2 image classification results" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

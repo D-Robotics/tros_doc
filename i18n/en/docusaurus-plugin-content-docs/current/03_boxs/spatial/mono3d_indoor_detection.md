@@ -76,7 +76,7 @@ The monocular 3D indoor detection example package reads local images for detecti
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -85,7 +85,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -99,7 +99,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -109,10 +109,10 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono3d_indoor_detection/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch mono3d_indoor_detection mono3d_indoor_detection.launch.py 
 ```
 

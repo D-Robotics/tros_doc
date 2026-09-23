@@ -178,7 +178,7 @@ When saying the wake word "土豆土豆" (tu dou tu dou), wake-up is triggered a
 [WARN] [1783391628.612485499] [speech_agent_audio]: angle:135.000000
 ```
 
-When saying the command words "向前走", "向后退", "向左转", "向右转", "停止运动" in sequence, command words are triggered and the log displays:
+When saying the command words "向前走" (move forward), "向后退" (move backward), "向左转" (turn left), "向右转" (turn right), and "停止运动" (stop) in sequence, command words are triggered and the log displays:
 
 ```text
 [WARN] [1783391830.459405544] [speech_agent_audio]: cmd word:向前走

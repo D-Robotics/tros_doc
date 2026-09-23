@@ -223,7 +223,7 @@ Start the program on the RDK platform:
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -232,7 +232,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -247,7 +247,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -260,7 +260,7 @@ source /opt/tros/humble/setup.bash
 
 
     ```shell
-    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+    # Copy the configuration files required for the example from the tros.b installation path.
     cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
     ```
 
@@ -275,7 +275,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -284,7 +284,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -299,7 +299,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -312,7 +312,7 @@ source /opt/tros/humble/setup.bash
 
 
     ```shell
-    # 启动launch文件，并指定小车正前方对应的语音DOA角度，以90为例
+    # Launch the launch file and specify the voice DOA angle for the front of the vehicle; 90 is used as an example
     ros2 launch audio_tracking audio_tracking.launch.py car_front_audio_angle:=90
     ```
 
@@ -362,7 +362,7 @@ rotate_step: 0.348
 [WARN] [1663149823.377099758] [audio_tracking]: cancel move
 ```
 
-The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured in the intelligent voice recognition module is "D-Robotics 你好". After the voice tracking control module receives a wake event, it receives DOA angle information. As shown in the log, the DOA is 80 degrees. At this point, the voice tracking control module publishes a command to turn the robot left 20 degrees, then controls the robot to move forward, and finally stops the robot.
+The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured in the intelligent voice recognition module is "D-Robotics 你好" (D-Robotics hello). After the voice tracking control module receives a wake event, it receives DOA angle information. As shown in the log, the DOA is 80 degrees. At this point, the voice tracking control module publishes a command to turn the robot left 20 degrees, then controls the robot to move forward, and finally stops the robot.
 
 Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 

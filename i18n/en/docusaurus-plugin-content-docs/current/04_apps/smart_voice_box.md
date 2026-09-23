@@ -150,4 +150,4 @@ buffer: '讲个笑话'
 
 1. The ASR module in the voice interaction pipeline starts relatively slowly. When the log message `[speech_agent_asr]: asr init success` appears, it indicates that the ASR module has completed initialization.
 
-2. If you notice that the beginning of a sentence is occasionally lost during use, try slightly extending the pause after the wake word before speaking the text content. For example, after waking the device with "土豆土豆", pause for 0.5s ~ 1s, then say "一加一等于几".
+2. If you notice that the beginning of a sentence is occasionally lost during use, try slightly extending the pause after the wake word before speaking the text content. For example, after waking the device with "土豆土豆" (potato potato), pause for 0.5s ~ 1s, then say "一加一等于几" (what is one plus one).

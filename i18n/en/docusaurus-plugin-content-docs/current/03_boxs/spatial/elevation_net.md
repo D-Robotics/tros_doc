@@ -60,7 +60,7 @@ The monocular elevation network detection example package reads local images. Af
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -69,7 +69,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -83,7 +83,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -93,10 +93,10 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/elevation_net/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch elevation_net elevation_net.launch.py
 ```
 

@@ -70,7 +70,7 @@ The FCOS object detection example subscribes to images published by the sensor p
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -79,7 +79,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -93,7 +93,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -103,10 +103,10 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```shell
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -117,7 +117,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -126,7 +126,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -140,7 +140,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -150,10 +150,10 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```shell
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image_width:=480 dnn_example_image_height:=272
 ```
 
@@ -166,7 +166,7 @@ The FCOS object detection example uses local JPEG/PNG images for feedback. After
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -175,7 +175,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -189,7 +189,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -199,7 +199,7 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```shell
-# 启动launch文件
+# Launch the launch file
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/fcosworkconfig.json dnn_example_image:=config/target.jpg
 ```
 

@@ -161,7 +161,7 @@ After successful startup, the robot in the simulation environment appears as fol
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -170,7 +170,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -185,7 +185,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -198,15 +198,15 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch gesture_control gesture_control.launch.py
 ```
 
@@ -218,7 +218,7 @@ ros2 launch gesture_control gesture_control.launch.py
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -227,7 +227,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -242,7 +242,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -255,15 +255,15 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_lmk_detection/config/ .
 cp -r /opt/tros/${TROS_DISTRO}/lib/hand_gesture_detection/config/ .
 
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch gesture_control gesture_control.launch.py
 ```
 

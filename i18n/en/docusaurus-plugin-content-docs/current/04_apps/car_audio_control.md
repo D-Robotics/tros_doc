@@ -205,7 +205,7 @@ Start the program on the RDK platform:
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -214,7 +214,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -228,7 +228,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -238,7 +238,7 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
     ```shell
-    # 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+    # Copy the configuration files required for the example from the tros.b installation path.
     cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_audio/config/ .
     ```
 
@@ -253,7 +253,7 @@ source /opt/tros/humble/setup.bash
         <TabItem value="foxy" label="Foxy">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/setup.bash
         ```
 
@@ -262,7 +262,7 @@ source /opt/tros/humble/setup.bash
         <TabItem value="humble" label="Humble">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/humble/setup.bash
         ```
 
@@ -276,7 +276,7 @@ source /opt/tros/humble/setup.bash
         <TabItem value="humble" label="Humble">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/humble/setup.bash
         ```
 
@@ -288,7 +288,7 @@ source /opt/tros/humble/setup.bash
     
 
     ```shell
-    #启动launch文件
+    # Launch the launch file
     ros2 launch audio_control audio_control.launch.py
     ```
 
@@ -314,7 +314,7 @@ Audio control commnad word definitions are:
 
 ```
 
-The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured for this voice control module is "D-Robotics 你好", and the command words for controlling robot movement are: "向前走", "向后退", "向左转", and "向右转".
+The log above shows a segment of output after the audio control package starts. The log shows that the wake word configured for this voice control module is "D-Robotics 你好" (D-Robotics hello), and the command words for controlling robot movement are: "向前走" (move forward), "向后退" (move backward), "向左转" (turn left), and "向右转" (turn right).
 
 Use the `ros2 topic list` command on the PC terminal to query RDK topic information:
 

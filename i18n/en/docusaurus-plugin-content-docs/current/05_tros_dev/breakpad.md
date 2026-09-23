@@ -26,21 +26,21 @@ After downloading the source code, create a test program `test.cpp` in the Break
 ```c++
 //  test.cpp
 
-//  包含breakpad核心头文件
+//  Include the breakpad core header
 #include "client/linux/handler/exception_handler.h"
 
-//  发生crash时的回调函数
+//  Callback invoked when a crash occurs
 static bool dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                           void* context, bool succeeded) {
   printf("Dump path: %s\n", descriptor.path());
   return succeeded;
 }
 
-//  crash函数
+//  crash function
 void crash() { volatile int* a = (int*)(nullptr); *a = 1; }
 
 int main(int argc, char* argv[]) {
-  //  初始化 descriptor，设置coredmup文件路径为 /tmp
+  //  Initialize the descriptor and set the coredump file path to /tmp
   google_breakpad::MinidumpDescriptor descriptor("/tmp");
   google_breakpad::ExceptionHandler eh(descriptor, NULL, dumpCallback, NULL,
                                         true, -1);

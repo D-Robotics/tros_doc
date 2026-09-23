@@ -76,7 +76,7 @@ The audio device name shown should be "plughw:0,0".
 ```shell
 source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
@@ -86,7 +86,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```shell
 source /opt/tros/humble/setup.bash
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
@@ -95,7 +95,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置本地回灌图片
+# Configure local feedback playback images
 export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 ```
@@ -112,7 +112,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py audio_device:=plughw:0,0
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -124,7 +124,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
@@ -137,7 +137,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -149,7 +149,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
@@ -162,7 +162,7 @@ ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -174,7 +174,7 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_llamacpp/config/ .
-# 配置本地回灌图片
+# Configure local feedback playback images
 export CAM_TYPE=fb
 ros2 launch hobot_llamacpp llama_vlm.launch.py llamacpp_vit_model_file_name:=vit_model_int16.hbm audio_device:=plughw:0,0
 ```
@@ -200,7 +200,7 @@ In addition to vision-language model capabilities, the package also supports usi
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -215,7 +215,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -244,7 +244,7 @@ After the program starts, you can interact with the device via voice prompts. Us
 
 1. About the ASR module: After ASR starts, the program serial port will output logs even if no wake word is detected. You can speak at this time to verify detection. If nothing is detected, first check the device status and device number with `ls /dev/snd/` .
 
-2. About wake word functionality: Using the "你好" wake word may not be recognized with some probability, preventing subsequent content from being output. When functionality is abnormal, check the logs for the `[llama_cpp_node]: Recved string data: xxx` field. If present, text was recognized.
+2. About wake word functionality: Using the "你好" (hello) wake word may not be recognized with some probability, preventing subsequent content from being output. When functionality is abnormal, check the logs for the `[llama_cpp_node]: Recved string data: xxx` field. If present, text was recognized.
 
 3. About audio devices: It is generally recommended to use the same device for recording and playback to avoid echo. If recording and playback devices are different, search for the `audio_device` field in the `/opt/tros/${TROS_DISTRO}/share/hobot_llamacpp/launch/llama_vlm.launch.py` file and modify the device name.
 
