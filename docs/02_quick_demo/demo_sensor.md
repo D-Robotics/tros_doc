@@ -868,7 +868,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 3. 如遇到 hobot_sensor 节点启动异常，可通过下述步骤进行问题排查：
     - 检查硬件连接
     - 是否设置 tros.b 环境
-    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README_cn.md)
 4. 由于同时如果两路图像向同一个 topic 发送图像，导致图像冲突，因此启动第二路图像需要重映射 topic，启动第二个相机的指令（仅限 X5 和 S100）：
     <DocScope products="RDK-X5">
     <Tabs groupId="tros-distro">
