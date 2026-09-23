@@ -1415,7 +1415,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 检查硬件连接
 2. 是否设置 tros.b 环境
-3. 参数是否正确，具体参考 Hobot_Sensors README.md
+3. 参数是否正确，具体参考 Hobot_Sensors [README](https://github.com/D-Robotics/hobot_rgbd_cam/blob/develop/README_cn.md)。
 
 </DocScope>
 

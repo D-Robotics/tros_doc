@@ -1461,7 +1461,7 @@ If the hobot_sensor node fails to start, troubleshoot using the following steps:
 
 1. Check hardware connections
 2. Verify that the tros.b environment is configured
-3. Verify that parameters are correct. For details, refer to Hobot_Sensors README.md
+3. Verify that parameters are correct. For details, refer to Hobot_Sensors [README](https://github.com/D-Robotics/hobot_rgbd_cam/blob/develop/README.md).
 
 </DocScope>
 
