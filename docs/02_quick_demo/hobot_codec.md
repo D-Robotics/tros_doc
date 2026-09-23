@@ -254,4 +254,4 @@ import DocScope from '@site/src/components/DocScope';
 如遇到 Hobot codec 节点启动异常，可通过下述步骤进行问题排查：
 
 1. 是否设置 tros.b 环境
-2. 参数是否正确，具体参考 Hobot_codec [README.md](https://github.com/D-Robotics/hobot_codec)
+2. 参数是否正确，具体参考 Hobot_codec [README.md](https://github.com/D-Robotics/hobot_codec/blob/develop/README_cn.md)

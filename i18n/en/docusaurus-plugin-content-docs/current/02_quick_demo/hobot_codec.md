@@ -266,4 +266,4 @@ The following uses JPEG encoding as an example to describe obtaining NV12 format
 If the Hobot codec node fails to start, troubleshoot using the following steps:
 
 1. Check whether the tros.b environment is configured
-2. Verify parameters are correct. For details, refer to the Hobot_codec [README.md](https://github.com/D-Robotics/hobot_codec)
+2. Verify parameters are correct. For details, refer to the Hobot_codec [README.md](https://github.com/D-Robotics/hobot_codec/blob/develop/README.md)
