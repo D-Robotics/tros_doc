@@ -29,6 +29,14 @@ import DocScope from '@site/src/components/DocScope';
 
 <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vision_mobile_solution/mapping.gif" width="900" />
 
+**人机交互 · 人体目标自动跟随效果：**
+
+<img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/04_apps/image/vision_mobile_solution/vims_person_tracking.gif" width="900" />
+
+> 源码：[tros_person_following](https://github.com/D-Robotics/tros_person_following)
+>
+> 完整跟随效果视频：[vims_person_tracking.mp4](https://archive.d-robotics.cc/TogetheROS/files/vision_mobile_solution/images/vims_person_tracking.mp4)
+
 
 ## 使用手册
 
