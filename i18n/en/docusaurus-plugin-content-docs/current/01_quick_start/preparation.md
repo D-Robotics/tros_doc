@@ -51,7 +51,7 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 <DocScope products="RDK-S600">
 
-[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/install_os/rdk_s600)
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/install_os/rdk_s600/preparation?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 

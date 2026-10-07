@@ -51,7 +51,7 @@ TogetheROS.Bot 支持在 RDK 平台的 Ubuntu 系统上安装。使用 Ubuntu �
 
 <DocScope products="RDK-S600">
 
-[Ubuntu 镜像烧录方法](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/install_os/rdk_s600?v=5.1.0&p=RDK+S600)
+[Ubuntu 镜像烧录方法](https://developer.d-robotics.cc/rdk_s_doc/Quick_start/install_os/rdk_s600/preparation?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
