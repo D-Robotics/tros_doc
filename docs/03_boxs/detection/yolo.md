@@ -313,7 +313,23 @@ source /opt/tros/jazyy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-除了 YOLOv2 算法，还支持 YOLO 系列其他算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` ，使用 YOLOv8 算法的启动配置为 `dnn_example_config_file:="config/yolov8workconfig.json"` ，使用 YOLOv10 算法的启动配置为 `dnn_example_config_file:="config/yolov10workconfig.json"` ，使用 YOLOv11 算法的启动配置为 `dnn_example_config_file:="config/yolov11workconfig.json"` ，使用 YOLOv12 算法的启动配置为 `dnn_example_config_file:="config/yolov12workconfig.json"` ，使用 YOLO26 算法的启动配置为 `dnn_example_config_file:="config/yolo26workconfig.json"` 。
+<DocScope products="RDK-X3,RDK-S600">
+
+除了 YOLOv2 算法，还支持 YOLOv3、YOLOv5 算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` 。
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+除了 YOLOv2 算法，还支持 YOLOv3、YOLOv5、YOLOv8、YOLOv10、YOLOv11、YOLOv12、YOLO26 算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` ，使用 YOLOv8 算法的启动配置为 `dnn_example_config_file:="config/yolov8workconfig.json"` ，使用 YOLOv10 算法的启动配置为 `dnn_example_config_file:="config/yolov10workconfig.json"` ，使用 YOLOv11 算法的启动配置为 `dnn_example_config_file:="config/yolov11workconfig.json"` ，使用 YOLOv12 算法的启动配置为 `dnn_example_config_file:="config/yolov12workconfig.json"` ，使用 YOLO26 算法的启动配置为 `dnn_example_config_file:="config/yolo26workconfig.json"` 。
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+除了 YOLOv2 算法，还支持 YOLOv3、YOLOv5、YOLOv8、YOLOv10、YOLOv11、YOLOv12 算法。启动命令中使用参数 config_file 切换算法，如使用 YOLOv3 算法的启动配置为 `dnn_example_config_file:="config/yolov3workconfig.json"` ，使用 YOLOv5 算法的启动配置为 `dnn_example_config_file:="config/yolov5workconfig.json"` ，使用 YOLOv8 算法的启动配置为 `dnn_example_config_file:="config/yolov8workconfig.json"` ，使用 YOLOv10 算法的启动配置为 `dnn_example_config_file:="config/yolov10workconfig.json"` ，使用 YOLOv11 算法的启动配置为 `dnn_example_config_file:="config/yolov11workconfig.json"` ，使用 YOLOv12 算法的启动配置为 `dnn_example_config_file:="config/yolov12workconfig.json"` 。
+
+</DocScope>
 
 ## 结果分析
 
