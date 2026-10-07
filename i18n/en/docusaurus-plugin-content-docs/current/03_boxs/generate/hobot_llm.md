@@ -84,7 +84,7 @@ wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-Use the `srpi-config` command to set ION memory size to 1.9GB. For configuration instructions, refer to the [Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options) section in the RDK user manual for the `srpi-config` configuration tool.
+Use the `srpi-config` command to set ION memory size to 1.9GB. For configuration instructions, refer to the [Performance Options](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.0.0&p=RDK+X3#performance-options) section in the RDK user manual for the `srpi-config` configuration tool.
 
 After rebooting, set the maximum CPU frequency to 1.5GHz and the governor to `performance` with the following commands:
 
