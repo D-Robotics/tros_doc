@@ -1323,7 +1323,7 @@ Enter the `Ctrl+C` command to exit the program.
 
 This section describes how to use models provided by D-Robotics to create and run a human body detection algorithm inference example based on `hobot_dnn` . Use images published from the camera, obtain algorithm output, and render images and algorithm inference results in real time in a PC browser.
 
-Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about more algorithm inference features.
+Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about more algorithm inference features.
 
 ## Algorithm Workflow Construction
 
