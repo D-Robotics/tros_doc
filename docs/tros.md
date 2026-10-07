@@ -112,11 +112,13 @@ Apps 是基于 D-Robotics RDK 机器人操作系统 Communication 和 Boxs 开�
 | 人体检测 [mono2d_body_detection](./03_boxs/body/mono2d_body_detection.md)| &#10004; |
 | 人手关键点 [hand_lmk_detection](./03_boxs/body/hand_lmk_detection.md)| &#10004; |
 | 手势识别 [hand_gesture_detection](./03_boxs/body/hand_gesture_detection.md)| &#10004; |
+| 人手关键点及手势识别 [hand_lmk_gesture_mediapipe](./03_boxs/body/hand_lmk_gesture_mediapipe.md)| &#10004; |
 | [人脸年龄检测](./03_boxs/body/mono_face_age_detection.md)以及对应 APP 示例 | &#10004; |
 | [人脸 106 关键点检测](./03_boxs/body/mono_face_landmarks_detection.md)，以及对应 APP 示例 | &#10004; |
 | [人体跟随](./03_boxs/body/reid.md) | &#10004; |
 | [双目深度算法](./03_boxs/spatial/hobot_stereonet.md) | &#10004; |
 | [双目 OCC 算法](./03_boxs/spatial/dstereo_occupancy.md) | &#10004; |
+| [双目 IMU 相机](./03_boxs/spatial/stereo_imu_cam.md) | &#10004; |
 | 视觉惯性里程计 [hobot_vio](./03_boxs/spatial/hobot_vio.md) | &#10004; |
 | 智能语音 [hobot_audio](./03_boxs/audio/hobot_audio.md)以及语音相关示例 | &#10004; |
 | 智能语音 [Sensevoice](./03_boxs/audio/sensevoice_ros2.md) | &#10004; |
