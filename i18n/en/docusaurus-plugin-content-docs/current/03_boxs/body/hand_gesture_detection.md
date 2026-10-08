@@ -49,7 +49,11 @@ Application scenarios: Gesture recognition integrates hand keypoint detection, g
 
 Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_control.md)
 
+<DocScope products="RDK-X3">
+
 Game character control example based on gesture recognition and body pose analysis: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+
+</DocScope>
 
 ## Supported Platforms
 

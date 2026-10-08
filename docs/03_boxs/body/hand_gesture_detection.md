@@ -49,7 +49,11 @@ import DocScope from '@site/src/components/DocScope';
 
 小车手势控制案例：[小车手势控制](../../04_apps/car_gesture_control.md)
 
+<DocScope products="RDK-X3">
+
 基于手势识别以及人体姿态分析实现游戏人物控制案例：[玩转 X3 派，健身游戏两不误](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+
+</DocScope>
 
 ## 支持平台
 
