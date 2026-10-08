@@ -45,7 +45,7 @@ import DocScope from '@site/src/components/DocScope';
 
 循环读取本地的一张 NV12 格式图片并发布，使用图像编解码模块将图片压缩编码成 JPEG 格式，在 PC 的 Web 端展示图片。
 
-#### RDK平台
+#### RDK 平台
 
 <DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
@@ -132,7 +132,7 @@ webserver has launch
 
 输出 log 显示出 webserver 已启动，hobot_image_pub、hobot_codec_republish、websocket 都正常运行
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK设备的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/show.png" alt="hobot_img_pub 发布本地图片后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -236,7 +236,7 @@ webserver has launch
 并且 PC 端的浏览器不显示图像，属于正常现象，解码器正在对视频码流进行检查，稍等片刻即可正常显示图像。
 :::
 
-在PC端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP为RDK设备的IP地址）：
+在 PC 端的浏览器输入 `http://IP:8000` 即可查看图像展示效果（IP 为 RDK 设备的 IP 地址）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_tool/mp4show.jpg" alt="hobot_img_pub 发布视频后在 Web 端的图像展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

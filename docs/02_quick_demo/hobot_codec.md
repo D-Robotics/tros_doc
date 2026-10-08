@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-图像编解码功能与ROS image_transport package类似，RDK采用硬件单元加速MJPEG/H264/H265与BGR8/RGB8/NV12格式之间转换，可以大幅降低CPU占用的同时提升格式转换效率。
+图像编解码功能与 ROS image_transport package 类似，RDK 采用硬件单元加速 MJPEG/H264/H265 与 BGR8/RGB8/NV12 格式之间转换，可以大幅降低 CPU 占用的同时提升格式转换效率。
 
 代码仓库：(https://github.com/D-Robotics/hobot_codec)
 
@@ -20,10 +20,10 @@ import DocScope from '@site/src/components/DocScope';
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
-| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
-| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动MIPI摄像头获取图像，然后进行图像编码，最后通过Web展示 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | 启动 MIPI 摄像头获取图像，然后进行图像编码，最后通过 Web 展示 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | 启动 MIPI 摄像头获取图像，然后进行图像编码，最后通过 Web 展示 |
+| RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | 启动 MIPI 摄像头获取图像，然后进行图像编码，最后通过 Web 展示 |
+| RDK S600 | Ubuntu 24.04 (Jazzy) | 启动 MIPI 摄像头获取图像，然后进行图像编码，最后通过 Web 展示 |
 
 ## 准备工作
 
@@ -258,7 +258,7 @@ import DocScope from '@site/src/components/DocScope';
     ros2 launch websocket websocket.launch.py websocket_image_topic:=/image_jpeg websocket_only_show_image:=true
     ```
 
-3. PC打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP为RDK设备IP地址，点击左上方Web端展示即可查看JPEG编码的实时画面
+3. PC 打开浏览器（chrome/firefox/edge）输入 `http://IP:8000`，IP 为 RDK 设备 IP 地址，点击左上方 Web 端展示即可查看 JPEG 编码的实时画面
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/hobot_codec/web-f37-codec.png" alt="Web 端查看 JPEG 编码实时画面的展示效果" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 

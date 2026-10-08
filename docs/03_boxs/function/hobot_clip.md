@@ -139,7 +139,7 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_mode
 
 </DocScope>
 
-**模式2 检索**
+**模式 2 检索**
 
 设置 clip_mode 为 “1”, 文本检索图片库 clip.db, 输入文本为"a diagram", 检索结果存放在 result 目录下。
 
@@ -233,7 +233,7 @@ python -m http.server 8080
 
 **检索结果可视化**
 
-在 PC 端的浏览器输入http://IP:8080 即可查看图像检索结果（IP 为设备 IP 地址）。
+在 PC 端的浏览器输入 http://IP:8080 即可查看图像检索结果（IP 为设备 IP 地址）。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/query_display.png" alt="CLIP 图像检索结果在浏览器端的展示界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 

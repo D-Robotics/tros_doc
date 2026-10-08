@@ -28,10 +28,10 @@ import DocScope from '@site/src/components/DocScope';
 
 ### RDK 平台
 
-1. RDK为4GB内存版本
-2. RDK已烧录好RDK OS系统。
-3. RDK已成功安装TogetheROS.Bot。
-4. 安装ASR模块用于语言输入：
+1. RDK 为 4GB 内存版本
+2. RDK 已烧录好 RDK OS 系统。
+3. RDK 已成功安装 TogetheROS.Bot。
+4. 安装 ASR 模块用于语言输入：
 
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">

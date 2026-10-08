@@ -10,7 +10,7 @@ import DocScope from '@site/src/components/DocScope';
 
 TogetheROS.Bot 是 D-Robotics 面向机器人厂商和生态开发者推出的机器人操作系统，旨在释放机器人场景的智能潜能，助力生态开发者和商业客户能够高效、便捷的进行机器人开发，打造具有竞争力的智能机器人产品。
 
-TogetheROS.Bot运行在RDK平台上，涵盖下图所示的全部功能。
+TogetheROS.Bot 运行在 RDK 平台上，涵盖下图所示的全部功能。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png" alt="TogetheROS.Bot 在 RDK 与 X86 平台上的功能覆盖示意图" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -25,12 +25,12 @@ Communication 是在 ROS2 Foxy/Humble/Jazzy 版本通信核心组件基础上进
 其中蓝色部分为优化、新增模块，TogetheROS.Bot 主要特性如下：
 
 - 提供“hobot_sensor”适配机器人常用传感器，节省开发时间，聚焦核心竞争力
-- 提供“hobot_dnn”简化板端算法模型推理与部署，释放BPU算力，降低智能算法使用门槛
-- 提供“hobot_codec”软硬结合加速视频编解码，节省CPU资源，提升并行处理能力
-- 提供“hobot_cv”软硬结合提升常见CV算子性能，节省CPU资源，提升运行效率
-- 提供“hobot Render”Web端和HDMI动态可视化功能，实时渲染算法结果（仅限Web端），便于展示与调试
+- 提供“hobot_dnn”简化板端算法模型推理与部署，释放 BPU 算力，降低智能算法使用门槛
+- 提供“hobot_codec”软硬结合加速视频编解码，节省 CPU 资源，提升并行处理能力
+- 提供“hobot_cv”软硬结合提升常见 CV 算子性能，节省 CPU 资源，提升运行效率
+- 提供“hobot Render”Web 端和 HDMI 动态可视化功能，实时渲染算法结果（仅限 Web 端），便于展示与调试
 - 丰富中间件软件调试以及性能调优工具，提升问题定位效率，方便系统性能优化
-- 底层基于ROS2 Foxy/Humble/Jazzy版本，便于复用ROS丰富工具包，加快原型验证
+- 底层基于 ROS2 Foxy/Humble/Jazzy 版本，便于复用 ROS 丰富工具包，加快原型验证
 
 ## Boxs 算法仓库
 

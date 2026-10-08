@@ -304,7 +304,7 @@ Example flow:
 
 2. Device: "好的, 让我看看先哈." (OK, let me take a look first.)
 
-3. Device: "这张图片显示了xxx." (This image shows xxx.)
+3. Device: "这张图片显示了 xxx." (This image shows xxx.)
 
 ## Advanced Features
 

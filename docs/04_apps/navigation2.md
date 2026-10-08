@@ -22,9 +22,9 @@ Nav2（Navigation2）是 ROS2 中自带的导航框架，旨在寻找一种安�
 
 | 平台    | 运行方式     | 示例功能                       |
 | ------- | ------------ | ------------------------------ |
-| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | PC端启动仿真环境，并在RDK启动导航功能，最后通过Rviz2展示导航效果 |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | PC 端启动仿真环境，并在 RDK 启动导航功能，最后通过 Rviz2 展示导航效果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | PC 端启动仿真环境，并在 RDK 启动导航功能，最后通过 Rviz2 展示导航效果 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | PC 端启动仿真环境，并在 RDK 启动导航功能，最后通过 Rviz2 展示导航效果 |
 
 ## 准备工作
 
