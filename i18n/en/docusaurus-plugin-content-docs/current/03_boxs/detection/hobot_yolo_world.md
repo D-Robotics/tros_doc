@@ -187,7 +187,7 @@ Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering
 
 
 ## Advanced Usage
-If you want to change the local text features, you can use the corresponding tools to generate them locally. [Usage instructions](https://github.com/D-Robotics/hobot_yolo_world/blob/develop/tool/README_cn.md).
+If you want to change the local text features, you can use the corresponding tools to generate them locally. [Usage instructions](https://github.com/D-Robotics/hobot_yolo_world/blob/develop/tool/README.md).
 
 ```bash
 # Copy the tool files required for the example from the tros.b installation path.
