@@ -437,7 +437,7 @@ package 初始化后，在终端输出如下信息：
 
 ```
 
-运行后 Trigger 触发产生的 rosbag 数据，将记录在当前运行目录 "trigger" 目录下。记录的 rosbag 数据，可以在 foxglove 中播放。在 foxglove 中播放 rosbag 文件的方法，可以参考手册 2.2 数据展示——foxglove 展示。
+运行后 Trigger 触发产生的 rosbag 数据，将记录在当前运行目录 "trigger" 目录下。记录的 rosbag 数据，可以在 foxglove 中播放。在 foxglove 中播放 rosbag 文件的方法，可以参考手册 [数据展示——foxglove 展示](./demo_render.md#foxglove-展示)。
 
 foxglove 中播放效果：
 
