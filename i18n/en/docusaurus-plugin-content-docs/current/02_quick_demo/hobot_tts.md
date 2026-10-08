@@ -25,7 +25,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Subscribe to text messages, convert them to speech data, and play them |
 
-**Note: Only RDK X3 is supported; RDK X3 Module is not supported. RDK S100/S600 only supports USB audio devices.**
+**Note: Only RDK X3 is supported; RDK X3 Module is not supported.**
 
 ## Prerequisites
 

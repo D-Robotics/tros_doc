@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持 RDK X3，RDK X3 Module 暂不支持， RDK S100/S600 只支持 USB 语音设备。**
+**注意：仅支持 RDK X3，RDK X3 Module 暂不支持。**
 
 ## 准备工作
 
