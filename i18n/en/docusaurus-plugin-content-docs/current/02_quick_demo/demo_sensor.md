@@ -606,7 +606,11 @@ To enable environmental perception, robot products are typically equipped with s
 
 <DocScope products="RDK-S600">
 
-The MIPI camera modules supported on RDK S600 are not listed here yet; refer to the [hobot_mipi_cam](https://github.com/D-Robotics/hobot_mipi_cam.git) repository for the current support status.
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100, RDK S600 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
 
 </DocScope>
 
