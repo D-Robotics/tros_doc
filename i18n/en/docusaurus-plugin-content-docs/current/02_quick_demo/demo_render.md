@@ -26,7 +26,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start MIPI camera and display images via Web |
 | RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Start MIPI camera and display images via Web |
-| X86     | Ubuntu 20.04 (Foxy) | Start USB camera and display images via Web |
 
 ### Prerequisites
 
@@ -37,12 +36,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 2. Confirm the PC can access RDK over the network
 
 3. Confirm TogetheROS.Bot has been successfully installed
-
-#### X86 Platform
-
-1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
-
-2. Confirm the USB camera is connected to the host USB port and can be recognized normally
 
 ### Usage
 
@@ -277,27 +270,6 @@ Code repository: [https://github.com/D-Robotics/hobot_websocket](https://github.
 
    <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_render/websocket.png" alt="Web UI showing RDK live images via WebSocket in the browser" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-#### X86 Platform
-
-1. Start the hobot_usb_cam node
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   # Change usb_video_device to the actual USB camera video node
-   ros2 launch hobot_usb_cam hobot_usb_cam.launch.py usb_image_width:=1280 usb_image_height:=720 usb_video_device:=/dev/video0
-   ```
-
-2. Start the websocket node
-
-   ```bash
-   # Configure tros.b environment
-   source /opt/tros/setup.bash
-   ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocket_only_show_image:=true
-   ```
-
-3. Enter `http://IP:8000` in a PC browser (Chrome/Firefox/Edge) to view the image, where IP is the PC IP address. You can also use localhost when accessing locally.
-
 ### Notes
 
 1. websocket requires port 8000. If the port is occupied, startup will fail. Solutions:
@@ -345,6 +317,7 @@ HDMI display **EOL** notice:
 
 Log in to the development board via SSH and start the board-side programs:
 
+<DocScope products="RDK-X3,RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -373,6 +346,7 @@ source /opt/tros/jazzy/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
 
 When using RDK X5, run the following additional commands:
 ```bash
@@ -426,27 +400,15 @@ TogetheROS.Bot is compatible with ROS2. To conveniently preview image output, im
 2. tros.b has been successfully installed on RDK.
 
 <DocScope products="RDK-X3,RDK-X5">
-3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
+3. RDK has the RViz2 data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` . Where `${TROS_DISTRO}` is the tros.b version, such as `foxy` or `humble` .
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
+3. RDK has the RViz2 data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` . Where `${TROS_DISTRO}` is the tros.b version, such as `humble` .
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. The PC has Ubuntu 24.04, ROS2 Jazzy desktop edition, and the RViz2 data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - Install RViz2 on PC: `sudo apt install ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins ros-$ROS_DISTRO-rviz2` . Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy` .
+3. RDK has the RViz2 data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` . Where `${TROS_DISTRO}` is the tros.b version, such as `jazzy` .
 </DocScope>
 
 ### Usage
@@ -727,27 +689,15 @@ TogetheROS.Bot is compatible with ROS2 and supports previewing compressed format
 2. tros.b has been successfully installed on RDK.
 
 <DocScope products="RDK-X3,RDK-X5">
-3. The PC has Ubuntu 20.04/Ubuntu 22.04, ROS2 Foxy/Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Foxy version](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html), [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `foxy` or `humble` .
+3. RDK has the RQt data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` . Where `${TROS_DISTRO}` is the tros.b version, such as `foxy` or `humble` .
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. The PC has Ubuntu 22.04, ROS2 Humble desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Humble version](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `humble` .
+3. RDK has the RQt data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` . Where `${TROS_DISTRO}` is the tros.b version, such as `humble` .
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. The PC has Ubuntu 24.04, ROS2 Jazzy desktop edition, and the RQt data visualization tool installed, and is on the same network segment as RDK (first three digits of IP address are the same).
-
-   - ROS2 installation reference: [Jazzy version](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-   - Install rqt-image-view on PC: `ros-$ROS_DISTRO-rqt-image-view ros-$ROS_DISTRO-rqt` . Where `$ROS_DISTRO` is the ROS2 version, such as `jazzy` .
+3. RDK has the RQt data visualization tool installed. Reference command: `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` . Where `${TROS_DISTRO}` is the tros.b version, such as `jazzy` .
 </DocScope>
 
 ### Usage
@@ -996,7 +946,6 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 | RDK S100 | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
-| X86     | Ubuntu 20.04 (Foxy) |
 
 ### Prerequisites
 
@@ -1008,13 +957,9 @@ Code repository: [https://github.com/D-Robotics/hobot_visualization](https://git
 
 3. Confirm TogetheROS.Bot has been successfully installed
 
-#### X86 Platform
-
-1. Confirm the X86 platform is running Ubuntu 20.04 and tros.b has been successfully installed
-
 ### Usage
 
-#### RDK Platform / X86 Platform
+#### RDK Platform
 
 1. Log in to the RDK platform via SSH and start the board-side programs:
 

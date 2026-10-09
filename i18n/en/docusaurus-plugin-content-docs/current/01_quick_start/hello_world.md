@@ -43,20 +43,14 @@ sudo apt update
 sudo apt install ros-humble-examples-rclcpp-minimal-publisher ros-humble-examples-rclcpp-minimal-subscriber
 ```
 
-<DocScope products="RDK-X3">
-
 :::caution **Note**
+<DocScope products="RDK-X3">
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
 <DocScope products="RDK-X5">
-
-:::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
+:::
 
 Run in the first terminal
 
@@ -83,20 +77,14 @@ sudo apt update
 sudo apt install ros-jazzy-examples-rclcpp-minimal-publisher ros-jazzy-examples-rclcpp-minimal-subscriber
 ```
 
-<DocScope products="RDK-X3">
-
 :::caution **Note**
+<DocScope products="RDK-X3">
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.0.0&p=RDK+X3#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
 <DocScope products="RDK-X5">
-
-:::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/hardware_and_system?v=3.5.0&p=RDK+X5#q10-what-to-do-if-apt-update-fails-eg-key-error-update-failure-lock-file-in-use) section `Q10: How to handle apt update command failure or error?` for resolution.**
-:::
-
 </DocScope>
+:::
 
 Run in the first terminal
 
@@ -217,7 +205,7 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 The running effect is shown below
 
-<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png" alt="Hello World demo showing publisher and subscriber terminals exchanging messages" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+<img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/01_quick_start/image/hello_world/hello_world.png" alt="Runtime effect diagram" style={{ width: '90%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
 You can see the left terminal acts as pub, continuously sending "'Hello, world! N", and the right terminal acts as sub, continuously receiving "'Hello, world! N"
 

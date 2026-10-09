@@ -735,7 +735,7 @@ Using 132GS camera on X5 as an example, a correctly started camera prints the fo
 - **I2C bus** is the control channel number, used to configure sensor registers (e.g., resolution, frame rate, starting streaming). Image data does not go through I2C; I2C is only responsible for control. The program checks whether the board's I2C controllers can scan sensor addresses. The log detects addresses 0x32 and 0x30, corresponding to I2C bus-4 and I2C bus-6.
 - **mipi rx phy** is the image data channel number. Image data captured by the camera is transmitted to the chip through this high-speed channel. The log shows X5 has two mipi phy channels, numbered 0 and 2, corresponding to left and right cameras. These numbers can be adjusted via the `channel` and `mipi_channel` parameters to change the left/right image stitching order.
 
-After the camera starts, you can verify the images by launching `run_codec_web.sh`:
+After the camera starts, you can verify the images by launching `run_codec_web.sh` :
 
 ```bash
 bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv12
@@ -764,7 +764,7 @@ bash run_stereo.sh
 - Check whether the RGB image on the web page is from the left camera; cover the left camera lens to verify
 - If left/right camera order is incorrect, adjust using one of two methods:
   - Method 1: Swap MIPI cables
-  - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 2` or `--mipi_channel 2 --mipi_channel2 0`, and see which produces correct results
+  - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 2` or `--mipi_channel 2 --mipi_channel2 0` , and see which produces correct results
 
 </TabItem>
 <TabItem value="RDK S100" label="RDK S100">
@@ -784,7 +784,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 - Check whether the RGB image on the web page is from the left camera; cover the left camera lens to verify
 - If left/right camera order is incorrect, adjust using one of two methods:
   - Method 1: Swap MIPI cables
-  - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 1` or `--mipi_channel 1 --mipi_channel2 0`, and see which produces correct results
+  - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 1` or `--mipi_channel 1 --mipi_channel2 0` , and see which produces correct results
 
 </TabItem>
 </Tabs>
@@ -812,9 +812,6 @@ After successful stereo algorithm startup, the following log is printed. `fx/fy/
 **RViz2 point cloud viewing:** RViz2 can be installed directly on RDK. Note the following configuration:
 
 ```bash
-# Install RViz2
-sudo apt install ros-humble-rviz2
-# Start RViz2
 if [[ -f /opt/tros/humble/setup.bash ]]; then
   source /opt/tros/humble/setup.bash
 elif [[ -f /opt/tros/jazzy/setup.bash ]]; then
@@ -823,6 +820,9 @@ else
   echo "Error: neither Humble nor Jazzy TROS environment was found"
   exit 1
 fi
+# Install RViz2
+sudo apt install ros-$ROS_DISTRO-rviz2
+# Start RViz2
 rviz2
 ```
 
@@ -882,11 +882,11 @@ View depth map via web at `http://ip:8000` (replace ip with the RDK's IP address
 
 To evaluate algorithm performance with local images, prepare the following data and upload to RDK:
 
-1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left`, right images must contain `right`. The algorithm iterates through images by index until all are processed:
+1. **Undistorted, epipolar-aligned** left/right images in png or jpg format. Name images according to rules: left images must contain `left` , right images must contain `right` . The algorithm iterates through images by index until all are processed:
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="Offline stereo left/right image naming format with left/right fields" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
-2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt`. Reference content:
+2. Camera intrinsic file saved in the image directory as `camera_intrinsic.txt` . Reference content:
 
 ```bash
 # fx fy cx cy baseline(m)
@@ -948,7 +948,7 @@ The `run_stereo.sh` script supports the following parameters, which can be passe
 
 | Parameter           | Description                                                                | Default         | Options                                                                                                                                                                                          |
 | ------------------- | -------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `stereonet_version` | Algorithm version                                                          | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96`<br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` |
+| `stereonet_version` | Algorithm version                                                          | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96` <br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` |
 | `stereo_node_name`  | ROS node name                                                              | `StereoNetNode` | Any valid ROS node name                                                                                                                                                                          |
 | `uncertainty_th`    | Confidence threshold. Set to positive value to enable confidence filtering | `-0.10`         | Recommended: `0.10`                                                                                                                                                                              |
 | `infer_thread_num`  | Inference thread count. More threads increase FPS but also latency         | `2`             | `1` / `2`                                                                                                                                                                                        |
@@ -961,11 +961,11 @@ The `run_stereo.sh` script supports the following parameters, which can be passe
 | `mipi_image_width`     | Camera output image width                                     | `640`   | Depends on camera model        |
 | `mipi_image_height`    | Camera output image height                                    | `352`   | Depends on camera model        |
 | `mipi_image_framerate` | Camera output frame rate                                      | `30.0`  | Depends on camera model        |
-| `mipi_rotation`        | Image rotation angle                                          | `90.0`  | 132GS: `90.0`, 230AI: `0.0`    |
+| `mipi_rotation`        | Image rotation angle                                          | `90.0`  | 132GS: `90.0` , 230AI: `0.0`   |
 | `mipi_gdc_enable`      | Enable GDC distortion correction                              | `True`  | `True` / `False`               |
 | `mipi_lpwm_enable`     | Enable hardware sync to keep left/right timestamps consistent | `True`  | `True` / `False`               |
-| `mipi_channel`         | Left camera MIPI channel number                               | `2`     | X5: `0` / `2`; S100: `0` / `1` |
-| `mipi_channel2`        | Right camera MIPI channel number                              | `0`     | X5: `0` / `2`; S100: `0` / `1` |
+| `mipi_channel`         | Left camera MIPI channel number                               | `2`     | X5: `0` / `2` ; S100: `0` / `1` |
+| `mipi_channel2`        | Right camera MIPI channel number                              | `0`     | X5: `0` / `2` ; S100: `0` / `1` |
 | `mipi_cal_rotation`    | Calibration rotation angle                                    | `0.0`   | Generally keep default         |
 
 ### 10.3. Calibration
@@ -982,7 +982,7 @@ The `run_stereo.sh` script supports the following parameters, which can be passe
 
 | Parameter         | Description                                        | Default    | Options                                                      |
 | ----------------- | -------------------------------------------------- | ---------- | ------------------------------------------------------------ |
-| `render_type`     | Rendering mode                                     | `distance` | `distance` / `indoor` / `outdoor` (`indoor` not recommended) |
+| `render_type`     | Rendering mode                                     | `distance` | `distance` / `indoor` / `outdoor` ( `indoor` not recommended) |
 | `render_perf`     | Show CPU/BPU usage, latency, FPS on rendered image | `True`     | `True` / `False`                                             |
 | `render_max_disp` | Max disparity for rendering                        | `80`       | Integer                                                      |
 | `render_z_near`   | Nearest distance for rendering (m)                 | `-1.0`     | Float                                                        |
@@ -1252,8 +1252,8 @@ This is the simplest approach. You only need to publish stereo image and camera 
 
 | Topic                                                              | Message Type                   | Description                                                           |
 | ------------------------------------------------------------------ | ------------------------------ | --------------------------------------------------------------------- |
-| Stereo image topic (default `/image_combine_raw`)                  | `sensor_msgs::msg::Image`      | Vertically stacked left/right images in `nv12` format                 |
-| Camera info topic (default `/image_combine_raw/right/camera_info`) | `sensor_msgs::msg::CameraInfo` | Right camera calibration parameters for disparity-to-depth conversion |
+| Stereo image topic (default `/image_combine_raw` )                 | `sensor_msgs::msg::Image`      | Vertically stacked left/right images in `nv12` format                 |
+| Camera info topic (default `/image_combine_raw/right/camera_info` ) | `sensor_msgs::msg::CameraInfo` | Right camera calibration parameters for disparity-to-depth conversion |
 
 **Image stitching format:**
 
@@ -1265,21 +1265,6 @@ Left and right images must be vertically stacked into a single image: top half i
 +------------------+
 |   Right Image    |  640x352
 +------------------+
-```
-
-**Stereo image topic `encoding` field:**
-
-StereoNetNode automatically recognizes the image format via the `encoding` field:
-
-```cpp
-// If encoding contains "nv12", process as NV12 without color conversion
-if (stereo_msg->encoding.find("nv12") != std::string::npos) {
-    // Use NV12 data directly
-}
-// Otherwise process as bgr8/rgb8 and automatically convert to NV12
-else {
-    // Auto-convert to NV12 format
-}
 ```
 
 **Publishing example:**
@@ -1346,7 +1331,7 @@ The standalone project uses ARM cross-compilation toolchain to generate executab
 
 **Dependencies:**
 
-- ARM cross-compilation toolchain (e.g., `arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu`)
+- ARM cross-compilation toolchain (e.g., `arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu` )
 - Download link: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
 
 **Build steps:**
@@ -1360,7 +1345,7 @@ cd hobot_stereonet/standalone
 bash run_build_X5.sh
 ```
 
-After compilation, the `build/` directory contains `StereoInfer_X5.tar.gz`. Copy it to the RDK board and extract:
+After compilation, the `build/` directory contains `StereoInfer_X5.tar.gz` . Copy it to the RDK board and extract:
 
 ```bash
 cd /userdata/
@@ -1405,9 +1390,9 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_ope
 ./test_perf ./model/DStereoV2.4_int16.bin 1 30 0.10
 ```
 
-Parameters: `model_path inference_thread_count simulated_fps confidence_threshold`.
+Parameters: `model_path inference_thread_count simulated_fps confidence_threshold` .
 
-After running, fps, latency, cpu_usage, and bpu_usage are printed to the console and also recorded in `performance_xx.txt`.
+After running, fps, latency, cpu_usage, and bpu_usage are printed to the console and also recorded in `performance_xx.txt` .
 
 The source code `test_perf.cpp` demonstrates a multi-threaded pipeline: capture thread → inference thread → postprocessing/saving thread, serving as a reference for high-performance real-time scenarios.
 
@@ -1567,11 +1552,3 @@ int main() {
 | `depth_to_pointcloud_rgb(depth, rgb, intrinsic, pcl)`     | Generate colored point cloud from depth map + RGB image         |
 | `convert_visual_img(rgb, disp, depth, intrinsic, visual)` | Generate visualization image with depth annotations             |
 
-**Comparison of the two approaches:**
-
-| Dimension           | ROS2 Topic Integration      | C++ API Direct Calls                     |
-| ------------------- | --------------------------- | ---------------------------------------- |
-| Use case            | Integrate into ROS2 systems | Embedded/offline/non-ROS scenarios       |
-| Difficulty          | Low, just publish topics    | Medium, requires cross-compilation setup |
-| Flexibility         | Depends on ROS2 framework   | High, full control over pipeline         |
-| Image rectification | Must be done separately     | Must be done separately                  |

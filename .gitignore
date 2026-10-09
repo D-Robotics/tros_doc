@@ -32,5 +32,6 @@ yarn.lock
 # package-lock.json
 
 .idea
+.claude/
 
 src/context/generated-sidebar-config.json 

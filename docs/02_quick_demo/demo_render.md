@@ -395,15 +395,15 @@ TogetheROS.Bot 兼容 ROS2，为了方便预览图像效果，可以通过 RViz2
 2. RDK 已成功安装 tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. RDK 已安装数据可视化工具 RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `foxy`、`humble`。
+3. RDK 已安装数据可视化工具 RViz2，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `foxy` 、 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. RDK 已安装数据可视化工具 RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `humble`。
+3. RDK 已安装数据可视化工具 RViz2，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. RDK 已安装数据可视化工具 RViz2，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `jazzy`。
+3. RDK 已安装数据可视化工具 RViz2，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rviz-common ros-${TROS_DISTRO}-rviz-default-plugins ros-${TROS_DISTRO}-rviz2` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `jazzy` 。
 </DocScope>
 
 ### 使用方式
@@ -675,15 +675,15 @@ TogetheROS.Bot 兼容 ROS2，支持通过 RQt 预览压缩格式图像，可以�
 2. RDK 已成功安装 tros.b。
 
 <DocScope products="RDK-X3,RDK-X5">
-3. RDK 已安装数据可视化工具 RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `foxy`、`humble`。
+3. RDK 已安装数据可视化工具 RQt，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `foxy` 、 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S100">
-3. RDK 已安装数据可视化工具 RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `humble`。
+3. RDK 已安装数据可视化工具 RQt，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `humble` 。
 </DocScope>
 
 <DocScope products="RDK-S600">
-3. RDK 已安装数据可视化工具 RQt，可参考命令：`sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport`。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `jazzy`。
+3. RDK 已安装数据可视化工具 RQt，可参考命令： `sudo apt install ros-${TROS_DISTRO}-rqt-image-view ros-${TROS_DISTRO}-rqt ros-${TROS_DISTRO}-compressed-image-transport` 。其中 `${TROS_DISTRO}` 为 tros.b 版本，如 `jazzy` 。
 </DocScope>
 
 ### 使用方式

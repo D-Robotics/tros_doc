@@ -6,27 +6,25 @@ sidebar_position: 6
 
 ## tros-jazzy
 
+### Version: 2.5.5 (2026-07-06)
+
+Changes ( `RDK S100` platform):
+
+- Adapted to the `RDK S100 v4.0.5 Ubuntu 24.04` system version.
+
+
 ### Version: 2.5.4 (2026-05-19)
 
 Changes ( `RDK S600` platform):
 
-- Adapted to system SDK `RKD S600 v5.1.0` .
-
-### Version: 2.5.3 (2026-05-08)
-
-New Features ( `RDK S100` Platform):
-- Added mono_edgetam_prompt: Supports two prompt styles via prompt_mode: point prompts or box prompts. Exports prompt initialization results (memory feature file) for downstream tracking, and provides optional local rendering output.
-- Added mono_edgetam_track to load features and use them as tracking initialization. Supports continuous tracking in both local image and subscription stream modes. Updates tracking memory frame by frame and publishes segmentation/tracking results.
-
-Feature Changes ( `RDK S100` Platform):
-- Adapted to system version: RDKS100_V4.0.6.
+- Adapted to system SDK `RDK S600 v5.1.0` .
 
 
 ### Version: 2.5.1 (2026-03-10)
 
 Changes:
 
-- Adapted to system SDK `RKD S600 v5.0.1` .
+- Adapted to system SDK `RDK S600 v5.0.1` .
 - Refactored `mipi_cam` videobuff management from stream capture to message publishing, as well as the stitching thread; changed calibration info topics for stitched images to "image_combine_raw/left/camera_info" and "image_combine_raw/right/camera_info".
 
 New Features:

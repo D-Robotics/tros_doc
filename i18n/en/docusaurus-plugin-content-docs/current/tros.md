@@ -10,7 +10,7 @@ import DocScope from '@site/src/components/DocScope';
 
 TogetheROS.Bot is a robot operating system launched by D-Robotics for robot manufacturers and ecosystem developers. It aims to unlock the intelligent potential of robot scenarios, helping ecosystem developers and business customers develop robots efficiently and conveniently, and build competitive intelligent robot products.
 
-TogetheROS.Bot supports running on RDK platforms, and also provides a simulator version for X86 platforms. RDK platforms cover all the features shown in the diagram below. X86 platforms support experiencing some features through image playback, improving algorithm development and verification efficiency, and enabling quick migration to RDK platforms.
+TogetheROS.Bot runs on RDK platforms and covers all the features shown in the diagram below.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/image/TogetheROS.png" alt="Diagram of TogetheROS.Bot feature coverage on RDK and X86 platforms" style={{ width: '100%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -29,10 +29,8 @@ The blue parts in the diagram are optimized or newly added modules. The main fea
 - Provides "hobot_codec" for hardware-software accelerated video encoding and decoding, saving CPU resources and improving parallel processing capability
 - Provides "hobot_cv" for hardware-software accelerated common CV operators, saving CPU resources and improving runtime efficiency
 - Provides "hobot Render" for Web and HDMI dynamic visualization, rendering algorithm results in real time (Web only), facilitating demonstration and debugging
-- Adds "zero-copy" inter-process zero-copy communication mechanism, reducing data transmission latency and system resource consumption
 - Rich middleware software debugging and performance tuning tools, improving problem localization efficiency and facilitating system performance optimization
-- Fully compatible with ROS2 Foxy/Humble/Jazzy interfaces, facilitating reuse of rich ROS tool packages and accelerating prototype verification
-- Supports minimal and modular trimming, facilitating deployment on resource-constrained embedded products as needed
+- Based on ROS2 Foxy/Humble/Jazzy at the core, facilitating reuse of rich ROS tool packages and accelerating prototype verification
 
 ## Boxs Algorithm Repository
 

@@ -24,7 +24,7 @@ Nav2 (Navigation2) is the built-in navigation framework in ROS2, designed to fin
 | ------- | ------------ | ------------------------------ |
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start the simulation environment on the PC, start navigation on the RDK, and display navigation results via Rviz2 |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) | Start the simulation environment on the PC, start navigation on the RDK, and display navigation results via Rviz2 |
-| RDK S100, RDK S100P | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy) | Start the simulation environment on the PC, start navigation on the RDK, and display navigation results via Rviz2 |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Start the simulation environment on the PC, start navigation on the RDK, and display navigation results via Rviz2 |
 
 ## Preparation
 
@@ -66,14 +66,6 @@ source /opt/tros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -144,14 +136,6 @@ source /opt/ros/humble/setup.bash
 Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
 </TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/ros/jazzy/setup.bash
-```
-Ubuntu 24.04 and [ROS2 Jazzy desktop edition](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
-
-</TabItem>
 
 </Tabs>
 </DocScope>
@@ -200,13 +184,6 @@ source /opt/ros/humble/setup.bash
 
 ```bash
 source /opt/ros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-source /opt/ros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -265,15 +242,6 @@ ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/humb
 ```
 
 </TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=/opt/ros/jazzy/share/nav2_bringup/maps/turtlebot3_world.yaml
-```
-
-</TabItem>
 
 </Tabs>
 </DocScope>
@@ -310,14 +278,6 @@ source /opt/ros/humble/setup.bash
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

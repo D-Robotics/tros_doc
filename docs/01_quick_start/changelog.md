@@ -8,23 +8,23 @@ sidebar_position: 6
 
 ### 版本号：2.5.5 (2026-07-06)
 
-功能变更（`RDK S100` 平台）：
+功能变更（ `RDK S100` 平台）：
 
-- 适配 `RKD S100 v4.0.5 Ubuntu 24.04` 版本系统。
+- 适配 `RDK S100 v4.0.5 Ubuntu 24.04` 版本系统。
 
 
 ### 版本号：2.5.4 (2026-05-19)
 
-功能变更（`RDK S600` 平台）：
+功能变更（ `RDK S600` 平台）：
 
-- 适配 `RKD S600 v5.1.0` 版本的系统 SDK。
+- 适配 `RDK S600 v5.1.0` 版本的系统 SDK。
 
 
 ### 版本号：2.5.1 (2026-03-10)
 
 功能变更：
 
-- 适配 `RKD S600 v5.0.1` 版本的系统 SDK。
+- 适配 `RDK S600 v5.0.1` 版本的系统 SDK。
 - `mipi_cam` 重构从获取码流到消息发布的 videobuff 管理，以及拼接线程；修改拼接图片的标定信息的 topic 为"image_combine_raw/left/camera_info"和"image_combine_raw/right/camera_info"。
 
 新增功能：

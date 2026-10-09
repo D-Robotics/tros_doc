@@ -735,7 +735,7 @@ bash run_cam.sh --log_level INFO
 - **I2C bus** 是控制通道编号，用于配置传感器寄存器（如设置分辨率、帧率、启动 streaming），图像数据不走 I2C，I2C 只负责控制。程序会检测板子的 I2C 控制器是否能扫到 sensor 地址。日志中检测到 0x32、0x30 两个地址，对应 I2C bus-4 和 I2C bus-6。
 - **mipi rx phy** 是图像数据通道编号，相机采集的图像数据走该高速通道传输到芯片。日志显示 X5 有两个 mipi phy，分别是编号 0 和编号 2，对应左右目相机。该编号可以通过 `channel` 和 `mipi_channel` 参数调整，用于改变左右目图像的拼接顺序。
 
-相机启动后，可通过以下方式查看图像是否正确。启动 `run_codec_web.sh`：
+相机启动后，可通过以下方式查看图像是否正确。启动 `run_codec_web.sh` ：
 
 ```bash
 bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv12
@@ -743,7 +743,7 @@ bash run_codec_web.sh --codec_sub_topic /image_combine_raw --codec_in_format nv1
 
 程序启动后，在 RDK 板端，可通过 WebSocket 将话题 `/image_combine_raw` 发布的实时图像数据持续发布到网络中。连接到同一网络的 PC 只需使用浏览器访问开发板提供的 Web 页面，即可通过 WebSocket 实时接收并显示图像，无需安装额外客户端软件，便于图像预览、算法调试以及远程监控。
 
-在连接 RDK 板端的 PC 上，打开浏览器，输入 `http://ip:8000`（ip 为 RDK 对应的 ip 地址），即可查看左右目图像。通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
+在连接 RDK 板端的 PC 上，打开浏览器，输入 `http://ip:8000` （ip 为 RDK 对应的 ip 地址），即可查看左右目图像。通过实时显示的图像，确认上图是左相机发布的图像，下图是右相机发布的图像。
 
 ### 7.4. 启动双目算法
 
@@ -764,7 +764,7 @@ bash run_stereo.sh
 - 需要观察网页端图像 RGB 图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 - 如果左右目相机顺序不正确，有两个方法调整：
   - 方法 1：交换 MIPI 线
-  - 方法 2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 2` 或 `--mipi_channel 2 --mipi_channel2 0`，看看哪种情况能输出正确的结果
+  - 方法 2：在上面的运行指令上，加入参数： `--mipi_channel 0 --mipi_channel2 2` 或 `--mipi_channel 2 --mipi_channel2 0` ，看看哪种情况能输出正确的结果
 
 </TabItem>
 <TabItem value="RDK S100" label="RDK S100">
@@ -784,7 +784,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 - 需要观察网页端图像 RGB 图是否是左目相机采集的图像，可以用镜头盖遮挡一下左目相机确认
 - 如果左右目相机顺序不正确，有两个方法调整：
   - 方法 1：交换 MIPI 线
-  - 方法 2：在上面的运行指令上，加入参数：`--mipi_channel 0 --mipi_channel2 1` 或 `--mipi_channel 1 --mipi_channel2 0`，看看哪种情况能输出正确的结果
+  - 方法 2：在上面的运行指令上，加入参数： `--mipi_channel 0 --mipi_channel2 1` 或 `--mipi_channel 1 --mipi_channel2 0` ，看看哪种情况能输出正确的结果
 
 </TabItem>
 </Tabs>
@@ -801,11 +801,11 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
 
 ### 7.5. 查看结果
 
-双目算法启动成功后会打印如下日志，`fx/fy/cx/cy/baseline` 是相机内参，`fps` 是算法运行的帧率：
+双目算法启动成功后会打印如下日志， `fx/fy/cx/cy/baseline` 是相机内参， `fps` 是算法运行的帧率：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_run_success_log.png" alt="Stereonet 算法启动成功并打印内参与帧率的日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-**Web 端查看：** 在浏览器输入 `http://ip:8000`（图中 RDK ip 是 192.168.1.100），即可查看 RGB 图和深度图：
+**Web 端查看：** 在浏览器输入 `http://ip:8000` （图中 RDK ip 是 192.168.1.100），即可查看 RGB 图和深度图：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual.png" alt="网页端同时查看 RGB 图与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -861,7 +861,7 @@ need_rectify:=true dst_width:=640 dst_height:=352
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_zed_run_success_log.png" alt="接入 ZED 相机后 Stereonet 运行成功的终端日志" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
 联网的情况下程序会自动下载标定文件，如果 RDK 没有联网，可以手动下载标定文件然后上传到 RDK。
-根据 log 信息，在 PC 端打开浏览器，输入 `https://calib.stereolabs.com/?SN=38085162`，即可下载标定文件 SN38085162.conf。
+根据 log 信息，在 PC 端打开浏览器，输入 `https://calib.stereolabs.com/?SN=38085162` ，即可下载标定文件 SN38085162.conf。
 注意每台 ZED 的 SN 码是不一样的，使用时请根据报错信息下载对应的标定文件，将标定文件上传到 `/root/zed/settings/` 目录下，如果目录不存在则手动创建。
 
 ### 8.2. 启动双目算法
@@ -874,7 +874,7 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 
 ### 8.3. 查看结果
 
-通过网页端查看深度图，在浏览器输入 `http://ip:8000`（ip 为 RDK 对应的 ip 地址）。如需查看**点云**和**保存图像**，请参考[MIPI 相机启动-查看结果](#75-查看结果)和[数据保存](#11-数据保存)章节。
+通过网页端查看深度图，在浏览器输入 `http://ip:8000` （ip 为 RDK 对应的 ip 地址）。如需查看**点云**和**保存图像**，请参考[MIPI 相机启动-查看结果](#75-查看结果)和[数据保存](#11-数据保存)章节。
 
 ## 9. 离线启动
 
@@ -886,7 +886,7 @@ bash run_stereo.sh --use_mipi_cam False --camera_info_topic /image_combine_raw/c
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/image_format.png" alt="离线双目左右目图像命名格式（含 left/right 字段）示意" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-2. 相机内参文件，保存在图像目录下，命名为 `camera_intrinsic.txt`，参考内容如下：
+2. 相机内参文件，保存在图像目录下，命名为 `camera_intrinsic.txt` ，参考内容如下：
 
 ```bash
 # fx fy cx cy baseline(m)
@@ -936,7 +936,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/stereonet_offline_log.png" alt="Stereonet 离线图像推理运行成功后的日志输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-通过网页端查看 RGB 图和深度图，在浏览器输入 `http://ip:8000`（图中 RDK ip 是 192.168.128.10）：
+通过网页端查看 RGB 图和深度图，在浏览器输入 `http://ip:8000` （图中 RDK ip 是 192.168.128.10）：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/web_depth_visual_offline.png" alt="离线模式下网页端查看 RGB 与深度图的可视化界面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
@@ -948,7 +948,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 | 参数                | 说明                                 | 默认值          | 可选值                                                                                                                                                                                                                                                                                                                                 |
 | ------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `stereonet_version` | 算法版本                             | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.4_int16_1280_704` / `v2.4_int16_320_256` / `v2.4_int16_640_480` / `v2.4_int8_544_448` / `v2.4_int8_544_448_96` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96`<br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` / `v2.4_640_416` |
+| `stereonet_version` | 算法版本                             | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.4_int16_1280_704` / `v2.4_int16_320_256` / `v2.4_int16_640_480` / `v2.4_int8_544_448` / `v2.4_int8_544_448_96` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96` <br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` / `v2.4_640_416` |
 | `stereo_node_name`  | ROS 节点名称                         | `StereoNetNode` | 任意合法 ROS 节点名                                                                                                                                                                                                                                                                                                                    |
 | `uncertainty_th`    | 置信度阈值，设为正数时启用置信度过滤 | `-0.10`         | 建议设为 `0.10`                                                                                                                                                                                                                                                                                                                        |
 | `infer_thread_num`  | 推理线程数，多线程帧率高但延迟大     | `2`             | `1` / `2`                                                                                                                                                                                                                                                                                                                              |
@@ -961,18 +961,18 @@ bash run_stereo.sh --stereonet_version v2.4 \
 | `mipi_image_width`     | 相机输出图像宽度                     | `640`  | 根据相机型号设置                |
 | `mipi_image_height`    | 相机输出图像高度                     | `352`  | 根据相机型号设置                |
 | `mipi_image_framerate` | 相机输出帧率                         | `30.0` | 根据相机型号设置                |
-| `mipi_rotation`        | 图像旋转角度                         | `90.0` | 132GS 设为 `90.0`，230AI 设为 `0.0` |
+| `mipi_rotation`        | 图像旋转角度                         | `90.0` | 132GS 设为 `90.0` ，230AI 设为 `0.0` |
 | `mipi_gdc_enable`      | 开启 GDC 畸变矫正                    | `True` | `True` / `False`                |
 | `mipi_lpwm_enable`     | 开启硬件同步，保证左右图像时间戳一致 | `True` | `True` / `False`                |
-| `mipi_channel`         | 左目相机 MIPI 通道编号               | `2`    | X5: `0` / `2`; S100: `0` / `1`  |
-| `mipi_channel2`        | 右目相机 MIPI 通道编号               | `0`    | X5: `0` / `2`; S100: `0` / `1`  |
+| `mipi_channel`         | 左目相机 MIPI 通道编号               | `2`    | X5: `0` / `2` ; S100: `0` / `1` |
+| `mipi_channel2`        | 右目相机 MIPI 通道编号               | `0`    | X5: `0` / `2` ; S100: `0` / `1` |
 | `mipi_cal_rotation`    | 标定旋转角度                         | `0.0`  | 一般保持默认                    |
 
 ### 10.3. 标定
 
 | 参数                                                  | 说明                         | 默认值       | 可选值                                                |
 | ----------------------------------------------------- | ---------------------------- | ------------ | ----------------------------------------------------- |
-| `calib_method`                                        | 矫正方式                     | `none`       | `none`（相机已做 GDC 矫正）/ `custom`（自定义标定文件） |
+| `calib_method`                                        | 矫正方式                     | `none`       | `none` （相机已做 GDC 矫正）/ `custom` （自定义标定文件） |
 | `stereo_calib_file_path`                              | 自定义标定参数文件路径       | `calib.yaml` | 文件路径                                              |
 | `camera_fx` / `camera_fy` / `camera_cx` / `camera_cy` | 相机内参（自定义标定时使用） | `0.0`        | 浮点数                                                |
 | `baseline`                                            | 双目基线长度（m）            | `0.0`        | 浮点数                                                |
@@ -982,7 +982,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 
 | 参数              | 说明                                       | 默认值     | 可选值                                                |
 | ----------------- | ------------------------------------------ | ---------- | ----------------------------------------------------- |
-| `render_type`     | 渲染方式                                   | `distance` | `distance` / `indoor` / `outdoor`（不建议用 `indoor`） |
+| `render_type`     | 渲染方式                                   | `distance` | `distance` / `indoor` / `outdoor` （不建议用 `indoor` ） |
 | `render_perf`     | 渲染图像上是否展示 CPU/BPU 占用率、延迟、FPS | `True`     | `True` / `False`                                      |
 | `render_max_disp` | 渲染最大视差                               | `80`       | 整数                                                  |
 | `render_z_near`   | 渲染最近距离（m）                          | `-1.0`     | 浮点数                                                |
@@ -1179,7 +1179,7 @@ ros2 param set /StereoNetNode save_result_flag true
 ## 12. 极线对齐检测
 
 如果出现深度图较差的情况，除了可能是左右图的拼接顺序错误之外，还有可能是左右目图像没有达到极线对齐状态。
-双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于 `1 pixel`。
+双目算法对极线对齐的要求很高，一般要求左右图的极线对齐误差小于 `1 pixel` 。
 
 本程序提供了两种极线对齐检测方式：
 
@@ -1217,7 +1217,7 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/feature_epipolar_mode.png" alt="特征点极线模式下 Web 端显示的匹配效果图像" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
-基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel`，双目图像才是合格图像。
+基于 ORB 特征点的极线对齐检测没有那么严格，极线对齐误差要小于 `1 pixel` ，双目图像才是合格图像。
 
 ## 13. 话题说明
 
@@ -1252,8 +1252,8 @@ bash run_stereo.sh --feature_epipolar_mode True
 
 | 话题                                                        | 消息类型                       | 说明                              |
 | ----------------------------------------------------------- | ------------------------------ | --------------------------------- |
-| 双目图像话题（默认 `/image_combine_raw`）                   | `sensor_msgs::msg::Image`      | 左右目图像上下拼接，格式为 `nv12` |
-| 相机参数话题（默认 `/image_combine_raw/right/camera_info`） | `sensor_msgs::msg::CameraInfo` | 右目相机标定参数，用于视差转深度  |
+| 双目图像话题（默认 `/image_combine_raw` ）                  | `sensor_msgs::msg::Image`      | 左右目图像上下拼接，格式为 `nv12` |
+| 相机参数话题（默认 `/image_combine_raw/right/camera_info` ） | `sensor_msgs::msg::CameraInfo` | 右目相机标定参数，用于视差转深度  |
 
 **图像拼接格式：**
 
@@ -1331,7 +1331,7 @@ standalone 使用 ARM 交叉编译工具链进行编译，生成可在 RDK 板�
 
 **依赖：**
 
-- ARM 交叉编译工具链（如 `arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu`）
+- ARM 交叉编译工具链（如 `arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu` ）
 - 下载地址：https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
 
 **编译步骤：**
@@ -1345,7 +1345,7 @@ cd hobot_stereonet/standalone
 bash run_build_X5.sh
 ```
 
-编译完成后，`build/` 目录下会生成 `StereoInfer_X5.tar.gz` 测试包，将其拷贝到 RDK 板端解压即可使用：
+编译完成后， `build/` 目录下会生成 `StereoInfer_X5.tar.gz` 测试包，将其拷贝到 RDK 板端解压即可使用：
 
 ```bash
 cd /userdata/
@@ -1390,7 +1390,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_ope
 ./test_perf ./model/DStereoV2.4_int16.bin 1 30 0.10
 ```
 
-参数含义：`模型路径 推理线程数 模拟帧率 置信度阈值`。
+参数含义： `模型路径 推理线程数 模拟帧率 置信度阈值` 。
 
 运行后控制台会输出 fps、latency、cpu_usage、bpu_usage 等信息，同时也会记录到 `performance_xx.txt` 文件中。
 
