@@ -86,7 +86,7 @@ Two experience modes are currently provided: direct terminal text chat, and subs
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -100,7 +100,7 @@ source /opt/tros/humble/setup.bash
 ```bash
 lib=/opt/tros/humble/lib/hobot_xlm/lib
 export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
-# config中为示例使用的模型配置文件
+# config contains the model configuration files used by the example
 cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
 ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=0 -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
 ```
@@ -120,7 +120,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # Configure tros.b environment
       source /opt/tros/humble/setup.bash
       ```
 
@@ -134,7 +134,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
     ```bash
     lib=/opt/tros/humble/lib/hobot_xlm/lib
     export LD_LIBRARY_PATH=${lib}:${LD_LIBRARY_PATH}
-    # config中为示例使用的模型配置文件
+    # config contains the model configuration files used by the example
     cp -r /opt/tros/humble/lib/hobot_xlm/config/ .
     ros2 run hobot_xlm hobot_xlm --ros-args -p feed_type:=1 -p ros_string_sub_topic_name:="/prompt_text" -p model_name:="DeepSeek_R1_Distill_Qwen_1.5B"
     ```
@@ -150,7 +150,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # Configure tros.b environment
       source /opt/tros/humble/setup.bash
       ```
 
@@ -174,7 +174,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
       <TabItem value="humble" label="Humble">
 
       ```bash
-      # 配置tros.b环境
+      # Configure tros.b environment
       source /opt/tros/humble/setup.bash
       ```
 

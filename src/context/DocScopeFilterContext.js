@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
 } from 'react';
 import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -44,6 +45,7 @@ const defaultCtx = {
   product: DEFAULT_PRODUCT_ZH,
   setVersion: () => {},
   setProduct: () => {},
+  consumeSwitchIntent: () => false,
   matrix: VERSION_PRODUCT_MATRIX,
 };
 
@@ -270,6 +272,19 @@ export function DocScopeFilterProvider({ children }) {
     replaceSearch(history, location, `?${q.toString()}`);
   }, [hasBuildScope, isDocHomePage, location, history, version, product]);
 
+  // 「读者主动切换产品/版本」的意图标记：只有这种切换才允许把当前不可见的页面
+  // 自动带到新选择下的第一个可见文档；点链接进入的页面保持 URL 并显示「找不到页面」。
+  const switchIntentRef = useRef(null);
+
+  const consumeSwitchIntent = useCallback((nextVersion, nextProduct) => {
+    const key = `${nextVersion}|${nextProduct}`;
+    if (switchIntentRef.current !== key) {
+      return false;
+    }
+    switchIntentRef.current = null;
+    return true;
+  }, []);
+
   const setVersion = useCallback(
     (v) => {
       if (hasBuildScope) {
@@ -279,12 +294,16 @@ export function DocScopeFilterProvider({ children }) {
       const list =
         VERSION_PRODUCT_MATRIX[newV] || VERSION_PRODUCT_MATRIX[def.version];
       const nextP = list[0];
+      if (newV === version && nextP === product) {
+        return;
+      }
+      switchIntentRef.current = `${newV}|${nextP}`;
       const next = new URLSearchParams(location.search);
       next.set('v', newV);
       next.set('p', nextP);
       replaceSearch(history, location, `?${next.toString()}`);
     },
-    [location, history, locale, def.version, hasBuildScope],
+    [location, history, locale, def.version, hasBuildScope, version, product],
   );
 
   const setProduct = useCallback(
@@ -301,12 +320,16 @@ export function DocScopeFilterProvider({ children }) {
         return;
       }
       const nextV = versions[0];
+      if (nextV === version && canonical === product) {
+        return;
+      }
+      switchIntentRef.current = `${nextV}|${canonical}`;
       const next = new URLSearchParams(location.search);
       next.set('v', nextV);
       next.set('p', canonical);
       replaceSearch(history, location, `?${next.toString()}`);
     },
-    [location, history, hasBuildScope],
+    [location, history, hasBuildScope, version, product],
   );
 
   const value = useMemo(
@@ -315,10 +338,11 @@ export function DocScopeFilterProvider({ children }) {
       product,
       setVersion,
       setProduct,
+      consumeSwitchIntent,
       matrix: VERSION_PRODUCT_MATRIX,
       productMatrix: PRODUCT_VERSION_MATRIX,
     }),
-    [version, product, setVersion, setProduct],
+    [version, product, setVersion, setProduct, consumeSwitchIntent],
   );
 
   return <DocScopeFilterContext.Provider value={value}>{children}</DocScopeFilterContext.Provider>;

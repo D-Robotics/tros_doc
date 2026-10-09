@@ -149,7 +149,7 @@ hobotcv save rate = （guss_time cost time - infe cost time）/ guss_time cost t
 
 error sum:8.46524e+06,max:2,mean_error:0.439232　//单张图片总误差是：8.46524e+06，单个像素最大误差是：2，平均误差：0.439232
 
-平均误差　＝　sum / (width *height) = 8.46524e+06  / (320* 240)
+平均误差　＝　sum / (width * height) = 8.46524e+06  / (320 * 240)
 
 hobot_cv 高斯滤波 BPU 加速与 opencv 高斯滤波性能对比结果如下：
 
@@ -328,6 +328,7 @@ error sum:8.43744e+06,max:1,mean_error:0.430833　//均值滤波单张图片总�
 
 #### RDK 平台
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -348,6 +349,21 @@ source /opt/tros/humble/setup.bash
 </TabItem>
 
 </Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
 
 ```shell
 # 从tros.b的安装路径中拷贝出运行示例需要的模型和配置文件。
@@ -407,7 +423,7 @@ ros2 launch hobot_cv hobot_cv_crop.launch.py
 
 #### RDK
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -426,12 +442,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -746,15 +766,6 @@ cpu 占用为单核百分比，耗时统计单位为 ms
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>

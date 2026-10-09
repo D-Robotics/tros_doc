@@ -33,7 +33,7 @@ import DocScope from '@site/src/components/DocScope';
 2. RDK 已成功安装 TogetheROS.Bot。
 3. RDK 已成功安装智能语音算法包，安装命令：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
 
@@ -44,6 +44,20 @@ import DocScope from '@site/src/components/DocScope';
 
       </TabItem>
 
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
@@ -177,7 +191,7 @@ RDK 板端运行 hobot_audio package：
 
 1. 拷贝配置文件
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -188,6 +202,20 @@ RDK 板端运行 hobot_audio package：
 
   </TabItem>
 
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     # 配置tros.b环境
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
   <TabItem value="humble" label="Humble">
 
      ```bash
@@ -235,7 +263,7 @@ RDK 板端运行 hobot_audio package：
 
 2. 配置 tros.b 环境和启动应用
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -252,6 +280,26 @@ RDK 板端运行 hobot_audio package：
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+
+   # 屏蔽调式打印信息
+   export GLOG_minloglevel=3
+
+   #启动launch文件
+   ros2 launch hobot_audio hobot_audio.launch.py
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell

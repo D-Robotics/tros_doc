@@ -63,7 +63,12 @@ ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
 
 Stereo algorithm tutorial:
 
+<DocScope products="RDK-X5">
+
 - [Video: Live Replay | RDK X5 AI Stereo Algorithm Deployment](https://www.bilibili.com/video/BV1KdEjzREMz/?share_source=copy_web&vd_source=deb3551e36cc4b1c1020033ad17c564b)
+
+</DocScope>
+
 - [Blog: D-Robotics AI Stereo Algorithm: A Survey of Stereo Matching](https://mp.weixin.qq.com/s/09kvfQzYgO4dKLUMNLweTg)
 
 ## 2. Supported Platforms
@@ -71,9 +76,11 @@ Stereo algorithm tutorial:
 | Platform              | System Support                     | Example Features                                             |
 | --------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)              | Start stereo camera, infer depth results, and display on Web |
-| RDK S100, RDK S100P   | Ubuntu 22.04/24.04 (Humble, Jazzy) | Start stereo camera, infer depth results, and display on Web |
+| RDK S100, RDK S100P   | Ubuntu 22.04 (Humble)              | Start stereo camera, infer depth results, and display on Web |
 
 ## 3. Model Versions
+
+<DocScope products="RDK-X5">
 
 ### 3.1. X5 Models
 
@@ -90,12 +97,18 @@ Stereo algorithm tutorial:
 | V2.5_int16_544_448    | int16        | 544x448x3x2 | 15                | Latest version, 544x448 resolution                          |
 | V2.5_int16_544_448_96 | int16        | 544x448x3x2 | 17                | Latest version, 544x448 resolution, max search disparity 96 |
 
-### 3.2. S100 Models
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+### 3.1. S100 Models
 
 | Algorithm Version | Quantization | Input Size  | Max Inference FPS | Description                                 |
 | ----------------- | ------------ | ----------- | ----------------- | ------------------------------------------- |
 | V2.1              | int16        | 640x352x3x2 | 53                | Legacy version with confidence output       |
 | V2.4              | int16        | 640x352x3x2 | 53                | Current main version with confidence output |
+
+</DocScope>
 
 ## 4. Preparation
 
@@ -109,17 +122,32 @@ Stereo algorithm tutorial:
 
 ### 4.2. System and Package Versions
 
+<DocScope products="RDK-X5">
+
 |                                     | Version              | Query Method                                    |
 | ----------------------------------- | -------------------- | ----------------------------------------------- |
 | RDK X5 system image version         | 3.3.3 and above      | `cat /etc/version`                              |
+| tros-humble-hobot-stereonet package | 2.5.0 and above      | `apt list \| grep tros-humble-hobot-stereonet/` |
+| tros-humble-mipi-cam package        | 2.3.13 and above     | `apt list \| grep tros-humble-mipi-cam/`        |
+| tros-humble-hobot-zed-cam package   | 2.3.3 and above      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+|                                     | Version              | Query Method                                    |
+| ----------------------------------- | -------------------- | ----------------------------------------------- |
 | RDK S100 system image version       | 4.0.2-Beta and above | `cat /etc/version`                              |
 | tros-humble-hobot-stereonet package | 2.5.0 and above      | `apt list \| grep tros-humble-hobot-stereonet/` |
 | tros-humble-mipi-cam package        | 2.3.13 and above     | `apt list \| grep tros-humble-mipi-cam/`        |
 | tros-humble-hobot-zed-cam package   | 2.3.3 and above      | `apt list \| grep tros-humble-hobot-zed-cam/`   |
 
+</DocScope>
+
 - If the **system image version** does not meet requirements, refer to the corresponding documentation section for image flashing
 - If the **package version** does not meet requirements, run the following commands to update:
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -131,22 +159,27 @@ sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
-sudo apt install --only-upgrade tros-jazzy-hobot-stereonet
-sudo apt install --only-upgrade tros-jazzy-mipi-cam
-sudo apt install --only-upgrade tros-jazzy-hobot-zed-cam
+sudo apt install --only-upgrade tros-humble-hobot-stereonet
+sudo apt install --only-upgrade tros-humble-mipi-cam
+sudo apt install --only-upgrade tros-humble-hobot-zed-cam
 ```
 
 </TabItem>
 </Tabs>
-
-### 4.3. Beta Source Configuration (X5 Only)
+</DocScope>
 
 <DocScope products="RDK-X5">
+
+### 4.3. Beta Source Configuration (X5 Only)
 
 If the above commands cannot update the program to the latest version, change the apt source file to the beta source:
 
@@ -168,6 +201,8 @@ apt update
 
 <DocScope products="RDK-S100">
 
+### 4.3. Beta Source Configuration
+
 :::caution **Note**
 **If the `sudo apt update` command fails or reports an error, please refer to the [FAQ](https://developer.d-robotics.cc/rdk_s_doc/en/FAQ/hardware_and_system?v=4.0.5&p=RDK+S100#q6-how-do-i-handle-apt-update-failures-or-errors) section `Q6: How to handle apt update command failure or error?` for resolution.**
 :::
@@ -184,13 +219,21 @@ apt update
 
 <p style={{ color: 'red' }}> Note: Check that the camera back silkscreen shows CDPxxx-V3/V4 to confirm V3 or V4 version </p>
 
+<DocScope products="RDK-X5">
+
 - RDK X5 installation is shown below:
 
 ![RDK_X5_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_230ai.png)
 
+</DocScope>
+
+<DocScope products="RDK-S100">
+
 - RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
 
 ![RDK_S100_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_230ai.png)
+
+</DocScope>
 
 ### 5.2. 132GS MIPI Stereo Camera
 
@@ -198,17 +241,29 @@ apt update
 
 ![RDK_Stereo_Cam_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_Stereo_Cam_132gs.png)
 
+<DocScope products="RDK-X5">
+
 - RDK X5 installation is shown below:
 
 ![RDK_X5_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs.png)
 
+</DocScope>
+
 - The latest cables have been upgraded. Note that cables are directional: CAM end connects to the camera, RDK end connects to the development board. (Both white and black cables work normally; either may be shipped randomly)
 
+<DocScope products="RDK-X5">
+
 ![RDK_X5_132gs_mipi](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_X5_132gs_mipi.png)
+
+</DocScope>
+
+<DocScope products="RDK-S100">
 
 - RDK S100 installation is shown below. Note: set the S100 CAM daughter board DIP switches to `LPWM` and `3.3V`:
 
 ![RDK_S100_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/RDK_S100_132gs.png)
+
+</DocScope>
 
 ### 5.3. ZED Camera Connection
 
@@ -234,6 +289,7 @@ Other users may lack sufficient permissions, causing unnecessary errors. You can
 
 The `run_stereo.sh` script is bundled with the package and can be obtained as follows:
 
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
@@ -244,17 +300,22 @@ cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-S100">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_cam.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_codec_web.sh ./
-cp -rv /opt/tros/jazzy/share/hobot_stereonet/script/run_stereo.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_cam.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_codec_web.sh ./
+cp -rv /opt/tros/humble/share/hobot_stereonet/script/run_stereo.sh ./
 ```
 
 </TabItem>
 </Tabs>
+</DocScope>
 
 If you cannot copy from the package, you can also manually create the following three scripts.
 
@@ -675,31 +736,47 @@ Connect to RDK via SSH and run the following commands to detect the camera I2C s
 
 - 230AI stereo camera: if addresses such as 0x30, 0x32, 0x50 appear, the camera connection is normal
 
+<DocScope products="RDK-X5">
+
 ```bash
-# RDK X5
 i2cdetect -r -y 4
 i2cdetect -r -y 6
-
-# RDK S100
-i2cdetect -r -y 1
-i2cdetect -r -y 2
 ```
 
 ![i2cdetect_230ai](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_230ai.png)
 
-- 132GS stereo camera: if addresses such as 0x32, 0x33, 0x50 appear, the camera connection is normal
+</DocScope>
+
+<DocScope products="RDK-S100">
 
 ```bash
-# RDK X5
-i2cdetect -r -y 4
-i2cdetect -r -y 6
-
-# RDK S100
 i2cdetect -r -y 1
 i2cdetect -r -y 2
 ```
 
+</DocScope>
+
+- 132GS stereo camera: if addresses such as 0x32, 0x33, 0x50 appear, the camera connection is normal
+
+<DocScope products="RDK-X5">
+
+```bash
+i2cdetect -r -y 4
+i2cdetect -r -y 6
+```
+
 ![i2cdetect_132gs](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/i2cdetect_132gs.png)
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```bash
+i2cdetect -r -y 1
+i2cdetect -r -y 2
+```
+
+</DocScope>
 
 :::caution **Note**
 **If I2C signal cannot be detected, the camera will not work properly**
@@ -726,14 +803,32 @@ bash run_cam.sh --log_level INFO
 </TabItem>
 </Tabs>
 
-Using 132GS camera on X5 as an example, a correctly started camera prints the following log (S100 or different camera models will print different logs):
+A correctly started camera prints a runtime log. The log differs between platforms and camera models.
+
+<DocScope products="RDK-X5">
+
+Using 132GS camera on X5 as an example:
 
 ![cam_run_success_log](https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/cam_run_success_log.png)
 
+</DocScope>
+
 **Log analysis:**
 
-- **I2C bus** is the control channel number, used to configure sensor registers (e.g., resolution, frame rate, starting streaming). Image data does not go through I2C; I2C is only responsible for control. The program checks whether the board's I2C controllers can scan sensor addresses. The log detects addresses 0x32 and 0x30, corresponding to I2C bus-4 and I2C bus-6.
-- **mipi rx phy** is the image data channel number. Image data captured by the camera is transmitted to the chip through this high-speed channel. The log shows X5 has two mipi phy channels, numbered 0 and 2, corresponding to left and right cameras. These numbers can be adjusted via the `channel` and `mipi_channel` parameters to change the left/right image stitching order.
+- **I2C bus** is the control channel number, used to configure sensor registers (e.g., resolution, frame rate, starting streaming). Image data does not go through I2C; I2C is only responsible for control. The program checks whether the board's I2C controllers can scan sensor addresses.
+- **mipi rx phy** is the image data channel number. Image data captured by the camera is transmitted to the chip through this high-speed channel. These numbers can be adjusted via the `channel` and `mipi_channel` parameters to change the left/right image stitching order.
+
+<DocScope products="RDK-X5">
+
+With a 132GS camera on X5, the log detects addresses 0x32 and 0x30, corresponding to I2C bus-4 and I2C bus-6; the two mipi phy channels are numbered 0 and 2, corresponding to the left and right cameras.
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+With a 132GS camera on S100, the I2C controllers are numbered 1 and 2, and the two mipi phy channels are numbered 0 and 1, corresponding to the left and right cameras. The numbers may differ for other camera models; refer to the log actually printed on your board.
+
+</DocScope>
 
 After the camera starts, you can verify the images by launching `run_codec_web.sh`:
 
@@ -749,8 +844,7 @@ On a PC connected to the RDK board, open a browser and go to `http://ip:8000` (r
 
 Connect to RDK via SSH and run the following commands to start the algorithm:
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 # With 230AI camera
@@ -766,8 +860,11 @@ bash run_stereo.sh
   - Method 1: Swap MIPI cables
   - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 2` or `--mipi_channel 2 --mipi_channel2 0`, and see which produces correct results
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+S100 requires a model version; the examples below all use `--stereonet_version v2.4`:
 
 ```bash
 # With 230AI camera
@@ -786,8 +883,7 @@ bash run_stereo.sh --stereonet_version v2.4_1280_704 --mipi_image_width 1280 --m
   - Method 1: Swap MIPI cables
   - Method 2: Add parameters to the run command: `--mipi_channel 0 --mipi_channel2 1` or `--mipi_channel 1 --mipi_channel2 0`, and see which produces correct results
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 :::caution **Note**
 **If the program does not start correctly, use `ros2 topic list -v` to check whether topics corresponding to `stereo_image_topic` and `camera_info_topic` exist**
@@ -832,7 +928,7 @@ rviz2
 
 ### 8.1. Starting ZED Camera Node
 
-Connect to RDK via SSH; X5 and S100 use the same commands:
+Connect to RDK via SSH and run the following commands:
 
 ```bash
 if [[ -f /opt/tros/humble/setup.bash ]]; then
@@ -897,8 +993,7 @@ To evaluate algorithm performance with local images, prepare the following data 
 
 Connect to RDK via SSH and run the following commands:
 
-<Tabs groupId="RDK">
-<TabItem value="RDK X5" label="RDK X5">
+<DocScope products="RDK-X5">
 
 ```bash
 bash run_stereo.sh \
@@ -912,8 +1007,11 @@ bash run_stereo.sh \
 # If web display is too fast, add --image_sleep 2000 to control pause time
 ```
 
-</TabItem>
-<TabItem value="RDK S100" label="RDK S100">
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+S100 requires a model version:
 
 ```bash
 bash run_stereo.sh --stereonet_version v2.4 \
@@ -927,8 +1025,7 @@ bash run_stereo.sh --stereonet_version v2.4 \
 # If web display is too fast, add --image_sleep 2000 to control pause time
 ```
 
-</TabItem>
-</Tabs>
+</DocScope>
 
 ### 9.3. Viewing Results
 
@@ -948,10 +1045,29 @@ The `run_stereo.sh` script supports the following parameters, which can be passe
 
 | Parameter           | Description                                                                | Default         | Options                                                                                                                                                                                          |
 | ------------------- | -------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `stereonet_version` | Algorithm version                                                          | `v2.4_int16`    | X5: `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96`<br/>S100: `v2.1` / `v2.4` / `v2.4_1280_704` |
 | `stereo_node_name`  | ROS node name                                                              | `StereoNetNode` | Any valid ROS node name                                                                                                                                                                          |
 | `uncertainty_th`    | Confidence threshold. Set to positive value to enable confidence filtering | `-0.10`         | Recommended: `0.10`                                                                                                                                                                              |
 | `infer_thread_num`  | Inference thread count. More threads increase FPS but also latency         | `2`             | `1` / `2`                                                                                                                                                                                        |
+
+The options for `stereonet_version` (algorithm version) differ by platform:
+
+<DocScope products="RDK-X5">
+
+| Parameter           | Description       | Default      | Options |
+| ------------------- | ----------------- | ------------ | ------- |
+| `stereonet_version` | Algorithm version | `v2.4_int16` | `v2.0` / `v2.1` / `v2.2` / `v2.3` / `v2.4_int16` / `v2.4_int8` / `v2.5_int16` / `v2.5_int16_96` / `v2.5_int16_544_448` / `v2.5_int16_544_448_96` |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+| Parameter           | Description       | Options |
+| ------------------- | ----------------- | ------- |
+| `stereonet_version` | Algorithm version | `v2.1` / `v2.4` / `v2.4_1280_704` |
+
+S100 requires an explicit model version, e.g. `--stereonet_version v2.4`.
+
+</DocScope>
 
 ### 10.2. Camera Parameters
 
@@ -964,9 +1080,27 @@ The `run_stereo.sh` script supports the following parameters, which can be passe
 | `mipi_rotation`        | Image rotation angle                                          | `90.0`  | 132GS: `90.0`, 230AI: `0.0`    |
 | `mipi_gdc_enable`      | Enable GDC distortion correction                              | `True`  | `True` / `False`               |
 | `mipi_lpwm_enable`     | Enable hardware sync to keep left/right timestamps consistent | `True`  | `True` / `False`               |
-| `mipi_channel`         | Left camera MIPI channel number                               | `2`     | X5: `0` / `2`; S100: `0` / `1` |
-| `mipi_channel2`        | Right camera MIPI channel number                              | `0`     | X5: `0` / `2`; S100: `0` / `1` |
 | `mipi_cal_rotation`    | Calibration rotation angle                                    | `0.0`   | Generally keep default         |
+
+The options for `mipi_channel` / `mipi_channel2` (left/right camera MIPI channel number) differ by platform:
+
+<DocScope products="RDK-X5">
+
+| Parameter       | Description                      | Default | Options   |
+| --------------- | -------------------------------- | ------- | --------- |
+| `mipi_channel`  | Left camera MIPI channel number  | `2`     | `0` / `2` |
+| `mipi_channel2` | Right camera MIPI channel number | `0`     | `0` / `2` |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+| Parameter       | Description                      | Default | Options   |
+| --------------- | -------------------------------- | ------- | --------- |
+| `mipi_channel`  | Left camera MIPI channel number  | `2`     | `0` / `1` |
+| `mipi_channel2` | Right camera MIPI channel number | `0`     | `0` / `1` |
+
+</DocScope>
 
 ### 10.3. Calibration
 
@@ -1099,6 +1233,12 @@ ros2 param set /StereoNetNode save_result_once true
 
 Specify save parameters in the startup command:
 
+<DocScope products="RDK-S100">
+
+S100 requires a model version; add the `--stereonet_version v2.4` parameter to the startup command.
+
+</DocScope>
+
 ```bash
 # With 230AI camera
 bash run_stereo.sh --mipi_rotation 0.0 \
@@ -1118,7 +1258,6 @@ bash run_stereo.sh \
 --save_depth_flag True --save_visual_flag True \
 --save_pcd_flag False
 
-# S100 requires model version, e.g. add --stereonet_version v2.4
 # save_stereo_flag    Save stereo image fed to the algorithm for inference
 # save_origin_flag    Save raw stereo images not fed to inference (e.g. unrectified or resolution-mismatched images after preprocessing)
 # save_disp_flag      Save disparity map
@@ -1187,10 +1326,10 @@ This program provides two epipolar alignment detection methods:
 
 This method is stricter and recommended. A chessboard calibration board is required.
 
-Using X5 with 132GS camera as an example:
+Using a 132GS camera as an example:
 
 ```bash
-# X5 with 132GS camera; for S100 or other cameras refer to parameter settings above
+# For other camera models, refer to the parameter settings above
 # Note chessboard parameters: example uses 20 inner corners per row, 11 per column, 0.06m square size
 bash run_stereo.sh --epipolar_mode True \
 --chessboard_per_rows 20 --chessboard_per_cols 11 --chessboard_square_size 0.06
@@ -1206,10 +1345,10 @@ For chessboard-based detection, epipolar and reprojection errors should both be 
 
 This method does not require a calibration board, only needs to run in texture-rich scenes, but the computed epipolar error may be larger.
 
-Using X5 with 132GS camera as an example:
+Using a 132GS camera as an example:
 
 ```bash
-# X5 with 132GS camera; for S100 or other cameras refer to parameter settings above
+# For other camera models, refer to the parameter settings above
 bash run_stereo.sh --feature_epipolar_mode True
 ```
 
@@ -1355,8 +1494,14 @@ The standalone project uses ARM cross-compilation toolchain to generate executab
 # 1. Download and extract the cross-compilation toolchain
 tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz -C /opt
 
-# 2. Enter the standalone directory and run the build script
+# 2. Enter the standalone directory
 cd hobot_stereonet/standalone
+```
+
+<DocScope products="RDK-X5">
+
+```bash
+# 3. Run the X5 build script
 bash run_build_X5.sh
 ```
 
@@ -1369,6 +1514,26 @@ cd StereoInfer
 bash make_ln.sh
 ```
 
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```bash
+# 3. Run the S100 build script
+bash run_build_S100.sh
+```
+
+After compilation, the `build/` directory contains `StereoInfer_S100.tar.gz`. Copy it to the RDK board and extract:
+
+```bash
+cd /userdata/
+tar -zxvf StereoInfer_S100.tar.gz
+cd StereoInfer
+bash make_ln.sh
+```
+
+</DocScope>
+
 **Two Reference Examples**
 
 The standalone project includes two executable programs covering two common use cases:
@@ -1378,6 +1543,7 @@ The standalone project includes two executable programs covering two common use 
 Suitable for depth estimation on a set of existing images. Input is a local image directory; output includes disparity maps, depth maps, point clouds, etc.
 
 ```bash
+# If the package contains a 3rdparty directory, set the library search path first
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
 ./infer ./model/DStereoV2.4_int16.bin ./img 0.10
 ```
@@ -1401,6 +1567,7 @@ The source code `infer.cpp` demonstrates the complete workflow: initialize model
 Simulates a camera capture pipeline, continuously infers and reports performance metrics.
 
 ```bash
+# If the package contains a 3rdparty directory, set the library search path first
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/StereoInfer/3rdparty/lib_opencv4.5.4/lib/
 ./test_perf ./model/DStereoV2.4_int16.bin 1 30 0.10
 ```
@@ -1451,8 +1618,27 @@ project(MyStereoProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
+```
+
+<DocScope products="RDK-X5">
+
+```cmake
 # Platform definition (X5 / S100 / S600, pick one)
 add_definitions(-DPLATFORM_X5)
+```
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+```cmake
+# Platform definition (X5 / S100 / S600, pick one)
+add_definitions(-DPLATFORM_S100)
+```
+
+</DocScope>
+
+```cmake
 
 # OpenCV
 set(OpenCV_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/lib_opencv4.5.4/lib/cmake/opencv4)

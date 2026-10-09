@@ -49,11 +49,11 @@ Use local dataset feedback playback. After inference, the algorithm publishes re
 <TabItem value="humble" label="Humble">
 
 ```shell
-# 板端下载数据集
+# Download the dataset on the board
 cd ~
 wget http://archive.d-robotics.cc/TogetheROS/data/nuscenes_bev_val/nuscenes_bev_val.tar.gz
 
-# 解压缩
+# Extract the archive
 mkdir -p ~/hobot_bev_data
 tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
 ```
@@ -72,14 +72,14 @@ tar -zxvf ~/nuscenes_bev_val.tar.gz -C ~/hobot_bev_data
 <TabItem value="humble" label="Humble">
 
 ```shell
-# 配置tros.b humble环境
+# Configure the tros.b humble environment
 source /opt/tros/humble/setup.bash
 
 if [ -L qat ]; then rm qat; fi
 ln -s `ros2 pkg prefix hobot_bev`/lib/hobot_bev/qat/ qat
 ln -s ~/hobot_bev_data/nuscenes_bev_val nuscenes_bev_val
 
-# 启动运行脚本
+# Start the script
 ros2 launch hobot_bev hobot_bev.launch.py
 ```
 

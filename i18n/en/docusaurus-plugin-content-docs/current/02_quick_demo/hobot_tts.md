@@ -25,7 +25,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | Subscribe to text messages, convert them to speech data, and play them |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | Subscribe to text messages, convert them to speech data, and play them |
 
-**Note: Only RDK X3 is supported; RDK X3 Module is not supported. RDK S100/S600 only supports USB audio devices.**
+**Note: Only RDK X3 is supported; RDK X3 Module is not supported.**
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 1. On first run, download and extract the model file. Run the following commands:
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -76,13 +76,18 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
         sudo apt update
-        sudo apt install tros-jazzy-hobot-tts
-        source /opt/tros/jazzy/setup.bash
+        sudo apt install tros-humble-hobot-tts
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -170,7 +175,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 3. Start the hobot_tts program
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -190,11 +195,16 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -241,7 +251,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
 4. Open a new terminal and use the echo command to publish a topic
 
-  <DocScope products="RDK-X3,RDK-X5">
+  <DocScope products="RDK-X3">
   <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -261,14 +271,19 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
 
   </TabItem>
 
-  <TabItem value="jazzy" label="Jazzy">
+  </Tabs>
+  </DocScope>
 
-  ```bash
-  # Configure tros.b environment
-  source /opt/tros/jazzy/setup.bash
-  ```
+  <DocScope products="RDK-X5">
+  <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
-    </TabItem>
+    ```bash
+    # Configure tros.b environment
+    source /opt/tros/humble/setup.bash
+    ```
+
+  </TabItem>
 
   </Tabs>
   </DocScope>

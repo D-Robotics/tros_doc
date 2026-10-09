@@ -38,7 +38,7 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 :::caution **Note**
 - **If you are using RDK X3 with a 1.x version system, you need to upgrade the system to 2.x version.**
-- **For system version checking methods and detailed instructions, please refer to [FAQs](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples).**
+- **For system version checking methods and detailed instructions, please refer to [FAQ](https://developer.d-robotics.cc/rdk_x_doc/en/FAQ/applications_and_examples).**
 :::
 
 </DocScope>
@@ -51,7 +51,7 @@ Before installing tros.b, it is recommended to upgrade the RDK system image to t
 
 <DocScope products="RDK-S600">
 
-[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/install_os/rdk_s600)
+[Ubuntu Image Flashing Method](https://developer.d-robotics.cc/rdk_s_doc/en/Quick_start/install_os/rdk_s600/preparation?v=5.1.0&p=RDK+S600)
 
 </DocScope>
 
@@ -90,20 +90,33 @@ To ensure smooth installation and use of tros.b, please log in using the **root*
 
 During experience and development, commands such as scp/ssh are frequently used to access the RDK via IP address. Dynamic configuration is recommended here. Refer to:
 
-<DocScope products="RDK X3,RDK X5">
+<DocScope products="RDK X3">
 
 
-[Network Configuration](https://developer.d-robotics.cc/rdk_x_doc/System_configuration/network_blueteeth)
-
-</DocScope>
-
-<DocScope products="RDK S100,RDK S600">
-
-
-[Network Configuration](https://developer.d-robotics.cc/rdk_s_doc/System_configuration/network_blueteeth)
+[Network Configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/network_blueteeth?v=3.0.0&p=RDK+X3)
 
 </DocScope>
 
+<DocScope products="RDK X5">
+
+
+[Network Configuration](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/network_blueteeth?v=3.5.0&p=RDK+X5)
+
+</DocScope>
+
+<DocScope products="RDK S100">
+
+
+[Network Configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/network_bluetooth?v=4.0.5&p=RDK+S100)
+
+</DocScope>
+
+<DocScope products="RDK S600">
+
+
+[Network Configuration](https://developer.d-robotics.cc/rdk_s_doc/en/System_configuration/network_bluetooth?v=5.1.0&p=RDK+S600)
+
+</DocScope>
 
 Try pinging Baidu server
 

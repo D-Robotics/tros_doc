@@ -53,11 +53,11 @@ Prepare LiDAR point cloud files:
 <TabItem value="humble" label="Humble">
 
 ```shell
-# 板端下载回灌的点云文件
+# Download the point cloud files for feedback playback on the board
 cd ~
 wget http://archive.d-robotics.cc/TogetheROS/data/hobot_centerpoint_data.tar.gz
 
-# 解压缩
+# Extract the archive
 mkdir -p ~/centerpoint_data
 tar -zxvf ~/hobot_centerpoint_data.tar.gz -C ~/centerpoint_data
 ```
@@ -76,14 +76,14 @@ Start the algorithm example:
 <TabItem value="humble" label="Humble">
 
 ```shell
-# 配置tros.b humble环境
+# Configure the tros.b humble environment
 source /opt/tros/humble/setup.bash
 
 if [ -L qat ]; then rm qat; fi
 ln -s `ros2 pkg prefix hobot_centerpoint`/lib/hobot_centerpoint/qat/ qat
 ln -s ~/centerpoint_data centerpoint_data
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_centerpoint hobot_centerpoint.launch.py
 ```
 

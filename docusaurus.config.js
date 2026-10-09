@@ -118,7 +118,10 @@ const config = {
           routeBasePath: "/", // 修改默认文档路径
           sidebarPath: "./sidebars.js",
           showLastUpdateTime: true,
-          remarkPlugins: [remarkDirective, remarkDocScope],
+          // DocScope 必须在 Docusaurus 内置的 headings / toc 之前执行：
+          // 产品站构建时整块剥掉不属于该产品的小节，否则目录（右侧 On this page）
+          // 仍会列出这些已被剥掉的小节，页面上留下点不开的锚点。
+          beforeDefaultRemarkPlugins: [remarkDirective, remarkDocScope],
           rehypePlugins: [rehypeWrapTables],
         },
         blog: { showReadingTime: true },

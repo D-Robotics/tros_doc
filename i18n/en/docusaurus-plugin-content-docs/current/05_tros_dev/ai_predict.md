@@ -118,69 +118,69 @@ Copy the following code into the file:
 #include "hbm_img_msgs/msg/hbm_msg1080_p.hpp"
 #include "hobot_mot/hobot_mot.h"
 
-// 创建算法推理输出数据结构，添加消息头信息成员
+// Create the algorithm inference output data structure and add the message header member
 struct FasterRcnnOutput : public hobot::dnn_node::DnnNodeOutput {
   std::shared_ptr<std_msgs::msg::Header> image_msg_header = nullptr;
 };
 
-// 继承DnnNode虚基类，创建算法推理节点
+// Inherit from the DnnNode virtual base class to create the algorithm inference node
 class BodyDetNode : public hobot::dnn_node::DnnNode {
  public:
   BodyDetNode(const std::string &node_name = "body_det",
   const rclcpp::NodeOptions &options = rclcpp::NodeOptions());
 
  protected:
-  // 实现基类的纯虚接口，用于配置Node参数
+  // Implement the pure virtual interface of the base class to configure node parameters
   int SetNodePara() override;
-  // 实现基类的虚接口，将解析后的模型输出数据封装成ROS Msg后发布
+  // Implement the virtual interface of the base class to wrap the parsed model output data into a ROS Msg and publish it
   int PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutput> &node_output)
     override;
 
  private:
-  // 算法模型输入图片数据的宽和高
+  // Width and height of the image data input to the algorithm model
   int model_input_width_ = -1;
   int model_input_height_ = -1;
-  // 人体检测框结果对应的模型输出索引
+  // Model output index corresponding to the human detection box results
   const int32_t box_output_index_ = 1;
-  // 检测框输出索引集合
+  // Set of detection box output indices
   const std::vector<int32_t> box_outputs_index_ = {box_output_index_};
 
-  // 图片消息订阅者
+  // Image message subscriber
   rclcpp::Subscription<hbm_img_msgs::msg::HbmMsg1080P>::ConstSharedPtr
       ros_img_subscription_ = nullptr;
-  // 算法推理结果消息发布者
+  // Algorithm inference result message publisher
   rclcpp::Publisher<ai_msgs::msg::PerceptionTargets>::SharedPtr
       msg_publisher_ = nullptr;
-  // 多目标跟踪算法引擎
+  // Multi-object tracking algorithm engine
   std::shared_ptr<HobotMot> hobot_mot_ = nullptr;
 
-  // 图片消息订阅回调
+  // Image message subscription callback
   void FeedImg(const hbm_img_msgs::msg::HbmMsg1080P::ConstSharedPtr msg);
 };
 
 BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOptions & options) :
   hobot::dnn_node::DnnNode(node_name, options) {
-  // Init中使用BodyDetNode子类实现的SetNodePara()方法进行算法推理的初始化
+  // Algorithm inference is initialized in the SetNodePara() method implemented by the BodyDetNode subclass in Init
   if (Init() != 0 ||
     GetModelInputSize(0, model_input_width_, model_input_height_) < 0) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Node init fail!");
     rclcpp::shutdown();
   }
 
-  // 创建消息订阅者，从摄像头节点订阅图像消息
+  // Create a message subscriber to receive image messages from the camera node
   ros_img_subscription_ =
           this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
-  // 创建消息发布者，发布算法推理消息
+  // Create a message publisher to publish algorithm inference messages
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
       "/cpp_dnn_demo", 10);
-  // 创建多目标跟踪（MOT）算法引擎
+  // Create the multi-object tracking (MOT) algorithm engine
   hobot_mot_ = std::make_shared<HobotMot>("config/iou2_method_param.json");
 }
 
 int BodyDetNode::SetNodePara() {
   if (!dnn_node_para_ptr_) return -1;
-  // 指定算法推理使用的模型文件路径和模型名
+  // Specify the model file path and model name used by algorithm inference
   dnn_node_para_ptr_->model_file = "config/multitask_body_kps_960x544.hbm";
   dnn_node_para_ptr_->model_name = "multitask_body_kps_960x544";
   return 0;
@@ -191,26 +191,26 @@ void BodyDetNode::FeedImg(const hbm_img_msgs::msg::HbmMsg1080P::ConstSharedPtr i
     return;
   }
 
-  // 对订阅到的图片消息进行验证，本示例只支持处理NV12格式图片数据
+  // Validate the received image message; this example only processes NV12 image data
   if (!img_msg) return;
   if ("nv12" != std::string(reinterpret_cast<const char*>(img_msg->encoding.data()))) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Only support nv12 img encoding!");
     return;
   }
 
-  // 根据模型输入图片分辨率，使用DnnNode中提供的方法创建模型输入数据
+  // Create the model input data with the method provided by DnnNode, based on the model input image resolution
   auto inputs = std::vector<std::shared_ptr<hobot::dnn_node::DNNInput>>{
     hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img(
       reinterpret_cast<const char*>(img_msg->data.data()),
       img_msg->height, img_msg->width, model_input_height_, model_input_width_)};
       
-  // 创建模型输出数据，填充消息头信息
+  // Create the model output data and fill in the message header information
   auto dnn_output = std::make_shared<FasterRcnnOutput>();
   dnn_output->image_msg_header = std::make_shared<std_msgs::msg::Header>();
   dnn_output->image_msg_header->set__frame_id(std::to_string(img_msg->index));
   dnn_output->image_msg_header->set__stamp(img_msg->time_stamp);
 
-  // 以异步模式运行推理
+  // Run inference in asynchronous mode
   Run(inputs, dnn_output, nullptr, false);
 }
 
@@ -219,21 +219,21 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     return 0;
   }
   
-  // 验证输出数据的有效性
+  // Validate the output data
   if (node_output->output_tensors.empty() ||
     static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }
 
-  // 创建解析输出数据
-  // 检测框results的维度等于检测出来的目标类别数
+  // Create the parsed output data
+  // The dimension of the detection box results equals the number of detected object categories
   std::vector<std::shared_ptr<hobot::dnn_node::parser_fasterrcnn::Filter2DResult>>
       results;
-  // 关键点数据
+  // Keypoint data
   std::shared_ptr<hobot::dnn_node::parser_fasterrcnn::LandmarksResult> output_body_kps = nullptr;
 
-  // 使用hobot dnn内置的Parse解析方法，解析算法输出
+  // Parse the algorithm output with the built-in Parse method of hobot dnn
   if (hobot::dnn_node::parser_fasterrcnn::Parse(node_output, nullptr,
   box_outputs_index_, -1, -1, results, output_body_kps) < 0) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_node_sample"),
@@ -244,25 +244,25 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   auto filter2d_result = results.at(box_output_index_);
   if (!filter2d_result) return -1;
 
-  // 将算法推理输出的人体检测框转成MOT算法输入数据类型
+  // Convert the human detection boxes output by the algorithm into the MOT algorithm input data type
   std::vector<MotBox> in_box_list;
   for (auto& rect : filter2d_result->boxes) {
     in_box_list.emplace_back(
         MotBox(rect.left, rect.top, rect.right, rect.bottom, rect.conf));
   }
   
-  // 根据消息头计算当前帧的时间戳
+  // Compute the timestamp of the current frame from the message header
   auto fasterRcnn_output =
       std::dynamic_pointer_cast<FasterRcnnOutput>(node_output);
   time_t time_stamp =
       fasterRcnn_output->image_msg_header->stamp.sec * 1000 +
       fasterRcnn_output->image_msg_header->stamp.nanosec / 1000 / 1000;
   
-  // 创建MOT算法的输出：带有目标编号的人体检测框和消失的目标编号
+  // Create the MOT algorithm output: human detection boxes with target IDs and the IDs of disappeared targets
   std::vector<MotBox> out_box_list;
   std::vector<std::shared_ptr<MotTrackId>> disappeared_ids;
 
-  // 运行多目标跟踪算法
+  // Run the multi-object tracking algorithm
   if (hobot_mot_->DoProcess(in_box_list,
                             out_box_list,
                             disappeared_ids,
@@ -273,18 +273,18 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     return -1;
   }
 
-  // 创建用于发布推理结果的ROS Msg
+  // Create the ROS Msg used to publish inference results
   ai_msgs::msg::PerceptionTargets::UniquePtr pub_data(
       new ai_msgs::msg::PerceptionTargets());
 
-  // 将消息头填充到ROS Msg
+  // Fill the message header into the ROS Msg
   pub_data->header.set__stamp(fasterRcnn_output->image_msg_header->stamp);
   pub_data->header.set__frame_id(fasterRcnn_output->image_msg_header->frame_id);
 
-  // 将算法推理输出帧率填充到ROS Msg
+  // Fill the algorithm inference output frame rate into the ROS Msg
   if (node_output->rt_stat) {
     pub_data->set__fps(round(node_output->rt_stat->output_fps));
-    // 如果算法推理统计有更新，输出算法模型输入和输出的帧率统计
+    // If the algorithm inference statistics are updated, output the frame rate statistics of the model input and output
     if (node_output->rt_stat->fps_updated) {
       RCLCPP_WARN(rclcpp::get_logger("dnn_demo"),
                   "input fps: %.2f, out fps: %.2f",
@@ -294,11 +294,11 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
 
   for (auto& rect : out_box_list) {
-    // 验证目标跟踪结果的有效性
+    // Validate the target tracking results
     if (rect.id < 0) {
       continue;
     }
-    // 将目标跟踪结果和检测框填充到ROS Msg
+    // Fill the target tracking results and detection boxes into the ROS Msg
     ai_msgs::msg::Target target;
     target.set__type("person");
     target.set__track_id(rect.id);
@@ -312,7 +312,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     pub_data->targets.emplace_back(std::move(target));
   }
 
-  // 将消失的目标填充到ROS Msg
+  // Fill the disappeared targets into the ROS Msg
   for (const auto& id_info : disappeared_ids) {
     if (id_info->value < 0 ||
         hobot_mot::DataState::INVALID == id_info->state_) {
@@ -327,7 +327,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     pub_data->disappeared_targets.emplace_back(std::move(target));
   }
 
-  // 发布ROS Msg
+  // Publish the ROS Msg
   msg_publisher_->publish(std::move(pub_data));
 
   return 0;
@@ -433,21 +433,21 @@ Create a multi-target tracking (MOT) algorithm engine to track each detected hum
 ```c++
 BodyDetNode::BodyDetNode(const std::string & node_name, const rclcpp::NodeOptions & options) :
   hobot::dnn_node::DnnNode(node_name, options) {
-  // Init中使用BodyDetNode子类实现的SetNodePara()方法进行算法推理的初始化
+  // Algorithm inference is initialized in the SetNodePara() method implemented by the BodyDetNode subclass in Init
   if (Init() != 0 ||
     GetModelInputSize(0, model_input_width_, model_input_height_) < 0) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Node init fail!");
     rclcpp::shutdown();
   }
 
-  // 创建消息订阅者，从摄像头节点订阅图像消息
+  // Create a message subscriber to receive image messages from the camera node
   ros_img_subscription_ =
           this->create_subscription<hbm_img_msgs::msg::HbmMsg1080P>(
           "/hbmem_img", 10, std::bind(&BodyDetNode::FeedImg, this, std::placeholders::_1));
-  // 创建消息发布者，发布算法推理消息
+  // Create a message publisher to publish algorithm inference messages
   msg_publisher_ = this->create_publisher<ai_msgs::msg::PerceptionTargets>(
       "/cpp_dnn_demo", 10);
-  // 创建多目标跟踪（MOT）算法引擎
+  // Create the multi-object tracking (MOT) algorithm engine
   hobot_mot_ = std::make_shared<HobotMot>("config/iou2_method_param.json");
 }
 ```
@@ -515,11 +515,11 @@ int BodyDetNode::SetNodePara() {
 Create `DNNInput` type model input data. The subscribed message contains image information (encoding, content data, resolution, etc.). Use the algorithm model input image processing interface `hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img` in `hobot_dnn` to convert the subscribed `nv12` format image to model input data type according to model input resolution ( `model_input_width_` and `model_input_height_` , obtained from the loaded model via the `GetModelInputSize` interface in the `BodyDetNode` constructor). The interface definition is as follows:
 
 ```c++
-//   - [in] in_img_data 图片数据
-//   - [in] in_img_height 图片的高度
-//   - [in] in_img_width 图片的宽度
-//   - [in] scaled_img_height 模型输入的高度
-//   - [in] scaled_img_width 模型输入的宽度
+//   - [in] in_img_data Image data
+//   - [in] in_img_height Image height
+//   - [in] in_img_width Image width
+//   - [in] scaled_img_height Model input height
+//   - [in] scaled_img_width Model input width
 std::shared_ptr<NV12PyramidInput> GetNV12PyramidFromNV12Img(
     const char* in_img_data,
     const int& in_img_height,
@@ -533,14 +533,14 @@ Create `FasterRcnnOutput` type model output data. The subscribed message contain
 Start inference. Use the `Run` interface in the `DnnNode` base class to run inference in asynchronous mode. The fourth parameter `false` indicates the more efficient asynchronous inference mode. The `Run` interface definition is as follows:
 
 ```c++
-  // - 参数
-  //   - [in] inputs 输入数据智能指针列表
-  //   - [in] outputs 输出数据智能指针
-  //   - [in] rois 抠图roi数据，只对ModelRoiInferType模型有效
-  //   - [in] is_sync_mode 预测模式，true为同步模式，false为异步模式
-  //   - [in] alloctask_timeout_ms 申请推理任务超时时间，单位毫秒
-  //                               默认一直等待直到申请成功
-  //   - [in] infer_timeout_ms 推理超时时间，单位毫秒，默认1000毫秒推理超时
+  // - Parameters
+  //   - [in] inputs List of input data smart pointers
+  //   - [in] outputs Output data smart pointers
+  //   - [in] rois ROI crop data, only valid for the ModelRoiInferType model
+  //   - [in] is_sync_mode Inference mode; true for synchronous mode, false for asynchronous mode
+  //   - [in] alloctask_timeout_ms Timeout for requesting an inference task, in milliseconds
+  //                               Defaults to waiting until the request succeeds
+  //   - [in] infer_timeout_ms Inference timeout in milliseconds; defaults to 1000 ms
   int Run(std::vector<std::shared_ptr<DNNInput>> &inputs,
           const std::shared_ptr<DnnNodeOutput> &output = nullptr,
           const std::shared_ptr<std::vector<hbDNNRoi>> rois = nullptr,
@@ -557,26 +557,26 @@ void BodyDetNode::FeedImg(const hbm_img_msgs::msg::HbmMsg1080P::ConstSharedPtr i
     return;
   }
 
-  // 对订阅到的图片消息进行验证，本示例只支持处理NV12格式图片数据
+  // Validate the received image message; this example only processes NV12 image data
   if (!img_msg) return;
   if ("nv12" != std::string(reinterpret_cast<const char*>(img_msg->encoding.data()))) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Only support nv12 img encoding!");
     return;
   }
 
-  // 根据模型输入图片分辨率，使用hobot_dnn中提供的方法创建模型输入数据
+  // Create the model input data with the method provided by hobot_dnn, based on the model input image resolution
   auto inputs = std::vector<std::shared_ptr<hobot::dnn_node::DNNInput>>{
     hobot::dnn_node::ImageProc::GetNV12PyramidFromNV12Img(
       reinterpret_cast<const char*>(img_msg->data.data()),
       img_msg->height, img_msg->width, model_input_height_, model_input_width_)};
       
-  // 创建模型输出数据，填充消息头信息
+  // Create the model output data and fill in the message header information
   auto dnn_output = std::make_shared<FasterRcnnOutput>();
   dnn_output->image_msg_header = std::make_shared<std_msgs::msg::Header>();
   dnn_output->image_msg_header->set__frame_id(std::to_string(img_msg->index));
   dnn_output->image_msg_header->set__stamp(img_msg->time_stamp);
 
-  // 以异步模式运行推理
+  // Run inference in asynchronous mode
   Run(inputs, dnn_output, nullptr, false);
 }
 ```
@@ -599,21 +599,21 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     return 0;
   }
   
-  // 验证输出数据的有效性
+  // Validate the output data
   if (node_output->output_tensors.empty() ||
     static_cast<int32_t>(node_output->output_tensors.size()) < box_output_index_) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_demo"), "Invalid outputs");
     return -1;
   }
 
-  // 创建解析输出数据
-  // 检测框results的维度等于检测出来的目标类别数
+  // Create the parsed output data
+  // The dimension of the detection box results equals the number of detected object categories
   std::vector<std::shared_ptr<hobot::dnn_node::parser_fasterrcnn::Filter2DResult>>
       results;
-  // 关键点数据
+  // Keypoint data
   std::shared_ptr<hobot::dnn_node::parser_fasterrcnn::LandmarksResult> output_body_kps = nullptr;
 
-  // 使用hobot dnn内置的Parse解析方法，解析算法输出
+  // Parse the algorithm output with the built-in Parse method of hobot dnn
   if (hobot::dnn_node::parser_fasterrcnn::Parse(node_output, nullptr,
   box_outputs_index_, -1, -1, results, output_body_kps) < 0) {
     RCLCPP_ERROR(rclcpp::get_logger("dnn_node_sample"),
@@ -624,25 +624,25 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   auto filter2d_result = results.at(box_output_index_);
   if (!filter2d_result) return -1;
 
-  // 将算法推理输出的人体检测框转成MOT算法输入数据类型
+  // Convert the human detection boxes output by the algorithm into the MOT algorithm input data type
   std::vector<MotBox> in_box_list;
   for (auto& rect : filter2d_result->boxes) {
     in_box_list.emplace_back(
         MotBox(rect.left, rect.top, rect.right, rect.bottom, rect.conf));
   }
   
-  // 根据消息头计算当前帧的时间戳
+  // Compute the timestamp of the current frame from the message header
   auto fasterRcnn_output =
       std::dynamic_pointer_cast<FasterRcnnOutput>(node_output);
   time_t time_stamp =
       fasterRcnn_output->image_msg_header->stamp.sec * 1000 +
       fasterRcnn_output->image_msg_header->stamp.nanosec / 1000 / 1000;
   
-  // 创建MOT算法的输出：带有目标编号的人体检测框和消失的目标编号
+  // Create the MOT algorithm output: human detection boxes with target IDs and the IDs of disappeared targets
   std::vector<MotBox> out_box_list;
   std::vector<std::shared_ptr<MotTrackId>> disappeared_ids;
 
-  // 运行多目标跟踪算法
+  // Run the multi-object tracking algorithm
   if (hobot_mot_->DoProcess(in_box_list,
                             out_box_list,
                             disappeared_ids,
@@ -653,18 +653,18 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     return -1;
   }
 
-  // 创建用于发布推理结果的ROS Msg
+  // Create the ROS Msg used to publish inference results
   ai_msgs::msg::PerceptionTargets::UniquePtr pub_data(
       new ai_msgs::msg::PerceptionTargets());
 
-  // 将消息头填充到ROS Msg
+  // Fill the message header into the ROS Msg
   pub_data->header.set__stamp(fasterRcnn_output->image_msg_header->stamp);
   pub_data->header.set__frame_id(fasterRcnn_output->image_msg_header->frame_id);
 
-  // 将算法推理输出帧率填充到ROS Msg
+  // Fill the algorithm inference output frame rate into the ROS Msg
   if (node_output->rt_stat) {
     pub_data->set__fps(round(node_output->rt_stat->output_fps));
-    // 如果算法推理统计有更新，输出算法模型输入和输出的帧率统计
+    // If the algorithm inference statistics are updated, output the frame rate statistics of the model input and output
     if (node_output->rt_stat->fps_updated) {
       RCLCPP_WARN(rclcpp::get_logger("dnn_demo"),
                   "input fps: %.2f, out fps: %.2f",
@@ -674,11 +674,11 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
   }
 
   for (auto& rect : out_box_list) {
-    // 验证目标跟踪结果的有效性
+    // Validate the target tracking results
     if (rect.id < 0) {
       continue;
     }
-    // 将目标跟踪结果和检测框填充到ROS Msg
+    // Fill the target tracking results and detection boxes into the ROS Msg
     ai_msgs::msg::Target target;
     target.set__type("person");
     target.set__track_id(rect.id);
@@ -692,7 +692,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     pub_data->targets.emplace_back(std::move(target));
   }
 
-  // 将消失的目标填充到ROS Msg
+  // Fill the disappeared targets into the ROS Msg
   for (const auto& id_info : disappeared_ids) {
     if (id_info->value < 0 ||
         hobot_mot::DataState::INVALID == id_info->state_) {
@@ -707,7 +707,7 @@ int BodyDetNode::PostProcess(const std::shared_ptr<hobot::dnn_node::DnnNodeOutpu
     pub_data->disappeared_targets.emplace_back(std::move(target));
   }
 
-  // 发布ROS Msg
+  // Publish the ROS Msg
   msg_publisher_->publish(std::move(pub_data));
 
   return 0;
@@ -752,7 +752,7 @@ Algorithm models and corresponding output parsing methods:
 | Object Detection       | [YoloV2](../03_boxs/detection/yolo.md)       |   ptq_yolo2_output_parser.h       |
 | Object Detection       | [YoloV3](../03_boxs/detection/yolo.md)       |    ptq_yolo3_darknet_output_parser.h       |
 | Object Detection       | [YoloV5](../03_boxs/detection/yolo.md)       |  ptq_yolo5_output_parser.h        |
-| Human Body Detection       | [FasterRcnn](../03_boxs/function/mono2d_body_detection.md)             |  fasterrcnn_output_parser.h       |
+| Human Body Detection       | [FasterRcnn](../03_boxs/body/mono2d_body_detection.md)             |  fasterrcnn_output_parser.h       |
 | Image Classification       | [mobilenetv2](../03_boxs/classification/mobilenetv2.md)  |  ptq_classification_output_parser.h        |
 | Semantic Segmentation       | [mobilenet_unet](../03_boxs/segmentation/mobilenet_unet.md)      |  ptq_unet_output_parser.h        |
 
@@ -1323,7 +1323,7 @@ Enter the `Ctrl+C` command to exit the program.
 
 This section describes how to use models provided by D-Robotics to create and run a human body detection algorithm inference example based on `hobot_dnn` . Use images published from the camera, obtain algorithm output, and render images and algorithm inference results in real time in a PC browser.
 
-Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about more algorithm inference features.
+Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about more algorithm inference features.
 
 ## Algorithm Workflow Construction
 

@@ -22,7 +22,7 @@ speech_agent_audio采用本地离线模式运行，将麦克风采集到的音�
 
 | 平台   | 运行环境     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| 启动Audio模块并输出唤醒结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| 启动Audio模块并输出唤醒结果 |
 
 ## 准备工作
 
@@ -51,14 +51,6 @@ speech_agent_audio采用本地离线模式运行，将麦克风采集到的音�
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -131,14 +123,6 @@ RDK板端运行speech_agent_audio package：
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>

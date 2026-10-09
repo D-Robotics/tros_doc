@@ -75,7 +75,7 @@ pip3 install regex
 
 ### Model Download
 ```shell
-# 从Web端下载运行示例需要的模型文件。
+# Download the model files required for the example from the web.
 wget http://archive.d-robotics.cc/models/clip_encode_text/text_encoder.tar.gz
 sudo tar -xf text_encoder.tar.gz -C config
 ```
@@ -94,13 +94,13 @@ Set clip_mode to "0" to index image files in the "/root/config" directory and st
 
 
 ```shell
-# 配置ROS2环境
+# Configure the ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
@@ -109,13 +109,13 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_db_file:=c
 <DocScope products="RDK-S100">
 
 ```shell
-# 配置ROS2环境
+# Configure the ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/clip_encode_image/config/ .
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=0 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_storage_folder:=/root/config
 ```
 
@@ -133,10 +133,10 @@ Set clip_mode to "1" to search the image database clip.db with the text "a diagr
 
 
 ```shell
-# 配置ROS2环境
+# Configure the ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
 </DocScope>
@@ -144,10 +144,10 @@ ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_db_file:=c
 <DocScope products="RDK-S100">
 
 ```shell
-# 配置ROS2环境
+# Configure the ROS2 environment
 source /opt/tros/humble/setup.bash
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch clip_manage hobot_clip_manage.launch.py clip_mode:=1 clip_image_model_file_name:=config/full_model_11.hbm clip_db_file:=clip.db clip_result_folder:=result clip_text:="a diagram"
 ```
 

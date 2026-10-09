@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 
 该部分操作均在开发机内完成。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -63,17 +63,22 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imag
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
 
 ```shell
 ## 创建目录
 cd  /mnt/data/kairui.wang/test
 mkdir -p cc_ws/tros_ws/src
 ## 获取交叉编译用docker
-wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu24.04_v1.0.1.tar.gz
+wget http://archive.d-robotics.cc/TogetheROS/cross_compile_docker/pc_tros_ubuntu22.04_v1.0.0.tar.gz
 ## 加载docker镜像
-sudo docker load --input pc_tros_ubuntu24.04_v1.0.1.tar.gz 
+sudo docker load --input pc_tros_ubuntu22.04_v1.0.0.tar.gz 
 ## 查看pc_tros对应的image ID
 sudo docker images
 ## 启动docker挂载目录
@@ -136,7 +141,7 @@ sudo docker run -it --entrypoint="/bin/bash" -v PC本地目录:docker目录 imag
 
 这里以 docker 中/mnt/test 目录为例。
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -166,14 +171,18 @@ vcs-import src < ./robot_dev_config/ros2_release.repos
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 
 ```shell
 cd /mnt/test/cc_ws/tros_ws
 ## 获取配置文件
-git clone https://github.com/D-Robotics/robot_dev_config.git -b jazzy 
+git clone https://github.com/D-Robotics/robot_dev_config.git -b develop 
 ## 执行cd robot_dev_config，使用 git tag --list 命令查看可用的发布版本
 ## 使用 git reset --hard [tag号] 命令指定发布版本。详细说明参考本页面 编译指定版本tros.b 内容
 ## 拉取代码

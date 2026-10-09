@@ -82,15 +82,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -142,15 +133,6 @@ ros2 launch hobot_dosod dosod.launch.py
 ```bash
 # 配置tros.b环境
 source /opt/tros/humble/setup.bash
-```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
 ```
 
 </TabItem>
@@ -213,15 +195,6 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -268,9 +241,17 @@ ros2 launch hobot_dosod dosod.launch.py
 
 除了设定模型，还支持变更模型与配置。
 
+<DocScope products="RDK-X5">
+
 - X5: 更改模型文件配置为 `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int8.bin"` ，更改模型类别配置为 `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` 。
 
+</DocScope>
+
+<DocScope products="RDK-S100">
+
 - S100: 更改模型文件配置为 `dosod_model_file_name:="config/dosod_mlp3x_l_rep-int16.hbm"` ，更改模型类别配置为 `dosod_vocabulary_file_name:=config/offline_vocabulary.json"` 。
+
+</DocScope>
 
 ## 结果分析
 

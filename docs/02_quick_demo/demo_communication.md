@@ -74,7 +74,7 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
 
 2. RDK 已成功安装 performance_test 工具包，安装命令：
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
    <TabItem value="foxy" label="Foxy">
 
@@ -92,14 +92,17 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
    sudo apt install tros-humble-performance-test
    ```
    </TabItem>
+   </Tabs>
+   </DocScope>
 
-   <TabItem value="jazzy" label="Jazzy">
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
+   <TabItem value="humble" label="Humble">
 
    ```bash
    sudo apt update
-   sudo apt install tros-jazzy-performance-test
+   sudo apt install tros-humble-performance-test
    ```
-
    </TabItem>
    </Tabs>
    </DocScope>
@@ -155,7 +158,7 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
 
 1. 不开启零拷贝功能的 4M 数据传输测试，命令如下：
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
@@ -174,13 +177,17 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
     ```
 
  </TabItem>
+ </Tabs>
+ </DocScope>
 
- <TabItem value="jazzy" label="Jazzy">
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
+ <TabItem value="humble" label="Humble">
 
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-   ```
+    ```bash
+    source /opt/tros/humble/setup.bash
+    ros2 run performance_test perf_test --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
 
  </TabItem>
  </Tabs>
@@ -254,7 +261,7 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
 
 1. 开启零拷贝功能(加入--zero-copy 参数)的 4M 数据传输测试，命令如下：
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
  <TabItem value="foxy" label="Foxy">
 
@@ -277,17 +284,21 @@ TogetheROS.Bot 提供了灵活、高效的零拷贝功能，可以显著降低�
     ```
 
  </TabItem>
+ </Tabs>
+ </DocScope>
 
- <TabItem value="jazzy" label="Jazzy">
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
+ <TabItem value="humble" label="Humble">
 
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-   export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/jazzy/lib/hobot_shm/config/shm_fastdds.xml
-   export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-   export ROS_DISABLE_LOANED_MESSAGES=0
-   ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
-   ```
+    ```bash
+    source /opt/tros/humble/setup.bash
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export FASTRTPS_DEFAULT_PROFILES_FILE=/opt/tros/humble/lib/hobot_shm/config/shm_fastdds.xml
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export ROS_DISABLE_LOANED_MESSAGES=0
+    ros2 run performance_test perf_test --zero-copy --reliable --keep-last --history-depth 10 -s 1 -m Array4m -r 100 --max-runtime 30
+    ```
 
  </TabItem>
  </Tabs>

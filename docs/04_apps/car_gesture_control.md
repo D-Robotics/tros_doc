@@ -48,7 +48,7 @@ App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指�
 
 4. 和 RDK 在同一网段（有线或者连接同一无线网，IP 地址前三段需保持一致）的 PC，PC 端需要安装的环境包括：
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -79,6 +79,24 @@ App 以 PC 端 Gazebo 仿真环境下的虚拟小车举例，发布的控制指�
  </Tabs>
  </DocScope>
 
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+    - Ubuntu 22.04 系统和[ROS2 Humble 桌面版](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo 和 Turtlebot3 相关的功能包，安装方法：
+
+     ```shell
+     sudo apt-get install ros-humble-gazebo-*
+     sudo apt install ros-humble-turtlebot3
+     sudo apt install ros-humble-turtlebot3-simulations
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
+
  
 
 ## 使用介绍
@@ -91,7 +109,7 @@ App 启动后可以在 PC 端浏览器上渲染显示 sensor 发布的图片和�
 
 PC 端启动仿真环境：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -101,6 +119,19 @@ source /opt/ros/foxy/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -125,7 +156,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 **使用 mipi 摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -136,6 +167,21 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -167,7 +213,7 @@ ros2 launch gesture_control gesture_control.launch.py
 
 **使用 USB 摄像头发布图片**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -178,6 +224,21 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# 配置tros.b环境
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

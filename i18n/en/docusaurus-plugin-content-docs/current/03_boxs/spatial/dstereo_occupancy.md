@@ -73,19 +73,10 @@ ZED camera code repository: https://github.com/D-Robotics/hobot_zed_cam
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -100,7 +91,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -111,7 +102,7 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```bash
-# 启动ZED-2i相机和占用网络推理程序
+# Start the ZED-2i camera and the occupancy network inference program
 ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 ```
 
@@ -123,19 +114,10 @@ ros2 launch dstereo_occnet zed2i_occ_node.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -150,7 +132,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -161,9 +143,9 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```bash
-# 安装rviz2
+# Install rviz2
 sudo apt install ros-humble-rviz2
-# 启动rviz2
+# Start rviz2
 rviz2
 ```
 
@@ -173,19 +155,10 @@ rviz2
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -200,7 +173,7 @@ source /opt/tros/humble/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -211,7 +184,7 @@ source /opt/tros/humble/setup.bash
 </DocScope>
 
 ```bash
-# 启动ZED-2i相机和占用网络推理程序
+# Start the ZED-2i camera and the occupancy network inference program
 ros2 launch dstereo_occnet zed2i_occ_node.launch.py \
 save_occ_flag:=True save_occ_dir:=./occ_result save_freq:=4 save_total:=10
 ```

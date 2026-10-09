@@ -43,7 +43,7 @@ import DocScope from '@site/src/components/DocScope';
 
 3 可以通过网络访问 RDK 的 PC。
 
-关于 `hobot_dnn` 的详细使用说明可以参考 `hobot_dnn` 代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn 的使用逻辑流程如下：
+关于 `hobot_dnn` 的详细使用说明可以参考 `hobot_dnn` 代码中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README_cn.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)。hobot_dnn 的使用逻辑流程如下：
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg" alt="hobot_dnn / DNN Node 算法推理节点工作流程示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1323,7 +1323,7 @@ disappeared_targets: []
 
 本章节介绍了如何使用 D-Robotics 提供的模型，基于 `hobot_dnn` 创建并运行一个人体检测的算法推理示例。使用从摄像头发布的图片，获取算法输出并在 PC 端浏览器上实时渲染展示图片和算法推理结果。
 
-用户可以参考 `hobot_dnn` 中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
+用户可以参考 `hobot_dnn` 中的[README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README_cn.md)和[接口说明文档](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md)，了解更丰富的算法推理功能。
 
 ## 算法 wokflow 构建
 

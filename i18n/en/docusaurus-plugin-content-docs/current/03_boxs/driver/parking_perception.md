@@ -23,39 +23,24 @@ This package supports directly subscribing to sensors/msg/image topics and suppo
 Supported object detection categories:
 
 | Category         | Description   |
-
 | ------------ | ------ |
-
 | cyclist      | Cyclist |
-
 | person       | Pedestrian   |
-
 | rear         | Vehicle rear   |
-
 | vehicle      | Vehicle   |
-
 | parking_lock | Parking lock   |
 
 Supported semantic segmentation categories:
 
 | Category          | Description     |
-
 | ------------- | -------- |
-
 | road          | Road     |
-
 | background    | Background     |
-
 | lane_marking  | Lane marking   |
-
 | sign_line     | Sign line   |
-
 | parking_lane  | Parking lane   |
-
 | parking_space | Parking space |
-
 | parking_rod   | Parking rod   |
-
 | parking_lock  | Parking lock     |
 
 Code repository: (https://github.com/D-Robotics/parking_perception.git)
@@ -67,9 +52,7 @@ Parking space search case: [Parking Space Search](../../04_apps/parking_search.m
 ## Supported Platforms
 
 | Platform                  | Runtime Environment     | Example Functionality                                                     |
-
 | --------------------- | ------------ | ------------------------------------------------------------ |
-
 | RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | · Start MIPI/USB camera/local feedback playback, display inference rendering results on web/save locally |
 
 ## Algorithm Information
@@ -129,15 +112,15 @@ source /opt/tros/humble/setup.bash
 
 ```shell
 
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 
 cp -r /opt/tros/${TROS_DISTRO}/lib/parking_perception/config/ .
 
-# 配置MIPI摄像头
+# Configure MIPI camera
 
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 
 ros2 launch parking_perception parking_perception.launch.py 
 

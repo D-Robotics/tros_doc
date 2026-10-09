@@ -46,7 +46,7 @@ The RDK platform is used as an example below:
 
 2. Start the USB camera with the following commands
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -66,14 +66,19 @@ The RDK platform is used as an example below:
 
        </TabItem>
 
-       <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
 
-       ```bash
-       # Configure tros.b environment
-       source /opt/tros/jazzy/setup.bash
-       ```
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
-        </TabItem>
+        ```bash
+        # Configure tros.b environment
+        source /opt/tros/humble/setup.bash
+        ```
+
+       </TabItem>
 
     </Tabs>
     </DocScope>
@@ -136,7 +141,7 @@ The RDK platform is used as an example below:
 
 4. View USB camera images in the web browser. Open another terminal:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -156,11 +161,16 @@ source /opt/tros/humble/setup.bash
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure tros.b environment
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -212,7 +222,7 @@ The RDK platform is used as an example below:
 
 2. Start the USB camera with the following commands
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -232,11 +242,16 @@ The RDK platform is used as an example below:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -302,7 +317,7 @@ The RDK platform is used as an example below:
 
 4. Encode to mjpeg using hobot codec
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -322,11 +337,16 @@ The RDK platform is used as an example below:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -369,7 +389,7 @@ The RDK platform is used as an example below:
 
 5. View USB camera images in the web browser. Open another terminal:
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -389,11 +409,16 @@ The RDK platform is used as an example below:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -442,7 +467,7 @@ The RDK platform is used as an example below:
 1. The USB camera needs to be calibrated, and the path to the camera calibration file must be configured; otherwise, camera intrinsics cannot be published, but other functions are not affected
 2. To set the camera calibration file path, follow these steps:
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -462,11 +487,16 @@ The RDK platform is used as an example below:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -538,17 +568,52 @@ The RDK platform is used as an example below:
 
 ### Introduction
 
+<DocScope products="RDK-X3">
+
 To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
 
 | No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg" alt="Photo of an F37 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} />       | 2MP | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg" alt="Photo of a GC4663 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 4MP | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 3    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg" alt="Photo of an IMX477 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
 | 5    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="Photo of an OV5647 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="Photo of an IMX415 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
-Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 2    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="Photo of an OV5647 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 3    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="Photo of an IMX415 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 2MP | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+To enable environmental perception, robot products are typically equipped with sensors such as cameras and ToF devices. To reduce sensor adaptation and usage costs for users, TogetheROS.Bot wraps various commonly used sensors into the hobot_sensor module and supports ROS standard image messages. When the configured sensor parameters do not match the connected camera, the program automatically adapts to the correct sensor type. The currently supported MIPI sensor types are listed below:
+
+| No. | Name   | Illustration                    | Parameters     |  Supported Platforms | Reference Link                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="Photo of an IMX219 MIPI camera module" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 8MP | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100, RDK S600 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b.s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
 
 ### Preparation
 
@@ -556,13 +621,21 @@ Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://gith
 
 1. Confirm that the camera is connected to the RDK correctly.
 
+    <DocScope products="RDK-X3">
+
     The following figure shows how to connect an F37 camera to RDK X3:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="Wiring diagram for connecting an F37 camera to RDK X3" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     The following figure shows how to connect an imx219 camera to RDK S100:
     
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg" alt="Wiring diagram for connecting an IMX219 camera to RDK S100" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+    </DocScope>
 
 2. The RDK has been flashed with the Ubuntu system image
 
@@ -580,7 +653,7 @@ The following describes how to acquire and preview camera data:
 
 2. Start the hobot_sensor node with the following commands
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -600,11 +673,16 @@ The following describes how to acquire and preview camera data:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -632,7 +710,7 @@ The following describes how to acquire and preview camera data:
 
 4. View camera images in the web browser. Because raw data is published, JPEG encoding is required. Open two additional terminals: one to subscribe to MIPI data and encode it as JPEG, and one to publish via webservice
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -652,11 +730,16 @@ The following describes how to acquire and preview camera data:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -682,12 +765,12 @@ The following describes how to acquire and preview camera data:
 
 6. Query camera intrinsics on the PC (actual values depend on the loaded calibration file). Commands and results are shown below:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/foxy/setup.bash
+   root@ubuntu:~# source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -695,15 +778,20 @@ The following describes how to acquire and preview camera data:
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -775,7 +863,7 @@ The following describes how to acquire and preview camera data:
 
 1. mipi_cam provides calibration files for F37 and GC4663 cameras. By default, it reads the F37 calibration file `F37_calibration.yaml` . If you use GC4663, change the camera calibration file path as follows:
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
         <TabItem value="foxy" label="Foxy">
 
@@ -795,11 +883,16 @@ The following describes how to acquire and preview camera data:
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
+    </Tabs>
+    </DocScope>
+
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+        <TabItem value="humble" label="Humble">
 
         ```bash
         # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
+        source /opt/tros/humble/setup.bash
         ```
 
         </TabItem>
@@ -860,6 +953,8 @@ The following describes how to acquire and preview camera data:
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
 
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
+
 ## Stereo MIPI Image Capture
 
 ### Introduction
@@ -878,7 +973,7 @@ Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://gith
 | Platform   | Runtime Environment      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
-| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)  |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### Preparation
@@ -887,13 +982,21 @@ Code repository: [https://github.com/D-Robotics/hobot_mipi_cam.git](https://gith
 
 1. Confirm that the camera is connected to the RDK correctly.
 
+    <DocScope products="RDK-X5">
+
     The following figure shows how to connect an SC230ai stereo camera to RDK X5 and RDK X5 Module:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg" alt="Wiring diagram for connecting an SC230AI stereo camera to RDK X5" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     The following figure shows how to connect an SC230ai stereo camera to S100:
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png" alt="Wiring diagram for connecting an SC230AI stereo camera to RDK S100" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+    </DocScope>
 
 2. The RDK has been flashed with the RDK OS system
 
@@ -918,15 +1021,6 @@ The following uses SC230ai as an example to describe how to acquire and preview 
         ```bash
         # Configure tros.b environment
         source /opt/tros/humble/setup.bash
-        ```
-
-        </TabItem>
-
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -1002,15 +1096,6 @@ The following uses SC230ai as an example to describe how to acquire and preview 
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # Configure tros.b environment
-        source /opt/tros/jazzy/setup.bash
-        ```
-
-        </TabItem>
-
     </Tabs>
     </DocScope>
 
@@ -1060,6 +1145,10 @@ The following uses SC230ai as an example to describe how to acquire and preview 
     - Check hardware connections
     - Verify that the tros.b environment is configured
     - Verify that parameters are correct. For details, refer to [README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+
+</DocScope>
+
+<DocScope products="RDK-X3">
 
 ## RGBD Image Capture
 
@@ -1207,11 +1296,12 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 3. Query current topics on the PC. Commands and results are shown below:
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1219,12 +1309,13 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 topic list
@@ -1252,11 +1343,12 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 4. Subscribe to topics on the PC and preview camera data
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1264,12 +1356,13 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 run rviz2 rviz2
@@ -1281,11 +1374,12 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 
 5. Query camera intrinsics on the PC
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1293,12 +1387,13 @@ The following uses CP3AM as an example to describe how to acquire and preview ca
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs> 
+</DocScope>
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1370,7 +1465,11 @@ If the hobot_sensor node fails to start, troubleshoot using the following steps:
 
 1. Check hardware connections
 2. Verify that the tros.b environment is configured
-3. Verify that parameters are correct. For details, refer to Hobot_Sensors README.md
+3. Verify that parameters are correct. For details, refer to Hobot_Sensors [README](https://github.com/D-Robotics/hobot_rgbd_cam/blob/develop/README.md).
+
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
 
 ## RealSense Image Capture
 
@@ -1412,7 +1511,7 @@ The GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper are 
 
 #### 1. Log in to the RDK via serial port or SSH and confirm the ROS version
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1425,6 +1524,22 @@ The GitHub repositories for RealSense SDK 2.0 and the RealSense ROS wrapper are 
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print ROS version environment variable
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1502,6 +1617,10 @@ It is recommended to read data directly on the RDK to verify that streaming work
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="Board-side terminal output from ros2 topic echo confirming RealSense streaming" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
+
 ## Orbbec Camera Image Capture
 
 ### Introduction
@@ -1543,7 +1662,7 @@ The GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper are listed be
 
 #### 1. Log in to the RDK via serial port or SSH and confirm the ROS version
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1556,6 +1675,22 @@ The GitHub repositories for the Orbbec SDK and Orbbec ROS2 wrapper are listed be
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+   # Print ROS version environment variable
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1703,6 +1838,10 @@ It is recommended to read data directly on the RDK to verify that streaming work
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="Terminal output from ros2 topic echo confirming Orbbec streaming" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X5">
+
 ## ZED Camera Image Capture
 
 ### Introduction
@@ -1774,3 +1913,5 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 3. On the PC, open a browser ( `Chrome` / `Firefox` / `Edge` ), enter `IP:8000` (where IP is the RDK IP address), and click **Web Display** in the upper-left corner to view the live ZED camera feed.
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Live ZED camera feed shown in the web viewer" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
+
+</DocScope>

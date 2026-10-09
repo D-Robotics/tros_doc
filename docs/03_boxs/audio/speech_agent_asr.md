@@ -22,7 +22,7 @@ speech_agent_asr提供语音识别功能，该节点通过订阅的VAD事件来�
 
 | 平台   | 运行环境     | 示例功能                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| 启动ASR模块并输出识别结果 |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| 启动ASR模块并输出识别结果 |
 
 ## 准备工作
 
@@ -36,14 +36,6 @@ speech_agent_asr提供语音识别功能，该节点通过订阅的VAD事件来�
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -77,14 +69,6 @@ RDK板端运行speech_agent_asr package：
 
     ```bash
     source /opt/tros/humble/setup.bash
-    ```
-
-    </TabItem>
-
-    <TabItem value="jazzy" label="Jazzy">
-
-    ```bash
-    source /opt/tros/jazzy/setup.bash
     ```
 
     </TabItem>

@@ -57,19 +57,10 @@ The YOLO-World (hobot_yolo_world) package subscribes to images published by the 
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -82,13 +73,13 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -100,19 +91,19 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
 ```shell
 
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -127,19 +118,10 @@ ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -152,13 +134,13 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/config/ .
 
-# 配置本地回灌图片
+# Configure local feedback playback images
 export CAM_TYPE=fb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch hobot_yolo_world yolo_world.launch.py yolo_world_texts:="red bottle,trash bin"
 ```
 
@@ -205,28 +187,28 @@ Enter `http://IP:8000` in a PC browser to view the image and algorithm rendering
 
 
 ## Advanced Usage
-If you want to change the local text features, you can use the corresponding tools to generate them locally. [Usage instructions](https://github.com/D-Robotics/hobot_yolo_world/blob/develop/tool/README_cn.md).
+If you want to change the local text features, you can use the corresponding tools to generate them locally. [Usage instructions](https://github.com/D-Robotics/hobot_yolo_world/blob/develop/tool/README.md).
 
 ```bash
-# 从tros.b的安装路径中拷贝出运行示例需要的工具文件。
+# Copy the tool files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_yolo_world/tool/ .
 
-# 下载模型并解压
+# Download and extract the model
 wget http://archive.d-robotics.cc/models/yoloworld_encode_text/huggingclip_text_encode.tar.gz
 sudo tar -xf huggingclip_text_encode.tar.gz -C tool
 
 cd tool/
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ```bash
-# 修改class.list里的词汇
+# Modify the vocabulary in class.list
 
-# 生成本地词汇
+# Generate the local vocabulary
 python main.py
 
-#拷贝新的词汇特征
+# Copy the new vocabulary features
 mv offline_vocabulary_embeddings.json ../config/
 ```

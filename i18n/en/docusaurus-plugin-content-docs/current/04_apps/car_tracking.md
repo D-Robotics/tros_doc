@@ -39,7 +39,7 @@ Code repository: (https://github.com/D-Robotics/body_tracking)
 
 4. A PC on the same network as the RDK (wired or on the same Wi-Fi, with the first three octets of the IP address matching). The PC requires the following environment:
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -70,6 +70,24 @@ Code repository: (https://github.com/D-Robotics/body_tracking)
  </Tabs>
  </DocScope>
 
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
+
+    - Ubuntu 22.04 and [ROS2 Humble desktop edition](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+    - Gazebo and Turtlebot3 related packages. Installation:
+
+     ```shell
+     sudo apt-get install ros-humble-gazebo-*
+     sudo apt install ros-humble-turtlebot3
+     sudo apt install ros-humble-turtlebot3-simulations
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
+
  
 
 ## Usage
@@ -82,7 +100,7 @@ After the App starts, images published by the sensor and corresponding algorithm
 
 Start the simulation environment on the PC:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -92,6 +110,19 @@ source /opt/ros/foxy/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```shell
+source /opt/ros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```shell
@@ -117,12 +148,12 @@ After successful startup, the robot in the simulation environment appears as fol
 
 **Publish images using MIPI camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -131,7 +162,22 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -144,25 +190,25 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从TogetheROS的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the TogetheROS installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
-# 配置MIPI摄像头
+# Configure MIPI camera
 export CAM_TYPE=mipi
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch body_tracking body_tracking_without_gesture.launch.py
 ```
 
 
 **Publish images using USB camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -171,7 +217,22 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -185,13 +246,13 @@ source /opt/tros/humble/setup.bash
 
 
 ```shell
-# 从tros.b的安装路径中拷贝出运行示例需要的配置文件。
+# Copy the configuration files required for the example from the tros.b installation path.
 cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_body_detection/config/ .
 
-# 配置USB摄像头
+# Configure USB camera
 export CAM_TYPE=usb
 
-# 启动launch文件
+# Launch the launch file
 ros2 launch body_tracking body_tracking_without_gesture.launch.py
 ```
 

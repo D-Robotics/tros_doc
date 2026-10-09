@@ -46,7 +46,7 @@ import DocScope from '@site/src/components/DocScope';
 
 #### RDK 平台
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -64,14 +64,17 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 </Tabs>
 </DocScope>
@@ -134,7 +137,7 @@ webserver has launch
 
 #### RDK 平台
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -152,14 +155,17 @@ source /opt/tros/setup.bash
 source /opt/tros/humble/setup.bash
 ```
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
-
 </TabItem>
 </Tabs>
 </DocScope>
@@ -431,7 +437,7 @@ package 初始化后，在终端输出如下信息：
 
 ```
 
-运行后 Trigger 触发产生的 rosbag 数据，将记录在当前运行目录 "trigger" 目录下。记录的 rosbag 数据，可以在 foxglove 中播放。在 foxglove 中播放 rosbag 文件的方法，可以参考手册 2.2 数据展示——foxglove 展示。
+运行后 Trigger 触发产生的 rosbag 数据，将记录在当前运行目录 "trigger" 目录下。记录的 rosbag 数据，可以在 foxglove 中播放。在 foxglove 中播放 rosbag 文件的方法，可以参考手册 [数据展示——foxglove 展示](./demo_render.md#foxglove-展示)。
 
 foxglove 中播放效果：
 

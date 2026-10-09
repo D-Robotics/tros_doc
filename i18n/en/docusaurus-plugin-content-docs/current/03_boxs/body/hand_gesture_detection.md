@@ -49,7 +49,11 @@ Application scenarios: Gesture recognition integrates hand keypoint detection, g
 
 Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_control.md)
 
+<DocScope products="RDK-X3">
+
 Game character control example based on gesture recognition and body pose analysis: [Master the X3 Board: Fitness and Gaming Combined](https://developer.d-robotics.cc/forumDetail/112555512834430487)
+
+</DocScope>
 
 ## Supported Platforms
 
@@ -103,7 +107,7 @@ The examples below start static gesture recognition by default.
 
 ### Using MIPI Camera
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -114,6 +118,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -143,7 +161,7 @@ ros2 launch hand_gesture_detection hand_gesture_detection.launch.py
 
 ### Using USB Camera
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -154,6 +172,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -190,7 +222,21 @@ This feature is only supported in `TROS Humble 2.3.1` and later versions.
 :::
 
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 

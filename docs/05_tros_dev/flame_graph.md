@@ -21,7 +21,8 @@ sidebar_products: RDK-X3,RDK-X5
 
 | 平台    | 运行方式 |
 | ------- | ---------|
-| RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble)    |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble) |
 ## 准备工作
 
 ### RDK 平台

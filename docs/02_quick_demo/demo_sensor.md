@@ -46,7 +46,7 @@ import DocScope from '@site/src/components/DocScope';
 
 2. 并通过下述命令启动 USB 摄像头
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -65,15 +65,19 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
    </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
-   ```bash
-   # 配置tros.b环境
-   source /opt/tros/jazzy/setup.bash
-   ```
+    ```bash
+    # 配置tros.b环境
+    source /opt/tros/humble/setup.bash
+    ```
 
-    </TabItem>
+   </TabItem>
     </Tabs>
     </DocScope>
 
@@ -133,7 +137,7 @@ import DocScope from '@site/src/components/DocScope';
 
 4. Web 端查看 USB 摄像头图像，另起一个终端：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -152,12 +156,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -206,7 +214,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 2. 并通过下述命令启动 USB 摄像头
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -225,12 +233,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -293,7 +305,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. 通过 hobot codec 进行编码成 mjpeg
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -312,12 +324,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -357,7 +373,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. Web 端查看 USB 摄像头图像，另起一个终端：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -376,12 +392,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -427,7 +447,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 1. USB 摄像头需要进行标定，并设置相机标定文件的读取路径，否则无法发布相机内参，但不影响其它功能
 2. 设置相机标定文件读取路径，具体步骤如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -446,12 +466,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -520,17 +544,52 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 ### 功能介绍
 
+<DocScope products="RDK-X3">
+
 为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
 
 | 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
 | ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
 | 1    | F37    | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/F37.jpg" alt="F37 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} />       | 200W 像素 | RDK X3, RDK X3 Module | [F37](https://developer.d-robotics.cc/accessory#23) |
 | 2    | GC4663 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/GC4663.jpg" alt="GC4663 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 400W 像素 | RDK X3, RDK X3 Module | [GC4663](https://developer.d-robotics.cc/accessory#23) |
+| 3    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
 | 4    | IMX477 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX477.jpg" alt="IMX477 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module | [IMX477](https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm) |
 | 5    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="OV5647 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
-| 6    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="IMX415 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
 
-代码仓库：[https://github.com/D-Robotics/hobot_mipi_cam.git](https://github.com/D-Robotics/hobot_mipi_cam.git)
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+| 2    | OV5647 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/OV5647.jpg" alt="OV5647 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module | [OV5647](https://www.waveshare.net/shop/RPi-Camera-G.htm) |
+| 3    | IMX415 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX415.jpg" alt="IMX415 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 200W 像素 | RDK X5, RDK X5 Module | [IMX415](https://e.tb.cn/h.hNHZxXLFdgg6oHj?tk=b1Id4UgKNVn) |
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
+<DocScope products="RDK-S600">
+
+为实现环境感知能力，机器人产品中通常会搭载摄像头、ToF 等类型的传感器。为降低用户传感器适配和使用成本，TogetheROS.Bot 会对多种常用传感器进行封装，并抽象成 hobot_sensor 模块，支持 ROS 标准图像消息。当配置的传感器参数与接入的摄像头不符时，程序会自动适应正确的传感器类型。目前已支持的 MIPI 传感器类型如下所示：
+
+| 序号 | 名称   | 示意图片                    | 参数     |  支持平台 | 参考链接                                                     |
+| ---- | ------ | -------------------- | -------- |  -------- | ------------------------------------------------------------ |
+| 1    | IMX219 | <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/IMX219.jpg" alt="IMX219 MIPI 摄像头模组实物示意图" style={{ width: 'auto', maxWidth: '120px', height: 'auto', display: 'block', margin: '0 auto' }} /> | 800W 像素 | RDK X3, RDK X3 Module, RDK X5, RDK X5 Module, RDK S100, RDK S600 | [IMX219](https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi) |
+
+</DocScope>
+
 
 ### 准备工作
 
@@ -538,13 +597,21 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入 RDK。
 
+    <DocScope products="RDK-X3">
+
     如 F37 摄像头的接入 RDK X3 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/08_FAQ/image/hardware_and_system/image-X3-PI-Camera.png" alt="F37 摄像头接入 RDK X3 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     如 imx219 摄像头的接入 RDK S100 方式如下图：
     
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-imx219.jpg" alt="IMX219 摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+    </DocScope>
 
 2. RDK 已烧录好 Ubuntu 系统镜像
 
@@ -562,7 +629,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 2. 并通过下述命令启动 hobot_sensor 节点
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -581,12 +648,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -609,7 +680,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. Web 端查看摄像头图像，由于发布原始数据，需要编码 JPEG 图像，另起两个终端：一个进行订阅 MIPI 数据编码为 JPEG，一个用 webservice 发布
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -628,12 +699,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -654,12 +729,12 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 6. 在 PC 机上查询相机内参（具体数据以读取的相机标定文件为准），命令及结果如下:
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/foxy/setup.bash
+   root@ubuntu:~# source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -667,15 +742,19 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/humble/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
    ```shell
-   root@ubuntu:~# source /opt/ros/jazzy/setup.bash
+   root@ubuntu:~# source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
@@ -746,7 +825,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. mipi_cam 提供 F37 以及 GC4663 两种摄像头的标定文件，默认读取 F37 的标定文件 `F37_calibration.yaml` ，如使用 GC4663，请更改相机标定文件的读取路径，具体步骤如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -765,12 +844,16 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -789,7 +872,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 3. 如遇到 hobot_sensor 节点启动异常，可通过下述步骤进行问题排查：
     - 检查硬件连接
     - 是否设置 tros.b 环境
-    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README_cn.md)
 4. 由于同时如果两路图像向同一个 topic 发送图像，导致图像冲突，因此启动第二路图像需要重映射 topic，启动第二个相机的指令（仅限 X5 和 S100）：
     <DocScope products="RDK-X5">
     <Tabs groupId="tros-distro">
@@ -824,6 +907,8 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
     ros2 launch mipi_cam mipi_cam_topic_remap.launch.py
     ```
 
+<DocScope products="RDK-X5,RDK-S100,RDK-S600">
+
 ## 双目 MIPI 图像采集
 
 ### 功能介绍
@@ -842,7 +927,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 | 平台   | 运行方式      |
 | ------ | ------------- |
 | RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)  |
-| RDK 100, RDK S100P | Ubuntu 22.04 (Humble)  |
+| RDK S100, RDK S100P | Ubuntu 22.04 (Humble)  |
 | RDK S600 | Ubuntu 24.04 (Jazzy) |
 
 ### 准备工作
@@ -851,13 +936,21 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 确认摄像头正确接入 RDK。
 
+    <DocScope products="RDK-X5">
+
     如 SC230ai 双目摄像头的接入 RDK X5, RDK X5 Module 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-X5-PI-DualCamera.jpg" alt="SC230AI 双目摄像头接入 RDK X5 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
 
+    </DocScope>
+
+    <DocScope products="RDK-S100">
+
     如 SC230ai 双目摄像头的接入 S100 方式如下图：
 
     <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/image-S100-sc230ai-DualCamera.png" alt="SC230AI 双目摄像头接入 RDK S100 的连接示意图" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+    </DocScope>
 
 2. RDK 已烧录好 RDK OS 系统
 
@@ -882,15 +975,6 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
         ```bash
         # 配置tros.b环境
         source /opt/tros/humble/setup.bash
-        ```
-
-        </TabItem>
-
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # 配置tros.b环境
-        source /opt/tros/jazzy/setup.bash
         ```
 
         </TabItem>
@@ -966,15 +1050,6 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
         </TabItem>
 
-        <TabItem value="jazzy" label="Jazzy">
-
-        ```bash
-        # 配置tros.b环境
-        source /opt/tros/jazzy/setup.bash
-        ```
-
-        </TabItem>
-
     </Tabs>
     </DocScope>
 
@@ -1023,7 +1098,11 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 2. 如遇到 hobot_sensor 节点启动异常，可通过下述步骤进行问题排查：
     - 检查硬件连接
     - 是否设置 tros.b 环境
-    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README.md)
+    - 参数是否正确，具体参考[README.md](https://github.com/D-Robotics/hobot_mipi_cam/blob/develop/README_cn.md)
+
+</DocScope>
+
+<DocScope products="RDK-X3">
 
 ## RGBD 图像采集
 
@@ -1171,11 +1250,12 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 3. PC 机上查询当前话题，查询命令及返回结果如下：
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1183,12 +1263,13 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 topic list
@@ -1216,11 +1297,12 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 4. PC 机上订阅话题，并预览摄像头数据
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1228,12 +1310,13 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 run rviz2 rviz2
@@ -1245,11 +1328,12 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 5. 在 PC 机上查询相机内参
 
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
    ```shell
-   source /opt/ros/foxy/setup.bash
+   source /opt/tros/setup.bash
    ```
 
 </TabItem>
@@ -1257,12 +1341,13 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 <TabItem value="humble" label="Humble">
 
    ```shell
-   source /opt/ros/humble/setup.bash
+   source /opt/tros/humble/setup.bash
    ```
 
 </TabItem>
 
 </Tabs>
+</DocScope>
 
     ```bash
     ros2 topic echo /rgbd_CP3AM/color/camera_info
@@ -1334,7 +1419,11 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 1. 检查硬件连接
 2. 是否设置 tros.b 环境
-3. 参数是否正确，具体参考 Hobot_Sensors README.md
+3. 参数是否正确，具体参考 Hobot_Sensors [README](https://github.com/D-Robotics/hobot_rgbd_cam/blob/develop/README_cn.md)。
+
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
 
 ## RealSense 图像采集
 
@@ -1376,7 +1465,7 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 #### 1. 通过串口或者 SSH 登录 RDK，确认 ROS 的版本
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1389,6 +1478,22 @@ ros2 launch websocket websocket.launch.py websocket_image_topic:=/image websocke
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1466,6 +1571,10 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/realsense-topic-echo.png" alt="使用 ros2 topic echo 在板端确认 RealSense 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X3,RDK-X5">
+
 ## 奥比中光(Orbbec)相机图像采集
 
 ### 功能介绍
@@ -1507,7 +1616,7 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 #### 1. 通过串口或者 SSH 登录 RDK，确认 ROS 的版本
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -1520,6 +1629,22 @@ ros2 launch realsense2_camera rs_launch.py enable_rgbd:=true enable_sync:=true a
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # 配置tros.b环境
+   source /opt/tros/humble/setup.bash
+   # 打印ros版本的环境变量
+   echo $ROS_DISTRO
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -1667,6 +1792,10 @@ ros2 launch orbbec_camera gemini2.launch.py depth_registration:=true
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/orbbec-topic-echo.png" alt="使用 ros2 topic echo 确认 Orbbec 出流数据的终端输出" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
+</DocScope>
+
+<DocScope products="RDK-X5">
+
 ## ZED 相机图像采集
 
 ### 功能介绍
@@ -1738,3 +1867,5 @@ ros2 launch hobot_zed_cam pub_stereo_imgs.launch.py need_rectify:=true
 3. PC 打开浏览器 `Chrome/Firefox/Edge` ，输入 `IP:8000` （IP 为 RDK 的 IP 地址），点击左上方 Web 端展示即可查看 ZED 相机实时画面。
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/02_quick_demo/image/demo_sensor/zed_cam_pic.png" alt="Web 端展示的 ZED 相机实时画面" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} />
+
+</DocScope>

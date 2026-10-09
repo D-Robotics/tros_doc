@@ -39,7 +39,11 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：手势识别算法集成了人手关键点检测，手势分析等技术，使得计算机能够将人的手势解读为对应指令，可实现手势控制以及手语翻译等功能，主要应用于智能家居，智能座舱、智能穿戴设备等领域。
 
+<DocScope products="RDK-X3,RDK-X5">
+
 小车手势控制案例：[小车手势控制](../../04_apps/car_gesture_control.md)
+
+</DocScope>
 
 ## 支持平台
 
@@ -93,15 +97,6 @@ apt install tros-humble-hand-landmarks-mediapipe
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -146,15 +141,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -199,15 +185,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# 配置tros.b环境
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

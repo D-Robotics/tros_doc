@@ -25,7 +25,7 @@ import DocScope from '@site/src/components/DocScope';
 | RDK S100, RDK S100P | Ubuntu 22.04 (Humble) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 | RDK S600 | Ubuntu 24.04 (Jazzy) | 订阅文本消息，然后转化为语音数据，最后播放出去 |
 
-**注意：仅支持 RDK X3，RDK X3 Module 暂不支持， RDK S100/S600 只支持 USB 语音设备。**
+**注意：仅支持 RDK X3，RDK X3 Module 暂不支持。**
 
 ## 准备工作
 
@@ -54,7 +54,7 @@ import DocScope from '@site/src/components/DocScope';
 
 1. 首次运行需要下载模型文件并解压，详细命令如下：
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -75,14 +75,18 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
     sudo apt update
-    sudo apt install tros-jazzy-hobot-tts
-    source /opt/tros/jazzy/setup.bash
+    sudo apt install tros-humble-hobot-tts
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -167,7 +171,7 @@ import DocScope from '@site/src/components/DocScope';
 
 3. 启动 hobot_tts 程序
 
-    <DocScope products="RDK-X3,RDK-X5">
+    <DocScope products="RDK-X3">
     <Tabs groupId="tros-distro">
     <TabItem value="foxy" label="Foxy">
 
@@ -186,12 +190,16 @@ import DocScope from '@site/src/components/DocScope';
     ```
 
     </TabItem>
+    </Tabs>
+    </DocScope>
 
-    <TabItem value="jazzy" label="Jazzy">
+    <DocScope products="RDK-X5">
+    <Tabs groupId="tros-distro">
+    <TabItem value="humble" label="Humble">
 
     ```bash
     # 配置tros.b环境
-    source /opt/tros/jazzy/setup.bash
+    source /opt/tros/humble/setup.bash
     ```
 
     </TabItem>
@@ -235,7 +243,7 @@ import DocScope from '@site/src/components/DocScope';
 
 4. 新开一个终端，使用 echo 命令发布一条 topic
 
-  <DocScope products="RDK-X3,RDK-X5">
+  <DocScope products="RDK-X3">
   <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -254,13 +262,17 @@ import DocScope from '@site/src/components/DocScope';
   ```
 
   </TabItem>
+  </Tabs>
+  </DocScope>
 
-  <TabItem value="jazzy" label="Jazzy">
+  <DocScope products="RDK-X5">
+  <Tabs groupId="tros-distro">
+  <TabItem value="humble" label="Humble">
 
-```bash
-# 配置tros.b环境
-source /opt/tros/jazzy/setup.bash
-```
+  ```bash
+  # 配置tros.b环境
+  source /opt/tros/humble/setup.bash
+  ```
 
   </TabItem>
   </Tabs>

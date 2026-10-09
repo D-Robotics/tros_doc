@@ -33,7 +33,7 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 2. TogetheROS.Bot has been successfully installed on the RDK.
 3. The intelligent voice algorithm package has been successfully installed on the RDK. Installation commands:
 
-   <DocScope products="RDK-X3,RDK-X5">
+   <DocScope products="RDK-X3">
    <Tabs groupId="tros-distro">
       <TabItem value="foxy" label="Foxy">
 
@@ -44,6 +44,20 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
 
       </TabItem>
 
+      <TabItem value="humble" label="Humble">
+
+      ```bash
+      sudo apt update
+      sudo apt install tros-humble-hobot-audio
+      ```
+
+      </TabItem>
+
+   </Tabs>
+   </DocScope>
+
+   <DocScope products="RDK-X5">
+   <Tabs groupId="tros-distro">
       <TabItem value="humble" label="Humble">
 
       ```bash
@@ -177,7 +191,7 @@ Run the hobot_audio package on the RDK board:
 
 1. Copy configuration files
 
- <DocScope products="RDK-X3,RDK-X5">
+ <DocScope products="RDK-X3">
  <Tabs groupId="tros-distro">
   <TabItem value="foxy" label="Foxy">
 
@@ -188,6 +202,20 @@ Run the hobot_audio package on the RDK board:
 
   </TabItem>
 
+  <TabItem value="humble" label="Humble">
+
+     ```bash
+     # Configure tros.b environment
+     source /opt/tros/humble/setup.bash
+     ```
+
+  </TabItem>
+
+ </Tabs>
+ </DocScope>
+
+ <DocScope products="RDK-X5">
+ <Tabs groupId="tros-distro">
   <TabItem value="humble" label="Humble">
 
      ```bash
@@ -235,7 +263,7 @@ Run the hobot_audio package on the RDK board:
 
 2. Configure tros.b environment and start application
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -252,6 +280,26 @@ Run the hobot_audio package on the RDK board:
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+   ```shell
+   # Configure tros.b environment
+   source /opt/tros/humble/setup.bash
+
+   # Suppress debug log output
+   export GLOG_minloglevel=3
+
+   # Launch launch file
+   ros2 launch hobot_audio hobot_audio.launch.py
+   ```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
    ```shell
@@ -290,7 +338,7 @@ alsa_device_init. hwparams(0x557d6e4fa0), swparams(0x557d6e5210)
 
 The log above shows that the audio device initialized successfully, the audio device was opened, and audio can be captured normally.
 
-When a person sequentially speaks the command words "地瓜你好", "向前走", "向左转", "向右转", and "向后退" near the microphone, the voice algorithm SDK outputs recognition results after intelligent processing. The log is as follows:
+When a person sequentially speaks the command words "地瓜你好" (D-Robotics hello), "向前走" (move forward), "向左转" (turn left), "向右转" (turn right), and "向后退" (move backward) near the microphone, the voice algorithm SDK outputs recognition results after intelligent processing. The log is as follows:
 
 ```text
 recv hrsc sdk event wakeup success, wkp count is 1
@@ -310,7 +358,7 @@ recv hrsc sdk command data: 向后退
 
 ```
 
-The log shows that voice command words "向前走", "向左转", "向右转", and "向后退" were recognized, and DOA angle information was output. For example, the field "recv hrsc sdk doa data: 110" indicates a DOA angle of 110 degrees.
+The log shows that voice command words "向前走" (move forward), "向左转" (turn left), "向右转" (turn right), and "向后退" (move backward) were recognized, and DOA angle information was output. For example, the field "recv hrsc sdk doa data: 110" indicates a DOA angle of 110 degrees.
 
 hobot_audio publishes intelligent voice messages to the topic **/audio_smart** by default. In another terminal, use the `ros2 topic list` command to query this topic:
 

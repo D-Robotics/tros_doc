@@ -22,7 +22,7 @@ Application scenarios: The speech_agent_audio algorithm can detect wake words an
 
 | Platform   | Runtime Environment     | Example Functionality                           |
 | ------ | ------------ | ---------------------------------- |
-| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble), Ubuntu 24.04 (Jazzy)| Start the Audio module and output wake-up results |
+| RDK X5, RDK X5 Module | Ubuntu 22.04 (Humble)| Start the Audio module and output wake-up results |
 
 ## Preparation
 
@@ -51,14 +51,6 @@ Application scenarios: The speech_agent_audio algorithm can detect wake words an
 
    ```bash
    source /opt/tros/humble/setup.bash
-   ```
-
-   </TabItem>
-
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
    ```
 
    </TabItem>
@@ -135,14 +127,6 @@ Running the speech_agent_audio package on the RDK:
 
    </TabItem>
 
-   <TabItem value="jazzy" label="Jazzy">
-
-   ```bash
-   source /opt/tros/jazzy/setup.bash
-   ```
-
-   </TabItem>
-
    </Tabs>
    </DocScope>
 
@@ -194,7 +178,7 @@ When saying the wake word "土豆土豆" (tu dou tu dou), wake-up is triggered a
 [WARN] [1783391628.612485499] [speech_agent_audio]: angle:135.000000
 ```
 
-When saying the command words "向前走", "向后退", "向左转", "向右转", "停止运动" in sequence, command words are triggered and the log displays:
+When saying the command words "向前走" (move forward), "向后退" (move backward), "向左转" (turn left), "向右转" (turn right), and "停止运动" (stop) in sequence, command words are triggered and the log displays:
 
 ```text
 [WARN] [1783391830.459405544] [speech_agent_audio]: cmd word:向前走

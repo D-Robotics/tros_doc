@@ -18,7 +18,11 @@ Code repository: (https://github.com/D-Robotics/sensevoice_ros2.git)
 
 Application scenarios: The intelligent voice algorithm can recognize custom command words in audio and interpret speech content as corresponding commands or convert it to text, enabling voice control and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
+<DocScope products="RDK-X3,RDK-X5">
+
 Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_apps/car_audio_control.md)
+
+</DocScope>
 
 ## Supported Platforms
 
@@ -43,14 +47,6 @@ Voice-controlled car movement example: [Voice-Controlled Car Movement](../../04_
       ```
       
        </TabItem>
-
-       <TabItem value="jazzy" label="Jazzy">
-
-       ```bash
-       source /opt/tros/jazzy/setup.bash
-       ```
-
-      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -145,19 +141,6 @@ Run the sensevoice_ros2 package on the RDK board:
 
 </TabItem>
 
-<TabItem value="jazzy" label="Jazzy">
-
-   ```shell
-   # Configure tros.b environment
-   
-   source /opt/tros/jazzy/setup.bash
-
-   # Launch launch file
-   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
-   ```
-
-</TabItem>
-
 </Tabs>
 </DocScope>
 
@@ -217,7 +200,7 @@ alsa_device_init. hwparams(0xaaaad12484a0), swparams(0xaaaad124a7a0)
 
 The log above shows that the audio device initialized successfully, the audio device was opened, and audio can be captured normally.
 
-When a person sequentially speaks the command words "向前走", "向左转", "向右转", and "向后退" near the microphone, the voice algorithm outputs recognition results after intelligent processing. The log is as follows:
+When a person sequentially speaks the command words "向前走" (move forward), "向左转" (turn left), "向右转" (turn right), and "向后退" (move backward) near the microphone, the voice algorithm outputs recognition results after intelligent processing. The log is as follows:
 
 ```text
 cost time :769 ms
@@ -252,6 +235,6 @@ $ ros2 topic list
 /asr_text
 ```
 
-The /asr_text topic requires a specific wake word "你好，地瓜机器人" to produce output. The `ros2 topic echo /asr_text` result is:
+The /asr_text topic requires a specific wake word "你好，地瓜机器人" (hello, D-Robotics) to produce output. The `ros2 topic echo /asr_text` result is:
 
 <img src="http://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/03_boxs/function/image/box_adv/audio_asr.jpg" alt="Terminal echo of /asr_text topic output after wake-word speech recognition" style={{ width: '60%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>

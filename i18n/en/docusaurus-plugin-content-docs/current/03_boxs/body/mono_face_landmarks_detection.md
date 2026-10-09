@@ -21,7 +21,7 @@ Code repository: (https://github.com/D-Robotics/face_landmarks_detection)
 
 | Platform                    | Runtime Environment                  | Example Functionality                         |
 |-----------------------|-----------------------|------------------------------|
-| RDK X3, RDK X3 Module | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
+| RDK X3, RDK X3 Module | Ubuntu 20.04 (Foxy), Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 | RDK X5, RDK X5 Module                | Ubuntu 22.04 (Humble) | Start MIPI/USB camera and display inference rendering results via Web |
 
 ## Algorithm Info
@@ -58,7 +58,7 @@ The **face 106 keypoint detection (face_landmarks_detection) package** subscribe
 
 **Publish Images Using MIPI Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -69,6 +69,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -97,7 +111,7 @@ ros2 launch face_landmarks_detection body_det_face_landmarks_det.launch.py
 
 **Publish Images Using USB Camera**
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -108,6 +122,20 @@ source /opt/tros/setup.bash
 
 </TabItem>
 
+<TabItem value="humble" label="Humble">
+
+```bash
+# Configure tros.b environment
+source /opt/tros/humble/setup.bash
+```
+
+</TabItem>
+
+</Tabs>
+</DocScope>
+
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
 <TabItem value="humble" label="Humble">
 
 ```bash

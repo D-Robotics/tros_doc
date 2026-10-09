@@ -18,7 +18,11 @@ import DocScope from '@site/src/components/DocScope';
 
 应用场景：智能语音算法能够识别音频中自定义的命令词，并将语音内容解读为对应指令或转化为文字，可实现语音控制以及语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
+<DocScope products="RDK-X3,RDK-X5">
+
 语音控制小车运动案例：[语音控制小车运动](../../04_apps/car_audio_control.md)
+
+</DocScope>
 
 ## 支持平台
 
@@ -43,14 +47,6 @@ import DocScope from '@site/src/components/DocScope';
       ```
       
        </TabItem>
-
-       <TabItem value="jazzy" label="Jazzy">
-
-       ```bash
-       source /opt/tros/jazzy/setup.bash
-       ```
-
-      </TabItem>
 
    </Tabs>
    </DocScope>
@@ -134,19 +130,6 @@ RDK 板端运行 sensevoice_ros2 package：
    # 配置tros.b环境
    
    source /opt/tros/humble/setup.bash
-
-   #启动launch文件
-   ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"
-   ```
-
-</TabItem>
-
-<TabItem value="jazzy" label="Jazzy">
-
-   ```shell
-   # 配置tros.b环境
-   
-   source /opt/tros/jazzy/setup.bash
 
    #启动launch文件
    ros2 launch sensevoice_ros2 sensevoice_ros2.launch.py micphone_name:="plughw:0,0"

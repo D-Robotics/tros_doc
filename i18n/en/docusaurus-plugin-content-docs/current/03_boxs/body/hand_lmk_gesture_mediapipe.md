@@ -39,7 +39,11 @@ Supported gesture recognition categories and their corresponding values in the a
 
 Application scenarios: Gesture recognition integrates hand keypoint detection, gesture analysis, and other technologies, enabling computers to interpret human gestures as corresponding commands. It supports gesture control and sign language translation, and is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
+<DocScope products="RDK-X3,RDK-X5">
+
 Car gesture control example: [Car Gesture Control](../../04_apps/car_gesture_control.md)
+
+</DocScope>
 
 ## Supported Platforms
 
@@ -92,15 +96,6 @@ The hand keypoint detection (hand_landmarks_mediapipe) package subscribes to ima
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -145,15 +140,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash
@@ -198,15 +184,6 @@ ros2 launch hand_landmarks_mediapipe hand_landmarks.launch.py
 
 <DocScope products="RDK-X5">
 <Tabs groupId="tros-distro">
-<TabItem value="foxy" label="Foxy">
-
-```bash
-# Configure tros.b environment
-source /opt/tros/setup.bash
-```
-
-</TabItem>
-
 <TabItem value="humble" label="Humble">
 
 ```bash

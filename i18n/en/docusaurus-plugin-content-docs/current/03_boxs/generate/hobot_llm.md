@@ -54,7 +54,7 @@ Before running the program, download and extract the model files with the follow
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -63,7 +63,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -77,14 +77,14 @@ source /opt/tros/humble/setup.bash
 
 
 ```bash
-# 下载模型文件
+# Download the model files
 wget http://archive.d-robotics.cc/llm-model/llm_model.tar.gz
 
-# 解压
+# Extract
 sudo tar -xf llm_model.tar.gz -C /opt/tros/${TROS_DISTRO}/lib/hobot_llm/
 ```
 
-Use the `srpi-config` command to set ION memory size to 1.9GB. For configuration instructions, refer to the [Performance Options](https://developer.d-robotics.cc/rdk_doc/System_configuration/srpi-config#performance-options) section in the RDK user manual for the `srpi-config` configuration tool.
+Use the `srpi-config` command to set ION memory size to 1.9GB. For configuration instructions, refer to the [Performance Options](https://developer.d-robotics.cc/rdk_x_doc/en/System_configuration/srpi-config?v=3.0.0&p=RDK+X3#performance-options) section in the RDK user manual for the `srpi-config` configuration tool.
 
 After rebooting, set the maximum CPU frequency to 1.5GHz and the governor to `performance` with the following commands:
 
@@ -102,7 +102,7 @@ Two experience modes are currently provided: direct terminal text chat, and subs
 <TabItem value="foxy" label="Foxy">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/setup.bash
 ```
 
@@ -111,7 +111,7 @@ source /opt/tros/setup.bash
 <TabItem value="humble" label="Humble">
 
 ```bash
-# 配置tros.b环境
+# Configure tros.b environment
 source /opt/tros/humble/setup.bash
 ```
 
@@ -139,7 +139,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="foxy" label="Foxy">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/setup.bash
         ```
 
@@ -148,7 +148,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="humble" label="Humble">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/humble/setup.bash
         ```
 
@@ -171,7 +171,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="foxy" label="Foxy">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/setup.bash
         ```
 
@@ -180,7 +180,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="humble" label="Humble">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/humble/setup.bash
         ```
 
@@ -203,7 +203,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="foxy" label="Foxy">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/setup.bash
         ```
 
@@ -212,7 +212,7 @@ After the program starts, you can chat with the robot directly in the current te
         <TabItem value="humble" label="Humble">
 
         ```bash
-        # 配置tros.b环境
+        # Configure tros.b environment
         source /opt/tros/humble/setup.bash
         ```
 

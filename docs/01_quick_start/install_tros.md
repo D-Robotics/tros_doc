@@ -68,8 +68,8 @@ RDK X3 平台请注意：
 
 :::caution 注意
 - **2.x 版本 tros.b 仅支持 2.x 版本系统镜像，[1.x 版本 tros.b](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)仅支持 1.x 版本系统。**
-- **如果您使用的是 1.x 版本系统镜像，需要将[环境准备](./preparation.md)到 2.x 版本。**
-- **系统和 tros.b 版本号查看方法以及详细说明，请查看[FAQs](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
+- **如果您使用的是 1.x 版本系统镜像，需要参考[环境准备](./preparation.md)章节将系统升级到 2.x 版本。**
+- **系统和 tros.b 版本号查看方法以及详细说明，请查看[常见问题](https://developer.d-robotics.cc/rdk_x_doc/FAQ/applications_and_examples)。**
 :::
 
 
@@ -96,7 +96,7 @@ ssh root@10.64.61.241
 
 安装 tros.b 功能包：
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -115,12 +115,16 @@ sudo apt install tros-humble
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 sudo apt update
-sudo apt install tros-jazzy
+sudo apt install tros-humble
 ```
 
 </TabItem>
@@ -251,7 +255,7 @@ sudo apt upgrade
 
 ### 查看当前 tros.b 版本
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -294,26 +298,30 @@ Description: TogetheROS Bot
 可以看到当前 tros.b 版本已升级为 2.2.0 版本。
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
-root@ubuntu:~# apt show tros-jazzy
-Package: tros-jazzy
-Version: 2.5.0-noble.20251202.080038
+root@ubuntu:~# apt show tros-humble
+Package: tros-humble
+Version: 2.2.0-jammy.20240410.221258
 Priority: optional
 Section: misc
 Maintainer: zhuo <zhuo.wang@d-robotics.cc>
 Installed-Size: 44.0 kB
-Depends: hobot-models-basic, tros-jazzy-ai-msgs, tros-jazzy-audio-control, tros-jazzy-audio-msg, tros-jazzy-audio-tracking, tros-jazzy-base, tros-jazzy-body-tracking, tros-jazzy-dnn-benchmark-example, tros-jazzy-dnn-node, tros-jazzy-dnn-node-example, tros-jazzy-dnn-node-sample, tros-jazzy-elevation-net, tros-jazzy-gesture-control, tros-jazzy-hand-gesture-detection, tros-jazzy-hand-lmk-detection, tros-jazzy-hbm-img-msgs, tros-humble-hobot-audio, tros-jazzy-hobot-chatbot, tros-jazzy-hobot-codec, tros-jazzy-hobot-cv, tros-jazzy-hobot-falldown-detection, tros-jazzy-hobot-hdmi, tros-jazzy-hobot-image-publisher, tros-jazzy-hobot-llm, tros-jazzy-hobot-mot, tros-jazzy-hobot-shm, tros-jazzy-hobot-tts, tros-jazzy-hobot-usb-cam, tros-jazzy-hobot-vio, tros-humble-hobot-visualization, tros-jazzy-img-msgs, tros-jazzy-imu-sensor, tros-jazzy-line-follower-model, tros-humble-line-follower-perception, tros-jazzy-mipi-cam, tros-jazzy-mono2d-body-detection, tros-jazzy-mono2d-trash-detection, tros-jazzy-mono3d-indoor-detection, tros-jazzy-parking-perception, tros-jazzy-parking-search, tros-jazzy-rgbd-sensor, tros-jazzy-websocket, tros-jazzy-ros-workspace
+Depends: hobot-models-basic, tros-humble-ai-msgs, tros-humble-audio-control, tros-humble-audio-msg, tros-humble-audio-tracking, tros-humble-base, tros-humble-body-tracking, tros-humble-dnn-benchmark-example, tros-humble-dnn-node, tros-humble-dnn-node-example, tros-humble-dnn-node-sample, tros-humble-elevation-net, tros-humble-gesture-control, tros-humble-hand-gesture-detection, tros-humble-hand-lmk-detection, tros-humble-hbm-img-msgs, tros-humble-hobot-audio, tros-humble-hobot-chatbot, tros-humble-hobot-codec, tros-humble-hobot-cv, tros-humble-hobot-falldown-detection, tros-humble-hobot-hdmi, tros-humble-hobot-image-publisher, tros-humble-hobot-llm, tros-humble-hobot-mot, tros-humble-hobot-shm, tros-humble-hobot-tts, tros-humble-hobot-usb-cam, tros-humble-hobot-vio, tros-humble-hobot-visualization, tros-humble-img-msgs, tros-humble-imu-sensor, tros-humble-line-follower-model, tros-humble-line-follower-perception, tros-humble-mipi-cam, tros-humble-mono2d-body-detection, tros-humble-mono2d-trash-detection, tros-humble-mono3d-indoor-detection, tros-humble-parking-perception, tros-humble-parking-search, tros-humble-rgbd-sensor, tros-humble-websocket, tros-humble-ros-workspace
 Download-Size: 5,546 B
 APT-Manual-Installed: yes
-APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk-s600 noble/main arm64 Packages
+APT-Sources: http://archive.d-robotics.cc/ubuntu-rdk jammy/main arm64 Packages
 Description: TogetheROS Bot
 
 ```
 
-可以看到当前 tros.b 版本已升级为 2.5.0 版本。
+可以看到当前 tros.b 版本已升级为 2.2.0 版本。
 
 </TabItem>
 </Tabs>

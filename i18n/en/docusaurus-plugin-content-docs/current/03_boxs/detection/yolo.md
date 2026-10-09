@@ -98,7 +98,7 @@ Fall detection case: (https://github.com/xiaobin1231/Fall-Detection-By-YOLOV3-an
 
 The YOLOv2 object detection algorithm example subscribes to images published by the MIPI camera, performs algorithm inference, publishes the algorithm message, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -117,12 +117,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -167,7 +171,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The YOLOv2 object detection algorithm example subscribes to images published by the USB camera, performs algorithm inference, publishes the algorithm message, and uses the websocket package to render and display the published images and corresponding algorithm results in a PC browser.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -186,12 +190,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -236,7 +244,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 The YOLOv2 object detection algorithm example uses local JPEG/PNG images for injection, performs inference, and saves the rendered images with algorithm results in the local runtime directory.
 
-<DocScope products="RDK-X3,RDK-X5">
+<DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
 <TabItem value="foxy" label="Foxy">
 
@@ -255,12 +263,16 @@ source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
+</Tabs>
+</DocScope>
 
-<TabItem value="jazzy" label="Jazzy">
+<DocScope products="RDK-X5">
+<Tabs groupId="tros-distro">
+<TabItem value="humble" label="Humble">
 
 ```bash
 # Configure the tros.b environment
-source /opt/tros/jazyy/setup.bash
+source /opt/tros/humble/setup.bash
 ```
 
 </TabItem>
@@ -298,7 +310,23 @@ source /opt/tros/jazyy/setup.bash
 ros2 launch dnn_node_example dnn_node_example_feedback.launch.py dnn_example_config_file:=config/yolov2workconfig.json dnn_example_image:=config/target.jpg
 ```
 
-In addition to the YOLOv2 algorithm, other algorithms in the YOLO series are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` ; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"` ; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"` ; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"` ; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"` ; for YOLO26, set `dnn_example_config_file:="config/yolo26workconfig.json"` .
+<DocScope products="RDK-X3,RDK-S600">
+
+In addition to the YOLOv2 algorithm, YOLOv3 and YOLOv5 are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` .
+
+</DocScope>
+
+<DocScope products="RDK-X5">
+
+In addition to the YOLOv2 algorithm, YOLOv3, YOLOv5, YOLOv8, YOLOv10, YOLOv11, YOLOv12, and YOLO26 are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` ; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"` ; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"` ; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"` ; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"` ; for YOLO26, set `dnn_example_config_file:="config/yolo26workconfig.json"` .
+
+</DocScope>
+
+<DocScope products="RDK-S100">
+
+In addition to the YOLOv2 algorithm, YOLOv3, YOLOv5, YOLOv8, YOLOv10, YOLOv11, and YOLOv12 are also supported. Use the `config_file` parameter in the launch command to switch algorithms. For example, to use YOLOv3, set `dnn_example_config_file:="config/yolov3workconfig.json"` ; for YOLOv5, set `dnn_example_config_file:="config/yolov5workconfig.json"` ; for YOLOv8, set `dnn_example_config_file:="config/yolov8workconfig.json"` ; for YOLOv10, set `dnn_example_config_file:="config/yolov10workconfig.json"` ; for YOLOv11, set `dnn_example_config_file:="config/yolov11workconfig.json"` ; for YOLOv12, set `dnn_example_config_file:="config/yolov12workconfig.json"` .
+
+</DocScope>
 
 ## Result Analysis
 

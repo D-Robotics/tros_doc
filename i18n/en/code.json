@@ -364,5 +364,17 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "Collapse the dropdown",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "docUnavailable.backHome": {
+    "message": "Back to docs home",
+    "description": "The button label that leads back to the documentation home page"
+  },
+  "docUnavailable.appliesTo": {
+    "message": "This document is available for: ",
+    "description": "The platforms that a document is scoped to, shown on the not-found page"
+  },
+  "docUnavailable.switchProduct": {
+    "message": "Switch to {product}",
+    "description": "The button label that switches to a platform where this document is available"
   }
 }
