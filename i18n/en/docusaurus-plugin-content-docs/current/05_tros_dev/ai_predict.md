@@ -43,7 +43,7 @@ By reading this section, users can use models provided by D-Robotics to create a
 
 3. A PC that can access RDK over the network.
 
-For detailed usage of `hobot_dnn` , refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in the `hobot_dnn` code. The usage workflow of hobot_dnn is as follows:
+For detailed usage of `hobot_dnn` , refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual_EN.md) in the `hobot_dnn` code. The usage workflow of hobot_dnn is as follows:
 
 <img src="https://rdk-doc.oss-cn-beijing.aliyuncs.com/doc/img/05_Robot_development/05_tros_dev/image/ai_predict/dnnnode_workflow.jpg" alt="Workflow diagram of the hobot_dnn / DNN Node inference pipeline" style={{ width: '80%', maxWidth: '980px', height: 'auto', display: 'block', margin: '0 auto' }} /><br/>
 
@@ -1323,7 +1323,7 @@ Enter the `Ctrl+C` command to exit the program.
 
 This section describes how to use models provided by D-Robotics to create and run a human body detection algorithm inference example based on `hobot_dnn` . Use images published from the camera, obtain algorithm output, and render images and algorithm inference results in real time in a PC browser.
 
-Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual.md) in `hobot_dnn` to learn about more algorithm inference features.
+Users can refer to [README.md](https://github.com/D-Robotics/hobot_dnn/blob/develop/README.md) and the [API Manual](https://github.com/D-Robotics/hobot_dnn/blob/develop/dnn_node/docs/API-Manual/API-Manual_EN.md) in `hobot_dnn` to learn about more algorithm inference features.
 
 ## Algorithm Workflow Construction
 
