@@ -156,7 +156,7 @@ Performance comparison between hobot_cv Gaussian filtering with BPU acceleration
 | Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv gaussian   | Size(3,3)     | 1.10435     |    15.9       |
-| Opencv gaussian    | Size(3,3)     | 2.41861     |    49.7       |
+| OpenCV gaussian    | Size(3,3)     | 2.41861     |    49.7       |
 
 #### NEON Acceleration
 
@@ -193,9 +193,9 @@ Performance comparison between hobot_cv Gaussian filtering with NEON acceleratio
 | Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv gaussian   | Size(3,3)     | 0.430284    |    27.1   |
-| Opencv gaussian    | Size(3,3)     | 2.42225     |    47     |
+| OpenCV gaussian    | Size(3,3)     | 2.42225     |    47     |
 | Hobotcv gaussian   | Size(5,5)     | 0.854871    |    39.1   |
-| Opencv gaussian    | Size(5,5)     | 3.15647     |    99.8    |
+| OpenCV gaussian    | Size(5,5)     | 3.15647     |    99.8    |
 
 ## Mean Filtering
 
@@ -294,9 +294,9 @@ Mean filtering mean error = sum / (width x height) = 8.43744e+06 / (320 x 240)
 | Interface Type | Filter Kernel Size | Time (ms) | Single-Core CPU Usage (%) |
 | ------------------ | ------------- | ----------- | --------------|
 | Hobotcv mean       | Size(3,3)     | 0.466397    |       31.8   |
-| Opencv mean        | Size(3,3)     | 0.676677    |       40.2   |
+| OpenCV mean        | Size(3,3)     | 0.676677    |       40.2   |
 | Hobotcv mean       | Size(5,5)     | 0.737171    |       47.7   |
-| Opencv mean        | Size(5,5)     | 0.798177    |       52.9   |
+| OpenCV mean        | Size(5,5)     | 0.798177    |       52.9   |
 
 </DocScope>
 <DocScope products="RDK-X3,RDK-X5">

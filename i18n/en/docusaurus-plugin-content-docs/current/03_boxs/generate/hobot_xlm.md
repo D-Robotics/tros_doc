@@ -186,7 +186,7 @@ Currently supported model types are `DeepSeek_R1_Distill_Qwen_1.5B"` and `"DeepS
 
 
     ```bash
-    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""简单描述人工智能的发展""}"
+    ros2 topic pub --once /prompt_text std_msgs/msg/String "{data: ""Briefly describe the development of artificial intelligence""}"
     ```
 
 After sending the message, you can view the output results in the terminal subscribed to the output.
@@ -230,50 +230,50 @@ After sending the message, you can view the output results in the terminal subsc
 板端大模型多轮对话交互demo，请输入你的问题并按下回车
 - 退出请输入Ctrl C
 - 清除缓存请输入reset
-[User] <<< 简单描述人工智能的发展
+[User] <<< Briefly describe the development of artificial intelligence
 [Assistant] >>> ...
 
-人工智能（AI）的发展可以分为几个主要阶段：
+Artificial intelligence (AI) has developed through several major stages:
 
-1. **早期AI**：
-   - **人工智能**：最初用于特定任务，如游戏和客服。
-   - **机器学习**：1950年代，计算机开始学习，如自动识别和语音识别。
-   - **专家系统**：1970年代，如“维基”系统，模拟人类专家。
+1. **Early AI**:
+   - **AI**: Initially used for specific tasks, such as games and customer service.
+   - **Machine learning**: In the 1950s, computers began to learn, such as automatic recognition and speech recognition.
+   - **Expert systems**: In the 1970s, systems such as "Wiki" simulated human experts.
 
-2. **计算机视觉**：
-   - **图像识别**：1980年代，计算机识别简单的图像，如手写数字。
-   - **自然语言处理**：1990年代，如维基百科的自动搜索和编辑。
+2. **Computer vision**:
+   - **Image recognition**: In the 1980s, computers recognized simple images such as handwritten digits.
+   - **Natural language processing**: In the 1990s, such as automatic search and editing on Wikipedia.
 
-3. **深度学习**：
-   - **神经网络**：1980年代，神经网络用于处理复杂数据。
-   - **卷积神经网络（CNN）**：1990年代，用于图像识别，如自动驾驶汽车。
-   - **深度学习**：2010年代，如GPT和BERT，用于自然语言处理。
+3. **Deep learning**:
+   - **Neural networks**: In the 1980s, neural networks were used to process complex data.
+   - **Convolutional neural networks (CNNs)**: In the 1990s, used for image recognition, such as self-driving cars.
+   - **Deep learning**: In the 2010s, such as GPT and BERT, used for natural language processing.
 
-4. **强化学习**：
-   - **机器人控制**：1980年代，机器人学习动作。
-   - **自动驾驶**：2010年代，如自动驾驶汽车。
+4. **Reinforcement learning**:
+   - **Robot control**: In the 1980s, robots learned actions.
+   - **Autonomous driving**: In the 2010s, such as self-driving cars.
 
-5. **深度学习和神经网络**：
-   - **图像识别**：如分类、分割和生成。
-   - **自然语言处理**：如文本生成、翻译和对话。
-   - **语音识别**：如转录和语音合成。
+5. **Deep learning and neural networks**:
+   - **Image recognition**: Such as classification, segmentation, and generation.
+   - **Natural language processing**: Such as text generation, translation, and dialogue.
+   - **Speech recognition**: Such as transcription and speech synthesis.
 
-6. **AI应用**：
-   - **医疗**：如诊断和药物研发。
-   - **交通**：如自动驾驶和交通管理系统。
-   - **教育**：如智能学习系统。
-   - **金融**：如自动交易和风险管理。
+6. **AI applications**:
+   - **Healthcare**: Such as diagnosis and drug discovery.
+   - **Transportation**: Such as autonomous driving and traffic management systems.
+   - **Education**: Such as intelligent learning systems.
+   - **Finance**: Such as automated trading and risk management.
 
-7. **伦理和挑战**：
-   - **隐私问题**：数据泄露和隐私侵犯。
-   - **伦理争议**：如算法偏见和隐私问题。
+7. **Ethics and challenges**:
+   - **Privacy issues**: Data leaks and privacy violations.
+   - **Ethical controversies**: Such as algorithmic bias and privacy issues.
 
-8. **未来展望**：
-   - **AI芯片**：用于训练和推理。
-   - **边缘AI**：在设备上运行，减少数据传输。
-   - **多模态AI**：结合视觉、听觉等多模态数据。
-   - **人类助手**：如聊天机器人和生命支持系统。
+8. **Future outlook**:
+   - **AI chips**: Used for training and inference.
+   - **Edge AI**: Runs on devices, reducing data transmission.
+   - **Multimodal AI**: Combines visual, auditory, and other multimodal data.
+   - **Human assistants**: Such as chatbots and life support systems.
 
-AI将继续在多个领域发展，推动技术进步和社会变革。
+AI will continue to develop in many fields, driving technological progress and social change.
 Performance prefill: 1113.04tokens/s    decode: 20.22tokens/s
 ```
