@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## Introduction
 
-This example uses [yolo-pose](https://docs.ultralytics.com/zh/tasks/pose/) for body detection and tracking. It subscribes to images, performs inference on the BPU, and publishes messages containing body bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes.
+This example uses [yolo-pose](https://docs.ultralytics.com/tasks/pose/) for body detection and tracking. It subscribes to images, performs inference on the BPU, and publishes messages containing body bounding boxes and body keypoint detection results. Multi-target tracking (MOT) is used to track detection boxes.
 
 Supported detection categories and their corresponding data types in the algorithm message are as follows:
 

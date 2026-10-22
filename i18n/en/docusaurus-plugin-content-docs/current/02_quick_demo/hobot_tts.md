@@ -317,7 +317,7 @@ Code repository: (https://github.com/D-Robotics/hobot_tts.git)
   </DocScope>
 
    ```bash
-   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""你知道D-Robotics 吗？是的，我知道D-Robotics 。它是一条从地面延伸到天空的线，它定义了地面和天空之间的分界线。""}"
+   ros2 topic pub --once /tts_text std_msgs/msg/String "{data: ""Hello, this is the RDK. Text-to-speech is working.""}"
    ```
 
 5. You should hear the audio playback through headphones or speakers

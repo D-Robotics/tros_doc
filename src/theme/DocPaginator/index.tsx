@@ -87,8 +87,12 @@ function extractNumberPrefix(title: string): string | null {
   return numbered?.[1] ?? null;
 }
 
+// Only a raw folder/file name that leaked in as the title ("3_1_2 Object Detection")
+// is treated as a code title. The paginator title comes from the sidebar label,
+// so rewriting anything else - e.g. the real product names "MobileNet_SSD" and
+// "Speech_Agent_ASR" - would make the paginator disagree with the sidebar.
 function looksLikeUnderscoreCodeTitle(title: string): boolean {
-  return /(?:^|\s)\d+_\d+_|[A-Za-z]_[A-Za-z]/.test(title);
+  return /(?:^|\s)\d+_\d+_/.test(String(title || '').trim());
 }
 
 function normalizePath(path: string | undefined): string {

@@ -347,15 +347,15 @@ int main(int argc, char** argv) {
 
 The human body detection algorithm Node in this example mainly consists of three logically independent parts.
 
-**（1）Node Initialization and Startup**
+**(1) Node Initialization and Startup**
 
 Configure model information used by the algorithm, create publishers for algorithm inference messages and subscribers for image messages, and start the multi-target tracking algorithm engine.
 
-**（2）Message Subscription and Algorithm Inference**
+**(2) Message Subscription and Algorithm Inference**
 
 When creating the image message subscriber, the message callback `FeedImg` is registered to process image data for algorithm model inference. The callback does not wait for algorithm inference to complete.
 
-**（3）Inference Result Processing and Publishing**
+**(3) Inference Result Processing and Publishing**
 
 After algorithm inference completes, inference results are output through the registered callback `PostProcess` . The callback processes detection results with the multi-target tracking algorithm ( `HobotMot` ) and publishes algorithm inference result messages.
 
@@ -781,7 +781,7 @@ The package.xml automatically added build dependency packages, including `rclcpp
 
 Add package dependencies and build/install information in CMakeLists.txt.
 
-（1）Add multi-target tracking algorithm and algorithm inference engine library dependencies
+(1) Add multi-target tracking algorithm and algorithm inference engine library dependencies
 
 ```cmake
 link_directories(
@@ -790,7 +790,7 @@ link_directories(
 )
 ```
 
-（2）Add package build information
+(2) Add package build information
 
 ```cmake
 add_executable(${PROJECT_NAME}
@@ -808,7 +808,7 @@ ament_target_dependencies(
 )
 ```
 
-（3）Add package install information to run the compiled package via ros2 run
+(3) Add package install information to run the compiled package via ros2 run
 
 ```cmake
 install(
@@ -1018,7 +1018,7 @@ Four nodes run on RDK, including the algorithm inference node in this example.
 
 The system startup workflow is as follows:
 
-（1）Open terminal 1 on RDK and start the algorithm inference node
+(1) Open terminal 1 on RDK and start the algorithm inference node
 
 <DocScope products="RDK-X3">
 <Tabs groupId="tros-distro">
@@ -1060,7 +1060,7 @@ cp -r /opt/tros/${TROS_DISTRO}/lib/hobot_mot/config/iou2_method_param.json confi
 ros2 run cpp_dnn_demo cpp_dnn_demo --ros-args --log-level warn
 ```
 
-（2）Open terminal 2 on RDK and start tros.b image publishing, encoding, and display Nodes
+(2) Open terminal 2 on RDK and start tros.b image publishing, encoding, and display Nodes
 
 Since many Nodes need to be started, use a launch script to batch start Nodes. Create a launch script `cpp_dnn_demo.launch.py` in any path on RDK with the following content:
 

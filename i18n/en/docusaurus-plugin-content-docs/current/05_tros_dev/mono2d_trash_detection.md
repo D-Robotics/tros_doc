@@ -65,13 +65,13 @@ The `config_file` configuration file uses JSON format. This example uses [ppyolo
 
 ```bash
   {
-    "model_file"：Path to the model file
+    "model_file": Path to the model file
 
-    "model_name"：Model name
+    "model_name": Model name
 
-    "dnn_Parser"：Select the built-in post-processing algorithm; this example uses the same parser as YOLOv3, so set to "yolov3"
+    "dnn_Parser": Select the built-in post-processing algorithm; this example uses the same parser as YOLOv3, so set to "yolov3"
 
-    "model_output_count"：Number of model output branches
+    "model_output_count": Number of model output branches
 
     "class_num": Number of detection categories
 

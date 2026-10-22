@@ -226,7 +226,7 @@ After the program starts, you can chat with the robot directly in the current te
 
 
     ```bash
-    ros2 topic pub --once /text_query std_msgs/msg/String "{data: ""中国的首都是哪里""}"
+    ros2 topic pub --once /text_query std_msgs/msg/String "{data: ""What is the capital of China?""}"
     ```
 
 After sending the message, you can view the output results in the terminal subscribed to the output.
