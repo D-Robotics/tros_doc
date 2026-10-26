@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-激光雷达目标检测算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `CenterPoint` 算法模型。
+激光雷达目标检测算法是使用[OpenExplorer](https://developer-legacy.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `CenterPoint` 算法模型。
 
 算法输入为 32 线激光雷达点云数据，输出信息包括目标的 3D 检测框、置信度、类别。支持的目标检测类型包括 car、truck、bus、barrier、motorcycle、pedestrian 共六大类别。
 

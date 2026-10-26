@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_asr provides speech recognition functionality. The node creates/destroys ASR sessions via subscribed VAD events, and within each session sends the subscribed denoised audio data to the ASR model for speech recognition, finally publishing **speech ASR recognition result** messages. The speech_agent_asr functionality is implemented by the TogetheROS.Bot **speech_agent_asr** package.
 
-Code repository: (https://github.com/D-Robotics/speech_agent_asr.git)
-
 Application scenarios: speech_agent_asr converts audio data into corresponding text, enabling meeting transcription and speech translation. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
 ## Supported Platforms

@@ -209,7 +209,7 @@ Other Updates:
 
 ### Version: 2.0-Beta (2.0.0) (2023-05-29)
 
-2.0-Beta (2.0.0) is the first 2.x version of tros.b. Users of [tros.b 1.x](https://developer.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) are recommended to upgrade to 2.x.
+2.0-Beta (2.0.0) is the first 2.x version of tros.b. Users of [tros.b 1.x](https://developer-legacy.d-robotics.cc/api/v1/fileData/TogetherROS/index.html) are recommended to upgrade to 2.x.
 
 Changes:
 - Code hosting platform moved from Gitlab to GitHub for easier secondary development by more developers.

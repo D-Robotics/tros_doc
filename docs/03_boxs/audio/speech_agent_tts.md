@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_tts提供语音合成功能，该节点订阅 **/tts_text** 文本消息，将文本合成为音频数据，并通过ALSA接口播放，speech_agent_tts功能由TogetheROS.Bot的 **speech_agent_tts** package 实现。
 
-代码仓库： (https://github.com/D-Robotics/speech_agent_tts.git)
-
 应用场景：speech_agent_tts可将文字转换为对应的语音，主要应用于智能家居、智能座舱、智能穿戴设备等领域的语音交互场景。
 
 ## 支持平台

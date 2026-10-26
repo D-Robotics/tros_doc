@@ -14,7 +14,7 @@ import DocScope from '@site/src/components/DocScope';
 
 The EfficientNet_Det object detection example uses images as input, performs inference on the BPU, and publishes algorithm messages containing object categories and bounding boxes.
 
-EfficientNet_Det is an ONNX model obtained from (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet), trained on the [COCO dataset](http://cocodataset.org/). It supports 80 object detection categories including people, animals, fruits, and vehicles.
+EfficientNet_Det is an ONNX model obtained from HorizonRobotics-Platform/ModelZoo, trained on the [COCO dataset](http://cocodataset.org/). It supports 80 object detection categories including people, animals, fruits, and vehicles.
 
 Code repository: (https://github.com/D-Robotics/hobot_dnn)
 

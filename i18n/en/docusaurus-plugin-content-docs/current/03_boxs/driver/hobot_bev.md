@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## Overview
 
-The BEV perception algorithm uses a `BEV` multi-task model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html).
+The BEV perception algorithm uses a `BEV` multi-task model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer-legacy.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html).
 
 The algorithm takes 6 groups of image data as input: front view, front-left, front-right, rear view, rear-left, and rear-right. The model outputs objects in 10 categories along with corresponding 3D bounding boxes, including obstacles, various vehicle types, traffic signs, and more, as well as semantic segmentation of lane lines, sidewalks, and road edges.
 

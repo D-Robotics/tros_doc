@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_audio采用本地离线模式运行，将麦克风采集到的音频送入模型中进行处理（包括降噪、自动增益控制、回声消除和波束形成等），然后输出**唤醒**、**命令词识别**、**VAD事件**以及**声源定位DOA角度**等信息，speech_agent_audio功能由TogetheROS.Bot的 **speech_agent_audio** package 实现，适用于RDK配套的线形四麦阵列和环形六麦阵列。
 
-代码仓库： (https://github.com/D-Robotics/speech_agent_audio.git)
-
 应用场景：speech_agent_audio算法能够检测音频中的唤醒词和自定义命令词，并输出降噪后的ASR音频数据和VAD事件，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
 ## 支持平台

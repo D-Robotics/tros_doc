@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_asr提供语音识别功能，该节点通过订阅的VAD事件来创建/销毁ASR会话，并在每个会话中将订阅的降噪音频数据送入ASR模型中进行语音识别，最终发布**语音ASR识别结果**消息。speech_agent_asr功能由TogetheROS.Bot的 **speech_agent_asr** package实现。
 
-代码仓库： (https://github.com/D-Robotics/speech_agent_asr.git)
-
 应用场景：speech_agent_asr可将音频数据转换为对应的文字，实现会议记录和语音翻译等功能，主要应用于智能家居、智能座舱、智能穿戴设备等领域。
 
 ## 支持平台

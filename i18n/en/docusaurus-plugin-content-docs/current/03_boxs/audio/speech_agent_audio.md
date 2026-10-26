@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_audio runs in local offline mode. It sends the audio captured by the microphone to the model for processing(including ANS, AGC, AEC, BF and other algorithms), and then outputs messages such as **wake-up**, **command word recognition**, **VAD events**, and **sound source localization DOA angle**. The speech_agent_audio functionality is implemented by the TogetheROS.Bot **speech_agent_audio** package, and is suitable for the linear four-microphone array and circular six-microphone array that come with the RDK.
 
-Code repository: (https://github.com/D-Robotics/speech_agent_audio.git)
-
 Application scenarios: The speech_agent_audio algorithm can detect wake words and custom command words in audio, and output denoised ASR audio data as well as VAD events. It is mainly used in smart home, smart cockpit, smart wearables, and other fields.
 
 ## Supported Platforms

@@ -14,8 +14,6 @@ import DocScope from '@site/src/components/DocScope';
 
 speech_agent_tts provides speech synthesis functionality. The node subscribes to **/tts_text** text messages, synthesizes the text into audio data, and plays it back through the ALSA interface. The speech_agent_tts functionality is implemented by the TogetheROS.Bot **speech_agent_tts** package.
 
-Code repository: (https://github.com/D-Robotics/speech_agent_tts.git)
-
 Application scenarios: speech_agent_tts converts text into corresponding audio, and is mainly used in voice interaction scenarios in smart home, smart cockpit, smart wearables, and other fields.
 
 ## Supported Platforms
