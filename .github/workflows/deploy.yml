@@ -52,6 +52,17 @@ jobs:
         rm -rf node_modules
         npm ci
 
+    - name: Verify Algolia secrets present
+      env:
+        ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+        ALGOLIA_SEARCH_API_KEY: ${{ secrets.ALGOLIA_SEARCH_API_KEY }}
+        ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+      run: |
+        echo "ALGOLIA_APP_ID length: ${#ALGOLIA_APP_ID}"
+        echo "ALGOLIA_SEARCH_API_KEY length: ${#ALGOLIA_SEARCH_API_KEY}"
+        echo "ALGOLIA_INDEX_NAME: ${ALGOLIA_INDEX_NAME}"
+        node scripts/check-algolia-env.mjs
+
     - name: Build Docusaurus site
       env:
         ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
@@ -78,5 +89,8 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+    # IMPORTANT: package.json "deploy" is `docusaurus deploy --skip-build`.
+    # Previously `deploy` re-ran `npm run build` without ALGOLIA_* and overwrote
+    # real keys with YOUR_APP_ID placeholders before publishing.
     - name: Deploy to GitHub Pages
       run: USE_SSH=true npm run deploy

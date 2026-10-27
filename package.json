@@ -16,7 +16,7 @@
     "build": "node scripts/build-all-locales.mjs",
     "build:scope": "npm run generate-sidebar-config && node scripts/build-scoped-site.js",
     "swizzle": "docusaurus swizzle",
-    "deploy": "npm run build && docusaurus deploy --skip-build",
+    "deploy": "docusaurus deploy --skip-build",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

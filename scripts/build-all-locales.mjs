@@ -10,6 +10,7 @@ const { loadI18n } = require("@docusaurus/core/lib/server/i18n");
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const buildLocaleScript = path.join(root, "scripts/build-locale.mjs");
+const checkAlgoliaScript = path.join(root, "scripts/check-algolia-env.mjs");
 const buildDir = path.join(root, "build");
 
 function orderLocales(locales, defaultLocale) {
@@ -17,6 +18,17 @@ function orderLocales(locales, defaultLocale) {
     return [defaultLocale, ...locales.filter((locale) => locale !== defaultLocale)];
   }
   return locales;
+}
+
+{
+  const check = spawnSync(process.execPath, [checkAlgoliaScript], {
+    cwd: root,
+    stdio: "inherit",
+    env: process.env,
+  });
+  if (check.status !== 0) {
+    process.exit(check.status ?? 1);
+  }
 }
 
 if (fs.existsSync(buildDir)) {
