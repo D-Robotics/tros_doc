@@ -8,13 +8,15 @@ Core features of the documentation site include:
 - Multilingual documentation (`zh-Hans` / `en`)
 - Document content filtering by product and version (`DOC_BUILD_PRODUCT`, `DOC_BUILD_VERSION`)
 - Automatic generation and monitoring of sidebar scope configuration
-- Local full-text search (`@easyops-cn/docusaurus-search-local`)
+- Algolia DocSearch (filtered by product/version `doc_scope`)
 - GitHub Pages build and deployment, as well as OSS synchronization
 
-Search currently uses a local search plugin:
-- Plugin: `@easyops-cn/docusaurus-search-local`
-- Config location: `themes` array in `docusaurus.config.js` (`require.resolve("@easyops-cn/docusaurus-search-local")`)
-- Search box display: enabled by `type: "search"` in `themeConfig.navbar.items` in `docusaurus.config.js`
+Search currently uses Algolia DocSearch:
+- Config: `themeConfig.algolia` in `docusaurus.config.js`
+- Search box: enabled by `type: "search"` in `themeConfig.navbar.items`
+- Index script: `npm run algolia:index` (`scripts/algolia-index.mjs`)
+- CI: `.github/workflows/algolia-index.yml` (runs after OSS sync succeeds)
+- Env vars: `ALGOLIA_APP_ID`, `ALGOLIA_SEARCH_API_KEY` (frontend), `ALGOLIA_ADMIN_API_KEY` / `ALGOLIA_INDEX_NAME` (indexing)
 
 ## Repository Structure Overview
 

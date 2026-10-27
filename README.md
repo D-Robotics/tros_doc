@@ -8,13 +8,15 @@
 - 多语言文档（`zh-Hans` / `en`）
 - 按产品和版本筛选文档内容（`DOC_BUILD_PRODUCT`、`DOC_BUILD_VERSION`）
 - 自动生成并监听侧边栏范围配置
-- 本地全文搜索（`@easyops-cn/docusaurus-search-local`）
+- Algolia DocSearch（按产品/版本 `doc_scope` 过滤）
 - GitHub Pages 构建发布与 OSS 同步
 
-搜索功能当前使用本地搜索插件：
-- 插件名：`@easyops-cn/docusaurus-search-local`
-- 配置位置：`docusaurus.config.js` 的 `themes` 数组中（`require.resolve("@easyops-cn/docusaurus-search-local")`）
-- 搜索框展示：通过 `docusaurus.config.js` 的 `themeConfig.navbar.items` 中 `type: "search"` 启用
+搜索功能当前使用 Algolia DocSearch：
+- 配置位置：`docusaurus.config.js` 的 `themeConfig.algolia`
+- 搜索框展示：通过 `themeConfig.navbar.items` 中 `type: "search"` 启用
+- 索引脚本：`npm run algolia:index`（`scripts/algolia-index.mjs`）
+- CI：`.github/workflows/algolia-index.yml`（OSS 同步成功后触发）
+- 环境变量：`ALGOLIA_APP_ID`、`ALGOLIA_SEARCH_API_KEY`（前端）、`ALGOLIA_ADMIN_API_KEY` / `ALGOLIA_INDEX_NAME`（索引）
 
 ## 仓库结构概览
 

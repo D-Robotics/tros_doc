@@ -1,0 +1,66 @@
+name: Algolia DocSearch index
+
+on:
+  workflow_run:
+    workflows: ["Sync gh-pages to OSS"]
+    types:
+      - completed
+  workflow_dispatch:
+
+concurrency:
+  group: algolia-index-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  algolia-index:
+    if: >-
+      ${{
+        github.event_name == 'workflow_dispatch' ||
+        github.event.workflow_run.conclusion == 'success'
+      }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch sitemaps from gh-pages
+        run: |
+          git fetch origin gh-pages --depth=1
+          mkdir -p build build/en
+          git show origin/gh-pages:sitemap.xml > build/sitemap.xml || true
+          git show origin/gh-pages:en/sitemap.xml > build/en/sitemap.xml || true
+
+      - name: Wait for live site
+        run: |
+          URL="${ALGOLIA_SITE_URL%/}/"
+          for i in $(seq 1 30); do
+            if curl -sf "$URL" > /dev/null; then
+              echo "Live site ready: $URL"
+              exit 0
+            fi
+            echo "Waiting for $URL ($i/30)..."
+            sleep 10
+          done
+          echo "Live site not ready"
+          exit 1
+        env:
+          ALGOLIA_SITE_URL: https://developer.d-robotics.cc/tros_doc
+
+      - name: Build Algolia index
+        env:
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          ALGOLIA_SITE_URL: https://developer.d-robotics.cc/tros_doc
+          ALGOLIA_NO_PROXY: "1"
+        run: npm run algolia:index
