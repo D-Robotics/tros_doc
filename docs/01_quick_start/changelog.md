@@ -209,7 +209,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ### 版本号：2.0-Beta（2.0.0） (2023-05-29)
 
-2.0-Beta（2.0.0）是第一个 2.x 版本 tros.b，建议[1.x 版本 tros.b](https://developer-legacy.d-robotics.cc/api/v1/fileData/TogetherROS/index.html)的用户升级到 2.x 版本。
+2.0-Beta（2.0.0）是第一个 2.x 版本 tros.b，建议使用 1.x 版本 tros.b 的用户升级到 2.x 版本。
 
 功能变更：
 - 代码托管平台从 Gitlab 更换为 GitHub，方便更多开发者进行二次开发。
