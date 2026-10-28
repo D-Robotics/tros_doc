@@ -29,7 +29,7 @@ export default function DocUnavailable({ docId }) {
       <PageMetadata
         title={translate({
           id: 'theme.NotFound.title',
-          message: 'Page Not Found',
+          message: '找不到页面',
         })}
       />
       <NotFoundContent />

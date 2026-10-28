@@ -22,7 +22,10 @@ const localePrefix = process.env.DOCUSAURUS_CURRENT_LOCALE === "en" ? "/en" : ""
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "RDK DOC",
+  title:
+    process.env.DOCUSAURUS_CURRENT_LOCALE === "en"
+      ? "TROS User Manual"
+      : "TROS 用户手册",
   // tagline: 'Dinosaurs are cool',
   favicon: "img/logo.png",
   // Set the production url of your site here
@@ -160,7 +163,7 @@ const config = {
       navbar: {
         title: "D-Robotics",
         logo: {
-          alt: "地瓜机器人社区 logo",
+          alt: "地瓜 logo",
           src: "img/logo.png",
           href: "https://d-robotics.cc/", // 修改为文档根路径
         },
@@ -239,7 +242,7 @@ const config = {
                 href: "https://github.com/D-Robotics",
               },
               {
-                label: "BiLiBiLi",
+                label: "Bilibili",
                 href: (() => {
                   if (process.env.DOCUSAURUS_CURRENT_LOCALE === "en") {
                     return "https://www.youtube.com/@D-Robotics";
@@ -268,8 +271,8 @@ const config = {
         },
       },
       algolia: {
-        appId: process.env.ALGOLIA_APP_ID || "YOUR_APP_ID",
-        apiKey: process.env.ALGOLIA_SEARCH_API_KEY || "YOUR_SEARCH_API_KEY",
+        appId: process.env.ALGOLIA_APP_ID || "1VU781LYTV",
+        apiKey: process.env.ALGOLIA_SEARCH_API_KEY || "fb65c6e54a52ce6fba0645bd2630e79b",
         indexName: process.env.ALGOLIA_INDEX_NAME || "tros_doc",
         contextualSearch: true,
         searchPagePath: "search",

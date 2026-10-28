@@ -1,15 +1,14 @@
-import React, { useEffect, useMemo } from 'react';
+import React, {useEffect, useMemo} from 'react';
+import {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import NotFound from '@theme-original/NotFound';
+import {PageMetadata} from '@docusaurus/theme-common';
+import Layout from '@theme/Layout';
+import NotFoundContent from '@theme/NotFound/Content';
 
 /**
- * 静态托管（OSS/CDN、GitHub Pages）对任何找不到的路径都只会回退到默认语言
- * 的 404 页面，即使 URL 属于 /en/ 英文文档。这样英文文档里点开失效链接时，
- * 显示的会是中文 404 页面。
- *
- * 这里在默认语言（中文）的 404 页面上检测 URL 是否属于其他语言前缀，
- * 如果是，就跳转到该语言在构建时已经生成的 404 页面，保证导航栏、
- * 页脚和提示文案都是对应语言。
+ * Static hosts serve the default-locale 404.html for every missing path.
+ * Missing /en/ URLs are sent to the English build's 404.html so the navbar,
+ * footer, and copy are English.
  */
 function getLocaleRedirects(baseUrl, locales) {
   return locales.map((locale) => ({
@@ -19,7 +18,7 @@ function getLocaleRedirects(baseUrl, locales) {
 }
 
 function findRedirectTarget(pathname, redirects) {
-  for (const { prefix, target } of redirects) {
+  for (const {prefix, target} of redirects) {
     if (pathname.startsWith(prefix) && !pathname.startsWith(target)) {
       return target;
     }
@@ -28,7 +27,6 @@ function findRedirectTarget(pathname, redirects) {
 }
 
 function createRedirectScript(redirects) {
-  // 内联脚本在页面 JS 加载前执行，避免用户先看到一闪而过的中文 404 内容。
   return `(function () {
   try {
     var redirects = ${JSON.stringify(redirects)};
@@ -39,19 +37,16 @@ function createRedirectScript(redirects) {
         return;
       }
     }
-  } catch (error) {
-    // 跳转失败时保留默认语言的 404 页面。
-  }
+  } catch (error) {}
 })();`;
 }
 
-export default function NotFoundWrapper(props) {
-  const { i18n, siteConfig } = useDocusaurusContext();
-  const { baseUrl } = siteConfig;
-  const { currentLocale, defaultLocale, locales } = i18n;
+export default function NotFound() {
+  const {i18n, siteConfig} = useDocusaurusContext();
+  const {baseUrl} = siteConfig;
+  const {currentLocale, defaultLocale, locales} = i18n;
 
   const redirects = useMemo(() => {
-    // 非默认语言的 404 页面本身就是正确语言，不需要再跳转。
     if (currentLocale !== defaultLocale) {
       return [];
     }
@@ -62,7 +57,6 @@ export default function NotFoundWrapper(props) {
   }, [baseUrl, currentLocale, defaultLocale, locales]);
 
   useEffect(() => {
-    // 客户端路由跳转到不存在的英文地址时，内联脚本不会重新执行，这里补充处理。
     if (redirects.length === 0) {
       return;
     }
@@ -72,14 +66,23 @@ export default function NotFoundWrapper(props) {
     }
   }, [redirects]);
 
+  const title = translate({
+    id: 'theme.NotFound.title',
+    message: '找不到页面',
+    description: 'The title of the 404 page',
+  });
+
   return (
     <>
       {redirects.length > 0 && (
         <script
-          dangerouslySetInnerHTML={{ __html: createRedirectScript(redirects) }}
+          dangerouslySetInnerHTML={{__html: createRedirectScript(redirects)}}
         />
       )}
-      <NotFound {...props} />
+      <PageMetadata title={title} />
+      <Layout>
+        <NotFoundContent />
+      </Layout>
     </>
   );
 }
