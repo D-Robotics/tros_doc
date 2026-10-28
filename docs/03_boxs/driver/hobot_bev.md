@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## 功能介绍
 
-BEV 感知算法是使用[OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `BEV` 多任务模型。
+BEV 感知算法是使用[OpenExplorer](https://developer-legacy.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/bev.html)在[nuscenes](https://www.nuscenes.org/nuscenes)数据集上训练出来的 `BEV` 多任务模型。
 
 算法输入为 6 组图像数据，分别是前视，左前，右前，后视，左后，右后图。模型输出为 10 个类别的目标以及对应的 3D 检测框，包括障碍物、多种类型车辆、交通标志等，以及车道线、人行道、马路边缘的语义分割。
 

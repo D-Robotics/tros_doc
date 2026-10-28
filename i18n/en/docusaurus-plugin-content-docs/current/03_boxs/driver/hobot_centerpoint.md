@@ -12,7 +12,7 @@ import DocScope from '@site/src/components/DocScope';
 
 ## Overview
 
-The LiDAR object detection algorithm uses a `CenterPoint` model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html).
+The LiDAR object detection algorithm uses a `CenterPoint` model trained on the [nuscenes](https://www.nuscenes.org/nuscenes) dataset with [OpenExplorer](https://developer-legacy.d-robotics.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/hat/source/examples/centerpoint.html).
 
 The algorithm takes 32-line LiDAR point cloud data as input. The output includes 3D bounding boxes, confidence scores, and categories of detected objects. Supported detection categories include car, truck, bus, barrier, motorcycle, and pedestrian.
 

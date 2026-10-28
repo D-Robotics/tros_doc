@@ -14,7 +14,7 @@ import DocScope from '@site/src/components/DocScope';
 
 EfficientNet_Det 目标检测算法示例使用图片作为输入，利用 BPU 进行算法推理，发布包含目标类别和检测框的算法 msg。
 
-EfficientNet_Det 是从  (https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master/EfficientDet) 获得的 Onnx 模型，使用[COCO 数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共 80 种类型。
+EfficientNet_Det 是从 [D-Robotics/Model Zoo](https://developer.d-robotics.cc/model_zoo_doc/model_zoo_intro?v=3.0.0&p=RDK+X3) 获得的 Onnx 模型，使用[COCO 数据集](http://cocodataset.org/)进行训练，支持的目标检测类型包括人、动物、水果、交通工具等共 80 种类型。
 
 代码仓库： (https://github.com/D-Robotics/hobot_dnn)
 
