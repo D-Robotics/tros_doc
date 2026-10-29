@@ -95,7 +95,7 @@ The circular microphone board is an integrated design. The physical product is s
 
 Purchase link:
 
- (https://www.waveshare.net/shop/Audio-Driver-HAT.htm)
+ (https://www.waveshare.com/Audio-Driver-HAT.htm)
 
 Connection steps:
 
