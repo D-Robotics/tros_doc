@@ -48,13 +48,14 @@ const config = {
     docBuildScope:
       process.env.DOC_BUILD_PRODUCT?.trim() && process.env.DOC_BUILD_VERSION?.trim()
         ? {
+            enabled: true,
             product: process.env.DOC_BUILD_PRODUCT.trim(),
             version: process.env.DOC_BUILD_VERSION.trim(),
           }
         : null,
 
     feedbackFloat: {
-      enabled: true,
+      enabled: false,
           questionnaireUrl: "https://horizonrobotics.feishu.cn/share/base/form/shrcnLQ9OfYQO03cebdkNfOmkCh",
           questionnaireUrlByLocale: {
             "zh-Hans": "https://horizonrobotics.feishu.cn/share/base/form/shrcnLQ9OfYQO03cebdkNfOmkCh",
@@ -74,18 +75,12 @@ const config = {
       async: true,
     },
     // Dify Chatbot Configuration
-    {
-      src: "/tros_doc/js/dify-config.js",
-    },
+
     {
       src: `/tros_doc${localePrefix}/js/umami-events.js`,
       async: true,
     },
-    {
-      src: "https://rdk.d-robotics.cc/embed.min.js",
-      id: "rJYrxmxmjOkjEx2c",
-      defer: true,
-    },
+
   ],
 
   headTags: [
@@ -134,7 +129,7 @@ const config = {
       }),
     ],
   ],
-  plugins:  [
+  plugins:  ['@d-robotics/docusaurus-plugin-guaji',
     require.resolve("./src/plugins/sidebar-scope-config-plugin"),
     require.resolve("docusaurus-plugin-image-zoom"),
     [
