@@ -7,6 +7,7 @@ import {parsePageHtml} from './algolia/parse-page.mjs';
 import {aggregateRecords} from './algolia/aggregate.mjs';
 import {dedupeByObjectId} from './algolia/object-id.mjs';
 import {writeSearchIndexShards} from './algolia/shards.mjs';
+import {writeEasyopsIndex} from './easyops-index.mjs';
 import {envConfig} from './algolia/config.mjs';
 import {uploadRecords, probeIndex} from './algolia/upload.mjs';
 import {loadPageHtml} from './algolia/local-html.mjs';
@@ -61,6 +62,14 @@ async function main() {
 
   const outDir = path.join(process.cwd(), 'build', 'search-index');
   writeSearchIndexShards(fineDeduped, outDir);
+
+  // MCP 读取的是单文件 search-index.json；build/search-index/ 下的分片只是中间产物。
+  // TROS 的 h1 记为 lvl0（parse-page 里 level = hN - 1），所以页面标题取 lvl0。
+  writeEasyopsIndex(
+    fineDeduped,
+    path.join(process.cwd(), 'scripts/_algolia_tmp/search-index.json'),
+    {titleType: 'lvl0'},
+  );
 
   const report = {
     siteUrl,

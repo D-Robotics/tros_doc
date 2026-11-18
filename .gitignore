@@ -35,3 +35,6 @@ yarn.lock
 .idea
 
 src/context/generated-sidebar-config.json 
+
+# Algolia/MCP 索引中间产物
+scripts/_algolia_tmp/
