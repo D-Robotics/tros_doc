@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 mobilenetv2 图片分类算法示例使用图片作为输入，利用 BPU 进行算法推理，发布包含物体类别的算法 msg。
 
-mobilenetv2 是使用[ImageNet data](http://www.image-net.org/)数据集训练出来的 caffe 模型，模型来源： https://github.com/shicai/MobileNet-Caffe 。
+mobilenetv2 是使用[ImageNet data](https://arxiv.org/abs/1409.0575)数据集训练出来的 caffe 模型，模型来源： https://github.com/shicai/MobileNet-Caffe 。
 支持的目标类型包括人、动物、水果、交通工具等共 1000 种类型。具体支持的类别详见 RDK 板端文件 /opt/tros/ `${TROS_DISTRO}` /lib/dnn_node_example/config/imagenet.list（已安装 TogetheROS.Bot）。
 
 代码仓库： https://github.com/D-Robotics/hobot_dnn
