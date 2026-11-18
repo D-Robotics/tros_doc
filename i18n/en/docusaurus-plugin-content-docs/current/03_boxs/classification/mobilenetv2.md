@@ -13,7 +13,7 @@ import DocScope from '@site/src/components/DocScope';
 
 The mobilenetv2 image classification algorithm example uses images as input, performs algorithm inference using the BPU, and publishes algorithm messages containing object categories.
 
-mobilenetv2 is a caffe model trained using the [ImageNet data](http://www.image-net.org/) dataset. The model source is: https://github.com/shicai/MobileNet-Caffe.
+mobilenetv2 is a caffe model trained using the [ImageNet data](https://arxiv.org/abs/1409.0575) dataset. The model source is: https://github.com/shicai/MobileNet-Caffe.
 It supports a total of 1000 object types, including people, animals, fruits, vehicles, etc. For the specific supported categories, please refer to the RDK board file at /opt/tros/ `${TROS_DISTRO}` /lib/dnn_node_example/config/imagenet.list (TogetheROS.Bot installed).
 
 Code repository: https://github.com/D-Robotics/hobot_dnn
