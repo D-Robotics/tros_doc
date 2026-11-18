@@ -8,8 +8,9 @@ on:
   workflow_dispatch:
 
 concurrency:
+  # 索引重建要么排队、要么不跑；杀掉正在写索引的那次会留下半份产物。
   group: algolia-index-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   algolia-index:
