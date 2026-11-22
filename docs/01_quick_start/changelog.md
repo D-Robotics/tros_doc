@@ -375,6 +375,24 @@ import DocScope from '@site/src/components/DocScope';
 
 ## tros-humble
 
+### 版本号：2.5.7 (2026-11-20)
+
+新增功能（ `RDK S100` 平台）：
+- 新增 [OCR 文本识别](../03_boxs/function/mono_ocr.md)算法，由 `mono_ocr_detection`（文本检测）和 `mono_ocr_recognition`（文本识别）功能包组成，支持 `640x640`、`1080P`、`2160P` 分辨率输入。
+- [双目深度估计算法](../03_boxs/spatial/hobot_stereonet.md)新增 `S100/S600` `V3.1` 和 `V3.2` 版本模型，对比 `V2.X` 版本模型精度提升。
+- [MIPI 图像采集](../02_quick_demo/demo_sensor.md)增加 `S100` 的 IMU `event` 触发方式。
+- [MIPI 图像采集](../02_quick_demo/demo_sensor.md)`S100` 增加主副码流。
+- 图像处理加速 [ `hobot_cv` ](../02_quick_demo/demo_cv.md)增加 `image_processor_plugin` lib。
+- 新增点云 Web 端可视化工具 [ `pointcloud_web_viewer` ](https://github.com/D-Robotics/pointcloud_web_viewer)，[双目深度估计算法](../03_boxs/spatial/hobot_stereonet.md)可视化方式更新为 `pointcloud_web_viewer`，并优化可视化显示稳定性。
+
+功能变更（ `RDK S100` 平台）：
+- 适配系统版本：`RDKS100_V4.1.0`。
+
+问题修复（ `RDK S100` 平台）：
+- 图像处理加速 [ `hobot_cv` ](../02_quick_demo/demo_cv.md)修复线程退出不 join 的问题。
+- [MIPI 图像采集](../02_quick_demo/demo_sensor.md)修复 `S100` 主副码流分别控制的 BUG。
+- [MIPI 图像采集](../02_quick_demo/demo_sensor.md)修复 eeprom 遍历 I2C 总线卡死问题。
+
 ### 版本号：2.5.3 (2026-05-08)
 
 新增功能（ `RDK S100` 平台）：
